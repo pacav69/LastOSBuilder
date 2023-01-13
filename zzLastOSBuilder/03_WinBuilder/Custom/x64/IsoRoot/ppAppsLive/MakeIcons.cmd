@@ -1,4 +1,7 @@
 @ECHO OFF & SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+rem Win11 script
+set "scriptver=0.0.1"
+title %~nx0  v%scriptver%
 
 :: This routine enables folder icons for all folders in the current folder.
 ::
