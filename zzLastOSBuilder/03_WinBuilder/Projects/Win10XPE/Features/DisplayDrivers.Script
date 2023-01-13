@@ -22,19 +22,19 @@ ExtractSectionFiles,%ScriptFile%,AddFiles_Display
 ExtractSectionFiles,%ScriptFile%,AddFiles_Monitor
 //-
 If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Src_Drivers,%Gtemp%\Install.hives\DRIVERS
+  RegHiveLoad,Src_System,%Gtemp%\Install.hives\SYSTEM
   RegHiveLoad,Tmp_Drivers,%RegDrivers%
-  RegHiveLoad,Tmp_Install_Drivers,%Gtemp%\Install.hives\DRIVERS
   RegHiveLoad,Tmp_System,%RegSystem%
-  RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
 End
 If,%Shell%,Equal,WinXShell,ACLRegKey,Tmp_Drivers
 Run,%ScriptFile%,Reg_Display
 Run,%ScriptFile%,Reg_Monitor
 If,Not,#1,Equal,HiveLoaded,Begin
-  RegHiveunLoad,Tmp_System
-  RegHiveunLoad,Tmp_Install_System
-  RegHiveunLoad,Tmp_Install_Drivers
+  RegHiveunLoad,Src_Drivers
+  RegHiveunLoad,Src_System
   RegHiveunLoad,Tmp_Drivers
+  RegHiveunLoad,Tmp_System
 End
 Run,%ScriptFile%,Load_At_Startup
 

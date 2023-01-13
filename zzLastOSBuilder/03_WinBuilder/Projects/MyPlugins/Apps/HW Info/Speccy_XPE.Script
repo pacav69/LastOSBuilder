@@ -1,7 +1,7 @@
 [Main]
 Title=Speccy
 Type=XPEPlugin
-Description=(v1.32.26.740) Fast, lightweight, advanced system information tool for your PC.
+Description=(v1.32.0.803) Fast, lightweight, advanced system information tool for your PC.
 Author=ChrisR
 Date=2019.11.04
 Credits=
@@ -9,7 +9,7 @@ Contact=
 Version=003
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.11.21
@@ -22,7 +22,7 @@ StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Speccy.jpg,1,5,145,35,252,185
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.ccleaner.com/speccy

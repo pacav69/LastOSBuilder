@@ -3,7 +3,7 @@ Title=Additions
 Type=XPEPlugin
 Description=Add Files and Folders, configure the Registry.
 Author=ChriSR
-Date=2018.06.03
+Date=2020.12.05
 Version=001
 Selected=False
 Mandatory=False
@@ -40,7 +40,7 @@ AddRegFile3_FileBox=%GCustom%\Registry3.txt,1,13,154,187,250,20,file
 AddRegFile3_Button=,1,8,407,185,24,24,AddRegFile3Play,Play16.bmp,False,"__Play Merge registry file 3"
 //-
 RegConvertPE_Button=" Reg Convert PE",1,8,446,209,125,28,RegConvertPE,Registry24.bmp,False,"__Convert a Registry file to a script or a converted (Tmp_*) Reg file"
-AddReg_CheckBox=,1,3,4,218,18,18,True,"__Check the box to enable this feature during building"
+AddReg_CheckBox=,1,3,4,218,18,18,False,"__Check the box to enable this feature during building"
 AddRegEdit_Button=Edit,1,8,22,213,30,24,AddRegEdit,0,False,"__Add or Edit the converted PE registry"
 AddRegPlay_Button=,1,8,56,213,24,24,AddRegPlay,Play16.bmp,False,"__Play Add or Edit the converted PE registry"
 AddRegMsg_Button=,1,8,300,213,24,24,AddRegMsg,Exclamation.bmp,True,"__Information on Adding or Editing the registry"
@@ -56,7 +56,7 @@ ScriptAfer_Button=,1,8,407,348,24,24,ScriptAferPlay,Play16.bmp,False,"__Play the
 Message,"Add Win10 Sources Files and Folders with absolute path.#$xEach path may contain the wildcard characters ’?’ and ’*’.#$x#$xEx:#$x\Windows\System32\*base.dll#$x\Windows\System32\??-??\*base.dll.mui#$x\Windows\explorer.exe#$x\Windows\??-??\explorer.exe*",INFORMATION
 
 [AddRegMsg]
-Message,"Add or Edit converted PE registry here.#$xThe Registry hives (Tmp_*, Tmp_Install_*) are already loaded.#$x#$xIn addition to RegWrite, RegDelete,...#$xYou can use RegCopyKey to copy key between install.wim registry and Target registry.#$xEach SubKey or Value may contain the wildcard characters ’*’.#$x#$xSyntax: RegCopyKey,<HKLM>,<MainKey>,[*SubKeyOrValue*] - The SubKey or Value is optional#$xEx :#$xRegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NativeWifiP#$xRegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,*microsoft.vc80.crt*#$x\\It search for microsoft.vc80 in SideBySide\Winners SubKey and copies it(them) if found",INFORMATION
+Message,"Add or Edit converted PE registry here.#$xThe Registry hives (Tmp_*, Src_*) are already loaded.#$x#$xIn addition to RegWrite, RegDelete,...#$xYou can use RegCopyKey to copy key between Source install.wim registry and Target registry.#$xEach SubKey or Value may contain the wildcard characters ’*’.#$x#$xSyntax: RegCopyKey,<HKLM>,<MainKey>,[*SubKeyOrValue*] - The SubKey or Value is optional#$xEx :#$xRegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NativeWifiP#$xRegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,*microsoft.vc80.crt*#$x\\It search for microsoft.vc80 in SideBySide\Winners SubKey and copies it(them) if found",INFORMATION
 
 [PreCheck_Image_Hives_Exist]
 If,Not,ExistFile,%GSource%\sources\install.wim,EchoExtended,"install.wim image was not found in the Windows 10 source folder.#$x#$xSelect the root of the Windows 10 source folder.",Warn,,Message,,Halt
@@ -97,9 +97,7 @@ ExtractListFiles,%GTemp%\AddFiles.txt
 FileDelete,%GTemp%\AddFiles.txt
 
 [RegConvertPE]
-If,ExistFile,%GTools%\RegCPE.exe,Begin
-ShellExecuteEx,Open,%GTools%\RegCPE.exe,,%GTools%
-End
+If,ExistFile,%GTools%\RegCPE.exe,ShellExecuteEx,Open,%GTools%\RegCPE.exe,,%GTools%
 
 [AddRegFile1Play]
 Run,%ScriptFile%,AddRegFilePlay,#1,%AddRegFile1_FileBox%
@@ -112,9 +110,11 @@ Run,%ScriptFile%,AddRegFilePlay,#1,%AddRegFile3_FileBox%
 
 [AddRegFilePlay]
 Run,%ScriptFile%,PreCheck_Image_Hives_Exist
+If,ExistFile,#2,Begin
 If,Not,#1,Equal,HiveLoaded,HiveLoadALL
 RegImportFile,#2
 If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+End
 
 [AddRegEdit]
 FileDeleteQ,%GTemp%\AddReg.txt
@@ -185,11 +185,11 @@ lines=0
 lines=0
 0=eJxz8hViYgADMyDWAGJOIBYEYkYGCQYYOMwHwTDwHwx+/PixZMmSgoKCtLS0wsLClStXAkX+//v3b/Wpx4FrryusOK8y65hF9dTIiKjo6OhTp079X3f5Dc+JHzyX/sORRfHUmJiYM2fO/O95+R9ZAoicJ2zbuHHj79+//9/98d/g0l+oxPm/hpufPHj0+j8c/P3778G3v7s+/d9y8PT+gwcvX732Hxm8fvX++o1nCSnFYeGx2bnZ34GOhHrgzz/5aeeALuI/8sU/Ki0uPubWrVtQuaPv/iAcktMcExm9adNGqFzLY4Scdv+2qIiozs5OqJz77X9wOfEtj0KjwjMzMz9//vz/3a9/wuf/Ivx38Z9fXG5sbOyVK1f+b3/zG83vtgWdUVFRq1at+l957xeanMaUPVFR0U2NTf/Nrv9DkxM+9C4qIr6vt/+/wml0fTLrH+3Yvufr16//d7z67XjjH/95kG7+078cj77feeoh1AMA+kpMA3ic43etSM5JzE0syczP00vKLWAYBSMKCDFB6FJG7PLT0jXWMDABALBlCE/6kIw0AQAAAAIAAAArAAAAdQEAAAAAAAABAAAAAAAAAAAAAAA
 
-[EncodedFile-InterfaceEncoded-AddFiles.txt]
-lines=0
-0=eJxtjDEOwjAMRfdKvYPnSkQUNjpEDPQCHViyuLGlRnKbKk5UuD0RCwvLW/77b4A7ETzD1p9hiiV5VhiDVOJGMEYhTgpHyAvgrFFKZtgxL6Z+hDwmAvtVO0Dvec9MBh6vG7TN4GqW4qFuemvm9Xpx3YzKhkT+rtaerP05Zi2hbT4bSDWweJzjcUxJccvMSS3WK6koYRgFIw0shNItOORnvb1+ioEJAPNNCOYk9WLUAQAAAAIAAAAmAAAAhAAAAAAAAAABAAAAAAAAAAAAAAA
-
 [EncodedFile-InterfaceEncoded-AddReg.txt]
 lines=0
 0=eJy1VV1v4jgUfa/U/2CxMxppZMAJlIV9mvCloiktaqrtw2ZVmeQCVh07sg2BGc1/XzsBOjtDO22noAhuiHPOveeea9frKEgSJBUaJMygWIoVKAMJmgyQgjnTRm1QzswCXcO8J7PNZ9hgG94qZsAFfeBgo1oNnZ7U62j/6PzzxRiTtYdv0uwu3GgDaRSCWWa4lyYXTACuTCBOkxqsAf3xLrtlImHKBpEuFjf8qHzOBKvsoHcJFODfAfekMEpyi0+IZ2nUisWgo0tq2Apu2YxNHkeQM5NTBdGYxUpqexe5VGSuo95SKRDmb1CaSRGFLIHuxn27FcL+iz/epbu3aqu4TWqxMncfT09OT/653or3r2OuPvNTZBkaqsxId2l8j8YglrYpXCr36Edxm0UFfZjRJTfRvpLvAHARO5SeA8GtDjlree3DPEZRoTPqav5dtoBnC4r9hv8T0w3V91Oq3oBsi1RSkWfKXOQzEHTKAdn+amt8atBUSoMMS+HxVJ7vk4nkLGbWfqU5cclWkoXLLFOg3boXprzObP+gsAE6tx5EM8ZBI1gbEA5Ov0DFX5awY4uCZEVFDAl2lEPLOFgb7BVJ9JkuVAyWRt4oujkG/1a7HUUpGepLJGy/7NDPmEpRsQPZtw4l0PjdBMIFcG5dZyH9JiZkezX+xLT9cPvry3uIvcbhNS1/H+9aTkWCnOpu10IJo1zO0dRGZT1H6fhVBoo6OV3RSz2mgs6LRpjFUjOqzVgmsLXA7iV0xRP0oSfTbGlAfUCX9PAk+f+fpB6nWts56V2Eo3701Sd90hwOSLURDIKqR1qdauD321XSJsTvNkiDdPrf8IWMKWdfIAmNYmKOK5/e58XR8f7h4MjLGmvaSGWzryWc42qHeH7lJSN3Dalcgf2JN7H1eZcJNFTS+U3fG5kdRX03Zlv8kT2LdakRi/cbK/7aap4Nh6RJqmek7VmZvG61MyRWJhIEVqhh56w5+FY26PjpXUJepDahAviLcntuF0YD72AtHq48si2PhDWhALO3ZzSmTFRwJQSq4gWaWEtU8MKYTP9Vr+d5XptLOedQi2X6VkxOkyeJ6k8wPdGgI9X2KsbX1dh8NWPAc7rR4ULmbhB0eRi8BfwNnU4h6SrrfLujVPAtVeJK9LjUxUb3H8P4q2N4nONyTEkJSk3XK6koYRgFIw8oc0PoVGbs8j/S/ugzMAEAGLkG4eY3kTUBAAAAAgAAACYAAABlAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-AddFiles.txt]
+lines=0
+0=eJxtjDEOwjAMRfdKvYPnSkQUNjpEDPQCHViyuLGlRnKbKk5UuD0RCwvLW/77b4A7ETzD1p9hiiV5VhiDVOJGMEYhTgpHyAvgrFFKZtgxL6Z+hDwmAvtVO0Dvec9MBh6vG7TN4GqW4qFuemvm9Xpx3YzKhkT+rtaerP05Zi2hbT4bSDWweJzjcUxJccvMSS3WK6koYRgFIw0shNItOORnvb1+ioEJAPNNCOYk9WLUAQAAAAIAAAAmAAAAhAAAAAAAAAABAAAAAAAAAAAAAAA
 

@@ -3,30 +3,27 @@ Title=VCRuntime
 Type=XPEPlugin
 Description=VCRuntime
 Author=ChriSR
-Date=2019.09.04
+Date=2022.10.06
 Credits=
 Contact=
-Version=002
+Version=003
 Level=0
 Download_Level=0
 Selected=None
 Mandatory=None
 NoWarning=False
 History001=ChrisR Initial XPE Packed Plugin Created 2018.05.30
-History002=KYHI - Additional File Support For 10.0.18632 - 2019.05.10 - 2019.09.04
+History003=KYHI - Additional File Support For Win11 (22H2) - 2022.10.06
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
 ExtractSectionFiles,%ScriptFile%,VCRuntime_%Architecture%_AddFiles
-If,%Architecture%,Equal,x64,Begin
-  IniRead,%ProjectDir%\Script.Project,Features,WoW64basic,%WoW64basic%
-  If,%WoW64basic%,Equal,True,ExtractSectionFiles,%ScriptFile%,VCRuntime_x6432_AddFiles
-End
+If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,VCRuntime_AddFiles6432
 //-
 If,%FullSoftware%,Equal,False,Begin
   If,Not,#1,Equal,HiveLoaded,Begin
+    RegHiveLoad,Src_Software,%Gtemp%\Install.hives\SOFTWARE
     RegHiveLoad,Tmp_Software,%RegSoftware%
-    RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
   End
   //-
   If,%Architecture%,Equal,x86,Run,%ScriptFile%,Registry_x86
@@ -36,7 +33,7 @@ If,%FullSoftware%,Equal,False,Begin
   End
   //-
   If,Not,#1,Equal,HiveLoaded,Begin
-    RegHiveunLoad,Tmp_Install_Software
+    RegHiveunLoad,Src_Software
     RegHiveunLoad,Tmp_Software
   End
 End
@@ -54,6 +51,7 @@ End
 \Windows\System32\msvcp140_clr0400.dll
 \Windows\System32\msvcr100_clr0400.dll
 \Windows\System32\msvcr120_clr0400.dll
+\Windows\System32\vcruntime140_clr0400.dll
 ; WinSxS VC++ runtimes
 \Windows\WinSxS\x86_microsoft.vc80.crt*
 \Windows\WinSxS\x86_microsoft.vc90.crt*
@@ -75,6 +73,7 @@ End
 \Windows\System32\msvcp140_clr0400.dll
 \Windows\System32\msvcr100_clr0400.dll
 \Windows\System32\msvcr120_clr0400.dll
+\Windows\System32\vcruntime140_clr0400.dll
 ; Additional Files for 1903
 \Windows\System32\ucrtbase_clr0400.dll
 ; WinSxS VC++ runtimes
@@ -85,7 +84,7 @@ End
 \Windows\WinSxS\manifests\amd64_microsoft.vc90.crt*
 \Windows\WinSxS\manifests\amd64_policy.9.0.microsoft.vc90.crt*
 
-[VCRuntime_x6432_AddFiles]
+[VCRuntime_AddFiles6432]
 ; In winre.wim \Windows\SysWOW64\msvcp110_win.dll, \Windows\SysWOW64\downlevel\ucrtbase.dll
 \Windows\SysWOW64\msvcirt.dll
 \Windows\SysWOW64\msvcp_win.dll
@@ -101,6 +100,7 @@ End
 \Windows\SysWOW64\msvcp140_clr0400.dll
 \Windows\SysWOW64\msvcr100_clr0400.dll
 \Windows\SysWOW64\msvcr120_clr0400.dll
+\Windows\SysWOW64\vcruntime140_clr0400.dll
 ; Additional Files for 1903
 \Windows\SysWOW64\ucrtbase_clr0400.dll
 ; SysWOW64 WinSxS VC++ runtimes

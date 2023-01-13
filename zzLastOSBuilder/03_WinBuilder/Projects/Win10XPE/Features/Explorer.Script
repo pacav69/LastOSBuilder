@@ -3,8 +3,8 @@ Title=Explorer
 Type=XPEPlugin
 Description=Explorer
 Author=ChriSR
-Date=2019.08.26
-Version=002
+Date=2022.09.22
+Version=003
 Selected=None
 Mandatory=None
 NoWarning=False
@@ -28,6 +28,7 @@ Run,%ScriptFile%,Reg_ShellHWDetection
 Run,%ScriptFile%,Reg_BitLocker
 Run,%ScriptFile%,WinUSBClassDriver
 Run,%ScriptFile%,Reg_Environment
+If,Not,%SourceBuild%,Smaller,22000,Run,%ScriptFile%,SegoeIconsFonts
 If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
 
 [AddWinXShell]
@@ -38,6 +39,10 @@ If,ExistFile,%ScriptDir%\Explorer_AddFiles.txt,ExtractListFiles,%ScriptDir%\Expl
 //-
 If,%SourceBuild%,Bigger,17000,ExtractSectionFiles,%ScriptFile%,Explorer_1803_AddFiles
 If,%SourceBuild%,Bigger,17700,ExtractSectionFiles,%ScriptFile%,Explorer_1809_AddFiles
+If,%SourceBuild%,Equal,19041,ExtractSectionFiles,%ScriptFile%,Explorer_19041_19042_AddFiles
+If,%SourceBuild%,Equal,19042,ExtractSectionFiles,%ScriptFile%,Explorer_19041_19042_AddFiles
+If,Not,%SourceBuild%,Smaller,20150,ExtractSectionFiles,%ScriptFile%,Explorer_20150_AddFiles
+If,Not,%SourceBuild%,Smaller,22000,ExtractSectionFiles,%ScriptFile%,Explorer_22000_AddFiles
 //-
 IniRead,%ProjectDir%\Script.Project,Features,AllCatalogs,%AllCatalogs%
 If,%AllCatalogs%,Equal,True,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
@@ -58,7 +63,29 @@ End
 \Windows\System32\StateRepository.core.dll
 \Windows\System32\Windows.StateRepository.dll
 \Windows\System32\Windows.StateRepositoryBroker.dll
+\Windows\System32\Windows.StateRepositoryCore.dll
 \Windows\System32\Windows.StateRepositoryClient.dll
+
+[Explorer_19041_19042_AddFiles]
+\Windows\System32\Shell32.dll
+\Windows\System32\SHCore.dll
+\windows\System32\KernelBase.dll
+
+[Explorer_20150_AddFiles]
+\Windows\System32\dmenrollengine.dll
+
+[Explorer_22000_AddFiles]
+; Segoe Fluent Icons
+\Windows\Fonts\SegoeIcons.ttf
+;Fix DWM for Windows 11 update (>= 22000.282)
+\Windows\System32\wuceffects.dll
+;Support to search files in This PC
+\Windows\System32\EhStorShell.dll
+\Windows\System32\Windows.UI.Core.TextInput.dll
+\Windows\System32\windowsudk.shellcommon.dll
+\Windows\System32\Windows.UI.FileExplorer.dll
+\Windows\System32\??-??\Windows.UI.FileExplorer.dll.mui 
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Desktop-Shared-Drivers-merged-Package*.cat
 
 [Reg_Themes]
 RegImportFile,%ScriptDir%\Themes_RegDefault.txt
@@ -107,11 +134,26 @@ If,%FullSoftware%,Equal,False,Begin
   RegImportFile,%ScriptDir%\Explorer_RegSoftware.txt
   Run,%ScriptFile%,AdditionalFonts
 End
+//-
 If,ExistRegSection,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Display,RegDelete,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Display
 If,ExistRegSection,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Personalize,RegDelete,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Personalize
 If,ExistFile,"%GTarget%\Program Files\WinXShell\WinXShell.exe",Begin
-  RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings",Icon,"#$qX:\Program Files\WinXShell\wxsUI\display.ico#$q"
-  RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings\command",,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_Resolution.zip"
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\DesktopBackground\Shell\Display,,"@#$pSystemRoot#$p\System32\display.dll,-4"
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\DesktopBackground\Shell\Display,Icon,"#$pSystemRoot#$p\System32\display.dll,-1"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\Display,Position,Bottom
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\Display\command,,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_Resolution.zip"
+  // Add SystemProperties. It has been replaced by settings since 20226..
+  If,%SourceBuild%,Bigger,20225,Begin
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\SystemProperties,MUIverb,"@shell32.dll,-31294"
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\SystemProperties,Icon,"shell32.dll,-16778"
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\SystemProperties,Position,Bottom
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\DesktopBackground\Shell\SystemProperties\command,,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_SystemInfo.zip"
+    //-
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\SystemProperties,MUIVerb,"@shell32.dll,-31294"
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\SystemProperties,Icon,"shell32.dll,-16778"
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\SystemProperties,Position,Bottom
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\SystemProperties\command,,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_SystemInfo.zip"
+  End
 End
 // Redirect modern Settings (eg: ms-settings:dateandtime) to: Open With - Control Panel . To note that many control panel items, such as Displays, are replaced by new modern settings
 RegWrite,HKLM,0x2,Tmp_Software\Classes\ms-settings\Shell\Open\Command,,#$pSystemRoot#$p\system32\control.exe
@@ -215,8 +257,7 @@ RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer
 System,ERROROFF
 RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons",29,"#$pSystemRoot#$p\system32\transparent.ico"
 //Eject_Device
-RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\DsmSvc
-RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\DsmSvc
+RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\DeviceDisplayObjects"
 
 [AdditionalFonts]
 // Additional Fonts, optional in addition to segoeui.ttf
@@ -246,6 +287,11 @@ RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verd
 RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Bold (TrueType)",verdanab.ttf
 RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Italic (TrueType)",verdanai.ttf
 RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Bold Italic (TrueType)",verdanaz.ttf
+
+[SegoeIconsFonts]
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Segoe Fluent Icons (TrueType)",SegoeIcons.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Fonts","Segoe Fluent Icons (TrueType)",SegoeIcons.ttf
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders",Fonts,x:\Windows\Fonts
 
 [Reg_MMC]
 If,%FullSoftware%,Equal,False,Begin

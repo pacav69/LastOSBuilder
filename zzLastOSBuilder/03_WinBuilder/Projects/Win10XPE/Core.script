@@ -3,8 +3,8 @@ Title=Build Core
 Type=XPEPlugin
 Description=Build Win10XPE Core based on WinRE.wim Recovery Environment with Features additions and Options
 Author=ChriSR
-Date=2019.12.04
-Version=006
+Date=2022.12.17
+Version=008
 Selected=True
 Mandatory=True
 NoWarning=False
@@ -13,6 +13,7 @@ Download_Level=0
 Credits=
 Contact=
 Interface=InterfaceMain
+History08=ChrisR Check winre.wim Version
 
 [Variables]
 %AdditionalFiles%=%BaseDir%\Projects\Include\%Architecture%\AdditionalFiles
@@ -40,32 +41,35 @@ TimeZone_ScrollBox=HostOS,1,4,76,115,150,21,HostOS,Default,"(UTC-12:00) Dateline
 Fbwf_TextLabel1="WinPE Cache Size",1,1,6,145,96,18,8,Normal
 Fbwf_ScrollBox=1024,1,4,103,141,58,21,512,1024,2048,3072,4092,"__WinPE Cache Threshold or FBWF Cache Size. Limited to 1024 Mb with x86"
 Fbwf_TextLabel2=MB,1,1,166,145,26,18,8,Normal
-AllInRam_CheckBox="Run ALL Programs From RAM",1,3,6,164,170,18,True,"__Run All Programs From Ram requires more memory. It is recommended for PXE server"
+AllInRam_CheckBox="Run ALL Programs From RAM",1,3,6,164,170,18,False,"__Run All Programs From Ram requires more memory. It is recommended for PXE server"
 Custom_Bevel=Custom_Bevel,1,12,6,183,220,53
-Custom_CheckBox="Add Your Custom Folder",1,3,12,187,150,18,True,"__Add Your Custom Files and Folders"
+Custom_CheckBox="Add Your Custom Folder",1,3,12,187,150,18,False,"__Add Your Custom Files and Folders"
 CustomOpen_Button="Open Custom Folder",1,8,10,206,212,26,CustomOpen,opendir.bmp,True,"__Copy your Custom Files and Folders here"
 SetupFiles_CheckBox="Windows Installer Files (Setup.exe)",1,3,6,240,225,18,False,"__Add boot.wim Windows Installer Files (Setup.exe)"
 VCRuntime_CheckBox="VC++ 8-9 Runtime",1,3,6,258,115,18,True,"__Add Embedded VC++ (8.0 - 9.0) Runtime"
 Accessibility_CheckBox=Accessibility,1,3,122,258,108,18,False,"__Add Ease of Access, Magnify, OnScreenKeybord in addition to Narrator"
 WoW64_CheckBox="WoW64 Basic",1,3,6,276,115,18,True,"__Add WoW64 Basic. Not Required If You Use Only 64-bit Apps"
 DisplayDrivers_CheckBox="Display Drivers",1,3,122,276,108,18,True,"__Add Basic Display Drivers:"
-Network_CheckBox="Network Additions",1,3,6,294,115,18,True,"__Add Network Support Additions"
+Network_CheckBox="Network Additions",1,3,6,294,115,18,False,"__Add Network Support Additions"
 NetDrivers_CheckBox="Network Drivers",1,3,122,294,108,18,True,"__Add Original Network Drivers Additions: Atheros,Broadcom,Intel,Realtek"
 Audio_CheckBox=Audio,1,3,6,312,70,18,True,"__Add Audio Support Additions"
 SoundEvents_CheckBox="System Event Sounds",1,3,122,312,142,18,False,"__Add Windows Event Sounds. Audio Must Be Enabled"
 WinApps_CheckBox="Windows Apps",1,3,6,330,115,18,True,"__Add Windows Apps: Paint,PhotoViewer,SnippingTool,Wordpad. Only Paint and Wordpad With WinXShell To Keep Light"
-Msi_CheckBox="Msi Windows Installer",1,3,122,330,142,18,False,"__Add Msi Windows Installer"
+Msi_CheckBox="Msi Windows Installer",1,3,122,330,142,18,True,"__Add Msi Windows Installer"
 DotNET_CheckBox="Microsoft .NETFx4",1,3,6,348,115,18,False,"__Add Embedded Microsoft .NET Framework 4 - To Get WIFI, You Must Also Enable Network Addition"
 ImDisk_CheckBox="ImDisk Ramdisk B:\Temp",1,3,122,348,142,18,True,"__ImDisk Virtual Disk Driver. Create B: RamDisk and Set %Temp% to B:\Temp"
 Admin_CheckBox="Switch To Admin",1,3,6,366,115,18,False,"__Switch to Administrator Account Login At Startup"
-IE11_CheckBox="Internet Explorer 11",1,3,122,366,138,18,False,_IE11_Info_,False,"__Add Internet Explorer 11. Requires Administrator Account For Downloads."
+IE11_CheckBox="Internet Explorer 11",1,3,122,366,138,18,False,_IE11_Info_,False,"__Add Internet Explorer 11. Only available in Windows 10. It Requires Administrator Account For Downloads."
 //-
 Drivers_Bevel=Drivers_Bevel,1,12,270,280,226,61
-Drivers_CheckBox="Integrate Drivers",1,3,276,284,112,18,False,"__Integrate Your Custom Drivers"
+Drivers_CheckBox="Integrate Drivers",1,3,276,284,112,18,True,"__Integrate Your Custom Drivers"
 PauseDrivers_CheckBox=Pause,1,3,392,284,52,18,False,"__Pause When Integrating Drivers"
 DriversOpen_Button="Copy Drivers Here",1,8,274,303,144,34,DriversOpen,opendir.bmp,True,"__Copy Your Custom Drivers Here"
 DriversPlay_Button=,1,8,419,303,24,34,DriversPlay,Play16.bmp,False,"__Integrate Provided Drivers Into The Build"
-ExportDrivers_Button=Export,1,8,444,303,48,34,ExportDrivers,0,False,"__Export Host PC Drivers With Dism"
+ExportDrivers_Button=Export,1,8,444,303,48,34,ExportDrivers,0,False,"__Export Host Third-Party (OEM) Driver Packages"
+HostNetDrivers_Bevel=HostNetDrivers_Bevel,1,12,270,339,226,29
+HostNetDrivers_CheckBox="Add Host Net Drivers",1,3,276,345,144,18,False,"__Add the Host's Network Drivers (If Same OS and Architecture)"
+HostNetDriversPlay_Button=,1,8,464,342,28,24,HostNetDriversPlay,Play16.bmp,False,"__Extract and Integrate Host's Network Drivers Into The Build"
 //-
 Wallpaper_Button="Copy Wallpaper (img0.jpg) Here",1,8,270,37,226,26,WallpaperOpen,wallpaper.bmp,False,"__Copy Your Custom Wallpaper Image (img0.jpg) Here"
 UserAccount_Button="Copy User Logo (user-200.png) Here",1,8,270,67,226,26,UserAccountOpen,User-Account.bmp,False,"__Copy Your Custom User Account Picture (user-200.png) Here"
@@ -73,9 +77,9 @@ StartupMP3_Button="Copy (Startup.mp3) Sound Here",1,8,270,97,226,26,StartupMP3Op
 PecmdEdit_Button="Edit Pecmd.ini",1,8,270,127,112,26,PecmdEdit,Pecmd.bmp,True,"__Edit Pecmd.ini Shell Loader and Customize Shortcuts..."
 PecmdAdminEdit_Button=PecmdAdmin.ini,1,8,384,127,112,26,PecmdAdminEdit,Pecmd.bmp,True,"__Edit PecmdAdmin.ini Shell Loader"
 Pecmd_TextLabel="Customize Desktop, Start Menu Shortcuts,...",1,1,272,153,234,18,8,Normal
-Taskbar_Button="Taskbar Button",1,14,270,171,226,68,"Always Combine, Hide Labels","Combine When Taskbar Is Full","Never Combine",2
+Taskbar_Button="Taskbar Button",1,14,270,171,226,68,"Always Combine, Hide Labels","Combine When Taskbar Is Full","Never Combine",1
 ExpandCurDir_CheckBox="Auto Expand To Current Folder",1,3,270,242,194,18,True,"__Enable To Automatically Expand To Current Folder in Navigation Pane"
-NumLock_CheckBox="NumLock ON",1,3,270,259,178,18,False,"__Determines Whether the NUMLOCK Key is ON or OFF when the Computer Starts"
+NumLock_CheckBox="NumLock ON",1,3,270,259,178,18,True,"__Determines Whether the NUMLOCK Key is ON or OFF when the Computer Starts"
 
 [InterfaceOption]
 Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
@@ -85,10 +89,10 @@ PENetwork_Button="Network Options",1,8,292,2,145,26,PENetworkInterface,0,True,"_
 Build_Button="Build Options",1,8,437,2,145,26,BuildInterface,0,True,"__Display Advanced Build Options"
 //-
 Computer_CheckBox="Display Computer on Desktop",1,3,6,38,172,18,True,"__Displays MyComputer on Desktop by Default"
-DarkTheme_CheckBox="Explorer Dark Theme",1,3,6,57,125,18,True,"__File Explorer's Dark Theme from Windows 10 1809 and up"
-DarkThemeShortcut_CheckBox="Theme Shortcut",1,3,138,57,125,18,False,"__Create Shortcut To Change Between Light and Dark Themes In Windows 10 1809"
+DarkTheme_CheckBox="Explorer Dark Theme",1,3,6,57,125,18,False,"__File Explorer's Dark Theme from Windows 10 1809 and up"
+DarkThemeShortcut_CheckBox="Theme Shortcut",1,3,138,57,125,18,True,"__Create Shortcut To Change Between Light and Dark Themes In Windows 10 1809"
 DPI_CheckBox="Turn Off the Default DPI Scaling",1,3,6,76,180,18,False,"__On High Resolution Displays - Turn DPI Scaling Off To Increase Icon and Application Size"
-Ribbon_CheckBox="Explorer Show Ribbon",1,3,6,95,130,18,False,"__Displays The File Explorer Ribbon Expanded"
+Ribbon_CheckBox="Explorer Show Ribbon",1,3,6,95,130,18,True,"__Displays The File Explorer Ribbon Expanded"
 HideTaskbar_CheckBox="Auto Hide The Taskbar",1,3,138,95,135,18,False,"__Select To Allow The Taskbar To Automaticlly Hide For Full Screen Use"
 TouchKeyboard_CheckBox="Show Touch Keyboard Button",1,3,6,114,200,18,True,"__Show Touch Keyboard Button on System Tray"
 SIBSkin_TextLabel="StartIsBack Skin:",1,1,6,136,96,18,8,Normal
@@ -100,14 +104,14 @@ Position_ScrollBox=Fill,1,4,102,174,84,21,Stretch,Fill,Tile,Span,"__Choose a Fit
 //-
 Colors_Bevel=Colors_Bevel,1,12,6,200,270,112
 Colors_TextLabel="Window Title Bars Color:",1,1,12,208,135,18,8,Normal
-Colors_ScrollBox=14,1,4,148,205,38,21,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,"__Choose Window Title Bars and Taskbar color Theme"
+Colors_ScrollBox=1,1,4,148,205,38,21,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,"__Choose Window Title Bars and Taskbar color Theme"
 Colors_Image=ThemeColors.jpg,1,5,11,228,260,80
 //-
 Admin_Bevel=Admin_Bevel,1,12,301,135,250,57
 AdminName_TextLabel="Administrator Name",1,1,308,142,105,18,8,Normal
 AdminName_TextBox=,1,0,433,140,113,21,Administrator
 AdminCountDown_TextLabel="Ask to Switch to Administrator for",1,1,308,168,174,18,8,Normal
-AdminCountDown_NumberBox=CountDown_NumberBox,1,2,482,165,40,22,0,0,10,1,"__Countdown to Ask to Switch to Administrator or continue with the System session. 0=Logon as Administrator without Question"
+AdminCountDown_NumberBox=CountDown_NumberBox,1,2,482,165,40,22,5,0,10,1,"__Countdown to Ask to Switch to Administrator or continue with the System session. 0=Logon as Administrator without Question"
 AdminSec_TextLabel=Sec,1,1,527,168,22,18,8,Normal
 //-
 Power_Bevel=Power_Bevel,1,12,282,38,269,91
@@ -129,8 +133,8 @@ Volume_TextLabel="System Volume At Startup:",1,1,354,208,143,18,8,Normal
 Volume_NumberBox=Volume1,1,2,506,204,40,22,33,0,100,1
 Mute_CheckBox="Mute The System Volume At Startup",1,3,352,229,198,18,False
 //-
-ComputerName_RadioGroup="Computer Name",1,14,400,252,150,48,"Project Name","Custom Name",1
-CustomComputerName_TextBox=,1,0,400,298,150,21,"This PC","__Custom Computer Name. Also Used in PENetwork.ini with the Possibility to Use Wildcards ? (char) and + (num)"
+ComputerName_RadioGroup="Computer Name",1,14,400,252,150,48,"Project Name","Custom Name",0
+CustomComputerName_TextBox=,1,0,400,298,150,21,Win10XPE-??++,"__Custom Computer Name. Also Used in PENetwork.ini with the Possibility to Use Wildcards ? (char) and + (num)"
 
 [InterfacePENetwork]
 Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
@@ -140,14 +144,14 @@ PENetwork_TextLabel="Network Options",1,1,316,8,108,18,8,Bold
 Build_Button="Build Options",1,8,437,2,145,26,BuildInterface,0,True,"__Display Advanced Build Options"
 //-
 PENMAddPENetwork_CheckBox="Add PENetwork To Build",0,3,10,40,143,18,True,"__Add PENetwork To The Build"
-PENMRunFromWhere_ScrollBox="Run From RAM",1,4,214,36,104,21,"Run From USB","Run From RAM"
+PENMRunFromWhere_ScrollBox="Run From USB",1,4,214,36,104,21,"Run From USB","Run From RAM"
 PENMUpdate_Button=U,0,8,419,36,14,14,Update_PENProgramFiles,0,False,"__Update PENetwork Program Files"
 PENMShortcut_Bevel=PENMShortcut_Bevel,1,12,4,62,133,121
-PENMDesktop_CheckBox="Desktop Shortcut",1,3,10,66,122,18,False,"__Add PENetwork Desktop Shortcut"
+PENMDesktop_CheckBox="Desktop Shortcut",1,3,10,66,122,18,True,"__Add PENetwork Desktop Shortcut"
 PENMStartMenu_CheckBox="Start Menu Shortcut",1,3,10,84,122,18,True,"__Add PENetwork Start Menu Shortcut"
 PENMTaskBpin_CheckBox="Pin To TaskBar",1,3,10,102,122,18,False,"__Add PENetwork Pin To Taskbar Shortcut"
-PENMStartMpin_CheckBox="Pin To StartMenu",1,3,10,120,122,18,True,"__Add PENetwork Pin To StartMenu Shortcut"
-PENMStartMenuFolder_TextBox="Start Menu Folder:",1,0,10,156,121,21,"- Internet","__PENetwork Start Menu Folder Name"
+PENMStartMpin_CheckBox="Pin To StartMenu",1,3,10,120,122,18,False,"__Add PENetwork Pin To StartMenu Shortcut"
+PENMStartMenuFolder_TextBox="Start Menu Folder:",1,0,10,156,121,21,Network,"__PENetwork Start Menu Folder Name"
 PENM_TextLabel=PENetwork,1,1,145,67,72,18,8,Bold
 PENMImage_Software=PENetwork64.ico,1,5,143,83,64,64
 PENMHomePage_WebLabel="Home Page",1,10,148,151,54,18,https://www.penetworkmanager.de/
@@ -158,18 +162,18 @@ ExportWifi_Button="Start Wireless Configuration Exporter",1,8,220,97,210,26,Expo
 WifiProfile_TextLabel=SSIDProfile.xml,1,1,222,126,91,18,8,Normal
 WifiProfile_TextBox=,1,0,220,140,186,21,SSIDProfile.xml,"__Enter Full Name Of SSID Profile.xml (SSIDProfile.xml)"
 Profiles_Opendir_Button=,1,8,408,140,22,22,Profiles_OpenDir,opendir.bmp,False,"__Click Here To Open WIFI Profiles Folder:"
-UseWifiProfile_CheckBox="AutoConnect To Wireless SSID Profile",1,3,220,163,209,18,False,"__Start PENetwork With Custom Wifi Profile"
+UseWifiProfile_CheckBox="AutoConnect To Wireless SSID Profile",1,3,220,163,209,18,True,"__Start PENetwork With Custom Wifi Profile"
 WifiProfile_TextLabel1="1. Export Wireless SSID Profile",1,1,438,102,175,18,8,Normal,"__Export Wireless SSID Profile"
 WifiProfile_TextLabel2="2. Enter Full Name Of SSID Profile",1,1,438,143,175,18,8,Normal,"__Enter Full Name Of SSID Profile"
 WifiProfile_TextLabel3="3. Enable Connect To SSID Profile",1,1,438,165,175,18,8,Normal,"__Enable Connect To SSID Profile"
 //-
 Splitter1_Bevel=Splitter1_Bevel,1,12,0,190,578,4
 IE11Shortcut_Bevel=IE11Shortcut_Bevel,1,12,4,201,133,121
-IE11Desktop_CheckBox="Desktop Shortcut",1,3,10,205,122,18,False,"__Add IE11 Desktop Shortcut"
+IE11Desktop_CheckBox="Desktop Shortcut",1,3,10,205,122,18,True,"__Add IE11 Desktop Shortcut"
 IE11StartMenu_CheckBox="Start Menu Shortcut",1,3,10,223,122,18,True,"__Add IE11 Start Menu Shortcut"
-IE11TaskBpin_CheckBox="Pin To TaskBar",1,3,10,241,122,18,True,"__Add IE11 Pin To Taskbar Shortcut"
-IE11StartMpin_CheckBox="Pin To StartMenu",1,3,10,259,122,18,True,"__Add IE11 Pin To StartMenu Shortcut"
-IE11StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,295,121,21,"- Internet","__IE11 Start Menu Folder Name"
+IE11TaskBpin_CheckBox="Pin To TaskBar",1,3,10,241,122,18,False,"__Add IE11 Pin To Taskbar Shortcut"
+IE11StartMpin_CheckBox="Pin To StartMenu",1,3,10,259,122,18,False,"__Add IE11 Pin To StartMenu Shortcut"
+IE11StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,295,121,21,Network,"__IE11 Start Menu Folder Name"
 IE11_TextLabel=IE11,1,1,164,212,36,18,8,Bold
 IE11_Image=IE11_64.ico,1,5,143,226,64,64
 IE11_Bevel=IE11_Bevel,1,12,214,208,220,86
@@ -214,9 +218,10 @@ ControllerPatch_TextLabel="If both Remote Desktop and Switch to Admin Enabled",1
 AllCatalogs_CheckBox="Add All Win10 Catalogs",1,3,6,132,200,18,False,"__Add All Windows 10 (install.wim) Catalogs"
 AllNls_CheckBox="Add All National Language Support (NLS) Files",1,3,6,151,255,18,True,"__Add All National Language Support (NLS) Files. Otherwise They Will be Copied According to the Registry Settings. It May Not Be Enough for Extended Languages."
 AllKeyboard_CheckBox="Add All KeyBoards",1,3,6,170,110,18,True,"__Add All KeyBoards. Otherwise They Will be Copied According to the Registry Settings. It May Not Be Enough for Extended Languages."
-DelSpeech_CheckBox="Delete Speech Folder in Builds Without 'Accessibility' Feature",1,3,6,189,360,18,True,"__Cleanup, Delete the Speech Folder in Constructions Without the Accessibility Feature."
+DelSpeech_CheckBox="Delete Speech Folder in Builds Without 'Accessibility' Feature",1,3,6,189,360,18,False,"__Cleanup, Delete the Speech Folder in Constructions Without the Accessibility Feature."
 DelSysWOW64_CheckBox="Delete SysWOW64 Folder in x64 Builds Without 'WoW64 Basic' Feature",1,3,6,208,375,18,True,"__Cleanup, Delete the SysWOW64 Folder in x64 Constructions Without 'WoW64 Basic' Feature."
-DelwbemRepository_CheckBox="Delete WMI Repository folder",1,3,6,227,375,18,True,"__Cleanup, Delete the wbem Repository Folder. The WMI Repository Will be Rebuilt, Refresh at Startup But it Takes a Little Time."
+DelEdgeWebPlateform_CheckBox="Delete Edge Web Plateform",1,3,6,227,375,18,False,"__Cleanup, Delete Edge Web Plateform Component. Adding Edge Web Browsing Functionalities Should Be Done in Apps Plugins."
+DelwbemRepository_CheckBox="Delete WMI Repository folder",1,3,6,246,375,18,True,"__Cleanup, Delete the wbem Repository Folder. The WMI Repository Will be Rebuilt, Refresh at Startup But it Takes a Little Time."
 
 [MainInterface]
 IniWrite,%ScriptFile%,Main,Interface,InterfaceMain
@@ -270,8 +275,8 @@ Visible,%PENMOptions2_TextLabel%,#1,Permanent
 
 [IE11_Info]
 If,%IE11_CheckBox%,Equal,True,Begin
-//If,%Architecture%_%WoW64_CheckBox%,Equal,x64_False,Message,"Internet Explorer 11 x64 Run in Hybrid-Mode. It needs WoW64 basic",Information
-If,%Admin_CheckBox%,Equal,False,Message,"To Download with Internet Explorer 11, you need to Enable Switch to Admin",Information
+  //If,%Architecture%_%WoW64_CheckBox%,Equal,x64_False,Message,"Internet Explorer 11 x64 Run in Hybrid-Mode. It needs WoW64 basic",Information
+  If,%Admin_CheckBox%,Equal,False,Message,"To Download with Internet Explorer 11, you need to Enable Switch to Admin",Information
 End
 
 [Check_Image_Exist]
@@ -283,17 +288,17 @@ StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
 If,#9,Equal,sr-Latn-CS,Set,%sr-Latn%,Yes
 If,#9,Equal,sr-Latn-RS,Set,%sr-Latn%,Yes
 If,%sr-Latn%,Equal,Yes,Begin
-EchoExtended,"Win10XPE does not support sr-Latn-CS and sr-Latn-RS languages.",Warn,,Message,,Halt
-//If,ExistFile,%ProjectDir%\Features\Explorer_AddFiles.txt,TXTReplace,%ProjectDir%\Features\Explorer_AddFiles.txt,\??-??\,\*\
-Loop,BREAK
+  EchoExtended,"Win10XPE does not support sr-Latn-CS and sr-Latn-RS languages.",Warn,,Message,,Halt
+  //If,ExistFile,%ProjectDir%\Features\Explorer_AddFiles.txt,TXTReplace,%ProjectDir%\Features\Explorer_AddFiles.txt,\??-??\,\*\
+  Loop,BREAK
 End
 
 [CheckInput]
 If,%WinXShell_RadioButton%,Equal,True,Begin
-If,%Admin_CheckBox%,Equal,True,EchoExtended,"Do Not Use Switch to Admin with WinXShell.",Warn,,Message,,Halt
-If,%IE11_CheckBox%,Equal,True,EchoExtended,"Do Not Use IE11 with WinXShell.",Warn,,Message,,Halt
-If,%DotNET_CheckBox%,Equal,True,EchoExtended,"Do Not Use DotNET with WinXShell.",Warn,,Message,,Halt
-If,%FullSoftware_CheckBox%,Equal,True,EchoExtended,"WinXShell is Designed to be Light, it is not intended for using the Full Software hive.",Warn,,Message,,Halt
+  If,%Admin_CheckBox%,Equal,True,EchoExtended,"Do Not Use Switch to Admin with WinXShell.",Warn,,Message,,Halt
+  If,%IE11_CheckBox%,Equal,True,EchoExtended,"Do Not Use IE11 with WinXShell.",Warn,,Message,,Halt
+  If,%DotNET_CheckBox%,Equal,True,EchoExtended,"Do Not Use DotNET with WinXShell.",Warn,,Message,,Halt
+  If,%FullSoftware_CheckBox%,Equal,True,EchoExtended,"WinXShell is Designed to be Light, it is not intended for using the Full Software hive.",Warn,,Message,,Halt
 End
 
 [SaveConfig]
@@ -301,25 +306,25 @@ If,%Explorer_RadioButton%,Equal,True,Set,%Shell%,Explorer,Permanent
 Else,Set,%Shell%,WinXShell,Permanent
 //-
 If,%TargetArch_CheckBox%,Equal,True,Begin
-Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
-Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
+  Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
+  Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
 End
 Else,Begin
-Set,%GTarget%,%BaseDir%\Target,Permanent
-Set,%GISO%,%BaseDir%\ISO,Permanent
+  Set,%GTarget%,%BaseDir%\Target,Permanent
+  Set,%GISO%,%BaseDir%\ISO,Permanent
 End
 //-
 If,%AllInRam_CheckBox%,Equal,True,Begin
-Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
-Set,%PE_Programs%,"X:\Program Files",Permanent
+  Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
+  Set,%PE_Programs%,"X:\Program Files",Permanent
 End
 Else,Begin
-Set,%Target_Prog%,%GISO%\Programs,Permanent
-Set,%PE_Programs%,Y:\Programs,Permanent
+  Set,%Target_Prog%,%GISO%\Programs,Permanent
+  Set,%PE_Programs%,Y:\Programs,Permanent
 End
 // Full Software Hive
 Set,%FullSoftware%,%FullSoftware_CheckBox%,Permanent
-If,%Network_CheckBox%,Equal,True,Set,%FullSoftware%,True,Permanent
+//If,%Network_CheckBox%,Equal,True,Set,%FullSoftware%,True,Permanent
 //-
 // ShellExecute's Standard Output Redirect in PEBakery
 If,ExistFile,%WBExe%,Set,%OpenHideOutput%,Open,Permanent
@@ -378,17 +383,19 @@ ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\insta
 If,%ExitCode%,Equal,0,Echo,"Wimlib extract Winre.wim image file from install.wim return: %ExitCode%"
 Else,EchoExtended,"Error: Wimlib extract Winre.wim image file from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
 //-
+If,Not,%SourceBuild%,Smaller,19041,Run,%ScriptFile%,Check_Winre_Version
+//-
 If,ExistFile,%XPECache%\HiveCache.ini,Begin
-IniRead,%XPECache%\HiveCache.ini,Cache,FullSoftware,%FullSoftwareIni%
-If,%FullSoftwareIni%,Equal,True,Begin
-If,ExistFile,%XPECache%\FullSOFTWARE,FileCopy,%XPECache%\FullSOFTWARE,%GTemp%\Install.hives\SOFTWARE
-End
+  IniRead,%XPECache%\HiveCache.ini,Cache,FullSoftware,%FullSoftwareIni%
+  If,%FullSoftwareIni%,Equal,True,Begin
+    If,ExistFile,%XPECache%\FullSOFTWARE,FileCopy,%XPECache%\FullSOFTWARE,%GTemp%\Install.hives\SOFTWARE
+  End
 End
 If,Not,ExistFile,%GTemp%\Install.hives\SOFTWARE,Begin
-Echo,"Extract Software hive from install.wim"
-ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SOFTWARE --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
-If,%ExitCode%,Equal,0,Echo,"Wimlib extract Software hive from install.wim return: %ExitCode%"
-Else,EchoExtended,"Error: Wimlib extract Software hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
+  Echo,"Extract Software hive from install.wim"
+  ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SOFTWARE --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
+  If,%ExitCode%,Equal,0,Echo,"Wimlib extract Software hive from install.wim return: %ExitCode%"
+  Else,EchoExtended,"Error: Wimlib extract Software hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
 End
 //-
 Echo,"Extract System & Drivers hive from install.wim"
@@ -397,23 +404,23 @@ If,%ExitCode%,Equal,0,Echo,"Wimlib extract System & Drivers hive from install.wi
 Else,EchoExtended,"Error: Wimlib extract System & Drivers hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
 //-
 If,%Buildtype_RadioButton%,Equal,0,Begin
-Run,%ScriptFile%,ExtractWimFiles
-If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
+  Run,%ScriptFile%,ExtractWimFiles
+  If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
 End
 Else,Begin
-Run,%ScriptFile%,PrepareSmallWim
-If,%Buildtype_RadioButton%,Equal,1,Run,%ScriptFile%,ExtractWimFiles
-If,%Buildtype_RadioButton%,Equal,2,Begin
-If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
-Echo,"\Project\CoreListFiles.txt does not exist! continue with the Lightened Winre.wim",Warn
-Run,%ScriptFile%,ExtractWimFiles
-End
-Else,Run,%ScriptFile%,ExtractWimListFiles
-End
+  Run,%ScriptFile%,PrepareSmallWim
+  If,%Buildtype_RadioButton%,Equal,1,Run,%ScriptFile%,ExtractWimFiles
+  If,%Buildtype_RadioButton%,Equal,2,Begin
+    If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
+      Echo,"\Project\CoreListFiles.txt does not exist! continue with the Lightened Winre.wim",Warn
+      Run,%ScriptFile%,ExtractWimFiles
+    End
+    Else,Run,%ScriptFile%,ExtractWimListFiles
+  End
 End
 If,%FullSoftware%,Equal,True,Begin
-FileDeleteQ,%GTarget_Sys%\config\SOFTWARE
-Filecopy,%GTemp%\Install.hives\SOFTWARE,%GTarget_Sys%\config
+  FileDeleteQ,%GTarget_Sys%\config\SOFTWARE
+  Filecopy,%GTemp%\Install.hives\SOFTWARE,%GTarget_Sys%\config
 End
 // Additional folder for pins
 If,Not,ExistDir,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu",DirMake,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu"
@@ -427,26 +434,26 @@ Exec,%ProjectDir%\Features\Config.Script,Process
 Run,%ScriptFile%,AddProjectFiles
 If,%Custom_CheckBox%,Equal,True,Run,%ScriptFile%,AddCustomFiles
 If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-If,ExistFile,%GTarget_Sys%\pecmd.ini,FileDeleteQ,%GTarget_Sys%\pecmd.ini
-Filecopy,%GCustom%\Pecmdini\pecmd.ini,%GTarget_Sys%
+  If,ExistFile,%GTarget_Sys%\pecmd.ini,FileDeleteQ,%GTarget_Sys%\pecmd.ini
+  Filecopy,%GCustom%\Pecmdini\pecmd.ini,%GTarget_Sys%
 End
 If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-If,ExistFile,%GTarget_Sys%\PecmdAdmin.ini,FileDeleteQ,%GTarget_Sys%\PecmdAdmin.ini
-Filecopy,%GCustom%\Pecmdini\PecmdAdmin.ini,%GTarget_Sys%
+  If,ExistFile,%GTarget_Sys%\PecmdAdmin.ini,FileDeleteQ,%GTarget_Sys%\PecmdAdmin.ini
+  Filecopy,%GCustom%\Pecmdini\PecmdAdmin.ini,%GTarget_Sys%
 End
 If,ExistFile,%GCustom%\Wallpaper\img0.jpg,Begin
-If,Not,ExistDir,%GTarget_Win%\Web\Wallpaper\Windows,DirMake,%GTarget_Win%\Web\Wallpaper\Windows
-Filecopy,%GCustom%\Wallpaper\img0.jpg,%GTarget_Win%\Web\Wallpaper\Windows,NoWarn
+  If,Not,ExistDir,%GTarget_Win%\Web\Wallpaper\Windows,DirMake,%GTarget_Win%\Web\Wallpaper\Windows
+  Filecopy,%GCustom%\Wallpaper\img0.jpg,%GTarget_Win%\Web\Wallpaper\Windows,NoWarn
 End
 If,ExistFile,%GCustom%\UserAccountPicture\user-200.png,Begin
-If,Not,ExistDir,"%GTarget%\ProgramData\Microsoft\User Account Pictures",DirMake,"%GTarget%\ProgramData\Microsoft\User Account Pictures"
-Filecopy,%GCustom%\UserAccountPicture\user-200.png,"%GTarget%\ProgramData\Microsoft\User Account Pictures",NoWarn
+  If,Not,ExistDir,"%GTarget%\ProgramData\Microsoft\User Account Pictures",DirMake,"%GTarget%\ProgramData\Microsoft\User Account Pictures"
+  Filecopy,%GCustom%\UserAccountPicture\user-200.png,"%GTarget%\ProgramData\Microsoft\User Account Pictures",NoWarn
 End
 If,%Audio_CheckBox%,Equal,True,Begin
-If,ExistFile,%GCustom%\StartupMP3\startup.mp3,Begin
-If,Not,ExistDir,%GTarget_Win%\media,DirMake,%GTarget_Win%\media
-Filecopy,%GCustom%\StartupMP3\startup.mp3,%GTarget_Win%\media
-End
+  If,ExistFile,%GCustom%\StartupMP3\startup.mp3,Begin
+    If,Not,ExistDir,%GTarget_Win%\media,DirMake,%GTarget_Win%\media
+    Filecopy,%GCustom%\StartupMP3\startup.mp3,%GTarget_Win%\media
+  End
 End
 //-
 //-----------------------------------------------------------------------------
@@ -463,45 +470,47 @@ If,Not,%AllKeyboard_CheckBox%%AllNls_CheckBox%,Equal,TrueTrue,Exec,%ProjectDir%\
 // Fbwf Cache Size. Limited to 1024 Mb with x86
 If,%Architecture%,Equal,x64,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
 Else,Begin
-If,%Fbwf_ScrollBox%,Bigger,1024,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,1024
-Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
+  If,%Fbwf_ScrollBox%,Bigger,1024,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,1024
+  Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
 End
+//-
+Set,%WoW64Support%,False,Permanent
+If,%Architecture%%WoW64_CheckBox%,Equal,x64True,Exec,%ProjectDir%\Features\WoW64.Script,Process,HiveLoaded
 //-
 If,%SetupFiles_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SetupFiles.Script,Process
 If,%VCRuntime_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\VCRuntime.Script,Process,HiveLoaded
 //-
 If,%Shell%,Equal,Explorer,Begin
-Exec,%ProjectDir%\Features\Explorer.Script,Process,HiveLoaded
-Exec,%ProjectDir%\Features\StartIsBack.Script,Process,HiveLoaded
+  Exec,%ProjectDir%\Features\Explorer.Script,Process,HiveLoaded
+  If,%SourceBuild%,Smaller,22000,Exec,%ProjectDir%\Features\StartIsBack.Script,Process,HiveLoaded
+  Else,Exec,%ProjectDir%\Features\StartAllBack.script,Process,HiveLoaded
 End
 Else,Exec,%ProjectDir%\Features\WinXShell.Script,Process,HiveLoaded
-//-
-Set,%WoW64Support%,False,Permanent
-If,%Architecture%,Equal,x64,Begin
-If,%WoW64_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\WoW64.Script,Process,HiveLoaded
-End
 //-
 If,ExistFile,%ProjectDir%\Features\Ime_%Language%.Script,Exec,%ProjectDir%\Features\Ime_%Language%.Script,Process,HiveLoaded
 //-
 If,%DisplayDrivers_CheckBox%,Equal,True,Begin
-If,%Shell%,Equal,Explorer,Exec,%ProjectDir%\Features\DisplayDrivers.Script,Process,HiveLoaded
+  If,%Shell%,Equal,Explorer,Exec,%ProjectDir%\Features\DisplayDrivers.Script,Process,HiveLoaded
 End
 //-
 If,%Network_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Network.Script,Process,HiveLoaded
+Else,Run,%ScriptFile%,FullSoftwareNetworkDefault
+//-
 If,%NetDrivers_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\NetDrivers.Script,Process,HiveLoaded
+//-
 If,%PENMAddPENetwork_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\PENetwork.Script,Process,HiveLoaded
 Else,TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","//EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe"
 //-
 If,%Audio_CheckBox%,Equal,True,Begin
-Exec,%ProjectDir%\Features\Audio.Script,Process,HiveLoaded
-If,%SoundEvents_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SoundEvents.Script,Process,HiveLoaded
+  Exec,%ProjectDir%\Features\Audio.Script,Process,HiveLoaded
+  If,%SoundEvents_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SoundEvents.Script,Process,HiveLoaded
 End
 If,%Msi_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Msi.Script,Process,HiveLoaded
 //-
 If,%Accessibility_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Accessibility.Script,Process,HiveLoaded
 Else,Begin
-AddVariables,%ProjectDir%\script.project,TargetBasePath
-If,ExistFile,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk",FileDelete,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk"
+  AddVariables,%ProjectDir%\script.project,TargetBasePath
+  If,ExistFile,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk",FileDelete,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk"
 End
 //-
 If,%WinApps_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\WinApps.Script,Process,HiveLoaded
@@ -510,38 +519,57 @@ If,%ImDisk_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\ImDisk.Script,Process
 //-
 If,%Admin_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Admin.Script,Process,HiveLoaded
 If,%IE11_CheckBox%,Equal,True,Begin
-If,ExistFile,%ProjectDir%\Features\IE11.Script,Exec,%ProjectDir%\Features\IE11.Script,Process,HiveLoaded
+  If,ExistFile,%ProjectDir%\Features\IE11.Script,Exec,%ProjectDir%\Features\IE11.Script,Process,HiveLoaded
 End
 If,%DotNET_CheckBox%,Equal,True,Begin
-If,ExistFile,%ProjectDir%\Features\DotNET.Script,Exec,%ProjectDir%\Features\DotNET.Script,Process,HiveLoaded
+  If,ExistFile,%ProjectDir%\Features\DotNET.Script,Exec,%ProjectDir%\Features\DotNET.Script,Process,HiveLoaded
 End
 Exec,%ProjectDir%\Features\CoreOptions.Script,Process,HiveLoaded
 Exec,%ProjectDir%\Features\ThemesColor.Script,Process,HiveLoaded
 HiveUnLoadALL
 If,%Drivers_CheckBox%,Equal,True,Run,%ScriptFile%,DriversPlay
+If,%HostNetDrivers_CheckBox%,Equal,True,Run,%ScriptFile%,HostNetDriversPlay
+
+[FullSoftwareNetworkDefault]
+//- Added from Network Additions to get Wifi Network with Full Software Hive & without requiring Network Additions
+ExtractSectionFiles,%ScriptFile%,FullSoftwareNetworkDefault_AddFiles
+System,ERROROFF
+If,%SourceBuild%,Bigger,17000,RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\WlanSvc,ImagePath,"#$pSystemRoot#$p\System32\Svchost.exe -k LocalSystemNetworkRestricted -p"
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Wcmsvc
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\wcmsvc
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,4
+
+[FullSoftwareNetworkDefault_AddFiles]
+\Windows\System32\wcmapi.dll
+\Windows\System32\wcmcsp.dll
+\Windows\System32\wcmsvc.dll
+\Windows\System32\mobilenetworking.dll
+\Windows\System32\netprofmsvc.dll
+\Windows\System32\termsrv.dll
 
 [CheckWaikTool]
 Set,%WaikToolOK%,Yes
 If,Not,ExistDir,%GTools%\x86,Set,%WaikToolOK%,No
 If,Not,ExistDir,%GTools%\x64,Set,%WaikToolOK%,No
 If,%WaikToolOK%,Equal,Yes,Begin
-If,Not,ExistFile,%GTools%\x86\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x64\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x86\DISM\dism.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x64\DISM\dism.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x86\DISM\imagex.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x64\DISM\imagex.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x86\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
-If,Not,ExistFile,%GTools%\x64\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\DISM\dism.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\DISM\dism.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\DISM\imagex.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\DISM\imagex.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
 End
 If,%WaikToolOK%,Equal,No,Begin
-Set,%answer%,No
-If,Question,"%ProjectName% needs some Windows ADK files (8.50 MB)#$x#$x Download now ?",10,True,Set,%answer%,Yes
-If,%answer%,Equal,Yes,Begin
-Run,%ScriptFile%,GetWaikTool
-Run,%ScriptFile%,CheckWaikTool
-End
-Else,Halt,"You did not download the Windows ADK files required for %ProjectName%."
+  Set,%answer%,No
+  If,Question,"%ProjectName% needs some Windows ADK files (8.50 MB)#$x#$x Download now ?",10,True,Set,%answer%,Yes
+  If,%answer%,Equal,Yes,Begin
+    Run,%ScriptFile%,GetWaikTool
+    Run,%ScriptFile%,CheckWaikTool
+  End
+  Else,Halt,"You did not download the Windows ADK files required for %ProjectName%."
 End
 
 [GetWaikTool]
@@ -563,6 +591,27 @@ If,Not,ExistFile,%GTemp%\WimInfo.ini,EchoExtended,"Error: Wim file information m
 IniRead,%GTemp%\WimInfo.ini,Attributes,ImageCount,%ImageCountVar%
 If,%ImageCountVar%,Smaller,1,EchoExtended,"Error: Wim file information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
 
+[Check_Winre_Version]
+If,%SourceVersion%,Bigger,10.0.19041.264,Begin
+  If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
+  ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GTemp%\winre.wim#$q -ini:#$q%GTemp%\WinreInfo.ini#$q"
+  If,Not,ExistFile,%GTemp%\WinreInfo.ini,EchoExtended,"Error: Winre.wim Image information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
+  IniRead,%GTemp%\WinreInfo.ini,1,VERSION,%WinreVersion%
+  If,Not,%WinreVersion%,Equal,%SourceVersion%,Begin
+    Set,%answer%,No
+    If,%SourceBuild%,Equal,19041,Begin
+      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Windows 10 version 2004 - 20H1#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1"
+      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1",Warn
+    End
+    Else,Begin
+      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Another Windows 10 Version#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version"
+      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version",Warn
+    End
+  End
+End
+
 [ClearMakeFolder]
 DirDeleteQ,%GTarget%
 DirMake,%GTarget%
@@ -579,29 +628,29 @@ DirMake,%GISO%
 [ListFilesEdit]
 If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Run,%ScriptFile%,Create_CoreListFiles
 If,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
-Echo,"Waiting for changes in CoreListFiles.txt and closing the editor..."
-System,FileRedirect,OFF
-ShellExecute,Hide,cmd.exe,"/D /C #$q%ProjectDir%\CoreListFiles.txt#$q"
-System,FileRedirect,ON
+  Echo,"Waiting for changes in CoreListFiles.txt and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%ProjectDir%\CoreListFiles.txt#$q"
+  System,FileRedirect,ON
 End
 
 [Create_CoreListFiles]
 Set,%w%,%ProjectDir%\CoreListFiles.txt
 If,Not,ExistFile,%w%,Begin
-FileCreateBlank,%w%
-TXTAddLine,%w%,"; Add Win10 Sources Files and Folders with absolute path. Wildcard ? and * accepted.",Append
-TXTAddLine,%w%,"; See wimlib extract: https://wimlib.net/man1/wimextract.html",Append
-TXTAddLine,%w%,"; It is here, an addition to the prepared base of 'Full winre.wim with WinSxS lightened'",Append
-TXTAddLine,%w%,"; Examples:",Append
-TXTAddLine,%w%,";\sources   (source folder)",Append
-TXTAddLine,%w%,";\Windows\System32\*base.dll",Append
-TXTAddLine,%w%,";\Windows\System32\??-??\*base.dll.mui",Append
-TXTAddLine,%w%,"",Append
-TXTAddLine,%w%,"\ProgramData",Append
-TXTAddLine,%w%,"\Program Files",Append
-TXTAddLine,%w%,"\sources",Append
-TXTAddLine,%w%,"\Users",Append
-TXTAddLine,%w%,"\Windows",Append
+  FileCreateBlank,%w%
+  TXTAddLine,%w%,"; Add Win10 Sources Files and Folders with absolute path. Wildcard ? and * accepted.",Append
+  TXTAddLine,%w%,"; See wimlib extract: https://wimlib.net/man1/wimextract.html",Append
+  TXTAddLine,%w%,"; It is here, an addition to the prepared base of 'Full winre.wim with WinSxS lightened'",Append
+  TXTAddLine,%w%,"; Examples:",Append
+  TXTAddLine,%w%,";\sources   (source folder)",Append
+  TXTAddLine,%w%,";\Windows\System32\*base.dll",Append
+  TXTAddLine,%w%,";\Windows\System32\??-??\*base.dll.mui",Append
+  TXTAddLine,%w%,"",Append
+  TXTAddLine,%w%,"\ProgramData",Append
+  TXTAddLine,%w%,"\Program Files",Append
+  TXTAddLine,%w%,"\sources",Append
+  TXTAddLine,%w%,"\Users",Append
+  TXTAddLine,%w%,"\Windows",Append
 End
 
 [PENMEditor]
@@ -622,33 +671,33 @@ Exec,%ProjectDir%\Features\IE11.Script,Favorites_OpenDir
 [PecmdEdit]
 If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
 If,Not,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-If,ExistFile,%AdditionalFiles%\Windows\System32\pecmd.ini,Begin
-If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
-FileCopy,%AdditionalFiles%\Windows\System32\pecmd.ini,%GCustom%\Pecmdini\pecmd.ini
-End
-Else,EchoExtended,"pecmd.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\pecmd.ini",Warn,,Message,,Exit
+  If,ExistFile,%AdditionalFiles%\Windows\System32\pecmd.ini,Begin
+    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+    FileCopy,%AdditionalFiles%\Windows\System32\pecmd.ini,%GCustom%\Pecmdini\pecmd.ini
+  End
+  Else,EchoExtended,"pecmd.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\pecmd.ini",Warn,,Message,,Exit
 End
 If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-Echo,"Waiting for changes in Pecmd.ini and closing the editor..."
-System,FileRedirect,OFF
-ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\pecmd.ini#$q"
-System,FileRedirect,ON
+  Echo,"Waiting for changes in Pecmd.ini and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\pecmd.ini#$q"
+  System,FileRedirect,ON
 End
 
 [PecmdAdminEdit]
 If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
 If,Not,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-If,ExistFile,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,Begin
-If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
-FileCopy,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,%GCustom%\Pecmdini\PecmdAdmin.ini
-End
-Else,EchoExtended,"PecmdAdmin.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\PecmdAdmin.ini",Warn,,Message,,Exit
+  If,ExistFile,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,Begin
+    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+    FileCopy,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,%GCustom%\Pecmdini\PecmdAdmin.ini
+  End
+  Else,EchoExtended,"PecmdAdmin.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\PecmdAdmin.ini",Warn,,Message,,Exit
 End
 If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-Echo,"Waiting for changes in PecmdAdmin.ini and closing the editor..."
-System,FileRedirect,OFF
-ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\PecmdAdmin.ini#$q"
-System,FileRedirect,ON
+  Echo,"Waiting for changes in PecmdAdmin.ini and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\PecmdAdmin.ini#$q"
+  System,FileRedirect,ON
 End
 
 [WinPE_StartUp]
@@ -659,11 +708,11 @@ FileCreateBlank,%w%
 TXTAddLine,%w%,[LaunchApps],Append
 TXTAddLine,%w%,wpeinit.exe,Append
 If,ExistFile,%GTarget_Sys%\Pecmd.exe,Begin
-System,ERROROFF
-RegWrite,HKLM,0x1,Tmp_System\Setup,CmdLine,"Pecmd.exe Main #$pWindir#$p\system32\Pecmd.ini"
+  System,ERROROFF
+  RegWrite,HKLM,0x1,Tmp_System\Setup,CmdLine,"Pecmd.exe Main #$pWindir#$p\system32\Pecmd.ini"
 End
 Else,Begin
-TXTAddLine,%w%,cmd.exe,Append
+  TXTAddLine,%w%,cmd.exe,Append
 End
 If,ExistFile,%GTarget_Sys%\autorun.cmd,RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,Autorun,"hiderun.exe /w Autorun.cmd"
 
@@ -688,39 +737,67 @@ OpenDir,%GCustom%\UserAccountPicture
 OpenDir,%GCustom%\StartupMP3
 
 [DriversPlay]
-Echo,"Integrate Drivers..."
-If,ExistDir,%GCustom%\%Architecture%\Drivers,Begin
-Retrieve,FOLDERSIZE,%GCustom%\%Architecture%\Drivers,%DriverFolderSize%
-If,Not,%DriverFolderSize%,Equal,0,Begin
-StrFormat,PATH,%DismLog%,%DismLogPath%
-If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
-If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
-If,ExistFile,%DismExe%,Begin
-StrFormat,PATH,%DismExe%,%DismExePath%
-System,FileRedirect,OFF
-If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Drivers integration and Pause. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%GCustom%\%Architecture%\Drivers#$q /recurse /LogPath:#$q%DismLog%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
-Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Drivers integration. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%GCustom%\%Architecture%\Drivers#$q /recurse /LogPath:#$q%DismLog%#$q",%DismExePath%
-System,FileRedirect,ON
-ShellExecute,Hide,%Gtools%\HiveUnload.exe,"/HKLM /Target:%GTarget_Sys%\config"
+Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\Drivers
+
+[HostNetDriversPlay]
+If,ExistRegKey,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,Begin
+  RegRead,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,%HostOS%
+  If,Win%HostOS%%HostOSArch%,Equal,%OS%%Architecture%,Begin
+    Echo,"Export Host Net Drivers..."
+    If,ExistDir,%GCustom%\%Architecture%\HostNetDrivers,DirDeleteQ,%GCustom%\%Architecture%\HostNetDrivers
+    //Set,%PatchInfFile%,""
+    Set,%PatchInfFile%,1
+    ShellExecute,Hide,%GTools%\HostNetDrv.exe,"#$q%GCustom%\%Architecture%\HostNetDrivers#$q %PatchInfFile%"
+    Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\HostNetDrivers
+  End
+  Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Win%HostOS% %HostOSArch% Does Not Match Your Build %OS% %Architecture%",warn
 End
-End
+Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Does Not Match Your Build %OS% %Architecture%",warn
+
+[IntegrateDrivers]
+Set,%DriverFolder%,#1
+Echo,"Integrate Drivers From #$q%DriverFolder%#$q ..."
+If,ExistDir,%DriverFolder%,Begin
+  Retrieve,FOLDERSIZE,%DriverFolder%,%DriverFolderSize%
+  If,Not,%DriverFolderSize%,Equal,0,Begin
+    StrFormat,PATH,%DismLog%,%DismLogPath%
+    If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
+    If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
+    If,ExistFile,%DismExe%,Begin
+      StrFormat,PATH,%DismExe%,%DismExePath%
+      System,FileRedirect,OFF
+      If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Drivers integration and Pause From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+      Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Integrate Drivers From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q",%DismExePath%
+      System,FileRedirect,ON
+      ShellExecute,Hide,%Gtools%\HiveUnload.exe,"/HKLM /Target:%GTarget_Sys%\config"
+    End
+  End
 End
 
 [DriversOpen]
 OpenDir,%GCustom%\%Architecture%\Drivers
 
 [ExportDrivers]
+Echo,"Export Host Third-Party (OEM) Driver Packages..."
+If,ExistDir,%GCustom%\ExportDrivers\x86,DirDeleteQ,%GCustom%\ExportDrivers\x86
+If,ExistDir,%GCustom%\ExportDrivers\x64,DirDeleteQ,%GCustom%\ExportDrivers\x64
+If,Not,ExistDir,%GCustom%\ExportDrivers\%HostOSArch%,DirMake,%GCustom%\ExportDrivers\%HostOSArch%
+If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Start #$qExport Host Third-Party (OEM) Driver Packages...#$q /W /B #$q%GTools%\ExportHostDrv.exe#$q #$q%GCustom%\ExportDrivers\%HostOSArch%#$q"
+Else,ShellExecute,%OpenHideOutput%,%GTools%\ExportHostDrv.exe,"#$q%GCustom%\ExportDrivers\%HostOSArch%#$q"
+OpenDir,%GCustom%\ExportDrivers\%HostOSArch%
+
+[Dism_ExportDrivers]
 Echo,"Export Host PC Drivers..."
 If,ExistDir,%GCustom%\ExportDrivers\x86,DirDeleteQ,%GCustom%\ExportDrivers\x86
 If,ExistDir,%GCustom%\ExportDrivers\x64,DirDeleteQ,%GCustom%\ExportDrivers\x64
 If,Not,ExistDir,%GCustom%\ExportDrivers\%HostOSArch%,DirMake,%GCustom%\ExportDrivers\%HostOSArch%
 If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
 If,ExistFile,%DismExe%,Begin
-StrFormat,PATH,%DismExe%,%DismExePath%
-System,FileRedirect,OFF
-If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Export Host PC Drivers and Pause. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
-Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Export Host PC Drivers. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q",%DismExePath%
-System,FileRedirect,ON
+  StrFormat,PATH,%DismExe%,%DismExePath%
+  System,FileRedirect,OFF
+  If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Export Host PC Drivers and Pause. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+  Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Export Host PC Drivers. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q",%DismExePath%
+  System,FileRedirect,ON
 End
 OpenDir,%GCustom%\ExportDrivers\%HostOSArch%
 
@@ -755,8 +832,8 @@ Echo,"Apply Winre.wim in Target Folder. Be patient..."
 ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Apply Winre.wim in Target Folder. Be patient...&Echo.&wimlib-imagex.exe apply #$q%GTemp%\Winre.wim#$q 1 #$q%GTarget%#$q --no-acls",%GTools%
 If,%ExitCode%,Equal,0,Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%"
 Else,Begin
-Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%",Warn
-EchoExtended,"Error: Winre.wim image files were not successfully applied in Target Folder.",Warn,,MessageError,,Halt
+  Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%",Warn
+  EchoExtended,"Error: Winre.wim image files were not successfully applied in Target Folder.",Warn,,MessageError,,Halt
 End
 
 [ExtractWimListFiles]
@@ -764,8 +841,8 @@ Echo,"Extract Winre.wim in Target Folder using CoreListFiles. Be patient..."
 ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Extract Winre.wim in Target Folder using CoreListFiles. Be patient...&Echo.&wimlib-imagex.exe extract #$q%GTemp%\Winre.wim#$q 1 @#$q%ProjectDir%\CoreListFiles.txt#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob",%GTools%
 If,%ExitCode%,Equal,0,Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%"
 Else,Begin
-Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%",Warn
-EchoExtended,"Error: Extract Winre.wim using CoreListFiles were not successfully extracted in Target Folder.",Warn,,MessageError,,Halt
+  Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%",Warn
+  EchoExtended,"Error: Extract Winre.wim using CoreListFiles were not successfully extracted in Target Folder.",Warn,,MessageError,,Halt
 End
 
 [PrepareSmallSxSFile]
@@ -804,7 +881,7 @@ If,%SetupFiles_CheckBox%,Equal,True,TxtAddline,%w%,"delete '\sources' --force --
 If,%DelSpeech_CheckBox%%Accessibility_CheckBox%,Equal,TrueFalse,TxtAddline,%w%,"delete '\Windows\Speech' --force --recursive",Append
 // Pure 64 bit, without WoW64 support): Program Files (x86) is not required
 If,%DelSysWOW64_CheckBox%,Equal,True,Begin
-If,%Architecture%%WoW64Support%,Equal,x64False,TxtAddline,%w%,"delete '\Windows\SysWOW64' --force  --recursive",Append
+  If,%Architecture%%WoW64_CheckBox%,Equal,x64False,TxtAddline,%w%,"delete '\Windows\SysWOW64' --force  --recursive",Append
 End
 If,%Architecture%,Equal,x64,TxtAddline,%w%,"delete '\Program Files (x86)' --force  --recursive",Append
 TxtAddline,%w%,"delete '\Windows\WinSxs' --force --recursive",Append
@@ -819,19 +896,21 @@ Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,diagtr
 //-
 // WMI Repository will be rebuilt, refresh at startup
 If,%DelwbemRepository_CheckBox%,Equal,True,Begin
-TxtAddline,%w%,"delete '\Windows\System32\wbem\AutoRecover' --force --recursive",Append
-TxtAddline,%w%,"delete '\Windows\System32\wbem\Logs' --force --recursive",Append
-TxtAddline,%w%,"delete '\Windows\System32\wbem\Repository' --force --recursive",Append
-TxtAddline,%w%,"delete '\Windows\System32\wbem\tmf' --force --recursive",Append
-TxtAddline,%w%,"delete '\Windows\System32\wbem\xml' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\AutoRecover' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\Logs' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\Repository' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\tmf' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\xml' --force --recursive",Append
 End
 //-
-// Edge web plateform is useless
-TxtAddline,%w%,"delete '\Windows\System32\edgehtml.dll' --force",Append
-Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,edgehtml.dll.mui
-TxtAddline,%w%,"delete '\Windows\SystemResources\edgehtml.dll.mun' --force",Append
-TxtAddline,%w%,"delete '\Windows\System32\edgeIso.dll' --force",Append
-TxtAddline,%w%,"delete '\Windows\System32\EdgeManager.dll' --force",Append
+// Edge web plateform
+If,%DelEdgeWebPlateform_CheckBox%,Equal,True,Begin
+  TxtAddline,%w%,"delete '\Windows\System32\edgehtml.dll' --force",Append
+  Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,edgehtml.dll.mui
+  TxtAddline,%w%,"delete '\Windows\SystemResources\edgehtml.dll.mun' --force",Append
+  TxtAddline,%w%,"delete '\Windows\System32\edgeIso.dll' --force",Append
+  TxtAddline,%w%,"delete '\Windows\System32\EdgeManager.dll' --force",Append
+End
 //-
 TxtAddline,%w%,"delete '\Windows\System32\config\Journal' --force --recursive",Append
 TxtAddline,%w%,"delete '\Windows\System32\config\RegBack' --force --recursive",Append
@@ -851,6 +930,7 @@ TxtAddline,%w%,"delete '#1\#9\#2' --force",Append
 [WimSmallUpdateMuiDir]
 TxtAddline,%w%,"delete '#1\ar-SA' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\bg-BG' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ca-ES' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\cs-CZ' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\da-DK' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\de-DE' --force --recursive",Append
@@ -860,12 +940,15 @@ TxtAddline,%w%,"delete '#1\en-US' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\es-ES' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\es-MX' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\et-EE' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\eu-ES' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\fi-FI' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\fr-CA' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\fr-FR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\gl-ES' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\he-IL' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\hr-HR' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\hu-HU' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\id-ID' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\it-IT' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\ja-JP' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\ko-KR' --force --recursive",Append
@@ -887,6 +970,7 @@ TxtAddline,%w%,"delete '#1\sv-SE' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\th-TH' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\tr-TR' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\uk-UA' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\vi-VN' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\zh-CN' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\zh-HK' --force --recursive",Append
 TxtAddline,%w%,"delete '#1\zh-TW' --force --recursive",Append

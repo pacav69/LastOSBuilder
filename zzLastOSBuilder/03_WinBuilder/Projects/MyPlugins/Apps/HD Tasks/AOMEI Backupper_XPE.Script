@@ -1,28 +1,29 @@
 [Main]
 Title=AOMEI Backupper
 Type=XPEPlugin
-Description=(v5.3.0.0) Aomei Backupper is a backup software provides basic and advanced features to ensure the safety of your system and data.
+Description=(v7.1.2.0) Aomei Backupper is a backup software provides basic and advanced features to ensure the safety of your system and data.
 Author=ChrisR
-Date=2019.10.10
+Date=2022.10.01
 Credits=
 Contact=
-Version=004
+Version=006
 Level=5
 Download_Level=2
 Selected=False
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.12.06
-History004=KYHI - Homepage URL Update - 2019.10.10
+History005=KYHI - URL Update - 2019.12.20
+History006=APT -  support ver 7.0 - 2022.10.01
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Backupper.jpg,1,5,145,34,300,225
 Lang_TextLabel=Language,1,1,12,131,60,18,8,Normal
 Lang_ScrollBox="English                                    |en.txt|9",1,4,10,145,121,21,"English                                    |en.txt|9","German                                     |ge.txt|7","French                                     |fr.txt|12","Japanese                                   |ja.txt|17","Chinese (Simplified)                                  |cn.txt|14","Chinese                                     |ct.txt|21"
@@ -39,11 +40,11 @@ Serial_TextBox=,1,0,10,331,429,21,
 Serial_TextLabel3=" Otherwise Leave Blank and The Standard Free Version Shall Apply To Build",1,1,14,353,414,18,8,Normal
 
 [Variables]
-%CheckVersion%=5.3.0.0
+%CheckVersion%=7.1
 %ProgramTitle%=AOMEI Backupper
 %ProgramEXE%=Backupper.exe
 %ProgramFolder%=AOMEI Backupper
-%SetupFile%=Backupper.exe
+%SetupFile%=AOMEIBackupperStd.exe
 %ProvideFiles%=%ProgCache%\AOMEI Backupper
 %TempFolder%=%Gtemp%\AOMEI Backupper
 %PackFile%=Backupper_x86.7z
@@ -53,8 +54,8 @@ Serial_TextLabel3=" Otherwise Leave Blank and The Standard Free Version Shall Ap
 %PackDrivers86%=Drivers_x86.7z
 %PackDrivers64%=Drivers_x64.7z
 %FileContainer%=%ScriptDir%\AOMEI Backupper_XPE_File.Script
-%SetupURL%=http://www2.aomeisoftware.com/download/adb/Backupper.exe
-%SetupURL2%=http://www.aomeisoftware.com/download/adb/Backupper.exe
+%SetupURL%=http://www2.aomeisoftware.com/download/adb/AOMEIBackupperStd.exe
+%SetupURL2%=http://www.aomeisoftware.com/download/adb/AOMEIBackupperStd.exe
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
@@ -75,11 +76,14 @@ Run,%ScriptFile%,Add_Registry
 Run,%ScriptFile%,Add_Shortcuts
 //--
 Retrieve,Fileversion,%Target_Prog%\%ProgramFolder%\%ProgramExe%,%ProgramVersion%
-StrFormat,Left,%ProgramVersion%,5,%ProgramVersion%
-If,%ProgramVersion%,Bigger,%CheckVersion%,EchoExtended,"You are using an UnTested Program version %ProgramVersion%#$x#$xIf it works update the #$pCheckVersion#$p variable#$xOtherwise you Must Update this Plugin",Warn,,MessageInformation,10
+StrFormat,SPLIT,%ProgramVersion%,.,1,%ProgramMajorVersion%
+StrFormat,SPLIT,%ProgramVersion%,.,2,%ProgramMinorVersion%
+If,Not,%ProgramMajorVersion%.%ProgramMinorVersion%,Equal,%CheckVersion%,EchoExtended,"You are using an Un-Tested Program Version %ProgramVersion%#$x#$xIf it works update the #$pCheckVersion#$p variable#$xOtherwise you Must Update this Plugin",Warn,,MessageInformation,10
 
 [AddFiles]
 \Windows\System32\wtsapi32.dll
+\Windows\System32\Ntsqlite.dll
+\Windows\System32\Sqlite3.dll
 
 [Add_Shortcuts]
 If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
@@ -132,8 +136,8 @@ Else,RegWrite,HKLM,0x3,Tmp_Software\Microsoft\Windows\CurrentVersion,ProgramData
 RegHiveUnLoad,Tmp_Software
 //-
 RegHiveLoad,Tmp_System,%RegSystem%
-System,ERROROFF
-RegMulti,HKLM,Tmp_System\ControlSet001\Control\Class\{71A27CDD-812A-11D0-BEC7-08002BE2092F},UpperFilters,Append,ambakdrv
+If,Not,ExistRegKey,HKLM,Tmp_System\ControlSet001\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f},UpperFilters,RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f},UpperFilters,ambakdrv
+Else,RegMulti,HKLM,Tmp_System\ControlSet001\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f},UpperFilters,Append,ambakdrv
 RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control,SystemStartOptions,winpe.wim
 RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\ambakdrv,DisplayName,ambakdrv
 RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\ambakdrv,ErrorControl,0
@@ -184,7 +188,9 @@ Run,%ScriptFile%,ExtractSetupFile
 Run,%ScriptFile%,OrganiseSetupFile
 Run,%ScriptFile%,PackFiles
 Run,%ScriptFile%,EncodePackFiles
-Exec,%FileContainer%,Process,%SetupFileVer%
+IniWrite,%ScriptFile%,Main,Description,"(v%SetupFileVer%) Aomei Backupper is a backup software provides basic and advanced features to ensure the safety of your system and data."
+IniWrite,%FileContainer%,Main,Description,"%ProgramTitle% Version %SetupFileVer% File Container"
+IniWrite,%FileContainer%,Main,Level,0
 If,ExistDir,%ProvideFiles%,DirDeleteQ,%ProvideFiles%
 
 [Download]
@@ -295,6 +301,8 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\lang\zh-TW.txt
 {app}\2Gpt_BCD
 {app}\2Mbr_BCD
+{app}\amnet.dll
+{app}\ammcauth.dll
 {app}\awsSns.dll
 {app}\Backup.dll
 {app}\Backupper.exe
@@ -310,17 +318,22 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\DiskMgr.dll
 {app}\Encrypt.dll
 {app}\EnumFolder.dll
+{app}\EraseDisk.exe
+{app}\ExFatStd.dll
+{app}\FileDialog.dll
 {app}\FlBackup.dll
 {app}\FuncLogic.dll
 {app}\GptBcd.dll
 {app}\ImgFile.dll
 {app}\Ldm.dll
 {app}\libamcbconsole.dll
+{app}\libamcbdb.dll
 {app}\libamct.dll
 {app}\libcrypto-1_1.dll
 {app}\libcurl.dll
 {app}\libeay32.dll
 {app}\libssl-1_1.dll
+{app}\log4cplusU.dll
 {app}\mfc80.dll
 {app}\mfc80,1.dll
 {app}\mfc80u.dll
@@ -342,6 +355,9 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\msvcr80.dll
 {app}\msvcr80,1.dll
 {app}\msvcr90.dll
+{app}\NTHelp.dll
+{app}\phonon4.dll
+{app}\NTLog.dll
 {app}\QtCore4.dll
 {app}\QtCore4,1.dll
 {app}\QtGui4.dll
@@ -350,11 +366,14 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\QtWebKit4.dll
 {app}\QtXml4.dll
 {app}\QtXml4,1.dll
+{app}\sqlite3.dll
 {app}\ssleay32.dll
 {app}\Sync.dll
 {app}\UiLogic.dll
 {app}\UsbDetect.dll
 {app}\vcomp,1.dll
+{app}\Winpe64\ammcauth.dll
+{app}\Winpe64\amnet.dll
 {app}\Winpe64\awsSns.dll
 {app}\Winpe64\Backup.dll
 {app}\Winpe64\Backupper.exe
@@ -370,17 +389,22 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\Winpe64\DiskMgr.dll
 {app}\Winpe64\Encrypt.dll
 {app}\Winpe64\EnumFolder.dll
+{app}\Winpe64\EraseDisk.exe
+{app}\Winpe64\ExFatStd.dll
+{app}\Winpe64\FileDialog.dll
 {app}\Winpe64\FlBackup.dll
 {app}\Winpe64\FuncLogic.dll
 {app}\Winpe64\GptBcd.dll
 {app}\Winpe64\ImgFile.dll
 {app}\Winpe64\Ldm.dll
+{app}\Winpe64\libamcbdb.dll
 {app}\Winpe64\libamcbconsole.dll
 {app}\Winpe64\libamct.dll
 {app}\Winpe64\libcrypto-1_1-x64.dll
 {app}\Winpe64\libcurl.dll
 {app}\Winpe64\libeay32.dll
 {app}\Winpe64\libssl-1_1-x64.dll
+{app}\Winpe64\log4cplusU.dll
 {app}\Winpe64\mfc80.dll
 {app}\Winpe64\mfc80,1.dll
 {app}\Winpe64\mfc80u.dll
@@ -405,6 +429,7 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\Winpe64\msvcp90.dll
 {app}\Winpe64\msvcr80.dll
 {app}\Winpe64\msvcr90.dll
+{app}\Winpe64\NTHelp.dll
 {app}\Winpe64\phonon4.dll
 {app}\Winpe64\QtCore4.dll
 {app}\Winpe64\QtCore4,1.dll
@@ -415,6 +440,7 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\Winpe64\QtXml4.dll
 {app}\Winpe64\QtXml4,1.dll
 {app}\Winpe64\ssleay32.dll
+{app}\Winpe64\sqlite3.dll
 {app}\Winpe64\Sync.dll
 {app}\Winpe64\UiLogic.dll
 {app}\Winpe64\UsbDetect.dll

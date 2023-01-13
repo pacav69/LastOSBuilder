@@ -37,7 +37,7 @@ If,Not,%Shell%,Equal,WinXShell,Begin
   ExtractWimFile,\Program Files\Common Files\microsoft shared\ink\%Language%\tipresx.dll.mui
 End
 //-
-If,%SourceBuild%,Bigger,17000,ExtractWimFile,\Windows\System32\coloradapterclient.dll
+If,%SourceBuild%,Bigger,17000,If,%SourceBuild%,Smaller,22000,ExtractWimFile,\Windows\System32\coloradapterclient.dll
 
 [Enable_Shorcuts]
 TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessibility\OSK","LINK #$pPrograms#$p\Accessibility\OSK"

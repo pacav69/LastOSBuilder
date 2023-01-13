@@ -3,24 +3,25 @@ Title=XPE Microsoft Edge x64 Plugin Creator
 Type=XPEPlugin
 Description=This Utility Will Create A (X64 Only) XPE Plugin From The Actual Edge Setup File
 Author=KYHI
-Date=2019.10.01
+Date=2020.10.27
 Credits=TheOven.org Forum
 Contact=
-Version=004
+Version=006
 Level=10
 Download_Level=0
 Selected=None
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Packed Plugin Created 2019.04.09
-History004=KYHI - IniWriteTextLine Registry errors fixed - 2019.10.01
+History006=KYHI - Use MSEDGE.7z or MicrosoftEdge.exe Installer - 2020.10.05
 
 [Interface]
-Button_Launch_Program="Create Plugin",1,8,15,92,119,25,Launch_Creator,0,False,_Launch_Program_,False,"__Click Here To Create Plugin"
-Setup_FileBox=,1,13,15,50,475,20,file
-pTextLabel1="Browse To And Select The MicrosoftEdge_X64_version.exe from the EdgeUpdate/Download Folder",1,1,15,25,475,18,8,Normal
 HomePage_WebLabel="Home Page",1,10,15,2,55,18,https://www.microsoftedgeinsider.com/en-us/download/?platform=win10
-Author_TextBox=Author:,1,0,152,95,137,21,
+pTextLabel1="Browse To And Select: \Program Files (x86)\Microsoft\Edge\Application\***\Installer\msedge.7z",1,1,15,25,525,18,8,Normal
+pTextLabel2="OR: \Program Files (x86)\Microsoft\EdgeUpdate\Download\{guid}\***\MicrosoftEdge_x64_***.exe",1,1,15,45,525,18,8,Normal
+Setup_FileBox=,1,13,15,65,525,20,file
+Button_Launch_Program="Create Plugin",1,8,15,103,119,25,Launch_Creator,0,False,_Launch_Program_,False,"__Click Here To Create Plugin"
+Author_TextBox=Author:,1,0,152,105,137,21,
 
 [Variables]
 %MyMainTitle%=Microsoft Edge
@@ -36,14 +37,22 @@ Echo,"There Is Nothing to Process - Use Create Button..."
 
 [Launch_Creator]
 StrFormat,DATE,%MyDate%,yyyy.mm.dd
-Retrieve,Fileversion,%Setup_FileBox%,%ProgramVer%
-//
 Echo,"Extracting Setup File - Please Wait..."
 If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
 DirMake,%GTemp%\%ProgramFolder%
-ShellExecute,Hide,%GTools%\7z.exe,"x #$q%Setup_FileBox%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
-ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\MSEDGE.7z#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
-ShellExecute,Hide,cmd.exe,"/D /C ren #$q%GTemp%\%ProgramFolder%\Chrome-bin#$q #$q%ProgramFolder%#$q"
+StrFormat,Right,%Setup_FileBox%,2,%FileType%
+If,%FileType%,Equal,xe,Begin
+  Retrieve,Fileversion,%Setup_FileBox%,%ProgramVer%
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%Setup_FileBox%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\MSEDGE.7z#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+  ShellExecute,Hide,cmd.exe,"/D /C ren #$q%GTemp%\%ProgramFolder%\Chrome-bin#$q #$q%ProgramFolder%#$q"
+  Filecopy,%GTemp%\%ProgramFolder%\%ProgramFolder%\%ProgramVer%\msedge.exe,%GTemp%\%ProgramFolder%\%ProgramFolder%
+End
+If,%FileType%,Equal,7z,Begin
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%Setup_FileBox%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+  ShellExecute,Hide,cmd.exe,"/D /C ren #$q%GTemp%\%ProgramFolder%\Chrome-bin#$q #$q%ProgramFolder%#$q"
+  Retrieve,Fileversion,%GTemp%\%ProgramFolder%\%ProgramFolder%\msedge.exe,%ProgramVer%
+End
 If,Existfile,%GTemp%\%ProgramFolder%\%ProgramFolder%\msedge_proxy.exe,FileDeleteQ,%GTemp%\%ProgramFolder%\%ProgramFolder%\msedge_proxy.exe
 If,ExistDir,%GTemp%\%ProgramFolder%\%ProgramFolder%\Installer,DirDeleteQ,%GTemp%\%ProgramFolder%\%ProgramFolder%\Installer
 Echo,"Compressing Program Files - Please Wait..."
@@ -274,6 +283,7 @@ IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Wind
 IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice,Progid,MSEdgeURL"
 IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice,Progid,MSEdgeURL"
 IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\RegisteredApplications,#$qMicrosoft Edge#$q,#$qSoftware\Clients\StartMenuInternet\Microsoft Edge\Capabilities#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Policies\Microsoft\Edge,AudioSandboxEnabled,0"
 IniWriteTextLine,%w%,Add_Registry,"RegHiveLoad,Tmp_Software,#$pRegSoftware#$p"
 IniWriteTextLine,%w%,Add_Registry,"Echo,#$qWriting #$pScriptTitle#$p Registry Settings...#$q"
 //--
@@ -301,6 +311,7 @@ IniWriteTextLine,%w%,UserData_Import,"OpenDir,#$pGCustom#$p\MS Edge"
 IniWriteTextLine,%w%,UserData_Import,"If,Not,ExistDir,#$q#$pGCustom#$p\MS Edge#$q,DirMake,#$q#$pGCustom#$p\MS Edge#$q"
 //--
 IniWriteTextLine,%w%,Launch_Program,""
+IniWriteTextLine,%w%,Launch_Program,"//Start,,#$pProgramExe#$p,,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
 IniWriteTextLine,%w%,Launch_Program,"OpenDir,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
 IniWriteTextLine,%w%,Launch_Program,"Run,#$pScriptFile#$p,Extract"
 //--

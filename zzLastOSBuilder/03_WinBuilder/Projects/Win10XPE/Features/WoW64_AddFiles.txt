@@ -1,16 +1,20 @@
 ; Not required with build 16299 \Windows\System32\SetWoW64.exe(loadWoW64.exe)
 \Windows\System32\wow64.dll
+\Windows\System32\wow64base.dll
+\Windows\System32\wow64con.dll
 \Windows\System32\wow64cpu.dll
 \Windows\System32\wow64win.dll
 \Windows\System32\wowreg32.exe
+\Windows\System32\ntdll.dll
 ;
 ; In Winre.wim \Windows\SysWOW64\downlevel
-; SysWOW64 Files and mui
+; SysWOW64 Files (mui & mun files done withCheckSysFiles)
 ; If,ExistFile,%target_sys%\imageres.dll,FileCopy,%target_sys%\imageres.dll,%target_win%\SysWOW64\
 \Windows\SysWOW64\C_*.NLS
 \Windows\SysWOW64\KBD*.dll
 \Windows\SysWOW64\aclui.dll
 \Windows\SysWOW64\actxprxy.dll
+\Windows\SysWOW64\activeds.dll
 \Windows\SysWOW64\adsldp.dll
 \Windows\SysWOW64\adsldpc.dll
 \Windows\SysWOW64\advapi32.dll
@@ -76,6 +80,7 @@
 \Windows\SysWOW64\dxgi.dll
 \Windows\SysWOW64\edputil.dll
 \Windows\SysWOW64\ExplorerFrame.dll
+\Windows\SysWOW64\findstr.exe
 \Windows\SysWOW64\FirewallAPI.dll
 \Windows\SysWOW64\fltlib.dll
 \Windows\SysWOW64\fwbase.dll
@@ -141,6 +146,7 @@
 \Windows\SysWOW64\ntmarta.dll
 \Windows\SysWOW64\ntshrui.dll
 \Windows\SysWOW64\odbc32.dll
+\Windows\System32\offreg.dll
 \Windows\SysWOW64\ole32.dll
 \Windows\SysWOW64\oleacc.dll
 \Windows\SysWOW64\oleaccrc.dll
@@ -215,6 +221,7 @@
 \Windows\SysWOW64\win32u.dll
 \Windows\SysWOW64\winbrand.dll
 \Windows\SysWOW64\WindowsCodecs.dll
+\Windows\SysWOW64\Windows.FileExplorer.Common.dll
 \Windows\SysWOW64\Windows.Globalization.dll
 \Windows\SysWOW64\windows.storage.dll
 \Windows\SysWOW64\wininet.dll
@@ -255,6 +262,12 @@
 ; WB Dependencies addition
 \Windows\SysWOW64\ieframe.dll
 \Windows\SysWOW64\mshtml.dll
+\Windows\SysWOW64\advpack.dll
+\Windows\SysWOW64\DiagnosticDataSettings.dll
+\Windows\SysWOW64\IEAdvpack.dll
+\windows\SysWOW64\srpapi.dll
+\Windows\SysWOW64\vaultcli.dll
+\windows\SysWOW64\WerFault.exe
 
 ; WinSXS - ExtractWimFile,\Windows\WinSxS\x86_microsoft.windows.c..-controls.resources_*_%Language%_* . wimlib-imagex.exe (v1.13 and older) Extract Path with Wildward Does Not Work on Windows 7 32/64 bits but Works on Windows 10
 \Windows\WinSxS\x86_microsoft.windows.c..-controls.resources_*_xx-xx_*

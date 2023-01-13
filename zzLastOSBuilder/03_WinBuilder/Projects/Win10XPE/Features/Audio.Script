@@ -3,8 +3,8 @@ Title=Audio
 Type=XPEPlugin
 Description=Audio
 Author=ChriSR
-Date=2019.04.01
-Version=001
+Date=2020.05.13
+Version=002
 Selected=None
 Mandatory=None
 NoWarning=False
@@ -70,6 +70,8 @@ RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Beep
 If,%SourceBuild%%EnableMMDevicesStereo%,Equal,17763True,Begin
   If,ExistFile,%ScriptDir%\MMDevices_Stereo.txt,RegImportFile,%ScriptDir%\MMDevices_Stereo.txt
 End
+//- Microphone
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\camsvc
 
 [Reg_AudioDrivers]
 RegImportFile,%ScriptDir%\Audio_RegDrivers.txt

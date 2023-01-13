@@ -1,19 +1,20 @@
 [Main]
 Title=HWinfo
 Type=XPEPlugin
-Description=(v6.20) HWinfo Comprehensive Hardware Analysis, Monitoring and Reporting
+Description=(v7.34) HWinfo Comprehensive Hardware Analysis, Monitoring and Reporting
 Author=ChrisR
-Date=2019.11.05
+Date=2021.10.27
 Credits=
 Contact=
-Version=009
+Version=011
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.07.12
-History009=KYHI - Added Additional URL - 2019.11.05
+History010=KYHI - Additional INI Support Update - 2020.06.15
+History011=ChrisR - HWiNFO64(32).INI no longer included in HWinfo.zip
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
@@ -22,12 +23,13 @@ StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=HWinfo.jpg,1,5,145,34,250,225
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.hwinfo.com/Download
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,6.20,"__Program Version To Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,7.34,"__Program Version To Download and Update Plugin"
+History_WebLabel="Version History",1,10,450,50,72,18,https://www.hwinfo.com/version-history
 
 [Variables]
 %ProgramTitle%=HWinfo
@@ -51,7 +53,7 @@ If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
 Run,%ScriptFile%,Extract
 //--
 If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
-If,Not,ExistDir,%Target_Prog%\%ProgramFolder%,DirMake,%Target_Prog%\%ProgramFolder%
+DirMake,%Target_Prog%\%ProgramFolder%
 FileCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%\%ProgramINI%,%Target_Prog%\%ProgramFolder%
 FileCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%\%ProgramExe%,%Target_Prog%\%ProgramFolder%
 //--
@@ -72,6 +74,7 @@ If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
 DirMake,%GTemp%\%ProgramFolder%
 ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
 ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+ExtractFile,%FileContainer%,Folder,%ProgramINI%,%GTemp%\%ProgramFolder%\%ProgramFolder%
 
 [PluginSetx64]
 Set,%ProgramExe%,%ProgramExex64%
@@ -97,7 +100,7 @@ IniWrite,%FileContainer%,Main,Description," %ProgramTitle% Version %ProgramVer_T
 IniWrite,%FileContainer%,Main,Selected,None
 IniWrite,%FileContainer%,Main,Level,0
 IniWrite,%ScriptFile%,Main,Description,"(v%ProgramVer_TextBox%) %ProgramTitle% Comprehensive Hardware Analysis, Monitoring and Reporting"
-//DirDeleteQ,%ProvideFiles%
+DirDeleteQ,%ProvideFiles%
 System,RefreshInterface
 
 [AuthorEncoded]

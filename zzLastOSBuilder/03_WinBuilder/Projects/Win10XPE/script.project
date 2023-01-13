@@ -1,7 +1,7 @@
 [Main]
 Title=Win10XPE
 Type=XPEPlugin
-Description=Build Win10XPE by using an Original Windows 10 ISO x86 or x64...#$xThe build is based on the Winre.wim recovery environment.
+Description=Build Win10XPE by using an Original Windows 10, Windows 11 ISO x86 or x64...#$xThe build is based on the Winre.wim recovery environment.
 Author=ChrisR
 Date=2019.09.14
 Version=002
@@ -14,43 +14,42 @@ Download_Level=0
 Credits=
 Contact=
 AttachDir=
-SourceDir=F:\Source\Win10_1809Oct,D:\Source\Win10_1809Oct,O:\Source\Win10_1809Oct,O:\LTT_Win10\Source\Win10_1809Oct_English_x64(RS5_ORIG)
 
 [Variables]
 %ProjectName%=Win10XPE
-%GSource%=M:\zLast20_Builder\00_Source\01Windows_Original
+%GSource%=
 %GTools%=%BaseDir%\Projects\Tools
-%GTarget%=M:\zLast20_Builder\03_WinBuilder\Target
+%GTarget%=
 %GTemp%=%BaseDir%\Temp
-%GISO%=M:\zLast20_Builder\03_WinBuilder\ISO
+%GISO%=
 %GTarget_Win%=%GTarget%\Windows
 %GTarget_Sys%=%GTarget%\Windows\System32
 %GCustom%=%BaseDir%\Custom
 %ProgCache%=%BaseDir%\ProgCache
-%XPECache%=M:\zLast20_Builder\03_WinBuilder\ProgCache\10.0.17763.1_EnterpriseS_x64_en-US
-%Target_Prog%=M:\zLast20_Builder\03_WinBuilder\Target\Program Files
-%PE_Programs%=X:\Program Files
+%XPECache%=
+%Target_Prog%=
+%PE_Programs%=
 //-
-%Shell%=Explorer
-%WoW64Support%=True
-%FullSoftware%=True
+%Shell%=
+%WoW64Support%=False
+%FullSoftware%=
 %RegSystem%=%GTarget_Sys%\config\System
 %RegSoftware%=%GTarget_Sys%\config\Software
 %RegDefault%=%GTarget_Sys%\config\Default
 %RegComponents%=%GTarget_Sys%\config\Components
 %RegDrivers%=%GTarget_Sys%\config\Drivers
 //-
-%OS%=Win10
-%Image%=1
-%DisplayName%=Windows 10 Enterprise LTSC
-%EditionID%=EnterpriseS
-%SourceVersion%=10.0.17763.1
-%SourceBuild%=17763
-%Architecture%=x64
-%Language%=en-US
-%FallBackLanguage%=en-US
+%OS%=
+%Image%=
+%DisplayName%=
+%EditionID%=
+%SourceVersion%=
+%SourceBuild%=
+%Architecture%=
+%Language%=
+%FallBackLanguage%=
 //-
-%HostOSArch%=x64
+%HostOSArch%=x86
 %OpenHideOutput%=Open
 //-
 %API%=%ProjectDir%\Macro.script
@@ -65,25 +64,25 @@ SourceDir=F:\Source\Win10_1809Oct,D:\Source\Win10_1809Oct,O:\Source\Win10_1809Oc
 %TargetProgramData%=%GTarget%\ProgramData
 
 [Features]
-TargetArch=False
-AllInRam=True
-AllCatalogs=False
-SetupFiles=False
-VCRuntime=True
-DisplayDrivers=True
-WoW64basic=True
-Msi=False
-ImDisk=True
-Network=True
-NetDrivers=True
-PENetwork=True
-Audio=True
-SoundEvents=False
-Accessibility=False
-WinApps=True
-Admin=False
-IE11=False
-DotNET=False
+TargetArch=
+AllInRam=
+AllCatalogs=
+SetupFiles=
+VCRuntime=
+DisplayDrivers=
+WoW64basic=
+Msi=
+ImDisk=
+Network=
+NetDrivers=
+PENetwork=
+Audio=
+SoundEvents=
+Accessibility=
+WinApps=
+Admin=
+IE11=
+DotNET=
 
 [InterfaceDefaultValue]
 Image_ValuePos2=,1,4,16,158,264,21,
@@ -91,33 +90,33 @@ Image_ValuePos4=,_Select_Image_Value_,False
 
 [Interface]
 Reset_Button=Reset,1,8,513,10,38,18,ResetValue,0,False,"__Reset Global Variables and Interfaces Values"
-TechBench_TextLabel="Download Windows 10 Original ISO (Final) From ",1,1,10,10,280,18,8,Bold
-TechBench_WebLabel="TechBench by WZT - RG Adguard",1,10,291,10,160,18,https://tb.rg-adguard.net/public.php
-Mount_TextLabel="Mount Windows 10 ISO or Extract the ISO in a Folder",1,1,10,37,345,18,8,Bold
-SelectISO_Button=" Select the Windows 10 Source Folder",1,8,10,65,220,50,SelectISO,opendir.bmp,False,"__Select the Root of the Mounted or Extracted Windows 10 Source Folder"
+TechBench_TextLabel="Download Windows 10, 11 Original ISO (Final) From ",1,1,10,10,300,18,8,Bold
+TechBench_WebLabel="TechBench by WZT - RG Adguard",1,10,311,10,160,18,https://tb.rg-adguard.net/public.php
+Mount_TextLabel="Mount Windows 10, 11 ISO or Extract the ISO in a Folder",1,1,10,37,345,18,8,Bold
+SelectISO_Button=" Select the Windows 10, 11 Source Folder",1,8,10,65,240,50,SelectISO,opendir.bmp,False,"__Select the Root of the Mounted or Extracted Windows 10 Source Folder"
 SourceTab_TextLabel="* No Need To Use The Source Tab, Source Directory",1,1,10,116,276,18,8,Normal
-Source_Value=M:\zLast20_Builder\00_Source\01Windows_Original,1,1,236,83,315,18,10,Bold
-Image_TextLabel="Choose Image",1,1,16,137,80,18,8,Normal
-Image_Bevel=Image_Bevel,1,12,10,151,276,144
-Image_Value="1 - Windows 10 Enterprise LTSC",1,4,16,158,264,21,"1 - Windows 10 Enterprise LTSC","2 - Windows 10 Enterprise N LTSC",_Select_Image_Value_,False
-EditionID_TextLabel=EditionID,1,1,16,185,99,18,8,Normal
-Version_TextLabel=Version,1,1,16,203,99,18,8,Normal
-Build_TextLabel=Build,1,1,16,221,99,18,8,Normal
-Architecture_TextLabel=Architecture,1,1,16,239,99,18,8,Normal
-Language_TextLabel=Language,1,1,16,257,99,18,8,Normal
-FBLanguage_TextLabel="FallBack Language",1,1,16,275,99,18,8,Normal
-EditionID_Value=EnterpriseS,1,1,116,183,164,18,8,Bold
-Version_Value=10.0.17763.1,1,1,116,203,164,18,8,Bold
-Build_Value=17763,1,1,116,221,164,18,8,Bold
-Architecture_Value=x64,1,1,116,239,164,18,8,Bold
-Language_Value=en-US,1,1,116,257,164,18,8,Bold
-FBLanguage_Value=,1,1,116,275,164,18,8,Bold
-Play_TextLabel="Start Building By Using The Big Blue Arrow 'Play' Button On Top",1,1,10,305,375,18,8,Bold
-Donate_Bevel=Donate_Bevel,1,12,421,223,128,95
-Donate_TextLabel="Support Win10XPE Dev",1,1,427,228,120,18,8,Normal
-Image_Donate=btn_donate.gif,1,5,443,247,86,25,https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9WZ5EDAMPH6SE
-Homepage_WebLabel="Win10XPE Home Page",1,10,432,278,105,18,http://theoven.org/index.php?topic=2421.0
-SupportLog_CheckBox="Enable Support Log",1,3,427,297,120,18,False,"__Enable extended Win10XPE Support Log: SupportLog_Win10XPE_YYMMDDHHMM00.7z"
+Source_Value=,1,1,256,83,295,18,10,Bold
+Image_TextLabel="Choose Image",0,1,16,137,80,18,8,Normal
+Image_Bevel=Image_Bevel,0,12,10,151,276,144
+Image_Value=,0,4,16,158,264,21,,_Select_Image_Value_,False
+EditionID_TextLabel=EditionID,0,1,16,185,99,18,8,Normal
+Version_TextLabel=Version,0,1,16,203,99,18,8,Normal
+Build_TextLabel=Build,0,1,16,221,99,18,8,Normal
+Architecture_TextLabel=Architecture,0,1,16,239,99,18,8,Normal
+Language_TextLabel=Language,0,1,16,257,99,18,8,Normal
+FBLanguage_TextLabel="FallBack Language",0,1,16,275,99,18,8,Normal
+EditionID_Value=,0,1,116,183,164,18,8,Bold
+Version_Value=,0,1,116,203,164,18,8,Bold
+Build_Value=,0,1,116,221,164,18,8,Bold
+Architecture_Value=,0,1,116,239,164,18,8,Bold
+Language_Value=,0,1,116,257,164,18,8,Bold
+FBLanguage_Value=,0,1,116,275,164,18,8,Bold
+Play_TextLabel="Start Building By Using The Big Blue Arrow 'Play' Button On Top",0,1,10,305,375,18,8,Bold
+Donate_Bevel=Donate_Bevel,1,12,421,151,128,95
+Donate_TextLabel="Support Win10XPE Dev",1,1,427,156,120,18,8,Normal
+Image_Donate=btn_donate.gif,1,5,443,175,86,25,https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9WZ5EDAMPH6SE
+Homepage_WebLabel="Win10XPE Home Page",1,10,432,206,105,18,http://theoven.org/index.php?topic=2421.0
+SupportLog_CheckBox="Enable Support Log",1,3,427,225,120,18,False,"__Enable extended Win10XPE Support Log: SupportLog_Win10XPE_YYMMDDHHMM00.7z"
 
 [ResetValue]
 Run,%ScriptFile%,ResetGlobalVar
@@ -353,11 +352,11 @@ Visible,%Architecture_Value%,#1,Permanent
 Visible,%Language_Value%,#1,Permanent
 Visible,%FBLanguage_Value%,#1,Permanent
 Visible,%Play_TextLabel%,#1,Permanent
-Visible,%Donate_Bevel%,#1,Permanent
-Visible,%Donate_TextLabel%,#1,Permanent
-Visible,%Image_Donate%,#1,Permanent
-Visible,%Homepage_WebLabel%,#1,Permanent
-Visible,%SupportLog_CheckBox%,#1,Permanent
+//Visible,%Donate_Bevel%,#1,Permanent
+//Visible,%Donate_TextLabel%,#1,Permanent
+//Visible,%Image_Donate%,#1,Permanent
+//Visible,%Homepage_WebLabel%,#1,Permanent
+//Visible,%SupportLog_CheckBox%,#1,Permanent
 
 [process]
 If,ExistFile,%API%,AddVariables,%API%,ApiVar,GLOBAL

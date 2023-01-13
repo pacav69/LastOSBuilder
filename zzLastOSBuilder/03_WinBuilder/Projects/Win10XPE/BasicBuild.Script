@@ -4,7 +4,7 @@ Type=XPEPlugin
 Description=Create a Basic Build Without All Apps Then Create boot.wim and ISO Before Halt
 Author=ChriSR
 Date=2019.04.04
-Version=001
+Version=002
 Selected=False
 Mandatory=False
 NoWarning=False
@@ -16,42 +16,54 @@ Contact=
 [Interface]
 AddPlugin1_CheckBox=,1,3,6,20,18,18,False,"__Check the box to enable this feature during building"
 AddPlugin1_TextLabel="Run this Plugin 1",1,1,25,21,106,18,8,Normal
-AddPlugin1_FileBox="%BaseDir%\Projects\MyPlugins\Apps\System Tools\RegShot2_XPE.Script",1,13,146,18,420,20,file
+AddPlugin1_FileBox=,1,13,146,18,420,20,file
 AddPlugin2_CheckBox=,1,3,6,44,18,18,False,"__Check the box to enable this feature during building"
 AddPlugin2_TextLabel="Run this Plugin 2",1,1,25,45,106,18,8,Normal
 AddPlugin2_FileBox=,1,13,146,42,420,20,file
 AddPlugin3_CheckBox=,1,3,6,68,18,18,False,"__Check the box to enable this feature during building"
 AddPlugin3_TextLabel="Run this Plugin 3",1,1,25,69,106,18,8,Normal
 AddPlugin3_FileBox=,1,13,146,66,420,20,file
-AddProcmon_CheckBox="Add Process Monitor",1,3,6,92,170,18,True,"__Add Process Monitor (Procmon) an advanced monitoring tool"
-AddAdditions_CheckBox="Add Additions",1,3,6,116,170,18,False,"__Add Files and Folders, Configure the Registry"
-CreateISO_CheckBox="Create boot.wim and ISO",1,3,6,140,170,18,True,"__Create boot.wim and ISO"
-Halt_TextLabel="Halt for a Build without Apps",1,1,6,168,184,18,8,Bold
+Add7Zip_CheckBox="Add 7-Zip",1,3,6,92,170,18,False,"__Add 7-Zip For Compressed Packages"
+AddProcmon_CheckBox="Add Process Monitor",1,3,6,116,170,18,True,"__Add Process Monitor (Procmon) an advanced monitoring tool"
+AddRegshot_CheckBox="Add RegShot2",1,3,6,140,170,18,True,"__Add RegShot2 To Capture Registry Changes"
+AddAdditions_CheckBox="Add Additions",1,3,6,164,170,18,False,"__Add Files and Folders, Configure the Registry"
+CreateISO_CheckBox="Create boot.wim and ISO",1,3,6,188,170,18,True,"__Create boot.wim and ISO"
+Halt_TextLabel="Halts for a Build without Additional Apps",1,1,6,216,236,18,8,Bold
 
 [process]
 If,%AddPlugin1_CheckBox%,Equal,True,Begin
-If,ExistFile,%AddPlugin1_FileBox%,Exec,%AddPlugin1_FileBox%,Process
-Else,EchoExtended,"Plugin: %AddPlugin2_FileBox% Not Found",Warn,,MessageError,10
+  If,ExistFile,%AddPlugin1_FileBox%,Exec,%AddPlugin1_FileBox%,Process
+  Else,EchoExtended,"Plugin: %AddPlugin1_FileBox% Not Found",Warn,,MessageError,10
 End
 //-
 If,%AddPlugin2_CheckBox%,Equal,True,Begin
-If,ExistFile,%AddPlugin2_FileBox%,Exec,%AddPlugin2_FileBox%,Process
-Else,EchoExtended,"Plugin: %AddPlugin2_FileBox% Not Found",Warn,,MessageError,10
+  If,ExistFile,%AddPlugin2_FileBox%,Exec,%AddPlugin2_FileBox%,Process
+  Else,EchoExtended,"Plugin: %AddPlugin2_FileBox% Not Found",Warn,,MessageError,10
 End
 //-
 If,%AddPlugin3_CheckBox%,Equal,True,Begin
-If,ExistFile,%AddPlugin3_FileBox%,Exec,%AddPlugin3_FileBox%,Process
-Else,EchoExtended,"Plugin: %AddPlugin3_FileBox% Not Found",Warn,,MessageError,10
+  If,ExistFile,%AddPlugin3_FileBox%,Exec,%AddPlugin3_FileBox%,Process
+  Else,EchoExtended,"Plugin: %AddPlugin3_FileBox% Not Found",Warn,,MessageError,10
+End
+//-
+If,%Add7Zip_CheckBox%,Equal,True,Begin
+  If,ExistFile,"%BaseDir%\Projects\MyPlugins\Apps\File Tasks\7-Zip_XPE.Script",Exec,"%BaseDir%\Projects\MyPlugins\Apps\File Tasks\7-Zip_XPE.Script",Process
+  Else,EchoExtended,"Plugin: 7-Zip_XPE.Script Not Found",Warn,,MessageError,10
 End
 //-
 If,%AddProcmon_CheckBox%,Equal,True,Begin
-If,ExistFile,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Exec,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Process
-Else,EchoExtended,"Plugin: ProcessMonitor_XPE.Script Not Found",Warn,,MessageError,10
+  If,ExistFile,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Exec,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Process
+  Else,EchoExtended,"Plugin: ProcessMonitor_XPE.Script Not Found",Warn,,MessageError,10
+End
+//-
+If,%AddRegshot_CheckBox%,Equal,True,Begin
+  If,ExistFile,"%BaseDir%\Projects\MyPlugins\Apps\Registry\RegShot2_XPE.Script",Exec,"%BaseDir%\Projects\MyPlugins\Apps\Registry\RegShot2_XPE.Script",Process
+  Else,EchoExtended,"Plugin: RegShot2_XPE.Script Not Found",Warn,,MessageError,10
 End
 //-
 If,%AddAdditions_CheckBox%,Equal,True,Begin
-If,ExistFile,%ProjectDir%\Additions.script,Exec,%ProjectDir%\Additions.script,Process
-Else,EchoExtended,"Plugin: Additions.Script Not Found",Warn,,MessageError,10
+  If,ExistFile,%ProjectDir%\Additions.script,Exec,%ProjectDir%\Additions.script,Process
+  Else,EchoExtended,"Plugin: Additions.Script Not Found",Warn,,MessageError,10
 End
 //-
 If,%CreateISO_CheckBox%,Equal,True,Exec,%ProjectDir%\CreateISO.script,Process

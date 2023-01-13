@@ -16,7 +16,7 @@ History001=ChrisR - Initial version
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin to TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin to StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
@@ -26,7 +26,7 @@ FDMStartMin_CheckBox="Start minimized",1,3,10,137,101,18,True
 FDMCloseMin_CheckBox="Close as minimize",1,3,10,156,112,18,True
 FDMLng_TextLabel=Language:,1,1,12,176,106,18,8,Normal
 FDMLng_ScrollBox=English,1,4,10,190,123,21,Czech,English,German,Hungarian,French,Italian,Portuguese
-Depend_CheckBox="Add Only If IE11 Enabled And Switch to Admin Disabled",1,3,145,10,300,18,False
+Depend_CheckBox="Add Only If IE11 Enabled And Switch to Admin Disabled",1,3,145,10,300,18,True
 Image_Software=fdm.jpg,1,5,145,34,260,178
 HomePage_WebLabel="Home Page",1,10,446,10,54,18,https://www.freedownloadmanager.org/
 Use1_TextLabel="To Use With IE 11 to Bypass the Security Restrictions With the System Account",1,1,6,230,540,18,8,Bold
@@ -43,16 +43,16 @@ Echo,"Processing %ScriptTitle%..."
 If,Not,ExistFile,%FileContainer%,Exit,"%FileContainer% Container File Not Found"
 If,%Architecture%%WoW64Support%,Equal,x64False,EchoExtended,"You Need To Enable WoW64 Basic To Run %ProgramTitle% In A 64-Bit Build",,,Message,2,Exit
 If,%Depend_CheckBox%,Equal,True,Begin
-Iniread,%ProjectDir%\Script.Project,Features,IE11,%IE11%
-Iniread,%ProjectDir%\Script.Project,Features,Admin,%Admin%
-If,Not,%IE11%%Admin%,Equal,TrueFalse,Exit,"%ScriptTitle% is Not Added According to Add Only If IE11 Enabled And Switch to Admin Disabled"
+  Iniread,%ProjectDir%\Script.Project,Features,IE11,%IE11%
+  Iniread,%ProjectDir%\Script.Project,Features,Admin,%Admin%
+  If,Not,%IE11%%Admin%,Equal,TrueFalse,Exit,"%ScriptTitle% is Not Added According to Add Only If IE11 Enabled And Switch to Admin Disabled"
 End
 AddVariables,%ProjectDir%\script.project,TargetBasePath
 //--
 RunFromRAM
 If,%Architecture%,Equal,x64,Begin
-Set,%Target_Prog%,"%GTarget%\Program Files (x86)"
-Set,%PE_Programs%,"X:\Program Files (x86)"
+  Set,%Target_Prog%,"%GTarget%\Program Files (x86)"
+  Set,%PE_Programs%,"X:\Program Files (x86)"
 End
 //--
 Run,%Scriptfile%,Extract_FDM
@@ -75,8 +75,8 @@ ExtractFile,%FileContainer%,FDM,FDM.7z,%GTemp%\%ProgramFolder%
 ExtractFile,%FileContainer%,FDM,FDMUser.7z,%GTemp%\%ProgramFolder%
 //-
 If,Not,ExistDir,%Target_Prog%\%ProgramFolder%,DirMake,%Target_Prog%\%ProgramFolder%
-ShellExecute,Hide,%Tools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\FDM.7z#$q -y -o#$q%Target_Prog%\%ProgramFolder%#$q"
-ShellExecute,Hide,%Tools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\FDMUser.7z#$q -y -o#$q%TargetAppDataRoaming%#$q"
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\FDM.7z#$q -y -o#$q%Target_Prog%\%ProgramFolder%#$q"
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\FDMUser.7z#$q -y -o#$q%TargetAppDataRoaming%#$q"
 
 [WriteSettings_FDM]
 RegImportFile,%GTemp%\%ProgramFolder%\FDM_Registry_%Architecture%.txt

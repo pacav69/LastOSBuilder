@@ -1,7 +1,7 @@
 [Main]
 Title=ProduKey
 Type=XPEPlugin
-Description=(v1.9.3.0) ProduKey recover lost Windows product key (CD-Key) and Office 2003/2007 product key
+Description=(v1.9.7.8) ProduKey recover lost Windows product key (CD-Key) and Office 2003/2007 product key
 Author=ChrisR
 Date=2019.04.01
 Credits=
@@ -21,8 +21,8 @@ Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortc
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
-StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,"- Security","__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=ProductKey.jpg,1,5,145,34,285,100
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://www.nirsoft.net/utils/product_cd_key_viewer.html

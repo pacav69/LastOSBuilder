@@ -22,11 +22,11 @@ StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software="wiztree treemap.jpg",1,5,145,34,240,134
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,3.30,"__Everything Version for Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,4.12,"__Everything Version for Download and Update Plugin"
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
 
 [Variables]
@@ -38,6 +38,8 @@ Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plu
 %FileContainer%=%ScriptDir%\WizTree_XPE_File.Script
 %ProvideFiles%=%ProgCache%\%ProgramFolder%
 %SetupURL%=https://antibody-software.com/files/wiztree_%ProgramVer%_portable.zip
+%SetupURL2%=https://wiztreefree.com/files/wiztree_%ProgramVer%_portable.zip
+%SetupURL3%=https://www.diskanalyzer.com/files/wiztree_%ProgramVer%_portable.zip
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
@@ -105,6 +107,8 @@ Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%\%ProgramFolder%
 Echo,"Update %ScriptTitle%..."
 StrFormat,REPLACE,%ProgramVer_TextBox%,.,_,%ProgramVer%
 If,ExistDir,%ProvideFiles%,DirDeleteQ,%ProvideFiles%
+If,%ProgramVer_TextBox%,Bigger,3.33,Set,%SetupURL%,%SetupURL2%
+If,%ProgramVer_TextBox%,Bigger,4.00,Set,%SetupURL%,%SetupURL3%
 DirMake,%ProvideFiles%
 Download,%ProvideFiles%\%SetupFile%,%SetupURL%
 Encode,%FileContainer%,Folder,%ProvideFiles%\%SetupFile%

@@ -32,7 +32,7 @@ If,ExistFile,%GTarget_Sys%\autorun.cmd,Run,%ScriptFile%,AutorunRegsvr32
 
 [AddFiles]
 ExtractSectionFiles,%ScriptFile%,Msi_AddFiles
-If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,Msix64_AddFiles
+If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,Msi_AddFiles6432
 
 [Registry]
 If,%FullSoftware%,Equal,False,Begin
@@ -68,7 +68,7 @@ TXTAddLine,%GTarget_Sys%\autorun.cmd,Exit,Append
 \Windows\System32\wbem\msiprov.dll
 \Windows\System32\wbem\??-??\msi.mfl
 
-[Msix64_AddFiles]
+[Msi_AddFiles6432]
 \Windows\SysWOW64\Msi.dll
 \Windows\SysWOW64\Msiexec.exe
 \Windows\SysWOW64\Msihnd.dll

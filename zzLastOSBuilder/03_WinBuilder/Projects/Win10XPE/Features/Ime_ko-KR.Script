@@ -34,7 +34,7 @@ If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
 ExtractSectionFiles,%ScriptFile%,Ime_ko_KR_AddFiles
 //-
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
-  ExtractSectionFiles,%ScriptFile%,Ime_ko_KR_x64_AddFiles
+  ExtractSectionFiles,%ScriptFile%,Ime_ko_KR_AddFiles6432
 End
 
 [Keyboard_ko_KR_Reg]
@@ -83,7 +83,7 @@ RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4
 \Windows\System32\korwbrkr.lex
 \Windows\System32\korwbrkr.dll
 
-[Ime_ko_KR_x64_AddFiles]
+[Ime_ko_KR_AddFiles6432]
 \Windows\SysWOW64\IME\IMEKR\DICTS\imkrhjd.dll
 \Windows\SysWOW64\IME\IMEKR\imkrapi.dll
 \Windows\SysWOW64\IME\IMEKR\imkrtip.dll
@@ -106,13 +106,13 @@ If,ExistFile,%BaseDir%\Custom\Fonts\*.*,FileCopy,%BaseDir%\Custom\Fonts\*.*,%GTa
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
   FileDelete,%GTarget_Win%\SysWOW64\C_*.NLS
   FileDelete,%GTarget_Win%\SysWOW64\KBD*.DLL
-  ExtractSectionFiles,%ScriptFile%,Custom_ko_KR_x64_AddFiles
+  ExtractSectionFiles,%ScriptFile%,Custom_ko_KR_AddFiles6432
 End
 
 [Custom_ko_KR_Reg]
 If,ExistFile,%ScriptDir%\Custom_ko_KR_Reg.txt,RegImportFile,%ScriptDir%\Custom_ko_KR_Reg.txt
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
-  If,ExistFile,%ScriptDir%\Custom_ko_KR_x64_Reg.txt,RegImportFile,%ScriptDir%\Custom_ko_KR_x64_Reg.txt
+  If,ExistFile,%ScriptDir%\Custom_ko_KR_Reg6432.txt,RegImportFile,%ScriptDir%\Custom_ko_KR_Reg6432.txt
 End
 //-
 //RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,1
@@ -198,7 +198,7 @@ End
 \Windows\Fonts\vgaoem.fon
 \Windows\Fonts\vgasys.fon
 
-[Custom_ko_KR_x64_AddFiles]
+[Custom_ko_KR_AddFiles6432]
 ;------------------------------------------------
 ;          National Language Support (.NLS)
 ;------------------------------------------------

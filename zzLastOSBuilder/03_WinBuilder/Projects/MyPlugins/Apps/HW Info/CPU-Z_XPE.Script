@@ -1,7 +1,7 @@
 [Main]
 Title=CPU-Z
 Type=XPEPlugin
-Description=(v1.91) CPU-Z is a freeware that gathers information on some of the main devices of your system.
+Description=(v2.03) CPU-Z is a freeware that gathers information on some of the main devices of your system.
 Author=KYHI
 Date=2019.03.29
 Credits=
@@ -20,12 +20,12 @@ Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,85
 Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Cpu-Z.jpg,1,5,145,34,225,220
 Button_Launch_Program=Launch,1,8,10,122,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://www.cpuid.com/softwares/cpu-z.html
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,1.91,"__Program Version To Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,2.03,"__Program Version To Download and Update Plugin"
 
 [Variables]
 %ProgramTitle%=CPU-Z

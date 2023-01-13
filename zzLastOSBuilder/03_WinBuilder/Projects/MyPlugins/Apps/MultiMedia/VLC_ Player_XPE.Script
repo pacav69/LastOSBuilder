@@ -3,7 +3,7 @@ Title=VLC Media Player
 Type=XPEPlugin
 Description=VLC is a cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.. (123 MB)
 Author=KYHI
-Date=2019.07.12
+Date=2020.05.18
 Credits=
 Contact=
 Version=002
@@ -13,33 +13,33 @@ Selected=False
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2018.05.21
-History002=KYHI - 2019.03.29
+History003=KYHI - Common Folder Name - 2020.05.18
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-Assoc_CheckBox="Assocate File Types",1,3,8,136,131,18,True
+Assoc_CheckBox="Assocate File Types",1,3,8,136,131,18,False
 EnglishOnly_CheckBox="English Language Only",1,3,8,155,141,18,False
 Image_Software=VLC2.jpg,1,5,145,35,280,198
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Button_Launch_Program=Launch,1,8,12,183,115,25,Launch_Program,0,False
 HomePage_WebLabel="Home Page",1,10,281,6,51,18,http://www.videolan.org/
-Download_WebLabel="Download Page",1,10,346,6,74,18,http://download.videolan.org/pub/videolan/vlc/
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,3.0.8,"__Program Version To Download"
+Download_WebLabel="Download Page",0,10,346,6,74,18,http://download.videolan.org/pub/videolan/vlc/
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,3.0.18,"__Program Version To Download"
 
 [Variables]
-%ProgramTitle%=VLC Player
+%ProgramTitle%=VLC Media Player
 %ProgramEXE%=vlc.exe
-%ProgramFolder%=VLC-%ProgramVer_TextBox%
-%ProgramFolderx64%=VLC-%ProgramVer_TextBox%_x64
+%ProgramFolder%=VLC Media Player
+%ProgramFolderx64%=VLC Media Player_x64
 %SetupSubFolder%=VLC-%ProgramVer_TextBox%
 %SetupFile%=vlc-%ProgramVer_TextBox%-win32.7z
 %SetupFilex64%=vlc-%ProgramVer_TextBox%-win64.7z
-%ProvideFiles%=%ProgCache%\VLC-%ProgramVer_TextBox%
+%ProvideFiles%=%ProgCache%\VLC Media Player
 %SetupURL%=http://download.videolan.org/pub/videolan/vlc/%ProgramVer_TextBox%/win32/vlc-%ProgramVer_TextBox%-win32.7z
 %SetupURLx64%=http://download.videolan.org/pub/videolan/vlc/%ProgramVer_TextBox%/win64/vlc-%ProgramVer_TextBox%-win64.7z
 %Profile%=Profile.7z
@@ -62,9 +62,9 @@ FileCopy,%GTemp%\%ProgramFolder%\%SetupSubFolder%\*,%Target_Prog%\%ProgramFolder
 FileDelete,%Target_Prog%\%ProgramFolder%\*.txt
 //--
 If,%EnglishOnly_CheckBox%,Equal,True,Begin
-DirDelete,%Target_Prog%\%ProgramFolder%\locale
-FileDelete,%Target_Prog%\%ProgramFolder%\languages\*.nsh
-FileCopy,%GTemp%\%ProgramFolder%\%SetupSubFolder%\languages\EnglishExtra.nsh,%Target_Prog%\%ProgramFolder%\languages\EnglishExtra.nsh
+  DirDelete,%Target_Prog%\%ProgramFolder%\locale
+  FileDelete,%Target_Prog%\%ProgramFolder%\languages\*.nsh
+  FileCopy,%GTemp%\%ProgramFolder%\%SetupSubFolder%\languages\EnglishExtra.nsh,%Target_Prog%\%ProgramFolder%\languages\EnglishExtra.nsh
 End
 //--
 Run,%ScriptFile%,Extract_Profile
@@ -88,6 +88,7 @@ If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
 \Windows\System32\msftedit.dll
 \Windows\System32\opengl32.dll
 \Windows\System32\xpsp2res.dll
+\Windows\System32\WindowsCodecsExt.dll
 \Windows\System32\WinTypes.dll
 \Windows\System32\??-??\dciman32.dll.mui
 \Windows\System32\??-??\ddraw.dll.mui

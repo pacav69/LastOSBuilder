@@ -3,7 +3,7 @@ Title=WinXShell
 Type=XPEPlugin
 Description=WinXShell
 Author=ChriSR
-Date=2019.09.19
+Date=2020.12.05
 Version=003
 Selected=None
 Mandatory=None
@@ -33,6 +33,8 @@ End
 
 [AddFiles]
 If,ExistFile,%ScriptDir%\WinXShell_AddFiles.txt,ExtractListFiles,%ScriptDir%\WinXShell_AddFiles.txt
+If,%SourceBuild%,Equal,19041,ExtractSectionFiles,%ScriptFile%,WinXShell_19041_19042_AddFiles
+If,%SourceBuild%,Equal,19042,ExtractSectionFiles,%ScriptFile%,WinXShell_19041_19042_AddFiles
 //-
 IniRead,%ProjectDir%\Script.Project,Features,AllCatalogs,%AllCatalogs%
 If,%AllCatalogs%,Equal,True,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
@@ -40,6 +42,11 @@ Else,Begin
   If,ExistSection,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%
   Else,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
 End
+
+[WinXShell_19041_19042_AddFiles]
+\Windows\System32\Shell32.dll
+\Windows\System32\SHCore.dll
+\windows\System32\KernelBase.dll
 
 [Registry]
 If,%FullSoftware%,Equal,False,Begin

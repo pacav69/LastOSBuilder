@@ -3,8 +3,8 @@ Title=Config
 Type=XPEPlugin
 Description=Configure the Base for Explorer
 Author=ChriSR
-Date=2019.12.12
-Version=003
+Date=2021.06.22
+Version=004
 Selected=None
 Mandatory=None
 NoWarning=False
@@ -14,12 +14,14 @@ Credits=
 Contact=
 
 [Variables]
-%CacheVersion%=6
+%CacheVersion%=1
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
 Run,%ScriptFile%,RegConfig
 Run,%ScriptFile%,RegConfig_PostCache
+//-
+If,%SourceBuild%,Bigger,19041,Run,%scriptfile%,NotepadLegacy
 
 [RegConfig]
 If,ExistFile,%XPECache%\HiveCache.ini,Run,%ScriptFile%,CheckHiveCacheINI
@@ -183,7 +185,7 @@ RegWrite,HKLM,0x2,"Tmp_System\ControlSet001\Control\Session Manager\Environment"
 // Disable Telemetry
 RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener,Start,0
 //-
-RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
+RegHiveLoad,Src_System,%Gtemp%\Install.hives\SYSTEM
 // Taking Ownership, Appinfo and ProfSvc Services. ProfSvc Already Here
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Appinfo
 //RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\ProfSvc
@@ -194,7 +196,7 @@ RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Control\Lsa,"Security Packages",tspkg
 RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\SecurityProviders,SecurityProviders,credssp.dll
 // Power Options
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Power
-RegHiveunLoad,Tmp_Install_System
+RegHiveunLoad,Src_System
 //-
 // Disable Auto Chkdsk at Bootup Autochk
 //System,ERROROFF
@@ -301,9 +303,76 @@ RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfile\DefaultIcon,,"#$pSystemRoot#$p\sy
 RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfile\shell\open\command,,"#$pSystemRoot#$p\system32\Notepad.exe #$p1"
 RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfile\shell\print\command,,"#$pSystemRoot#$p\system32\Notepad.exe /p #$p1"
 RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfile\shell\printto\command,,"#$pSystemRoot#$p\system32\Notepad.exe /pt #$q#$p1#$q #$q#$p2#$q #$q#$p3#$q #$q#$p4#$q"
+//-
+If,%SourceBuild%,Equal,19041,Run,%scriptfile%,Fix_20H2_Reg_FullSoftware
+
+[NotepadLegacy]
+RegHiveLoad,Tmp_Software,%RegSoftware%
+RegWrite,HKLM,0x1,Tmp_Software\Classes\txtfilelegacy,,"Text Document"
+RegWrite,HKLM,0x4,Tmp_Software\Classes\txtfilelegacy,EditFlags,2162688
+RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfilelegacy,FriendlyTypeName,"@#$pSystemRoot#$p\system32\notepad.exe,-469"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfilelegacy\DefaultIcon,,"#$pSystemRoot#$p\system32\imageres.dll,-102"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfilelegacy\shell\open\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE #$p1"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfilelegacy\shell\print\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE /p #$p1"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\txtfilelegacy\shell\printto\command,,"#$pSystemRoot#$p\system32\notepad.exe /pt #$q#$p1#$q #$q#$p2#$q #$q#$p3#$q #$q#$p4#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txt,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txt,"Content Type",text/plain
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txt,PerceivedType,text
+RegWrite,HKLM,0x0,Tmp_Software\Classes\.txt\OpenWithProgids
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txt\PersistentHandler,,{5e941d80-bf96-11cd-b579-08002b30bfeb}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txt\ShellNew,NullFile,
+RegWrite,HKLM,0x2,Tmp_Software\Classes\.txt\ShellNew,FriendlyTypeName,"@#$pSystemRoot#$p\system32\notepad.exe,-469"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.ini,,inifile
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.ini,PerceivedType,text
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.ini\PersistentHandler,,{5e941d80-bf96-11cd-b579-08002b30bfeb}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\inifile,,"Configuration Settings"
+RegWrite,HKLM,0x4,Tmp_Software\Classes\inifile,EditFlags,2097152
+RegWrite,HKLM,0x1,Tmp_Software\Classes\inifile,FriendlyTypeName,"@shell32.dll,-10151"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inifile\DefaultIcon,,"#$pSystemRoot#$p\system32\imageres.dll,-69"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inifile\shell\open\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE #$p1"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inifile\shell\print\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE /p #$p1"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.inf,,inffile
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.inf,PerceivedType,text
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.inf\PersistentHandler,,{5e941d80-bf96-11cd-b579-08002b30bfeb}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\inffile,,"Setup Information"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile,FriendlyTypeName,"@#$pSystemRoot#$p\System32\setupapi.dll,-2000"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile\DefaultIcon,,"#$pSystemRoot#$p\System32\imageres.dll,-69"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\inffile\shell\Install,,&Install
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile\shell\Install,MUIVerb,"@#$pSystemRoot#$p\System32\setupapi.dll,-2002"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile\shell\Install\command,,"#$pSystemRoot#$p\System32\InfDefaultInstall.exe #$q#$p1#$q"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile\shell\open\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE #$p1"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\inffile\shell\print\command,,"#$pSystemRoot#$p\system32\NOTEPAD.EXE /p #$p1"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.log,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.scp,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.wtx,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.cfg,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.script,,txtfilelegacy
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.cfg,,txtfilelegacy
+RegHiveUnLoad,Tmp_Software
+
+[Fix_20H2_Reg_FullSoftware]
+If,ExistDir,%GTarget_Win%\WinSxS\x86_microsoft.windows.common-controls_*_6.0.19041.1_*,Begin
+  // Fix 10.0.19541.508 Full Software Registry (@="6.0.19041.488" vs WinSxS\x86_microsoft.windows.common-controls_*_6.0.19041.1_none_*)
+  RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\5.82,,5.82.19041.1
+  RegWrite,HKLM,0x3,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\5.82,5.82.19041.1,01
+  If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\5.82,5.82.19041.488,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\5.82,5.82.19041.488
+  RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\6.0,,6.0.19041.1
+  RegWrite,HKLM,0x3,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\6.0,6.0.19041.1,01
+  If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\6.0,6.0.19041.488,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\x86_microsoft.windows.common-controls_6595b64144ccf1df_none_aaab8e0a9f4bd480\6.0,6.0.19041.488
+End
+//-
+If,ExistDir,%GTarget_Win%\WinSxS\amd64_microsoft.windows.common-controls_*_6.0.19041.1_*,Begin
+  // Fix 10.0.19541.508 Full Software Registry (@="6.0.19041.488" vs WinSxS\amd64_microsoft.windows.common-controls_*_6.0.19041.1_none_*)
+  RegWrite,HKLM,0x3,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\5.82,5.82.19041.1,01
+  RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\5.82,,5.82.19041.1
+  If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\5.82,5.82.19041.488,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\5.82,5.82.19041.488
+  RegWrite,HKLM,0x3,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\6.0,6.0.19041.1,01
+  RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\6.0,,6.0.19041.1
+  If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\6.0,6.0.19041.488,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_microsoft.windows.common-controls_6595b64144ccf1df_none_62fe57338acfab7a\6.0,6.0.19041.488
+End
 
 [EditReg_BaseSoftware]
-RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
+RegHiveLoad,Src_Software,%Gtemp%\Install.hives\SOFTWARE
 //-
 RegCopyKey,HKLM,Tmp_Software\Classes\AppID
 ACLRegKey,Tmp_Software\Classes\AppID
@@ -335,7 +404,7 @@ RegCopyKey,HKLM,Tmp_Software\Microsoft\WindowsRuntime
 RegCopyKey,HKLM,"Tmp_Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel"
 RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\AppModel
 RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\AppX
-RegHiveunLoad,Tmp_Install_Software
+RegHiveunLoad,Src_Software
 
 [RegConfig_PostCache]
 RegHiveLoad,Tmp_System,%RegSystem%
@@ -345,10 +414,10 @@ RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\diagnosticshub.standardcolle
 RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\DiagTrack,Start,4
 //-
 // Create and Disable Remote Desktop service to avoid event log error
-RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
+RegHiveLoad,Src_System,%Gtemp%\Install.hives\SYSTEM
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\TermService
 If,ExistRegSection,HKLM,Tmp_System\ControlSet001\Services\TermService,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\TermService,Start,4
-RegHiveUnLoad,Tmp_Install_System
+RegHiveUnLoad,Src_System
 //-
 // Start Services in RS5, 19h1
 If,%SourceBuild%,Bigger,17700,Begin

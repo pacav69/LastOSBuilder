@@ -35,7 +35,7 @@ If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
 ExtractSectionFiles,%ScriptFile%,Ime_zh_TW_AddFiles
 //-
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
-  ExtractSectionFiles,%ScriptFile%,Ime_zh_TW_x64_AddFiles
+  ExtractSectionFiles,%ScriptFile%,Ime_zh_TW_AddFiles6432
 End
 
 [Keyboard_zh_TW_Reg]
@@ -106,7 +106,7 @@ RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\TIP\{B115690A-EA02-48D5-A231
 ; zh-HK Cantonese IME not working
 ;\Windows\System32\ChtHkStrokeDS.dll
 
-[Ime_zh_TW_x64_AddFiles]
+[Ime_zh_TW_AddFiles6432]
 \Windows\SysWOW64\MSWB70404.dll
 \Windows\SysWOW64\NL7Data0404.dll
 ; Bopomofo IME
@@ -121,15 +121,15 @@ RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\TIP\{B115690A-EA02-48D5-A231
 ExtractSectionFiles,%ScriptFile%,Custom_zh_TW_AddFiles
 If,ExistFile,%BaseDir%\Custom\Fonts\*.*,FileCopy,%BaseDir%\Custom\Fonts\*.*,%GTarget_Win%\Fonts
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
-  ExtractSectionFiles,%ScriptFile%,Custom_zh_TW_x64_AddFiles
+  ExtractSectionFiles,%ScriptFile%,Custom_zh_TW_AddFiles6432
 End
 
 [Custom_zh_TW_Reg]
 If,ExistFile,%ScriptDir%\Custom_zh_TW_Reg.txt,RegImportFile,%ScriptDir%\Custom_zh_TW_Reg.txt
 If,%Architecture%%WoW64Support%,Equal,x64True,Begin
-  If,ExistFile,%ScriptDir%\Custom_zh_TW_x64_Reg.txt,RegImportFile,%ScriptDir%\Custom_zh_TW_x64_Reg.txt
+  If,ExistFile,%ScriptDir%\Custom_zh_TW_Reg6432.txt,RegImportFile,%ScriptDir%\Custom_zh_TW_Reg6432.txt
 End
 
 [Custom_zh_TW_AddFiles]
 
-[Custom_zh_TW_x64_AddFiles]
+[Custom_zh_TW_AddFiles6432]

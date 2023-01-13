@@ -3,8 +3,8 @@ Title=Network
 Type=XPEPlugin
 Description=Network
 Author=ChriSR
-Date=2019.08.26
-Version=002
+Date=2020.07.17
+Version=004
 Selected=None
 Mandatory=None
 NoWarning=False
@@ -13,16 +13,24 @@ Download_Level=0
 Credits=
 Contact=
 History002=KYHI - Added Network and Sharing Center - Notes Below
+History003=KYHI - ReSorted & Removed Full Software Hive Requirement
+History004=KYHI - Remote Network Driver Interface Specification
 
 [Variables]
-// Network List Service need the Full Software
-%EnableNetworkListService%=False
-%EnableFunctionDiscoveryService%=False
+%EnableNetworkListService%=True
+%EnableFunctionDiscoveryService%=True
+%EnableNetworkCenter%=True
+%EnableRNDIS%=True
+%HideNetTrayIcon%=False
+RegAddDriver=Run,%ScriptFile%,MRegAddDriver
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
 If,%FullSoftware%,Equal,True,Set,%EnableNetworkListService%,True
 If,%FullSoftware%,Equal,True,Set,%EnableFunctionDiscoveryService%,True
+If,%FullSoftware%,Equal,True,Set,%EnableNetworkCenter%,True
+If,%FullSoftware%,Equal,True,Set,%EnableRNDIS%,True
+//-
 Run,%ScriptFile%,AddFiles
 //-
 If,Not,#1,Equal,HiveLoaded,HiveLoadALL
@@ -30,6 +38,8 @@ Run,%ScriptFile%,Network_Registry
 //-
 If,%EnableNetworkListService%,Equal,True,Run,%ScriptFile%,NetworkList
 If,%EnableFunctionDiscoveryService%,Equal,True,Run,%ScriptFile%,FunctionDiscovery
+If,%EnableNetworkCenter%,Equal,True,Run,%ScriptFile%,NetworkShareCenter
+If,%EnableRNDIS%,Equal,True,Run,%ScriptFile%,RNDIS
 If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
 
 [AddFiles]
@@ -49,10 +59,6 @@ If,%FullSoftware%,Equal,False,Begin
   RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{c100becc-d33a-4a4b-bf23-bbef4663d017}
   RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{c100becf-d33a-4a4b-bf23-bbef4663d017}
   RegCopyKey,HKLM,Tmp_Software\Microsoft\WlanSvc
-  //RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\XWizards
-  //If,%Architecture%,Equal,x64,RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\XWizards
-  //Network Places to see network in file explorer (Default ParsingName,::{F02C1A0D-BE21-4350-88B0-7367FC96EF3C})
-  //RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{D20BEEC4-5CA8-4905-AE3B-BF251EA09B53},ParsingName,::{208D2C60-3AEA-1069-A2D7-08002B30309D}
 End
 //-
 //Done in Config.script: RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Lsa - LmCompatibilityLevel,2 - LimitBlankPasswordUse,0 - "Security Packages",tspkg
@@ -66,6 +72,7 @@ RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\WlanSvc,DependOnService,nati
 //RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\WlanSvc,DependOnService,nativewifip,RpcSs,Ndisuio
 If,%SourceBuild%,Bigger,17000,Begin
   RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,ErrorControl,1
+  System,ERROROFF
   RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\WlanSvc,ImagePath,"#$pSystemRoot#$p\System32\Svchost.exe -k LocalSystemNetworkRestricted -p"
   RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,Start,2
   RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,Type,32
@@ -155,10 +162,9 @@ RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\wcmsvc
 RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3,Settings,30,00,00,00,fe,ff,ff,ff,02,00,00,00,03,00,00,00,3e,00,00,00,28,00,00,00,00,00,00,00,f2,03,00,00,90,06,00,00,1a,04,00,00,60,00,00,00,01,00,00,00
 //-
 // netprofm service is required for wlansvc and wcmsvc service in 1903! even disabled and not started.
-If,%EnableNetworkListService%,Equal,False,Begin
-  RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
-  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,4
-End
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+If,%EnableNetworkListService%,Equal,False,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,4
+If,%HideNetTrayIcon%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,HideSCANetwork,1
 
 [NetworkList]
 ExtractSectionFiles,%ScriptFile%,NetworkList_AddFiles
@@ -168,13 +174,13 @@ Run,%ScriptFile%,NetworkList_Registry
 TXTReplace,%GTarget_Sys%\Pecmd.ini,"_SUB NetInit","_SUB NetInit#$x#$xREGI #HKLM\SYSTEM\Setup\SystemSetupInProgress=0#$xEXEC !=#$pWinDir#$p\System32\Net.exe Start netprofm#$xREGI #HKLM\SYSTEM\Setup\SystemSetupInProgress=1"
 
 [NetworkList_AddFiles]
+\Windows\System32\ImplatSetup.dll
+\Windows\System32\netprofm.dll
+\Windows\System32\netprofmsvc.dll
+\Windows\System32\networklist\
 \Windows\System32\nlmgp.dll
 \Windows\System32\nlmproxy.dll
 \Windows\System32\nlmsprep.dll
-\Windows\System32\ImplatSetup.dll
-\Windows\System32\networklist
-\Windows\System32\netprofm.dll
-\Windows\System32\netprofmsvc.dll
 \Windows\System32\npmproxy.dll
 \Windows\System32\pnidui.dll
 \Windows\System32\Wbem\netprofm.mof
@@ -182,14 +188,18 @@ TXTReplace,%GTarget_Sys%\Pecmd.ini,"_SUB NetInit","_SUB NetInit#$x#$xREGI #HKLM\
 [NetworkList_Registry]
 // NetworkSetup2 and NetworkUxManager from Installed Win10
 RegImportFile,%ScriptDir%\NetworkList_RegSystem.txt
+//- NetworkSetup2 and NetworkUxManager from Source Win10
+//RegCopyKey,HKLM,Tmp_System\ControlSet001\NetworkSetup2
+//RegCopyKey,HKLM,Tmp_System\ControlSet001\NetworkUXManager
 RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\NetworkList"
-RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
 //-
 // Folder System32\NetworkList: Netprofm SID: S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304
 ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$q%GTarget_Sys%\networklist#$q -ot file -actn ace -ace #$qn:S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304;p:full;s:y#$q"
 If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist folder#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
 //-
 // AllowStart Network List Service! netprofm need SystemSetupInProgress=0 > net start netprofm > SystemSetupInProgress=1
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,3
 RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\netprofm
 
 [NetworkList_Registry_Permissions_Info]
@@ -218,19 +228,15 @@ If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklis
 //RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{27F69803-A090-4CA4-A555-A86F8A451F35}",CategoryType,0
 
 [FunctionDiscovery]
-// Function Discovery Provider Host and Publication and SSDP Discovery services
 ExtractSectionFiles,%ScriptFile%,FunctionDiscovery_AddFiles
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\fdPHost
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\FDResPub
 RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\SSDPSRV
-//--
-//-- KYHI Added Network and Sharing Center Service
-RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\upnphost
-//-- Add Network Icon To File Explorer Navagation Pane
-RegCopyKey,HKLM,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Function Discovery
+RegCopyKey,HKLM,Tmp_Software\Microsoft\UPnP Device Host
+RegCopyKey,HKLM,Tmp_Software\Classes\NetworkExplorerPlugins
 
 [FunctionDiscovery_AddFiles]
-; Function Discovery Provider Host and Publication
 \Windows\System32\fdBth.dll
 \Windows\System32\fdBthProxy.dll
 \Windows\System32\FdDevQuery.dll
@@ -242,15 +248,22 @@ RegCopyKey,HKLM,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C
 \Windows\System32\fdProxy.dll
 \Windows\System32\FDResPub.dll
 \Windows\System32\fdSSDP.dll
-;Done in Network-AddFiles \Windows\System32\fdWCN.dll
-;Done in Network-AddFiles \Windows\System32\fdWNet.dll
+; Done in Network-AddFiles \Windows\System32\fdWCN.dll
+; Done in Network-AddFiles \Windows\System32\fdWNet.dll
 \Windows\System32\fdWSD.dll
 \Windows\System32\WSDApi.dll
 ; SSDP Discovery services
 \Windows\System32\ssdpapi.dll
 \Windows\System32\ssdpsrv.dll
-;
-; KYHI Added Network and Sharing Center 2019.06.27
+
+[NetworkShareCenter]
+ExtractSectionFiles,%ScriptFile%,NetworkShareCenter_AddFiles
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\upnphost
+RegCopyKey,HKLM,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\XWizards
+If,%Architecture%,Equal,x64,RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\XWizards
+
+[NetworkShareCenter_AddFiles]
 ; UPnP Device Host
 \Windows\System32\upnphost.dll
 \Windows\System32\upnp.dll
@@ -270,3 +283,52 @@ RegCopyKey,HKLM,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C
 \Windows\System32\whhelper.dll
 \Windows\System32\wwancfg.dll
 \Windows\System32\PortableDeviceApi.dll
+; Wizard
+\Windows\System32\connect.dll
+\Windows\System32\eappcfg.dll
+\Windows\System32\hnetcfg.dll
+\Windows\System32\HNetCfgClient.dll
+\Windows\System32\IDStore.dll
+\Windows\System32\rasgcw.dll
+\Windows\System32\SyncCenter.dll
+\Windows\System32\wcnwiz.dll
+\Windows\System32\wlidprov.dll
+\Windows\System32\WWanAPI.dll
+\Windows\System32\wwapi.dll
+\Windows\System32\xwizards.dll
+\Windows\System32\xwreg.dll
+\Windows\System32\xwtpw32.dll
+
+[RNDIS]
+// Remote Network Driver Interface Specification
+ExtractSectionFiles,%ScriptFile%,RNDIS_AddFiles
+RegAddDriver,netrndis.inf
+RegAddDriver,rndiscmp.inf
+RegAddDriver,wceisvista.inf
+RegAddDriver,netvwifimp.inf
+
+[RNDIS_AddFiles]
+\Windows\System32\drivers\RNDISMP.sys
+\Windows\System32\drivers\usb8023.sys
+
+[MRegAddDriver]
+Echo,"Extracting #1 Driver Support Files..."
+StrFormat,RTRIM,#1,3,#2
+ExtractWimFile,\Windows\INF\#2*
+ExtractWimFile,\Windows\System32\#2*
+ExtractWimFile,\Windows\System32\Drivers\#2*
+ExtractWimFile,\Windows\System32\Driverstore\??-??\#1_loc
+ExtractWimFile,\Windows\System32\DriverStore\FileRepository\#1*
+//ExtractWimFile,\Windows\WinSxS\*#1*
+//ExtractWimFile,\Windows\WinSxS\Manifests\*#1*
+//-
+Echo,"Writing #1 Driver Registry Values..."
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DeviceIds,"#1"
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverFiles,"#1"
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles,"#1"
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,"#1*"
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services,"#1"
+RegCopyKey,HKLM,Tmp_System\DriverDatabase\DeviceIds,"#1"
+RegCopyKey,HKLM,Tmp_System\DriverDatabase\DriverFiles,"#1"
+RegCopyKey,HKLM,Tmp_System\DriverDatabase\DriverInfFiles,"#1"
+RegCopyKey,HKLM,Tmp_System\DriverDatabase\DriverPackages,"#1*"

@@ -1,29 +1,33 @@
 [Main]
 Title=IrfanView
 Type=XPEPlugin
-Description=(v4.54) IrfanView is a very fast, small, compact and innovative FREEWARE (for non-commercial use) graphic viewer.
+Description=(v4.62) IrfanView is a very fast, small, compact and innovative FREEWARE (for non-commercial use) graphic viewer.
 Author=ChrisR
-Date=2019.12.12
+Date=2022.12.17
 Credits=
 Contact=
-Version=005
+Version=010
 Level=5
 Download_Level=2
 Selected=True
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.06.19
-History005=KYHI update to 4.54 - 2019.12.12
+History006=APT - update to 4.56 - 2020.10.21
+History007=ChrisR - update to 4.57 - 2021.01.13
+History008=APT - update to 4.58 - 2021.05.21
+History009=APT - update to 4.60 - 2022.03.18
+History010=ChrisR - update to 4.62 - 2022.12.17
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,85
 Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
-StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,"- Office","__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Lang_Bevel=Lang_Bevel,1,12,4,98,133,44
 Lang_TextLabel=Language:,1,1,12,102,55,18,8,Normal
-Lang_ScrollBox=English,1,4,10,116,119,21,English,Deutsch,French,Italian,Korean,Nederlands,Portuguese,Russian,Spanish,Turkish
+Lang_ScrollBox=English,1,4,10,116,119,21,English,arabic,bulgarian,chinese,czech,deutsch,estonian,french,hungarian,italian,japanese,korean,nederlands,norsk,polski,portugues-brasil,portuguese,russian,slovak,spanish,turkish,ukrainian
 Associate_Bevel=Associate_Bevel,1,12,4,148,133,61
 CheckBox_bmp=.bmp,1,3,10,152,56,18,True
 CheckBox_gif=.gif,1,3,10,170,56,18,True
@@ -43,8 +47,8 @@ HomePage_WebLabel="Home Page",1,10,319,6,54,18,https://www.irfanview.com/
 %IniFilex64%=i_view64.ini
 %ProgramFolder%=IrfanView
 %ProgramFolderx64%=IrfanView_x64
-%SetupFile%=iview454.7z
-%SetupFilex64%=iview454_x64.7z
+%SetupFile%=iview462.7z
+%SetupFilex64%=iview462_x64.7z
 %FileContainer%=%ScriptDir%\IrfanView_XPE_File.Script
 
 [Process]
@@ -95,9 +99,9 @@ If,Not,ExistDir,%GTemp%\%ProgramFolder%,DirMake,%GTemp%\%ProgramFolder%
 ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
 ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
 If,Not,%Lang_ScrollBox%,Equal,English,Begin
-ExtractFile,%FileContainer%,Languages,irfanview_lang_%Lang_ScrollBox%.7z,%GTemp%\%ProgramFolder%
-ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\irfanview_lang_%Lang_ScrollBox%.7z#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%\Languages#$q"
-IniWrite,%GTemp%\%ProgramFolder%\%ProgramFolder%\%IniFile%,Language,DLL,%Lang_ScrollBox%.dll
+  ExtractFile,%FileContainer%,Languages,irfanview_lang_%Lang_ScrollBox%.7z,%GTemp%\%ProgramFolder%
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\irfanview_lang_%Lang_ScrollBox%.7z#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%\Languages#$q"
+  IniWrite,%GTemp%\%ProgramFolder%\%ProgramFolder%\%IniFile%,Language,DLL,%Lang_ScrollBox%.dll
 End
 
 [PluginSetx64]

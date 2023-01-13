@@ -19,6 +19,7 @@
 \Windows\System32\StructuredQuery.dll
 \Windows\System32\ExplorerFrame.dll
 \Windows\System32\TextInputFramework.dll
+\Windows\System32\CoreMessaging.dll
 \Windows\System32\CoreUIComponents.dll
 \Windows\System32\Windows.Storage.Search.dll
 ; System properties

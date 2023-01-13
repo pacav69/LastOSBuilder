@@ -57,4 +57,13 @@
 \Windows\System32\WMADMOD.DLL
 \Windows\System32\WMADMOE.DLL
 \Windows\System32\WMASF.DLL
-
+;
+\windows\system32\DolbyDecMFT.dll
+\windows\system32\hevcdecoder.dll
+\Windows\System32\mfh264enc.dll
+\windows\system32\MSAudDecMFT.dll
+\Windows\System32\Windows.Media.dll
+\Windows\System32\Windows.Media.MediaControl.dll
+;
+\Windows\System32\CapabilityAccessManager.dll
+\Windows\System32\CapabilityAccessManagerClient.dll

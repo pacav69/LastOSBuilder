@@ -1,12 +1,12 @@
 [Main]
 Title=Autoruns
 Type=XPEPlugin
-Description=(v13.96.0) Autoruns has the most comprehensive knowledge of auto-starting locations.#$xIt has an option to Analyse Offline System.
+Description=(v14.09.0) Autoruns has the most comprehensive knowledge of auto-starting locations.#$xIt has an option to Analyse Offline System.
 Author=ChrisR
-Date=2019.07.12
+Date=2021.12.16
 Credits=
 Contact=
-Version=002
+Version=003
 Level=5
 Download_Level=2
 Selected=True
@@ -14,13 +14,14 @@ Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.05.30
 History002=KYHI - 2019.03.29
+History003=ChrisR - update v14.09 it no longer uses Autoruns64.dll - 2021.12.16
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,85
 Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
-StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,"- System","__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Autoruns.jpg,1,5,145,34,220,150
 Button_Launch_Program=Launch,1,8,10,122,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
@@ -56,7 +57,6 @@ If,%Architecture%,Equal,x86,Begin
 End
 If,%Architecture%,Equal,x64,Begin
   FileCopy,%Sapp%\autoruns.chm,%Tapp%
-  FileCopy,%Sapp%\Autoruns64.dll,%Tapp%
   FileCopy,%Sapp%\Autoruns64.exe,%Tapp%
   FileCopy,%Sapp%\autorunsc64.exe,%Tapp%
   FileCopy,%Sapp%\Eula.txt,%Tapp%

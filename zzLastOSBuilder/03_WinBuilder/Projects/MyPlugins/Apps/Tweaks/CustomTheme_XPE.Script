@@ -3,18 +3,18 @@ Title=Custom Theme
 Type=XPEPlugin
 Description=Apply a Custom Theme or Use Nocturnal or Annihilator Theme.
 Author=ChrisR
-Date=2019.03.18
+Date=2020.06.16
 Credits=JFX
 Contact=
 Version=003
 Level=5
 Download_Level=2
-Selected=True
+Selected=False
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin using JFX's UXpatch and Cretino's Annihilator Theme. Created 2019.02.05
 History002=ChrisR Annihilator Theme add User Account Pictures - 2019.02.05 - Add Nocturnal Theme - 2019.03.08
-History003=ChrisR JFX UXPatch v1.01
+History003=ChrisR JFX UXPatch v1.04
 
 [Variables]
 %ProgramTitle%=Custom Theme
@@ -24,7 +24,7 @@ History003=ChrisR JFX UXPatch v1.01
 %FileContainer%=%ScriptDir%\CustomTheme_XPE_File.Script
 
 [Interface]
-ChooseAero_RadioGroup="Choose Aero style",1,14,4,6,160,68,Nocturnal,Annihilator,"Custom Aero theme",2
+ChooseAero_RadioGroup="Choose Aero style",1,14,4,6,160,68,Nocturnal,Annihilator,"Custom Aero theme",0
 OpenCustomTheme_Button="Copy 'aero.msstyles' Here",1,8,4,71,160,28,OpenCustomTheme,0,False,"__Copy Your Custom Aero Theme (aero.msstyles) Here"
 Nocturnal_Image=Noctural.jpg,1,5,175,12,200,112
 Annihilator_Image=Annihilator_Theme260.jpg,1,5,175,134,200,112
@@ -41,8 +41,8 @@ RunFromRAM
 Run,%ScriptFile%,UxPatch
 //--
 If,%ChooseAero_RadioGroup%,Equal,2,Begin
-If,ExistFile,%CustomThemeFolder%\aero.msstyles,FileCopy,%CustomThemeFolder%\aero.msstyles,%GTarget_Win%\resources\themes\aero\aero.msstyles,NoWarn
-Else,Set,%ChooseAero_RadioGroup%,0
+  If,ExistFile,%CustomThemeFolder%\aero.msstyles,FileCopy,%CustomThemeFolder%\aero.msstyles,%GTarget_Win%\resources\themes\aero\aero.msstyles,NoWarn
+  Else,Set,%ChooseAero_RadioGroup%,0
 End
 //--
 If,%ChooseAero_RadioGroup%,Equal,0,Run,%ScriptFile%,Nocturnal
@@ -68,17 +68,17 @@ ExtractFile,%FileContainer%,Annihilator,user-200.png,"%GTarget%\ProgramData\Micr
 Run,%ScriptFile%,Win10DarkTheme
 //-
 If,ExistDir,%Target_Prog%\StartIsBack\Orbs,Begin
-ExtractFile,%FileContainer%,Annihilator,Annihilator.bmp,%Target_Prog%\StartIsBack\Orbs
-RegHiveLoad,Tmp_Default,%RegDefault%
-RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,"X:\Program Files\StartIsBack\Orbs\Annihilator.bmp"
-RegHiveUnLoad,Tmp_Default
+  ExtractFile,%FileContainer%,Annihilator,Annihilator.bmp,%Target_Prog%\StartIsBack\Orbs
+  RegHiveLoad,Tmp_Default,%RegDefault%
+  RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,"X:\Program Files\StartIsBack\Orbs\Annihilator.bmp"
+  RegHiveUnLoad,Tmp_Default
 End
 
 [Win10DarkTheme]
 If,%SourceBuild%,Bigger,17700,Begin
-RegHiveLoad,Tmp_Default,%RegDefault%
-RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
-RegHiveUnLoad,Tmp_Default
+  RegHiveLoad,Tmp_Default,%RegDefault%
+  RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
+  RegHiveUnLoad,Tmp_Default
 End
 
 [AuthorEncoded]

@@ -1,15 +1,15 @@
 [Main]
 Title=Q-Dir
 Type=XPEPlugin
-Description=(v7.9.8.0) Q-Dir Quad-Directory-Explorer makes your files and folders easy to manage
+Description=(v11.1.5.0) Q-Dir Quad-Directory-Explorer makes your files and folders easy to manage
 Author=ChrisR
-Date=2019.04.01
+Date=2019.07.06
 Credits=
 Contact=
 Version=002
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin Created 2018.11.30
@@ -17,7 +17,7 @@ History002=KYHI - M&M Check - 2019.04.01
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"

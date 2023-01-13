@@ -1,19 +1,19 @@
 [Main]
-Title=XPE Packed Plugin Creator
+Title=XPE Packed Application Creator
 Type=XPEPlugin
-Description=Prepare XPE Packed Plugins For Portable Applications
+Description=Prepare Packed Application For Use With Win10XPE Project.
 Author=KYHI
-Date=2019.08.25
+Date=2020.08.12
 Credits=Lancelot, ChrisR
 Contact=
-Version=010
+Version=011
 Level=10
 Download_Level=0
 Selected=None
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2018.05.10
-History010=KYHI - NoExitOnError if script warning message - 2019.08.25
+History011=KYHI
 
 [Interface]
 Bevel_Big=pBevel2,1,12,327,132,215,108
@@ -28,10 +28,10 @@ Exe_TextLabel=2),1,1,12,150,26,34,16,Bold
 Exe_TextBox=Program.Exe,1,0,82,155,186,21,
 Exe_BuilderBugWarning_TextLabel="Use CTRL+V To Paste -- If You Copy/Paste Then You Must Hit ENTER",1,1,12,265,525,18,8,Bold
 Goo_TextLabel=3),1,1,12,204,26,34,16,Bold
-Goo_Button="Create New XPE Plugin",1,8,82,200,186,40,Process_Goo,Packed3232.bmp,False
+Goo_Button="Create New XPE Application",1,8,82,200,186,40,Process_Goo,Packed3232.bmp,False
 Show_Template_Button="Show Template",1,8,335,210,100,25,Template_Empty_T,0,False,"__Show Empty Template Based Upon Your Selections"
 Show_Template_Batch_CheckBox="Batch Template",1,3,440,215,101,14,False,"__Select To Show Batch File Template"
-M_Author_TextBox="Plugin Author=",1,0,335,155,136,21,
+M_Author_TextBox="Application Author=",1,0,335,155,136,21,
 ProvideFile_CheckBox="Add User Provided File Options",1,3,335,185,200,18,False,"__Select To Add User File Selection Options"
 PVersion_CheckBox=PBox,1,3,489,139,45,18,False,"__Add Program Version TextBox Option (Advanced Users)"
 Advanced_CheckBox=Auto,1,3,489,159,45,18,False,"__Write As AutoUpdate Templates Option (Advanced Users)"
@@ -46,7 +46,7 @@ Advanced_CheckBox=Auto,1,3,489,159,45,18,False,"__Write As AutoUpdate Templates 
 %ProgramExeVersion%=
 
 [Process]
-Message,"Use the Button 'Create New XPE Plugin'"
+Message,"Use the Button 'Create New XPE Application'"
 
 [Process_Goo]
 System,RefreshInterface
@@ -181,7 +181,7 @@ IniWrite,%w%,Main,Download_Level,2
 IniWrite,%w%,Main,Selected,False
 IniWrite,%w%,Main,Mandatory,False
 IniWrite,%w%,Main,NoWarning,False
-IniWrite,%w%,Main,History001,"%MyAuthor% Initial XPE Packed Plugin Created %MyDate%"
+IniWrite,%w%,Main,History001,"%MyAuthor% Initial XPE Packed Application Created %MyDate%"
 IniWrite,%w%,Main,History002,""
 //--
 IniWrite,%w%,Interface,Shortcut_Bevel,"Shortcut_Bevel,1,12,4,6,133,121"
@@ -220,10 +220,10 @@ If,%ProvideFile_CheckBox%%BatchFile%,Equal,True0,Begin
 End
 //--
 IniWrite,%w%,Interface,HomePage_WebLabel,"#$qHome Page#$q,1,10,338,6,55,18,http://theoven.org/index.php?board=39.0"
-IniWrite,%w%,Interface,Update_Container_Button,"U,0,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
-If,%Advanced_CheckBox%%BatchFile%,Equal,True0,IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
+IniWrite,%w%,Interface,Update_Container_Button,"U,0,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
+If,%Advanced_CheckBox%%BatchFile%,Equal,True0,IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
 If,%PVersion_CheckBox%%BatchFile%,Equal,True0,Begin
-  IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
+  IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
   IniWrite,%w%,Interface,ProgramVer_TextBox,"#$qProgram Version:#$q,1,0,450,20,82,21,0.0.0.0,#$q__Program File Version To Download#$q"
 End
 //--
@@ -291,7 +291,7 @@ If,%FileBox_Empty%,Equal,1,IniWriteTextLine,%w%,Process,"If,#$pArchitecture#$p,E
 IniWriteTextLine,%w%,Process,"//If,#$pArchitecture#$p#$pWoW64Support#$p,Equal,x64False,EchoExtended,#$qYou Need To Enable WoW64 Basic To Run #$pProgramTitle#$p In A 64-Bit Build#$q,,,Message,2,Exit"
 //--
 If,%BatchFile%,Equal,0,Begin
-  IniWriteTextLine,%w%,Process,"If,Not,ExistFile,#$pFileContainer#$p,Exit,#$q#$pFileContainer#$p Container File Not Found#$q"
+  IniWriteTextLine,%w%,Process,"If,Not,ExistFile,#$pFileContainer#$p,Exit,#$q#$pFileContainer#$p File Container Not Found#$q"
 End
 //--
 IniWriteTextLine,%w%,Process,"Echo,#$qProcessing #$pScriptTitle#$p...#$q"
@@ -422,7 +422,7 @@ If,%Advanced_CheckBox%%ProvideFile_CheckBox%%BatchFile%,Equal,TrueFalse0,Begin
   IniWriteTextLine,%w%,Update_Container,"If,Not,#$pSetupContainerSize#$p-,Equal,-,Begin"
   IniWriteTextLine,%w%,Update_Container,"IniRead,#$pFileContainer#$p,Folder,#$pSetupFile#$p,#$pSetupContainerSize#$p"
   IniWriteTextLine,%w%,Update_Container,"Set,#$pSetupContainerSize#$p,#$q#$q"
-  IniWriteTextLine,%w%,Update_Container,"Echo,#$qBacking Up Existing #$pScriptTitle#$p Container File...#$q"
+  IniWriteTextLine,%w%,Update_Container,"Echo,#$qBacking Up Existing #$pScriptTitle#$p File Container...#$q"
 End
 //--
 If,%Advanced_CheckBox%%ProvideFile_CheckBox%%BatchFile%,Equal,FalseTrue0,Begin
@@ -441,7 +441,7 @@ If,%Advanced_CheckBox%%ProvideFile_CheckBox%%BatchFile%,Equal,FalseFalse0,Begin
   IniWriteTextLine,%w%,Update_Container,"//If,#$pArchitecture#$p,Equal,x64,Run,#$pScriptFile#$p,PluginSetx64"
   IniWriteTextLine,%w%,Update_Container,"If,Not,ExistDir,#$pProvideFiles#$p,DirMake,#$pProvideFiles#$p"
   IniWriteTextLine,%w%,Update_Container,"If,ExistDir,#$pProvideFiles#$p,DirDeleteQ,#$pProvideFiles#$p"
-  IniWriteTextLine,%w%,Update_Container,"Echo,#$qThe Container Files Is Being Updated... Please Wait..#$q"
+  IniWriteTextLine,%w%,Update_Container,"Echo,#$qThe File Containers Is Being Updated... Please Wait..#$q"
 End
 //--
 IniWriteTextLine,%w%,AuthorEncoded,""
@@ -628,12 +628,12 @@ IniWrite,%FCw%,Main,Download_Level,2
 IniWrite,%FCw%,Main,Selected,None
 IniWrite,%FCw%,Main,Mandatory,False
 IniWrite,%FCw%,Main,NoWarning,False
-IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Packed Container Plugin Created %MyDate%"
+IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Packed Application File Container Created %MyDate%"
 IniWrite,%FCw%,Main,History002,""
 //--
-IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0#$q,1,1,10,60,531,18,8,Bold"
+IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Application From Tree - Edit File Container Script [Main] Level=5 to Level=0#$q,1,1,10,60,531,18,8,Bold"
 IniWriteTextLine,%FCw%,Variables,""
-IniWriteTextLine,%FCw%,Process,"Echo#$c#$qFile Container Plugin - There Is Nothing To Process#$q"
+IniWriteTextLine,%FCw%,Process,"Echo#$c#$qApplication File Comtainer - There Is Nothing To Process#$q"
 //--
 IniWriteTextLine,%FCw%,AuthorEncoded,""
 //--
@@ -683,11 +683,11 @@ IniWrite,%FCw%,Main,Download_Level,2
 IniWrite,%FCw%,Main,Selected,None
 IniWrite,%FCw%,Main,Mandatory,False
 IniWrite,%FCw%,Main,NoWarning,False
-IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Packed AutoUpdate Container Plugin Created %MyDate%"
+IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Packed Application AutoUpdate File Container Created %MyDate%"
 IniWrite,%FCw%,Main,History002,""
 //--
-IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0#$q,1,1,10,60,540,18,8,Bold"
-IniWrite,%FCw%,Interface,Update_TextBox,"#$qTo Update This Container File - Just Press The Little GREEN Play Button#$q,1,1,10,30,540,18,8,Bold"
+IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Application From Tree - Edit File Container Script [Main] Level=5 to Level=0#$q,1,1,10,60,540,18,8,Bold"
+IniWrite,%FCw%,Interface,Update_TextBox,"#$qTo Update This File Container - Just Press The Little GREEN Play Button#$q,1,1,10,30,540,18,8,Bold"
 //--
 IniWrite,%FCw%,Variables,#$pProgramTitle#$p,%MyProgramTitle%
 IniWrite,%FCw%,Variables,#$pProgramFolder#$p,%MyProgramFolder%
@@ -715,7 +715,7 @@ IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Version,#$pNew
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Date,#$pMyDate#$p"
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,#$pHistory#$p,#$q #$pUserName#$p - Auto Updated Container v#$pContainerVer#$p - #$pMyDate#$p#$q"
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Description,#$q #$pProgramTitle#$p Version #$pContainerVer#$p File Container#$q"
-IniWriteTextLine,%FCw%,Process,"//-- Update Container File Attachment"
+IniWriteTextLine,%FCw%,Process,"//-- Update File Container Attachment"
 IniWriteTextLine,%FCw%,Process,"//--"
 IniWriteTextLine,%FCw%,Process,"StrFormat,DATE,#$pMyDate#$p,yyyy.mm.dd"
 IniWriteTextLine,%FCw%,Process,"Retrieve,FileVersion,#$pProvideFiles#$p\#$pSetupFile#$p,#$pContainerVer#$p"

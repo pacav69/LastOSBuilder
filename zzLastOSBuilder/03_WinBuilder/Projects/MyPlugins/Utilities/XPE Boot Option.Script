@@ -17,11 +17,11 @@ History002=KYHI fixed the TimeOut box - 2018.09.27
 History003=ChrisR Added TargetArch - used in Build Core - 2018.12.02
 
 [InterFace]
-pRadioGroup1=" Select the Boot Menu Option that is Supported by this Host PC",1,14,13,22,349,62,"Create BCD Boot Menu Entry For This MBR Based Host PC","Create BCD Boot Menu Entry For This UEFI Based Host PC",0
+pRadioGroup1=" Select the Boot Menu Option that is Supported by this Host PC",1,14,13,22,349,62,"Create BCD Boot Menu Entry For This MBR Based Host PC","Create BCD Boot Menu Entry For This UEFI Based Host PC",1
 pTextLabel1="Running this Plugin will result in a Batch File --> RunAsAdmin      To Optionally Boot Your PC Directly from the Projects Directory",1,1,12,151,362,38,8,Bold
 pBevel1=pBevel1,1,12,4,6,376,183
 pCheckBox1="Use Metro Style Boot Menu",1,3,20,93,187,18,False
-TimeOut_ScrollBox=10,1,4,20,120,40,21,5,10,15,20,25,30
+TimeOut_ScrollBox=5,1,4,20,120,40,21,5,10,15,20,25,30
 pTextLabel2="Set Boot Menu Time Out",1,1,68,124,142,18,8,Normal
 Button_Launch_Program="Create Batch File",1,8,4,198,119,25,Process,0,False,"__Click Here To Create Batch File"
 

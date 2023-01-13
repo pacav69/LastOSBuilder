@@ -1,0 +1,18 @@
+Win10XPE Version 2022-12-18
+
+**Note AV:** By its nature, Win10XPE uses programs or applications which uses functions at the core of windows.
+Some AntiVirus mark them as positive. These are false alarms.
+An example with NirSoft's ProduKey to Recover lost Windows product key, 12 engines detected this file as Unsafe or Hacktool, that's not true.
+
+You can read this blog written by the same author as ProduKey: Antivirus companies cause a big headache to small developers
+
+https://blog.nirsoft.net/2009/05/17/
+
+Blog written in 2009, the situation did not get any better.
+
+It shouldn't be like that and it's really frustrating. The work of AV companies should be better.
+
+They should be reprimanded for this, we are their customers.
+
+I can only advise you to put an exclusion on the Win10XPE folder.
+

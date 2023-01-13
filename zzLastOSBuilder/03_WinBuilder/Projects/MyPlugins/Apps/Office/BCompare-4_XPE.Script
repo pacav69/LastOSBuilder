@@ -9,7 +9,7 @@ Contact=
 Version=006
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2018.09.22
@@ -17,17 +17,17 @@ History006=ChrisR - Multi Languages and Shell Context Menu - 2019.07.20
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Image.jpg,1,5,145,35,250,135
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://www.scootersoftware.com/features.php
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update XPEPlugin Program File"
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,4.3.3.24545,"__Program Version To Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,4.4.4.27058,"__Program Version To Download and Update Plugin"
 Lang_TextLabel=Language,1,1,452,42,47,18,8,Normal
 Lang_ScrollBox="English                       ",1,4,450,56,104,21,"English                       ","German                      -de","French                      -fr","Japanese                    -jp","Chinese Simplified          -zh"
 
@@ -150,14 +150,14 @@ FileCopy,%Sapp%\Readme.txt,%Tapp%
 //1) Source 2) Target 3-4) SourceFileName with comma (if no comma (no4) direct copy) 5) TargetFilename
 StrFormat,EXT,#4,#9
 If,Not,#4-,Equal,-,Begin
-StrFormat,REPLACE,#4,#9,"",#8
-StrFormat,LTrim,#9,1,#9
-If,#5-,Equal,-,Set,#5,#3.#9
-CopyOrExpand,"#1\#3#$c#8.#9","#2\#5"
+  StrFormat,REPLACE,#4,#9,"",#8
+  StrFormat,LTrim,#9,1,#9
+  If,#5-,Equal,-,Set,#5,#3.#9
+  CopyOrExpand,"#1\#3#$c#8.#9","#2\#5"
 End
 Else,Begin
-If,#5-,Equal,-,Set,#5,#3
-CopyOrExpand,"#1\#3","#2\#5"
+  If,#5-,Equal,-,Set,#5,#3
+  CopyOrExpand,"#1\#3","#2\#5"
 End
 
 [Extract]

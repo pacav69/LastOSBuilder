@@ -19,3 +19,5 @@
 ;\Windows\System32\Windows.Media.Speech.dll
 \Windows\System32\Windows.Perception.Stub.dll
 \Windows\System32\Windows.UI.dll
+\Windows\System32\Windows.UI.Xaml.dll
+\windows\System32\Windows.UI.Xaml.Resources.*.dll

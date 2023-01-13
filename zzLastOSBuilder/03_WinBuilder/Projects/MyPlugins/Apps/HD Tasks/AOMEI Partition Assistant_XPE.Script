@@ -1,28 +1,28 @@
 [Main]
 Title=AOMEI Partition Assistant
 Type=XPEPlugin
-Description=(v8.6.0.0) Aomei Partition Assistant is a disk partition management software. It comes with so many powerful features that you can completely control your hard disk and partition.
+Description=(v9.10.0.0) Aomei Partition Assistant is a disk partition management software. It comes with so many powerful features that you can completely control your hard disk and partition.
 Author=KYHI
-Date=2019.11.02
+Date=2021.12.25
 Credits=
 Contact=
-Version=005
+Version=008
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2019.01.26
-History005=KYHI - Support v8.5 - 2019.11.02
+History008=KYHI - Support v9.6 - 2021.12.25
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
-StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,True,"__Add Pin To StartMenu Shortcut"
-TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,True,"__Add Pin To Taskbar Shortcut"
+StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
+TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Image.jpg,1,5,145,31,280,211
 Button_Launch_Program=Extract,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Extract Program Files"
 Download_Button=,1,8,11,170,25,25,Download,Web.bmp,False,"__Click Here To Download Program File"
@@ -36,7 +36,7 @@ RegKey_TextBox="Registration Key:",1,0,152,268,151,21,,"__Enter A Valid AOMEI Pa
 RegKey_Bevel=RegKey_Bevel,1,12,145,247,280,48
 RegKey_TextLabel="Non-Standard PA Versions Require A Valid Registration Key",1,1,145,300,300,18,8,Normal
 RegKey_TextLabel1="Otherwise The Standard Free Version Shall Apply To Build",1,1,145,315,300,18,8,Normal
-EditionKey_ScrollBox=Professional,1,4,309,268,109,21,Standard,Professional,Server,Technician,Unlimited
+EditionKey_ScrollBox=Standard,1,4,309,268,109,21,Standard,Professional,Server,Technician,Unlimited
 EditionKey_TextLabel="RegKey Edition:",1,1,309,251,109,18,8,Normal
 DDM_CheckBox="Dynamic Disk Manager",1,3,10,210,135,18,False,"__Enable Checkbox To Include AOMEI Dynamic Disk Manager Program Files"
 DDM_Desktop_CheckBox="Desktop Shortcut",1,3,10,228,122,18,False,"__Add Dynamic Disk Manager Desktop Shortcut"
@@ -44,15 +44,15 @@ DDM_StartMenu_CheckBox="Start Menu Shortcut",1,3,10,246,122,18,False,"__Add Dyna
 DDM_Bevel=DDM_Bevel,1,12,4,205,133,65
 
 [Variables]
-%CheckVersion%=8.5.0
+%CheckVersion%=9.10
 %ProgramTitle%=AOMEI Partition Assistant
 %ProgramEXE%=PartAssist.exe
 %ProgramFolder%=AOMEI Partition Assistant
 %SetupFile%=PAssist_Std.exe
 %ProvideFiles%=%ProgCache%\%ProgramFolder%
 %FileContainer%=%ScriptDir%\AOMEI Partition Assistant_XPE_File.Script
-%SetupURL%=http://www.aomeisoftware.com/download/pa/PAssist_Std.exe
-%SetupURL2%=http://www2.aomeisoftware.com/download/pa/PAssist_Std.exe
+%SetupURL%=https://www2.aomeisoftware.com/download/pa/PAssist_Std.exe
+%SetupURL2%=https://www.aomeisoftware.com/download/pa/PAssist_Std.exe
 
 [Process]
 Echo,"Processing %ScriptTitle%..."
@@ -81,9 +81,9 @@ If,%Architecture%%WoW64Support%%DDM_CheckBox%,Equal,x64TrueTrue,Run,%ScriptFile%
 Set,%ProgramVersion%,""
 Set,%DisplayVersion%,""
 Retrieve,Fileversion,%Target_Prog%\%ProgramFolder%\%ProgramExe%,%ProgramVersion%
-StrFormat,Left,%ProgramVersion%,5,%ProgramVersion%
-If,%ProgramVersion%,Bigger,%CheckVersion%,EchoExtended,"You are using an Un-Tested Program Version %ProgramVersion%#$x#$xIf it works update the #$pCheckVersion#$p variable#$xOtherwise you Must Update this Plugin",Warn,,MessageInformation,10
-StrFormat,Left,%ProgramVersion%,3,%DisplayVersion%
+StrFormat,SPLIT,%ProgramVersion%,.,1,%ProgramMajorVersion%
+StrFormat,SPLIT,%ProgramVersion%,.,2,%ProgramMinorVersion%
+If,Not,%ProgramMajorVersion%.%ProgramMinorVersion%,Equal,%CheckVersion%,EchoExtended,"You are using an Un-Tested Program Version %ProgramVersion%#$x#$xIf it works update the #$pCheckVersion#$p variable#$xOtherwise you Must Update this Plugin",Warn,,MessageInformation,10
 Set,%ProgramTitle%,%ProgramTitle% %EditionKey_ScrollBox% Edition %DisplayVersion%
 //--
 If,Not,%RegKey_TextBox%-,Equal,-,Run,%ScriptFile%,PAkey
@@ -104,15 +104,23 @@ FileCopy,%Sapp%\AMBooter.exe,%Tapp%
 FileCopy,%Sapp%\bcdboot#$c1.exe,%Tapp%\bcdboot.exe
 //FileCopy,%Sapp%\botva2.dll,%Tapp%
 //FileCopy,%Sapp%\CallbackCtrl.dll,%Tapp%
+//FileCopy,%Sapp%\Defrag.exe,%Tapp%
+FileCopy,%Sapp%\DiskInfo.dll,%Tapp%
 //FileCopy,%Sapp%\DyndiskConverter.exe,%Tapp%
 //FileCopy,%Sapp%\EPW.exe,%Tapp%
-FileCopy,%Sapp%\exfat.dll,%Tapp%
+If,ExistFile,%Sapp%\exfat.dll,FileCopy,%Sapp%\exfat.dll,%Tapp%
+Else,FileCopy,%Sapp%\exfat#$c1.dll,%Tapp%\exfat.dll
+//FileCopy,%Sapp%\GaHlp.exe,%Tapp%
 FileCopy,%Sapp%\GptBcd.dll,%Tapp%
 //FileCopy,%Sapp%\Help.exe,%Tapp%
 //FileCopy,%Sapp%\iconv.dll,%Tapp%
 //FileCopy,%Sapp%\install.bat,%Tapp%
+//FileCopy,%Sapp%\lang.lang,%Tapp%
 FileCopy,%Sapp%\language.ini,%Tapp%
+//FileCopy,%Sapp%\libcrypto-1_1.dll,%Tapp%
+//FileCopy,%Sapp%\libeay32.dll,%Tapp%
 //FileCopy,%Sapp%\libgcc_s_sjlj-1.dll,%Tapp%
+//FileCopy,%Sapp%\libssl-1_1.dll,%Tapp%
 //FileCopy,%Sapp%\libwim-15.dll,%Tapp%
 //FileCopy,%Sapp%\libxml2-2.dll,%Tapp%
 //FileCopy,%Sapp%\license.rtf,%Tapp%
@@ -122,6 +130,7 @@ FileCopy,%Sapp%\language.ini,%Tapp%
 //FileCopy,%Sapp%\Manual.PDF,%Tapp%
 FileCopy,%Sapp%\mfc80.dll,%Tapp%
 FileCopy,%Sapp%\mfc80u.dll,%Tapp%
+//FileCopy,%Sapp%\MFCButton.dll,%Tapp%
 FileCopy,%Sapp%\mfcm80.dll,%Tapp%
 FileCopy,%Sapp%\mfcm80u.dll,%Tapp%
 FileCopy,%Sapp%\Microsoft.VC80.CRT.manifest,%Tapp%
@@ -130,6 +139,7 @@ FileCopy,%Sapp%\msvcm80.dll,%Tapp%
 FileCopy,%Sapp%\msvcp80.dll,%Tapp%
 FileCopy,%Sapp%\msvcr80.dll,%Tapp%
 //FileCopy,%Sapp%\Ntfs2Fat32.exe,%Tapp%
+//FileCopy,%Sapp%\panotify.exe,%Tapp%
 FileCopy,%Sapp%\PartAssist.exe,%Tapp%
 //FileCopy,%Sapp%\PathFormat.dll,%Tapp%
 FileCopy,%Sapp%\PE.dll,%Tapp%
@@ -142,6 +152,7 @@ FileCopy,%Sapp%\SetupGreen32.exe,%Tapp%
 FileCopy,%Sapp%\SSDSecurityErase.dll,%Tapp%
 //FileCopy,%Sapp%\uninstall.bat,%Tapp%
 //FileCopy,%Sapp%\UnInstallAb.dll,%Tapp%
+//FileCopy,%Sapp%\UnInstallFB.exe,%Tapp%
 FileCopy,%Sapp%\UpgradeShow.dll,%Tapp%
 FileCopy,%Sapp%\VhdMgr.dll,%Tapp%
 //FileCopy,%Sapp%\webctrl.dll,%Tapp%
@@ -149,6 +160,7 @@ FileCopy,%Sapp%\wimgapi.dll,%Tapp%
 //FileCopy,%Sapp%\wimlib-imagex.exe,%Tapp%
 FileCopy,%Sapp%\WimMgr.dll,%Tapp%
 FileCopy,%Sapp%\Winchk.exe,%Tapp%
+FileCopy,%Sapp%\Win11chk.exe,%Tapp%
 //FileCopy,%Sapp%\winpeshl.ini,%Tapp%
 FileCopy,%Sapp%\WinToGo.exe,%Tapp%
 
@@ -160,7 +172,9 @@ FileCopy,%Sapp%\x64\7z#$c2.dll,%Tapp%\7z.dll
 FileCopy,%Sapp%\x64\7z#$c2.exe,%Tapp%\7z.exe
 FileCopy,%Sapp%\x64\AMBooter.exe,%Tapp%
 FileCopy,%Sapp%\x64\bcdboot#$c2.exe,%Tapp%\bcdboot.exe
-FileCopy,%Sapp%\x64\exfat.dll,%Tapp%
+FileCopy,%Sapp%\x64\DiskInfo.dll,%Tapp%
+If,ExistFile,%Sapp%\x64\exfat.dll,FileCopy,%Sapp%\x64\exfat.dll,%Tapp%
+Else,FileCopy,%Sapp%\x64\exfat#$c2.dll,%Tapp%\exfat.dll
 FileCopy,%Sapp%\x64\GptBcd.dll,%Tapp%
 //FileCopy,%Sapp%\x64\install.bat,%Tapp%
 FileCopy,%Sapp%\x64\language.ini,%Tapp%
@@ -227,6 +241,7 @@ If,%DDM_StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_Te
 [AddFiles]
 \Windows\System32\AppHelp.dll
 \windows\System32\KERNELBASE.dll
+\Windows\System32\srpapi.dll
 \Windows\System32\tzres.dll
 \windows\System32\vds_ps.dll
 \Windows\System32\wtsapi32.dll
@@ -289,7 +304,9 @@ Run,%ScriptFile%,Extract
 OpenDir,%GTemp%\%ProgramFolder%\%ProgramFolder%
 
 [Download]
+Echo,"Your Files Are Being Downloaded... Please Wait.."
 If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+If,ExistFile,%ProvideFiles%\%SetupFile%,FileDeleteQ,%ProvideFiles%\%SetupFile%
 Download,%ProvideFiles%\%SetupFile%,%SetupURL%,NoExitOnError
 If,Not,ExistFile,%ProvideFiles%\%SetupFile%,Download,%ProvideFiles%\%SetupFile%,%SetupURL2%
 
@@ -304,7 +321,13 @@ Retrieve,FileVersion,%ProvideFiles%\%SetupFile%,%ContainerVer%
 If,ExistFile,%FileContainer%.%ContainerVer%,FileDeleteQ,%FileContainer%.%ContainerVer%
 FileCopy,%FileContainer%,%FileContainer%.%ContainerVer%
 End
-Exec,%FileContainer%,Process
+Run,%ScriptFile%,Download
+Encode,%FileContainer%,Folder,%ProvideFiles%\%SetupFile%
+Retrieve,FileVersion,%ProvideFiles%\%SetupFile%,%ContainerVerNew%
+IniWrite,%FileContainer%,Main,Description,"%ProgramTitle% Version %ContainerVerNew% File Container"
+IniWrite,%FileContainer%,Main,Level,0
+IniWrite,%ScriptFile%,Main,Description,"(v%ContainerVerNew%) Aomei Partition Assistant is a disk partition management software. It comes with so many powerful features that you can completely control your hard disk and partition."
+DirDeleteQ,%ProvideFiles%
 
 [ProvideFiles_OpenDir_P_B]
 If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
@@ -328,6 +351,8 @@ If,%EditionKey_ScrollBox%,Equal,Professional,Set,%EditionKey%,4
 If,%EditionKey_ScrollBox%,Equal,Server,Set,%EditionKey%,5
 If,%EditionKey_ScrollBox%,Equal,Technician,Set,%EditionKey%,6
 If,%EditionKey_ScrollBox%,Equal,Unlimited,Set,%EditionKey%,7
+If,%Day%,Smaller,10,Set,%Day2%,0%day%
+If,%Month%,Smaller,10,Set,%Month2%,0%Month%
 //--
 Set,%Tapp%,%Target_Prog%\%ProgramFolder%
 If,ExistFile,%Tapp%\cfg.ini,FileDelete,%Tapp%\cfg.ini
@@ -341,6 +366,16 @@ TXTAddLine,%Tapp%\cfg.ini,KEY=%RegKey_TextBox%,Append
 TXTAddLine,%Tapp%\cfg.ini,"",Append
 TXTAddLine,%Tapp%\cfg.ini,[PA],Append
 TXTAddLine,%Tapp%\cfg.ini,POPUPMESSAGE=1,Append
+TXTAddLine,%Tapp%\cfg.ini,"",Append
+TXTAddLine,%Tapp%\cfg.ini,[Other],Append
+TXTAddLine,%Tapp%\cfg.ini,Vdr=aomei,Append
+TXTAddLine,%Tapp%\cfg.ini,Lang=,Append
+TXTAddLine,%Tapp%\cfg.ini,Ver=%CheckVersion%,Append
+TXTAddLine,%Tapp%\cfg.ini,fdate=%Year%%Month2%%Day2%,Append
+TXTAddLine,%Tapp%\cfg.ini,ldate=%Year%%Month2%%Day2%,Append
+TXTAddLine,%Tapp%\cfg.ini,"",Append
+//-- Used To Block Re-Activation
+TXTAddLine,%GTarget_Sys%\Drivers\etc\Hosts,127.0.0.1  www.aomeitech.com,Append
 
 [DDMkey]
 If,%EditionKey_ScrollBox%,Equal,Standard,Set,%EditionDDM%,1

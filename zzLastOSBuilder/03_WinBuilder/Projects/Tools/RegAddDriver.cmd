@@ -1,32 +1,55 @@
-@echo OFF
-SetLocal EnableDelayEdexpansion
+@Echo OFF
+SetLocal EnableDelayedExpansion
 Set HKFindKey=%~1
+Set HKFindKeyName=%~n1
 
-Set HKMainOrg=HKEY_LOCAL_MACHINE\Tmp_Install_Drivers\DriverDatabase\DriverInfFiles
-Set HKMainNew=HKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase\DriverInfFiles
+Set HiveOrg=HKEY_LOCAL_MACHINE\Src_Drivers
+Set HKMainOrg=%HiveOrg%\DriverDatabase\DriverInfFiles
+Reg Query "%HKMainOrg%\%HKFindKey%" >nul 2>nul
+If %ERRORLEVEL% EQU 0 (
+  Set HiveNew=HKEY_LOCAL_MACHINE\Tmp_Drivers
+  Call :_RegAddDriver
+)
+
+Set HiveOrg=HKEY_LOCAL_MACHINE\Src_System
+Set HKMainOrg=%HiveOrg%\DriverDatabase\DriverInfFiles
+Reg Query "%HKMainOrg%\%HKFindKey%" >nul 2>nul
+If %ERRORLEVEL% EQU 0 (
+  Set HiveNew=HKEY_LOCAL_MACHINE\Tmp_System
+  Call :_RegAddDriver
+)
+
+:_RegAddDriver
+Set HKMainNew=%HiveNew%\DriverDatabase\DriverInfFiles
 Reg Query "%HKMainNew%" >nul 2>nul
 If %ERRORLEVEL% NEQ 0 Exit 1
-Reg Query "%HKMainOrg%\%HKFindKey%" >nul 2>nul
-If %ERRORLEVEL% NEQ 0 Exit 1
+
 Call :_RegCopy "%HKMainOrg%\%HKFindKey%"
 
-Set HKMainOrg="HKEY_LOCAL_MACHINE\Tmp_Install_Drivers\DriverDatabase\DeviceIds"
-Set HKMainNew="HKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase\DeviceIds"
+Set HKMainOrg=%HiveOrg%\DriverDatabase\DeviceIds
+Set HKMainNew=%HiveNew%\DriverDatabase\DeviceIds
 For /F "tokens=1,2,3*" %%A IN ('REG Query %HKMainOrg% /s /e /f %HKFindKey%') Do (
   If /I Not "%%A" EQU "%HKFindKey%" (Set "HKeyOrg=%%A") Else (
-    Set HKeyNew=!HKeyOrg:HKEY_LOCAL_MACHINE\Tmp_Install_=HKEY_LOCAL_MACHINE\Tmp_!
+    Set HKeyNew=!HKeyOrg:HKEY_LOCAL_MACHINE\Src_=HKEY_LOCAL_MACHINE\Tmp_!
     ::Echo Reg Add "!HKeyNew!" /v "%%A" /t %%B /d "%%C" /f
     If "%%B" NEQ "REG_NONE" (Reg Add "!HKeyNew!" /v %%A /t %%B /d "%%C" /f >nul) Else (Call :_RegNone "!HKeyNew!" "%%A")
   )
 )
 
-Set HKMainOrg=HKEY_LOCAL_MACHINE\Tmp_Install_Drivers\DriverDatabase\DriverFiles
-Set HKMainNew=HKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase\DriverFiles
-For /F %%A IN ('REG Query "%HKMainOrg%" /s /d /e /f "%HKFindKey%"') Do Call :_RegCopy "%%A"
+Set HKMainOrg=%HiveOrg%\DriverDatabase\DriverFiles
+Set HKMainNew=%HiveNew%\DriverDatabase\DriverFiles
+For /F %%A IN ('Reg Query "%HKMainOrg%" /s /d /e /f "%HKFindKey%"') Do Call :_RegCopy "%%A"
 
-Set HKMainOrg=HKEY_LOCAL_MACHINE\Tmp_Install_Drivers\DriverDatabase\DriverPackages
-Set HKMainNew=HKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase\DriverPackages
+Set HKMainOrg=%HiveOrg%\DriverDatabase\DriverPackages
+Set HKMainNew=%HiveNew%\DriverDatabase\DriverPackages
 For /F %%A IN ('Reg Query "%HKMainOrg%" /k /f "%HKFindKey%"') Do Call :_RegCopy "%%A"
+
+Set HKMainOrg=%HiveOrg%\ControlSet001\Services
+Set HKMainNew=%HiveNew%\ControlSet001\Services
+Reg Query "%HKMainOrg%\%HKFindKeyName%" >nul 2>nul
+If %ERRORLEVEL% EQU 0 Call :_RegCopy "%HKMainOrg%\%HKFindKeyName%"
+
+::Pause
 Exit
 
 :_RegCopy

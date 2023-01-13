@@ -1,23 +1,23 @@
 [Main]
 Title=Sumatra PDF
 Type=XPEPlugin
-Description=(v3.1.2.0) Sumatra PDF is a slim, free, open-source PDF viewer for Windows. Sumatra has a minimalistic design. It's small and starts up very fast.
+Description=(v3.4.6) Sumatra PDF is a slim, free, open-source PDF viewer for Windows. Sumatra has a minimalistic design. It's small and starts up very fast.
 Author=KYHI
-Date=2019.04.02
-Credits=
+Date=2020.06.15
+Credits=TheOven.org Forum
 Contact=
-Version=003
+Version=002
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
-History001=KYHI Initial XPE Plugin Created 2018.05.10
-History003=KYHI - M&M Check - 2019.04.02
+History001=KYHI Initial XPE Plugin Created 2020.06.15
+History002=APT update to 3.4.6
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,85
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,64,121,21,,"__Start Menu Folder Name"
 Associate_Bevel=Associate_Bevel,1,12,4,106,133,79
@@ -29,19 +29,24 @@ CheckBox_cbr=.cbr,1,3,72,110,50,18,False
 CheckBox_cbz=.cbz,1,3,72,128,49,18,False
 CheckBox_epub=.epub,1,3,72,146,56,18,False
 CheckBox_mobi=.mobi,1,3,72,164,52,18,False
-RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=Sumatra.jpg,1,5,145,34,168,224
 Button_Launch_Program=Launch,1,8,10,204,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,313,6,54,18,https://www.sumatrapdfreader.org/free-pdf-reader.html
 
 [Variables]
 %ProgramTitle%=SumatraPDF
-%ProgramExe%=SumatraPDF.exe
-%ProgramExex64%=SumatraPDF.exe
+%ProgramExe%=SumatraPDF-3.4.6-32.exe
+%ProgramExex64%=SumatraPDF-3.4.6-64.exe
 %ProgramFolder%=SumatraPDF
 %ProgramFolderx64%=SumatraPDF_x64
-%SetupFile%=SumatraPDF.7z
-%SetupFilex64%=SumatraPDF64.7z
+%SetupFile%=SumatraPDF.zip
+%SetupFilex64%=SumatraPDF64.zip
+%DLSetupFile%=SumatraPDF.zip
+%DLSetupFilex64%=SumatraPDF64.zip
+%SetupURL%=https://kjkpubsf.sfo2.digitaloceanspaces.com/software/sumatrapdf/rel/SumatraPDF-3.4.6.zip
+%SetupURLx64%=https://kjkpubsf.sfo2.digitaloceanspaces.com/software/sumatrapdf/rel/SumatraPDF-3.4.6-64.zip
+%ProvideFiles%=%ProgCache%\%ProgramFolder%
 %FileContainer%=%ScriptDir%\SumatraPDF_XPE_File.Script
 
 [Process]
@@ -98,7 +103,6 @@ ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -
 Set,%ProgramFolder%,%ProgramFolderx64%
 Set,%ProgramExe%,%ProgramExex64%
 Set,%SetupFile%,%SetupFilex64%
-Set,%SetupURL%,%SetupURLx64%
 
 [Launch_Program]
 If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
@@ -106,7 +110,13 @@ Run,%ScriptFile%,Extract
 Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%\%ProgramFolder%
 
 [Update_Container]
-Exec,%FileContainer%,Process
+If,ExistDir,%ProvideFiles%,DirDeleteQ,%ProvideFiles%
+DirMake,%ProvideFiles%
+Download,%ProvideFiles%\%DLSetupFile%,%SetupURL%
+Encode,%FileContainer%,Folder,%ProvideFiles%\%DLSetupFile%
+Download,%ProvideFiles%\%DLSetupFilex64%,%SetupURLx64%
+Encode,%FileContainer%,Folder,%ProvideFiles%\%DLSetupFilex64%
+DirDeleteQ,%ProvideFiles%
 
 [AuthorEncoded]
 Logo=SumatraPDF4848.ico

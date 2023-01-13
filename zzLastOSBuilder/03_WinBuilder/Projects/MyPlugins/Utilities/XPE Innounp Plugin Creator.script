@@ -1,19 +1,19 @@
 [Main]
-Title=XPE Innounp Plugin Creator
-Type=XPEPlugin
-Description=Prepare XPE Innounp Plugins For Portable Applications
+Title=XPE Innounp Application Creator
+Type=XPEApplication
+Description=Prepare Innounp Applications For Use With Win10XPE Project.
 Author=KYHI
-Date=2019.08.25
+Date=2020.08.12
 Credits=Lancelot, ChrisR
 Contact=
-Version=009
+Version=010
 Level=10
 Download_Level=0
 Selected=None
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2018.05.28
-History009=KYHI - NoExitOnError if script warning message - 2019.08.25
+History010=KYHI
 
 [Interface]
 Main_Bevel=Bevel,1,12,296,119,203,109
@@ -24,12 +24,12 @@ Exe_TextLabel=2),1,1,12,136,26,34,16,Bold
 Exe_TextBox=Program.exe,1,0,43,150,186,21,
 Exe_BuilderBugWarning_TextLabel=" USE CTRL+V  or  Right Click to Paste - Then Hit ENTER",1,1,12,265,525,18,8,Bold
 Goo_TextLabel=3),1,1,12,204,26,32,16,Bold
-Goo_Button="Create New XPE Plugin",1,8,43,200,186,40,Process_Goo,sc3232.bmp,False
+Goo_Button="Create New XPE Application",1,8,43,200,186,40,Process_Goo,sc3232.bmp,False
 Innounp_Test_Button="Innounp Test",1,8,304,125,88,24,Innounp_Test_Process,0,False,"__Test to see if innounp can extract"
 Innounp_Test_Opendir_Button="Open Test Dir",1,8,304,152,88,24,Innounp_Test_Opendir,0,False
 Show_Template_Button=Template,1,8,404,125,88,24,Template_Empty_T,0,False,"__Show Template (Advanced Users)"
 Show_TemplateM_Button=TemplateM,1,8,404,152,88,24,Template_Empty_TM,0,False,"__Show Template for MultiArch(Advanced Users)"
-M_Author_TextBox="Plugin Author=",1,0,304,199,126,21,
+M_Author_TextBox="Application Author=",1,0,304,199,126,21,
 PVersion_CheckBox=PBox,1,3,442,180,45,18,False,"__Add Program Version TextBox Option (Advanced Users)"
 Advanced_CheckBox=Auto,1,3,442,200,45,18,False,"__Write As AutoUpdate Templates Option (Advanced Users)"
 
@@ -41,10 +41,10 @@ Advanced_CheckBox=Auto,1,3,442,200,45,18,False,"__Write As AutoUpdate Templates 
 %MArchF%=0
 %MArchE%=0
 %hash%=#
-%ProgramEXEVersion%=
+%ProgramExeVersion%=
 
 [Process]
-Message,"Use the Button 'Create New XPE Plugin'"
+Message,"Use the Button 'Create New XPE Application'"
 
 [Process_Goo]
 If,Not,ExistFile,%File_FileBox%,Message,"%File_FileBox% File Not Found",Error
@@ -160,7 +160,7 @@ IniWrite,%w%,Main,Download_Level,2
 IniWrite,%w%,Main,Selected,False
 IniWrite,%w%,Main,Mandatory,False
 IniWrite,%w%,Main,NoWarning,False
-IniWrite,%w%,Main,History001,"%MyAuthor% Initial XPE Innounp Plugin Created %MyDate%"
+IniWrite,%w%,Main,History001,"%MyAuthor% Initial XPE Innounp Application Created %MyDate%"
 IniWrite,%w%,Main,History002,""
 //--
 IniWrite,%w%,Interface,Shortcut_Bevel,"Shortcut_Bevel,1,12,4,6,133,121"
@@ -178,16 +178,16 @@ IniWrite,%w%,Interface,ProvideFile_Opendir_Button,",1,8,42,170,25,25,ProvideFile
 IniWrite,%w%,Interface,ProvideFile_Delete_Button,",1,8,73,170,25,25,Purge_Cache,trash.bmp,False,#$q__Click Here To Empty Download Folder Cache#$q"
 IniWrite,%w%,Interface,Button_Example_Info,",1,8,105,170,25,25,Example_Information,Exclamation.bmp,False,#$q__Click Here To View Information File#$q"
 IniWrite,%w%,Interface,HomePage_WebLabel,"#$qHome Page#$q,1,10,338,6,55,18,http://theoven.org/index.php?board=39.0"
-IniWrite,%w%,Interface,Update_Container_Button,"U,0,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
-If,%Advanced_CheckBox%,Equal,True,IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
+IniWrite,%w%,Interface,Update_Container_Button,"U,0,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
+If,%Advanced_CheckBox%,Equal,True,IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
 If,%PVersion_CheckBox%,Equal,True,Begin
-  IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode Container File#$q"
+  IniWrite,%w%,Interface,Update_Container_Button,"U,1,8,540,4,14,14,Update_Container,0,False,#$q__Update-Encode File Container#$q"
   IniWrite,%w%,Interface,ProgramVer_TextBox,"#$qProgram Version:#$q,1,0,450,20,82,21,0.0.0.0,#$q__Program File Version To Download#$q"
 End
 //--
 IniWrite,%w%,Variables,#$pProgramTitle#$p,%MyProgramTitle%
-IniWrite,%w%,Variables,#$pProgramEXE#$p,%MyExe%
-IniWrite,%w%,Variables,#$pProgramEXEx64#$p,""
+IniWrite,%w%,Variables,#$pProgramExe#$p,%MyExe%
+IniWrite,%w%,Variables,#$pProgramExex64#$p,""
 IniWrite,%w%,Variables,#$pProgramFolder#$p,%MyProgramFolder%
 IniWrite,%w%,Variables,#$pProgramFolderx64#$p,%MyProgramFolder%_x64
 IniWrite,%w%,Variables,#$pSetupFile#$p,%MySetupFilex86%
@@ -340,7 +340,7 @@ IniWriteTextLine,%w%,Extract,"Set,#$pSetupContainerSize#$p,#$q#$q"
 IniWriteTextLine,%w%,PluginSetx64,""
 //IniWriteTextLine,%w%,PluginSetx64,"//Set,#$pSetupURL#$p,#$pSetupURLx64#$p"
 IniWriteTextLine,%w%,PluginSetx64,"Set,#$pProgramFolder#$p,#$pProgramFolderx64#$p"
-IniWriteTextLine,%w%,PluginSetx64,"//Set,#$pProgramEXE#$p,#$pProgramEXEx64#$p"
+IniWriteTextLine,%w%,PluginSetx64,"//Set,#$pProgramExe#$p,#$pProgramExex64#$p"
 //IniWriteTextLine,%w%,PluginSetx64,"//Set,#$pSetupFile#$p,#$pSetupFilex64#$p"
 //-- Launch --//
 If,%MArch%,Equal,0,Begin
@@ -357,7 +357,7 @@ Set,%t%,%MArch%
 Set,%MArch%,0
 If,%MArch%,Equal,0,Begin
   IniWriteTextLine,%w%,%LP%,""
-  IniWriteTextLine,%w%,%LP%,"//Start,,#$pProgramEXE#$p,,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
+  IniWriteTextLine,%w%,%LP%,"//Start,,#$pProgramExe#$p,,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
   IniWriteTextLine,%w%,%LP%,"OpenDir,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
   //IniWriteTextLine,%w%,%LP%,"//OpenDir,#$pGTemp#$p\#$pProgramFolder#$p"
   IniWriteTextLine,%w%,%LP%,"Run,#$pScriptFile#$p,Extract"
@@ -366,7 +366,7 @@ End
 Set,%MArch%,1
 If,%MArch%,Equal,1,Begin
   IniWriteTextLine,%w%,%LPM%,""
-  IniWriteTextLine,%w%,%LPM%,"//Start,,#$pProgramEXE#$p,,#$pTapp#$p"
+  IniWriteTextLine,%w%,%LPM%,"//Start,,#$pProgramExe#$p,,#$pTapp#$p"
   IniWriteTextLine,%w%,%LPM%,"OpenDir,#$pTapp#$p"
   IniWriteTextLine,%w%,%LPM%,"Set,#$pTapp#$p,#$pGTemp#$p\#$pProgramFolder#$p\#$pHostOSArch#$p"
   IniWriteTextLine,%w%,%LPM%,"//-"
@@ -418,11 +418,12 @@ If,%Advanced_CheckBox%,Equal,True,Begin
   IniWriteTextLine,%w%,Update_Container,"If,Not,#$pSetupContainerSize#$p-,Equal,-,Begin"
   IniWriteTextLine,%w%,Update_Container,"IniRead,#$pFileContainer#$p,Folder,#$pSetupFile#$p,#$pSetupContainerSize#$p"
   IniWriteTextLine,%w%,Update_Container,"Set,#$pSetupContainerSize#$p,#$q#$q"
-  IniWriteTextLine,%w%,Update_Container,"Echo,#$qBacking Up Existing #$pScriptTitle#$p Container File...#$q"
+  IniWriteTextLine,%w%,Update_Container,"Echo,#$qBacking Up Existing #$pScriptTitle#$p File Container...#$q"
 End
 //--
 If,Not,%Advanced_CheckBox%,Equal,True,Begin
   IniWriteTextLine,%w%,Update_Container,""
+  IniWriteTextLine,%w%,Update_Container,"//DirDeleteQ,#$pProvideFiles#$p"
   IniWriteTextLine,%w%,Update_Container,"Encode,#$pFilecontainer#$p,Folder,#$pProvideFiles#$p\#$pSetupFile#$p"
   IniWriteTextLine,%w%,Update_Container,"Run,#$pScriptFile#$p,Download"
 End
@@ -510,7 +511,7 @@ FileCopy,%File_FileBox%,%GTemp%\Ico_Extract
 //--
 ShellExecute,Hide,cmd.exe,"/D /C %GTools%\innounp.exe -x -b -a -d#$q%GTemp%\Ico_Extract#$q #$q%GTemp%\Ico_Extract\%File_FileBox_FileName%#$q"
 //--
-If,ExistFile,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,Retrieve,FILEVERSION,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,%ProgramEXEVersion%
+If,ExistFile,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,Retrieve,FILEVERSION,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,%ProgramExeVersion%
 If,ExistFile,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,FileCopy,%GTemp%\Ico_Extract\{app}\%Exe_TextBox%,%GTemp%\Ico_Extract
 Else,Begin
   //-- Do if Setup.exe has Pprogram,1.exe Program,2.exe
@@ -521,7 +522,7 @@ Else,Begin
   If,ExistFile,%GTemp%\Ico_Extract\{app}\bin\%t%,FileCopy,%GTemp%\Ico_Extract\{app}\bin\%t%,%GTemp%\Ico_Extract\%Exe_Name%
   If,ExistFile,%GTemp%\Ico_Extract\{app}\bin\%Exe_NameWOextenstion%#$c2.exe,Set,%MArch%,1
   //--
-  If,ExistFile,%GTemp%\Ico_Extract\%Exe_TextBox%,Retrieve,FILEVERSION,%GTemp%\Ico_Extract\%Exe_TextBox%,%ProgramEXEVersion%
+  If,ExistFile,%GTemp%\Ico_Extract\%Exe_TextBox%,Retrieve,FILEVERSION,%GTemp%\Ico_Extract\%Exe_TextBox%,%ProgramExeVersion%
   Set,%t%,%Exe_NameWOextenstion%#$c1.exe
 End
 //--
@@ -606,6 +607,7 @@ If,ExistFile,%GTemp%\Test_Innounp\Test_Innounp\%Exe_TextBox%,Begin
   TXTAddLine,%w%,"BLIconextract.exe #$q%Exe_Name%#$q #$q%Exe_BlIcon%_4_16x16.ico#$q 4 16 16",Append
   ShellExecute,Open,cmd.exe,"/D /C #$q%w%#$q",%GTemp%\Test_Innounp\Icons
 End
+OpenDir,%GTemp%\Test_Innounp
 
 [Innounp_Test_Opendir]
 OpenDir,%GTemp%\Test_Innounp
@@ -629,14 +631,14 @@ IniWrite,%FCw%,Main,Download_Level,2
 IniWrite,%FCw%,Main,Selected,None
 IniWrite,%FCw%,Main,Mandatory,False
 IniWrite,%FCw%,Main,NoWarning,False
-IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Innounp Container Plugin Created %MyDate%"
+IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Innounp Application File Container Created %MyDate%"
 IniWrite,%FCw%,Main,History002,""
 //--
-IniWrite,%FCw%,Interface,pTextBox1,"#$qTo Hide Container File Plugin From Tree - Set Container File [Main] Level=0#$q,1,1,10,60,531,18,8,Bold"
+IniWrite,%FCw%,Interface,pTextBox1,"#$qTo Hide Application From Tree - Edit File Container Script [Main] Level=0#$q,1,1,10,60,531,18,8,Bold"
 //--
 TXTAddLine,%FCw%,"[Variables]",Append
 TXTAddLine,%FCw%,"[Process]",Append
-IniWriteTextLine,%FCw%,Process,"Echo#$c#$qFile Container Plugin - There Is Nothing To Process#$q"
+IniWriteTextLine,%FCw%,Process,"Echo#$c#$qApplication File Container - There Is Nothing To Process#$q"
 //--
 IniWriteTextLine,%FCw%,AuthorEncoded,""
 //--
@@ -686,11 +688,11 @@ IniWrite,%FCw%,Main,Download_Level,2
 IniWrite,%FCw%,Main,Selected,None
 IniWrite,%FCw%,Main,Mandatory,False
 IniWrite,%FCw%,Main,NoWarning,False
-IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Innounp AutoUpdate Container Plugin Created %MyDate%"
+IniWrite,%FCw%,Main,History001,"%MyAuthor% Initial XPE Innounp AutoUpdate File Container Created %MyDate%"
 IniWrite,%FCw%,Main,History002,""
 //--
-IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0#$q,1,1,10,60,540,18,8,Bold"
-IniWrite,%FCw%,Interface,Update_TextBox,"#$qTo Update This Container File - Just Press The Little GREEN Play Button#$q,1,1,10,30,540,18,8,Bold"
+IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Application From Tree - Edit File Container Plugin [Main] Level=5 to Level=0#$q,1,1,10,60,540,18,8,Bold"
+IniWrite,%FCw%,Interface,Update_TextBox,"#$qTo Update This File Container - Just Press The Little GREEN Play Button#$q,1,1,10,30,540,18,8,Bold"
 //--
 IniWrite,%FCw%,Variables,#$pProgramTitle#$p,%MyProgramTitle%
 IniWrite,%FCw%,Variables,#$pProgramFolder#$p,%MyProgramFolder%
@@ -718,7 +720,7 @@ IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Version,#$pNew
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Date,#$pMyDate#$p"
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,#$pHistory#$p,#$q #$pUserName#$p - Auto Updated Container v#$pContainerVer#$p - #$pMyDate#$p#$q"
 IniWriteTextLine,%FCw%,Process,"IniWrite,#$pFileContainer#$p,Main,Description,#$q #$pProgramTitle#$p Version #$pContainerVer#$p File Container#$q"
-IniWriteTextLine,%FCw%,Process,"//-- Update Container File Attachment"
+IniWriteTextLine,%FCw%,Process,"//-- Update File Container Attachment"
 IniWriteTextLine,%FCw%,Process,"//--"
 IniWriteTextLine,%FCw%,Process,"StrFormat,DATE,#$pMyDate#$p,yyyy.mm.dd"
 IniWriteTextLine,%FCw%,Process,"Retrieve,FileVersion,#$pProvideFiles#$p\#$pSetupFile#$p,#$pContainerVer#$p"

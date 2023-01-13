@@ -25,12 +25,12 @@ If,%Architecture%,Equal,x64,Begin
   //-
   If,%FullSoftware%,Equal,False,Begin
     If,Not,#1,Equal,HiveLoaded,Begin
+      RegHiveLoad,Src_Software,%Gtemp%\Install.hives\SOFTWARE
       RegHiveLoad,Tmp_Software,%RegSoftware%
-      RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
     End
     Run,%ScriptFile%,Reg_WoW64
     If,Not,#1,Equal,HiveLoaded,Begin
-      RegHiveunLoad,Tmp_Install_Software
+      RegHiveunLoad,Src_Software
       RegHiveunLoad,Tmp_Software
     End
   End

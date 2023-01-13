@@ -26,3 +26,7 @@
 \Windows\System32\Windows.UI.Xaml.Resources.dll
 \Windows\System32\Windows.UI.XamlHost.dll
 \Windows\SystemResources\Windows.UI.Logon
+;- Fix Narrator Tray Icon Settings Crash
+\windows\System32\AccessibilityCPL.dll
+\windows\System32\resourcepolicyclient.dll
+\Windows\System32\Windows.System.Launcher.dll

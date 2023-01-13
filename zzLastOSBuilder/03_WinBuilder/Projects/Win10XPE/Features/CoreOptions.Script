@@ -50,8 +50,20 @@ Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Exp
 If,%SIBFlyoutMenu_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,AllProgramsFlyout,1
 Else,RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,AllProgramsFlyout,0
 // StartIsBack Style Menu Windows 10
+If,%SourceBuild%,Smaller,22000,Begin
 RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,AlterStyle,"X:\Program Files\StartIsBack\Styles\%SIBSkin_ScrollBox%.msstyles"
 RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,TaskbarStyle,"X:\Program Files\StartIsBack\Styles\%SIBSkin_ScrollBox%.msstyles"
+End
+Else,Begin
+  If,%SIBSkin_ScrollBox%,Equal,Plain10,Begin
+    RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,AlterStyle,""
+    RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,TaskbarStyle,""
+  End
+  Else,Begin
+    RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,AlterStyle,%SIBSkin_ScrollBox%.msstyles
+    RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,TaskbarStyle,%SIBSkin_ScrollBox%.msstyles
+  End
+End
 // StartIsBack Start Menu Opaque
 If,%SIBOpaque_CheckBox%,Equal,True,Begin
   RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMenuAlpha,255
@@ -65,7 +77,7 @@ End
 If,%SourceBuild%,Bigger,17700,Begin
   If,%DarkTheme_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
   Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,1
-  If,%DarkThemeShortcut_CheckBox%,Equal,True,Begin
+  If,%DarkThemeShortcut_CheckBox%%Explorer_RadioButton%,Equal,TrueTrue,Begin
     TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pDesktop#$p\Change Explorer Theme","LINK #$pDesktop#$p\Change Explorer Theme"
     TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\System Tools\Change Explorer Theme","LINK #$pPrograms#$p\System Tools\Change Explorer Theme"
   End

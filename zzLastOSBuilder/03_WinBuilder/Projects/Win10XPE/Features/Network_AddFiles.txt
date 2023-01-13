@@ -1,6 +1,9 @@
 \Windows\INF\netlldp.inf
 \Windows\INF\ndiscap.inf
 \Windows\INF\netnwifi.inf
+\Windows\inf\netvwifibus.inf
+\Windows\inf\netvwififlt.inf
+\Windows\inf\netvwifimp.inf
 ;\Windows\INF\vwifibus.sys
 ;
 \Windows\System32\drivers\http.sys
@@ -32,6 +35,17 @@
 \Windows\System32\DriverStore\FileRepository\netvwifibus.inf*
 \Windows\System32\DriverStore\FileRepository\netvwififlt.inf*
 \Windows\System32\DriverStore\FileRepository\netvwifimp.inf*
+;
+; add cat files for driver files
+\Windows\System32\CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Client-Desktop-Required-Package*.cat
+\Windows\System32\CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Client-Features-Package*.cat
+\Windows\System32\CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-NetIO-Package~*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Broadcom*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Intel*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Marvel*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Qualcomm*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Ralink*.cat
+\Windows\System32\catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\Microsoft-Windows-Wifi-Client-Realtek*.cat
 ;
 ; Folder
 \ProgramData\Microsoft\WwanSvc
@@ -71,16 +85,20 @@
 ; password (in winre.wim DWrite.dll,credui.dll,credprovhost.dll,credprovs.dll)
 \Windows\System32\credssp.dll
 ;
-; dot3svc (additional: dot3gpui.dll,dot3ui.dll,onexui.dll,Dot3Conn.dll)
+; dot3svc (additional: dot3gpui.dll,dot3ui.dll,onexui.dll,Dot3Conn.dll,dot3hc.dll)
 \Windows\System32\dot3api.dll
 \Windows\System32\dot3cfg.dll
 \Windows\System32\dot3dlg.dll
 \Windows\System32\dot3gpclnt.dll
+\Windows\System32\dot3gpui.dll
+\Windows\System32\dot3hc.dll
 \Windows\System32\dot3msm.dll
 \Windows\System32\dot3svc.dll
+\Windows\System32\dot3ui.dll
 \Windows\System32\l2gpstore.dll
 \Windows\System32\l2nacp.dll
 \Windows\System32\onex.dll
+\Windows\System32\onexui.dll
 ;
 ; Control
 \Windows\System32\IEAdvpack.dll
@@ -89,7 +107,7 @@
 \Windows\System32\mshtml.dll
 ;
 ; Misc
-;\Windows\System32\fdWNet.dll
+\Windows\System32\fdWNet.dll
 \Windows\System32\inetcomm.dll
 \Windows\System32\iphlpsvc.dll
 \Windows\System32\msi.dll
@@ -98,6 +116,10 @@
 \Windows\System32\prnfldr.dll
 \Windows\System32\TSpkg.dll
 \Windows\System32\Windows.UI.Cred.dll
+\Windows\System32\certenc.dll
+\Windows\System32\Sens.dll
+\Windows\System32\wlgpclnt.dll
+;
 ; Map a network drive
 \Windows\System32\netplwiz.dll
 ;
@@ -111,10 +133,11 @@
 \Windows\System32\icsunattend.exe
 ;
 ; Network Diagnostic
-;\Windows\System32\ndfapi.dll
-;\Windows\System32\ndfetw.dll
-;\Windows\System32\NdfEventView.xml
-;\Windows\System32\ndfhcdiscovery.dll
+\Windows\System32\ndfapi.dll
+\Windows\System32\ndfetw.dll
+\Windows\System32\NdfEventView.xml
+\Windows\System32\ndfhcdiscovery.dll
+\Windows\System32\ndproxystub.dll
 ;
 ; File Sharing (in winre.wim rtutils.dll,mpr.dll,mprapi.dll,mprmsg.dll) - optional netplwiz.dll,Netplwiz.exe)
 \Windows\System32\iprtprio.dll
@@ -129,23 +152,34 @@
 \Windows\System32\tapi32.dll
 \Windows\System32\tapisrv.dll
 \Windows\System32\TapiUnattend.exe
+;
 ; smb (in winre.wim wkssvc.dll,wkscli.dll)
 \Windows\System32\wkspbrokerax.dll
 \Windows\System32\wksprtps.dll
 ;
 ; NlaSvc (in Winre.wim: nlaapi.dll,nlasvc.dll,rasapi32.dll,tapi32.dll)
+\Windows\System32\nlahc.dll
+;
+; Ndis
+\Windows\System32\ndishc.dll
+;
 ; Security Components
 \Windows\System32\Keymgr.dll
 \Windows\System32\Msaudite.dll
+;
 ; Service Control
 \Windows\System32\sc.exe
+;
 ; service logon
 \Windows\System32\seclogon.dll
+;
 ; TCPIP support (in winre.wim: esent.dll,scecli.dll)
 \Windows\System32\ubpm.dll
+;
 ; Van NetStatus
 ;\Windows\System32\VAN.dll
 ;\Windows\System32\WlanRadioManager.dll
+;
 ; Airplane mode
 ;\Windows\System32\RMapi.dll
 ;
@@ -158,8 +192,9 @@
 ; WcncSvc
 \Windows\System32\WcnApi.dll
 \Windows\System32\wcncsvc.dll
-;\Windows\System32\WcnEapAuthProxy.dll
-;\Windows\System32\WcnEapPeerProxy.dll
+\Windows\System32\WcnEapAuthProxy.dll
+\Windows\System32\WcnEapPeerProxy.dll
+\Windows\System32\WcnNetsh.dll
 \Windows\System32\wcnwiz.dll
 ;
 ; EapHost (in Winre.wim Eap3Host.exe,eapp3hst.dll,eappcfg.dll,eappgnui.dll,eapphost.dll,eappprxy.dll,eapprovp.dll,eapsvc.dll,keyiso.dll,ttlsauth.dll,ttlscfg.dll)
@@ -173,8 +208,11 @@
 \Windows\System32\WLanConn.dll
 \Windows\System32\wlandlg.dll
 \Windows\System32\wlanext.exe
+\Windows\System32\wlangpui.dll
+\Windows\System32\WLanHC.dll
 \Windows\System32\wlanhlp.dll
 \Windows\System32\WlanMediaManager.dll
+\Windows\System32\WlanMM.dll
 \Windows\System32\wlanmsm.dll
 \Windows\System32\wlanpref.dll
 \Windows\System32\wlansec.dll
@@ -196,3 +234,10 @@
 \Windows\System32\wbem\wlan.mof
 \Windows\SystemResources\Windows.UI.Cred\Windows.UI.Cred.pri
 \Windows\SystemResources\Windows.UI.Cred\pris\Windows.UI.Cred*
+;
+; Microsoft FTP Folder 
+\Windows\System32\msieftp.dll
+\Windows\System32\shdocvw.dll 
+;
+; Add Network Location 
+\Windows\System32\shwebsvc.dll 

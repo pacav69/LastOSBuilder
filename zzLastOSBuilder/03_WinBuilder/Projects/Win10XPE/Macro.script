@@ -3,8 +3,8 @@ Title=Macro
 Type=XPEPlugin
 Description=Macro File
 Author=ChriSR
-Date=2019.11.20
-Version=004
+Date=2020.11.19
+Version=005
 Level=0
 Download_Level=0
 Selected=None
@@ -205,15 +205,8 @@ If,#2-,Equal,-,Begin
 End
 If,#2,Smaller,0,EchoExtended,"Error: Pin Index Value Must be Between 0 and 9",Warn,,MessageError,,Halt
 If,#3-,Equal,-,Begin
-  If,%PE_Programs%,Equal,"X:\Program Files",Set,#3,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
-  Else,Begin
-    StrFormat,POS,%ScriptDir%,\App,%MXPE_Pos%
-    StrFormat,LTRIM,%ScriptDir%,%MXPE_Pos%,#3
-    StrFormat,REPLACE,#3,App,,#3
-    StrFormat,POS,#3,\,%MXPE_Pos%
-    StrFormat,LTRIM,#3,%MXPE_Pos%,#3
-    Set,#3,#$pStartMenu#$p\Programs\#3\%ProgramTitle%.lnk
-  End
+  If,%PE_Programs%,Equal,Y:\Programs,Set,#3,B:\Programs\%ProgramFolder%\%ProgramEXE%
+  Else,Set,#3,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
 End
 Set,%MXPE_AddPin_Read%,
 IniRead,%GTarget_Sys%\pecmd.ini,PinUtil,#1#2,%MXPE_AddPin_Read%
@@ -226,6 +219,19 @@ IniRead,%GTarget_Sys%\pecmd.ini,PinUtil,#1#c,%MXPE_AddPin_Read%
 If,%MXPE_AddPin_Read%-,Equal,-,begin
   set,%MXPE_AddPin_Count%,#c
   Loop,Break
+End
+
+[MAddPin_Save_StartMenuLink]
+If,#3-,Equal,-,Begin
+  If,%PE_Programs%,Equal,"X:\Program Files",Set,#3,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
+  Else,Begin
+    StrFormat,POS,%ScriptDir%,\App,%MXPE_Pos%
+    StrFormat,LTRIM,%ScriptDir%,%MXPE_Pos%,#3
+    StrFormat,REPLACE,#3,App,,#3
+    StrFormat,POS,#3,\,%MXPE_Pos%
+    StrFormat,LTRIM,#3,%MXPE_Pos%,#3
+    Set,#3,#$pStartMenu#$p\Programs\#3\%ProgramTitle%.lnk
+  End
 End
 
 [MAssociate]
@@ -308,6 +314,7 @@ If,#3,Equal,Hide,Set,#7,Hide
 Else,Set,#7,%OpenHideOutput%
 If,#3,Equal,NoExitOnError,Set,#6,""
 Else,Set,#6,Exit
+If,Not,ExistDir,%Gtemp%,DirMake,%Gtemp%
 //-
 //Echo,"Downloading #2 Please Wait..."
 ShellExecute,#7,cmd.exe,"/D /C Echo Downloading #$q#2#$q Please Wait... &#$q%GTools%\aria2c.exe#$q --log-level=notice --log=#$q%Gtemp%\Aria2c_Download.log#$q -x16 -s16 --allow-overwrite=true --auto-file-renaming=false -d#$q#8#$q -o#$q#9#$q #$q#2#$q"
@@ -444,7 +451,7 @@ If,#6,Equal,Halt,Halt,#1
 Echo,#1
 
 [MEchoExtended_Echo_LoopWarn]
-Echo,#1,#2
+Echo,#1,Warn
 
 [MEchoExtended_Message]
 If,#4,Equal,Message,Begin
@@ -462,10 +469,10 @@ End
 
 [MHiveLoadALL]
 //----------  BEGIN HiveLoadALL Macro  ------------------------------
-RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
-RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
-RegHiveLoad,Tmp_Install_Default,%Gtemp%\Install.hives\DEFAULT
-RegHiveLoad,Tmp_Install_Drivers,%Gtemp%\Install.hives\DRIVERS
+RegHiveLoad,Src_System,%Gtemp%\Install.hives\SYSTEM
+RegHiveLoad,Src_Software,%Gtemp%\Install.hives\SOFTWARE
+RegHiveLoad,Src_Default,%Gtemp%\Install.hives\DEFAULT
+RegHiveLoad,Src_Drivers,%Gtemp%\Install.hives\DRIVERS
 RegHiveLoad,Tmp_System,%RegSystem%
 RegHiveLoad,Tmp_Software,%RegSoftware%
 RegHiveLoad,Tmp_Default,%RegDefault%
@@ -505,10 +512,10 @@ If,Not,%ExitCode%,Equal,0,EchoExtended,"Error: Full Permission on #$x#$x#1#$x#$x
 
 [MHiveUnLoadALL]
 //----------  BEGIN HiveUnLoadALL Macro  ------------------------------
-RegHiveUnLoad,Tmp_Install_System
-RegHiveUnLoad,Tmp_Install_Software
-RegHiveUnLoad,Tmp_Install_Default
-RegHiveUnLoad,Tmp_Install_Drivers
+RegHiveUnLoad,Src_System
+RegHiveUnLoad,Src_Software
+RegHiveUnLoad,Src_Default
+RegHiveUnLoad,Src_Drivers
 RegHiveUnLoad,Tmp_System
 RegHiveUnLoad,Tmp_Software
 RegHiveUnLoad,Tmp_Default

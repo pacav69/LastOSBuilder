@@ -1,53 +1,28 @@
 [Main]
 Title=AOMEI Backupper - File Container
 Type=XPEPlugin
-Description=AOMEI Backupper Version 5.2.0.0 File Container
-Author=KYHI
-Date=2019.07.04
+Description=AOMEI Backupper Version 7.1.2.0 File Container
+Author=ChrisR
+Date=2022.10.01
 Credits=
 Contact=
-Version=003
+Version=006
 Level=0
 Download_Level=2
 Selected=None
 Mandatory=False
 NoWarning=False
-History001=KYHI Initial XPE Innoump Plugin Created 2018.12.06
-History003=KYHI - v5.0 Update Missing File - 2019.07.04
+History001=ChrisR Initial XPE Innoump Plugin Created 2018.12.06
+History005=KYHI - URL Update - 2019.12.20
+History006=APT -  support ver 7.0 - 2022.10.01
 
 [Interface]
 Hide_TextBox="To Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0",1,1,10,60,540,18,8,Bold
-Update_TextBox="To Update This Container File - Just Press The Little GREEN Play Button",1,1,10,30,540,18,8,Bold
 
 [Variables]
-%ProgramTitle%=AOMEI Backupper
-%XPE_Plugin%=%ScriptDir%\AOMEI Backupper_XPE.Script
 
 [Process]
-Echo,"Update %ScriptTitle%..."
-IniRead,%XPE_Plugin%,Main,Version,%Script_Version%
-StrFormat,INC,%Script_Version%,1
-Set,%History%,History%Script_Version%
-Set,%NewVersion%,%Script_Version%
-If,%Script_Version%,SMALLER,100,Set,%NewVersion%,0%Script_Version%
-If,%Script_Version%,SMALLER,10,Set,%NewVersion%,00%Script_Version%
-If,%Script_Version%,SMALLER,100,Set,%History%,History0%Script_Version%
-If,%Script_Version%,SMALLER,10,Set,%History%,History00%Script_Version%
-StrFormat,DATE,%MyDate%,yyyy.mm.dd
-//--
-//-- Update Container File Attachment
-IniWrite,%ScriptFile%,Main,Description,"%ProgramTitle% Version #1 File Container"
-//IniWrite,%ScriptFile%,Main,%History%,"%UserName% - Auto Updated Container v#1 - %MyDate%"
-//IniWrite,%ScriptFile%,Main,Date,%MyDate%
-//IniWrite,%ScriptFile%,Main,Version,%NewVersion%
-IniWrite,%ScriptFile%,Main,Level,0
-//--
-//-- Update Plugin File Information
-IniWrite,%XPE_Plugin%,Main,Description,"(v#1) Aomei Backupper is a backup software provides basic and advanced features to ensure the safety of your system and data."
-//IniWrite,%XPE_Plugin%,Main,%History%,"%UserName% - Auto Updated Container v#1 - %MyDate%"
-//IniWrite,%XPE_Plugin%,Main,Date,%MyDate%
-//IniWrite,%XPE_Plugin%,Main,Version,%NewVersion%
-//IniWrite,%XPE_Plugin%,Variables,#$pCheckVersion#$p,#1
+Echo,"Container File - There Is Nothing To Process..."
 
 [AuthorEncoded]
 Backupper4848.ico=4441,5922

@@ -71,8 +71,8 @@ Run,%ScriptFile%,Add_Shortcuts
 If,%PENMStartMenuFolder_TextBox%-,Equal,-,Set,%PENMStartMenuFolder_TextBox%,%StartMenuFolder%
 If,%PENMDesktop_CheckBox%,Equal,True,AddShortcut,Desktop
 If,%PENMStartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%PENMStartMenuFolder_TextBox%
-If,%PENMStartMpin_CheckBox%,Equal,True,AddPin,StartMenu,,$Start_Menu\Programs\%PENMStartMenuFolder_TextBox%\PENetwork.lnk
-If,%PENMTaskBpin_CheckBox%,Equal,True,AddPin,TaskBar,,$Start_Menu\Programs\%PENMStartMenuFolder_TextBox%\PENetwork.lnk
+If,%PENMStartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%PENMTaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
 
 [Extract]
 If,Not,ExistFile,%GTemp%\%ProgramFolder%\%ProgramExe%,Begin

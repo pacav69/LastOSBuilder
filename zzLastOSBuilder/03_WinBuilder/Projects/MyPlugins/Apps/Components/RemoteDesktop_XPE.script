@@ -1,19 +1,19 @@
 [Main]
 Title=Remote Desktop
 Type=XPEPlugin
-Description=Adds Remote Desktop Connection Client.
+Description=Adds Remote Desktop Client Connection.
 Author=KYHI
-Date=2019.12.12
+Date=2019.06.06
 Credits=NightMan, JonF, Joshua, ChrisR, 2aCD
 Contact=
-Version=007
+Version=008
 Level=5
 Download_Level=2
-Selected=True
+Selected=False
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created - 2018.11.13
-History007=ChrisR NLA Support only works with admin - Patch Controller.dll is an Option in Build Core - 2019.09.06
+History008=ChrisR NLA Support only works with admin - Patch Controller.dll is an Option in Build Core - 2019.09.06
 
 [Notes]
 // Patch Controller.dll to Get the Credentials Window is an Option in Build Core, Build Options.
@@ -25,25 +25,28 @@ History007=ChrisR NLA Support only works with admin - Patch Controller.dll is an
 
 [Interface]
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,135,121
-Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
 TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
 StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
-StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,"- Internet","__Start Menu Folder Name"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,Network,"__Start Menu Folder Name"
 Image_Software=RDC.jpg,1,5,147,6,196,121
 HomePage_WebLabel="Home Page",1,10,351,6,54,18,http://theoven.org/index.php?board=39.0
 Launcher_CheckBox="Use mstsc.cmd Launcher to Get#$xthe Credentials Window. Only if#$xControler.dll is Not Patched in Build Core",1,3,351,28,241,40,False,"__Use mstsc.cmd To Modify Registry and Get the Credentials Window. Only If Controler.dll is Not Patched in Build Core Options"
-NLAsupport_Bevel=NLAsupport_Bevel,1,12,4,135,365,77
-NLAsupport_CheckBox="Connection With Network Level Authentication",1,3,10,140,265,18,True,"__Use the Connection With Network Level Authentication"
-NLAsupport_TextLabel="* NLA Support Requires Logon as Admin",1,1,26,158,220,18,8,Normal
-NLAsupport_TextLabel2="To Switch Online Between Network Level Authentication Support On/Off",1,1,10,178,358,18,8,Normal
-NLAsupport_TextLabel3="Edit Documents/Default.rdp and Change enablecredsspsupport:i:[0|1]",1,1,10,194,358,18,8,Normal
+NLAsupport_Bevel=NLAsupport_Bevel,1,12,4,135,365,80
+NLAsupport_CheckBox="Connection With Network Level Authentication",1,3,10,140,244,18,True,"__Use the Connection With Network Level Authentication"
+NLAsupport_TextLabel="* NLA Support Requires Logon as Admin",1,1,23,158,220,18,8,Normal
+NLAsupport_TextLabel2="To Switch Online Between Network Level Authentication Support On/Off",1,1,10,182,358,18,8,Normal
+NLAsupport_TextLabel3="Edit Documents/Default.rdp and Change enablecredsspsupport:i:[0|1]",1,1,10,198,358,18,8,Normal
 AutoConnect_Bevel=AutoConnect_Bevel,1,12,4,218,365,65
 AutoConnect_CheckBox="Auto Connect To Remote Server Upon Startup",1,3,10,223,322,18,False
 IP_TextBox="Remote Server Adress",1,0,10,257,353,21,
 Profiles_Bevel=Profiles_Bevel,1,12,4,289,245,50
 Profiles_CheckBox="Include My Custom Remote Desktop Profiles",1,3,10,294,238,18,False
 Profiles_Opendir_Button="Custom Remote Desktop Profiles",1,8,10,313,233,22,Profiles_OpenDir,opendir.bmp,False,"__Click Here To Open Remote Desktop Profiles Folder:"
+pTextLabel1=LmCompatibilityLevel,1,1,258,142,108,18,8,Normal
+LM_Level_ScrollBox=2,1,4,258,158,71,21,0,1,2,3,4,5
+Button_Example_Info=,1,8,335,157,23,23,Example_Information,Exclamation.bmp,False,_Example_Information_,False,"__Click Here To View Information File"
 
 [Variables]
 %ProgramTitle%=Remote Desktop
@@ -69,6 +72,10 @@ If,%Admin%,Equal,True,Begin
     TXTReplace,%GTarget%\Users\Default\Documents\Default_NLA_On.rdp,"authentication level:i:0","authentication level:i:2"
   End
 End
+//--
+If,%SourceBuild%,Smaller,17763,Set,%Catalog%,Microsoft-Windows-RemoteDesktop-*.cat
+Else,Set,%Catalog%,Microsoft-Windows-TerminalServices-CommandLineTools-Package~*.cat
+ExtractWimFile,\Windows\System32\CatRoot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\%Catalog%
 //--
 ExtractSectionFiles,%ScriptFile%,RemoteDesktop_AddFiles
 //--
@@ -102,6 +109,8 @@ Run,%ScriptFile%,Add_Shortcuts
 \Windows\System32\d3d10warp.dll
 \Windows\System32\d3d11.dll
 \Windows\System32\dcomp.dll
+\Windows\system32\DispBroker.Desktop.dll
+\Windows\system32\DispBroker.dll
 \Windows\System32\DWrite.dll
 \Windows\System32\dxgi.dll
 \Windows\System32\msacm32.dll
@@ -119,7 +128,6 @@ Run,%ScriptFile%,Add_Shortcuts
 \Windows\System32\Windows.UI.CredDialogController.dll
 \Windows\System32\Windows.UI.Xaml.Resources.Common.dll
 \Windows\System32\wuceffects.dll
-\Windows\SystemResources\Windows.UI.Cred
 \Windows\System32\??-??\cngcredui.dll.mui
 \Windows\System32\??-??\cryptui.dll.mui
 \Windows\System32\??-??\d2d1.dll.mui
@@ -136,6 +144,7 @@ Run,%ScriptFile%,Add_Shortcuts
 \Windows\SystemResources\cryptui.dll.mun
 \Windows\SystemResources\mstsc.exe.mun
 \Windows\SystemResources\mstscax.dll.mun
+\Windows\SystemResources\Windows.UI.Cred
 
 [Add_Registry]
 HiveLoadALL
@@ -147,7 +156,7 @@ If,Not,%FullSoftware%,Equal,True,Begin
 End
 //--
 RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Lsa,LimitBlankPasswordUse,0
-RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Lsa,LmCompatibilityLevel,3
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Lsa,LmCompatibilityLevel,%LM_Level_ScrollBox%
 System,ErrorOff,2
 //RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Control\Lsa,"Security Packages",tspkg
 RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Control\Lsa\OSConfig,"Security Packages",kerberos,msv1_0,tspkg,pku2u,livessp,wdigest,schannel
@@ -190,6 +199,11 @@ If,%AutoConnect_CheckBox%,Equal,True,TXTReplace,%GTarget_Sys%\pecmd.ini,//EXEC @
 [Profiles_OpenDir]
 OpenDir,%GCustom%\RDC_Profiles
 
+[Example_Information]
+//Echo,"Information on Message Box"
+//Message,"Example Message...............................",Information
+ExtractAndRun,%ScriptFile%,Folder,Information.txt
+
 [AuthorEncoded]
 Remote_Desktop.ico=4279,5706
 Logo=Remote_Desktop.ico
@@ -202,6 +216,7 @@ lines=1
 [InterfaceEncoded]
 opendir.bmp=571,762
 RDC.jpg=18860,25147
+Exclamation.bmp=452,603
 
 [EncodedFile-InterfaceEncoded-opendir.bmp]
 lines=0
@@ -217,12 +232,17 @@ lines=6
 5=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
 6=jg3nh84pQz1WX8FttrxRCXblODAOq9Ixh4/IbrC3HrbAkoACW1Hg223oZswmxI5tLL1by5fuj39lMRUhSfP8Vfhjyas/nullcZ+pLH2QGt1dJdKoTLIVq6wN9yH25WqYny+72/ujIepZnyGe1Q8AsKFnkv1YMakCKqKE7ESBGZlALzjhRE9oTICTIL1Zw1ausoZybXszzzs2p5Aw5iqsIRyznr5xnraF4bPzID40o3dbeRgGNcarXf0dNKwP1Iqh2SuN0AJxGkEB7WCysdvSaWNEfQIFLED8av0SWaLswMXmStMfSC9Dkw37MNunNNwAiV5P057I6rnTUH+rt0UqRh1qMAq01rO3c0YqWaNLQ3Tj5FqNitJewldOjNCxKyJ73VNAWybW/Cq5P5FAFO7nTYgDqgsax2J9/1RJa7sYk0fZuPy9tKxkpiOvNt2ioavPM3gGHyT01u15c0E7rtnn6XgfzjpN9c+56nSr5KGzTetG42UhVoERL9FP/wOXoMA7eJxjD3Jx1ssqSGcYBSMSrPSB0Kme2OUr7lsoMjABAC7qBaXXLk9gAQAAAAIAAAAjAAAAZUkAAAAAAAABAAAAAAAAAAAAAAA
 
+[EncodedFile-InterfaceEncoded-Exclamation.bmp]
+lines=0
+0=eJxz8hViYgADMyDWAGJOIBYEYkYGCQYYOMwHwTDwHwx+/PixZMmSgoKCtLS0wsLClStXAkX+//v3b/Wpx4FrryusOK8y65hF9dTIiKjo6OhTp079X3f5Dc+JHzyX/sORRfHUmJiYM2fO/O95+R9ZAoicJ2zbuHHj79+//9/98d/g0l+oxPm/hpufPHj0+j8c/P3778G3v7s+/d9y8PT+gwcvX732Hxm8fvX++o1nCSnFYeGx2bnZ34GOhHrgzz/5aeeALuI/8sU/Ki0uPubWrVtQuaPv/iAcktMcExm9adNGqFzLY4Scdv+2qIiozs5OqJz77X9wOfEtj0KjwjMzMz9//vz/3a9/wuf/Ivx38Z9fXG5sbOyVK1f+b3/zG83vtgWdUVFRq1at+l957xeanMaUPVFR0U2NTf/Nrv9DkxM+9C4qIr6vt/+/wml0fTLrH+3Yvufr16//d7z67XjjH/95kG7+078cj77feeoh1AMA+kpMA3ic43etSM5JzE0syczP00vKLWAYBSMKCDFB6FJG7PLT0jXWMDABALBlCE/6kIw0AQAAAAIAAAArAAAAdQEAAAAAAAABAAAAAAAAAAAAAAA
+
 [EncodedFolders]
 Folder
 
 [Folder]
 Default.rdp=592,790
 mstsc.cmd=403,538
+Information.txt=349,466
 
 [EncodedFile-Folder-Default.rdp]
 lines=0
@@ -231,4 +251,8 @@ lines=0
 [EncodedFile-Folder-mstsc.cmd]
 lines=0
 0=eJydkUFLw0AQhe+B/Ie5FPTSVosehIqStljaWGgCRQjImkzM4manZKe2/fdOk6hYvLQ5LAl58973Zh/GaUGwmEx8L9ZsEOZqY9MCllgSI4zQfTCtfa+kDCEleyeHccPbPhht0Q2vbnwvIEMVDPq+B75X+/1rAivNBQQVZmhZKyPfNqNtO9I8F1PrGFUGlAMXCAFZR0IVSvxlo+y2A7H8DrXVz/FBxRUZmOEetJNYq0rMIBcqLrTrHg+KpsmGrTYG3iTHkJMJZbM6tvU9+C3RMQkzfHdb2BRr0VE7gbCYsiZ7YGgMf5N9b4nvolnv4Wk2D5PoJYrHYRJsqkq20RaIkJP2NWkRThG/RuoTejnc241p8kZoUBBPSvwxiFhVDL3V4zSGjuxrpKtOEu3lfsrBdVI6dmkXd3hmsxr2PLAzm/1dz3in+Qs7UwJmeJzjzC0uKU7WS85NYRgFIxD8ZYLQXozY5Z8L/hFhYAIA3BwG6rX2aGYBAAAAAgAAACUAAABKAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-Folder-Information.txt]
+lines=0
+0=eJzNk8FOwzAMhs+r1HfwA1QVDHgCODIuIO5Z6g6LLI5iZ6hvT9KhSlUnmITEuDmy/fuzHT8HtNQTCugbwp47BO7BpPzyStYosQfjOxAUKbagTZF0AGXYIiTBDnqO4FE/OL6D4x17aeuqrl6NS7jaoPHkd3V1tbp3lFWlJMHjZpR9einGrFwD26QFZ8iiB4xjeIk7rBcULTzw3pAHy14jO4dRwFiLQXOFZkxrpkJZYF6qhbq6PhurOEasb4CA+nGSgrGgSwqBY9Ym/S1qXa1npOzd8EecX5hyJufNac5F6OUnens5UojYZy2BxQKzR0K+IZTjJZBO8z+ue2qofN+7f9LC6aP5oZfcwiduW5X1eJzj98xLyy/KTSzJzM/TK6koYRgFIwo0skBoPkbs8vcTf35kYAIAJCMJ5EjEuecBAAAAAgAAACsAAAAOAQAAAAAAAAEAAAAAAAAAAAAAAA
 
