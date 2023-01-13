@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-ErrorReportingCore-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "5.2.*")</condition>
+          <condition>MigXmlHelper.IsOSLaterThan("NT", "5.1.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\PCHealth\ErrorReporting  [DoReport]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\PCHealth\ErrorReporting  [ForceQueueMode]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\PCHealth\ErrorReporting\ExclusionList  [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\PCHealth\ErrorReporting  [ShowUI]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\PCHealth\ErrorReporting  [DoReport]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\PCHealth\ErrorReporting  [ForceQueueMode]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\PCHealth\ErrorReporting\ExclusionList  [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\PCHealth\ErrorReporting  [ShowUI]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

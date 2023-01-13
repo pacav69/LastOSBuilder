@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="sandysp"
+    buildFilter=""
+    company="Msft"
+    copyright=""
+    creationTimeStamp="2003-07-16T15:33:19.8561193-07:00"
+    description="Bluetooth Config downlevel manifest"
+    displayName="Bluetooth Config downlevel manifest"
+    estimatedSize=""
+    lastUpdateTimeStamp="2003-07-16T15:33:19.8561193-07:00"
+    manifestVersion="1.0"
+    owners="sandysp"
+    supportInformation=""
+    testers="toddsc"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-Bluetooth-Config-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration xmlns="">
+    <machineSpecific>
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "11.0.0.0")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.IsOSLaterThan("NT", "5.1.2600.2179")</condition>
+          </detect>
+        </detects>
+        <plugin
+            classId="{e0cbf06c-cd8b-4647-bb8a-263b43f0f974}"
+            file="Microsoft-Windows-Bluetooth-Config\BthMigplugin.dll"
+            />
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

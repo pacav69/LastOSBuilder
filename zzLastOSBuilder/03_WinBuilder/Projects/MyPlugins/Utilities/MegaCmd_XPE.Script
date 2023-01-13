@@ -1,0 +1,401 @@
+[Main]
+Title=Mega Optional Apps Download
+Type=XPEPlugin
+Description=The MegaCmd Program Will Be Used To Download Files Hosted on MEGA's Server
+Author=KYHI
+Date=2019.10.07
+Credits=TheOven.org Forum
+Contact=
+Version=002
+Level=10
+Download_Level=0
+Selected=None
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Packed Plugin Created 2019.10.05
+History002=KYHI - Revision History By Dated Interface - 2019.10.07
+
+[Variables]
+%ProgramExe%=MegaCmdServer.exe
+%ProgramFolder%=MegaCmd
+%MoApps%=%BaseDir%\Projects\MoPlugins\Apps
+%MyApps%=%BaseDir%\Projects\MyPlugins\Apps
+%SetupFile%=MegaCmdSetup.exe
+%SetupURL%=https://mega.nz/MEGAcmdSetup.exe
+%ProvideFiles%=%ProgCache%\MegaDownload
+%FileContainer%=%ScriptDir%\MegaCmd_XPE_File.Script
+
+[Interface]
+pBevel1=pBevel1,1,12,0,315,485,80
+Button_Launch_Program="  Download Files",1,8,10,325,165,60,Launch_Program,MEGAcmdServer4848.bmp,False,_Launch_Program_,False,"__Click Here To Download The File(s) From MEGA's Server."
+HomePage_WebLabel="MegaCmd User Manual",1,10,200,319,109,18,https://github.com/meganz/MEGAcmd/blob/master/UserGuide.md#exit
+WarnOverwrite="Enable OverWrite Warning Before Extraction",1,3,200,338,251,18,True,"__Allows You To Receive Warning Before Package Extraction OverWrite's Existing Scripts"
+RemoveCache="Remove Download Cache After Extraction",1,3,200,356,243,18,False
+RemoveTemp="Remove MegaCmd Program Folder After Extraction",1,3,200,374,275,18,True
+Update_Container_Button=U,1,8,425,319,14,14,Update_Container,0,False,_Update_Container_,False,"__Update-Encode MegaCmd Program Files."
+ProvideFile_Opendir_Button=,1,8,450,319,25,25,ProvideFiles_OpenDir_P_B,opendir.bmp,False,_ProvideFiles_OpenDir_P_B_,False,"__Click Here To Open MEGA's DownLoad Cache Folder."
+Verified_Date="Version: 2019.12.18",1,1,318,321,110,18,8,Normal
+pCheckBox1="XPE Add-On Package",1,3,10,10,140,18,False
+pCheckBox2="FTK Imager 64-Bit",1,3,10,30,140,18,False
+pCheckBox3="GNU Image Manipulation Program (GIMP)",1,3,10,50,220,18,False
+pCheckBox4=JRE-8U211-Windows-x64,1,3,10,70,140,18,False
+pCheckBox5=JRE-8U211-Windows-x86,1,3,10,90,140,18,False
+pCheckBox6="Kingsoft WPS Office 2016",1,3,10,110,140,18,False
+pCheckBox7="Kingsoft WPS Office 2019",1,3,10,130,140,18,False
+pCheckBox8="Lazesoft Recovery Suite",1,3,10,150,140,18,False
+pCheckBox9="MS Game Pack",1,3,10,170,140,18,False
+pCheckBox10="Non-Visual Desktop Access (NVDA)",1,3,10,190,186,18,False
+pCheckBox11="Snappy Driver Installer",1,3,10,210,140,18,False
+pCheckBox12="SoftMaker FreeOffice",1,3,10,230,140,18,False
+pCheckBox13=UnlockIT,1,3,10,250,140,18,False
+pCheckBox14="MS Visual C++ Runtime 2005-2019",1,3,10,270,188,18,False
+pCheckBox15="WBG Windows Recovery",1,3,10,290,140,18,False
+pCheckBox16="WinAmp Media Player",1,3,310,10,140,18,False
+pCheckBox17="MSEdge Browser 32-Bit",1,3,310,30,140,18,False
+pCheckBox18="MSEdge Browser 64-Bit",1,3,310,50,140,18,False
+pCheckBox19="Custom Icon Package",1,3,310,70,140,18,False
+pCheckBox20="MB Anti-Malware v3.6.1",1,3,310,90,140,18,False
+pCheckBox21="Reserved21",0,3,310,110,140,18,False
+pCheckBox22="Reserved22",0,3,310,130,140,18,False
+pCheckBox23="Reserved23",0,3,310,150,140,18,False
+pCheckBox24="Reserved24",0,3,310,170,140,18,False
+pCheckBox25="Reserved25",0,3,310,190,140,18,False
+pCheckBox26="Reserved26",0,3,310,210,140,18,False
+pCheckBox27="Reserved27",0,3,310,230,140,18,False
+pCheckBox28="Reserved28",0,3,310,250,140,18,False
+pCheckBox29="Reserved29",0,3,310,270,140,18,False
+pCheckBox30="Reserved30",0,3,310,290,140,18,False
+
+[Process]
+Echo,"There Is Nothing To Process - Use Download Button"
+
+[Launch_Program]
+If,Not,ExistFile,%FileContainer%,ExtractFile,%ScriptFile%,Folder,"MegaCmd_XPE_File.Script",%ScriptDir%
+Run,%ScriptFile%,Check_Folders
+Run,%ScriptFile%,Extract_MegaCmd
+//-- Launch MegaCmd Server first in hidden in background - required
+ShellExecuteEX,Hide,%GTemp%\%ProgramFolder%\%ProgramExe%
+//-- launch MegaCmd Client hidden at first in background - updates=off
+ShellExecute,Hide,%GTemp%\%ProgramFolder%\MegaClient.exe,"update --auto=off"
+//-- Megacmd uses / for directories path
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+StrFormat,REPLACE,%ProvideFiles%,\,/,%ProvideDir%
+//--
+If,%pCheckBox1%,Equal,True,Run,%ScriptFile%,XPE_Add-On_Pack
+If,%pCheckBox2%,Equal,True,Run,%ScriptFile%,FTK_Imager
+If,%pCheckBox3%,Equal,True,Run,%ScriptFile%,GIMP2_XPE
+If,%pCheckBox4%,Equal,True,Run,%ScriptFile%,JRE-8U211-Windows-x64
+If,%pCheckBox5%,Equal,True,Run,%ScriptFile%,JRE-8U211-Windows-x86
+If,%pCheckBox6%,Equal,True,Run,%ScriptFile%,Kingsoft_WPS_Office_2016
+If,%pCheckBox7%,Equal,True,Run,%ScriptFile%,Kingsoft_WPS_Office_2019
+If,%pCheckBox8%,Equal,True,Run,%ScriptFile%,Lazesoft_Recovery_Suite
+If,%pCheckBox9%,Equal,True,Run,%ScriptFile%,MSGames_For_XPE
+If,%pCheckBox10%,Equal,True,Run,%ScriptFile%,NVDA_XPE
+If,%pCheckBox11%,Equal,True,Run,%ScriptFile%,Snappy_Driver_Installer
+If,%pCheckBox12%,Equal,True,Run,%ScriptFile%,SoftMaker_FreeOffice
+If,%pCheckBox13%,Equal,True,Run,%ScriptFile%,UnlockIT_XPE
+If,%pCheckBox14%,Equal,True,Run,%ScriptFile%,VcRunTimes_XPE
+If,%pCheckBox15%,Equal,True,Run,%ScriptFile%,WBG_WindowsRecovery_XPE
+If,%pCheckBox16%,Equal,True,Run,%ScriptFile%,Winamp_XPE
+If,%pCheckBox17%,Equal,True,Run,%ScriptFile%,MSEdge_Browser_32-Bit
+If,%pCheckBox18%,Equal,True,Run,%ScriptFile%,MSEdge_Browser_64-Bit
+If,%pCheckBox19%,Equal,True,Run,%ScriptFile%,Custom_IconPack
+If,%pCheckBox20%,Equal,True,Run,%ScriptFile%,MBAM3_Setup_XPE
+If,%pCheckBox21%,Equal,True,Run,%ScriptFile%,App21
+If,%pCheckBox22%,Equal,True,Run,%ScriptFile%,App22
+If,%pCheckBox23%,Equal,True,Run,%ScriptFile%,App23
+If,%pCheckBox24%,Equal,True,Run,%ScriptFile%,App24
+If,%pCheckBox25%,Equal,True,Run,%ScriptFile%,App25
+If,%pCheckBox26%,Equal,True,Run,%ScriptFile%,App26
+If,%pCheckBox27%,Equal,True,Run,%ScriptFile%,App27
+If,%pCheckBox28%,Equal,True,Run,%ScriptFile%,App28
+If,%pCheckBox29%,Equal,True,Run,%ScriptFile%,App29
+If,%pCheckBox30%,Equal,True,Run,%ScriptFile%,App30
+Run,%ScriptFile%,CleanUp
+
+[XPE_Add-On_Pack]
+Set,%AppLoc%,%BaseDir%\Projects
+Set,%AppFile%,MoPlugins.7z
+Set,%AppURL%,https://mega.nz/#!aaxklQaS!wWcGgXwd2Plzfg0ZwV2wBLWHEL1UiV22Ut4Ej4JoeOQ
+Run,%ScriptFile%,Download
+
+[FTK_Imager]
+Set,%AppLoc%,%MoApps%\HD Tasks
+Set,%AppFile%,FTK_Imager_x64_XPE.7z
+Set,%AppURL%,https://mega.nz/#!XTZXRCTB!kJzkjUYAFkaqN5poUmrLmo1wh68g9c3SkpIQdTuITsU
+Run,%ScriptFile%,Download
+
+[GIMP2_XPE]
+Set,%AppLoc%,%MoApps%\Multimedia
+Set,%AppFile%,GIMP2_XPE.7z
+Set,%AppURL%,https://mega.nz/#!uKZRDawJ!YQF7lkMAZ9jHuDB2vPExx8mbwkPpWDYP5cyHnYDTYZI
+Run,%ScriptFile%,Download
+
+[JRE-8U211-Windows-x64]
+Set,%AppLoc%,%MoApps%\Components
+Set,%AppFile%,JRE-8U211-Windows-x64_XPE.7z
+Set,%AppURL%,https://mega.nz/#!KOJTSIwK!WonrMyebwC-3FNzK0a6MT4xAkNWsTEMfb052JmBw3Ek
+Run,%ScriptFile%,Download
+
+[JRE-8U211-Windows-x86]
+Set,%AppLoc%,%MoApps%\Components
+Set,%AppFile%,JRE-8U211-Windows-x86_XPE.7z
+Set,%AppURL%,https://mega.nz/#!iHJVDCCb!GOX0ZCrAMNvW3Pb-NZgNRwKCnMlIgCvHlBaGrNJekEs
+Run,%ScriptFile%,Download
+
+[Kingsoft_WPS_Office_2016]
+Set,%AppLoc%,%MoApps%\Office
+Set,%AppFile%,Kingsoft_WPS_Office_2016_XPE.7z
+Set,%AppURL%,https://mega.nz/#!OSZ13SKL!ld3iwtbIxulndfq4EVVQM832LsLYNPjJrdGOtsLkdeA
+Run,%ScriptFile%,Download
+
+[Kingsoft_WPS_Office_2019]
+Set,%AppLoc%,%MoApps%\Office
+Set,%AppFile%,Kingsoft_WPS_Office_2019_XPE.7z
+Set,%AppURL%,https://mega.nz/#!qSQRnSrT!BRgRc0wGFzQ22wvCphUIM1NYPfy5UtfjLjra0zTO_N8
+Run,%ScriptFile%,Download
+
+[Lazesoft_Recovery_Suite]
+Set,%AppLoc%,%MoApps%\Recovery
+Set,%AppFile%,Lazesoft_Recovery_Suite_XPE.7z
+Set,%AppURL%,https://mega.nz/#!SPZBySbK!G-psx4prUdILzFE_quQWV4EmV5S-81X-3KM7p9hGkVY
+Run,%ScriptFile%,Download
+
+[MSGames_For_XPE]
+Set,%AppLoc%,%MoApps%\Games
+Set,%AppFile%,MSGames_For_XPE.7z
+Set,%AppURL%,https://mega.nz/#!rbA1RIZB!t7rOfwBVZ-B6bMUx3G9IJwOnF5b8lA7yhgXcOWTBCsw
+Run,%ScriptFile%,Download
+
+[NVDA_XPE]
+Set,%AppLoc%,%MoApps%\Accessibility
+Set,%AppFile%,NVDA_2019.2.1_XPE.7z
+Set,%AppURL%,https://mega.nz/#!LaA1GCpK!VZEQwHUDLNrqUYJ0UlalWXc9NhsZ2gXIZML4WSpuQlE
+Run,%ScriptFile%,Download
+
+[Snappy_Driver_Installer]
+Set,%AppLoc%,%MoApps%\System Tools
+Set,%AppFile%,Snappy_Driver_Installer_XPE.7z
+Set,%AppURL%,https://mega.nz/#!ePYjiKrZ!AmXMQRT4oUHbdO6OB9oeweJv5py7QIf8AE7T6W8EsPQ
+Run,%ScriptFile%,Download
+
+[SoftMaker_FreeOffice]
+Set,%AppLoc%,%MoApps%\Office
+Set,%AppFile%,SoftMaker_FreeOffice_XPE.7z
+Set,%AppURL%,https://mega.nz/#!naRBWCKY!yKf8w29H4YQF-s5p3su0BegTAd2uYOU9wDIRxEX0g7g
+Run,%ScriptFile%,Download
+
+[UnlockIT_XPE]
+Set,%AppLoc%,%MoApps%\File Tasks
+Set,%AppFile%,UnlockIT_XPE.7z
+Set,%AppURL%,https://mega.nz/#!CPRHlKqa!lT4TlIeLEdMJyLCNYXh7hTTez1AcYHkluEccXAHJF9M
+Run,%ScriptFile%,Download
+
+[VcRunTimes_XPE]
+Set,%AppLoc%,%MoApps%\Components
+Set,%AppFile%,VcRunTimes-2019-09-20_XPE.7z
+Set,%AppURL%,https://mega.nz/#!LOQlFKCQ!J2TS5H8JhHHCWsYLfO_pvvTPQU4FVyZuKR208-J69V8
+Run,%ScriptFile%,Download
+
+[WBG_WindowsRecovery_XPE]
+Set,%AppLoc%,%MoApps%\Recovery
+Set,%AppFile%,WBG_WindowsRecovery_XPE.7z
+Set,%AppURL%,https://mega.nz/#!reIDSYYa!67qCDTI7tBHlhGKoEPa3i4dkh_GmFxCfH9RHSwc7sqU
+Run,%ScriptFile%,Download
+
+[Winamp_XPE]
+Set,%AppLoc%,%MoApps%\Multimedia
+Set,%AppFile%,Winamp_XPE.7z
+Set,%AppURL%,https://mega.nz/#!vTYzUabL!oFvJ-T1oEpvlOu6i82BfPUYzcti7v213ZpQ22ayEeV0
+Run,%ScriptFile%,Download
+
+[MSEdge_Browser_32-Bit]
+Set,%AppLoc%,%MoApps%\Network
+Set,%AppFile%,MSEdge_Browser_79.0.309.25_x86_XPE.7z
+Set,%AppURL%,https://mega.nz/#!qHAl1KLB!UK3WlIzeR8inqffSqxdVCU_BSurb-qQNMmRQlWw4Sdg
+Run,%ScriptFile%,Download
+
+[MSEdge_Browser_64-Bit]
+Set,%AppLoc%,%MoApps%\Network
+Set,%AppFile%,MSEdge_Browser_79.0.309.25_x64_XPE.7z
+Set,%AppURL%,https://mega.nz/#!OWYnVQib!eaOlB7ciGpSqZFZa33Kdu9TRHvdfbTV6LVs8QZGKw9E
+Run,%ScriptFile%,Download
+
+[Custom_IconPack]
+Set,%AppLoc%,%MoApps%\Tweaks
+Set,%AppFile%,CustomIconPack_XPE.7z
+Set,%AppURL%,https://mega.nz/#!2PZzgKTI!kBMbn9xfzY_ZnmmGuK6FoB7MVK5b3ngGmMw5aZKKJXQ
+Run,%ScriptFile%,Download
+
+[MBAM3_Setup_XPE]
+Set,%AppLoc%,%MoApps%\Security
+Set,%AppFile%,MBAM3_Setup_XPE.7z
+Set,%AppURL%,https://mega.nz/#!nWQ1UAiB!VG6ruP_6i9Pe4bYEn2k9yiE8WL7wg8iniDwseXEZ_I4
+Run,%ScriptFile%,Download
+
+[App21]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App22]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App23]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App24]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App25]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App26]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App27]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App28]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App29]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[App30]
+Set,%AppLoc%,
+Set,%AppFile%,
+Set,%AppURL%,
+Run,%ScriptFile%,Download
+
+[Download]
+Echo,"The %AppFile% File Is Being Downloaded From MEGA's Server... Please Wait.."
+If,ExistFile,%ProvideFiles%\%AppFile%,FileDeleteQ,%ProvideFiles%\%AppFile%
+ShellExecute,Open,%GTemp%\%ProgramFolder%\MegaClient.exe,"get --ignore-quota-warn %AppURL% #$q%ProvideDir%#$q"
+If,Not,ExistFile,%ProvideFiles%\%AppFile%,EchoExtended,"The %AppFile% Was Not Found or Was Not Downloaded.",Warn,,Message,3
+Else,Begin
+  If,%WarnOverwrite%,Equal,True,If,QUESTION,"Existing Scripts Will Be OverWritten!!#$xDo You Want To Continue ??",10,True,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -y -o#$q%AppLoc%#$q"
+  Else,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -y -o#$q%AppLoc%#$q"
+End
+
+[Extract_MegaCmd]
+Set,%SetupContainerSize%,""
+IniRead,%FileContainer%,Folder,%SetupFile%,%SetupContainerSize%
+If,%SetupContainerSize%-,Equal,-,Run,%ScriptFile%,Update_Container
+//--
+Echo,"Extracting %ScriptTitle% Setup File..."
+If,Not,ExistDir,%GTemp%\%ProgramFolder%,DirMake,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+
+[Update_Container]
+Echo,"The Container Files Is Being Updated... Please Wait.."
+If,Not,ExistDir,%GTemp%\%ProgramFolder%,DirMake,%GTemp%\%ProgramFolder%
+Download,%GTemp%\%ProgramFolder%\%SetupFile%,%SetupURL%,NoExitOnError
+If,Not,ExistFile,%GTemp%\%ProgramFolder%\%SetupFile%,EchoExtended,"The %SetupFile% Was Not Found or Was Not Downloaded.",Warn,,Message,5,Exit
+Encode,%Filecontainer%,Folder,%GTemp%\%ProgramFolder%\%SetupFile%
+
+[ProvideFiles_OpenDir_P_B]
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+OpenDir,%ProvideFiles%
+
+[Check_Folders]
+If,Not,ExistDir,%MoApps%\Accessibility,DirMake,%MoApps%\Accessibility
+If,Not,ExistDir,%MoApps%\CDVD,DirMake,%MoApps%\CDVD
+If,Not,ExistDir,%MoApps%\Components,DirMake,%MoApps%\Components
+If,Not,ExistDir,%MoApps%\File Tasks,DirMake,%MoApps%\File Tasks
+If,Not,ExistDir,%MoApps%\Games,DirMake,%MoApps%\Games
+If,Not,ExistDir,%MoApps%\HD Tasks,DirMake,%MoApps%\HD Tasks
+If,Not,ExistDir,%MoApps%\HW Info,DirMake,%MoApps%\HW Info
+If,Not,ExistDir,%MoApps%\MultiMedia,DirMake,%MoApps%\MultiMedia
+If,Not,ExistDir,%MoApps%\Network,DirMake,%MoApps%\Network
+If,Not,ExistDir,%MoApps%\Office,DirMake,%MoApps%\Office
+If,Not,ExistDir,%MoApps%\Recovery,DirMake,%MoApps%\Recovery
+If,Not,ExistDir,%MoApps%\Registry,DirMake,%MoApps%\Registry
+If,Not,ExistDir,%MoApps%\Security,DirMake,%MoApps%\Security
+If,Not,ExistDir,%MoApps%\System Tools,DirMake,%MoApps%\System Tools
+If,Not,ExistDir,%MoApps%\Tweaks,DirMake,%MoApps%\Tweaks
+
+[AuthorEncoded]
+MEGAcmdServer4848.ico=2828,3771
+Logo=MEGAcmdServer4848.ico
+
+[EncodedFile-AuthorEncoded-MEGAcmdServer4848.ico]
+lines=0
+0=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
+
+[InterfaceEncoded]
+MEGAcmdServer4848.ico=2828,3771
+MEGAcmdServer4848.bmp=2610,3480
+Launch.bmp=913,1218
+opendir.bmp=571,762
+
+[EncodedFile-InterfaceEncoded-MEGAcmdServer4848.ico]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-MEGAcmdServer4848.bmp]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]
+MegaCmd_XPE_File.Script=3405,4540
+
+[EncodedFile-Folder-MegaCmd_XPE_File.Script]
+lines=1
+0=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
+1=dBCQ6sy8tkhM7L3eqGLZLji8VHih+TpEVfLl5B2Ru1bv2kmjE9ixTMkLfAHlWdRzoB6jl3QXCOpwhcydWND22JfN1kwyhOdZFFGsNqxLNTm/La6y8NjV8sV6gcejsVFLJoLD3KC78RjMfW7vRqCvf5qralcafuttChLyfCHMTHRTsQCCKQPMWjOShIVELRhke5AqXmw42nmk7lV3ZFfTwP86OgYIr7wnpnwzbonldMG7W9ziLB0a6saIiYPtFQG/csRsCWna6nC5DOJUzlB38/Waej3b5+69dvXNrTn004/b397fF7PNrB8PU4/9X7SfvV/fl6/zfCr895eJwT901NT3TOTYmPCHCNd8vMSdULTi7KLChhGAUjAiwWhNDfeLDLB/e938XABAAG/wy2J0yPzgEAAAACAAAAMwAAAPYMAAAAAAAAAQAAAAAAAAAAAAAA
+
+[CleanUp]
+//-- Exit/Quit MegaCmd Server running hidden in host background - required
+ShellExecute,Hide,%GTemp%\%ProgramFolder%\MegaClient.exe,"exit"
+If,%RemoveCache%,Equal,True,DirDeleteQ,%ProvideFiles%
+If,%RemoveTemp%,Equal,True,DirDeleteQ,%GTemp%\%ProgramFolder%
+Run,%ScriptFile%,Check_Folders
+//--
+If,ExistFile,%MyApps%\HD Tasks\Macrium Reflect_XPE.Script,FileDeleteQ,%MyApps%\HD Tasks\Macrium Reflect_XPE.Script
+If,ExistFile,%MyApps%\HD Tasks\Macrium Reflect_XPE_File.Script,FileDeleteQ,%MyApps%\HD Tasks\Macrium Reflect_XPE_File.Script
+If,ExistFile,%MoApps%\HD Tasks\Macrium Reflect Home_XPE.Script,FileDeleteQ,%MoApps%\HD Tasks\Macrium Reflect Home_XPE.Script
+If,ExistFile,%MoApps%\HD Tasks\Macrium Reflect Home_XPE_File.Script,FileDeleteQ,%MoApps%\HD Tasks\Macrium Reflect Home_XPE_File.Script
+If,ExistFile,%MoApps%\HD Tasks\Macrium Reflect Free_XPE.Script,FileDeleteQ,%MoApps%\HD Tasks\Macrium Reflect Free_XPE.Script
+If,ExistFile,%MoApps%\HD Tasks\Macrium Reflect Free_XPE_File.Script,FileDeleteQ,%MoApps%\HD Tasks\Macrium Reflect Free_XPE_File.Script
+If,ExistFile,%MoApps%\HW Info\Victoria_XPE.Script,FileDelete,%MoApps%\HW Info\Victoria_XPE.Script
+If,ExistFile,%MoApps%\HW Info\Victoria_XPE_File.Script,FileDelete,%MoApps%\HW Info\Victoria_XPE_File.Script
+If,ExistFile,%MoApps%\Components\DevicePrinterSupport_XPE.script,FileDelete,%MoApps%\Components\DevicePrinterSupport_XPE.script
+System,ReScanScripts

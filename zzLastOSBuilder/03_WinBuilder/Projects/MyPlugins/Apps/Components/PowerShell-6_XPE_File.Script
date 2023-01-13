@@ -1,0 +1,92 @@
+[Main]
+Title=PowerShell-6 - File Container
+Type=XPEPlugin
+Description=PowerShell-6 Version  File Container
+Author=KYHI
+Date=2019.09.14
+Credits=
+Contact=
+Version=003
+Level=0
+Download_Level=2
+Selected=None
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Plugin Created 2018.07.27
+History003=KYHI - 2019.03.29
+
+[Interface]
+Hide_TextBox="To Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0",1,1,10,60,540,18,8,Bold
+Update_TextBox="To Update This Container File - Just Press The Little GREEN Play Button",1,1,10,30,540,18,8,Bold
+
+[Variables]
+%ContainerVer%=6.2.3
+%ProgramTitle%=PowerShell-6
+%ProgramFolder%=PowerShell-6
+%SetupFile%=PowerShell-6_x86.zip
+%SetupFilex64%=PowerShell-6_x64.zip
+%File_Plugin%=%ScriptDir%\PowerShell-6_XPE.Script
+%File_Container%=%ScriptDir%\PowerShell-6_XPE_File.Script
+%ProvideFiles%=%ProgCache%\%ProgramFolder%
+%SetupURL%=https://github.com/PowerShell/PowerShell/releases/download/v%ContainerVer%/PowerShell-%ContainerVer%-win-x86.zip
+%SetupURLx64%=https://github.com/PowerShell/PowerShell/releases/download/v%ContainerVer%/PowerShell-%ContainerVer%-win-x64.zip
+
+[Process]
+Echo,"Update %ScriptTitle%..."
+If,ExistFile,%ProvideFiles%\%SetupFile%,FileDeleteQ,%ProvideFiles%\%SetupFile%
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+//--
+Run,%ScriptFile%,Download
+//--
+IniRead,%File_Plugin%,Main,Version,%Script_Version%
+StrFormat,INC,%Script_Version%,1
+Set,%History%,History%Script_Version%
+Set,%NewVersion%,%Script_Version%
+If,%Script_Version%,SMALLER,100,Set,%NewVersion%,0%Script_Version%
+If,%Script_Version%,SMALLER,10,Set,%NewVersion%,00%Script_Version%
+If,%Script_Version%,SMALLER,100,Set,%History%,History0%Script_Version%
+If,%Script_Version%,SMALLER,10,Set,%History%,History00%Script_Version%
+//Retrieve,FileVersion,%ProgCache%\%ProgramFolder%\%SetupFile%,%ContainerVer%
+StrFormat,DATE,%MyDate%,yyyy.mm.dd
+//--
+//-- Update Container File Attachment
+IniWrite,%File_Container%,Main,Description," %ProgramTitle% Version %ContainerVer% File Container"
+IniWrite,%File_Container%,Main,%History%," %UserName% - Auto Updated Container v%ContainerVer% - %MyDate%"
+IniWrite,%File_Container%,Main,Date,%MyDate%
+IniWrite,%File_Container%,Main,Version,%NewVersion%
+IniWrite,%File_Container%,Main,Level,0
+//--
+//-- Update Plugin File Information
+IniWrite,%File_Plugin%,Main,Description,"(v%ContainerVer%) %ProgramTitle%  is a new edition of PowerShell that is cross-platform (Windows, macOS, and Linux), open-source, and built for heterogeneous environments and the hybrid cloud"
+IniWrite,%File_Plugin%,Main,%History%," %UserName% - Auto Updated Container v%ContainerVer% - %MyDate%"
+IniWrite,%File_Plugin%,Main,Date,%MyDate%
+IniWrite,%File_Plugin%,Main,Version,%NewVersion%
+//--
+DirDeleteQ,%ProvideFiles%
+System,ReScanScripts
+
+[Download]
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+Download,%ProvideFiles%\%SetupFile%,%SetupURL%
+Encode,%File_Container%,Folder,%ProvideFiles%\%SetupFile%
+//--
+If,Not,%SetupFilex64%-,Equal,-,Begin
+  If,Not,%SetupURLx64%-,Equal,-,Begin
+    Download,%ProvideFiles%\%SetupFilex64%,%SetupURLx64%
+    Encode,%File_Container%,Folder,%ProvideFiles%\%SetupFilex64%
+  End
+End
+
+[AuthorEncoded]
+pwsh4848.ico=1391,1855
+Logo=pwsh4848.ico
+
+[EncodedFile-AuthorEncoded-pwsh4848.ico]
+lines=0
+0=eJztmX9olVUYx89a5Q/MtSRBSBNhIUh5EaUIaUoZaFCtv6L94SCn0aSrDcMZ6SUnyjY2RwtdQhe9xTJpK7XN1tqUtbFIuYSiqRtXL/1w261NbbCFeXq/771nnPfcc95z7t291B/vkWcv9773fc/nec5znuc5j4TkWP98PmL9XUg+KyBkLiFksSXWV6SExL/HCBQQb3jDG97wRgZHNRkO1pAY/T+JxRSpIoM+HfsuEnkQv39nZh0tnbNGK7vv7bbfz3+388nl9IcQyaiEVjbYOpjY3+ZfVGTEv/eeS0n89a88lnF+SMOcMHRYZeA/Ef9sv5b9zfzXbPY9uecc3x8sXpQV/sQaBEz8f/uMRlf2D4vfooc3VtDaecdp4L5TjnufbJ6XFf7m4o0Wf6xFx2/tkxL4tYq942AzZWOoP0LrXyilm+Y+N3m/dd8sx7yXOorob5f7tNLZWErPHLhfyd9ZuQT2HzHg94k+zYs4xv+6RY/uKKdl81fb9/k5z59cmvR7t9HV+IzrGuyfMUBN4hD03Jy3Qcofi96Qzv1jy6e0et3jTtu3F6bE39e0zpX/0OKvwF+i468hQ12qGLq78A06PnJXOn8sepGe3LeC9gZzJucc+zNsxI7f8c/J5FjRNvhQ0MD+gfemNUv5y2dV0g/y/qDRrr+lHBNjN21f7myY7vAjrIVKcN9kD7dXPG3FvOGwAf8qxHa3mF9FovREVUhpzwsdQfpN7YKMxqCextn23Mizeh+K2TFetD3L6Tumh+zval4sp2Ojt5X+1F7/rNYvUpEDC05jDV7W8w+Htz5QIbW9qJvfyte/XuxT+tP3obcd/jQVaXp+j2keq2M2Fm0vyw+I+7/8FFD605WeLzLiT8dLX6WILzp+MY/xtocuIj8fM+9MjCj9qa12De0+lJs2/5m6+TaDjn8v+X0hy2PwI76e3fTQS0n81WuX0O6P4lxnj+bRWze6XP3p2/0z09YBeSyVWg6x1M13mGx/4inHPG7+hPiU7joElx2x4t/QFj1/rAW1HO87utoO68DP5eZPJyrz0+KP5zGTWm5oC+pL3nd0/JCPX3fu04He9VL+dGMS8pjJeQY+Jp7lTPjLHllNv6uPsyG3yux//dz7U4pDYMEe1emQDj8E50gV+/BAcMpxNJVajud327+8IKfJ8nIm2CGJPFZn4EMBcQ1k8VNkj57vT2I3qTFNpdW/1qiWQ60h8svyl459sP9nOy/IWL7cmW+fO3F25uXzbQ9P7iNRTPMY66nwgniqWoNwa08SO/TxJ3oa2BdMsM9NfBF5RXauNu1JYJ1EHWTng96m9mSfsfYAzjwmnDrZWrDSXhPGn0pPAvW+mw7ZZueF9ZjQkzCt5dDn4fMwE+S3YxWHk9hxrtexowbHXkKdi7iGOdjZCJ/xbpxjxXMI86m2d33GPQm8E2d62TrIzpLBsuqkOfE8eLBuMlswbib8XHhG1AM6xJ8z70nIdLjaMuFg/7pk0LYpch1jUfVmYXOVjdka4T5bGzF/xvXU5zHUS6wngXfyTEeWjto63Iz8Q9vW39b2k2F72FPVo1HGZqsWZvZg8Q/6pNuTYLW1zBdkfoG5UmWWCezIdACDaS2n6klA2LtEyXTs4fcSzlXolZvksYQOEVVf6L8SrIVpTwX7HDpk4/9YpiIm/u8Nb3jDG9kc8eol9WvAfpi9JPF5l+ZaSMhpt+ujhFwzueYRMup2nUbIuMk1l5A7btccQu5qrpwJ4p9TtOO/CXOpb3ic4ykoL84wsTCx0MtMzmcYBSMN7FOF0Mqs2OUnxiuWMjABAM8yBqMvDkjHAQAAAAIAAAAoAAAAIwUAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]
+

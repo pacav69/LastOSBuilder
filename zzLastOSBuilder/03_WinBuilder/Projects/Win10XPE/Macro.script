@@ -1,0 +1,625 @@
+[Main]
+Title=Macro
+Type=XPEPlugin
+Description=Macro File
+Author=ChriSR
+Date=2019.11.20
+Version=004
+Level=0
+Download_Level=0
+Selected=None
+Mandatory=True
+NoWarning=False
+Credits=
+Contact=
+
+[APIDEF]
+%APIVAR%=ApiVar
+%APIDEF%=XPEMacro
+%APISUBDEF%=AddShortcut,AddPin,Associate,DirDeleteQ,FileDeleteQ,Download,ExtractListFiles,ExtractSectionFiles,ExtractWimFile,EchoExtended,HiveLoadALL,RegCopyKey,RegImportFile,ACLRegKey,HiveUnLoadALL,OpenDir,RunFromRAM,Start
+
+[ApiVar]
+AddShortcut=Run,%API%,MAddShortcut
+AddPin=Run,%API%,MAddPin
+Associate=Run,%API%,MAssociate
+DirDeleteQ=Run,%API%,MDirDeleteQ
+FileDeleteQ=Run,%API%,MFileDeleteQ
+Download=Run,%API%,MDownload
+ExtractListFiles=Run,%API%,MExtractListFiles
+ExtractSectionFiles=Run,%API%,MExtractSectionFiles
+ExtractWimFile=Run,%API%,MExtractWimFile
+EchoExtended=Run,%API%,MEchoExtended
+HiveLoadALL=Run,%API%,MHiveLoadALL
+RegCopyKey=Run,%API%,MRegCopyKey
+RegImportFile=Run,%API%,MRegImportFile
+ACLRegKey=Run,%API%,MACLRegKey
+HiveUnLoadALL=Run,%API%,MHiveUnLoadALL
+OpenDir=Run,%API%,MOpenDir
+RunFromRAM=Run,%API%,MRunFromRAM
+Start=Run,%API%,MStart
+
+[AddShortcut]
+Add a Desktop or StartMenu Shortcut="//AddShortcut: Add a Desktop or StartMenu Shortcut"
+-=
+Syntax="//AddShortcut,Desktop|StartMenu,(StartMenuFolder),(Path\FileName),(Title),(Parameters),(Path\IconFile|IconIndex)"
+Example="AddShortcut,StartMenu,,%PE_Programs%\%ProgramFolder%\%ProgramEXE%,%ProgramTitle%"
+Example Desktop="AddShortcut,Desktop"
+Example StartMenu="AddShortcut,StartMenu"
+
+[AddPin]
+Pin Program to TaskBar or StartMenu. Program on Removable Devices can Not be Pinned="//AddPin: Pin Program to TaskBar or StartMenu. Program on Removable Devices can Not be Pinned"
+-=
+Syntax="//AddPin,TaskBar|StartMenu,(Order: "" or Auto,0,1,2,...,9),(Path\FileName)"
+Example="AddPin,StartMenu,,%PE_Programs%\%ProgramFolder%\%ProgramEXE%"
+Example TaskBar="AddPin,TaskBar"
+Example StartMenu="AddPin,StartMenu"
+
+[Associate]
+Associate a Program with a File Extension="//Associate: Associate a Program with a File Extension"
+-=
+Syntax="//Associate,Extension,(Path\FileName)"
+Example="Associate,log"
+
+[DirDeleteQ]
+Delete Directory #1, With Question to Retry, If it is Locked on First Try="//DirDeleteQ: Delete Directory #1, with Question to Retry, If it is Locked on First Try"
+-=
+Syntax="//DirDeleteQ,Directory"
+Example="DirDeleteQ,%BaseDir%\Logs"
+
+[FileDeleteQ]
+Delete File #1, With Question to Retry, If it is Locked on First Try="//FileDeleteQ: Delete File #1, with Question to Retry, If it is Locked on First Try"
+-=
+Syntax="//FileDeleteQ,File"
+Example="FileDeleteQ,%BaseDir%\*.log"
+
+[Download]
+Download a File, Program from an URL="//Download: Download a File, Program from an URL"
+-=
+Syntax="//Download,Path\FileName,URL,(NoExitOnError|Hide)"
+Example="Download,%ProgCache%\%ProgramFolder%\%SetupFile%,%SetupURL%"
+Example 2="Download,%Gtemp%\produkey-x64.zip,https://www.nirsoft.net/utils/produkey-x64.zip"
+
+[ExtractListFiles]
+Extract List Files #1 from Install.wim in Target Directory="//ExtractListFiles: Extract List Files #1 from Install.wim in Target Directory"
+-=
+Syntax="//ExtractListFiles,ListFiles,(Hide|Open)"
+Example="ExtractListFiles,%GTemp%\AddFiles.txt"
+
+[ExtractSectionFiles]
+Extract Files from a Section Name of a Script File, from Install.wim to the Target Directory="//ExtractSectionFiles: Extract Files from a Section Name of a Script File, from Install.wim to the Target Directory"
+-=
+Syntax="//ExtractSectionFiles,%ScriptFile%,AddFiles,(Hide|Open)"
+Example="ExtractSectionFiles,%ScriptFile%,AddFiles"
+
+[ExtractWimFile]
+Extract a File (or Folder) from Install.wim="//ExtractWimFile: Extract a File (or Folder) from Install.wim"
+-=
+Syntax="//ExtractWimFile,AbsolutePath\FileName,(TargetFolder),(ImageIndex)"
+Example="ExtractWimFile,\Windows\System32\ntdll.dll"
+Example Folder="ExtractWimFile,"\Program Files\windows nt\accessories""
+Example Variable, WildCards, Target Folder and Index="ExtractWimFile,\Windows\System32\%Language%\com*32.dll.mui,%GTemp%,1"
+
+[EchoExtended]
+Extended Echo with Concatenated Syntaxes of Echo,Message,Exit or Halt="//EchoExtended: Extended Echo with Concatenated Syntaxes of Echo,Message,Exit or Halt"
+-=
+Syntax="//EchoExtended,<EchoMessage>,[Warn],[Repeat],[Message|MessageInformation|MessageError],[Seconds],[Halt|Exit]"
+Example="EchoExtended,"Base Folder can Not be a Root Drive (ex: D:).",Warn,,MessageError,,Halt"
+
+[HiveLoadALL]
+Load ALL Registry Hives (Target and Install.wim)="//HiveLoadALL: Load ALL Registry Hives (Target and Install.wim)"
+-=
+Syntax="//HiveLoadALL"
+Example="HiveLoadALL"
+
+[RegCopyKey]
+Copy Registry Key (* Accepted) Between Install.wim Registry and Target Registry="//RegCopyKey: Copy Registry Key (* Accepted) Between Install.wim Registry and Target Registry: RegCopyKey,HKLM,MainKey,(*Key* Optional)"
+-=
+Syntax="//RegCopyKey,HKLM,MainKey,(*Key*) (*key* Optional. ex: Search for *microsoft.vc80* in SideBySide\Winners Subfolder and Copies it)"
+Example Copy MainKey="//RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NativeWifiP"
+Example Copy SubKey* under MainKey="//RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,*microsoft.vc80.*"
+
+[RegImportFile]
+Import Registry File #1 in Target Registry="//RegImportFile: Import Registry File #1 in Target Registry"
+-=
+Syntax="//RegImportFile,RegFileToImport"
+Example="RegImportFile,%GTemp%\RegFiles.reg"
+
+[ACLRegKey]
+Take Ownership and Full Access (Everybody) on Key #1="//ACLRegKey: Take Ownership and Full Access (Everybody) on Key #1"
+-=
+Syntax="//ACLRegKey,Key"
+Example="ACLRegKey,Tmp_Software\Classes\Drive\shell"
+
+[HiveUnLoadALL]
+UnLoad ALL Registry Hives (Target and Install.wim)="//HiveUnLoadALL: UnLoad ALL Registry Hives (Target and Install.wim)"
+-=
+Syntax="//HiveUnLoadALL"
+Example="HiveUnLoadALL"
+
+[OpenDir]
+Open Directory #1. Create it Before if it Does Not Exist="//OpenDir: Open Directory #1. Create it Before if it Does Not Exist"
+-=
+Syntax="//OpenDir,Directory"
+Example="OpenDir,%BaseDir%\Logs"
+
+[RunFromRAM]
+Run the Program from the RAM Cache, from Program Files in Boot.wim File="//RunFromRAM: Run the Program from the RAM Cache, from Program Files in Boot.wim File"
+-=
+Syntax="//RunFromRAM"
+Example="RunFromRAM"
+
+[Start]
+Start, launch a Program or File Without Waiting, Open by Default="//Start: Launch a Program or File Without Waiting, Open by Default"
+-=
+Syntax="//Start,(Hide|Open),(Path\)FileName,(Parameters),(StartInFolder)"
+Example="Start,,%ProgramEXE%,,%GTemp%\%ProgramFolder%\%ProgramFolder%"
+
+[Process]
+Echo,"Nothing to Process Here. Macro is Called Internally."
+
+[MAddShortcut]
+//----------  BEGIN AddShortcut Macro  ------------------------------
+If,#1-,Equal,-,Set,#1,StartMenu
+If,Not,#1,Equal,Desktop,If,Not,#1,Equal,StartMenu,EchoExtended,"Error: AddShortcut Can Only Create Shorcut to Desktop or StartMenu",Warn,,MessageError,,Halt
+Echo,"Create #1 ShortCut"
+// If StartMenuFolder is Empty, Use the Part After the App Folder of the Script Folder. Create Root StartMenu Shortcut with StartMenuFolder = "."
+If,#1,Equal,StartMenu,Begin
+  If,#2-,Equal,-,Begin
+    StrFormat,REPLACE,%ScriptDir%,%BaseDir%,,#2
+    StrFormat,POS,#2,\App,%MXPE_Pos%
+    StrFormat,LTRIM,#2,%MXPE_Pos%,#2
+    StrFormat,REPLACE,#2,App,,#2
+    StrFormat,POS,#2,\,%MXPE_Pos%
+    StrFormat,LTRIM,#2,%MXPE_Pos%,#2
+  End
+  If,#2,Equal,.,Set,#2,
+  Else,Set,#2,\#2
+End
+If,#3-,Equal,-,Set,#3,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
+StrFormat,REPLACE,#3,"X:\Program Files",#$pProgramFiles#$p,#3
+If,#4-,Equal,-,Set,#4,%ProgramTitle%
+If,Not,#5-,Equal,-,Set,#5,#$c#5
+If,Not,#6-,Equal,-,Begin
+  If,#5-,Equal,-,Set,#5,#$c
+  // If IconFile begin by | (|IconIndex), IconFile is Equal to FileName|IconIndex. Replace Delimiter | by #$h Then by # for pecmd (#IconIndex)
+  StrFormat,LEFT,#6,1,#9
+  If,#9,Equal,|,Set,#6,#3#6
+  StrFormat,REPLACE,#6,|,#$h,#6
+  Set,#6,#$c#6
+End
+If,#1,Equal,StartMenu,TXTReplace,%GTarget_Sys%\pecmd.ini,_SUB Shortcuts,"_SUB Shortcuts#$xLINK #$pPrograms#$p#2\#4#$c#3#5#6"
+If,#1,Equal,Desktop,TXTReplace,%GTarget_Sys%\pecmd.ini,_SUB Shortcuts,"_SUB Shortcuts#$xLINK #$pDesktop#$p\#4#$c#3#5#6"
+If,Not,#6-,Equal,-,TXTReplace,%GTarget_Sys%\pecmd.ini,#$h,#
+//----------  END AddShortcut Macro  ------------------------------
+
+[MAddPin]
+//----------  BEGIN AddPin Macro  ------------------------------
+If,#1-,Equal,-,Set,#1,StartMenu
+If,Not,#1,Equal,TaskBar,If,Not,#1,Equal,StartMenu,EchoExtended,"Error: AddPin Can Only Pin to TaskBar or StartMenu",Warn,,MessageError,,Halt
+Echo,"Pin Program to #1"
+If,#2,Equal,Auto,Set,#2,
+If,#2-,Equal,-,Begin
+  Set,%MXPE_AddPin_Count%,9
+  Loop,%Api%,MAddPin_FindPlace,0,9,#1
+  Set,#2,%MXPE_AddPin_Count%
+End
+If,#2,Smaller,0,EchoExtended,"Error: Pin Index Value Must be Between 0 and 9",Warn,,MessageError,,Halt
+If,#3-,Equal,-,Begin
+  If,%PE_Programs%,Equal,"X:\Program Files",Set,#3,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
+  Else,Begin
+    StrFormat,POS,%ScriptDir%,\App,%MXPE_Pos%
+    StrFormat,LTRIM,%ScriptDir%,%MXPE_Pos%,#3
+    StrFormat,REPLACE,#3,App,,#3
+    StrFormat,POS,#3,\,%MXPE_Pos%
+    StrFormat,LTRIM,#3,%MXPE_Pos%,#3
+    Set,#3,#$pStartMenu#$p\Programs\#3\%ProgramTitle%.lnk
+  End
+End
+Set,%MXPE_AddPin_Read%,
+IniRead,%GTarget_Sys%\pecmd.ini,PinUtil,#1#2,%MXPE_AddPin_Read%
+If,Not,%MXPE_AddPin_Read%-,Equal,-,Echo,"Pin #1#2 Already Exist. Pin #1#2=#3 Can Not be Added",Warn
+Else,IniWriteTextLine,%GTarget_Sys%\pecmd.ini,PinUtil,#1#2=#3
+//----------  END AddPin Macro  ------------------------------
+
+[MAddPin_FindPlace]
+IniRead,%GTarget_Sys%\pecmd.ini,PinUtil,#1#c,%MXPE_AddPin_Read%
+If,%MXPE_AddPin_Read%-,Equal,-,begin
+  set,%MXPE_AddPin_Count%,#c
+  Loop,Break
+End
+
+[MAssociate]
+//----------  BEGIN Associate Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: Associate - Missing Parameter: Extension",Warn,,MessageError,,Halt
+StrFormat,LEFT,#1,1,#9
+If,#9,Equal,.,StrFormat,LTRIM,#1,1,#1
+Echo,"Associate #1 files"
+If,#2-,Equal,-,Set,#2,%PE_Programs%\%ProgramFolder%\%ProgramEXE%
+StrFormat,FILENAME,#2,#9
+StrFormat,EXT,#9,#8
+StrFormat,LEN,#8,#7
+If,Not,#7,Equal,4,Echo,"Error: #9 Program Extension is Not Allowed for Associations (Use a Program with: exe,cmd,bat,com,js,vbs or wsf Extension)",warn
+Else,Begin
+  StrFormat,REPLACE,.exe|.cmd|.bat|.com|.js|.vbs|.wsf,#8,-,#7
+  If,#7,Equal,.exe|.cmd|.bat|.com|.js|.vbs|.wsf,Echo,"Error: #9 Program Extension is Not Allowed for Associations (Use a program with: exe,cmd,bat,com,js,vbs or wsf Extension)",warn
+  Else,Begin
+    StrFormat,UCASE,#1,#9
+    RegHiveLoad,Tmp_Software,%RegSoftware%
+    System,ErrorOFF,4
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\.#1,,#1file
+    RegWrite,HKLM,0x1,Tmp_Software\Classes\#1file,,"#9 File"
+    RegWrite,HKLM,0x2,Tmp_Software\Classes\#1file\DefaultIcon,,#$q#2#$q
+    RegWrite,HKLM,0x2,Tmp_Software\Classes\#1file\shell\open\command,,"#$q#2#$q #$q#$p1#$q"
+    RegHiveUnLoad,Tmp_Software
+  End
+End
+//----------  END Associate Macro  ------------------------------
+
+[MDirDeleteQ]
+//----------  BEGIN DirDeleteQ Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: DirDeleteQ - Missing Parameter: Directory",Warn,,MessageError,,Halt
+System,ErrorOff
+If,ExistDir,#1,DirDelete,#1
+If,ExistDir,#1,Shellexecute,Hide,cmd.exe,"/D /C rd /s /q #$q#1#$q"
+If,ExistDir,#1,Begin
+  Set,%MXPE_Answer%,No
+  If,Question,"The Folder Could Not be Deleted. #$x#$x#1#$x#$x A File is Maybe Opened ? The Folder is Maybe Opened in Explorer ?#$xRetry ?",Set,%MXPE_Answer%,Yes
+  If,%MXPE_Answer%,Equal,Yes,Begin
+    System,ErrorOff
+    If,ExistDir,#1,DirDelete,#1
+    If,ExistDir,#1,Shellexecute,Hide,cmd.exe,"/D /C rd /s /q #$q#1#$q"
+    If,ExistDir,#1,EchoExtended,"Error: The Folder Could Not be Deleted. #$x#$x#1#$x#$x A File is Maybe Opened ? The Folder is Maybe Opened in Explorer ?#$xExit",Warn,,MessageError,,Halt
+  End
+  Else,EchoExtended,"Error: The Folder Could Not be Deleted. #$x#$x#1#$x#$x A File is Maybe Opened ? The Folder is Maybe Opened in Explorer ?#$xExit",Warn,,MessageError,,Halt
+End
+//----------  END DirDeleteQ Macro  ------------------------------
+
+[MFileDeleteQ]
+//----------  BEGIN FileDeleteQ Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: FileDeleteQ - Missing Parameter: File",Warn,,MessageError,,Halt
+System,ErrorOff
+If,ExistFile,#1,FileDelete,#1
+If,ExistFile,#1,Shellexecute,Hide,cmd.exe,"/D /C del /q /f #$q#1#$q&del /q /f /A:R /A:H /A:S /A:A #$q#1#$q"
+If,ExistFile,#1,Begin
+  Set,%MXPE_Answer%,No
+  If,Question,"The File Could Not be Deleted.#$x#$x#1#$x#$x The File is Maybe Opened ?#$xRetry ?",Set,%MXPE_Answer%,Yes
+  If,%MXPE_Answer%,Equal,Yes,Begin
+    System,ErrorOff
+    If,ExistFile,#1,FileDelete,#1
+    If,ExistFile,#1,Shellexecute,Hide,cmd.exe,"/D /C del /q /f #$q#1#$q&del /q /f /A:R /A:H /A:S /A:A #$q#1#$q"
+    If,ExistFile,#1,EchoExtended,"Error: The File Could Not be Deleted. #$x#$x#1#$x#$x The File is Maybe Opened ?#$xExit",Warn,,MessageError,,Halt
+  End
+  Else,EchoExtended,"Error: The File Could Not be Deleted. #$x#$x#1#$x#$x The File is Maybe Opened ?#$xExit",Warn,,MessageError,,Halt
+End
+//----------  END FileDeleteQ Macro  ------------------------------
+
+[MDownload]
+//----------  BEGIN Download Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: Download - Missing Parameter: Path\FileName",Warn,,MessageError,,Halt
+If,#2-,Equal,-,EchoExtended,"Error: Download - Missing Parameter: URL",Warn,,MessageError,,Halt
+StrFormat,FILENAME,#1,#9
+If,#9-,Equal,-,EchoExtended,"Error: Download - Missing Parameter: FileName",Warn,,MessageError,,Halt
+StrFormat,PATH,#1,#8
+If,Not,#8-,Equal,-,If,Not,#8,Equal,\,StrFormat,CTRIM,#8,\,#8
+If,#8-,Equal,-,EchoExtended,"Error: Download - Missing Parameter: Path",Warn,,MessageError,,Halt
+If,Not,ExistDir,#8,DirMake,#8
+If,Not,ExistDir,#8,EchoExtended,"Error: Download - Missing Parameter: Path",Warn,,MessageError,,Halt
+If,#3,Equal,Hide,Set,#7,Hide
+Else,Set,#7,%OpenHideOutput%
+If,#3,Equal,NoExitOnError,Set,#6,""
+Else,Set,#6,Exit
+//-
+//Echo,"Downloading #2 Please Wait..."
+ShellExecute,#7,cmd.exe,"/D /C Echo Downloading #$q#2#$q Please Wait... &#$q%GTools%\aria2c.exe#$q --log-level=notice --log=#$q%Gtemp%\Aria2c_Download.log#$q -x16 -s16 --allow-overwrite=true --auto-file-renaming=false -d#$q#8#$q -o#$q#9#$q #$q#2#$q"
+If,Not,%ExitCode%,Equal,0,Begin
+  If,ExistFile,#1,FileDelete,#1
+  Set,%MXPE_ErrorMessage%,""
+  IniRead,%Api%,MDownload_ErrorMessage,%ExitCode%,%MXPE_ErrorMessage%
+  EchoExtended,"Failed Downloading #2 #$xAria2c Return: %ExitCode% - %MXPE_ErrorMessage%",Warn,,MessageError,10,#6
+End
+Else,Begin
+  If,Not,ExistFile,#1,EchoExtended,"Failed Downloading #2 #$xAria2c Return: %ExitCode%",Warn,,MessageError,10,#6
+End
+//----------  END Download Macro  ------------------------------
+
+[MDownload_ErrorMessage]
+// https://aria2.github.io/manual/en/html/aria2c.html#exit-status
+0=All downloads were successful.
+1=An unknown error occurred.
+2=Time out occurred.
+3=A resource was not found.
+4=aria2 saw the specified number of "resource not found" error. See --max-file-not-found option.
+5=A download aborted because download speed was too slow. See --lowest-speed-limit option.
+6=Network problem occurred.
+7=Download aborted
+8=Remote server did not support resume when resume was required to complete download.
+9=There was not enough disk space available.
+10=Piece length was different from one in .aria2 control file. See --allow-piece-length-change option.
+11=aria2 was downloading same file at that moment.
+12=aria2 was downloading same info hash torrent at that moment.
+13=File already existed. See --allow-overwrite option.
+14=Renaming file failed. See --auto-file-renaming option.
+15=aria2 could not open existing file.
+16=aria2 could not create new file or truncate existing file.
+17=File I/O error occurred.
+18=aria2 could not create directory.
+19=Name resolution failed.
+20=aria2 could not parse Metalink document.
+21=FTP command failed.
+22=HTTP response header was bad or unexpected.
+23=Too many redirects occurred.
+24=HTTP authorization failed.
+25=aria2 could not parse bencoded file (usually ".torrent" file).
+26=.torrent file was corrupted or missing information that aria2 needed.
+27=Magnet URI was bad.
+28=Bad/unrecognized option was given or unexpected option argument was given.
+29=The remote server was unable to handle the request due to a temporary overloading or maintenance.
+30=aria2 could not parse JSON-RPC request.
+31=Reserved. Not used.
+32=Checksum validation failed.
+
+[MExtractListFiles]
+//----------  BEGIN ExtractListFiles Macro  ------------------------------
+If,Not,ExistFile,#1,EchoExtended,"Error: The List File was Not Found for Extraction. #$x#$x#1",Warn,,MessageError,,Halt
+If,Not,#2,Equal,Open,Set,#2,Hide
+StrFormat,FILENAME,#1,#9
+Echo,"Extract #9 List Files"
+ShellExecute,#2,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% @#$q#1#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob"
+If,%ExitCode%,Equal,0,Echo,"Wimlib Extract #9 from Install.wim Return: %ExitCode%"
+Else,Begin
+  If,%ExitCode%,Equal,37,Begin
+    Set,%MXPE_Answer%,No
+    If,Question,"Wimlib Extract #9 from Install.wim Return: %ExitCode%#$x#$xFailed to Create a File or Directory.#$xA File in Target Directory is Maybe Opened ?#$xRetry ?",Set,%MXPE_Answer%,Yes
+    If,%MXPE_Answer%,Equal,Yes,Begin
+      ShellExecute,#2,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% @#$q#1#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob"
+      If,%ExitCode%,Equal,0,Echo,"Wimlib Extract #9 from Install.wim Return: %ExitCode%"
+    End
+  End
+  If,Not,%ExitCode%,Equal,0,EchoExtended,"Error: Wimlib Extract #9 from Install.wim Return: %ExitCode%",Warn,,MessageError,,Halt
+End
+//----------  END ExtractListFiles Macro  ------------------------------
+
+[MExtractSectionFiles]
+//----------  BEGIN ExtractSectionFiles Macro  ------------------------------
+If,Not,ExistFile,#1,EchoExtended,"Error: The Script File was Not Found to Extract Files from a Section. #$x#$x#1",Warn,,MessageError,,Halt
+If,Not,ExistSection,#1,#2,EchoExtended,"Error: The Section Name of the Script File was Not Found to Extract Files from a Section. #$x#$x[#2]#$x#1",Warn,,MessageError,,Halt
+If,Not,#3,Equal,Open,Set,#3,Hide
+StrFormat,FILENAME,#1,#9
+If,ExistFile,%GTemp%\#2.txt,FileDeleteQ,%GTemp%\#2.txt
+ShellExecute,Hide,%GTools%\ExtractSection.exe,"#$q#1#$q #2 #$q%GTemp%\#2.txt#$q /NoSectionName"
+If,%ExitCode%,Equal,0,Begin
+  ExtractListFiles,%GTemp%\#2.txt,#3
+  FileDelete,%GTemp%\#2.txt
+End
+Else,EchoExtended,"Error: ExtractSection [#2] of #9 Return: %ExitCode%",Warn,,MessageError,,Halt
+//----------  END ExtractSectionFiles Macro  ------------------------------
+
+[MExtractWimFile]
+//----------  BEGIN ExtractWimFile Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: ExtractWimFile - Missing Parameter: Path\FileName",Warn,,MessageError,,Halt
+StrFormat,LEFT,#1,1,#8
+If,Not,#8,Equal,\,Message,"The Path\FileName Must Start With the Character \"
+StrFormat,FILENAME,#1,#8
+If,#2-,Equal,-,Set,#7,%GTarget%
+Else,Set,#7,#2
+If,#3-,Equal,-,Set,#6,%Image%
+Else,Set,#6,#3
+//-
+StrFormat,POS,#1,*,%MXPE_Pos%
+If,%MXPE_Pos%,Equal,0,StrFormat,POS,#1,?,%MXPE_Pos%
+If,%MXPE_Pos%,Equal,0,Set,#5,--no-globs
+Else,Set,#5,--nullglob
+If,#2-,Equal,-,Set,#5,"#5 --preserve-dir-structure"
+//-
+Echo,"Extract #8"
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q #6 #$q#1#$q --dest-dir=#$q#7#$q --no-acls #5"
+Set,%MXPE_ExitCode%,%ExitCode%
+If,%MXPE_ExitCode%,Equal,0,Echo,"Wimlib Extract #8 from Install.wim Return: %MXPE_ExitCode%"
+Else,Begin
+  If,%MXPE_ExitCode%,Equal,37,Begin
+    Set,%MXPE_Answer%,No
+    If,Question,"Wimlib Extract #8 from Install.wim Return: %MXPE_ExitCode%#$x#$xFailed to Create a File or Directory.#$xA File in Target Directory is Maybe Opened ?#$xRetry ?",Set,%MXPE_Answer%,Yes
+    If,%MXPE_Answer%,Equal,Yes,Begin
+      ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q #6 #$q#1#$q --dest-dir=#$q#7#$q --no-acls #5"
+      Set,%MXPE_ExitCode%,%ExitCode%
+	  If,%MXPE_ExitCode%,Equal,0,Echo,"Wimlib Extract #8 from Install.wim Return: %MXPE_ExitCode%"
+    End
+  End
+  If,%MXPE_ExitCode%,Equal,49,Echo,"Error: Wimlib Extract #8 from Install.wim Return: %MXPE_ExitCode% - File Not Found",Warn
+  Else,If,Not,%MXPE_ExitCode%,Equal,0,EchoExtended,"Error: Wimlib Extract #8 from Install.wim Return: %MXPE_ExitCode%",Warn
+End
+//----------  END ExtractWimFile Macro  ------------------------------
+
+[MEchoExtended]
+//----------  BEGIN EchoExtended Macro  ------------------------------
+If,#3-,Equal,-,Set,#3,1
+If,#2-,Equal,-,Loop,%API%,MEchoExtended_Echo_Loop,1,#3,#1,#2,#3,#4,#5,#6,#7,#8,#9
+Else,Loop,%API%,MEchoExtended_Echo_LoopWarn,1,#3,#1,#2,#3,#4,#5,#6,#7,#8,#9
+If,Not,#4-,Equal,-,Run,%API%,MEchoExtended_Message,#1,#2,#3,#4,#5,#6,#7,#8,#9
+If,#6,Equal,Exit,Exit,#1
+If,#6,Equal,Halt,Halt,#1
+//----------  END EchoExtended Macro  ------------------------------
+
+[MEchoExtended_Echo_Loop]
+Echo,#1
+
+[MEchoExtended_Echo_LoopWarn]
+Echo,#1,#2
+
+[MEchoExtended_Message]
+If,#4,Equal,Message,Begin
+  If,#5-,Equal,-,Message,#1,Warning
+  Else,Message,#1,Warning,#5
+End
+If,#4,Equal,MessageInformation,Begin
+  If,#5-,Equal,-,Message,#1,Information
+  Else,Message,#1,Information,#5
+End
+If,#4,Equal,MessageError,Begin
+  If,#5-,Equal,-,Message,#1,Error
+  Else,Message,#1,Error,#5
+End
+
+[MHiveLoadALL]
+//----------  BEGIN HiveLoadALL Macro  ------------------------------
+RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
+RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
+RegHiveLoad,Tmp_Install_Default,%Gtemp%\Install.hives\DEFAULT
+RegHiveLoad,Tmp_Install_Drivers,%Gtemp%\Install.hives\DRIVERS
+RegHiveLoad,Tmp_System,%RegSystem%
+RegHiveLoad,Tmp_Software,%RegSoftware%
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegHiveLoad,Tmp_Drivers,%RegDrivers%
+//----------  END HiveLoadALL Macro  ------------------------------
+
+[MRegCopyKey]
+//----------  BEGIN RegCopyKey Macro  ------------------------------
+If,Not,#1,Equal,HKLM,EchoExtended,"Error: RegCopyKey, the Hive Key Must be HKLM #$x#$x#1",Warn,,MessageError,,Halt
+StrFormat,LEFT,#2,4,#9
+If,Not,#9,Equal,Tmp_,EchoExtended,"Error: RegCopyKey, the Main Key Must Start with Tmp_ #$x#$x#2",Warn,,MessageError,,Halt
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C CopyRegKey.cmd #$q#2#$q #$q#3#$q",%GTools%
+System,FileRedirect,ON
+//----------  END RegCopyKey Macro  ------------------------------
+
+[MRegImportFile]
+//----------  BEGIN RegImportFile Macro  ------------------------------
+If,Not,ExistFile,#1,EchoExtended,"Error: The Registry File to Import was Not Found. #$x#$x#1",Warn,,MessageError,,Halt
+StrFormat,FILENAME,#1,#9
+System,FileRedirect,OFF
+ShellExecute,Hide,regedit.exe,"/s #$q#1#$q"
+System,FileRedirect,ON
+If,%ExitCode%,Equal,0,Echo,"Import Registry File #9 Return: %ExitCode%"
+Else,EchoExtended,"Error: Import Registry File #9 Return: %ExitCode%",Warn,,MessageError
+//----------  END RegImportFile Macro  ------------------------------
+
+[MACLRegKey]
+//----------  BEGIN ACLRegKey Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: ACLRegKey - Missing Parameter: Key",Warn,,MessageError,,Halt
+Echo,"Take Ownership and Full Access on #1"
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\#1#$q -ot reg -rec yes -actn setowner -ownr #$qn:S-1-1-0;s:y#$q -silent"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error: Take Ownership on #$x#$x#1#$x#$x Return: %ExitCode%",Warn,,MessageError,,Halt
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\#1#$q -ot reg -rec yes -actn ace -ace #$qn:S-1-1-0;p:full;s:y#$q -silent"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error: Full Permission on #$x#$x#1#$x#$x Return: %ExitCode%",Warn,,MessageError,,Halt
+//----------  END ACLRegKey Macro  ------------------------------
+
+[MHiveUnLoadALL]
+//----------  BEGIN HiveUnLoadALL Macro  ------------------------------
+RegHiveUnLoad,Tmp_Install_System
+RegHiveUnLoad,Tmp_Install_Software
+RegHiveUnLoad,Tmp_Install_Default
+RegHiveUnLoad,Tmp_Install_Drivers
+RegHiveUnLoad,Tmp_System
+RegHiveUnLoad,Tmp_Software
+RegHiveUnLoad,Tmp_Default
+RegHiveUnLoad,Tmp_Drivers
+//----------  END HiveUnLoadALL Macro  ------------------------------
+
+[MOpenDir]
+//----------  BEGIN OpenDir Macro  ------------------------------
+If,#1-,Equal,-,EchoExtended,"Error: OpenDir - Missing Parameter: Directory",Warn,,MessageError,,Halt
+If,Not,ExistDir,#1,DirMake,#1
+System,FileRedirect,OFF
+If,ExistDir,#1,ShellExecuteex,Open,explorer.exe,/e#$c#$q#1#$q,#1
+System,FileRedirect,ON
+//----------  END OpenDir Macro  ------------------------------
+
+[MRunFromRAM]
+//----------  BEGIN RunFromRAM Macro  ------------------------------
+Set,%Target_Prog%,"%GTarget%\Program Files"
+Set,%PE_Programs%,"X:\Program Files"
+//----------  END RunFromRAM Macro  ------------------------------
+
+[MStart]
+//----------  BEGIN Start Macro  ------------------------------
+If,#1-,Equal,-,Set,#1,Open
+If,Not,#4-,Equal,-,Begin
+  StrFormat,LEFT,#2,2,#9
+  StrFormat,LTRIM,#9,1,#9
+  If,Not,#9,Equal,:,Begin
+    Set,#9,--
+    StrFormat,LEFT,#2,1,#9
+    If,#9,Equal,\,StrFormat,LTRIM,#2,1,#2
+    StrFormat,Right,#2,1,#9
+    If,#9,Equal,\,StrFormat,RTRIM,#2,1,#2
+    //-
+    Set,#9,--
+    StrFormat,LEFT,#4,1,#9
+    If,#9,Equal,\,StrFormat,LTRIM,#4,1,#4
+    StrFormat,Right,#4,1,#9
+    If,#9,Equal,\,StrFormat,RTRIM,#4,1,#4
+    //-
+    If,ExistFile,#4\#2,Set,#2,#4\#2
+  End
+End
+System,FileRedirect,OFF
+ShellExecuteEx,#1,#2,#3,#4
+System,FileRedirect,ON
+//----------  END Start Macro  ------------------------------
+
+[Save_ExtractWimFileMui_Save]
+//=============================================================================
+//==========  SAVE - ExtractWimFileMui Macro - SAVE ===========================
+//=============================================================================
+
+[Variable_Save]
+ExtractWimFileMui=Run,%API%,MExtractWimFileMui
+
+[ExtractWimFileMui_Save]
+Extract a File and mui from Install.wim="//ExtractWimFileMui: Extract a File and mui from Install.wim"
+-=
+Syntax="//ExtractWimFileMui,AbsolutePath\FileName,(TargetFolder),(ImageIndex)"
+Example="ExtractWimFileMui,\Windows\System32\ntdll.dll"
+Example Variable, WildCards, Target Folder and Index="ExtractWimFileMui,\Windows\System32\com*32.dll,%GTemp%,1"
+
+[MExtractWimFile_Save]
+// ExtractWimFile suite, no longer in use, mun system resource files are checked and extracted in CreateISO before capturing boot.wim
+If,%MXPE_ExitCode%,Equal,0,Begin
+  Set,%MXPE_ExtractWimFileMun%,True
+  If,%SourceBuild%,Smaller,18300,Set,%MXPE_ExtractWimFileMun%,False
+  If,Not,#2-,Equal,-,Set,%MXPE_ExtractWimFileMun%,False
+  If,%MXPE_ExtractWimFileMun%,Equal,True,Run,%API%,MExtractWimFileMun,#8,#6
+End
+
+[MExtractWimFileMun_Save]
+StrFormat,POS,#1,*,%MXPE_Pos%
+If,%MXPE_Pos%,Equal,0,StrFormat,POS,#1,?,%MXPE_Pos%
+If,%MXPE_Pos%,Equal,0,Begin
+  If,Not,ExistFile,%GTarget%\Windows\SystemResources\#1.mun,ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q #2 #$q\Windows\SystemResources\#1.mun#$q --dest-dir=#$q%GTarget%#$q --no-acls --no-globs --preserve-dir-structure"
+  If,ExistFile,%GTarget%\Windows\SystemResources\#1.mun,Echo,"\Windows\SystemResources\#1.mun extracted"
+End
+Else,ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q #2 #$q\Windows\SystemResources\#1.mun#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob --preserve-dir-structure"
+
+[MExtractWimFileMui_Save]
+//----------  BEGIN ExtractWimFileMui Macro  ------------------------------
+ExtractWimFile,#1,#2,#3
+If,%MXPE_ExitCode%,Equal,0,Begin
+  StrFormat,PATH,#1,#9
+  If,Not,#9,Equal,\,StrFormat,CTRIM,#9,\,#9
+  StrFormat,FILENAME,#1,#8
+  If,#3-,Equal,-,Set,#6,%Image%
+  Else,Set,#6,#3
+  //-
+  StrFormat,POS,#1,*,%MXPE_Pos%
+  If,%MXPE_Pos%,Equal,0,StrFormat,POS,#1,?,%MXPE_Pos%
+  If,%MXPE_Pos%,Equal,0,Set,#5,--no-globs
+  Else,Set,#5,--nullglob
+  If,#2-,Equal,-,Set,#5,"#5 --preserve-dir-structure"
+  StrFormat,Split,%FallBackLanguage%,|,0,#4
+  //-
+  Loop,%API%,MExtractWimFileMuiLoop,1,#4,#9,#8,#2,#6,#5
+End
+//----------  END ExtractWimFileMui Macro  ------------------------------
+
+[MExtractWimFileMuiLoop_Save]
+StrFormat,Split,%FallBackLanguage%,|,#c,#9
+If,#3-,Equal,-,Set,#7,%GTarget%
+Else,Set,#7,#3\#9
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q #4 #$q\#1\#9\#2.mui#$q --dest-dir=#$q#7#$q --no-acls #5"
+//Echo,"Wimlib Extract #1\#9\#2.mui from Install.wim Return: %ExitCode%"
+If,#3-,Equal,-,Begin
+  If,ExistFile,%GTarget%\#1\#9\#2.mui,Loop,BREAK
+End
+Else,Begin
+  If,ExistFile,#7\#2.mui,Loop,BREAK
+End

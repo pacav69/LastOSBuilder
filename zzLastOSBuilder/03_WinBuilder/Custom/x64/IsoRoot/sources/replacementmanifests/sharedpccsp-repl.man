@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-SharedPC-SharedPCCSP"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+
+  <!-- This file is meant to migrate SharedPC reg keys when upgrading from a build that did not have migration rules for them. 
+       These older builds will have manifests tagged with settingsVersion="0", so we use that value as our replacementSettingsVersionRange.
+       Any build that does support migration will be tagged with settingsVersion="1", and will therefore use SharedPCCSP.man" -->
+  <migration
+      scope="Upgrade"
+      replacementSettingsVersionRange="0"
+      settingsVersion="1"
+      alwaysProcess="yes"
+      >
+    <migXml xmlns="">
+      <rules context="system">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\SharedPC\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

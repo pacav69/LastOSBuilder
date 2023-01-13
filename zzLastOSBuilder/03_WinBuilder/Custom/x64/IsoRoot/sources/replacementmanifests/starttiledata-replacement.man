@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-StartTileData"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+
+  <!-- This file is meant to create our migration keys when migrating from a build that did not
+       have Curated Tile Collections in it, which is covered by the replacementSettingsVersionRange="0".
+       Any build after that will use the migration settings in StartTileData.man 
+       since that specifies a settingVersion="1" 
+       We only need to do the capture portion of migration here.  Moving those values under our CTC registry
+       key is accomplished by the main manifest-->
+  <migration
+      settingsVersion="1"
+      replacementSettingsVersionRange="0"
+      alwaysProcess="yes"
+      >
+    <migXml xmlns="">
+      <rules context="User">
+        <addObjects>
+          <!-- If this regkey doesn't exist, this will simulate its existence during the gather stage, so that it can be applied. -->
+          <conditions>
+            <condition negation="yes">
+              MigXmlHelper.DoesObjectExist("Registry", "HKCU\Software\Microsoft\Windows\CurrentVersion\CuratedTileCollections\Migration [MigrationPending]")
+            </condition>
+          </conditions>
+          <object>
+            <location type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\CuratedTileCollections\Migration [MigrationPending]</location>
+            <attributes>dword</attributes>
+            <bytes>01000000</bytes>
+          </object>
+        </addObjects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\CuratedTileCollections\Migration [MigrationPending]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [CurrentMajorVersionNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [CurrentMinorVersionNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [CurrentBuildNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [CurrentVersion]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

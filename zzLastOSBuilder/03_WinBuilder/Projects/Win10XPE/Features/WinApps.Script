@@ -1,0 +1,114 @@
+[Main]
+Title=WinApps
+Type=XPEPlugin
+Description=WinApps: OSK,mspaint,ImagingDevices,SnippingTool,WordPad,StepsRecorder
+Author=ChriSR
+Date=2019.12.10
+Version=004
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+Run,%ScriptFile%,Enable_Shorcuts
+//-
+If,Not,#1,Equal,HiveLoaded,RegHiveLoad,Tmp_Software,%RegSoftware%
+Run,%ScriptFile%,Registry
+If,Not,#1,Equal,HiveLoaded,RegHiveunLoad,Tmp_Software
+
+[AddFiles]
+ExtractSectionFiles,%ScriptFile%,WinApps_AppsCommon_AddFiles
+ExtractSectionFiles,%ScriptFile%,WinApps_Paint_AddFiles
+ExtractSectionFiles,%ScriptFile%,WinApps_Wordpad_AddFiles
+//-
+// To stay light, PhotoViewer, SnippingTool are not included with WinXShell. Otherwise we need to find files other dependencies and registries
+If,Not,%Shell%,Equal,WinXShell,Begin
+  ExtractSectionFiles,%ScriptFile%,WinApps_StepsRecorder_AddFiles
+  ExtractSectionFiles,%ScriptFile%,WinApps_PhotoViewer_AddFiles
+  ExtractSectionFiles,%ScriptFile%,WinApps_SnippingTool_AddFiles
+  // tipresx.dll.mui Exist in All Language Folders (for SnippingTool)
+  ExtractWimFile,\Program Files\Common Files\microsoft shared\ink\tipresx.dll
+  ExtractWimFile,\Program Files\Common Files\microsoft shared\ink\%Language%\tipresx.dll.mui
+End
+//-
+If,%SourceBuild%,Bigger,17000,ExtractWimFile,\Windows\System32\coloradapterclient.dll
+
+[Enable_Shorcuts]
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessibility\OSK","LINK #$pPrograms#$p\Accessibility\OSK"
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessories\MSPaint","LINK #$pPrograms#$p\Accessories\MSPaint"
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessories\WordPad","LINK #$pPrograms#$p\Accessories\WordPad"
+If,%Shell%,Equal,Explorer,Begin
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessories\PhotoViewer","LINK #$pPrograms#$p\Accessories\PhotoViewer"
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessories\SnippingTool","LINK #$pPrograms#$p\Accessories\SnippingTool"
+  AddShortcut,StartMenu,Accessories,#$pSystemRoot#$p\System32\Psr.exe,"Steps Recorder",,#$pSystemRoot#$p\System32\Psr.exe
+End
+
+[Registry]
+// WordPad association (TextFile) and PhotoViewer.FileAssoc.Tiff
+RegImportFile,%ScriptDir%\WinApps_RegSoftware.txt
+If,Not,%Shell%,Equal,WinXShell,RegWrite,HKLM,0x4,"Tmp_Default\Software\Microsoft\Windows\TabletPC\Snipping Tool",FileFormat,1
+
+[WinApps_AppsCommon_AddFiles]
+\Windows\System32\IconCodecService.dll
+\Windows\System32\mfc42u.dll
+\Windows\System32\UIRibbon.dll
+\Windows\System32\UIRibbonRes.dll
+\Windows\System32\WindowsCodecs.dll
+\Windows\System32\WindowsCodecsExt.dll
+
+[WinApps_Paint_AddFiles]
+\Windows\System32\mspaint.exe
+\Windows\System32\wiaservc.dll
+
+[WinApps_Wordpad_AddFiles]
+\Program Files\windows nt\accessories
+
+[WinApps_PhotoViewer_AddFiles]
+; Not required: \Program Files\Windows Photo Viewer\ImagingDevices.exe(.mui) and PhotoAcq.dll
+\Program Files\Windows Photo Viewer\ImagingEngine.dll
+\Program Files\Windows Photo Viewer\PhotoBase.dll
+\Program Files\Windows Photo Viewer\PhotoViewer.dll
+\Program Files\Windows Photo Viewer\??-??\PhotoViewer.dll.mui
+\Windows\System32\Spool\drivers\color
+\Windows\System32\d3d8thk.dll
+\Windows\System32\d3d9.dll
+\Windows\System32\efswrt.dll
+\Windows\System32\htui.dll
+\Windows\System32\icm32.dll
+\Windows\System32\mscms.dll
+\Windows\System32\PhotoMetadataHandler.dll
+\Windows\System32\photowiz.dll
+\Windows\System32\shimgvw.dll
+\Windows\System32\sti.dll
+\Windows\System32\WMPhoto.dll
+
+[WinApps_SnippingTool_AddFiles]
+; Start Menu\Programs\Accessories: OSK.exe,mspaint.exe,ImagingDevices.exe,SnippingTool.exe,WordPad.exe
+\Program Files\Common Files\microsoft shared\ink\fsdefinitions
+\Program Files\Common Files\microsoft shared\ink\tabskb.dll
+\Program Files\Common Files\microsoft shared\ink\tiptsf.dll
+\Program Files\Common Files\microsoft shared\ink\tpcps.dll
+\Program Files\Common Files\microsoft shared\ink\InkObj.dll
+\Program Files\Common Files\microsoft shared\ink\??-??\tabskb.dll.mui
+\Program Files\Common Files\microsoft shared\ink\??-??\tiptsf.dll.mui
+\Program Files\Common Files\microsoft shared\ink\??-??\InkObj.dll.mui
+\Windows\System32\clbcatq.dll
+\Windows\System32\msdrm.dll
+\Windows\System32\SnippingTool.exe
+\Windows\System32\UIAnimation.dll
+\Windows\System32\Windows.Globalization.dll
+\Windows\System32\wisp.dll
+
+[WinApps_StepsRecorder_AddFiles]
+\Windows\System32\aepic.dll
+\Windows\System32\msdrm.dll
+\Windows\System32\msoert2.dll
+\Windows\System32\psr.exe
+\Windows\System32\uireng.dll
+

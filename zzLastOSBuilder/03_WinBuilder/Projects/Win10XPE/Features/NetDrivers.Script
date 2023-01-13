@@ -1,0 +1,232 @@
+[Main]
+Title=Network Drivers
+Type=XPEPlugin
+Description=Network Drivers
+Author=ChrisR
+Date=2019.03.06
+Version=004
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%ProgramFolder%=NetDrivers
+%NetDriversReg%=NetDrivers.reg.txt
+%NetDriversCacheVersion%=1
+RegAddDriver=Run,%ScriptFile%,MRegAddDriver
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+//--
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Drivers,%RegDrivers%
+  RegHiveLoad,Tmp_Install_Drivers,%Gtemp%\Install.hives\DRIVERS
+End
+//--
+If,%Shell%,Equal,WinXShell,ACLRegKey,Tmp_Drivers
+Run,%ScriptFile%,Reg_NetDrivers
+//--
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Install_Drivers
+  RegHiveunLoad,Tmp_Drivers
+End
+
+[AddFiles]
+ExtractSectionFiles,%ScriptFile%,NetDrivers%Architecture%_AddFiles
+If,%SourceBuild%,Bigger,17700,ExtractSectionFiles,%ScriptFile%,NetDrivers%Architecture%_1809_AddFiles
+If,%SourceBuild%,Bigger,18300,ExtractSectionFiles,%ScriptFile%,NetDrivers%Architecture%_1903_AddFiles
+
+[NetDriversx64_AddFiles]
+\Windows\INF\athw8x.inf
+\Windows\INF\netathr10x.inf
+\Windows\INF\netathrx.inf
+\Windows\INF\netbc63a.inf
+\Windows\INF\netbc64.inf
+\Windows\INF\netrtwlane.inf
+\Windows\INF\netrtwlane_13.inf
+\Windows\INF\netrtwlanu.inf
+\Windows\INF\netwbw02.inf
+\Windows\INF\netwew00.inf
+\Windows\INF\netwew01.inf
+\Windows\INF\netwlv64.inf
+\Windows\INF\netwns64.inf
+\Windows\INF\netwsw00.inf
+\Windows\INF\netwtw04.inf
+\Windows\System32\DriverStore\FileRepository\athw8x.inf*
+\Windows\System32\DriverStore\FileRepository\netathr10x.inf*
+\Windows\System32\DriverStore\FileRepository\netathrx.inf*
+\Windows\System32\DriverStore\FileRepository\netbc63a.inf*
+\Windows\System32\DriverStore\FileRepository\netbc64.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlane.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlane_13.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlanu.inf*
+\Windows\System32\DriverStore\FileRepository\netwbw02.inf*
+\Windows\System32\DriverStore\FileRepository\netwew00.inf*
+\Windows\System32\DriverStore\FileRepository\netwew01.inf*
+\Windows\System32\DriverStore\FileRepository\netwlv64.inf*
+\Windows\System32\DriverStore\FileRepository\netwns64.inf*
+\Windows\System32\DriverStore\FileRepository\netwsw00.inf*
+\Windows\System32\DriverStore\FileRepository\netwtw04.inf*
+
+[NetDriversx64_1809_AddFiles]
+\Windows\INF\netwtw02.inf
+\Windows\INF\netwtw06.inf
+\Windows\System32\DriverStore\FileRepository\netwtw02.inf*
+\Windows\System32\DriverStore\FileRepository\netwtw06.inf*
+
+[NetDriversx64_1903_AddFiles]
+\Windows\INF\netrtwlane01.inf
+\Windows\System32\DriverStore\FileRepository\netrtwlane01.inf*
+
+[NetDriversx86_AddFiles]
+\Windows\INF\athw8.inf
+\Windows\INF\netathr.inf
+\Windows\INF\netathr10.inf
+\Windows\INF\netbc63.inf
+\Windows\INF\netbc64.inf
+\Windows\INF\netrtwlane.inf
+\Windows\INF\netrtwlane_13.inf
+\Windows\INF\netrtwlanu.inf
+\Windows\INF\netwbn02.inf
+\Windows\INF\netwen00.inf
+\Windows\INF\netwen01.inf
+\Windows\INF\netwlv32.inf
+\Windows\INF\netwns32.inf
+\Windows\INF\netwsn00.inf
+\Windows\INF\netwtn04.inf
+\Windows\System32\DriverStore\FileRepository\athw8.inf*
+\Windows\System32\DriverStore\FileRepository\netathr.inf*
+\Windows\System32\DriverStore\FileRepository\netathr10.inf*
+\Windows\System32\DriverStore\FileRepository\netbc63.inf*
+\Windows\System32\DriverStore\FileRepository\netbc64.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlane.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlane_13.inf*
+\Windows\System32\DriverStore\FileRepository\netrtwlanu.inf*
+\Windows\System32\DriverStore\FileRepository\netwbn02.inf*
+\Windows\System32\DriverStore\FileRepository\netwen00.inf*
+\Windows\System32\DriverStore\FileRepository\netwen01.inf*
+\Windows\System32\DriverStore\FileRepository\netwlv32.inf*
+\Windows\System32\DriverStore\FileRepository\netwns32.inf*
+\Windows\System32\DriverStore\FileRepository\netwsn00.inf*
+\Windows\System32\DriverStore\FileRepository\netwtn04.inf*
+
+[NetDriversx86_1809_AddFiles]
+\Windows\INF\netwtn02.inf
+\Windows\System32\DriverStore\FileRepository\netwtn02.inf*
+
+[NetDriversx86_1903_AddFiles]
+\Windows\INF\netrtwlane01.inf
+\Windows\System32\DriverStore\FileRepository\netrtwlane01.inf*
+
+[Reg_NetDrivers]
+If,ExistFile,%XPECache%\HiveCache.ini,Run,%ScriptFile%,CheckHiveCacheINI
+Else,Begin
+  If,ExistFile,%XPECache%\%NetDriversReg%,FileDeleteQ,%XPECache%\%NetDriversReg%
+End
+//--
+If,ExistFile,%XPECache%\%NetDriversReg%,RegImportFile,%XPECache%\%NetDriversReg%
+Else,Begin
+  If,Not,ExistDir,%XPECache%,DirMake,%XPECache%
+  Run,%ScriptFile%,PrepareNetDriversReg
+  Run,%ScriptFile%,WriteIniCacheInformation
+End
+
+[CheckHiveCacheINI]
+If,Not,ExistFile,%XPECache%\%NetDriversReg%,IniWrite,%XPECache%\HiveCache.ini,NetDriversCache,Version,0
+IniRead,%XPECache%\HiveCache.ini,NetDriversCache,Version,%NetDriversCacheVersionIni%
+If,Not,%NetDriversCacheVersion%,Equal,%NetDriversCacheVersionIni%,Begin
+  If,ExistFile,%XPECache%\%NetDriversReg%,FileDeleteQ,%XPECache%\%NetDriversReg%
+End
+
+[WriteIniCacheInformation]
+IniWrite,%XPECache%\HiveCache.ini,NetDriversCache,Version,%NetDriversCacheVersion%
+
+[PrepareNetDriversReg]
+Echo,"Prepare %ScriptTitle% Registry..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+//-
+// Unload Project Drivers Registry Hive
+RegHiveunLoad,Tmp_Drivers
+//-
+// Create an Empty Drivers Registry Hive. Add Registry NetDriver and Export Registry NetDriver in Cache
+FileCreateBlank,%GTemp%\%ProgramFolder%\DRIVERS
+RegHiveLoad,Tmp_Drivers,%GTemp%\%ProgramFolder%\DRIVERS
+RegWrite,HKLM,0x0,Tmp_Drivers\DriverDatabase\DeviceIds
+RegWrite,HKLM,0x0,Tmp_Drivers\DriverDatabase\DriverFiles
+RegWrite,HKLM,0x0,Tmp_Drivers\DriverDatabase\DriverInfFiles
+RegWrite,HKLM,0x0,Tmp_Drivers\DriverDatabase\DriverPackages
+//-
+Run,%ScriptFile%,Reg_NetDrivers%Architecture%
+//-
+System,FileRedirect,OFF
+ShellExecute,Hide,regedit.exe,"/e #$q%XPECache%\%NetDriversReg%#$q #$qHKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase#$q"
+System,FileRedirect,ON
+If,%ExitCode%,Equal,0,Echo,"Export Registry File %NetDriversReg% return: %ExitCode%"
+Else,EchoExtended,"Error: Export Registry File %NetDriversReg% return: %ExitCode%",Warn,,MessageError
+RegHiveunLoad,Tmp_Drivers
+//-
+// ReLoad Project Drivers Registry Hive and Import Registry NetDriver from Cache
+RegHiveLoad,Tmp_Drivers,%RegDrivers%
+RegImportFile,%XPECache%\%NetDriversReg%
+
+[Reg_NetDriversx86]
+RegAddDriver,athw8.inf
+RegAddDriver,netathr.inf
+RegAddDriver,netathr10.inf
+RegAddDriver,netbc63.inf
+RegAddDriver,netbc64.inf
+RegAddDriver,netrtwlane.inf
+RegAddDriver,netrtwlane_13.inf
+RegAddDriver,netrtwlanu.inf
+RegAddDriver,netwbn02.inf
+RegAddDriver,netwen00.inf
+RegAddDriver,netwen01.inf
+RegAddDriver,netwlv32.inf
+RegAddDriver,netwns32.inf
+RegAddDriver,netwsn00.inf
+RegAddDriver,netwtn04.inf
+//-
+If,%SourceBuild%,Bigger,17700,Begin
+  RegAddDriver,netwtn02.inf
+End
+If,%SourceBuild%,Bigger,18300,Begin
+  RegAddDriver,netrtwlane01.inf
+End
+
+[Reg_NetDriversx64]
+RegAddDriver,athw8x.inf
+RegAddDriver,netathr10x.inf
+RegAddDriver,netathrx.inf
+RegAddDriver,netbc63a.inf
+RegAddDriver,netbc64.inf
+RegAddDriver,netrtwlane.inf
+RegAddDriver,netrtwlane_13.inf
+RegAddDriver,netrtwlanu.inf
+RegAddDriver,netwbw02.inf
+RegAddDriver,netwew00.inf
+RegAddDriver,netwew01.inf
+RegAddDriver,netwlv64.inf
+RegAddDriver,netwns64.inf
+RegAddDriver,netwsw00.inf
+RegAddDriver,netwtw04.inf
+//-
+If,%SourceBuild%,Bigger,17700,Begin
+  RegAddDriver,netwtw02.inf
+  RegAddDriver,netwtw06.inf
+End
+If,%SourceBuild%,Bigger,18300,Begin
+  RegAddDriver,netrtwlane01.inf
+End
+
+[MRegAddDriver]
+If,-#1,Equal,-,EchoExtended,"Error: RegAddDriver - Missing Parameter: Driver File Name ",Warn,,MessageError,,Halt
+Echo,"Register #1 Driver for 1st Build. Be Patient..."
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C RegAddDriver.cmd #$q#1#$q",%GTools%
+System,FileRedirect,ON

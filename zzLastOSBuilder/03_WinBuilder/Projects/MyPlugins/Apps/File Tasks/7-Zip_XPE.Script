@@ -1,0 +1,495 @@
+[Main]
+Title=7-Zip
+Type=XPEPlugin
+Description=(v19.00) 7-Zip is a file archiver with a high compression ratio.
+Author=KYHI
+Date=2019.04.01
+Version=002
+Download_Level=2
+Level=5
+Credits=
+Contact=
+Selected=True
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Plugin Created 2018.05.11
+History002=KYHI - Auto Update Via Program Version TextBox - 2019.04.01
+
+[Interface]
+pBevel1=pBevel1,1,12,4,6,133,108
+Desktop_CheckBox="Desktop Shortcut",1,3,11,10,122,18,False,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,11,48,122,18,True,"__Add Start Menu Shortcut"
+StartMpin_CheckBox="Add StartMenu Pin",1,3,11,29,122,18,False,"__Add Pin To StartMenu Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,11,85,119,18,"- Disk","__Start Menu Folder Name"
+Image_Software=7zFM4848.jpg,1,5,144,56,48,48
+Button_Launch_Program=Launch,1,8,4,337,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
+pWebLabel1="Home Page",1,10,338,4,55,18,http://www.7-zip.org/
+RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,130,21,"Run From USB","Run From RAM"
+pBevel3=pBevel3,1,12,4,124,427,207
+pBevel2=pBevel2,1,12,183,133,229,190
+pScrollBox1="English                           en",1,4,145,33,130,21,"Afrikaans                         af","Albanian                          sq","Arabic                            ar","Armenian                          hy","Asturian                         ast","Azeri                             az","Bangla                            bn","Belarusian                        be","Bashkir                           ba","Basque                            eu","Breton                            br","Bulgarian                         bg","Catalan                           ca","Chinese Simplified             zh-cn","Chinese Traditional            zh-tw","Croatian                          hr","Czech                             cs","Danish                            da","Dutch                             nl","German                            de","Greek                             el","English                           en","Esperanto                         eo","Estonian                          et","Extremaduran                     ext","Farsi                             fa","Finnish                           fi","French                            fr","Frisian                           fy","Friulian                         fur","Galician                          gl","Georgian                          ka","Kazakh                            kk","Gujarati (Indian)                 gu","Hebrew                            he","Hindi (Indian)                    hi","Hungarian                         hu","Icelandic                         is","Ido                               io","Indonesian                        id","Italian                           it","Japanese                          ja","Korean                            ko","Kurdish                           ku","Kurdish (Sorani)              ku-ckb","Latvian                           lv","Lithuanian                        lt","Macedonian                        mk","Malay                             ms","Marathi                           mr","Mongolian                         mn","Nepali                            ne","Norwegian Bokmal                  nb","Norwegian Nynorsk                 nn","Pashto                            ps","Polish                            pl","Portuguese Standard               pt","Portuguese Brazil              pt-br","Punjabi (Indian)               pa-in","Romanian                          ro","Russian                           ru","Sanskrit (Indian)                 sa","Serbian (Cyrillic)            sr-spc","Serbian (Latin)               sr-spl","Sinhala                           si","Slovak                            sk","Slovenian                         sl","Spanish                           es","Swedish                           sv","Tamil                             ta","Thai                              th","Tatar                             tt","Turkish                           tr","Ukrainian                         uk","Uyghur                            ug","Uzbek                             uz","Valencian                         va","Vietnamese                        vi","Welsh                             cy"
+//
+pCheckBox4=.7z,1,3,24,146,50,14,True
+pCheckBox5=.arj,1,3,24,161,50,14,True
+pCheckBox6=.bz2,1,3,24,176,50,14,False
+pCheckBox7=.bzip2,1,3,24,191,50,14,False
+pCheckBox8=.cpio,1,3,24,221,50,14,False
+pCheckBox9=.deb,1,3,24,236,50,14,False
+pCheckBox10=.gzip,1,3,24,296,50,14,True
+pCheckBox11=.iso,1,3,77,146,50,14,False
+pCheckBox12=.lha,1,3,77,161,50,14,True
+pCheckBox13=.lzh,1,3,77,176,50,14,True
+pCheckBox14=.rar,1,3,77,221,50,14,True
+pCheckBox15=.split,1,3,77,251,50,14,False
+pCheckBox16=.swm,1,3,77,281,50,14,False
+pCheckBox17=.taz,1,3,77,311,50,14,True
+pCheckBox18=.tbz,1,3,129,131,50,14,False
+pCheckBox19=.tbz2,1,3,129,146,50,14,False
+pCheckBox20=.tpz,1,3,129,176,50,14,False
+pCheckBox21=.wim,1,3,129,221,50,14,True
+pCheckBox22=.cab,1,3,24,206,50,14,True
+pCheckBox23=.gz,1,3,24,281,50,14,True
+pCheckBox24=.rpm,1,3,77,236,50,14,False
+pCheckBox25=.tar,1,3,77,296,50,14,True
+pCheckBox26=.tgz,1,3,129,161,50,14,False
+pCheckBox27=.z,1,3,129,282,50,14,True
+pCheckBox28=.zip,1,3,129,297,50,14,True
+pCheckBox29=.dmg,1,3,24,251,50,14,False
+pCheckBox30=.hfs,1,3,24,311,50,14,True
+pCheckBox31=.lzma,1,3,77,191,50,14,True
+pCheckBox32=.xar,1,3,129,236,50,14,False
+pCheckBox33=.001,1,3,24,131,50,14,False
+pCheckBox34=.fat,1,3,24,266,50,14,True
+pCheckBox35=.ntfs,1,3,77,206,50,14,True
+pCheckBox36=.squashfs,1,3,77,266,70,14,False
+pCheckBox37=.txz,1,3,129,191,50,14,False
+pCheckBox38=.vhd,1,3,129,206,50,14,True
+pCheckBox39=.xz,1,3,129,251,50,14,False
+pCheckBox40=.igz,1,3,77,131,50,14,True
+//
+pCheckBox_ShellContextMenu="Add Shell Context Menu",1,3,195,140,140,18,True
+pCheckBoxCascadedMenu="Cascaded Shell Context Menu",1,3,195,160,209,18,True
+pCheckBoxCascadedCRC="CRC SHA Context Menu",1,3,195,180,210,18,True
+pCheckBoxContextMenuOpen0="Open Archive",1,3,195,200,160,18,True
+pCheckBoxContextMenuAdd0="Add To Archive...",1,3,195,220,160,18,True
+pCheckBoxContextMenuAdd1="Add To <Archive>.7z",1,3,195,240,160,18,True
+pCheckBoxContextMenuExtract0="Extract Files...",1,3,195,260,210,18,True
+pCheckBoxContextMenuExtract1="Extract Here",1,3,195,280,210,18,True
+pCheckBoxContextMenuExtract2="Extract To <Folder>",1,3,195,300,210,18,True
+Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,19.00,"__Program Version To Download and Encode Into Container File"
+
+[Variables]
+%ProgramTitle%=7-Zip
+%ProgramExe%=7zFM.exe
+%ProgramFolder%=7-Zip
+%ProgramFolderx64%=7-Zip_x64
+%SetupFile%=7zSetup.exe
+%SetupFilex64%=7zSetup-x64.exe
+%FileContainer%=%ScriptDir%\7-Zip_XPE_File.Script
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%FileContainer%,Exit,"%FileContainer% Not Found"
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+Run,%ScriptFile%,Extract
+//--
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+DirCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%,%Target_Prog%
+//--
+If,ExistFile,%Target_Prog%\%ProgramFolder%\Uninstall.exe,FileDelete,%Target_Prog%\%ProgramFolder%\Uninstall.exe
+If,ExistFile,%Target_Prog%\%ProgramFolder%\7-zip.chm,FileDelete,%Target_Prog%\%ProgramFolder%\7-zip.chm
+If,ExistFile,%Target_Prog%\%ProgramFolder%\descript.ion,FileDelete,%Target_Prog%\%ProgramFolder%\descript.ion
+If,ExistFile,%Target_Prog%\%ProgramFolder%\History.txt,FileDelete,%Target_Prog%\%ProgramFolder%\History.txt
+If,ExistFile,%Target_Prog%\%ProgramFolder%\readme.txt,FileDelete,%Target_Prog%\%ProgramFolder%\readme.txt
+//--
+StrFormat,Right,%pScrollBox1%,6,%7zlng%
+StrFormat,Replace,%7zlng%," ","",%7zlng%
+If,%Architecture%,Equal,x64,StrFormat,Replace,%7zlng%,"-","_",%7zlng%
+//-
+Run,%ScriptFile%,Add_Shortcuts
+//--
+Run,%ScriptFile%,Add_Registry
+
+[Add_Registry]
+Echo,"Write Registry - Main Options"
+HiveLoadALL
+RegWrite,HKLM,0x1,Tmp_Default\Software\7-Zip,Lang,%7zlng%
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip,LargePages,0
+//
+RegWrite,HKLM,0x1,Tmp_Default\Software\7-Zip\FM,Editor,
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,SingleClick,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,ShowDots,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,ShowRealFileIcons,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,ShowSystemMenu,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,FullRow,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,ShowGrid,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,AlternativeSelection,0
+//
+RegWrite,HKLM,0x3,Tmp_Default\Software\7-Zip\FM,FolderHistory,00,00
+RegWrite,HKLM,0x1,Tmp_Default\Software\7-Zip\FM,PanelPath0,
+RegWrite,HKLM,0x1,Tmp_Default\Software\7-Zip\FM,PanelPath1,
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\FM,ListMode,771
+RegWrite,HKLM,0x3,Tmp_Default\Software\7-Zip\FM,Panels,01,00,00,00,00,00,00,00,6c,02,00,00
+//
+RegWrite,HKLM,0x3,Tmp_Default\Software\7-Zip\FM,Position,27,00,00,00,1f,00,00,00,9c,02,00,00,f5,01,00,00,00,00,00,00
+RegWrite,HKLM,0x3,Tmp_Default\Software\7-Zip\FM\Columns,RootFolder,01,00,00,00,00,00,00,00,01,00,00,00,04,00,00,00,01,00,00,00,64,00,00,00
+//
+If,%pCheckBox_ShellContextMenu%,Equal,True,Begin
+RegWrite,HKLM,0x2,Tmp_Software\7-Zip,Path,%PE_Programs%\%ProgramFolder%
+RegWrite,HKLM,0x2,"Tmp_Software\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe",,%PE_Programs%\%ProgramFolder%\7zFM.exe
+RegWrite,HKLM,0x2,"Tmp_Software\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe",Path,%PE_Programs%\%ProgramFolder%
+RegWrite,HKLM,0x1,Tmp_Software\Classes\*\shellex\ContextMenuHandlers\7-Zip,,{23170F69-40C1-278A-1000-000100020000}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{23170F69-40C1-278A-1000-000100020000},,"7-Zip Shell Extension"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{23170F69-40C1-278A-1000-000100020000}\InprocServer32,,%PE_Programs%\%ProgramFolder%\7-zip.dll
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{23170F69-40C1-278A-1000-000100020000}\InprocServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x1,Tmp_Software\Classes\Directory\shellex\ContextMenuHandlers\7-Zip,,{23170F69-40C1-278A-1000-000100020000}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\Directory\shellex\DragDropHandlers\7-Zip,,{23170F69-40C1-278A-1000-000100020000}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\Drive\shellex\DragDropHandlers\7-Zip,,{23170F69-40C1-278A-1000-000100020000}
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved",{23170F69-40C1-278A-1000-000100020000},"7-Zip Shell Extension"
+End
+//
+RegWrite,HKLM,0x2,Tmp_Default\Software\7-Zip,Path,%PE_Programs%\%ProgramFolder%\7-Zip
+//
+If,%pCheckBoxCascadedMenu%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\Options,CascadedMenu,1
+Else,RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\Options,CascadedMenu,0
+//
+Set,%ContextMenuMask%,0
+If,%pCheckBoxContextMenuOpen0%,Equal,True,StrFormat,INC,%ContextMenuMask%,32
+If,%pCheckBoxContextMenuAdd0%,Equal,True,StrFormat,INC,%ContextMenuMask%,256
+If,%pCheckBoxContextMenuAdd1%,Equal,True,StrFormat,INC,%ContextMenuMask%,512
+If,%pCheckBoxContextMenuExtract0%,Equal,True,StrFormat,INC,%ContextMenuMask%,1
+If,%pCheckBoxContextMenuExtract1%,Equal,True,StrFormat,INC,%ContextMenuMask%,2
+If,%pCheckBoxContextMenuExtract2%,Equal,True,StrFormat,INC,%ContextMenuMask%,4
+If,%pCheckBoxCascadedCRC%,Equal,True,StrFormat,INC,%ContextMenuMask%,2147483648
+RegWrite,HKLM,0x4,Tmp_Default\Software\7-Zip\Options,ContextMenu,%ContextMenuMask%
+//
+Echo,"Write Registry - Associations"
+If,%pCheckBox4%,Equal,True,Run,%ScriptFile%,AssociationExtension7z
+If,%pCheckBox5%,Equal,True,Run,%ScriptFile%,AssociationExtensionarj
+If,%pCheckBox6%,Equal,True,Run,%ScriptFile%,AssociationExtensionbz2
+If,%pCheckBox7%,Equal,True,Run,%ScriptFile%,AssociationExtensionbzip2
+If,%pCheckBox8%,Equal,True,Run,%ScriptFile%,AssociationExtensioncpio
+If,%pCheckBox9%,Equal,True,Run,%ScriptFile%,AssociationExtensiondeb
+If,%pCheckBox10%,Equal,True,Run,%ScriptFile%,AssociationExtensiongzip
+If,%pCheckBox11%,Equal,True,Run,%ScriptFile%,AssociationExtensioniso
+If,%pCheckBox12%,Equal,True,Run,%ScriptFile%,AssociationExtensionlha
+If,%pCheckBox13%,Equal,True,Run,%ScriptFile%,AssociationExtensionlzh
+If,%pCheckBox14%,Equal,True,Run,%ScriptFile%,AssociationExtensionrar
+If,%pCheckBox15%,Equal,True,Run,%ScriptFile%,AssociationExtensionsplit
+If,%pCheckBox16%,Equal,True,Run,%ScriptFile%,AssociationExtensionswm
+If,%pCheckBox17%,Equal,True,Run,%ScriptFile%,AssociationExtensiontaz
+If,%pCheckBox18%,Equal,True,Run,%ScriptFile%,AssociationExtensiontbz
+If,%pCheckBox19%,Equal,True,Run,%ScriptFile%,AssociationExtensiontbz2
+If,%pCheckBox20%,Equal,True,Run,%ScriptFile%,AssociationExtensiontpz
+If,%pCheckBox21%,Equal,True,Run,%ScriptFile%,AssociationExtensionwim
+If,%pCheckBox22%,Equal,True,Run,%ScriptFile%,AssociationExtensioncab
+If,%pCheckBox23%,Equal,True,Run,%ScriptFile%,AssociationExtensiongz
+If,%pCheckBox24%,Equal,True,Run,%ScriptFile%,AssociationExtensionrpm
+If,%pCheckBox25%,Equal,True,Run,%ScriptFile%,AssociationExtensiontar
+If,%pCheckBox26%,Equal,True,Run,%ScriptFile%,AssociationExtensiontgz
+If,%pCheckBox27%,Equal,True,Run,%ScriptFile%,AssociationExtensionz
+If,%pCheckBox28%,Equal,True,Run,%ScriptFile%,AssociationExtensionzip
+If,%pCheckBox29%,Equal,True,Run,%ScriptFile%,AssociationExtensiondmg
+If,%pCheckBox30%,Equal,True,Run,%ScriptFile%,AssociationExtensionhfs
+If,%pCheckBox31%,Equal,True,Run,%ScriptFile%,AssociationExtensionlzma
+If,%pCheckBox32%,Equal,True,Run,%ScriptFile%,AssociationExtensionxar
+If,%pCheckBox33%,Equal,True,Run,%ScriptFile%,AssociationExtension001
+If,%pCheckBox34%,Equal,True,Run,%ScriptFile%,AssociationExtensionfat
+If,%pCheckBox35%,Equal,True,Run,%ScriptFile%,AssociationExtensionntfs
+If,%pCheckBox36%,Equal,True,Run,%ScriptFile%,AssociationExtensionsquashfs
+If,%pCheckBox37%,Equal,True,Run,%ScriptFile%,AssociationExtensiontxz
+If,%pCheckBox38%,Equal,True,Run,%ScriptFile%,AssociationExtensionvhd
+If,%pCheckBox39%,Equal,True,Run,%ScriptFile%,AssociationExtensionxz
+If,%pCheckBox40%,Equal,True,Run,%ScriptFile%,AssociationExtensiongzip_igz
+HiveUnLoadALL
+
+[Add_Shortcuts]
+If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+
+[Extract]
+Set,%SetupContainerSize%,""
+IniRead,%FileContainer%,Folder,%SetupFile%,%SetupContainerSize%
+If,%SetupContainerSize%-,Equal,-,Run,%ScriptFile%,Update_Container
+//--
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+
+[PluginSetx64]
+Set,%ProgramFolder%,%ProgramFolderx64%
+Set,%SetupFile%,%SetupFilex64%
+Set,%SetupURL%,%SetupURLx64%
+
+[Launch_Program]
+If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Run,%ScriptFile%,Extract
+Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%\%ProgramFolder%
+
+[Update_Container]
+Echo,"Update %ScriptTitle%..."
+Exec,%FileContainer%,Process
+
+[AssociationExtension001]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.001,,7-Zip.001
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.001\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,9"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.001\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.001,,"001 Archive"
+
+[AssociationExtension7z]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.7z,,7-Zip.7z
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.7z\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,0"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.7z\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.7z,,"7z Archive"
+
+[AssociationExtensionarj]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.arj,,7-Zip.arj
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.arj\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,4"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.arj\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.arj,,"arj Archive"
+
+[AssociationExtensionbz2]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.bz2,,7-Zip.bz2
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.bz2\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,2"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.bz2\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.bz2,,"bz2 Archive"
+
+[AssociationExtensionbzip2]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.bzip2,,7-Zip.bzip2
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.bzip2\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,2"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.bzip2\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.bzip2,,"bzip2 Archive"
+
+[AssociationExtensioncab]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.cab,,7-Zip.cab
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.cab\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,7"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.cab\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.cab,,"cab Archive"
+
+[AssociationExtensioncpio]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.cpio,,7-Zip.cpio
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.cpio\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,12"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.cpio\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.cpio,,"cpio Archive"
+
+[AssociationExtensiondeb]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.deb,,7-Zip.deb
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.deb\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,11"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.deb\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.deb,,"deb Archive"
+
+[AssociationExtensiondmg]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.dmg,,7-Zip.dmg
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.dmg\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,17"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.dmg\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.dmg,,"dmg Archive"
+
+[AssociationExtensionfat]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.fat,,7-Zip.fat
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.fat\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,21"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.fat\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.fat,,"fat Archive"
+
+[AssociationExtensiongz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.gz,,7-Zip.gz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,14"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.gz,,"gz Archive"
+
+[AssociationExtensiongzip]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.gzip,,7-Zip.gzip
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gzip\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,14"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gzip\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.gzip,,"gzip Archive"
+
+[AssociationExtensionhfs]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.hfs,,7-Zip.hfs
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.hfs\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,18"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.hfs\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.hfs,,"hfs Archive"
+
+[AssociationExtensioniso]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.iso,,7-Zip.iso
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.iso\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,8"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.iso\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.iso,,"iso Archive"
+
+[AssociationExtensionlha]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.lha,,7-Zip.lha
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lha\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,6"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lha\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.lha,,"lha Archive"
+
+[AssociationExtensionlzh]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.lzh,,7-Zip.lzh
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lzh\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,6"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lzh\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.lzh,,"lzh Archive"
+
+[AssociationExtensionlzma]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.lzma,,7-Zip.lzma
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lzma\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,16"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.lzma\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.lzma,,"lzma Archive"
+
+[AssociationExtensionntfs]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.ntfs,,7-Zip.ntfs
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.ntfs\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,22"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.ntfs\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.ntfs,,"ntfs Archive"
+
+[AssociationExtensionrar]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.rar,,7-Zip.rar
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.rar\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,3"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.rar\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.rar,,"rar Archive"
+
+[AssociationExtensionrpm]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.rpm,,7-Zip.rpm
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.rpm\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,10"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.rpm\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.rpm,,"rpm Archive"
+
+[AssociationExtensionsplit]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.split,,7-Zip.split
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.split\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,9"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.split\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.split,,"split Archive"
+
+[AssociationExtensionsquashfs]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.squashfs,,7-Zip.squashfs
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.squashfs\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,24"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.squashfs\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.squashfs,,"squashfs Archive"
+
+[AssociationExtensionswm]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.swm,,7-Zip.swm
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.swm\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,15"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.swm\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.swm,,"swm Archive"
+
+[AssociationExtensiontar]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.tar,,7-Zip.tar
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tar\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,13"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tar\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.tar,,"tar Archive"
+
+[AssociationExtensiontaz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.taz,,7-Zip.taz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.taz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,5"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.taz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.taz,,"taz Archive"
+
+[AssociationExtensiontbz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.tbz,,7-Zip.tbz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tbz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,2"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tbz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.tbz,,"tbz Archive"
+
+[AssociationExtensiontbz2]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.tbz2,,7-Zip.tbz2
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tbz2\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,2"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tbz2\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.tbz2,,"tbz2 Archive"
+
+[AssociationExtensiontgz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.tgz,,7-Zip.tgz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tgz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,14"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tgz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.tgz,,"tgz Archive"
+
+[AssociationExtensiontpz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.tpz,,7-Zip.tpz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tpz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,14"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.tpz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.tpz,,"tpz Archive"
+
+[AssociationExtensiontxz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.txz,,7-Zip.txz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.txz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,23"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.txz\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.txz,,"txz Archive"
+
+[AssociationExtensionvhd]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.vhd,,7-Zip.vhd
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.vhd\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,20"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.vhd\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.vhd,,"vhd Archive"
+
+[AssociationExtensionwim]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.wim,,7-Zip.wim
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.wim\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,15"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.wim\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.wim,,"wim Archive"
+
+[AssociationExtensionxar]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.xar,,7-Zip.xar
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.xar\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,19"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.xar\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.xar,,"xar Archive"
+
+[AssociationExtensionxz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.xz,,7-Zip.xz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.xz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,23"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.xz\shell\open\Command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.xz,,"xz Archive"
+
+[AssociationExtensionz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.z,,7-Zip.z
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.z\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,5"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.z\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.z,,"z Archive"
+
+[AssociationExtensionzip]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.zip,,7-Zip.zip
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.zip\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,1"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.zip\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.zip,,"zip Archive"
+
+[AssociationExtensiongzip_igz]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.igz,,7-Zip.gzip_igz
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gzip_igz\DefaultIcon,,"%PE_Programs%\%ProgramFolder%\7z.dll,14"
+RegWrite,HKLM,0x2,Tmp_Software\Classes\7-Zip.gzip_igz\shell\open\command,,"#$q%PE_Programs%\%ProgramFolder%\7zFM.exe#$q #$q%1#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\7-Zip.gzip_igz,,"gzip (igz) Archive"
+
+[AuthorEncoded]
+Logo=7zFM4848.ico
+7zFM4848.ico=257,343
+
+[EncodedFile-AuthorEncoded-7zFM4848.ico]
+lines=0
+0=eJztlUEKg0AMRX/pHbruRujSI3mUHqfH6M3aEXEnzCQNmOm8JzEwmM+LIEqXcs2zyv2u1yTdJD1KlSMt2s5XnpMAACCeT2eFf1L/rOB/LqP6R31z1kz8/9/f+2wt54hM/p4dsvlbd8A/3t+yQ1b/1h3w/22HGsbcMP/WmeDMUP+Wuez+tdks/ha8c7Us/Pv19xb+Y/pnAf9zGcW/k8I/lz8AABjY/8zW/l6Hr/S9e9/jFysVYEx4nOMxr3LzNbEwsdDLTM5nGAUjDexThdDbcMifr5lrz8AEANWRB1TCoNuhAQAAAAIAAAAnAAAAtgAAAAAAAAABAAAAAAAAAAAAAAA
+
+[InterfaceEncoded]
+Launch.bmp=913,1218
+7zFM4848.jpg=1959,2612
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-7zFM4848.jpg]
+lines=0
+0=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
+
+[EncodedFolders]
+Folder
+
+[Folder]
+RightClick.txt=555,740
+7-Zip_Associate.txt=1292,1723
+
+[EncodedFile-Folder-RightClick.txt]
+lines=0
+0=eJzFVF1r2zAUfQ/kPxiDX4bc2m7WbI/BTkhYvIa6W2EIirBuEzFHMldKmnbsv09Ova2pu3xB2IOQxD2cc3Xv1ennM0Xca5gKbfDRuUVhwPGdWEkDK5OCXLjtlg0PxRLGinFyMy/vMnVvHhgC8Wzk98Vb49YEZPhpnJJgFW2gadf/JkoyYWZGvEn/boJqimyuPerVx4EqOOCbRO4GUypyVNre6K2QXD1oGi8QQZqvgFooSXtl6VRCmnafBukZrMAl20X/AE+kfsyzw836xQXTGjR9R/UMigJW9EWbhkzywurXVSY/oouwGwwuP/qdIA79qPuh54dBEPh2VXtkV/Bzb814nI0Suh8pIe46CSer0nT6KwOyqou7c0KOUaMjWaLKM8Al4EW0s83+kyjPeFGc5Omvk7mZITAu5DRVHArSKxmauZ2UvcUTgZAbhY//oedN7QTZNEFVnloYrducUPTA7/xqjHX1v1Etgbt75rD1P1TO+kU2vLXdOj/3/ab3JnDPFoVZW299/qfz1nF6sAM/A5u0nS209Ko0VXVIzHTOOPBqQknYbmVgs30xtSnT3z0S2IDBgcI5M2T0OX4DctnZjXkfRrtBnWNf8peoyVo1aHvZDyJrTkJN8wsllYSLeJzjC8pMzyhxzslMztYrqShhGAUjCyxih9B3GbHLL7kSfYiBCQDo/wmfcSsLiAEAAAACAAAAKgAAAN0BAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFile-Folder-7-Zip_Associate.txt]
+lines=0
+0=eJztnG1v2zYQx98HyHcQ9Kod4kCWH5QWMDDDTpFgcVssxYptKgxNoiUNtiRQSuJq2HffkXqinUE1zSYV2gsSgpTIv+gjf7pTRPNjGHnxQ6r9Svwwzehn7dILs5hqvxGahnGkjc4N4/Tk9OTPq18uf1/evJtNb5aL6ezq+u2l/WGTLOdk5dytM/s2XmUPDiW21fsjTD6dnug3TuTrE51EOi9Qn7x3fJLqE+8hpt5ro/yBk++dLNAnAdm+MF++NkdnhnE2GrDUesXTIj9k6ZifHXssHfIjlsmPFDXHZ/bpiabVFUsxl6eGUH3FU0s40m+ETV5zOGYp1yvUx27Tg6JPhfCAy5i86cgRemP8T52qf48r8l95U9vvkgwGKmUmnzmp63jEW5Dobs/OfXY6jjKyzR6dHYyttutW1/t0SKVm/L/rUf3iYNX2mK2dNCXpYcYrK9s/SVa304Cs12R7ZDNbmBlXTuStAf6vKFXPiZ8n+j/moG8Zb8avekNj1u+Z1sW014c52GNzFP5MNiH/1aUufm7lhTi/DpQkmzv0b7E9FCUFXOcvUQCKkgIrJxMFoCgp4O9YwJe1gJ9X41MJhImkRLBKRQUoSgqE+58hTJah9CdZB46oAkVZgTzYEcgDaYHNbhegLCkRZbvGZGVJCepQUQGKkgLZrkB2hEC+KyA7lPeBJwpAUVLgIdyIAlCUFNj5ALLd30NKmqjqZlaK5NqUukF4T45Tscvo4dqNI674dRxzUadyz+qOuRAu3LNyuGXxsyZpwoeh4PF5ahbVj/PpjXG587PjhETg/zYb8Hs7NjaFqOW7CYH2LF31r1AfeqXpG+GLJl8axBDy/Pig3xyp9I4aktqjQ0aFG2iO4LSBM1QBh1lXIMdFcr49OXUoCxkVcqA5ktNGjqVCDrMuktMtcupnOMiokAPNkZw2csxm2BTGCmO2jvFTPf77Sk86Pj7ptMLDe6MWtvk5+p7OsVP9s4Hl1PgJEyToyQkCIyND3WNoGTZeCDh6AcWXqjQxTSTqGYjihkaqukVV/VoIMiokQXOE6MsQXahAxGyM/HSLn/p9JmRU+IHmyE8bP2MVcph1kZyOkVO9yIeMEjl5gOQ8HTlgXSSna+RUK1hYTo2dDbqdA8I2RYQ26H26xlCzhIvlVBhi7ZGhNobMJlUZLnwj1DGG6jWMkFEhCJojQG0ADVTQYdZF79MtcurFu5kaORmSc0j4psRPhvx0kJ+84kdpNQI0R37a+BmpkYPve7pGTv2lDciokAPNkZw2coqHHkOFH2ZjfObpFj/1d5Ygo8IPNEd+2vgpIjcl/8NsjP6nW/yUcZtS1IYx29PFbBixdY6Yaumo4spRXDh6iMdRGCUkpzPkzG5ur+f2YXtZCF8C127ZCGqX24xEbHcdOcxkLmpfRwmN3VtC7wkdmD8KjEUdYZ6IFct58gjPcvj1DwEljhdG/iL2yFqf6NPEodmGRJKbccxDStwspp+/5Z4ojzsxp44/p3HybD2g4Eie/eqL0KVxCiX7Y7GzlT27oxTGsNzQyp4mica2JoIe5G8W52RLfhQ4Ck81bG7y7bfPCgvcx+mwibV3b0/ZTKPxPWFO+tAp3uYn/gMpO6poeJwTNteNyiyIdywuzk/OTCxJ1SupKGEYBSMGrPKF0DtZsMuncB2QZWACAG+RCjUVKMnzAQAAAAIAAAAvAAAAuQQAAAAAAAABAAAAAAAAAAAAAAA
+

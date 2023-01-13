@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-TerminalServices-TSV-VmHostAgent"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+    <migration
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      replacementVersionRange="6.1-6.2"
+      >
+    <machineSpecific>
+     <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>  
+            <!--  This tells setup/upgrade process that we want to preserve this registry key. -->  
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\vmhostagent\Parameters [tssdis]</pattern>
+            <!--  This tells setup/upgrade process that we want to preserve this directory key. -->  
+            <pattern type="File">%ProgramData%\Microsoft\Windows\RDVirtualizationHost\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+     </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

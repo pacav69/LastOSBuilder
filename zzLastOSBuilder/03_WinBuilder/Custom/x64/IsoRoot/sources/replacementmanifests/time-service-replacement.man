@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Time-Service"
+      version="0.0.0.0"
+      processorArchitecture="*"
+      />
+  <!-- replacement manifest migration is applicable from Win7 to very recent builds --> 
+  <migration
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.1-10.0.9890"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <!-- Include all W32Time regkeys except the regkey corresponding to the trigger info we have removed -->
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\W32Time\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\W32time [RequiredPrivileges]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TriggerInfo\1\* [*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

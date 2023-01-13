@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-NetFx4-RM"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      >
+    <registerSDF name="NetFx4"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full [Install]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

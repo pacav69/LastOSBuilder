@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-IIS-FTPSvc"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+
+    <migration replacementSettingsVersionRange="0"
+       settingsVersion="0"
+       alwaysProcess="yes">
+      <registerSDF name="IIS-FTPSvc"/>
+      <migXml xmlns="">
+      <!-- On a Vista /LHS down-level system, we detect the presence of FTP7 by            -->
+      <!-- looking for the FTPSVC service. We also detect FTP6 by checking for MSFTPSVC    -->
+      <!--  We base this on the registry key for the service declaration.                  -->          -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT", "6.0.*")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\FTPSVC\Parameters [ServiceDll]" )</condition>
+          <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\MSFTPSVC [ImagePath]" )</condition>
+        </detect>
+      </detects>
+      </migXml>
+  </migration>
+</assembly>

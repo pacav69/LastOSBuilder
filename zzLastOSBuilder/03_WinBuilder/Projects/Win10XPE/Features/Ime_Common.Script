@@ -1,0 +1,163 @@
+[Main]
+Title=IME Common
+Type=XPEPlugin
+Description=IME Common Support
+Author=ChrisR
+Date=2019.09.01
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+HistoryNotes=Be Free to Customize
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,Ime_Common_Files
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Ime_Common_Reg
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+//-
+If,ExistFile,%GTarget_Sys%\Pecmd.ini,Run,%ScriptFile%,Edit_PecmdINI
+
+[Ime_Common_Files]
+ExtractSectionFiles,%ScriptFile%,Ime_Common_AddFiles
+If,%SourceBuild%,Bigger,18300,ExtractSectionFiles,%ScriptFile%,Ime_Common_1903_AddFiles
+If,%SourceBuild%,Bigger,18960,ExtractSectionFiles,%ScriptFile%,Ime_Common_20h1_AddFiles
+//-
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  ExtractSectionFiles,%ScriptFile%,Ime_Common_x64_AddFiles
+  If,%SourceBuild%,Bigger,18300,ExtractSectionFiles,%ScriptFile%,Ime_Common_x64_1903_AddFiles
+  If,%SourceBuild%,Bigger,18960,ExtractSectionFiles,%ScriptFile%,Ime_Common_x64_20h1_AddFiles
+End
+
+[Ime_Common_Reg]
+RegCopyKey,HKLM,Tmp_Software\Microsoft\CTF
+If,%Language%,Equal,ja-JP,RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\15.0\IMEJP
+If,%Language%,Equal,ko-KR,RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\15.0\IMEKR
+If,%Language%,Equal,zh-CN,RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\15.0\IMETC
+If,%Language%,Equal,zh-TW,RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\15.0\IMETC
+RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\15.0\Shared
+RegCopyKey,HKLM,Tmp_Software\Microsoft\IME\PlugInDict
+RegCopyKey,HKLM,Tmp_Software\Microsoft\IMETC
+RegCopyKey,HKLM,Tmp_Software\Microsoft\InputMethod
+If,%SourceBuild%,Bigger,18300,RegCopyKey,HKLM,Tmp_Software\Microsoft\FuzzyDS
+//RegCopyKey,HKLM,Tmp_Software\Microsoft\Notepad
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\CTF
+  If,%Language%,Equal,ja-JP,RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\15.0\IMEJP
+  If,%Language%,Equal,ko-KR,RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\15.0\IMEKR
+  If,%Language%,Equal,zh-CN,RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\15.0\IMETC
+  If,%Language%,Equal,zh-TW,RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\15.0\IMETC
+  RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\15.0\Shared
+  RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IME\PlugInDict
+  RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\IMETC
+  RegCopyKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\InputMethod
+End
+
+[Ime_Common_Reg_Save]
+// WOW6432Node FuzzyDS is not in install.wim but seems not required
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  If,%SourceBuild%,Bigger,18300,Begin
+    System,FileRedirect,OFF
+    ShellExecute,Hide,cmd.exe,"/D /C Reg Copy #$qHKLM\Tmp_Software\Microsoft\FuzzyDS#$q #$qHKLM\Tmp_Software\WOW6432Node\Microsoft\FuzzyDS#$q /S /F"
+    System,FileRedirect,ON
+  End
+End
+
+[Edit_PecmdINI]
+If,%FullSoftware%,Equal,True,Begin
+  TXTReplace,%GTarget_Sys%\Pecmd.ini,"//EXEC #$pWinDir#$p\System32\ctfmon.exe","EXEC #$pWinDir#$p\System32\ctfmon.exe"
+End
+Else,Begin
+  If,ExistFile,%ScriptDir%\IME_Cmd.txt,Begin
+    FileCopy,%ScriptDir%\IME_Cmd.txt,%GTarget_Sys%\IME.cmd
+    TXTReplace,%GTarget_Sys%\Pecmd.ini,"//EXEC #$pWinDir#$p\System32\ctfmon.exe","EXEC !#$pWinDir#$p\System32\IME.cmd"
+  End
+End
+
+[Ime_Common_AddFiles]
+\Windows\IME\??-??\SpTip.dll.mui
+\Windows\IME\SPTIP.DLL
+\Windows\System32\IME\SHARED
+\Windows\System32\InputMethod\SHARED
+\Windows\System32\Ctfmon.exe
+\Windows\System32\Globinputhost.dll
+\Windows\System32\input.dll
+\Windows\System32\inputHost.dll
+\Windows\System32\inputLocaleManager.dll
+\Windows\System32\inputService.dll
+\Windows\System32\inputSwitch.dll
+\Windows\System32\msctf.dll
+\Windows\System32\msctfime.ime
+\Windows\System32\MsCtfMonitor.dll
+\Windows\System32\Msctfp.dll
+\Windows\System32\MsctfuiManager.dll
+\Windows\System32\msutb.dll
+\Windows\System32\MSWB7.dll
+\Windows\System32\MTF.dll
+\Windows\System32\MTFServer.dll
+\Windows\System32\NOISE.DAT
+\Windows\System32\TextInputFramework.dll
+\Windows\System32\Windows.Globalization.dll
+\Windows\System32\Winlangdb.dll
+\Windows\System32\Winsta.dll
+;
+; Notepad2 can't work with Extended Language, overwritten by window Notepad
+\Windows\System32\Notepad.exe
+
+[Ime_Common_1903_AddFiles]
+\Windows\System32\umpdc.dll
+\Windows\System32\clbcatq.dll
+\Windows\System32\dusmapi.dll
+\Windows\System32\netprofm.dll
+\Windows\System32\npmproxy.dll
+\Windows\System32\Windows.Networking.HostName.dll
+\Windows\System32\TextInputMethodFormatter.dll
+\Windows\System32\WordBreakers.dll
+\Windows\System32\Language*.dll
+\Windows\System32\Windows.UI.Core.TextInput.dll
+
+[Ime_Common_20h1_AddFiles]
+\Windows\System32\Windows.Web.dll
+
+[Ime_Common_x64_AddFiles]
+\Windows\SysWOW64\IME\SHARED
+\Windows\SysWOW64\Ctfmon.exe
+\Windows\SysWOW64\Globinputhost.dll
+\Windows\SysWOW64\input.dll
+\Windows\SysWOW64\inputHost.dll
+\Windows\SysWOW64\inputLocaleManager.dll
+\Windows\SysWOW64\inputService.dll
+\Windows\SysWOW64\inputSwitch.dll
+\Windows\SysWOW64\msctf.dll
+\Windows\SysWOW64\msctfime.ime
+\Windows\SysWOW64\MsCtfMonitor.dll
+\Windows\SysWOW64\MsctfuiManager.dll
+\Windows\SysWOW64\msutb.dll
+\Windows\SysWOW64\MSWB7.dll
+\Windows\SysWOW64\MTF.dll
+\Windows\SysWOW64\NOISE.DAT
+\Windows\SysWOW64\TextInputFramework.dll
+\Windows\SysWOW64\Windows.Globalization.dll
+\Windows\SysWOW64\Winlangdb.dll
+\Windows\SysWOW64\Winsta.dll
+
+[Ime_Common_x64_1903_AddFiles]
+\Windows\SysWOW64\umpdc.dll
+\Windows\SysWOW64\clbcatq.dll
+\Windows\SysWOW64\dusmapi.dll
+\Windows\SysWOW64\netprofm.dll
+\Windows\SysWOW64\npmproxy.dll
+\Windows\SysWOW64\Windows.Networking.HostName.dll
+\Windows\SysWOW64\TextInputMethodFormatter.dll
+\Windows\SysWOW64\WordBreakers.dll
+\Windows\SysWOW64\Language*.dll
+\Windows\SysWOW64\Windows.UI.Core.TextInput.dll
+
+[Ime_Common_x64_20h1_AddFiles]
+\Windows\System32\Windows.Web.dll

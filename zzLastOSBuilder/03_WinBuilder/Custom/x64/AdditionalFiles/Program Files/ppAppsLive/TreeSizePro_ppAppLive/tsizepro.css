@@ -1,0 +1,35 @@
+body
+{
+        background-color: #FFFFFF;
+        margin-left:5px;
+        margin-right:5px;
+        margin-top:0px;
+        margin-bottom:0px;
+        font-family: Arial;
+}
+
+body,p,td,li,ul
+{
+        color: #000000;
+        font-size:9pt;
+        font-family:Arial,Helvetica;
+        border-bottom-color:#000000;
+        border-bottom-style:solid;
+}
+
+h1,h2,h3 
+{
+        text-align:center;
+}
+
+table 
+{
+        font-family:Arial Narrow; Arial; 
+        padding:0px;
+        border-spacing:0px;
+} 
+
+th 
+{
+        background-color: #C0C0C0;
+}

@@ -1,0 +1,43 @@
+<Title>
+	ppGame example template
+
+<Version>
+	cYYYY
+
+<Description>
+With more and more people finding uses for SetupS and ppApps, this will allow anyone to make their very own Silent Setup app or game. It will show up on ssWPI or can be used via SendTo SetupS for whenever one is in a rush to put an app (or game) back onto their PC.
+
+Use the examples in this template to help you get started.
+
+<URL>
+	http://#WebLink1#
+	http://#WebLink2#
+
+<Category>
+	Other
+
+<BuildType>
+	ppGame
+
+<AppPath>
+	%ppGames%\MyGame
+
+<StartMenuSourcePath>
+	MyGame
+
+<Catalog>
+	Game Other
+
+<StartMenuDestPath>
+	9 Other
+	- Other
+
+<Flags>
+	KeepAll = No
+
+<ShortcutS>
+	Target="MyGame.exe"
+	Comment="A ppGame example shortcut"
+	Name="ppGame Example"
+
+<End>

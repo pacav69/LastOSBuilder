@@ -1,0 +1,144 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-ContentDeliveryManager-Utilities"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0-5"
+      settingsVersion="6"
+      >
+    <migXml xmlns="">
+      <rules context="User">
+        <conditions>
+          <!-- Checking if the regKey with the name AvailabilityForAllContentIds exists at the location HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 -->
+          <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 [AvailabilityForAllContentIds]")</condition>
+        </conditions>
+        <rules>
+          <addObjects>
+            <object>
+              <!-- Create a new regKey AvailabilityForAllContentIds and set it's value to 1  -->
+              <location type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 [AvailabilityForAllContentIds]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+          </addObjects>
+        </rules>
+      </rules>
+
+      <rules>
+        <conditions>
+          <!-- Checking if the regKey with the name AvailabilityForAllContentIds exists at the location HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 -->
+          <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 [AvailabilityForAllContentIds]")</condition>
+        </conditions>
+        <rules context="User">
+          <addObjects>
+            <object>
+              <!-- Create a new regKey AvailabilityForAllContentIds and set it's value to 1  -->
+              <location type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions\314559 [AvailabilityForAllContentIds]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+          </addObjects>
+        </rules>
+      </rules>
+
+      <rules>
+        <!-- rules to execute normal privacy settings migration --> 
+        <conditions operation="OR">
+
+          <!-- the OS version is after 10.0.14393 (after RS1 exclusive) -->
+          <condition negation="Yes">MigXmlHelper.IsOSEarlierThan("NT","10.0.14393")</condition>
+
+          <!-- this is one of the Server editions -->
+          <condition>MigXmlHelper.DoesStringContentContain("Registry", "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [EditionID]", "Server")</condition>
+
+          <!-- this is the PPIPro edition -->
+          <condition>MigXmlHelper.DoesStringContentContain("Registry", "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion [EditionID]", "PPIPro")</condition>
+
+          <!-- sytem is joined to a domain, NV Domain exists and it's not empty -->
+          <conditions operation="AND">
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [NV Domain]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [NV Domain]", "")</condition>
+          </conditions>
+
+          <!-- system is managed by SCCM, ProductCode exists and it's not empty -->
+          <conditions operation="AND">
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\SMS\Mobile Client [ProductCode]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SOFTWARE\Microsoft\SMS\Mobile Client [ProductCode]", "")</condition>
+          </conditions>
+
+          <!-- system is updated using WSUS -->
+          <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU [UseWUServer]", "0x00000001")</condition>
+
+          <!-- we have an explicit request to perform a normal migration -->
+          <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CreatorsUpdatePrivacySettings [ShowUI]", "0x00000000")</condition>
+
+        </conditions>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Privacy [TailoredExperiencesWithDiagnosticDataEnabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <rules context="System">
+          <detects>
+            <detect>
+              <!-- Gather and copy the AdvertisingInfo enablement state if the source regkey doesn't exist -->
+              <condition negation="yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\Software\Microsoft\Windows\CurrentVersion\Privacy [TailoredExperiencesWithDiagnosticDataEnabled]")</condition>
+            </detect>
+          </detects>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <rules context="User">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy [TailoredExperiencesWithDiagnosticDataEnabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <rules context="User">
+          <detects>
+            <detect>
+              <!-- Gather and copy the AdvertisingInfo enablement state if the source regkey doesn't exist -->
+              <condition negation="yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy [TailoredExperiencesWithDiagnosticDataEnabled]")</condition>
+            </detect>
+          </detects>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </rules>
+
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Mobility\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\SoftLanding [Enabled]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager [ContentDeliveryAllowed]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

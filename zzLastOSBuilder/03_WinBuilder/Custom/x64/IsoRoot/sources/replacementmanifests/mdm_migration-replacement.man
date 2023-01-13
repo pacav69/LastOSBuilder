@@ -1,0 +1,402 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-DeviceManagement-Migration"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2-10.0"
+      scope="Upgrade"
+      settingsVersion="0"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <environment>
+          <variable name="PROVIDERID">
+            <script>MigXmlHelper.GetStringContent("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [AuthorityName]")</script>
+          </variable>
+          <variable name="ENROLLMENTID">
+            <text>B92E7305-9462-4B48-AE6D-57D9D09FD698</text>
+          </variable>
+          <variable name="ENROLLEDUSERSID">
+            <script>MigXmlHelper.GetStringContent("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EnrolledUserSID]")</script>
+          </variable>
+          <variable name="DEVICECLIENTID">
+            <script>MigXmlHelper.GetStringContent("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [DeviceClientID]")</script>
+          </variable>
+          <variable name="ENTERPRISEIDS">
+            <script>MigXmlHelper.GetStringContent("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EnterpriseIDs]")</script>
+          </variable>
+          <variable name="AUTHORITYNAME">
+            <script>MigXmlHelper.GetStringContent("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [AuthorityName]")</script>
+          </variable>
+        </environment>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\Enrollments\* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\Provisioning\OMADM* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\SCEP\* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\EnterpriseResourceManager\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EmailAddress]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [DomainSId]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EnrollmentServer]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%PROVIDERID% [RootThumprint]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%PROVIDERID% [SslProvisionedCertThumbprint]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\MachineEnrollment [NewKeyContainer]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [AuthorityName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EnrolledUserSID]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%PROVIDERID% [SslClientSearchCriteria]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [BootstrapMP]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [SslCertStore]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [DeviceClientID]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [EnterpriseIDs]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [Hyperlink]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <rules context="System">
+          <detects>
+            <detect>
+              <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM [AuthorityName]")</condition>
+            </detect>
+          </detects>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [EnrollmentState]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [IsFederated]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [RenewROBOSupport]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [EnrollmentType]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [AuxNumRetries]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [AuxRetryInterval]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [NumRetries]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [RetryInterval]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [Aux2NumRetries]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [Aux2RetryInterval]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [PollOnLogin]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationStatus]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationHResult]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationProgress]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [Flags]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [RoamingCount]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo0 [Flags]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo0 [AuthData]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo1 [Flags]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo1 [AuthData]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [ServerVer]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [ProtoVer]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [AcctRootName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [AppId]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [Name]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [DefaultEncoding]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [Roles]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [Flags]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthRootName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthLevel]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthType]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthSecret]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthLevel]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthRootName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthSecret]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthType]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [AddrRootName]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [AddrType]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [Flags]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [ConnRetryFreq]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [InitialBackOffTime]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [MaxBackOffTime]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [BackCompatRetryDisabled]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\PolicyManager\current\Device\DataProtection [LegacySelectiveWipeID_LastWrite]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempENROLLEDUSERSID]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempDEVICECLIENTID]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempENTERPRISEIDS]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempAUTHORITYNAME]</pattern>
+            </objectSet>
+          </include>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [EnrollmentState]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [IsFederated]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [RenewROBOSupport]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID% [EnrollmentType]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [AuxNumRetries]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [AuxRetryInterval]</location>
+              <attributes>dword</attributes>
+              <bytes>A0050000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [NumRetries]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [RetryInterval]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [Aux2NumRetries]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [Aux2RetryInterval]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\%ENROLLMENTID%\Poll [PollOnLogin]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationStatus]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationHResult]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Enrollments\Status\%ENROLLMENTID% [LifecycleNotificationProgress]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [Flags]</location>
+              <attributes>dword</attributes>
+              <bytes>613A0200</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [RoamingCount]</location>
+              <attributes>dword</attributes>
+              <bytes>00000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo0 [Flags]</location>
+              <attributes>dword</attributes>
+              <bytes>3D000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo0 [AuthData]</location>
+              <attributes>binary</attributes>
+              <bytes>9e89dc</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [ServerVer]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">1.0</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID% [ProtoVer]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">1.2</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [AcctRootName]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%ENROLLMENTID%</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [AppId]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">w7</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [Name]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%PROVIDERID%</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [DefaultEncoding]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">application/vnd.syncml.dm+xml</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected [Roles]</location>
+              <attributes>dword</attributes>
+              <bytes>02000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [Flags]</location>
+              <attributes>dword</attributes>
+              <bytes>0E000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthRootName]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">SRVCRED</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthLevel]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">SRVCRED</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthType]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">DIGEST</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo0 [AuthSecret]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">dummy</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [AddrRootName]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">1</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AddrInfo [AddrType]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">URI</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [Flags]</location>
+              <attributes>dword</attributes>
+              <bytes>0F000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [ConnRetryFreq]</location>
+              <attributes>dword</attributes>
+              <bytes>06000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [InitialBackOffTime]</location>
+              <attributes>dword</attributes>
+              <bytes>30750000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [MaxBackOffTime]</location>
+              <attributes>dword</attributes>
+              <bytes>C0D40100</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\ConnInfo [BackCompatRetryDisabled]</location>
+              <attributes>dword</attributes>
+              <bytes>FFFF0000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\PolicyManager\current\Device\DataProtection [LegacySelectiveWipeID_LastWrite]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthLevel]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">CLCRED</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthName]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">dummy</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthRootName]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">CLCRED</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthSecret]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">dummy</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\Protected\AuthInfo1 [AuthType]</location>
+              <attributes>String</attributes>
+              <bytes string="yes">DIGEST</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo1 [Flags]</location>
+              <attributes>dword</attributes>
+              <bytes>3F000000</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Provisioning\OMADM\Accounts\%ENROLLMENTID%\AuthInfo1 [AuthData]</location>
+              <attributes>binary</attributes>
+              <bytes>9e89dc</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempENROLLEDUSERSID]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%ENROLLEDUSERSID%</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempDEVICECLIENTID]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%DEVICECLIENTID%</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempENTERPRISEIDS]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%ENTERPRISEIDS%</bytes>
+            </object>
+            <object>
+              <location type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MDM\%ENROLLMENTID% [TempAUTHORITYNAME]</location>
+              <attributes>String</attributes>
+              <bytes
+                  expand="yes"
+                  string="yes"
+                  >%AUTHORITYNAME%</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="User">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKCU\Software\Microsoft\SCEP\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

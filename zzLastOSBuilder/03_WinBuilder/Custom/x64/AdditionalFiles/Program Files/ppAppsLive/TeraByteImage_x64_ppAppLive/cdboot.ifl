@@ -1,0 +1,14 @@
+cdboot/isolinux.bin,,,,4,,,,0xC
+cdboot/boot/grub/efi.img,,,,1,,,0xEF
+cdboot/vmlinuz
+cdboot/initrmfs.gz
+cdboot/isolinux.cfg
+cdboot/menu.txt
+cdboot/qwerty.ktl
+cdboot/azerty.ktl
+cdboot/dvorak.ktl
+cdboot/qwertz.ktl
+cdboot/fgGIod.ktl
+cdboot/efi,efi
+cdboot/disk,disk
+cdboot/boot,boot

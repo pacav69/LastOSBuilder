@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\EFD Software\HDTunePro]
+"Name"="John Smith"
+"Company"="YES"
+"Test Parameters 1"="00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+"Test Parameters 6"="00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+"Test Parameters 3"="29 23 CB 52 7E 23 32 57 DA 13 7B 75 00 00 00 00"

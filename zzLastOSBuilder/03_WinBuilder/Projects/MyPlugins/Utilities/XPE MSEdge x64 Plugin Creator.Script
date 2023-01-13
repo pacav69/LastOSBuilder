@@ -1,0 +1,379 @@
+[Main]
+Title=XPE Microsoft Edge x64 Plugin Creator
+Type=XPEPlugin
+Description=This Utility Will Create A (X64 Only) XPE Plugin From The Actual Edge Setup File
+Author=KYHI
+Date=2019.10.01
+Credits=TheOven.org Forum
+Contact=
+Version=004
+Level=10
+Download_Level=0
+Selected=None
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Packed Plugin Created 2019.04.09
+History004=KYHI - IniWriteTextLine Registry errors fixed - 2019.10.01
+
+[Interface]
+Button_Launch_Program="Create Plugin",1,8,15,92,119,25,Launch_Creator,0,False,_Launch_Program_,False,"__Click Here To Create Plugin"
+Setup_FileBox=,1,13,15,50,475,20,file
+pTextLabel1="Browse To And Select The MicrosoftEdge_X64_version.exe from the EdgeUpdate/Download Folder",1,1,15,25,475,18,8,Normal
+HomePage_WebLabel="Home Page",1,10,15,2,55,18,https://www.microsoftedgeinsider.com/en-us/download/?platform=win10
+Author_TextBox=Author:,1,0,152,95,137,21,
+
+[Variables]
+%MyMainTitle%=Microsoft Edge
+%ProgramFolder%=%MyMainTitle%
+%SetupFile%=MSEdge_%ProgramVer%_x64.7z
+%TarMy%=%BaseDir%\Projects\MoPlugins\Apps\Network
+%FCNewPluginName%=MSEdge_Browser_%ProgramVer%_x64_XPE_File.Script
+%w%=%TarMy%\MSEdge_Browser_%ProgramVer%_x64_XPE.Script
+%FCw%=%TarMy%\MSEdge_Browser_%ProgramVer%_x64_XPE_File.Script
+
+[Process]
+Echo,"There Is Nothing to Process - Use Create Button..."
+
+[Launch_Creator]
+StrFormat,DATE,%MyDate%,yyyy.mm.dd
+Retrieve,Fileversion,%Setup_FileBox%,%ProgramVer%
+//
+Echo,"Extracting Setup File - Please Wait..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%Setup_FileBox%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\MSEDGE.7z#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+ShellExecute,Hide,cmd.exe,"/D /C ren #$q%GTemp%\%ProgramFolder%\Chrome-bin#$q #$q%ProgramFolder%#$q"
+If,Existfile,%GTemp%\%ProgramFolder%\%ProgramFolder%\msedge_proxy.exe,FileDeleteQ,%GTemp%\%ProgramFolder%\%ProgramFolder%\msedge_proxy.exe
+If,ExistDir,%GTemp%\%ProgramFolder%\%ProgramFolder%\Installer,DirDeleteQ,%GTemp%\%ProgramFolder%\%ProgramFolder%\Installer
+Echo,"Compressing Program Files - Please Wait..."
+ShellExecute,Hide,%GTools%\7z.exe,"a -y -m0=lzma2 -mx=9 -aoa -t7z #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q #$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+Echo,"Writing Main Plugin - Please Wait..."
+Run,%Scriptfile%,Process_Template
+Echo,"Encoding Container File - Please Wait..."
+Run,%Scriptfile%,Process_File_Container
+DirDeleteQ,%GTemp%\%ProgramFolder%
+System,ReScanScripts
+
+[Process_Template]
+FileCreateBlank,%w%
+IniWrite,%w%,Main,Title,%MyMainTitle% %ProgramVer%_x64
+IniWrite,%w%,Main,Type,XPEPlugin
+IniWrite,%w%,Main,Description,"(v%ProgramVer%) The %MyMainTitle% x64 Program Files Will Be Added To Build"
+IniWrite,%w%,Main,Author,%Author_TextBox%
+IniWrite,%w%,Main,Date,%MyDate%
+IniWrite,%w%,Main,Credits,"TheOven.org Forum"
+IniWrite,%w%,Main,Contact,""
+IniWrite,%w%,Main,Version,001
+IniWrite,%w%,Main,Level,5
+IniWrite,%w%,Main,Download_Level,2
+IniWrite,%w%,Main,Selected,False
+IniWrite,%w%,Main,Mandatory,False
+IniWrite,%w%,Main,NoWarning,False
+IniWrite,%w%,Main,History001,"%Author_TextBox% Initial XPE Packed Plugin Created %MyDate%"
+IniWrite,%w%,Main,History002,""
+//--
+IniWrite,%w%,Interface,Shortcut_Bevel,"Shortcut_Bevel,1,12,4,6,133,121"
+IniWrite,%w%,Interface,Desktop_CheckBox,"#$qDesktop Shortcut#$q,1,3,10,10,122,18,True,#$q__Add Desktop Shortcut#$q"
+IniWrite,%w%,Interface,StartMenu_CheckBox,"#$qStart Menu Shortcut#$q,1,3,10,28,122,18,True,#$q__Add Start Menu Shortcut#$q"
+IniWrite,%w%,Interface,TaskBpin_CheckBox,"#$qPin To TaskBar#$q,1,3,10,46,122,18,False,#$q__Add Pin To Taskbar Shortcut#$q"
+IniWrite,%w%,Interface,StartMpin_CheckBox,"#$qPin To StartMenu#$q,1,3,10,64,122,18,False,#$q__Add Pin To StartMenu Shortcut#$q"
+IniWrite,%w%,Interface,StartMenuFolder_TextBox,"#$qStart Menu Folder:#$q,1,0,10,100,121,18,,#$q__Start Menu Folder Name#$q"
+IniWrite,%w%,Interface,RunFromWhere_ScrollBox,"#$qRun From USB#$q,1,4,145,6,104,21,#$qRun From USB#$q,#$qRun From RAM#$q"
+IniWrite,%w%,Interface,Image_Software,"image.jpg,1,5,145,35,300,197"
+IniWrite,%w%,Interface,Button_Launch_Program,"Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,#$q__Click Here To Launch Program#$q"
+IniWrite,%w%,Interface,HomePage_WebLabel,"#$qHome Page#$q,1,10,338,6,55,18,https://www.microsoftedgeinsider.com/en-us/download/?platform=win10"
+IniWrite,%w%,Interface,Import_Button,"#$q Import Custom User Data Profile#$q,1,8,145,240,300,25,UserData_Import,Launch.bmp,False,#$q__Open Local USER DATA Folder-> Select & Compress All Files-> Place USER DATA.7z Here#$q"
+//--
+IniWrite,%w%,Variables,#$pProgramTitle#$p,%MyMainTitle%
+IniWrite,%w%,Variables,#$pProgramExe#$p,msedge.exe
+IniWrite,%w%,Variables,#$pProgramFolder#$p,%MyMainTitle%
+IniWrite,%w%,Variables,#$pSetupFile#$p,%SetupFile%
+IniWrite,%w%,Variables,#$pFileContainer#$p,#$pScriptDir#$p\%FCNewPluginName%
+//--
+IniWriteTextLine,%w%,Process,""
+IniWriteTextLine,%w%,Process,"Run,#$pScriptFile#$p,Add_Registry"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"ExtractSectionFiles,#$pScriptFile#$p,AddFiles"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"Run,#$pScriptFile#$p,Add_Shortcuts"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"DirCopy,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q,#$pTargetAppdataLocal#$p\Microsoft\Edge"
+IniWriteTextLine,%w%,Process,"If,ExistDir,#$q#$pTargetAppdataLocal#$p\Microsoft\Edge\User Data#$q,DirDelete,#$q#$pTargetAppdataLocal#$p\Microsoft\Edge\User Data#$q"
+IniWriteTextLine,%w%,Process,"If,Not,ExistDir,#$pTargetAppdataLocal#$p\Microsoft\Edge,DirMake,#$pTargetAppdataLocal#$p\Microsoft\Edge"
+//IniWriteTextLine,%w%,Process,"//--"
+//IniWriteTextLine,%w%,Process,"DirCopy,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q,#$pGTarget_Win#$p\Temp\Microsoft\Edge"
+//IniWriteTextLine,%w%,Process,"If,ExistDir,#$q#$pGTarget_Win#$p\Temp\Microsoft\Edge\User Data#$q,DirDelete,#$q#$pGTarget_Win#$p\Temp\Microsoft\Edge\User Data#$q"
+//IniWriteTextLine,%w%,Process,"If,Not,ExistDir,#$pGTarget_Win#$p\Temp\Microsoft\Edge,DirMake,#$pGTarget_Win#$p\Temp\Microsoft\Edge"
+IniWriteTextLine,%w%,Process,"If,ExistFile,#$pGCustom#$p\MS Edge\User Data.7z,Run,#$pScriptFile#$p,Extract_UserData"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"DirCopy,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p,#$pTarget_Prog#$p"
+IniWriteTextLine,%w%,Process,"If,Not,ExistDir,#$pTarget_Prog#$p,DirMake,#$pTarget_Prog#$p"
+IniWriteTextLine,%w%,Process,"If,ExistDir,#$pTarget_Prog#$p\#$pProgramFolder#$p,DirDeleteQ,#$pTarget_Prog#$p\#$pProgramFolder#$p"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"Run,#$pScriptFile#$p,Extract"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"AddVariables,#$pProjectDir#$p\script.project,TargetBasePath"
+IniWriteTextLine,%w%,Process,"//--"
+IniWriteTextLine,%w%,Process,"If,#$pRunFromWhere_ScrollBox#$p,Equal,#$qRun From RAM#$q,RunFromRAM"
+IniWriteTextLine,%w%,Process,"If,#$pMsi#$p,Equal,False,Exec,#$pProjectDir#$p\Features\Msi.Script,Process"
+IniWriteTextLine,%w%,Process,"Iniread,#$pProjectDir#$p\Script.Project,Features,Msi,#$pMsi#$p"
+IniWriteTextLine,%w%,Process,"If,#$pArchitecture#$p,Equal,x86,Exit,#$qThis #$pProgramTitle#$p x64 Only Plugin Does Not Support x86 Build - You Need To Enable A 64-Bit Build#$q"
+IniWriteTextLine,%w%,Process,"If,Not,ExistFile,#$pFileContainer#$p,Exit,#$q#$pFileContainer#$p Container File Not Found#$q"
+IniWriteTextLine,%w%,Process,"Echo,#$qProcessing #$pScriptTitle#$p...#$q"
+//--
+IniWriteTextLine,%w%,AddFiles,""
+IniWriteTextLine,%w%,AddFiles,"\Windows\SystemResources\colorui.dll.mun"
+IniWriteTextLine,%w%,AddFiles,"\Windows\SystemResources\FirewallControlPanel.dll.mun"
+IniWriteTextLine,%w%,AddFiles,"\Windows\SystemResources\mfplat.dll.mun"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\colorui.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\cscui.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\FirewallControlPanel.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\mf.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\mfplat.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\mscms.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\rstrtmgr.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\srmshell.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\user32.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\Windows.Security.Authentication.Web.Core.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\??-??\Windows.UI.dll.mui"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\amsi.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\colorui.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\credssp.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\cscui.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\dmcmnutils.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\dusmapi.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\FirewallControlPanel.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\mdmregistration.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\mf.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\mfplat.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\mscms.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\msmpeg2vdec.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\msvproc.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\OEMDefaultAssociations.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\OnDemandConnRouteHelper.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\ResourcePolicyClient.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\RstrtMgr.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\srmshell.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\user32.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\wbemcomn.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\wcmapi.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\Windows.Security.Authentication.Web.Core.dll"
+IniWriteTextLine,%w%,AddFiles,"\Windows\System32\Windows.UI.dll"
+//--
+IniWriteTextLine,%w%,Add_Registry,""
+IniWriteTextLine,%w%,Add_Registry,"RegHiveUnLoad,Tmp_Software"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.htm,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.htm\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.html,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.html\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.pdf\OpenWithProgids,MSEdgePDF,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.shtml,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.shtml\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.svg\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.webp,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.webp\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.xht,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.xht\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.xhtml,,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\.xhtml\OpenWithProgids,MSEdgeHTM,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\Applications\msedge.exe\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\ftp,,#$qURL:File Transfer Protocol#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\ftp,#$qURL Protocol#$q,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\ftp\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\ftp\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\http,,#$qURL:HyperText Transfer Protocol#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\http,#$qURL Protocol#$q,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\http\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\http\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\https,,#$qURL:HyperText Transfer Protocol with Privacy#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\https,#$qURL Protocol#$q,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\https\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\https\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,Tmp_Software\Classes\InternetShortcut\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Classes\MSEdgeHTM,EditFlags,2"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM,FriendlyTypeName,#$qEdge HTML Document#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM,#$qURL Protocol#$q,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM,,#$qEdge HTML Document#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM,AppUserModelId,MSEdge"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\Application,AppUserModelId,MSEdge"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\Application,ApplicationIcon,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\Application,ApplicationName,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\Application,ApplicationDescription,#$qBrowse the web#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\Application,ApplicationCompany,#$qMicrosoft Corporation#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeHTM\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF,,#$qMicrosoft Edge PDF Document#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF,AppUserModelId,MSEdge"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\Application,AppUserModelId,MSEdge"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\Application,ApplicationIcon,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\Application,ApplicationName,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\Application,ApplicationDescription,#$qBrowse the web#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\Application,ApplicationCompany,#$qMicrosoft Corporation#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,13#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgePDF\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Classes\MSEdgeURL,EditFlags,2"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeURL,#$qURL Protocol#$q,"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeURL,FriendlyTypeName,#$qEdge URL#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeURL,,#$qEdge URL#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeURL\DefaultIcon,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Classes\MSEdgeURL\shell\open\command,,#$q##$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe##$q -- ##$q##$p1##$q#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Clients\StartMenuInternet,,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge#$q,,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities#$q,ApplicationDescription,#$qMicrosoft Edge is a Web browser that loads web pages and apps in seconds#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities#$q,ApplicationIcon,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities#$q,ApplicationName,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.htm,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.html,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.shtml,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.svg,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.xht,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.xhtml,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.webp,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\FileAssociations#$q,.pdf,MSEdgePDF"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\Startmenu#$q,StartMenuInternet,#$qMicrosoft Edge#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,ftp,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,http,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,https,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,irc,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,mailto,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,mms,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,news,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,nntp,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,sms,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,smsto,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,tel,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,urn,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\Capabilities\URLAssociations#$q,webcal,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\DefaultIcon#$q,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe,0#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x2,#$qTmp_Software\Clients\StartMenuInternet\Microsoft Edge\shell\open\command#$q,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe#$q,,#$q#$pPE_Program#$p\#$pProgramFolder#$p\msedge.exe#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,#$qTmp_Software\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe#$q,Path,#$q#$pPE_Program#$p\#$pProgramFolder#$p#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeURL_HTTPS,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeURL_HTTP,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeURL_FTP,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeHTM_.html,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeHTM_.xhtml,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeHTM_.htm,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeHTM_.xht,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts,MSEdgeHTM_.shtml,0"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.htm\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.shtml\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xht\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xhtml\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\FileExts\.htm\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\FileExts\.html\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\FileExts\.shtml\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\FileExts\.xht\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\FileExts\.xhtml\UserChoice,ProgId,MSEdgeHTM"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\UrlAssociations\FTP\UserChoice,ProgId,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\UrlAssociations\http\UserChoice,ProgId,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Roaming\OpenWith\UrlAssociations\https\UserChoice,ProgId,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Shell\Associations\UrlAssociations\ftp\UserChoice,Progid,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice,Progid,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice,Progid,MSEdgeURL"
+IniWriteTextLine,%w%,Add_Registry,"RegWrite,HKLM,0x1,Tmp_Software\RegisteredApplications,#$qMicrosoft Edge#$q,#$qSoftware\Clients\StartMenuInternet\Microsoft Edge\Capabilities#$q"
+IniWriteTextLine,%w%,Add_Registry,"RegHiveLoad,Tmp_Software,#$pRegSoftware#$p"
+IniWriteTextLine,%w%,Add_Registry,"Echo,#$qWriting #$pScriptTitle#$p Registry Settings...#$q"
+//--
+IniWriteTextLine,%w%,Add_Shortcuts,""
+IniWriteTextLine,%w%,Add_Shortcuts,"If,#$pTaskBpin_CheckBox#$p,Equal,True,AddPin,TaskBar"
+IniWriteTextLine,%w%,Add_Shortcuts,"If,#$pStartMpin_CheckBox#$p,Equal,True,AddPin,StartMenu"
+IniWriteTextLine,%w%,Add_Shortcuts,"If,#$pStartMenu_CheckBox#$p,Equal,True,AddShortcut,StartMenu,#$pStartMenuFolder_TextBox#$p"
+IniWriteTextLine,%w%,Add_Shortcuts,"If,#$pDesktop_CheckBox#$p,Equal,True,AddShortcut,Desktop"
+//--
+IniWriteTextLine,%w%,Extract,""
+IniWriteTextLine,%w%,Extract,"ShellExecute,Hide,#$pGTools#$p\7z.exe,#$qx ##$q#$pGTemp#$p\#$pProgramFolder#$p\#$pSetupFile#$p##$q -y -o##$q#$pGTemp#$p\#$pProgramFolder#$p##$q#$q"
+IniWriteTextLine,%w%,Extract,"ExtractFile,#$pFileContainer#$p,Folder,#$pSetupFile#$p,#$pGTemp#$p\#$pProgramFolder#$p"
+IniWriteTextLine,%w%,Extract,"ExtractFile,#$pScriptFile#$p,Folder,Local State,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q"
+IniWriteTextLine,%w%,Extract,"DirMake,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q"
+IniWriteTextLine,%w%,Extract,"If,ExistDir,#$pGTemp#$p\#$pProgramFolder#$p,DirDeleteQ,#$pGTemp#$p\#$pProgramFolder#$p"
+IniWriteTextLine,%w%,Extract,"Echo,#$qExtracting #$pScriptTitle#$p Setup File...#$q"
+//--
+IniWriteTextLine,%w%,Extract_UserData,""
+IniWriteTextLine,%w%,Extract_UserData,"ShellExecute,Hide,#$pGTools#$p\7z.exe,#$qx ##$q#$pGCustom#$p\MS Edge\User Data.7z##$q -y -o##$q#$pGTemp#$p\#$pProgramFolder#$p\User Data##$q#$q"
+IniWriteTextLine,%w%,Extract_UserData,"If,Not,ExistDir,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q,DirMake,#$q#$pGTemp#$p\#$pProgramFolder#$p\User Data#$q"
+IniWriteTextLine,%w%,Extract_UserData,"Echo,#$qExtracting User Provided USER DATA...#$q"
+//--
+IniWriteTextLine,%w%,UserData_Import,""
+IniWriteTextLine,%w%,UserData_Import,"OpenDir,#$pGCustom#$p\MS Edge"
+IniWriteTextLine,%w%,UserData_Import,"If,Not,ExistDir,#$q#$pGCustom#$p\MS Edge#$q,DirMake,#$q#$pGCustom#$p\MS Edge#$q"
+//--
+IniWriteTextLine,%w%,Launch_Program,""
+IniWriteTextLine,%w%,Launch_Program,"OpenDir,#$pGTemp#$p\#$pProgramFolder#$p\#$pProgramFolder#$p"
+IniWriteTextLine,%w%,Launch_Program,"Run,#$pScriptFile#$p,Extract"
+//--
+IniWriteTextLine,%w%,AuthorEncoded,""
+IniWrite,%w%,AuthorEncoded,MSEdge4848.ico,"1345,1794"
+IniWrite,%w%,AuthorEncoded,Logo,MSEdge4848.ico
+IniWrite,%w%,EncodedFile-AuthorEncoded-MSEdge4848.ico,lines,0
+IniWrite,%w%,EncodedFile-AuthorEncoded-MSEdge4848.ico,0,eJztWl1oHFUU/mLFgIoRxWqxuPUnWEQxqKigEgRFrC0VpKh9KCK02sa0SXdnRkHcFSlSFHxSX0RREKx986EPCnY1SBHSbrMzuymIkJii0IrZisS0jbt+Z2a2bmZnZ+9MZjoN9pSbc5mZPfe73z33nHNnCvTw38AA+HcNvugHVgJYy8ZLeAHOdZFCPy7K/0AmdKw2dTxh5bC1qsGwNLxhiTYwTP18RcMjvHdD2jibkgcuEUxVHR9WDUxPGmioND5/gu0rznF0QsPtEFc/z7jNHJ6p6DgseKjr0sL0z13T8A/ncoT9ndYorkkae2kX1nC8b6Jg9sW/uD9L268khZ1craP9P1T9JEqjH+5PAjv9ZQv99fRSOFfgv54EfuJe38S+3PDTZ/ppczZJn0nKf77chBXkpNjKz3Lin9w/S3v1kPydYSuxfc69/i5bnrjelD71p9Tf8d7J88B/D8eqePnx5Y4xnG2MeXbz+Db0qRhnrL+Nufgl/u7rSf2/vRUXflPDo35r3bbeOn4xs9iAJeTQShYZ1hfv0N6puPBbrAkU8JvVEayKYzyR0ihulDWMwxZ5/albDcOxbopjrLjlaBYrJd4H8q/h5bRxdpKyhvs6xTp3j53kPr08bZydhBif7BIj96WNMUgqOWwM5F+XEvrCFeJ/rIv/7GfsHpLG/lCUvuqzPN/cExb/hIG7wubdxOohnj/D4pccSp7nVPJX3PWPt29FwC9SaTkbLkf83KN70vadqP4jwhx2p+yBtPlnLMkF4SyP4BZrEy7zXQMD314A+LcH4t+NtcS51+8e65uHeW8hVf/R8VwQ/oODuJQY/2Q987TffV7/2Ms/fXKH1LxRGvF8FoZ/M4eHgvDbfqLje6m9af8B773SLlzN+R1rxV8x8HY3mx3H4rlMFb/svx+HcK0C/ry9Vjyns+6/33vf9jHWy+fWlOfDJeD/IYTv/Kxik7l6oGXOtXIWT7XNIYt76Uu/us8smKO4Oyx2iRP87V8h+P9Ixa68z+Rcj7bwe4Y+8rpcXzQHxiqeVcddbj4Ji980sCFk7F+valvOI23z576wsrij9TmbQx1vddovncR9Vz2mHD+51geG0atqn/nqCv5mxsfWHNfivfJOXN/6POPCrXxek9+p2KeP7g4V/zUUVLE3ZVLDtoC9dIp235faNIxN1zdfYzur7Ds6fq8qxB3fsRgfgnKlu6/K5HNPWcfjR4ZxneSQNjsjWEUOX+TzpbD5V2r/sNibIu87aWc2CL9nj5xl+419k352iPowbRyXGBWlfqCtg964EXoOBjaGWu+4agUDM/IOaCnYm2J/g3M5DOI/ar/tmoYTUXJKkBD/Ftr9O2n8XOvjkkPjxN4UqUE51lSCPjMm312TwN6UcQN9PMd9EOf3I7vWYk6QbwxJYm8VycVS/3Lsucj4JbZr2Jvmd2zJxYxR2zmPA3J26Ooj8r3awD45i1g7cGVauP1E1l/qa/udHedk/3+BHF5lHS7fJtaxvrg5bYwXJX5p2NKq53scXUCf6DqwQvQC0CN63tU1V0+5uujqgkfzr6N7G9O2zjRO23rQHq+OvEc3PJqSadeNDrpUWKwPFR09U+QMqKenqAeBqVp+3tYPOrq2erBm695MTQo3slC0Na6yjS/YZDnjO/NxeeE4ve78+1w+Mi5PeYc/l89iZjHPjv4Xtxaj73ic4/MNdk1JTzWxMLHQy0zOZxgFIwvsU4XQn1mwyy/beDCDgQkAmrUIwWA4eLoBAAAAAgAAACoAAADzBAAAAAAAAAEAAAAAAAAAAAAAAA
+//--
+IniWrite,%w%,InterfaceEncoded,image.jpg,"24969,33292"
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,lines,8
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,0,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,1,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,2,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,3,/BtuBpr2PtC3fhaO1Dhs+KTF1al262GqlTa7W6UkzSY7li7Paaan48EKrHf3R8bWRKUlzQuQJSm87gTFe4ilyTJYpMUjHN9hw9drD8AvQmw9E5bTNecmThIgP64mcjBvSpfkFjKL9h8NgW6lHup4mSWa/R6LSp/filqpfOxoLBQgVV+nL6IjRRPVZ8v0NpPQG3u73zEKwzKqcwPdnBqj8Q2gIWZuKMYaZUqmtCwd9lCWHj3BSWGNCQaIWX07HcjTCdCfuWeGbue7Kq8pqk927LVAQYYqx6PlfPF73UlY80hfkQADsVSSi67kUynar2z9016uwT2gXUOKUJ3HMzqRX80c7pbM8ouuSnoubdHhsDKl5OJ3zlEburesbQphI3ThwT0LX/dGmiB8lZh5ofxA79VC2a/eXK009L8WTl9g9MQp/LBBr8Nrzv9UySWrnf43NvpZXyZXYw1tUKQwvzQ82iMu7aCPKlreyCaG54z7HEIHdQ9mvYueT4r9wZ4H3+7LDybWTrkLq0QMzygdzq9Mb9XOFYH53HVrMySt9Yr8Jr2VpJV2oIAP3FKHw0Ixa1Wq6TOq0rim55cYez1WTP/ysBgHFvpScAXo98JwBymJqKu/TOYAbUlpUe6Ue6OMZmL+ZuaNT7gkNqAmDfFiz2J+DmknJVVct0eyoxV2t7CiZyZ7V8oCsB4Mp6Lq/bmshv6LuZmbeuwxqtyolAGeMnq5YbNsEpH91V8g9AYjNs6NFuwVdsQySp2nTarCcyIrkZvHbrkkF/Hw6IVU2xFESaOs3bkcEw5fdfq/e3t/U9z+h8lh/Y5+5qvvxcXGlFUNF4I5hF1Kkp2fZ+TWdlIFEGL+c4t0vXUHmxsI1JPtA5n5e1R8EfJYfl5K3lOn8wOc4tDK2yGhm1uihFZVZZy/ZeQc+SX1SzieUuRx6n0awdJy3dG5bSIANPKwNcTGFecvolBUYeIR5YgxB29aD2tlKXMLklvihZmcT12P6LTPwLo7fyZiwWN0wZH7QuW2CZ1zK/ixtFLvfO/F4Ci5Ef2LalIu8aqt+7yeb79N7sHuxewO2cW9pukUApZWL+742pXT7mw1qpX4Xp4hndgVgBAiAunwBIV0GAsAyKoYenYeHLMYqQ8vGDMPFSHMW0pH8iVZz30dH0duuM2M5M6akjc/UL/3velc3S8ZK/wHz9+t/DzUId0cCXGHCURIuspPNmaq/i04mR1NP1xxGoGhahu7WVrDzO6RR8vGfuQOnhKkinQajzPQIgQRfBjV9yzAehDStZYS0oEDXsMigLurdzBb8jUqF/ECa/AvsoRwBE4u8VZAetWlm8HC+fRrntg/UScp8FFTiNayyaDhjL3goqv/fKlpT6sbq0yB4BsKZiL6GzNuwdeJRpLPw8xCyfTZuH5VPaYPfLuV8pasKPW/iuraScrx7iKfMxtBRi7TTo9M9N0tIsjNFlkE5HBT3U5cfI3a52xttKnkw74YuQK6MysVDD9rv4h2nQnAbHuWVyJWaXdsD033QRSbXm6tbGLKfXl9rjUc7uW43HLOx7HyOGbn2KvFtsO2WkeA0uU6eLFYZ+3ucUqcGKdJ09HyrZSasJ+kSnUl84DV+psZab6LgEvQsV9+1VnL+xvtOxxY7pOCuH/PSCD2Irj/kuteiW0SDVospRK248Fcnalc7KJyxb12qQJ7lF00CxYlCPP1IddwfaN9M6jALSPBPFiY+4yq5ji3B6OJPzFHY/5hocXd3Dyhg/IJYfFitkJ0oAdImi6pN+io+ImwoS7cEBU5bYx4oFIZTs4morkZsy+ewwRl4/YA9pn55FzeFzwTUOZjyl9NqwZrImCkzzYI+9bOKLUkGdCGglm1O4ujqIB30YpZdS/3Zi+L2ZlnA3nwP8jn6vfphuRVHlRxwxO7lhg3nwrs4AEc6eMvrS8evr6kw85eEaeTmuF1358SmxMnmeVWemJFx6hH8Iq9Rrqwi7VA33XYB0OoT6NsPmUGhglJ0xUChnM6zprALSC0ZbVEYvMUNDIbQ4bu9szdcNJup89Y9BWYLBoaC4b022jBAjvN2g2I+UeRzdhMtWqKlkv2SpfDlrn1a7qIqEfv4+LvXrwm9GAX2WgDDEtzUWjpBQGDoETymJoeoD0dS2uZqi0z6e7A4/p/d0y8la+ZTS9DLAp+XuaFOPiwsIrUfH4NxvdgKkiQ8aOjaBCQmb+7GzTjlfmS7PP/VqdpzCM/9Me45egrmC0rYs5tXvZN6tPjAErHyhYOHQACqDxSGd9oeSVEAs3/LnvPFscRew60TqAqDQtW6PO2C4o9cna7ZSBLOFY+IzRfN8ps5iHauo5CEAjDyoa5ghlT/OJDdgtcy4O47dxHT3rMsCRu1izTbm+13paJUlP5A3Q1M3eVVVrwUQOtCkgCY/TJj52DkTZzqd7NsMiU7RVuVj1lF8E/7GBUaVi/WwdfLjiKuwJuVLNJXrEO884VuekSkD01tdlYxobBpD+N/ZcR+yzzSHamPDcgaLtYo0+dLCuHDzX1OsH9PVK5b+UjCS/GZjPCKVUr9Pq2xNBgm+oqMzQObzhWRRp/GvI/GpIiJ2X/safBzdBcXmEQ7OLJ8ogPpzHZVWaFBnm9aqfyFv2zeXL73SOp4r514hDDthguPAU/XfbhJ6jBsb3TPujY/YBQSD3yoqjgb/Kc94mX3Z1BZ+/BBlDwri3iw1vFRs70+HKtAfvRUIseHSHteY778LyDjtvUp/43tlhKtvb/4YfH+Nc+MtMV9sCUOzKf8+IQAkj8UZ/xwxUfr8ERwuT3/poePuZ4AY6RvJWMy1Lutpt6092T+pnPuuYIvailAvjPQlZrZfVMPBuuic6aAHQcxujSPder92J2d2pFPvox0/0IfvhXNW6Z3Qk+gJVGUl/PF5nTNuoiRLpIMulxk5DyJlZenUMnS0M4tpm7+qFjnsZzMpZRglTYqlzhJcA9/CaX9WnchQHf8b1TyrrSf5LYGC1hDA0gHsltnxfHJ9DWQH6XylxLwDvh3Oj1OK5+eGvoB2xTTZ0+CTTlPtBtaZrbIjx5+cv9sFMwbCTp0nQoUfZfutuYWoOEzxpkggvBTqx7nFUk0bbj4BsPVaYb4X8mV7leVmx95bcJdeOdwvz4UyI/JdkfbTMA/uc+GQiC4KOl0xBTuRJxojiqL9l2TqMct6dZr3Ully/agrGW6akH1RZr+lLlsZjyNDxy+roDfWuRFFzVPfYuL8igeOEY5ux7fufyvzOnyU9dJp4KOzjE0/Zx06RLkBLZXpUWS5Y5IB/vR3PaWsrMKdJ84hcA3wzNatFPY4oTZRw9Pb/6AieERsEvkIaXrB9qJ+nk9ywslbwO2PPybmfE0NmxuEUnRBaE17ZI//FSyXffTc5dqz4/XzyzV3qaKR8eeJFGs8fv5EjwCdWq1/qc8Y13Iq5e2SyBHjtudRolNOiG2wjHXkFhcCSQ3lf9K4YNA1TFF6KVuoS9li037YELwZyrbmCmRwNj42teoU0/7xMUb1dSGLgNfvyCAOVde5Hc9FKyFBrnTT23dgbfGNBABtmys5ChmccWnvRnPX5gugaD5tYrxZURFXlNyI9Bq2VYM6LHtCrQVUihJlcXHmiAWYi5NrOF/V75NflY8emKLek8zFX9siACrNlRjaPW5ZBH1RmwdFZdG8MnWiW9XkqTNTKHKnG3lyHa/WBkKNfhBuBf4wn9vG+/7u63C+Sc7Rq1g8XcjqecwhKwvnSrYma5m+c5Urys/BXOcJYoTb26xqqbbVNWexZYaNFAVrhO3+0aigtnhf8mE/o7LUSgVCDk4xySYAuH4iVgW6TKLzn790NVi7BM159DD5x0ll8kS6fguK9oRMvpXj73ui5hl2XjGDOuyyctWM9ynVpE5LdPs8pDwuuaf4awvNmXJCMzXcOi3Cfj/966dOQAms7xhXAsfdj/1yYN3iHXhonVxDmWicEu9R2vPGC06NZ6Kjdoa5NDYkbmpokmsswnpbXMsdlmRVYV9/1r6zCLRkB7pk2xeBsWJB5vYWX/PI3rzoc7H7eyejMkb4L3mqEwq6L0OVLGtI2sAtOSznUyw4aGA6rOpkgE3zsb2ZganYbP+y
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,4,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,5,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,6,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,7,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
+IniWrite,%w%,EncodedFile-InterfaceEncoded-image.jpg,8,4wmSLcyzk2S7w38GboU1aSIzmFIAbz/CJo7xIPx+GfxXH4KYcTN/Yw+REDwIfV5GQu5YIM6SWiT8a5IWC6pioQAE/rX20zu1KvAR51xkDTs8/XQLtFS8j205efZ/4wSdrab9NyU3j9sll6GenFO3z6zIyU+BmTBzqn/Hqf63NP4XSubj/0VJPNHhNNDvv6CZyw3/zPF/ShFyRl/v/0LftefvECPkAwHcD56DReLxJAJnuUjS/duQ7Y/9V9DBjmXJfyCDGmj+I6O/hDnzKv+tzD9UjyLJkttb/50i+G/jP6VJPZOG9p+MMJ8pJ/rv6Xt/K5p/MZJy/R/gcjTtTX8DbwI5/i1w0D8D/x9S/D8Dv3bcB12FB1L91/zfy+Zf0odt/iU9LVajKpICiG83DUOdaJ6Vyu4in/+8j64+t9rQ10ZA22hzbnqcV/yrm58P3EPbrphnsGBFRXfkT82QlOn/AzKCR4F4nOPMzE1MT9XLKkhnGAUjELxJgdAOidjlN7/yXM3ABAC7oQgAZF3IXwEAAAACAAAAJQAAAEBhAAAAAAAAAQAAAAAAAAAAAAAA
+//--
+IniWrite,%w%,InterfaceEncoded,Launch.bmp,"913,1218"
+IniWrite,%w%,EncodedFile-InterfaceEncoded-Launch.bmp,lines,0
+IniWrite,%w%,EncodedFile-InterfaceEncoded-Launch.bmp,0,eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+//--
+IniWriteTextLine,%w%,EncodedFolders,""
+IniWriteTextLine,%w%,EncodedFolders,Folder
+IniWrite,%w%,Folder,Local State,"2165,2887"
+IniWrite,%w%,EncodedFile-Folder-Local State,lines,0
+IniWrite,%w%,EncodedFile-Folder-Local State,0,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
+
+[Process_File_Container]
+FileCreateBlank,%FCw%
+IniWrite,%FCw%,Main,Title,"%MyMainTitle% - x64 File Container"
+IniWrite,%FCw%,Main,Type,XPEPlugin
+IniWrite,%FCw%,Main,Description," %MyMainTitle% v%ProgramVer% File Container"
+IniWrite,%FCw%,Main,Author,%Author_TextBox%
+IniWrite,%FCw%,Main,Date,%MyDate%
+IniWrite,%FCw%,Main,Credits,"TheOven.org Forum"
+IniWrite,%FCw%,Main,Contact,""
+IniWrite,%FCw%,Main,Version,001
+IniWrite,%FCw%,Main,Level,0
+IniWrite,%FCw%,Main,Download_Level,2
+IniWrite,%FCw%,Main,Selected,None
+IniWrite,%FCw%,Main,Mandatory,False
+IniWrite,%FCw%,Main,NoWarning,False
+IniWrite,%FCw%,Main,History001,"%Author_TextBox% Initial XPE Packed Container Plugin Created %MyDate%"
+IniWrite,%FCw%,Main,History002,""
+//--
+IniWrite,%FCw%,Interface,Hide_TextBox,"#$qTo Hide Plugin From Tree - Edit Container File Plugin [Main] Level=5 to Level=0#$q,1,1,10,60,531,18,8,Bold"
+IniWriteTextLine,%FCw%,Process,"Echo#$c#$qFile Container Plugin - There Is Nothing To Process#$q"
+//--
+IniWriteTextLine,%FCw%,AuthorEncoded,""
+IniWrite,%FCw%,AuthorEncoded,MSEdge4848.ico,"1345,1794"
+IniWrite,%FCw%,AuthorEncoded,Logo,MSEdge4848.ico
+IniWrite,%FCw%,EncodedFile-AuthorEncoded-MSEdge4848.ico,lines,0
+IniWrite,%FCw%,EncodedFile-AuthorEncoded-MSEdge4848.ico,0,eJztWl1oHFUU/mLFgIoRxWqxuPUnWEQxqKigEgRFrC0VpKh9KCK02sa0SXdnRkHcFSlSFHxSX0RREKx986EPCnY1SBHSbrMzuymIkJii0IrZisS0jbt+Z2a2bmZnZ+9MZjoN9pSbc5mZPfe73z33nHNnCvTw38AA+HcNvugHVgJYy8ZLeAHOdZFCPy7K/0AmdKw2dTxh5bC1qsGwNLxhiTYwTP18RcMjvHdD2jibkgcuEUxVHR9WDUxPGmioND5/gu0rznF0QsPtEFc/z7jNHJ6p6DgseKjr0sL0z13T8A/ncoT9ndYorkkae2kX1nC8b6Jg9sW/uD9L268khZ1craP9P1T9JEqjH+5PAjv9ZQv99fRSOFfgv54EfuJe38S+3PDTZ/ppczZJn0nKf77chBXkpNjKz3Lin9w/S3v1kPydYSuxfc69/i5bnrjelD71p9Tf8d7J88B/D8eqePnx5Y4xnG2MeXbz+Db0qRhnrL+Nufgl/u7rSf2/vRUXflPDo35r3bbeOn4xs9iAJeTQShYZ1hfv0N6puPBbrAkU8JvVEayKYzyR0ihulDWMwxZ5/albDcOxbopjrLjlaBYrJd4H8q/h5bRxdpKyhvs6xTp3j53kPr08bZydhBif7BIj96WNMUgqOWwM5F+XEvrCFeJ/rIv/7GfsHpLG/lCUvuqzPN/cExb/hIG7wubdxOohnj/D4pccSp7nVPJX3PWPt29FwC9SaTkbLkf83KN70vadqP4jwhx2p+yBtPlnLMkF4SyP4BZrEy7zXQMD314A+LcH4t+NtcS51+8e65uHeW8hVf/R8VwQ/oODuJQY/2Q987TffV7/2Ms/fXKH1LxRGvF8FoZ/M4eHgvDbfqLje6m9af8B773SLlzN+R1rxV8x8HY3mx3H4rlMFb/svx+HcK0C/ry9Vjyns+6/33vf9jHWy+fWlOfDJeD/IYTv/Kxik7l6oGXOtXIWT7XNIYt76Uu/us8smKO4Oyx2iRP87V8h+P9Ixa68z+Rcj7bwe4Y+8rpcXzQHxiqeVcddbj4Ji980sCFk7F+valvOI23z576wsrij9TmbQx1vddovncR9Vz2mHD+51geG0atqn/nqCv5mxsfWHNfivfJOXN/6POPCrXxek9+p2KeP7g4V/zUUVLE3ZVLDtoC9dIp235faNIxN1zdfYzur7Ds6fq8qxB3fsRgfgnKlu6/K5HNPWcfjR4ZxneSQNjsjWEUOX+TzpbD5V2r/sNibIu87aWc2CL9nj5xl+419k352iPowbRyXGBWlfqCtg964EXoOBjaGWu+4agUDM/IOaCnYm2J/g3M5DOI/ar/tmoYTUXJKkBD/Ftr9O2n8XOvjkkPjxN4UqUE51lSCPjMm312TwN6UcQN9PMd9EOf3I7vWYk6QbwxJYm8VycVS/3Lsucj4JbZr2Jvmd2zJxYxR2zmPA3J26Ooj8r3awD45i1g7cGVauP1E1l/qa/udHedk/3+BHF5lHS7fJtaxvrg5bYwXJX5p2NKq53scXUCf6DqwQvQC0CN63tU1V0+5uujqgkfzr6N7G9O2zjRO23rQHq+OvEc3PJqSadeNDrpUWKwPFR09U+QMqKenqAeBqVp+3tYPOrq2erBm695MTQo3slC0Na6yjS/YZDnjO/NxeeE4ve78+1w+Mi5PeYc/l89iZjHPjv4Xtxaj73ic4/MNdk1JTzWxMLHQy0zOZxgFIwvsU4XQn1mwyy/beDCDgQkAmrUIwWA4eLoBAAAAAgAAACoAAADzBAAAAAAAAAEAAAAAAAAAAAAAAA
+//--
+IniWriteTextLine,%FCw%,EncodedFolders,""
+IniWriteTextLine,%FCw%,EncodedFolders,Folder
+IniWriteTextLine,%FCw%,Folder,""
+//--
+If,ExistFile,%GTemp%\%ProgramFolder%\%SetupFile%,Encode,%FCw%,Folder,%GTemp%\%ProgramFolder%\%SetupFile%
+
+[AuthorEncoded]
+MSEdge4848.ico=1345,1794
+Logo=MSEdge4848.ico
+
+[EncodedFile-AuthorEncoded-MSEdge4848.ico]
+lines=0
+0=eJztWl1oHFUU/mLFgIoRxWqxuPUnWEQxqKigEgRFrC0VpKh9KCK02sa0SXdnRkHcFSlSFHxSX0RREKx986EPCnY1SBHSbrMzuymIkJii0IrZisS0jbt+Z2a2bmZnZ+9MZjoN9pSbc5mZPfe73z33nHNnCvTw38AA+HcNvugHVgJYy8ZLeAHOdZFCPy7K/0AmdKw2dTxh5bC1qsGwNLxhiTYwTP18RcMjvHdD2jibkgcuEUxVHR9WDUxPGmioND5/gu0rznF0QsPtEFc/z7jNHJ6p6DgseKjr0sL0z13T8A/ncoT9ndYorkkae2kX1nC8b6Jg9sW/uD9L268khZ1craP9P1T9JEqjH+5PAjv9ZQv99fRSOFfgv54EfuJe38S+3PDTZ/ppczZJn0nKf77chBXkpNjKz3Lin9w/S3v1kPydYSuxfc69/i5bnrjelD71p9Tf8d7J88B/D8eqePnx5Y4xnG2MeXbz+Db0qRhnrL+Nufgl/u7rSf2/vRUXflPDo35r3bbeOn4xs9iAJeTQShYZ1hfv0N6puPBbrAkU8JvVEayKYzyR0ihulDWMwxZ5/albDcOxbopjrLjlaBYrJd4H8q/h5bRxdpKyhvs6xTp3j53kPr08bZydhBif7BIj96WNMUgqOWwM5F+XEvrCFeJ/rIv/7GfsHpLG/lCUvuqzPN/cExb/hIG7wubdxOohnj/D4pccSp7nVPJX3PWPt29FwC9SaTkbLkf83KN70vadqP4jwhx2p+yBtPlnLMkF4SyP4BZrEy7zXQMD314A+LcH4t+NtcS51+8e65uHeW8hVf/R8VwQ/oODuJQY/2Q987TffV7/2Ms/fXKH1LxRGvF8FoZ/M4eHgvDbfqLje6m9af8B773SLlzN+R1rxV8x8HY3mx3H4rlMFb/svx+HcK0C/ry9Vjyns+6/33vf9jHWy+fWlOfDJeD/IYTv/Kxik7l6oGXOtXIWT7XNIYt76Uu/us8smKO4Oyx2iRP87V8h+P9Ixa68z+Rcj7bwe4Y+8rpcXzQHxiqeVcddbj4Ji980sCFk7F+valvOI23z576wsrij9TmbQx1vddovncR9Vz2mHD+51geG0atqn/nqCv5mxsfWHNfivfJOXN/6POPCrXxek9+p2KeP7g4V/zUUVLE3ZVLDtoC9dIp235faNIxN1zdfYzur7Ds6fq8qxB3fsRgfgnKlu6/K5HNPWcfjR4ZxneSQNjsjWEUOX+TzpbD5V2r/sNibIu87aWc2CL9nj5xl+419k352iPowbRyXGBWlfqCtg964EXoOBjaGWu+4agUDM/IOaCnYm2J/g3M5DOI/ar/tmoYTUXJKkBD/Ftr9O2n8XOvjkkPjxN4UqUE51lSCPjMm312TwN6UcQN9PMd9EOf3I7vWYk6QbwxJYm8VycVS/3Lsucj4JbZr2Jvmd2zJxYxR2zmPA3J26Ooj8r3awD45i1g7cGVauP1E1l/qa/udHedk/3+BHF5lHS7fJtaxvrg5bYwXJX5p2NKq53scXUCf6DqwQvQC0CN63tU1V0+5uujqgkfzr6N7G9O2zjRO23rQHq+OvEc3PJqSadeNDrpUWKwPFR09U+QMqKenqAeBqVp+3tYPOrq2erBm695MTQo3slC0Na6yjS/YZDnjO/NxeeE4ve78+1w+Mi5PeYc/l89iZjHPjv4Xtxaj73ic4/MNdk1JTzWxMLHQy0zOZxgFIwvsU4XQn1mwyy/beDCDgQkAmrUIwWA4eLoBAAAAAgAAACoAAADzBAAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]

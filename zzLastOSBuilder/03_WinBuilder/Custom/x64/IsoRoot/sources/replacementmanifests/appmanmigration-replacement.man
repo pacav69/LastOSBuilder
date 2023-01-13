@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+    <assemblyIdentity
+        buildType="$(build.buildType)"
+        language="neutral"
+        name="Microsoft-Windows-AppManagement-Migration"
+        processorArchitecture="*"
+        publicKeyToken=""
+        version="0.0.0.0"
+        versionScope="nonSxS"
+        />
+    <migration
+        replacementVersionRange="6.1-65535.65535"
+        replacementSettingsVersionRange="0"
+        scope="Upgrade"
+        settingsVersion="0"
+        alwaysProcess="yes"
+        >
+      <migXml xmlns="">
+        <plugin
+            classId="{2AF7D9A3-FA1C-410A-B6D3-C6AD32232531}"
+            file="Microsoft-Windows-AppManagement-Migration\AppManMigrationPlugin.dll"
+            offlineApply="Yes"
+            />
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\AppV\* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\UEV\Agent\Configuration\* [*]</pattern>
+            </objectSet>
+          </include>
+          <exclude>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\AppV\Client [Version]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\AppV\Client [InstallPath]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\AppV\Subsystem [Modules]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\AppV\Subsystem [Modules64]</pattern>
+            </objectSet>
+          </exclude>
+        </rules>
+        <rules context="User">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKCU\Software\Microsoft\AppV\* [*]</pattern>
+              <pattern type="Registry">HKCU\Software\Microsoft\UEV\Agent\Configuration\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </migration>
+</assembly>

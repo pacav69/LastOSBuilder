@@ -1,0 +1,2187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NTLiteTranslation version="1.3.0.5068" display="Čeština" code="cs-CZ" rtl="false">
+	<Translator>
+		<Name>Tom</Name>
+		<EMail>t.c5gaj@gmail.com</EMail>
+	</Translator>
+	<Components>
+		<System>
+			<S0001>Jazyk systému</S0001>
+			<S0013>Centrum akcí</S0013>
+			<S0014>Centrum akcí zobrazuje důležité zprávy ohledně bezpečnosti a nastavení správy, které vyžadují Vaši pozornost.</S0014>
+			<S0042>Umožňuje použít více disků různých velikostí a rozhraní a seskupit je, takže operační systém je vidí jako jeden velký disk.</S0042>
+			<S0046>Kompatibilita aplikací</S0046>
+			<S0047>Služba identity aplikace</S0047>
+			<S0048>Spouštěč aplikace</S0048>
+			<S0050>Aplikace mohou využít WIF ke zpracování tokenů vydaných prostřednictví služeb bezpečnosti a rozhodnout na základě identity u webové aplikace nebo webové služby.</S0050>
+			<S0065>Automaticky zálohuje revize souborů obsažených v knihovnách.</S0065>
+			<S0069>AutoPlay</S0069>
+			<S0070>AutoPlay umožňuje vybrat jaký program se použije automaticky pro různé typy digitálního média, jako hudební CD nebo obrázky z digitálního fotoaparátu.</S0070>
+			<S0080>Zálohuje některé databázové soubory balíčků Windows. Nejedná se o kompletní uložiště WinSxS, pouze některé duplikované balíčky, jejichž odstranění by nemělo vadit.</S0080>
+			<S0095>BitLocker Drive šifrování</S0095>
+			<S0097>Block Level Backup Service Engine</S0097>
+			<S0102>Bootovací manager</S0102>
+			<S0113>Mezipamět a dočasné soubory</S0113>
+			<S0115>Mechanismus mezipaměti pro rychlejší spouštění aplikací.</S0115>
+			<S0124>Cardspace</S0124>
+			<S0182>Komplexní synchronizační platforma umožňuje spolupráci a offline přístup k aplikacím, službám a zařízením.</S0182>
+			<S0196>Kontextové nabídka možností pro Odeslat - Příjemce pošty nebo Plocha.</S0196>
+			<S0223>Správce přihlašovacích údajů</S0223>
+			<S0249>Dlaždice plochy</S0249>
+			<S0250>Správce oken plochy (DWM)</S0250>
+			<S0260>Určuje a ověřuje identitu aplikace. Odstranění této služby má za následek, že AppLocker nebude vynucován.</S0260>
+			<S0262>Informace o kategorii zařízení a zdrojích</S0262>
+			<S0263>Zkušenost se zařízením</S0263>
+			<S0266>Diagnostika a Řešení problémů</S0266>
+			<S0267>Filtr dialogu</S0267>
+			<S0276>Defragmentace disku</S0276>
+			<S0277>Diagnóza selhání disku</S0277>
+			<S0311>Snadný přenos</S0311>
+			<S0314>Konfigurační soubor edice (EI.cfg)</S0314>
+			<S0317>Vestavěný správce uzavření (Lockdown Manager)</S0317>
+			<S0327>Umožnuje aplikacím běžet v různých čase a komunikovat napříč heterogeními sítěmi a systémy, které mohou být dočasně offline. Vyžadováno pro IIS.</S0327>
+			<S0331>Umožnuje spuštění procesů pod alternativním účtem. Kromě jiného je vyžadováno např. updaty Blizzard Battle.net.</S0331>
+			<S0333>Umožnuje využití hardwarové akcelerace k vykreslení uživatelského rozhraní Windows.</S0333>
+			<S0337>Vynucuje zásady skupiny pro zařízení uložiště.</S0337>
+			<S0339>Rozšířené uložiště</S0339>
+			<S0340>Rozšířená uložiště jsou zařízení podporující protokol IEEE 1667 pro zajištění funkcí jako je autentifikace na úrovni hardwaru zařízení uložiště.</S0340>
+			<S0363>Protokol událostí</S0363>
+			<S0405>Historie souborů</S0405>
+			<S0412>Soubory v této složce (Sources\SxS), umístěné mimo hlavní obraz, mohou být použity pro následnou instalaci funkcí jako .NET3.5, které normálně nelze nainstalovat prostřednictvím Ovládacího panelu. Pokud jste již povolili ve Funkcích, je bezpečné toto odebrat. Vždy můžete použít originální obraz složky když povolujete funkce, které to vyžadují.</S0412>
+			<S0433>Rámec propojených technologií Microsoft umožňující programátorům jednotný způsob vývoje aplikací, který dovoluje přistupovat ke všem datovým uložištím. Komponenty zahrnují: ActiveX Data Objects (ADO), OLE DB a Open Database Connectivity (ODBC).</S0433>
+			<S0439>Udělátka</S0439>
+			<S0447>Filtr gest</S0447>
+			<S0448>Získejte nápovědu, rady a nástroje, které Vám pomohou zjistit a obejít problém z kompatibilitou při migrování aplikací na novou verzi Windows. Vyžadováno pro Reliability Analysis, ABBYY FineReader a KB2758694(MSXML4), kromě jiného.</S0448>
+			<S0452>Klient zásad skupiny</S0452>
+			<S0453>Služba uložiště</S0453>
+			<S0461>Pomáhá přesunout vaše soubory a nastavení do nového PC.</S0461>
+			<S0471>Hyper-V host</S0471>
+			<S0481>Pokud je tento soubor odstraněn a výsledný obraz má více než jednu edici, uživatel bude dotázán aby vybral edici Windows pro níž má správný produktový klíč.</S0481>
+			<S0482>Pokud si nejste jisti, neodstraňujte.</S0482>
+			<S0518>Obsahuje Mobilní centrum.</S0518>
+			<S0525>Infrastruktura pro diagnózu a řešení problémů s komponenty Windows.</S0525>
+			<S0550>Internet Information Server (IIS)</S0550>
+			<S0562>Umožnuje definovat zakázanou kombinaci kláves, kterou nemůže uživatel zadat prostřednictvím klávesnice.</S0562>
+			<S0576>Filtr klávesnice</S0576>
+			<S0577>Filtr klávesnice AppShim</S0577>
+			<S0610>Editor lokálních zásad bezpečnosti</S0610>
+			<S0612>Oznámení o lokaci</S0612>
+			<S0627>Spravuje a implementuje Volume Shadow Copies používané pro zálohování a další eventuality.</S0627>
+			<S0629>Záloha manifestu (WinSxS\Backup)</S0629>
+			<S0631>Manuální depozitář funkcí</S0631>
+			<S0632>Manuální instalace</S0632>
+			<S0641>Diagnostika paměti</S0641>
+			<S0644>Dynamická Metro dlaždice v nabídce Start. Pokud ji odstraníte, bude chybět zástupce plochy v nabídce Start.</S0644>
+			<S0647>Microsoft komponenty pro přístup k datům (MDAC)</S0647>
+			<S0650>Fronta zpráv Microsoft (MSMQ)</S0650>
+			<S0651>Microsoft synchronizační rámec</S0651>
+			<S0662>Mobilní PC</S0662>
+			<S0689>Vyžadováno pro správu disků - funkce zmenšení svazku.</S0689>
+			<S0690>Vyžadováno pro např. pro centrum médií využívající .NET Framework 2.0 a 3.5.</S0690>
+			<S0693>Vyžadováno pro obnovení systému, Windows Update, aplikace běžící po spuštění a přihlášení a plánované aktualizace.</S0693>
+			<S0694>Vyžadováno pro bootování operačního systému způsobem BIOS (non-UEFI).</S0694>
+			<S0695>Vyžadováno pro bootování operačního systému způsobem UEFI.</S0695>
+			<S0700>.NET mezipamět sestavení</S0700>
+			<S0701>.NET Framework </S0701>
+			<S0702>.NET Framework 2.0, 3.0 a 3.5</S0702>
+			<S0703>.NET Framework Core</S0703>
+			<S0704>.NET 4.x mezipamět instalace</S0704>
+			<S0712>Projekce sítě</S0712>
+			<S0719>NFS nástroje administrátora</S0719>
+			<S0729>NTVDM 16-bit subsystém</S0729>
+			<S0730>NTVDM subsystém poskytuje podporu pro 16-bit DOS a 16-bit Windows aplikace v systémech x86.</S0730>
+			<S0772>Rodičovská kontrola</S0772>
+			<S0786>Monitor výkonu</S0786>
+			<S0812>PowerShell</S0812>
+			<S0813>Před-kompilované .NET knihovny. Odstranění způsobí jeho opětovné vytvoření po nainstalování systému ve stavu klidu. Šetří místo na instalačním mediu.</S0813>
+			<S0818>Připraví instalaci Windows pro duplikování, audit, a dodání zákazníkovi.</S0818>
+			<S0851>Poskytuje schopnosti připojit VHD nebo ISO obraz.</S0851>
+			<S0852>Poskytuje indexování obsahu a caching vlastností pro rychlejší hledání v souborech, e-mailech, a dalším obsahu.</S0852>
+			<S0888>Služby analýzy spolehlivosti</S0888>
+			<S0923>Zdroje pro Panely nástrojů - Zařízení a tiskárny, jejich icony budou chybět, pokud bude odstraněno. Také vyžadováno pro tlačítko odebrat USB zařízení na panelu nástrojů.</S0923>
+			<S0958>Sekundární přihlášení</S0958>
+			<S0959>secpol.msc - používá se ke kontrole a konfiguraci bezpečnostních nastavení (zásady) na hostitelském počítači v pracovní nebo domácí skupině</S0959>
+			<S0961>Bezpečnostní centrum</S0961>
+			<S0962>Bezpečnostní funkce které upozorní na požadavek administrátorova přístupu k dané aplikaci. Zahrnuje službu informace o aplikaci. Mimo jiné,  needed for Win10 Start Menu.</S0962>
+			<S0987>Odeslat na plochu a příjemci pošty</S0987>
+			<S0988>Senzory</S0988>
+			<S0994>Servisní zásobník</S0994> 			
+			<S1000>Instalační soubory pro .NET 4.x. Pokud neplánujete odinstalování .NET 4.x, můžete odstranit.</S1000>															
+			<S1005>Sdílený ochranný bod - Shared Protection Point (SPP)</S1005>
+			<S1016>SideShow</S1016>
+			<S1033>Malá utilita pro konfiguraci některých možnosti bootování a spouštěnní Windows.</S1033>
+			<S1074>Prostory uložiště</S1074>
+			<S1075>Subsystém pro aplikace na bázi UNIXu</S1075>
+			<S1076>Subsystém pro aplikace na bázi UNIXu (SUA) je určen pro kompilování zdrojových souborů a spuštění uživatelských Unixových aplikací a skriptů pod systémem Windows.</S1076>
+			<S1077>Superfetch</S1077>
+			<S1079>Podpora adresáře</S1079>
+			<S1080>Podpora adresáře v kořenové složce obrazu, obsahuje pomocníka pro migraci. Toto neovlivní finální instalovaný produkt, pouze instalační soubory.</S1080>
+			<S1081>Podpora pro šifrování disku.</S1081>
+			<S1083>Podpora pro funkce přidané poskytovatelem pro zlepšení jak uživatelé objevují a používají zařízení připojená k jejich PC.</S1083>
+			<S1097>Nástroj konfigurace systému (MSConfig)</S1097>
+			<S1098>Nástroj informace o systému (MSInfo32)</S1098>
+			<S1099>Nástroj správy oddílů systému (Sysprep)</S1099>
+			<S1100>Obnovení systému</S1100>
+			<S1105>Plánovač úloh</S1105>
+			<S1128>Odstraní funkce používané pro nebootovací inicializace instalací, jako autorun.inf, setup.exe a aktualizace z dříve instalovaných Windows s tímto obrazem.</S1128>
+			<S1156>Toast filtr oznámení</S1156>
+			<S1159>Nástroje správy služeb pro NFS na lokálních a vzdálených počítačích.</S1159>
+			<S1198>Unifikovaný filtr psaní</S1198>
+			<S1221>USB filtr</S1221>
+			<S1224>Používáno pro hostování webových stránek.</S1224>
+			<S1228>Řízení uživatelských účtů (UAC)</S1228>
+			<S1238>Různé dočasné soubory, mezipamět a logovací záznamy, lze bezpečně odstranit.</S1238>
+			<S1248>Podpora virtuálních disků</S1248>
+			<S1249>Licencování pro Virtual PC (zastaralé)</S1249>
+			<S1255>Volume Shadow Copy</S1255>
+			<S1275>Windows Anytime Upgrade</S1275>
+			<S1276>Windows zálohování</S1276>
+			<S1279>Windows Communication Foundation (WCF) 3</S1279>
+			<S1280>Windows Communication Foundation (WCF) 4</S1280>
+			<S1284>Windows Defender</S1284>
+			<S1285>Windows integrované funkce</S1285>
+			<S1286>Windows služba poskytovatele šifrování</S1286>
+			<S1287>Windows služba poskytovatele šifrování poskytuje funkčnost od poskytovatelů třetích stran, které vyžadují vyhodnocení a použití zásad EAS.</S1287>
+			<S1290>Windows obsah nápovědy</S1290>
+			<S1291>Windows Identity Foundation (WIF)</S1291>
+			<S1299>Windows nástroje pro správu</S1299>
+			<S1305>Windows Presentation Foundation</S1305>
+			<S1307>Windows Recovery</S1307>
+			<S1309>Windows hledání</S1309>
+			<S1313>Windows Sidebar</S1313>
+			<S1318>Windows Update</S1318>
+			<S1319>Windows Update umožňuje získávat aktualizace Windows ze serverů Microsoft nebo WSUS, a také ručně instalovat balíčky (MSU soubory).</S1319>
+			<S1339>Zip &amp; Cab složka</S1339>
+			<S1431>Kvóta disku</S1431>
+			<S1432>Umožňuje administrátorovi omezit místo přidělené uživateli na disku nebo oddílu.</S1432>
+			<S1437>Zablokování zařízení (Embedded Experience)</S1437>
+			<S1438>Zahrnuje vlastní přihlášení (Logon), filtr klávesnice, Shell spouštěč, nezávislý boot (Unbranded Boot) a jednotný filtr psaní.</S1438>
+			<S1439>Záznamník kroků</S1439>
+			<S1440>Jedná se o nástroj, který zaznamenává kroky uživatele prováděné na počítači. Po jejich zaznamenání, informace může být odeslána jakékoli osobě nebo skupině pomáhající s problémem.</S1440>
+			<S1441>Zámek pozadí obrazovky</S1441>
+			<S1445>Vyžadováno pro zobrazení dat při plánování úkolů.</S1445>
+			<S1452>Poskytuje služby pro nastavení uložiště a rozšíření externích uložišť. Například Nastavení-Systém-Uložiště.</S1452>
+			<S1455>Windows To Go</S1455>
+			<S1456>Připraví přenosné Windows na zařízení USB jako je USB flash paměť a externí pevný disk s plně spravovatelným prostředím korporátních Windows.</S1456>
+			<S1465>Embedded Mód</S1465>
+			<S1466>Speciální funkcionalita verze Windows 10 IoT Core.</S1466>
+			<S1467>Doručování aktualizací</S1467>
+			<S1468>Provádí optimalizační procesy v souvislosti s aktualizací systému. Mimo stahování aktualizací a funkcí z webu In addition to downloading updates and apps from Microsoft, Windows will get updates and apps from other PCs that already have them.</S1468>
+			<S1479>CMD nástroje pro sledování výkonu</S1479>
+			<S1480>Zahrnuje logman.exe, relog.exe, typeperf.exe, tracerpt.exe a diskperf.exe.</S1480>
+			<S1481>Nástroje certifikátu</S1481>
+			<S1482>Zahrnuje CertUtil, požadavky certifikátu (certreq.exe) a nástroje registrace certifikátu.</S1482>
+			<S1483>Instalace a příprava Windows</S1483>
+			<S1484>Vyžadováno pro opětovnou inicializaci OOBE a sysprep během instalace Windows.</S1484>
+			<S1485>Služba mezipamět fontů</S1485>
+			<S1486>Optimalizuje výkon aplikací uložením často používaných fontů do mezipaměti. Zakázání nebo odstranění služby sníží výkon aplikace.</S1486>
+			<S1487>Nástroje Windows Management Instrumentation</S1487>
+			<S1488>Zahrnuje wbemtest.exe a WmiMgmt.msc.</S1488>
+			<S1489>Podpora správy oprávnění</S1489>
+			<S1490>Pomáhá uchovávat data v bezpečí, uvnitř i vně organizace, poskytuje ochranu uložených i zpracovávaných dokumentů.</S1490>
+			<S1497>Obsahuje pouze vestavěná udělátka; pro odstranění podpory udělátek, odstraňte také postranní panel nástrojů.</S1497>
+			<S1509>Služba Windows Update</S1509>
+			<S1510>Základní služba pro Windows Update. Upozorňujeme, že samotná služba nezajistí instalaci aktualizací.</S1510>
+			<S1511>Vyžadováno pro aktivaci Windows (slmgr.vbs), neodstraňujte před aktivováním této instalace Windows.</S1511>
+			<S1554>Prohlížeč událostí</S1554>
+			<S1555>Sběrač událostí</S1555>
+			<S1556>Spravuje stálé předplatné událostí ze vzdálených zdrojů podporujících protokol WS-Management. Služba shromažďuje předané události v lokálním záznamu událostí.</S1556>
+			<S1557>Vyžadováno pro MMC rozšíření, jako jsou plánovač úloh a prohlížeč události.</S1557>
+			<S1590>Předchozí instalace (Windows.old)</S1590>
+			<S1591>Záloha předchozí instalace Windows na disku. Zobrazení obsahu, zvláště složky Users, obsahuje-li soubory, které potřebujete před vymazáním.</S1591>
+			<S1644>Shell vyhledávání</S1644>
+			<S1645>Základní podpora vyhledávání v průzkumníku souborů, editoru zásad skupiny, Outlooku, a dalších.</S1645>
+			<S1656>Windows Symbolic Debugger Engine</S1656>
+			<S1657>DbgEng.dll poskytuje rozhraní pro zkoumání a úpravu cílů ladění v uživatelském módu a módu jádra. Ponechejte pokud používáte ladění nebo podporu crash dump.</S1657>
+			<S1658>Storage Quality of Service (Storage QoS)</S1658>
+			<S1659>Podobné Network QoS, avšak vztahuje se k výkonu uložiště virtuálního stroje, automaticky zlepšuje rozdělení zdrojů uložiště mezi více virtuálními stroji využívajícími stejný souborový server a umožňuje spravovat minimální a maximální výkonové cíle v jednotkách normalizovaných IOPů na základě zásad.</S1659>
+			<S1660>Služba lokátoru Remote Procedure Call (RPC)</S1660>
+			<S1661>Služba nezajišťuje funkcionalitu a slouží pro zpětnou kompatibilitu aplikací.</S1661>
+			<S1668>Windows Push Notifications Service (WNS)</S1668>
+			<S1669>Podpora pro systémová oznámení Windows nebo nástroje třetích stran, odstranění služby zabrání oznámení v činnosti.</S1669>
+			<S1670>Windows Component Store (WinSxS)</S1670>
+			<S1671>Zabrání systému Windows v aktualizacích konfiguraci funkcí. Nedoporučuje se deaktivace, jedině za předpokladu, že byly provedeny veškeré aktualizace.</S1671>
+			<S1672>Databáze komponentů Windows</S1672>
+			<S1673>Odstraňte až v poslední fázi, žádné další změny v konfiguraci nebudou v budoucnu možné, pokud byla tato funkce dříve odstraněna.</S1673>
+			<S1674>Vyžadováno pro PXE-type instalaci, aby bylo možné spustit instalaci obrazu ze síťového serveru.</S1674>
+			<S1675>Detekce hardwaru pro Shell</S1675>
+			<S1676>Poskytuje oznámení pro AutoPlay hardwarové události.</S1676>
+			<S1690>Pruh uživatelského rozhraní (UI)</S1690>
+			<S1691>Pruh nástrojů v průzkumníku souborů a mnoha dalších aplikacích s využitím Windows Ribbon API.</S1691>
+			<S1703>Virtualizace aplikací (App-V)</S1703>
+			<S1704>Používá se ke zpřístupnění aplikace počítačům koncového uživatele bez nutnosti nainstalovat aplikace a používat je ve virtuálním prostředí.</S1704>
+			<S1708>Virtualizace uživatelské zkušenosti(UE-V)</S1708>
+			<S1709>Poskytuje podporu pro inicializaci virtuálních aplikací Office a podporu pro Windows Roaming přihlašovací údaje.</S1709>
+			<S1710>Windows Subsystém pro Linux</S1710>
+			<S1711>Poskytuje služby a prostředí pro běh nativních user-mode Linuxových shellů a nástrojů ve Windows.</S1711>
+			<S1725>Kontejnery</S1725>
+			<S1726>Zajišťuje služby a nástroje pro vytvoření a správu Windows Server kontejnerů a jejich zdrojů. Kontejner je izolované místo, kde může běžet aplikace, aniž by ovlivnila zbytek systému a naopak.</S1726>
+			<S1809>Nástroje obrazu Windows</S1809>
+			<S1810>Windows ikony pro SysWOW64 (32-bit) aplikace. Odebráním dojde k tomu, že při procházení složek a souborů z 32-bitových aplikací nebudou v průzkumníku zobrazeny žádné ikony.</S1810>
+			<S1811>Správa uložiště (Storage Tiers Management)</S1811>
+			<S1812>Optimalizuje ukládání dat na všech úrovních systému.</S1812>
+			<S1816>Podpora nápovědy (CHM)</S1816>
+			<S1817>Schopnost zobrazit soubory nápovědy s příponou CHM.</S1817>
+			<S1818>Symbolické odkazy</S1818>
+			<S1819>Odstraní všechny symbolické odkazy složek v cílovém systému, jako jsou 'Documents and Settings', které zajišťují zpětnou kompatibilitu. Ty jsou znovu generovány při inicializaci, takže se jedná hlavně o 'Live' komponentu.</S1819>
+			<S1866>Sledování událostí pro Windows (ETW)</S1866>
+			<S1867>Využití událostí k ladění aplikaci nebo k provádění kapacitních a výkonových analýz.</S1867>
+			<S1870>Služba asociace zařízení</S1870>
+			<S1871>Zajišťuje párování mezi systémem a drátovým nebo bezdrátovým zařízením.</S1871>
+			<S1880>Rámeček okna prohlížeče</S1880>
+			<S1881>Podpora pro okno prohlížečové aplikace, využíváno některými aplikacemi k načtení informací do okna.</S1881>
+			<S1882>Čítače výkonu</S1882>
+			<S1883>Čítače poskytují informace o tom, jak běží operační systém, aplikace, služba nebo ovladač běží.</S1883>
+			<S1884>Záznamy o výkonu a výstrahy</S1884>
+			<S1885>Shromažďuje data o výkonu lokálních nebo vzdálených počítačů na základě přednastavených parametrů, následně zapíše data do záznamu nebo spustí výstrahu.</S1885>
+			<S1886>Interaktivní detekce služeb</S1886>
+			<S1887>Zajišťuje uživatelská oznámení vstupu pro interaktivní služby poskytující přístup k dialogům vytvořeným službou.</S1887>
+			<S1892>Poskytovatelé</S1892>
+			<S1893>Bežné rozhraní a objektový model pro přístup k informacím o operačním systému, zařízeních, aplikacích a službách. Pokud je tato komponenta vyjmuta, většina programů ve Windows nebude pracovat správně.</S1893>
+			<S1897>Služba</S1897>
+			<S1898>Jádro</S1898>
+			<S1914>Ikona sítě v liště, kliknutí levým tlačítkem zobrazí menu.</S1914>
+			<S1920>Devices Flow</S1920>
+			<S1921>Zjišťování a připojení zařízení. Zahrnuje Nastavení - 'Bluetooth &amp; Další zařízení'.</S1921>
+			<S1924>Přístup k uživatelským datům</S1924>
+			<S1925>Poskytuje aplikacím přístup ke strukturovaným datům, vč. informací o kontaktech, kalendářích, zprávách a dalším obsahu.</S1925>
+			<S1926>Uložiště uživatelských dat</S1926>
+			<S1927>Nakládá s uložištěm strukturovaných uživatelských dat, vč. informací o kontaktech, kalendářích, zprávách a dalším obsahu.</S1927>
+			<S1928>Data o kontaktech</S1928>
+			<S1929>Indexuje data o kontaktech pro rychlé vyhledávání.</S1929>	
+			<S1962>Obrázkové heslo</S1962>
+			<S1963>Přihlášení do Windows pomocí oblíbené fotografie.</S1963>
+			<S1980>Izolovaný uživatelský mód (IUM)</S1980>
+			<S1981>Funkce výhradně pro UEFI zajišťuje integritu kódu, část paměti chráněná virtualizačními prostředky. Pokud je umožněn Credential Guard, pak Local Security Authority Subsystem Service (lsass.exe) spouští sensitivní kód v procesu izolovaného uživatelského módu (LsaIso.exe), aby ochránil data data před malwarem.</S1981>
+			<S1982>Chráněný host (Guarded Host)</S1982>
+			<S1983>Umožní na zařízení vytvořit a spustit Shielded Virtual Machine za pomoci vzdálené atestace.</S1983>
+			<S1984>Zahrnuje nástroj DISM pro konfiguraci a aktualizaci Windows a jeho funkcí, jakož i živé instalace a obrazů. Vyžadováno pro NTLite integrace a konfigurace funkcí.</S1984>
+			<S1985>Nástroj System File Check (SFC)</S1985>
+			<S1986>Vestavěná funkce Windows kontrolující na vyžádání poškození systémových souborů.</S1986>
+			<S2439>ISO komponenty, externí pro aktuální WIM obraz.</S2439>
+			<S2448>Služba monitorování výkonu grafiky</S2448>
+			<S2449>Nezajistí odebrání informace o výkonu GPU ve Správci úloh.</S2449>
+			<S2452>Nástroj pro obnovení</S2452>
+			<S2453>Minimální podpora obnovy pro UEFI Shift+Restart Možnosti spuštění a nabídky dual boot.</S2453>
+			<S2456>Rozšířený pohled pro MMC, t.j. popisky nalevo v nástroji Services.msc.</S2456>
+			<S2457>Windows NAT Driver</S2457>
+			<S2458>Network Address Translation (NAT) umožňuje sdílet připojení k veřejnému Internetu prostřednictvím jednoduchého rozhraní a veřejnou IP adresou.</S2458>
+			<S2459>Rozhraní Anti-Malware Scan</S2459>
+			<S2460>Vyžadováno VMWare stroji, chybách souborového systému při otevření MMC.</S2460>
+			<S2466>API</S2466>
+			<S2467>API (Application Programming Interface), zahrnuje knihovny pro aplikace závislé na hlavní funkcionalitě, zachování položky je obvykle dostatečné pro spuštění takových aplikací.</S2467>
+		</System>
+		<Accessories>
+			<S0010>Nástroje zpřístupnění</S0010>
+			<S0011>Průvodce zpřístupněním a nástroje lze využít k nastavení systému podle představ, sluchových nebo pohybových možností. Zahrnuje centrum usnadnění přístupu, lupu nebo předčítání.</S0011>
+			<S0012>Nástroje</S0012>
+			<S0132>Mapa znaků</S0132>
+			<S0191>Obsahuje všechny Aero kurzory. Po odstranění se nastaví schéma zpět na žádné (none).</S0191>
+			<S0192>Obsahuje architekturní, charakterové, krajinářské a přírodní témata.</S0192>
+			<S0193>Obsahuje témata centra usnadnění, možnosti vysokého kontrastu.</S0193>
+			<S0310>Témata centra usnadnění</S0310>
+			<S0514>Zahrnuje</S0514>
+			<S0586>Zastaralé komponenty</S0586>
+			<S0655>Různé nástroje příkazového řádku</S0655>
+			<S0675>Ukazatele myši</S0675>
+			<S0758>Další témata</S0758>
+			<S0768>Malování</S0768>
+			<S0836>Editor vlastních znaků</S0836>
+			<S0857>Umožňuje vytvářet vlastní znaky fontu.</S0857>
+			<S0954>Šetřiče obrazovky</S0954>
+			<S1018>Jednoduchý nástroj pro malování a úpravu obrázků.</S1018>
+			<S1236>Nástroj pro zobrazení všech znaků dostupných ve fontu.</S1236>
+			<S1323>Wordpad</S1323>
+			<S1606>Klávesnice na obrazovce</S1606>
+			<S1932>Malování 3D</S1932>		
+			<S1960>Prostorový zvuk (3D Audio)</S1960>
+			<S1961>Efekty přehrávání Audio, zahrnuje Windows Sonic a Dolby Atmos pro sluchátka.</S1961>
+		</Accessories>
+		<Network>
+			<S0017>Služby Active Directory Lightweight Directory (AD LDS)</S0017>
+			<S0018>ActiveX Compatibility Flags (Killbits)</S0018>
+			<S0019>ActiveX služba instalátoru</S0019>
+			<S0029>Adobe Flash pro Internet Explorer</S0029>
+			<S0036>Umožňuje administrátorům porozumět, kontrolovat a spravovat množství a typ dat, která jsou uložena na jejich serverech. Prostřednictvím Správce zdrojů souborového serveru, administrátoři můžou aplikovat kvóty na adresáře a disky, aktivně zobrazovat soubory a generovat komplexní reporty.</S0036>
+			<S0037>Umožňuje synchronizaci dat ze vzdáleného zdroje s využitím komprimačních technik a minimalizovat tak objem dat posílaných po síti.</S0037>
+			<S0039>Umožňuje přesměrování tiskáren/disků/portů pro RDP připojení.</S0039>
+			<S0040>Umožňuje uživateli synchronizovat data do jejich zařízení ze složky umístěné v korporátním datacentru. Includes Active Directory Federation Services (ADFS).</S0040>
+			<S0041>Umožňuje kontrolu výsledků poslední synchronizační aktivity v případě, že byl počítač nastaven k synchronizaci souborů se síťovým serverem.</S0041>
+			<S0049>Služba aplikační vrstvy brány (Application Layer Gateway)</S0049>
+			<S0066>Automaticky připojuje mobilní počítače k jejich intranetu prostřednictvím VPN kdykoli je dostupné připojení k internetu.</S0066>
+			<S0071>AxInstSV - podporuje instalaci ActiveX prvků v prostředí organizace.</S0071>
+			<S0072>Služba inteligentního přenosu na pozadí (BITS)</S0072>
+			<S0096>Umístí nebezpečné a závadné prvky ActiveX na blacklist, pomáhá udržovat Internet Explorer a Microsoft Office bezpečnější.</S0096>
+			<S0107>Klient BranchCache</S0107>
+			<S0108>Aktovka</S0108>
+			<S0116>Může být použito k vytvoření profilu pro Správce připojení a k distribuci jednotlivým uživatelům. Uživatel nemusí znát tel. číslo vytáčeného serveru, ani IP adresu VPN serveru.</S0116>
+			<S0136>Kontrolní bod, F5, Juniper a SonicWALL vestavěná VPN podpora.</S0136>
+			<S0165>Sbírá a ukládá informace o konfiguraci sítě a oznamuje programy pokud se informace změnila.</S0165>
+			<S0184>Prohlížeč počítače (Computer Browser)</S0184>
+			<S0194>Obsahuje pouze rozhraní Internet Explorer frontend (UI).</S0194>
+			<S0243>Navrženo k omezení WAN využití odkazu sítě WAN (link utilization) a zlepšení odezvy aplikací pro zaměstnance poboček, kteří přistupují k obsahu prostřednictvím vzdálených serverů. Tito uživatelé využívají lokálně spravované meziuložiště dat pro omezení přenosu dat po WAN síti.</S0243>
+			<S0265>DHCP klient</S0265>
+			<S0268>Připojení Direct Access</S0268>
+			<S0283>Klient Distributed Link Tracking</S0283>
+			<S0284>DNS klient</S0284>
+			<S0329>Umožňuje IT administrátorům jemnější správu korporátních zdrojů. Pokud uživatel registruje své zařízení, IT může udělit jistý přístup, ale stále vyžadovat identifikační parametry zařízení.</S0329>
+			<S0330>Umožňuje vzdáleným uživatelům upravovat nastavení registru počítače.</S0330>
+			<S0332>Umožňuje zobrazit a modifikovat nastavení síťového připojení. Mimo jiné, vyžadováno pro IPV6, DirectAccess a Windows 7 KB2750841.</S0332>
+			<S0335>Umožňuje monitoring a správu stroje prostřednictvím MultiPoint manažeru aplikací Dashboard.</S0335>
+			<S0355>Zahrnuje HTML a Java Scripting IE engine. Pokud je odstraněno, způsobí, že panel nástrojů otevírá všechny své odkazy v nových oknech.</S0355>
+			<S0409>Manažer správy zdrojů souborového serveru (File Server Resource Manager)</S0409>
+			<S0410>Podpora sdílení souborů (File sharing)</S0410>
+			<S0430>Dříve známé jako Active Directory Application Mode (ADAM), poskytuje služby adresáře pro aplikace využívající tuto funkci bez nadbytečné režije domén a lesů a požadavky jednoduchého schématu prostřednictvím lesa.</S0430>
+			<S0465>Domácí skupina</S0465>
+			<S0477>Identifikuje sítě ke kterým byl počítač připojen, ukládá vlastnosti těchto sítí, a oznamuje aplikacím, pokud byly změněny.</S0477>
+			<S0504>Implementuje WS-Management protokol pro vzdálenou správu.</S0504>
+			<S0515>Zahrnuje prostředky pro monitorování aktivity síťových zařízení a reportuje do stanice síťové konzole.</S0515>
+			<S0542>Podpora integrovaného přihlášení pro použití se Skypem, předplatným Office 365; zakoupení her, hudby a filmů z obchodu Microsoft store; OneDrive a synchronizace nastavení. Při deaktivaci lze přidat uživatele pomocí příkazu: 'control userpasswords2'</S0542>
+			<S0546>Služba internetového přihlášení Internet Authentication Service (IAS)</S0546>
+			<S0547>Sdílení připojení k internetu (ICS)</S0547>
+			<S0548>Internet Explorer engine</S0548>
+			<S0549>Internet Explorer Feature (UI)</S0549>
+			<S0552>Internet Protocol Helper (IP Helper)</S0552>
+			<S0620>Zajišťuje synchronizaci vybraných souborů v síti. Užitečné pokud užíváte laptop pro připojení k síti v zaměstnání.</S0620>
+			<S0628>Spravuje vytáčené nebo VPN připojení ke vzdáleným sítím. Pokud používáte hardwarovou bránu (gateway) nebo router, tato služba není zapotřebí.</S0628>
+			<S0645>Účet Microsoft</S0645>
+			<S0680>MultiPoint Connector</S0680>
+			<S0687>Vyžadováno pro RDP připojení k tomuto stroji.</S0687>
+			<S0688>Vyžadováno pro připojení k ostatním strojům prostřednictvím RDP.</S0688>
+			<S0697>Mimo jiné, vyžadováno pro sdílené služby VMware (Shared Folders).</S0697>
+			<S0706>Síť a centrum sdílení</S0706>
+			<S0707>Network Connection Broker</S0707>
+			<S0709>Služba Network List</S0709>
+			<S0711>Network Location Awareness</S0711>
+			<S0734>Nabízí a jednoduchý způsob připojení k vašemu počítači pro důvěryhodnou osobu nebo technickou podporu, společné řešení problémů.</S0734>
+			<S0735>Zajišťuje služby routování v podnikových LAN a WAN sítích.</S0735>
+			<S0736>Offlinové soubory</S0736>
+			<S0740>OneDrive</S0740>
+			<S0783>Připojení k síti na úrovni Peer (Peer Networking)</S0783>
+			<S0854>Zajišťuje podporu protokolových pluginů třetích stran pro sdílení internetu.</S0854>
+			<S0861>Soubor funkcionalit RAS Connection Manager Administration Kit (CMAK)</S0861>
+			<S0890>Správce vzdáleného připojení</S0890>
+			<S0891>Nástroje klienta služby vzdáleného přístupu</S0891>
+			<S0892>Vzdálená podpora</S0892>
+			<S0893>Klient vzdálené plochy</S0893>
+			<S0894>Server vzdálené plochy</S0894>
+			<S0895>Služby přesměrování portu vzdálené plochy</S0895>
+			<S0896>Vzdálená diferenciální komprimace (RDC)</S0896>
+			<S0897>Vzdálený registr</S0897>
+			<S0905>Odstraňuje různé WAN miniporty.</S0905>
+			<S0931>Služba směrování a vzdáleného přístupu</S0931>
+			<S0932>Podpora směrování a vzdáleného přístupu</S0932>
+			<S0990>Bezserverová komunikační technologie, která umožnuje několika síťovým zařízením sdílet prostředky a komunikovat napřímo.</S0990>
+			<S1017>Protokol Simple Network Management (SNMP)</S1017>
+			<S1019>Služby Simple TCP/IP</S1019>
+			<S1020>Jednoduché TCP/IP služby podporují následující TCP/IP služby: Character Generator, Daytime, Discard, Echo a Quote of the Day. Tyto služby jsou pro zajištění zpětné kompatibility a pokud nejsou vyžadovány, není doporučeno je instalovat.</S1020>
+			<S1035>SMB v2</S1035>
+			<S1037>SMB Server Common</S1037>
+			<S1039>SMB v1</S1039>
+			<S1090>Podporuje implementaci klientem kontrolovaných zařízení, služeb splňující požadavek na Devices Profile for Web Services (DPWS). Vyžadováno pro vzdálené ladění Visual Studio a správu skenování, mimo jiné.</S1090>
+			<S1093>Centrum synchronizace</S1093>
+			<S1094>Synchronizuje čas prostřednictvím internetu.</S1094>
+			<S1115>Klient Telnet</S1115>
+			<S1116>Server Telnet </S1116>
+			<S1125>Klient TFTP</S1125>
+			<S1146>Služba odpovědná za provádění IEEE 802.1X autentifikace na ethernetovém rozhraní.</S1146>
+			<S1147>Služba spravuje mobilní širokopásmový (GSM &amp; CDMA) datový kartový/vestavěný adaptér a vlastní připojení prostřednictvím automatické konfigurace sítí.</S1147>
+			<S1153>Ke zpřístupnění síťových připojneí pokud je služba deaktivivaná, ve Win8+ pravý-klik na menu Start, jinak vytvořit zástupce na ncpa.cpl nebo 'explorer shell:::{7007ACC7-3202-11D1-AAD2-00805FC1270E}'.</S1153>
+			<S1161>Přenáší soubory na pozadí prostřednictvím nevyužitého síťového pásma.</S1161>
+			<S1256>VPN pluginy</S1256>
+			<S1268>Web distribuované autorizace a verze (WebDAV)</S1268>
+			<S1269>Webové služby on zařízeních API (WSDAPI)</S1269>
+			<S1271>Webový klient</S1271>
+			<S1289>Windows Firewall</S1289>
+			<S1298>Pošta Windows</S1298>
+			<S1308>Windows vzdálená správa (WS-Management)</S1308>
+			<S1310>Windows serverová komponenta poskytující centrální uživatelskou autentifikaci, autorizaci a přihlášení k účtu.</S1310>
+			<S1317>Windows čas</S1317>
+			<S1321>Automatická konfigurace drátového připojení</S1321>
+			<S1325>Klient pracovních složek (Work Folders Client)</S1325>
+			<S1328>Připojení k pracovní skupině (Workplace Join)</S1328>
+			<S1329>Zahrnuje službu pracovní stanice. Tato služba je vyžadována pro použití sdíleného uložiště. Vyžadováno pro Sledování procesů.</S1329>
+			<S1330>Automatická konfigurace WWAN</S1330>
+			<S1334>Aktovku je možné použít pro zajištění synchronizace souborů mezi dvěma počítači, počítače nemusí být ve stejné síti.</S1334>
+			<S1346>Virtuální PC</S1346>
+			<S1347>Umožnuje spuštění jednoho nebo více virtuálních strojů, každý s vlastním operačním systémem, na jednom fyzickém zařízení. Lze využít více operačních systémů na jednom počítači.</S1347>
+			<S1384>OneDrive (dříve SkyDrive) je cloudové uložiště, služba uložiště souborů a jejich synchronizace pro pozdější přístup k nim pomocí webového prohlížeče nebo mobilního zařízení.</S1384>
+			<S1390>SMB Witness Client API</S1390>
+			<S1391>Použito v SMBv3 k rozšíření souvislých souborových uložišť, umožňuje rychlejší klientský failover.</S1391>
+			<S1422>Windows Mail Communications DLL</S1422>
+			<S1423>Vyžadováno pro podporu MHT souborů.</S1423>
+			<S1442>Služba Windows Firewall</S1442>
+			<S1443>Odstraní uživatelské rozhraní Firewallu (UI) a zablokuje jeho funkčnost.</S1443>
+			<S1469>AllJoyn služba směrovače</S1469>
+			<S1470>AllJoyn je open-source soubor služeb. Umožňuje součinnost různých zařízení, které mohou navzájem přímo komunikovat bez potřeby dalšího serveru..</S1470>
+			<S1471>Služba Connected Device Platform (CDPSvc)</S1471>
+			<S1472>Tato služba se používá pro Connected Devices a scénária Universal Glass.</S1472>
+			<S1475>Síťoví přenos na pozadí (Networking Background Transfer)</S1475>
+			<S1476>Používáno aplikacemi Windows Runtime ke stažení a uložení síťových dat do mezipaměti na pozadí.</S1476>
+			<S1491>Ochrana přístupu k síti (NAP)</S1491>
+			<S1492>Soubor komponentů operačního systému, které poskytují platformu pro chráněný přístup k osobním sítím.</S1492>
+			<S1493>Exchange ActiveSync (EAS)</S1493>
+			<S1494>Komunikační protokol navržený pro synchronizaci emailu, kontaktů, kalendáře, úkolů a poznámek z serveru zpráv, jako je Microsoft Exchange Server.</S1494>
+			<S1495>IPsec Policy Agent</S1495>
+			<S1496>Bezpečný internetový protokol (IPsec) podporuje přihlášení k síti prostřednictvím zásad IP Security. Vyžadováno pro sítě s aktivními IPsec zásadami a pro vzdálenou správu Windows Firewallu.</S1496>
+			<S1507>Service peněženka</S1507>
+			<S1508>Vyžadováno pro aplikaci peněženka, platební systém Microsoft Windows.</S1508>
+			<S1581>Mapa sítě</S1581>
+			<S1608>Přesměrovač terminálové služby USB</S1608>
+			<S1610>Lidé okolo (People Near Me)</S1610>
+			<S1662>Protokol multiplexeru síťového adaptéru</S1662>
+			<S1663>Vestavěný protokol NIC pro týmovou spolupráci ve Windows, také znám jako vyrovnávání zátěže a zálohování (LBFO), dovoluje více síťovým adaptérům počítače záskok v agregaci šířky pásma a zálohování přenosu.</S1663>
+			<S1664>Quality of Service Packet Scheduler (QoS)</S1664>
+			<S1665>Dovoluje splnit požadavky na zatížení měřením propustnosti sítě, detekováním změn a podmínek v síti (jako je zahlcení nebo dostupnost pásma) a vytváření priorit nebo omezení v síťovém provozu.</S1665>
+			<S1666>Protokol Link-Layer Topology Discovery (LLTD)</S1666>
+			<S1667>Umožňuje aplikacím rychle detekovat zařízení v hladině data-link a zajišťuje centrální, grafický náhled na vše připojené k síti.</S1667>
+			<S1697>Ovladač NDIS User Mode I/O</S1697>
+			<S1698>Podporuje zasílání a příjem ethernetových rámců s využitím ReadFile a WriteFile.</S1698>
+			<S1699>Služba SMS Router</S1699>
+			<S1700>Směruje zprávy na základě pravidel vhodným klientům.</S1700>
+			<S1701>Služba zpráv</S1701>
+			<S1702>Služba podporující textové zprávy a související funkčnost.</S1702>
+			<S1707>Služby rádio a módu letadlo</S1707>
+			<S1714>.NET Framework následná instalace</S1714>
+			<S1715>Služba stahování Windows Update</S1715>
+			<S1717>RemoteFX</S1717>
+			<S1718>Vylepšuje visuální výkon protokolu vzdálené plochy. Také se využívá v připojeních Hyper-V.</S1718>
+			<S1738>SMB Direct (RDMA)</S1738>
+			<S1739>Vzdálený přístup k Direct Memory (RDMA) pro SMB 3.x protokol sdílení souborů. Vyžaduje síťový adaptér podporující RDMA, což zajistí lower-latency, rychlejší přenos souborů sítí.</S1739>
+			<S1740>Data Center Bridging (DCB)</S1740>
+			<S1741>Sada vylepšení pro LAN sítě v prostředí datových center, jako jsou Internet Small Computer System Interface, RDMA over Converged Ethernet a Fibre Channel over Ethernet.</S1741>
+			<S1763>USB 3G modem</S1763>
+			<S1814>Správce připojení Windows</S1814>
+			<S1815>Zajišťuje automatické rozhodnutí o připojení/odpojení na základě možností aktuálně dostupných pro PC a umožnuje správu aktivity sítě na ve vztahu k nastavení zásad skupiny.</S1815>
+			<S1872>Rozšiřitelný protokol přihlášení (EAP)</S1872>
+			<S1873>Služba umožňuje přihlášení k síti v případě 802.1x bezdrátového nebo pevného připojení, VPN a Network Access Protection (NAP). Pokud odstraníte nebo vypnete tuto službu, Windows nebude moci přistupovat k sítím vyžadujícm EAP přihlášení.</S1873>
+			<S1876>Automatické nastavení Network Connected Devices</S1876>
+			<S1877>Deaktivace nebo odstranění této služby zabrání systému Windows ve zjištění a automatické instalaci zařízení network connected device. Uživatelé mohou manuálně přidat zařízení network connected device prostřednictvím uživatelského rozhraní.</S1877>
+			<S1878>Active Directory</S1878>
+			<S1879>Podpora síťové domény Windows.</S1879>
+			<S1930>Služba správce připojení Wi-Fi Direct Services</S1930>
+			<S1931>Spravuje připojení k bezdrátovým službám, týká se bezdrátového displeje a dokování.</S1931>
+			<S1945>Edge HTML jádro</S1945>
+			<S1946>Minimálně požadován HTML renderovací engine pro Windows.</S1946>			
+			<S1996>Správce plateb (Payments) a NFC/SE</S1996>
+			<S1997>Zodpovídá za platby a bezpečnostní prvky Near Field Communication (NFC).</S1997>
+			<S2409>Vyžadováno pro ověření revokace certifikátu Internet Explorer.</S2409>
+			<S2412>TCP/IP NetBIOS Helper</S2412>
+			<S2413>Poskytuje podporu pro NetBIOS přes TCP/IP protokol a NetBIOS překlad jmen pro klienty na síti, a tak umožňuje uživatelům sdílet soubory, tisknout, a vůbec přihlásit se k síti. Zahrnuje novější typ protokolu pro sdílení souborů, vázání 'NetbiosSmb' přes port 445.</S2413>
+			<S2414>Přenos NetBIOS přes TCP</S2414>
+			<S2415>Starší typ protokolu pro sdílení souborů, vázání 'NetBT_Tcpip' přes porty 137-139.</S2415>
+			<S2418>Další jazyky</S2418>
+			<S2419>Jedná se o doplňkové (System32) jazykové adresáře, které obsahují pouze 'SyncRes.dll.mui' soubor.</S2419>
+			<S2435>Služba Local Profile Assistant</S2435>
+			<S2436>Poskytuje správu profilu pro moduly identity předplatitele.</S2436>
+			<S2454>Netlogon</S2454>
+			<S2455>Zajišťuje bezpečný kanál mezi tímto počítačem a doménovým kontrolérem pro přihlášení uživatelů a služeb.</S2455>
+		</Network>
+		<HardwareSupport>
+			<S0030>AGP</S0030>
+			<S0100>Bluetooth</S0100>
+			<S0170>Běžný ovladač pro Tlačítka, DockMode a Laptop/State indikátor.</S0170>
+			<S0328>Zajišťuje automatické otevření portu na kompatibilních směrovačích.</S0328>
+			<S0334>Umožnuje připojení počítače k externímu iSCSI poli uložišť prostřednictvím síťového adaptéru Ethernet.</S0334>
+			<S0400>Fax</S0400>
+			<S0423>Disketa</S0423>
+			<S0444>Obecný I/O (GPIO)</S0444>
+			<S0458>Hardwarová podpora</S0458>
+			<S0524>Infračervená zařízení</S0524>
+			<S0551>Klient internetového tisku</S0551>
+			<S0557>iSCSI Initiator</S0557>
+			<S0648>Implementace protokolu Wi-Fi Protected Setup (WPS) od Microsoftu.</S0648>
+			<S0664>Modem</S0664>
+			<S0692>Vyžadováno pro některé webkamery.</S0692>
+			<S0806>Přenosná zařízení (WPD/MTP)</S0806>
+			<S0835>Tisk</S0835>
+			<S0855>Poskytuje API (TAPI) podporu telefonie pro programy kontrolující příslušná zařízení v počítači a prostřednictvím LAN na serverech kde také běží tato služba.</S0855>
+			<S0856>Poskytuje logiku nutno pro konfiguraci, zjišťování, připojení a odpojení od bezdrátové sítě (WLAN). Obsahuje službu WLAN AutoConfig.</S0856>
+			<S0951>Skener</S0951>
+			<S1004>Sdílená nastavení modemu (mdmgl*.inf)</S1004>
+			<S1034>Smart karta</S1034>
+			<S1070>Instalátor třídy statického obrazu</S1070>
+			<S1082>Podpora pro import obrazu ze zařízení.</S1082>
+			<S1114>Telefonie</S1114>
+			<S1170>Modul Trusted Platform (TPM)</S1170>
+			<S1219>UPnP Device Host</S1219>
+			<S1226>Slouží ke správě TPM bezpečnostního hardwaru v počítači.</S1226>
+			<S1237>Media Transfer Protocol (MTP) je technologie podporující široké spektrum přenosných zařízení jako jsou: mobilní telefony, digitální fotoaparáty a přenosné přehrávače. Nezpůsobí ztrátu podpory odebrání USB zařízení.</S1237>
+			<S1250>Virtuální Smart karta</S1250>
+			<S1282>Windows Connect Now (WCN)</S1282>
+			<S1292>Windows získání obrazu (WIA)</S1292>
+			<S1322>WLAN</S1322>
+			<S1331>XPS zapisovač a služby</S1331>
+			<S1403>Tisk do PDF</S1403>
+			<S1418>Zjišťování sítě</S1418>
+			<S1419>Zahrnuje funkci zjišťování sítě pro protokol Simple Services Discovery (SSDP) a protokol webové služby (WS-D).</S1419>
+			<S1460>Bod služby (POS)</S1460>
+			<S1461>Podpora pro POS periferní zařízení, jako jsou čtečky čárových kódů a čtečky magnetických karet.</S1461>
+			<S1582>Správce automatického vzdáleného přístupu</S1582>
+			<S1820>Zajišťuje připojení ke vzdálené síti v případě, že program zavolá vzdálenou DNS nebo NetBIOS jméno nebo adresu.</S1820>
+			<S1894>Podpora Virtual Private Network (VPN)</S1894>
+			<S1895>Volitelné funkce</S1895>
+			<S1896>Poskytuje konfiguraci pro vestavěné funkce Windows, jako je v ovládacích panelech - Zapnout/vypnout funkce Windows nebo Nápovědu na vyžádání.</S1896>
+			<S1953>Rozhraní pro hráče (Xbox GIP)</S1953>
+			<S1998>Telefonní služba</S1998>
+			<S1999>Spravuje stav telefonie na daném zařízení.</S1999>
+			<S2411>Baterie</S2411>
+			<S2429>Služba sledování Přenosných zařízení</S2429>
+			<S2430>Vynucuje pravidla Zásad skupiny pro vyjímatelná zařízení Mass storage. Umožňuje aplikacím jako Windows Media Player a Průvodce importem obrazu přenášet a synchronizovat obsah na vyjímatelném zařízení.</S2430>
+			<S2441>Microsoft GS Wavetable SW Synth (MIDI)</S2441>
+			<S2442>Podpora pro MIDI Synth audio, obvykle používáno při profesionálním audio mixingu.</S2442>
+		</HardwareSupport>
+		<Metro>
+			<S0053>Aplikace</S0053>
+			<S0109>Zajišťuje připojení dovolující aplikacím Windows Store získávat oznámení z internetu.</S0109>
+			<S0110>Výběr prohlížeče backend</S0110>
+			<S0406>Správce souborů (OneDrive &amp; Fotografie)</S0406>
+			<S0517>Zahrnuje služby aplikace Metro, aplikace Nastavení PC a Windows Obchod. Pokud chcete zadat produktový klíč bez Nastavení, zadejte 'slui.exe 3' z příkazového řádku cmd.exe nebo pomocí Vlastností systému. Také vyžadováno pro nabídku start ve Win10, kromě jiného.</S0517>
+			<S0643>Windows Obchod a podpora aplikací</S0643>
+			<S0646>Microsoft kamera backend</S0646>
+			<S0858>Blízký dosah</S0858>
+			<S0997>Synchronizace nastavení</S0997>
+			<S1089>Podporuje připojení mezi zařízeními, která jsou v blízském dosahu.</S1089>
+			<S1095>Synchronizuje nastavení mezi počítači Windows a zařízeními. Usnadňuje použití různých strojů a udržuje jejich bezproblémový chod.</S1095>
+			<S1270>Zkušenost s webovou kamerou</S1270>
+			<S1304>Prohlížeč Windows PDF.</S1304>
+			<S1306>Prohlížeč Windows Reader (PDF)</S1306>
+			<S1335>Aktualizace Výběr prohlížeče slouží k výběru a instalaci webového prohlížeče, který chcete v systému používat .</S1335>
+			<S1405>Obsah maloobchodní demoverze</S1405>
+			<S1406>Zkušební profil šikovný pro obchody k propagaci a demonstraci zařízení Windows.</S1406>
+			<S1417>Systémové aplikace</S1417>
+			<S1446>Appx implementační služba</S1446>
+			<S1447>Mapy Windows</S1447>
+			<S1463>Služba klientské licence (ClipSVC)</S1463>
+			<S1464>Poskytuje podporu infrastruktury pro Obchod Microsoft. Tato služba je spuštěna na vyžádání a pokud je zastavena, pak aplikace zakoupení v Obchodu Windows se nebudou chovat korektně.</S1464>
+			<S1694>Synchronizační hostitel</S1694>
+			<S1695>Služba synchronizuje email, kontakty, kalendář a další uživatelská data.</S1695>
+			<S1696>Pokud je služba vypnutá, aplikace využívající tato data nebudou správně fungovat.</S1696>
+			<S1868>Připravenost aplikací</S1868>
+			<S1869>Inicializuje aplikace při prvním přihlášení uživatele do systému a při přidání nové aplikace.</S1869>
+			<S1874>DevQuery Discovery Broker na pozadí</S1874>
+			<S1875>Umožňuje aplikacím získat přístup k zařízením na pozadí</S1875>
+			<S1891>Rozhraní API pro Push oznámení aplikací typu Non-Windows</S1891>
+			<S1916>Windows Mixed Reality</S1916>
+			<S1917>Využíváno spolu s náhlavní soupravou pro virtuální realitu, jako je Microsoft HoloLens.</S1917>
+			<S1922>Windows PDF Engine</S1922>
+			<S1923>Využívá Reader a MS Edge ke zobrazení PDFs.</S1923>
+			<S1954>Odebere asistenta Cortanu, funkce hledání v panelu nástrojů/start menu a Nastavení.</S1954>
+			<S2404>Schopnost Přístup</S2404>
+			<S2405>Zajišťuje UWP aplikacím přístup ke Schopnostem a také kontrolu přístupu ke specifickým Schopnostem.</S2405>
+			<S2431>Služba Data Sharing</S2431>
+			<S2432>Zajišťuje výměnu dat mezi aplikacemi.</S2432>
+			<S2450>Browser Brokers</S2450>
+			<S2451>Proxy pro prohlížeče, umožňuje a zabezpečuje aplikacím přístup k procházetelnému obsahu.</S2451>
+		</Metro>
+		<Localization>
+			<S0054>arabština</S0054>
+			<S0088>baskičtina</S0088>
+			<S0091>bengálština (Bangladéš)</S0091>
+			<S0092>bengálština (Indie)</S0092>
+			<S0112>Bulharština</S0112>
+			<S0126>katalánština</S0126>
+			<S0140>čínština</S0140>
+			<S0173>Kompletní odebrání podpory jazyků. Neodstraňujte pokud hodláte číst nebo psát v tomto jazyku.</S0173>
+			<S0225>chorvatština</S0225>
+			<S0231>čeština</S0231>
+			<S0232>dánština</S0232>
+			<S0304>švýcarská němčina</S0304>
+			<S0338>angličtina</S0338>
+			<S0362>estonština</S0362>
+			<S0419>finština</S0419>
+			<S0437>francouzština</S0437>
+			<S0440>galština</S0440>
+			<S0446>němčina</S0446>
+			<S0450>řečtina</S0450>
+			<S0454>gujaratština</S0454>
+			<S0459>hebrejština</S0459>
+			<S0463>hindština</S0463>
+			<S0469>maďarština</S0469>
+			<S0473>islandština</S0473>
+			<S0521>indonéština</S0521>
+			<S0528>Editor vstupní metody (IME)</S0528>
+			<S0563>italština</S0563>
+			<S0564>japonština</S0564>
+			<S0571>kanadština</S0571>
+			<S0578>rozložení klávesnice</S0578>
+			<S0579>korejština</S0579>
+			<S0581>jazyk</S0581>
+			<S0582>Jazykový balíček</S0582>
+			<S0583>jazyky</S0583>
+			<S0585>lotyština</S0585>
+			<S0587>Zpětná kompatibilita pro jazyky</S0587>
+			<S0595>litevština</S0595>
+			<S0623>malajština (Brunej)</S0623>
+			<S0624>malajština (Malajsie)</S0624>
+			<S0625>malabarština</S0625>
+			<S0634>maráthština</S0634>
+			<S0682>přirozený jazyk</S0682>
+			<S0691>Vyžadováno pro jazykové klávesnice, obvykle pro východní jazyky.</S0691>
+			<S0724>norština</S0724>
+			<S0805>polština</S0805>
+			<S0807>portugalština (Brazílie)</S0807>
+			<S0808>portugalština</S0808>
+			<S0860>paňdžábština</S0860>
+			<S0930>rumunština</S0930>
+			<S0935>ruština</S0935>
+			<S0989>srbština</S0989>
+			<S1031>slovenština</S1031>
+			<S1032>slovinština</S1032>
+			<S1048>španělština</S1048>
+			<S1091>švédština</S1091>
+			<S1101>tabulka Ovládaná textová služba může být použita k definování a přizpůsobení vlastního procesoru pro zadávání textu (TIP).</S1101>
+			<S1102>tabulka Textová služba</S1102>
+			<S1104>tamilština</S1104>
+			<S1117>telugština</S1117>
+			<S1126>thajština</S1126>
+			<S1172>turečtina</S1172>
+			<S1187>ukrajinština</S1187>
+			<S1220>urdština</S1220>
+			<S1223>Užíváno pro extra funkce řeči a vyhledávání. Rozšiřuje řeč a vyhledávání o přirozenou skladbu, téměř jako při oslovení další osobou.</S1223>
+			<S1243>vietnamština</S1243>
+			<S1388>pseudo-lokalizace</S1388>
+			<S1389>Používáno pro testování a lokalizaci aplikací.</S1389>
+			<S1473>Instalace jazykového balíčku</S1473>
+			<S1474>Podpora pro instalaci a odinstalaci jazykových balíčků.</S1474>
+			<S1532>čínština zjednodušená</S1532>
+			<S1533>čínština tradiční</S1533>
+			<S1549>Vyžadováno pro ovládací panel Jazyk Vstup/Klávesnice.</S1549>
+			<S1558>francoužština (kanadská)</S1558>
+			<S1595>Fonty</S1595>
+			<S1596>Obezřetně zkontrolujte individuální fonty v panelu nástrojů před jejich odebráním, některé mohou být být znovu nainstalovány z plného obrazu.</S1596>
+			<S1597>Lokalizace</S1597>
+			<S1602>Panel jazyků</S1602>
+			<S1603>Po odstranění chybí možnosti úpravy uživatelského rozhraní (UI) v panelu nástrojů Jazyk, nelze změnit nebo přidat klávesnice a jazyky po instalaci, jedině přímou editací registru.</S1603>
+			<S1604>Statická mezipamět fontů</S1604>
+			<S2000>Služba Vstup</S2000>
+			<S2401>Framework pro automatické doplňování a zpracování textu. V případě odebrání psaní textu v libovolné UWP aplikaci jako Nastavení PC, Cortana, Edge, hledání ve Start Menu, WIFI SSID přes Metro UI nebude funkční. Psaní v kalkulačce není ovlivněno.</S2401>
+			<S2402>Kontrola pravopisu</S2402>
+			<S2403>Zahrnuje podporu pro kontrolu pravopisu v UWP apkikacích a Metro UI.</S2403>
+		</Localization>
+		<Media>
+			<S0056>Správce automatického otáčení</S0056>
+			<S0085>Základní vestavěná podpora DirectShow přehrávání DVD filmů ve Windows.</S0085>
+			<S0086>Základní vestavěná podpora MPEG-2 (H.222/H.262) přehrávání ve Windows. Není třeba pro přehrávače, které mají vlastní podporu.</S0086>
+			<S0087>Základní průvodci pro Windows.</S0087>
+			<S0305>DVD Maker</S0305>
+			<S0306>DVD přehrávání</S0306>
+			<S0420>Animace při prvním přihlášení</S0420>
+			<S0441>Průzkumník her</S0441>
+			<S0442>Hry</S0442>
+			<S0485>Správa barvy obrazu (ICM)</S0485>
+			<S0516>Obsahuje podporu Media Player DLNA.</S0516>
+			<S0519>Obsahuje ukázková videa, hudbu, obrázky a vyzvánění.</S0519>
+			<S0545>Intel Indeo kodeky</S0545>
+			<S0622>Usnadňuje přístup, hraní a správu her.</S0622>
+			<S0635>Obchod s tématy</S0635>
+			<S0637>Centrum médií</S0637>
+			<S0638>Media Foundation</S0638>
+			<S0639>Prohlížeč médií</S0639>
+			<S0649>Microsoft Media Foundation umožňuje vývoj aplikací a komponent pro digitální média ve Windows. Mimo jiné vyžadováno pro přehrávání médií v Internet Exploreru.</S0649>
+			<S0676>MPEG-2 Splitter</S0676>
+			<S0678>Multimédia</S0678>
+			<S0679>Hry pro více hráčů</S0679>
+			<S0696>Vyžadováno pro podporu dotykové obrazovky.</S0696>
+			<S0787>Foto kodek</S0787>
+			<S0788>Prohlížeč obrázků</S0788>
+			<S0816>Prémiové hry</S0816>
+			<S0853>Poskytuje funkce umožňující aplikacím zpracovávat video data. Vyžadováno pro webové kamery, Reaper, FSViewer a mnoho dalších audio/video nástrojů.</S0853>
+			<S0936>Ukázková média</S0936>
+			<S1003>Kontrolní panel sdílení médií</S1003>
+			<S1040>Nástroj výstřižky</S1040>
+			<S1041>Záznam zvuku</S1041>
+			<S1042>Zvukové profily</S1042>
+			<S1043>Zvuky (výchozí)</S1043>
+			<S1051>Rozpoznávání řeči</S1051>
+			<S1052>Řeč TTS</S1052>
+			<S1069>Rychlé poznámky (Sticky Notes)</S1069>
+			<S1103>Tablet PC</S1103>
+			<S1124>Predikce textu</S1124>
+			<S1132>Prvotní animace po nainstalování Windows a prvním přihlášení.</S1132>
+			<S1133>Upravená témata jsou specifická pro daný región a zahrnují tapetu, zvuková schémata a barvy Aero glass.</S1133>
+			<S1174>Podpora TV tuneru a kodeků</S1174>
+			<S1225>Používáno Explorerem pro náhledy obrázků s Metro dlaždice.</S1225>
+			<S1239>Různé zvuky Windows Shell.</S1239>
+			<S1241>Průvodce vytvářením Video DVD.</S1241>
+			<S1242>Video pro Windows (VFW)</S1242>
+			<S1258>Tapeta (výchozí)</S1258>
+			<S1259>Tapety (témata)</S1259>
+			<S1272>Uvítací centrum (Začínáme)</S1272>
+			<S1278>Součást správy barev Windows, zřídka využíváno ostatními programy pro zajištění korekce barev. Kromě jiného vyžadováno pro Prohlížeč fotek a mnoho dalších prohlížečů obrázků jako jsou Photoshop, Gimp a další.</S1278>
+			<S1300>Aktualizace Centra médií Windows</S1300>
+			<S1301>Windows Media kodeky</S1301>
+			<S1302>Windows Media Player</S1302>
+			<S1303>Windows Media streamování</S1303>
+			<S1312>Zvuky Windows Shell.</S1312>
+			<S1314>Windows System Assessment Tool (WinSAT)</S1314>
+			<S1315>Windows TIFF IFiltr (OCR)</S1315>
+			<S1316>Windows TIFF IFiltr zpracovává TIFF skeny a rozpoznává text pro volací aplikaci a vytváří obsah pro vyhledávání. Využíváno službou indexování (vyhledávání), dále Microsoft Office SharePoint Serverem 2007 a pozdějšími, Microsoft SQL Serverem 2008, and Microsoft SQL Server 2005.</S1316>
+			<S1353>Nástroje správy služby Windows Media vzdáleného serveru</S1353>
+			<S1354>Umožňuje správu Windows Media serveru.</S1354>
+			<S1365>Služba WMP síťového sdílení</S1365>
+			<S1366>Nástroj vypalování obrazu disku ve Windows</S1366>
+			<S1367>Vestavěné vypalování ISO obrazů v Exploreru a možnost ripování obsahu ve Windows Media Player rip/burn. Nezpůsobí odebrání vypalování ISO pro programy třetích stran.</S1367>
+			<S1407>Podpora Xboxu</S1407>
+			<S1408>Zahrnuje Game Bar, Game Mode a gaming Broadcast DVR.</S1408>			
+			<S1409>PlayReady</S1409>
+			<S1410>Microsoft PlayReady je technologie, která brání neautorizovanému použití nebo kopírování digitálního obsahu, jako je hudba a video, tím že umožňuje poskytovatelům šířit bezpečně obsahu prostřednictvím internetu.</S1410>
+			<S1457>Zahrnuje Indeo 4.5 a 5.1.</S1457>
+			<S1458>Kodeky Video Compression Manager (VCM) </S1458>
+			<S1459>Zahrnuje Indeo 3.2 a Cinepak kodeky.</S1459>
+			<S1462>Základní nástroj pro sledování a hodnocení výkonu ve, dostupné prostřednictvím Ovládacích panelů.</S1462>
+			<S1477>Přepínání displeje</S1477>
+			<S1478>Malý nástroj pro rychlé přepínání mezi zobrazovacími zařízeními.</S1478>
+			<S1560>Tato součást je zastaralá a obsahuje známá slabá místa.</S1560>
+			<S1579>Rozšířený vykresovač videa (EVR)</S1579>
+			<S1580>Využívání v přehrávačích médií pro lepší využití video výstupu GPU.</S1580>
+			<S1607>Windows Journal</S1607>
+			<S1705>Camera Frame Server</S1705>
+			<S1706>Umožňuje více klientům přistupovat ke snímkům z kamerových zařízení.</S1706>
+			<S1987>Služba DirectX WARP JIT</S1987>
+			<S1988>Vhodné pro virtuální realitu. Poskytuje službu pro Windows Advanced Rasterization Platform (WARP) pokud je zapnutý ACG.</S1988>
+		</Media>
+		<Title>
+			<S0099>Modře označené komponenty vyžadují licenci.</S0099>
+			<S0180>Komponenty</S0180>
+			<S0738>Napravo označte soubory, které budou chráněny proti odstranění. Položky jsou hodnoceny jako konec cesty k souboru, např.: System32\expand.exe zachová expand.exe v rámci složky X:\Windows\System32. Podobně u Program Files nebo jiné složky v cíli. Zástupný symbol (*) je podporován.</S0738>
+			<S0976>Vyberte funkcionality, které budou chráněny, včetně podpory machine support (Hardware lists).</S0976>
+			<S1194>Odznačte komponenty k odstranění. Odstranění je trvalé, obnovení komponenty vyžaduje aktualizaci (Win10), opětovnou instalaci nebo obnovení ze zálohy.</S1194>
+			<S1260>Než budete pokračovat, čtěte pozorně následující.</S1260>
+			<S1261>Odstranění komponentů Windows nelze vzít zpět a může vést k neočekávaným závadám.</S1261>
+			<S1262>V případě úpravy obrazu média (offline), proveďte otestování výsledného obrazu ve virtuálním prostředí před vlastní instalací na reálný stroj.</S1262>
+			<S1263>V případě úpravy živé instalace (online), proveďte zálohu systému před provedením změn.</S1263>
+			<S1264>Díky charakteru instalace balíčků Windows - pokud odstraníte komponenty, některé aktualizace (hotfix, language pack, atd.) a funkce se nemusí později vůbec nainstalovat.</S1264>
+			<S1265>Aktualizace očekávají, že příslušné soubory budou dostupné. V důsledku částečného odstranění balíčku (odstranění komponenty z balíčku) může nastat situace, kdy zvláště velké kumulativní aktualizace nebo jazykové balíčky se nenainstalují nebo jejich instalace opětovně skončí chybou.</S1265>
+			<S1266>Odstraníte-li komponenty z Windows, musíte být připraveni na nutnost reinstalace systému kdykoli později, právě z důvodu nutnosti získat aktualizaci nebo kvůli vrácení určité komponenty zpět.</S1266>
+			<S1281>Varování při odstranění komponenty Windows</S1281>
+			<S1541>U systému Windows 10 je možné provést obnovu systému bez z předkonfigurovaného ISO obrazu bez ztráty dat.</S1541>
+			<S1959>Ujistěte se, že takové nastavení nebo kombinaci aktuálizací nahlásíte.</S1959>
+		</Title>
+		<ReportingAndTelemetry>
+			<S0128>CEIP (SQM)</S0128>
+			<S0449>Dává klientským aplikacím schopnost zachytit, porovnat, upravit a uložit biometrická data bez přímého přístupu k biometrickému hardwaru nebo vzorkům.</S0449>
+			<S0526>Infrastruktura k záznamu událostí o havárii a jejich odeslání Microsoftu.</S0526>
+			<S0575>Ladění jádra (Kernel Debugging)</S0575>
+			<S1113>Sběr telemetrických dat a jejich odesílání Microsoftu za účelem vylepšení Windows.</S1113>
+			<S1148>Tyto služby monitorují současnou polohu systému a spravují geo-fences (a geografické pozice s přidělenými událostmi).</S1148>
+			<S1197>Sjednocený telemetrický klient (Asimov)</S1197>
+			<S1277>Biometrická služba Windows</S1277>
+			<S1283>Windows Customer Experience Improvement Program (CEIP) sbírá informace o využívání aplikací zákazníky Microsoft a o případných problémech s nimi. Microsoft užívá tyto informace ke zlepšování nejvíce používaných produktů a funkcí a k řešení problémů. Účast v programu je dobrovolná a klade si za cíl lépe porozumět zákazníkům Microsoft.</S1283>
+			<S1288>Hlášení o chybách Windows</S1288>
+			<S1297>Lokalizační služba</S1297>
+			<S1401>Správce sítě Wi-Fi (Wi-Fi Sense)</S1401>
+			<S1402>Poskytuje schopnost automaticky sdílet vaše Wi-Fi heslo s Outlookovými, Skypovými nebo Facebookovými kontakty, zajišťuje hladké využívání Wi-Fi sítě mezi přáteli.</S1402>
+			<S1444>Vzdálený přístup a soukromí</S1444>
+			<S1453>Server-Initiated Healing Client</S1453>
+			<S1454>Detekuje online a opravuje systémové komponenty, které jsou důležité pro automatické aktualizace Windows softwaru instalovanému na zařízení.</S1454>
+			<S1551>Služba sledování výkonu a zdrojů</S1551>
+			<S1552>Poskytuje nástroj pro sledování zdrojů systému. Zahrnuje Nastavení - Využití dat v síti.</S1552>
+			<S1646>Správa zařízení</S1646>
+			<S1647>Umožňuje správu zařízení na úrovni řízení korporátních a soukromých zařízení.</S1647>
+			<S1648>Správa mobilních zařízení (MDM)</S1648>
+			<S1649>Poskytuje funkce správy mobilních zařízení pro PCs, laptopy, tablety a telefony.</S1649>
+			<S1650>WAP Push služba doručování zpráv (dmwappushsvc)</S1650>
+			<S1651>Odpovídá za určení typu příchozí push zprávy a za její předání správné klientské aplikaci, která obsah zobrazí.</S1651>
+			<S1652>Poskytování Windows</S1652>
+			<S1653>Balíčky poskytování umožnují připravit jedno nebo více zařízení pro použití v korporátním prostředí. Tyto spustitelné balíčky dokáží aplikovat zásady pro použití v kanceláři i pro osobní využití.</S1653>
+			<S1654>Registrace zařízení uživatele</S1654>
+			<S1655>Vyžadováno pro připojení k doméně.</S1655>
+			<S1688>Microsoft Passport</S1688>
+			<S1689>Poskytuje izolaci procesu pro kryptografické klíče používané pro přihlášení uživatele k poskytovateli.</S1689>
+			<S1712>Mód sdíleného PC (Shared PC)</S1712>
+			<S1713>Optimalizuje Windows pro použití se sdílenými účty, jako jsou např. sdílená pracoviště v korporátním prostředí.</S1713>
+			<S1719>NDIS Packet Capturing (NDISCAP)</S1719>
+			<S1720>Zachytává síťový provoz, aby tento mohl být čten Windows Network Monitorem (NetMon).</S1720>
+			<S1735>SmartScreen</S1735>
+			<S1736>Filtr proti Phishing a Malware infiltracím, navržen k ochraně proti útokům typu skenování URL za využití seznamu potenciálně nebezpečných hrozeb.</S1736>
+			<S1803>IKE a AuthIP IPsec Keying Moduly</S1803>
+			<S1804>Služba pro přihlášení a výměnu klíčů vyžadovaná bezpečnostním protokolem IPsec.</S1804>
+			<S1805>KMS Connection Broker</S1805>
+			<S1806>Vyžadováno pro volume licensing, KMS aktivaci Windows a Office.</S1806>
+			<S1807>Windows Insider Hub</S1807>
+			<S1808>Různé nástroje pro účastníky a zpětnou vazbu v programu Windows Insider.</S1808>
+			<S1915>Vyberte odkud můžete získávat aplikace, v Aplikace &amp; funkce. Výchozí nastavení je 'Povolit aplikace odkudkoliv'.</S1915>			
+			<S1955>Povolí program uživatelské zkušenosti (NVIDIA driver)</S1955>
+			<S1957>Služba zápisu Správy zařízení</S1957>
+			<S1958>Provádí registraci aktivit pro Správu zařízení.</S1958>
+			<S1966>Přirozené přihlášení</S1966>
+			<S1967>Umožňuje hladné přihlášení pomocí vstupního senzoru a dalších věrohodných metod. Podporované funkce jsou Device Unlock, Dynamic Lock a Dynamo MDM zásady.</S1967>
+			<S1989>WaaS vyhodnocení</S1989>
+			<S1990>Poskytuje informace o aktualizacích Windows a podpoře na zařízení.</S1990>
+			<S1991>Windows as a Service (WaaS)</S1991>
+			<S1992>Přiřazený přístup (Assigned Access)</S1992>
+			<S1993>Administrátor může použít přiřazený přístup pro omezení existujícího uživatelského účtu za účelem použití pouze jediné vybrané nainstalované Windows aplikace. Lze použít pro nastavení zařízení pro jedinou funkci, jako jsou restaurační nabídky nebo zobrazení na veletrzích .</S1993>
+			<S1994>Enterprise Data Protection (EDP/WIP)</S1994>
+			<S1995>Také 'Windows Information Protection', chrání data organizace prostřednictvím vynucování definovaných zásad.</S1995>
+			<S2416>Univerzální Notifikační Platforma (UNP)</S2416>
+			<S2417>Použivá se při upgradování edice Windows a Privacy Experience (UPX), což je sada otázek Ochrany soukromí, která se může zobrazit při procesu upgradu edice. Pokud je odstraněno, existující nastavení ochrany soukromí budou při upgradu automaticky převzata.</S2417>
+			<S2433>Ovladač Network Data Usage Monitoring</S2433>
+			<S2434>Poskytuje monitoring využití dat sítě, zahrnuje také funkcionalitu Využití sítě ve Správci úloh-Procesy.</S2434>
+			<S2443>MMGA MAPI</S2443>
+			<S2444>Microsoft Messaging Application Programming Interface (MAPI) pro MMGA klienta a server.</S2444>
+			<S2445>Služba Cílený obsah (Targeted Content)</S2445>
+			<S2446>Podpora cílené reklamy přizpůsobené individuálním potřebám.</S2446>
+			<S2447>Rozpoznání obličeje</S2447>
+		</ReportingAndTelemetry>
+		<Toolbar>
+			<S0162>Sbalit vše</S0162>
+			<S0171>Kompatibilita</S0171>
+			<S0172>Ochrana funkcí</S0172>
+			<S0177>Komponenty a funkce</S0177>
+			<S0375>Rozbalit vše</S0375>
+			<S0395>Extra možnosti</S0395>
+			<S0413>Filtr</S0413>
+			<S0415>Najít další</S0415>
+			<S0416>Další nalezená položka</S0416>
+			<S0618>Podpora zařízení (Hardware lists)</S0618>
+			<S0849>Chráněné soubory</S0849>
+			<S0917>Zpět</S0917>
+			<S0919>Označit všechny komponenty k zachování.</S0919>
+			<S0957>Vyhledat</S0957>
+			<S1195>Odznačit vše</S1195>
+			<S1601>Výchozí fonty</S1601>
+		</Toolbar>
+		<List>
+			<S0176>Komponenta</S0176>
+			<S0394>Extra informace</S0394>
+			<S0728>Poznámky</S0728>
+			<S1021>Velikost</S1021>
+			<S1583>Vyžadováno pro:</S1583>
+			<S1594>Windows boot</S1594>
+			<S1609>Základní funkčnost</S1609>
+			<S1785>Aktivace Windows</S1785>
+		</List>
+		<Drivers>
+			<S0234>Datum</S0234>
+			<S0293>Exportovat ovladač</S0293>
+			<S0294>Ovladač exportován</S0294>
+			<S0297>Odinstalace ovladače</S0297>
+			<S0520>Individuální zařízení [Pokročilé]</S0520>
+			<S0698>Vyžadováno pro připojení WIM a ovladače uložiště.</S0698>
+			<S0869>Čtu informace o souborech ovladače</S0869>
+			<S0870>Čtu info o ovladači</S0870>
+			<S0969>Vyberte složku kam bude exportován ovladač</S0969>
+			<S1138>Tyto komponenty zahrnují hardwarové třídy a obecnou podporu, aby bylo vůbec možné instalovat ovladač pro daný typ hardwaru.</S1138>
+			<S1201>Odinstalovávám zařízení</S1201>
+			<S1620>Exportovatelné</S1620>
+		</Drivers>
+		<Other>
+			<S0291>Hotovo</S0291>
+			<S0344>Zadejte cestu k souboru</S0344>
+			<S0356>Chyba</S0356>
+			<S0378>Odstranění není podporováno</S0378>
+			<S0421>Zrušit přejmenování Exploreru</S0421>
+			<S0470>Hyper-V</S0470>
+			<S0472>Hyper-V host</S0472>
+			<S0513>Včetně skrytých zařízení</S0513>
+			<S0613>Uzamčeno z důvodu kompatibility</S0613>
+			<S0820>Připravuji odinstalaci ovladače</S0820>
+			<S0850>Ochrana zahrnuje skrytá a nepřipojená zařízení z vybraného seznamu (hardware list).</S0850>
+			<S0872>Restartovat</S0872>
+			<S0874>Restartovat nyní?</S0874>
+			<S0875>Zkontrolujte pod-komponenty?</S0875>
+			<S0876>Doporučeno</S0876>
+			<S0886>Vztahuje se ke komponentě:</S0886>
+			<S0899>Odstranit</S0899>
+			<S0908>Odstraňuji</S0908>
+			<S0911>Procedura přejmenování úspěšně dokončena.</S0911>
+			<S0912>Procedura přejmenování neúspěšná, prosím zkontrolujte a nahlašte chybu a připojeným souborem %temp%\NTLite.log</S0912>
+			<S0963>Pravděpodobně došlo k chybě při úpravě živé instalace, připravte si zálohu instalace, pokud se systém nepodaří úspěšně restartovat.</S0963>
+			<S1160>Zařízení s dotykovou obrazovkou</S1160>
+			<S1357>Lze odstranit pouze v režimu živé instalace.</S1357>
+			<S1398>Vyžadováno pro tlačítko Start a aplikace Metro.</S1398>
+			<S1450>Vyžadováno pro síťové připojení Windows 10.</S1450>
+			<S1451>Out-of-box Experience (OOBE)</S1451>
+			<S1767>Přehrávání videa</S1767>
+		</Other>
+	</Components>
+	<General>
+		<UI>
+			<S0002>Zrušit</S0002>
+			<S0003>OK</S0003>
+			<S0098>Modrá</S0098>
+			<S0138>Denně kontrolovat aktualizace</S0138>
+			<S0212>Kopírovat soubor</S0212>
+			<S0233>Tmavá</S0233>
+			<S0435>Místo k dispozici</S0435>
+			<S0602>Nahrát auto-konfiguraci</S0602>
+			<S0760>Přepsat</S0760>
+			<S0761>Přepsat existující soubor?</S0761>
+			<S0973>Vyberte dočasnou složku</S0973>
+			<S1009>Zobrazit Info pruh</S1009>
+			<S1118>Dočasná složka</S1118>
+			<S1119>Dočasná složka neexistuje, vracím výchozí volbu.</S1119>
+			<S1120>Dočasná složka neumožňuje zápis.</S1120>
+			<S1121>Dočasná složka musí být podadresářem oddílu.</S1121>
+			<S1122>Dočasná složka musí být umístěna na lokálním NTFS oddílu.</S1122>
+			<S1123>Dočasná složka nemá dostatek volného místa.</S1123>
+			<S1139>Zahrnuje přípojné body a dočasné soubory obrazu.</S1139>
+			<S1157>Nastavení nástrojů</S1157>
+			<S1254>Vizuální styl</S1254>
+			<S1355>Světlý</S1355>
+			<S1382>Odkládací složka (extrakce)</S1382>
+			<S1383>Odkládací místo pro balíček a další extrahované soubory. Je-li nastaveno na nejrychlejším disku, je to přínosem pro integraci balíčků.</S1383>
+			<S1501>Start</S1501>
+			<S1502>Konfigurovat</S1502>
+			<S1503>Integrovat</S1503>
+			<S1504>Automatizovat</S1504>
+			<S1505>Dokončit</S1505>
+			<S1624>Všechny soubory a složky budou smazány!</S1624>
+			<S1632>Zavřít</S1632>
+			<S1677>Instalovat</S1677>
+			<S1756>Kopírování</S1756>
+			<S1764>Ověřit soubory s obrazem</S1764>
+			<S1765>Detekuje poškození souborů z důvodu chyby disku nebo chybného připojení k síti, ale zpomaluje to operaci s obrazem díky dalším I/O operacím a extra hashovacím kontrolám.</S1765>
+			<S1766>Změna v tomto nastavení se týká pouze nově připojených obrazů.</S1766>
+			<S2410>Přeskočit vše</S2410>
+			<S2420>Překladatel</S2420>
+			<S2440>Spustit novou instanci paralelně?</S2440>
+			<S2461>Dosažen maximální počet instancí.</S2461>
+		</UI>
+		<Other>
+			<S0005>Zpracování přerušeno.</S0005>
+			<S0007>Zrušeno</S0007>
+			<S0120>Nelze získat info o dočasné složce.</S0120>
+			<S0135>Kontroluji aktualizace</S0135>
+			<S0159>Zavřít aktuální sezení?</S0159>
+			<S0160>Ukončit program?</S0160>
+			<S0178>Odstranění komponenty</S0178>
+			<S0214>Prosím zkopírujte do schránky pomocí CTRL+C a vložte do emailu adresovaného na support@ntlite.com</S0214>
+			<S0218>Vytvořit neexistující dočasnou složku?</S0218>
+			<S0256>Detekováno 'Neumožnit kompresi na všech NTFS oddílech nebo deaktivovanou NTFS kompresi na tomto zařízení. Připojení obrazu na takovém zařízení není podporováno operačním systémem. Pro pokračování zrušte omezení v nastaveních a restartujte zařízení.</S0256>
+			<S0258>Detekováno dříve zrušené zpracování tohoto zdroje. Jeho stav je neznámý a je doporučeno jej nepoužít, místo toho odpojte zdroj, nahraďte jej bezpečně funkčním obrazem nebo zálohou a znovu připojte s využitím uložené konfigurace.</S0258>
+			<S0259>Detekována nepodporovaná verze Windows.</S0259>
+			<S0295>Integrace ovladačů</S0295>
+			<S0398>Vytvoření dočasné složky selhalo.</S0398>
+			<S0402>Nastavení funkcí</S0402>
+			<S0418>Dokončeno přidání balíčků do seznamu integrací.</S0418>
+			<S0522>Info</S0522>
+			<S0523>Informace</S0523>
+			<S0597>Změna živé instalace</S0597>
+			<S0599>Živá (online) konfigurace je možná pouze v registrované verzi. Provedení změn neproběhne.</S0599>
+			<S0672>Připojené obrazy zůstanou připojené.</S0672>
+			<S0725>Není dostatek místa na disku.</S0725>
+			<S0744>Dostupné je pouze volná licence.</S0744>
+			<S0763>Integrace balíčků</S0763>
+			<S0790>Prosím zkopírujte obsah celého obrazu do zapisovatelné složky.</S0790>
+			<S0792>Prosím nainstalujte 64-bitovou verzi programu.</S0792>
+			<S0794>Prosím oznamte jakékoli problémy.</S0794>
+			<S0803>Tento program musí být restartován, aby se projevila změna nastavení jazyka.</S0803>
+			<S0829>Nahrát konfiguraci</S0829>
+			<S0832>Stiskněte OK pro otevření relevantního logu integrace ovladače. Čtěte poblíž konce souboru, před (harmless) ''unload reg hive errors''.</S0832>
+			<S0833>Předchozí instance tohoto programu je spuštěna.</S0833>
+			<S0868>Čtení dat</S0868>
+			<S0873>Pro uplatnění změn je vyžadován restart.</S0873>
+			<S0949>Uložení obecných nastavení selhalo.</S0949>
+			<S1134>Zdroj je v neznámém stavu a není doporučeno jej použít.</S1134>
+			<S1144>Tento program plně podporuje Windows 7, 8.0, 8.1 a 10 (1507/RTM, LTSB 2015, 1511, 1607, LTSB 2016), Retail, Volume a OEM; ve formě obrazů nebo živé instalace (C:\Windows).
+Částečná podpora serverových edicí, vyjma komponentů a konfigurace funkcí.
+Nepodporuje Checked/Debug a Embedded edice, ani Vista nebo XP.</S1144>
+			<S1155>Pro zvolení jiného obrazu, odpojte stávající nebo zvolte Nové sezení v panelu nástrojů.</S1155>
+			<S1190>Bezobslužná konfigurace</S1190>
+			<S1215>Aktualizovat integraci</S1215>
+			<S1222>Pro více informací použijte navigaci na stránce vlevo.</S1222>
+			<S1227>Přerušeno uživatelem</S1227>
+			<S1550>Nelze spustit 64-bitový program na 32-bitovém hostiteli</S1550>
+			<S1605>Program byl neočekávaně ukončen, omlouváme se za komplikace.
+Prosím zašlete následující soubory na adresu support@ntlite.com kvůli analýze:</S1605>
+			<S1761>Odkládací složka musí být nutně jiná než Dočasná složka Windows a tohoto programu, protože je často mazána.</S1761>
+		</Other>
+		<Menu>
+			<S0008>O programu</S0008>
+			<S0009>Zobrazení informací o programu, jeho verzi a ochranná práva</S0009>
+			<S0137>Kontrola aktualizace</S0137>
+			<S0139>Zkontroluje dostupnost nové verze programu</S0139>
+			<S0373>Konec</S0373>
+			<S0374>Ukončí aplikaci; vyzve k uložení práce</S0374>
+			<S0404>Soubor</S0404>
+			<S0619>Hlavní menu</S0619>
+			<S0880>Registrovat</S0880>
+			<S0881>Správa a aktualizace vaši licence, odemkne všechny funkce</S0881>
+			<S0998>Nastavení</S0998>
+			<S0999>Nastavení aplikace</S0999>
+			<S1158>Nástrojová lišta</S1158>
+			<S1176>Navštivte nás na Twitter @NTLite</S1176>
+			<S1627>Správa licencí</S1627>
+			<S1642>Webová stránce</S1642>
+			<S1643>E-mail</S1643>
+		</Menu>
+	</General>
+	<Source>
+		<Images>
+			<S0004>Zrušit zastaví operaci.</S0004>
+			<S0058>Auto-opravit a zkusit znovu?</S0058>
+			<S0093>64-bit</S0093>
+			<S0094>32-bit</S0094>
+			<S0103>Chyba čtení Boot sectoru, ujistěte se, že originální 'Boot' nebo 'Efi' složka je aktuální.</S0103>
+			<S0104>Bootování/Instalace</S0104>
+			<S0123>Nelze nahradit připojený obraz.</S0123>
+			<S0143>Vyberte umístění ISO souboru</S0143>
+			<S0144>Vyberte umístění kde bude uložen obraz</S0144>
+			<S0145>potvrďte Ano pro přepsání nebo Ne pro navázání na existující soubor.</S0145>
+			<S0149>čistím připojovací složku</S0149>
+			<S0183>Komprese je náročná na zařízení a vyžaduje hodně zdrojů</S0183>
+			<S0202>Konvertovat obraz do ESD formátu?</S0202>
+			<S0203>Konvertovat obraz do standardního WIM formátu?</S0203>
+			<S0213>Nejprve zkopírujte soubory do zapisovatelné složky.</S0213>
+			<S0215>Opravuji edici</S0215>
+			<S0228>Aktuální obraz bude po konverzi nahrazen, data zálohujte ručně před spuštěním operace.</S0228>
+			<S0241>Mažu dočasné soubory</S0241>
+			<S0254>Zjištěn jiný připojený obraz se stejnou připojovací cestou, ale odlišným WIM.</S0254>
+			<S0255>Zjištěn jiný připojený obraz se stejným WIM a indexem, ale odlišnou připojovací cestou.</S0255>
+			<S0257>Zjištěn používaný soubor v připojovací složce.</S0257>
+			<S0272>Ruším změny</S0272>
+			<S0287>Chcete smazat tento nadbytečný obraz ze seznamu připojených obrazů?</S0287>
+			<S0346>Zadejte velikost dílu:</S0346>
+			<S0359>Fakta o ESD (Electronic Software Download) formátu obrazu</S0359>
+			<S0380>Prozkoumat složku</S0380>
+			<S0381>Prozkoumat připojovací složku</S0381>
+			<S0384>Exportovat vše</S0384>
+			<S0390>Exportuji</S0390>
+			<S0407>Cílový soubor je otevřen v jiném programu, eventuálně připojen.</S0407>
+			<S0422>Příznaky</S0422>
+			<S0432>Nalezen a používám oscdimg v kořenové složce aplikace.</S0432>
+			<S0462>Vysoká komprese, pouze pro čtení</S0462>
+			<S0468>Operační systém Windows hlásí, že se nachází v módu konfigurace komponentů .</S0468>
+			<S0479>Pokud některé balíčky byly dříve odstraněny z obrazu, prosím restartujte sezení s použitím originálního nedotčeného obrazu.</S0479>
+			<S0480>V případě, že problém je neočekávaně přetrvává, prosím zkontrolujte ručně aktualizaci na oficiálních stránkách a zkuste operaci opakovat s nejnovější verzí, případně nás kontaktujte emailem.</S0480>
+			<S0483>Pokud zbývají ve frontě změny, ujistěte se, že obraz bude nejprve odpojen a uložen ještě před vytvořením ISO souboru.</S0483>
+			<S0486>Export obrazu</S0486>
+			<S0487>Export obrazu se nezdařil. Možná se jedná o zašifrovaný ESD obraz. Pokud je tomu tak, prosím vyhledejte a použijte 'ESD Decrypt' k převedení zašifrovaného ESD na ISO formát. Nebo získejte oficiální Media Download Tool (nezašifrovaný ESD) verzi obrazu, která je plně podporovaná.</S0487>
+			<S0488>Historie obrazů</S0488>
+			<S0489>Obraz je otevřen v jiné aplikaci.</S0489>
+			<S0490>Obraz je pouze pro čtení.</S0490>
+			<S0491>Spojit obraz</S0491>
+			<S0492>Načíst obraz</S0492>
+			<S0493>Obraz může být k nepoužitelný a jeho úprava by měla být znovu spuštěna až po restartu systému.</S0493>
+			<S0494>Připojit obraz</S0494>
+			<S0495>Uložit obraz</S0495>
+			<S0496>Rozdělit obraz</S0496>
+			<S0497>Rozdělení obrazu není zapotřebí, jeho velikost je menší než požadovaná velikost dílu</S0497>
+			<S0498>Odpojit obraz</S0498>
+			<S0499>Odpojení obrazu bez uložení změn</S0499>
+			<S0503>Obrazy</S0503>
+			<S0553>Neplatné</S0553>
+			<S0556>Neplatná cesta Windows obrazu</S0556>
+			<S0558>ISO obraz</S0558>
+			<S0559>ISO obraz bude vytvořen z kompletní složky</S0559>
+			<S0560>ISO popisek</S0560>
+			<S0596>Živá instalace</S0596>
+			<S0598>Čtu živou instalaci</S0598>
+			<S0604>Načteno</S0604>
+			<S0621>Ujistěte se, že hnízda registru nejsou otevřena v jiném nástroji a zkuste znovu.</S0621>
+			<S0652>Minimální funkční velikost dílu tohoto obrazu</S0652>
+			<S0653>Minimální doporučená velikost dílu rozdělení pro Windows 7 je 200MB kvůli omezení Windows Setup.
+Pokud instalace z tohoto obrazu se zasekne a trvá příliš dlouho po 'Rozbaluji Windows soubory', konvertujte obraz zpět do WIM a vyzkoušejte větší velikost dílu rozdělení.</S0653>
+			<S0654>Varování k minimální velikosti dílu rozdělení</S0654>
+			<S0659>Postrádám očekávaný registr System User.</S0659>
+			<S0660>Poškozený údaj o připojení, je striktně doporučeno odstranit jej nebo bude docházet k chybám při připojování jakéhokoli obrazu.</S0660>
+			<S0669>Připojit obraz</S0669>
+			<S0670>Připojeno</S0670>
+			<S0671>Připojené obrazy</S0671>
+			<S0673>Připojuji obraz</S0673>
+			<S0674>Cesta připojení</S0674>
+			<S0723>Žádný</S0723>
+			<S0727>Poznámka: nejedná se o aktuálně načtený obraz, provedení změn tímto programem vyžaduje nejprve připojení obrazu.</S0727>
+			<S0750>Operační systém</S0750>
+			<S0751>Operační systémy</S0751>
+			<S0791>Prosím smažte jej a nahraďte funkčním obrazem.</S0791>
+			<S0793>Prosím restartujte zařízení a zkuste znovu.</S0793>
+			<S0797>Prosím zkuste znovu až bude k dispozici dostatek zdrojů, nebo zrušte operaci a restartujte zařízení.</S0797>
+			<S0799>Prosím zkopírujte složku obsahující Windows setup DVD, ISO nebo USB obsah do zapisovatelné složky a vyberte ji jako zdroj.
+Pro získání obsahu z ISO, buď připojte soubor a zkopírujte obsah v průzkumníku nebo obsah rozbalte pomocí 7-zip.</S0799>
+			<S0800>Prosím vyberte WIM obraz, běžně se jménem Install.wim nebo Boot.wim z Windows setup DVD, ISO nebo USB obsahu, podsložka Sources.</S0800>
+			<S0801>Prosím odpojte všechny připojené edice (modrá ikona) tohoto obrazu a zkuste znovu.</S0801>
+			<S0802>Prosím odpojte oba obrazy restart proces.</S0802>
+			<S0822>Připravuji soubory pro ISO obraz.</S0822>
+			<S0863>Pouze pro čtení. K editování obrazu je zapotřebí jeho konverze zpět do WIM formátu</S0863>
+			<S0865>Načíst registr.</S0865>
+			<S0877>Aktualizujte až bude dostupné</S0877>
+			<S0885>Odpojit registr</S0885>
+			<S0898>Vyjmutí u této edice Windows není podporováno.</S0898>
+			<S0914>Znovu otevírám obraz</S0914>
+			<S0915>Nahraďte zdrojový obraz</S0915>
+			<S0924>Zkusit znovu</S0924>
+			<S0925>Počet opakování</S0925>
+			<S0940>Uložit změny do obrazu</S0940>
+			<S0948>Ukládám změny do obrazu</S0948>
+			<S0950>Zapisuji ISO obraz</S0950>
+			<S0968>Vyberte složku s instalačními soubory Windows</S0968>
+			<S0977>Vyberte soubor obrazu Windows</S0977>
+			<S0982>Vybraná složka pro vytvoření ISO souboru obsahuje připojené obrazy.</S0982>
+			<S0984>Vybraný zdroj je již v seznamu</S0984>
+			<S0996>Chcete nastavit velikost na</S0996>
+			<S1046>Seznam zdrojů</S1046>
+			<S1049>Spanned, split</S1049>
+			<S1054>Rozdělený obraz není oficiálně podporován Microsoftem na Windows 8 a novějším.
+Na druhou stranu je funkčnost zajištěna, pokud je velikost dílu dostatečná.
+Minimální doporučená velikost dílu pro Windows 8 a novější je polovina velikosti finálního obrazu.
+Pokud se instalace zasekne při bootu a vyžaduje produktový klíč nebo licenci Windows, přesto že byla zadána planá data, konvertujte zpět do WIM formátu a zkuste znovu s větším oddílem.</S1054>
+			<S1055>Rozdělit obraz na díly</S1055>
+			<S1057>Rozdělí vybraný WIM obraz do více SWM dílů?</S1057>
+			<S1059>Rozděluji</S1059>
+			<S1061>Standardní, editovatelný</S1061>
+			<S1073>Zastaveno před uložením dat do obrazu. Odpojte obraz ručně ze seznamu zdrojů.</S1073>
+			<S1087>Podporováno pouze pro instalaci Windows 8 a novější</S1087>
+			<S1130>Obraz je poškozen.</S1130>
+			<S1131>Obraz může být poškozen.</S1131>
+			<S1140>Tento obraz není podporován.</S1140>
+			<S1145>Program využívá Windows IMAPI 2 pro operace s ISO soubory, ujistěte se, že Váš operační systém má funkční IMAPI komponentu. Případně zkopírujte oscdimg.exe do kořenové složky (k ntlite.exe), což zajistí jeho použití.</S1145>
+			<S1154>Pro uložení změn tímto programem použijte stránku vlevo Aplikovat změny.</S1154>
+			<S1171>Nejprve zkuste odpojení.</S1171>
+			<S1179>Zadejte popisek ISO obrazu:</S1179>
+			<S1204>Odpojit obraz</S1204>
+			<S1205>Odpojení registru selhalo.</S1205>
+			<S1207>Odpojuji obraz, ruším změny</S1207>
+			<S1208>nebezpečný</S1208>
+			<S1210>Nepodporovaná architektura obrazu.</S1210>
+			<S1211>nepodporovaná odebrání</S1211>
+			<S1257>Čekání na akci aktuálního sytému (cca 40 opakování).</S1257>
+			<S1267>Varování</S1267>
+			<S1273>Při otevírání složky pro připojení, buďte opatrní a nenechávejte otevřené žádné soubory a podadresáře při ukládání obrazu, jinak bude uložený obraz poškozený.</S1273>
+			<S1340>Vybraný zdroj je izolovaným obrazem, proto možnost Vytvořit ISO bude zamezená.
+Pro plnou funkčnost byste měli zkopírovat Windows setup DVD, ISO nebo USB obsah a znovu jej připojit z pracovní složky.</S1340>
+			<S1341>Izolováno</S1341>
+			<S1351>Obraz byl změněn, seznam aktualizován, prosím vyzkoušejte znovu.</S1351>Vyverte 
+			<S1542>Vybraný zdroj je živý, již na nainstalovaný sytém Windows. Stránky Bezobslužně, Po-Instalaci, Integrace registru, Přidat  ovladače a Vytvořit ISO budou neaktivní, protože jsou určeny pouze pro práci s obrazy.</S1542>
+			<S1621>Je možné, že tento obraz se nachází na sdíleném síťovém umístění s omezeným počtem připojení, přičemž došlo k vyčerpání počtu připojení.</S1621>
+			<S1760>Operace s obrazem zrušena, vyskytla se chyba.</S1760>
+			<S1774>Nekompatibilní</S1774>
+			<S1776>Soubor je právě používán nebo přístup odepřen. Může být důsledkem skenování antivirem, prosím zkuste znovu.
+Pokud bylo zrušeno, program upozorní pokud by byla operace klíčová a zruší proces.</S1776>
+			<S1813>Smazat vybranou edici obrazu?</S1813>
+			<S1974>Vyberte umístění nového souboru s obrazem, nebo místo pro spojení s existujícím obrazem.</S1974>
+		</Images>
+		<Toolbar>
+			<S0020>Přidat</S0020>
+			<S0023>Soubor obrazu (WIM, ESD, SWM)</S0023>
+			<S0024>Přidá obraz Windows do seznamu</S0024>
+			<S0155>Klonovat</S0155>
+			<S0158>Vytvoří duplikát vybrané konfigurace</S0158>
+			<S0201>Konvertovat</S0201>
+			<S0205>Konvertuje vybraný obraz do WIM, ESD nebo SWM formátu.</S0205>
+			<S0206>Konvertovat do ESD</S0206>
+			<S0207>Konvertuje vybraný obraz do vysoce komprimovaného ESD formátu, podporováno ve Windows 8 a novějším.</S0207>
+			<S0208>Konvertovat do SWM (rozdělený obraz)</S0208>
+			<S0209>Konvertuje vybraný obraz do rozděleného SWM obrazu; známé jako rozdělení obrazu. Používáno např. pro překonání FAT32 omezení na 4GB velikost jednotlivého souboru, popř. pro uložení instalace na více médií.</S0209>
+			<S0210>Konvertovat do WIM</S0210>
+			<S0211>Konvertuje vybraný obraz do standardního WIM formátu, vhodného pro připojení a úpravy.</S0211>
+			<S0220>Vytvořit ISO</S0220>
+			<S0221>Vytvořit ISO obraz z vybrané složky s instalací Windows. Nelze vytvořit ISO z živé instalace Windows (Live install).</S0221>
+			<S0238>Vymazat</S0238>
+			<S0240>Vymazat vybranou konfiguraci</S0240>
+			<S0383>Exportovat</S0383>
+			<S0391>Exportovat vybranou konfiguraci do souboru</S0391>
+			<S0427>Zapomenout</S0427>
+			<S0428>Odebere vybranou položku ze seznamu obrazů</S0428>
+			<S0484>Obraz</S0484>
+			<S0501>Složka s obrazem</S0501>
+			<S0502>Přidat složku s obrazem Windows do seznamu</S0502>
+			<S0505>Importovat</S0505>
+			<S0512>Importuje externí konfiguraci do seznamu</S0512>
+			<S0600>Načíst</S0600>
+			<S0605>Pokud je třeba připojí a načte vybraný zdroj pro úpravy</S0605>
+			<S0607>Načte a aplikuje dříve uložená nastavení</S0607>
+			<S0715>Nový</S0715>
+			<S0716>Resetuje všechna aktuální nastavení do výchozího stavu</S0716>
+			<S0717>Nové sezení</S0717>
+			<S0718>Začte nové sezení, možno načíst další zdroj bez odpojení existujících připojení.</S0718>
+			<S0824>Konfigurace</S0824>
+			<S0878>Obnovit seznamy</S0878>
+			<S0879>Znovu načíst seznamy obrazů a konfigurací</S0879>
+			<S0910>Přejmenovat</S0910>
+			<S0913>Přejmenuje vybranou konfiguraci</S0913>
+			<S0937>Uložit</S0937>
+			<S0938>Uložit jako...</S0938>
+			<S0939>Uložit stav do konfigurace</S0939>
+			<S0943>Uložit současná nastavení do specificky pojmenované konfigurace</S0943>
+			<S0947>Uložit současná nastavení do vybrané konfigurace</S0947>
+			<S1203>Uvolnit</S1203>
+			<S1206>Uvolní a odpojí vybraný zdroj s možností uložit provedené změny v obrazu</S1206>
+			<S1420>Zkomprimovat znovu</S1420>
+			<S1622>Zjištěna příliš dlouhá cesta, přesuňte instalační soubory do umístění s kratší cestou a znovu opakujte tento krok.</S1622>
+			<S1623>Přeskočené soubory.</S1623>
+		</Toolbar>
+		<Presets>
+			<S0057>Auto-uložená sezení</S0057>
+			<S0142>Vyberte cíl pro exportovanou konfiguraci</S0142>
+			<S0156>Duplikovat konfiguraci</S0156>
+			<S0157>Duplikuje vybranou konfiguraci</S0157>
+			<S0174>Hotovo</S0174>
+			<S0175>Dokončeno načtení více konfigurací.</S0175>
+			<S0239>Smazat vybrané konfigurace?</S0239>
+			<S0251>Jméno cíle</S0251>
+			<S0252>Jméno cílové konfigurace</S0252>
+			<S0313>Upravit XML</S0313>
+			<S0506>Importováno</S0506>
+			<S0511>Importovat konfiguraci</S0511>
+			<S0555>neplatný soubor konfigurace</S0555>
+			<S0584>Poslední změna</S0584>
+			<S0603>Načíst konfiguraci</S0603>
+			<S0661>Chybějící konfigurace</S0661>
+			<S0756>Původní jméno</S0756>
+			<S0825>Duplikovat konfiguraci</S0825>
+			<S0826>Konfigurace smazána</S0826>
+			<S0827>Exportovat konfiguraci</S0827>
+			<S0828>Konfigurace exportována</S0828>
+			<S0830>Jméno konfigurace</S0830>
+			<S0831>Konfigurace</S0831>
+			<S0867>Načíst XML</S0867>
+			<S0918>Vrátit změny na všech stranách do výchozího stavu obrazu?</S0918>
+			<S0941>Uložit (přepsat)</S0941>
+			<S0942>Uložit nastavení</S0942>
+			<S0972>Vybrat soubory konfigurace pro import</S0972>
+			<S1180>Zadejte jméno nové nebo stávající konfigurace pro uložení změn nastavení v obrazu.</S1180>
+			<S1181>Zadejte nové jméno konfigurace</S1181>
+			<S1343>pro filtrování pište sem</S1343>
+		</Presets>
+		<Title>
+			<S0601>Načtěte stávající zdroj ze seznamu, nebo do něj přidejte nový pomocí nástrojového pruhu výše.</S0601>
+			<S1044>Zdroj</S1044>
+			<S1045>Zdrojem může být Windows DVD, USB nebo obsah ISO obrazu zkopírovaný do zapisovatelné složky.</S1045>
+		</Title>
+		<Wizards>
+			<S1742>Změna hosta</S1742>
+			<S1743>Tento průvodce pomůže aktualizovat nebo změnit aktuální instalaci (C:\Windows) beze ztráty souborů, nastavení nebo aplikací třetích stran.</S1743>
+			<S1744>tato metoda je hlavně užitečná při:
+ - instalaci kumulativních aktualizací na lehké instalaci
+ - upgrade s předkonfigurovaným obrazem Windows
+ - změna konfigurace komponentů
+ - obecně při obnovení</S1744>
+			<S1745>Otevřít místo toho průvodce Změna hosta?</S1745>
+			<S1746>Vyberte základní, neupravený, plný obraz Windows 10:</S1746>
+			<S1747>Filtrovat seznam podle edice a architektury</S1747>
+			<S1748>Kopírovat do dočasné lokace během úprav</S1748>
+			<S1749>Vyberte konfiguraci:</S1749>
+			<S1750>Požádat o ruční úpravu před instalací</S1750>
+			<S1751>Čekání na ruční pokračování ze stránky Aplikovat když je připraveno.</S1751>
+			<S1752>Doporučeno je přidat nejnovější kumulativní aktualizace na stráně Aktualizace.</S1752>
+			<S1753>Spusťte setup.exe v režimu upgradu a spusťte znovu</S1753>
+			<S1754>Tento průvodce vyžaduje obraz obsahující setup.exe a kompletním obsahem ISO obrazu.</S1754>
+			<S1755>Vyskytla se chyba při spouštění Windows Setup Refresh, můžete zkusit ruční spuštění.</S1755>
+			<S1757>Průvodce</S1757>
+			<S1758>Instalace aktualizací</S1758>
+			<S1759>Pomáhá rychle instalovat již stažené aktualizace.</S1759>
+		</Wizards>
+		<Tasks>
+			<S1772>Vyberte, které úkony s obrazem automatizovat během procesu. Aktuálně načtený obraz a zadané změny jsou referenční.</S1772>
+			<S1773>Odebrat úkony s obrazem do výchozího stavu obrazu při zachování všech zadaných změn.</S1773>
+			<S1775>Úkony s obrazem</S1775>
+			<S1791>Zvolte OK pro pokračování na další edici obrazu. Tato zpráva se nezobrazí pokud je program plně licencován.</S1791>
+			<S1792>Vyberte úkony s obrazem</S1792>
+			<S1793>Přehled všech plánovaných úkonů</S1793>
+			<S1794>Mód uložení</S1794>
+			<S1795>Uložit obraz</S1795>
+			<S1796>Uložit obraz a odstranit ostatní edice</S1796>
+			<S1797>Optimalizovat strukturu obrazu</S1797>
+			<S1798>Odstranit okrajové edice</S1798>
+			<S1799>Formát obrazu</S1799>
+			<S1800>Fronta úkonů s obrazem (aplikovat plánované úkony na další edice)</S1800>
+			<S1801>Nezálohovat výpis a konfiguraci</S1801>
+			<S1802>Uložit změny v obrazu</S1802>
+		</Tasks>
+	</Source>
+	<Updates>
+		<Other>
+			<S0006>Přerušit</S0006>
+			<S0111>Datum buildu</S0111>
+			<S0118>Zrušeno</S0118>
+			<S0119>Nelze najít DISM. Ruším ovlivněné možnosti pro toto sezení.</S0119>
+			<S0161>Zavírám DISM</S0161>
+			<S0179>Uložiště komponentů je porušeno, prosím zkopírujte původní obraz a začněte znovu.</S0179>
+			<S0197>Pokračovat</S0197>
+			<S0226>Klíčové soubory jsou používány jiným procesem.</S0226>
+			<S0227>Klíčový balíček nebyl nalezen, prosím oznamte podpoře s připojeným souborem výpisu.</S0227>
+			<S0372>Existující balíčky</S0372>
+			<S0396>Rozbalit</S0396>
+			<S0531>Instalace ve frontě</S0531>
+			<S0533>Nainstalováno</S0533>
+			<S0540>Integrováno</S0540>
+			<S0541>Integrovaný Runonce</S0541>
+			<S0606>Čtu...</S0606>
+			<S0642>Zprávy</S0642>
+			<S0657>Chybí klíčové soubory.</S0657>
+			<S0668>Složka pro připojení se pravděpodobně používá. Tento program ukončí všechny DISM sezení na zařízení, ujistěte se, že nemáte žádné další probíhající DISM operace předtím, než budete pokračovat.
+Pokud víte, co zapříčinilo tuto chybu, vyberte Zrušit jakmile bude přístup do složky ukončen.</S0668>
+			<S0720>Ne</S0720>
+			<S0739>Jedna nebo více mateřských funkcí je deaktivována, proto nelze funkci aktivovat.</S0739>
+			<S0747>Otevřít umístění souboru</S0747>
+			<S0749>Otevřít webový článek</S0749>
+			<S0752>Operace není podporována.</S0752>
+			<S0753>Operace vyžaduje chybějící soubory.</S0753>
+			<S0764>Balíček není možné použít s tímto obrazem.</S0764>
+			<S0767>Balíčky</S0767>
+			<S0782>Cesta</S0782>
+			<S0784>Zjištěna čekající operace s registrem.</S0784>
+			<S0796>Prosím restartujte a zkuste znovu.</S0796>
+			<S0798>Prosím vyberte jiný obraz nebo zkuste nejprve restartovat zařízení.</S0798>
+			<S0864>Načíst info o balíčku</S0864>
+			<S0871>Čtu info o balíčku</S0871>
+			<S0887>Typ releasu</S0887>
+			<S0967>Vyberte složku obsahující aktualizace nebo jazykové balíčky</S0967>
+			<S0974>Vyberte aktualizaci nebo jazykový balíček pro přidání</S0974>
+			<S1029>Přeskakuji aktuální operaci.</S1029>
+			<S1047>Požadavky SP1</S1047>
+			<S1060>Inscenováno</S1060>
+			<S1078>Nahrazeno</S1078>
+			<S1129>Obraz byl poškozen chybou při offline servisním zásahu a žádný další zásah není dovolen.</S1129>
+			<S1135>Uvedený obraz neobsahuje klíčové soubory vyžadované pro pokračování nebo se některé soubory právě používají.</S1135>
+			<S1136>Uvedený obraz není v platném stavu.</S1136>
+			<S1162>Nečitelný a nepodporovaný soubor</S1162>
+			<S1165>Existující položka</S1165>
+			<S1167>Neexistující cesta k souboru</S1167>
+			<S1199>čekající odinstalace</S1199>
+			<S1200>Odinstalováno</S1200>
+			<S1213>Aktualizace</S1213>
+			<S1240>Verze</S1240>
+			<S1332>Ano</S1332>
+			<S1356>Chybná architektura</S1356>
+			<S1370>Nesplněné požadavky</S1370>
+			<S1371>Není doporučeno</S1371>
+			<S1372>Zpomaluje poslední fázi instalace, vlastně se nejedná o nutnou aktualizaci, zkontrolujte online KB článek.</S1372>
+			<S1396>Znemožňuje použití funkce .NET Framework v3.5, ujistěte se, že je aktivováno předem případně před instalací tohoto.</S1396>
+			<S1397>Může způsobit problém zacyklení restartu zařízení, pokud není použit zavaděč Windows (při bootu). Ujistěte se, že nastavení BIOSu přímo dovoluje použít zavaděč Windows pokud je nainstalována tato aktualizace.</S1397>
+			<S1544>Může způsobit problémy aplikací běžících na .NET Framework v4.6.</S1544>
+			<S1573>Microsoft doporučuje aktualizaci na RDP 8.1 a nepoužívat RDP 8.0.</S1573>
+			<S1574>Tato aktualizace může být jen pro specifické verze Windows 10</S1574>
+			<S1584>Chybějící</S1584>
+			<S1585>Zpracovávám</S1585>
+			<S1586>Vyřešeno</S1586>
+			<S1587>Inscenuji</S1587>
+			<S1588>Částečně instalováno</S1588>
+			<S1589>Trvalé</S1589>
+			<S1592>Může poškodit obraz, pokud bylo integrováno z Windows 7. Je vhodné provést integraci této aktualizace z prostředí OS Windows 8.1 nebo 10.</S1592>
+			<S1593>Jedná se o omezení Windows, nikoliv o chybu NTLite.</S1593>
+			<S1618>Zkontrolujte následující:
+- Použití Windows 7 pro integraci kumulativních aktualizací Windows 10, použijte Windows 8.1 nebo 10 (může být virtuální stroj)
+- Podrobnosti na straně Aktualizace můžou obsahovat užitečné tipy
+- Existují aktualizace pro servisní zásobník tohoto obrazu
+- Integrace aktualizací pro špatnou verzi Windows, tj. např. aktualizace pro Windows 10 1511 (10586) na obrazu Windows 10 RTM (10240)
+- Dřívější odstranění komponentů z tohoto obrazu před tímto sezením</S1618>
+			<S1625>Nezapomeňte přidat závislost na straně Po-instalační úkony před provedením aktualizací, jinak může instalace zatuhnout při Dokončování.</S1625>
+			<S1626>nebo</S1626>
+			<S1762>Otevřit webové stažení</S1762>
+			<S1956>Zjištěny čekající operace se soubory, není vhodné odstraňovat komponenty pokud je operační systém v tomto stavu!
+Příčinou může být konfigurace funkcí, samočištění nebo aktualizace Windows.
+Zkuste znovu po restartovaní Windows.
+
+Někdy je potřeba změnit stav libovolné funkce a spustit následující příkaz s oprávněním administrátora, aby se provedly čekající změny souborů Windows:
+DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase</S1956>
+		</Other>
+		<Title>
+			<S0022>Přidat aktualizace nebo jazykové balíčky do seznamu. Pro červeně označené balíčky použijte Analyzovat.</S0022>
+			<S1217>Aktualizace</S1217>
+		</Title>
+		<Toolbar>
+			<S0424>Nalezeny balíčky ve složce a podsložkách</S0424>
+			<S0765>Soubory balíčků</S0765>
+			<S0766>Přidat balíček do fronty integrací</S0766>
+			<S0907>Odstranit vybrané položky z fronty</S0907>
+			<S0978>Vybrat vše</S0978>
+			<S1216>Aktualizovat frontu</S1216>
+			<S1368>Analyzovat</S1368>
+			<S1369>Zobrazí doporučené kroky ve vztahu k aktualizacím v seznamu, jako jsou nesplněné požadavky pro aktualizaci nebo doporučené postupy. Aktivní pouze pokud byla zjištěna konfliktní (červeně) aktualizace.</S1369>
+			<S1617>Odznačit vše</S1617>
+		</Toolbar>
+	</Updates>
+	<Licensing>
+		<Other>
+			<S0015>Aktivuji licenci...</S0015>
+			<S0121>Nelze načít info o disku.</S0121>
+			<S0122>Nelze načít info o síťovém adaptéru.</S0122>
+			<S0133>Prosím zkontrolujte následující a zkuste znovu:
+ - Datum a čas v zařízení musí být správné
+ - Ujistěte se, že máte nejnovější verzi z ntlite.com
+ - Ujistěte se, že firewall neblokuje připojení</S0133>
+			<S0134>Zkontrolujte připojení k internetu a zkuste opakovat později.</S0134>
+			<S0341>Užívejte potenciál plné verze!</S0341>
+			<S0357>Chyba v odezvě serveru.</S0357>
+			<S0426>Pro opětovnou aktivaci nás kontaktujte s využitím emailu, který jste obdrželi při zakoupení licence, nebo uveďte detaily k objednávce pro ověření nákupu.</S0426>
+			<S0436>Volná verze má určitá omezení ve funkcích.</S0436>
+			<S0537>Nedostatečné info o hardwaru</S0537>
+			<S0554>Chybný kód licence.</S0554>
+			<S0590>Aktivace licence selhala.</S0590>
+			<S0591>Aktivace licence nebude fungovat.</S0591>
+			<S0592>Kód licence</S0592>
+			<S0593>Licence úspěšně obnovena bez vyčerpání online aktivace.</S0593>
+			<S0741>Online aktivace vyčerpána.</S0741>
+			<S0748>Otevřít stránku v prohlížeči s odkazem na stažení instalátoru?</S0748>
+			<S0789>Prosím ZÁLOHUJTE Vaši aktivaci exportováním souboru licence.dat. Volitelně zálohujte také soubor settings.xml obsahující obecná nastavení. Oba soubory naleznete ve složce, kde je program nainstalován.</S0789>
+			<S0795>Prosím ohlaste neočekávané chyby.</S0795>
+			<S0841>Program se sám restartuje, aby se projevily změny.</S0841>
+			<S0889>k dispozici je více online aktivací, poté zůstane platná pouze aktivace emailem.</S0889>
+			<S0991>Chyba servisního připojení</S0991>
+			<S0992>Vypršel čas servisního připojení.</S0992>
+			<S1127>Děkujeme za podporu NTLite a příspěvek k dalšímu vývoji a vylepšením produktu.</S1127>
+			<S1214>Nová aktualizace</S1214>
+			<S1333>Již máte nejnovější verzi.</S1333>
+			<S1336>Aktivace licence proběhla úspěšně.</S1336>
+			<S1426>Znovu aktivovat online s tímto klíčem?</S1426>
+			<S1427>Tato akce vyčerpá jednu online aktivaci.</S1427>
+			<S1428>Odebrat existující aktivaci?</S1428>
+			<S1543>Kód naleznete v emailu 'Potvrzení objednávky', pod:
+Your licence name is: Jméno
+Your licence code is: [KOPÍROVAT]</S1543>
+			<S1635>Prosím zadejte kód pro upgrade nebo zavřete toto okno.</S1635>
+			<S1636>Offline obnova licence se nezdařila, zkontrolujte kód nebo znovu aktivujte online.</S1636>
+			<S1640>Chyba kopírování souboru</S1640>
+			<S1641>Soubor úspěšně zkopírován.</S1641>
+			<S2437>Tato licence je zablokovaná. Pravděpodobně byla nahrazena novým kódem, prosím kontaktujte podporu v případě, že si nevíte rady.</S2437>
+			<S2438>Ujistěte se, že používáte nejnovější verzi aplikace z ntlite.com</S2438>
+		</Other>
+		<UI>
+			<S0146>Vyberte vaši licenci.</S0146>
+			<S0345>Zadejte kód vaší licence</S0345>
+			<S0434>Volná (omezená, nekomerční použití)</S0434>
+			<S0589>Licence</S0589>
+			<S0594>Licencováno</S0594>
+			<S0667>Více info</S0667>
+			<S1212>Dokud nebude aktivována licence, prémiové funkce nebudou dostupné.</S1212>
+			<S1218>Upgrade</S1218>
+			<S1253>Navštívit webovou stránku</S1253>
+			<S1338>Vaše licence vyžaduje opětovnou aktivaci online, zkontrolujte kód klíče a stiskněte OK pro pokračování.</S1338>
+			<S1392>Home (jednomístná, nekomerční použití)</S1392>
+			<S1393>Professional (jednomístná, komerční)</S1393>
+			<S1394>Business (jednomístná, komerční)</S1394>
+			<S1395>Enterprise (vícemístná, komerční)</S1395>
+			<S1430>Vaše licence je již aktivovaná.</S1430>
+			<S1611>Zapomenout kód</S1611>
+			<S1612>Získání faktury, zapomenutého kódu nebo dotazy k platbě, kontaktujte podporu NTLite.</S1612>
+			<S1613>Kontakt podpory</S1613>
+			<S1614>Email support@ntlite.com</S1614>
+			<S1615>Zakoupit/Upgrade</S1615>
+			<S1616>Vzdálená/Offline aktivace</S1616>
+			<S1628>Předplatné nových funkcí do</S1628>
+			<S1629>licence potřebuje obnovit, aktivace nebude vyčerpána, stiskněte OK pro pokračování.</S1629>
+			<S1630>Předplatné k novým prémiovým funkcím vypršelo, můžete upgradovat v obchodě nebo pokračovat v užívání programu po zavření okna.
+Vaše licenci lze použít, prémiové funkce budou deaktivovány po skončení předplatného.</S1630>
+			<S1631>Dokud nebude licence obnovena, prémiové funkce přidané od verze 1.2 a vyšší budou nepřístupné.</S1631>
+			<S1633>Aktuální licence</S1633>
+			<S1634>Podpora</S1634>
+			<S1637>Vyberte dříve uložený soubor licence (např. licence.dat)</S1637>
+			<S1638>Vyberte umístění kde bude uložena záložní kopie licence</S1638>
+			<S1639>soubor licence importován, prosím zadejte platný kód licence a stiskněte OK.</S1639>
+			<S1716>Zjištěna nově podporovaná verze Windows. Stávající prémiové funkce musí být průběžně přizpůsobovány, aby byla nová verze Windows podporována.</S1716>
+		</UI>
+	</Licensing>
+	<Unattended>
+		<Other>
+			<S0016>Aktivní</S0016>
+			<S0028>Administrátoři</S0028>
+			<S0061>Automatické přihlášení k tomuto uživateli</S0061>
+			<S0063>Automatické přihlášení</S0063>
+			<S0190>Potvrdit heslo</S0190>
+			<S0217>Vytvořit</S0217>
+			<S0219>Vytvořit oddíl</S0219>
+			<S0224>Přihlašovací informace</S0224>
+			<S0229>Uživatelský</S0229>
+			<S0230>Uživatelská skupina</S0230>
+			<S0273>Disk</S0273>
+			<S0274>Konfigurace disku</S0274>
+			<S0278>ID disku</S0278>
+			<S0281>Zobrazit jméno</S0281>
+			<S0285>Neformátovat</S0285>
+			<S0288>Doména</S0288>
+			<S0289>Jméno domény</S0289>
+			<S0292>Písmeno disku</S0292>
+			<S0319>Aktivovat vestavěného Administrátora použitím tohoto účtu</S0319>
+			<S0342>Zadejte uživatelskou skupinu</S0342>
+			<S0343>Zadejte jméno domény</S0343>
+			<S0347>Zadejte popisek oddílu</S0347>
+			<S0348>Zadejte heslo</S0348>
+			<S0350>Zadejte popis uživatele</S0350>
+			<S0351>Zadejte zobrazované jméno uživatele</S0351>
+			<S0353>Zadejte uživatelské jméno</S0353>
+			<S0354>Zadejte jméno pracovní skupiny</S0354>
+			<S0392>Rozšířit</S0392>
+			<S0429>Formátovat</S0429>
+			<S0451>Skupina</S0451>
+			<S0475>ID</S0475>
+			<S0476>Identifikace</S0476>
+			<S0532>Nainstalovat do tohoto oddílu</S0532>
+			<S0567>Připojit k doméně</S0567>
+			<S0568>Připojit k pracovní skupině</S0568>
+			<S0580>Popis</S0580>
+			<S0588>Písmeno</S0588>
+			<S0608>Místní účet</S0608>
+			<S0609>Místní účty</S0609>
+			<S0615>Počet přihlášení</S0615>
+			<S0617>Heslo zařízení</S0617>
+			<S0636>Maximum (rozšíření)</S0636>
+			<S0665>Upravit</S0665>
+			<S0666>Upravit oddíl</S0666>
+			<S0681>Jméno</S0681>
+			<S0755>Příkaz</S0755>
+			<S0775>Oddíl</S0775>
+			<S0776>ID oddílu</S0776>
+			<S0777>ID oddílu nebo písmeno disku již nakonfigurováno.</S0777>
+			<S0778>Změna oddílů</S0778>
+			<S0779>Oddíly</S0779>
+			<S0780>Heslo</S0780>
+			<S0781>Hesla se neshodují</S0781>
+			<S0815>Prémiové funkce</S0815>
+			<S0862>Znovu zadejte heslo</S0862>
+			<S1001>Nastavení instalace</S1001>
+			<S1024>Přeskočit nastavení místního účtu</S1024>
+			<S1025>Přeskočit nastavení online účtu</S1025>
+			<S1152>Časový limit [minuty 5-60]</S1152>
+			<S1188>Nepřiřazeno</S1188>
+			<S1209>Nezabezpečené připojení</S1209>
+			<S1229>Uživatelské účty</S1229>
+			<S1230>Uživatel již existuje</S1230>
+			<S1234>Uživatelské jméno</S1234>
+			<S1274>Při přeskakování průvodce místního účtu, ujistěte se, že je přidán alespoň jeden místní účet nebo jste součást domény, jinak nebude možné se později přihlásit.</S1274>
+			<S1320>Smazat disk</S1320>
+			<S1326>Pracovní skupina</S1326>
+			<S1327>Jméno pracovní skupiny</S1327>
+			<S1385>Primární</S1385>
+			<S1386>Rozšířený</S1386>
+			<S1387>Logický</S1387>
+			<S1522>Pro obnovení</S1522>
+			<S1525>Zadejte velikost v megabajtech.</S1525>
+			<S1526>0 pro přeskočení tvorby oddílu.</S1526>
+			<S1527>Toto je systémový oddíl, kam bude nainstalován OS Windows.</S1527>
+			<S1528>Pokud použijete rozšíření, oddíl pro obnovení musí být přesunut před tento oddíl.</S1528>
+			<S1529>Obraz pro obnovení</S1529>
+			<S1530>WinRE nástroje</S1530>
+			<S1531>Popisek je omezen na 32 znaků u NTFS a na 11 znaků u FAT32 oddílu.</S1531>
+			<S1534>Popisky oddílů lze změnit na stránce Bezobslužně, pod 'Konfigurace disku'.</S1534>
+			<S1535>Zjištěna stávající konfigurace s použitím stejného ID disku, nejprve ji odstraňte na stránce Bezobslužně a zkuste znovu.</S1535>
+			<S1536>Alternativně, oddíly lze nastavit také individuálně, po opuštění tohoto průvodce, s využitím 'Průvodce oddíly'.</S1536>
+			<S1678>Přeskočit Uvítání Windows</S1678>
+			<S1679>Pokud je SkipMachineOOBE nastaveno na pravda, uživatel nebude dotazován na údaje potřebné pro dokončení instalace Windows.</S1679>
+			<S1947>Přeskočit Uvítací centrum</S1947>		
+			<S1948>Pokud stroj používající tento obraz je připojen k internetu při běhu Windows instalátoru, tato možnost přeskočí automatickou aktualizaci na konci procesu.</S1948>
+		</Other>
+		<Toolbar>
+			<S0025>Přidat místní účet</S0025>
+			<S0026>Přidat místní uživatelský účet do nastavení Bezobslužně.</S0026>
+			<S0059>Auto-vyplnění</S0059>
+			<S0060>Přepsat dostupné položky daty z aktuálního zařízení, kde je to možné.</S0060>
+			<S0187>Vlastní oddíl</S0187>
+			<S0188>Nastaví vlastní diskové oddíly automaticky při instalaci Windows.</S0188>
+			<S0237>Výchozí</S0237>
+			<S0318>Povolit</S0318>
+			<S0569>Připojit k síti</S0569>
+			<S0570>Automaticky připojí k síťové doméně nebo pracovní skupině</S0570>
+			<S0708>Připojení k síti</S0708>
+			<S0732>OEM Instalace hotová</S0732>
+			<S0733>Při použití OEM produktového klíče ve Windows 8 a novějším, SetupComplete.cmd není normálně proveden. Aktivujte možnost pro zahrnutí SetupComplete.cmd v Bezobslužně-SpustitSynchroně příkazech k provedení na konci instalace.</S0733>
+			<S0754>Možnosti</S0754>
+			<S0906>Odstraní vybraný místní účet, připojení k síti nebo oddíl na disku z bezobslužných nastavení.</S0906>
+			<S1192>Bezobslužný mód</S1192>
+			<S1349>Zkopírovat do obrazu instalace</S1349>
+			<S1350>Zkopíruje soubor s odpověďmi přímo do finálního obrazu (%WINDIR%\Panther\unattend.xml). Běžně není doporučeno, použijte pouze v případě, že ručně aplikujete obraz na oddíl.</S1350>
+			<S1376>Přepsat stávající bezobslužná nastavení těmi z této strany.</S1376>
+			<S1381>Zanechat stávající bezobslužná nastavení vybraného obrazu beze změny.</S1381>
+			<S1448>Zkopírovat do bootovacího obrazu</S1448>
+			<S1449>Zkopíruje soubor s odpověďmi přímo do bootovacího obrazu. Může pomoct u zařízení, která jinak nepoužijí bezobslužná nastavení při bootu.</S1449>
+			<S1523>Šablona pro disk</S1523>
+			<S1524>Snadno nastaví rozvržení oddílů na disku s doporučenou BIOS nebo UEFI konfigurací.</S1524>
+			<S1537>Konfigurovat disk</S1537>
+			<S1538>Disk s vybraným ID bude kompletně smazán při bootování pomocí tohoto obrazu.</S1538>
+			<S1539>Systémový oddíl už existuje.</S1539>
+			<S1540>Vyjmout jakékoli konfliktní nastavení oddílu na stránce Bezobslužně v oddílu 'Konfigurace disku' a zkusit znovu.</S1540>
+			<S1562>Duální architektura</S1562>
+			<S1563>Při použití 64-bitového obrazu také uloží 32-bitové záznamy a naopak. Vhodné při budování multi-architektury, obrazů All-In-One, jinak se použití nedoporučuje.</S1563>
+			<S1564>Vypne automatický výběr obrazu a tvorbu oddílů na disku v případě, že je více obrazů v souboru.</S1564>
+		</Toolbar>
+		<List>
+			<S0043>Vždy</S0043>
+			<S0064>Automatická ochrana vypnutá</S0064>
+			<S0185>Jméno počítače</S0185>
+			<S0186>Název počítače nemůže obsahovat zvláštní znaky a je omezen 15 znaky. Volitelně použijte jen '*' (bez uvozovek) pro automaticky generované jméno počítače, které může využít prefixu zadaného v položce 'Registrovaný uživatel' (max.  prvních 8 znaků bude použito).</S0186>
+			<S0290>Neprovádět čištění nepřítomných zařízení</S0290>
+			<S0309>Dynamická aktualizace</S0309>
+			<S0320>Povolit dynamickou aktualizaci</S0320>
+			<S0349>Zadejte produktový klíč pro tento obraz, který se použijte při instalaci, např.: AAAAA-BBBBB-CCCCC-DDDDD-EEEEE</S0349>
+			<S0399>nepravda</S0399>
+			<S0445>Zobecnit</S0445>
+			<S0460>Nápověda upravena</S0460>
+			<S0464>Domácí</S0464>
+			<S0527>Jazyková nastavení</S0527>
+			<S0529>Instalovat pouze aktualizace</S0529>
+			<S0572>Zachovat všechna PnP zařízení nainstalovaná</S0572>
+			<S0614>Logo</S0614>
+			<S0633>Výrobce</S0633>
+			<S0663>Model</S0663>
+			<S0710>Umístění sítě</S0710>
+			<S0713>Nikdy</S0713>
+			<S0731>OEM informace</S0731>
+			<S0737>Při chybě</S0737>
+			<S0746>OOBE (finální možnosti instalace)</S0746>
+			<S0757>Jiné</S0757>
+			<S0759>Okamžitá zkušenost</S0759>
+			<S0804>PnP Sysprep</S0804>
+			<S0839>Produktový klíč</S0839>
+			<S0848>Chraňte své PC</S0848>
+			<S0859>Veřejný</S0859>
+			<S0882>Registrovaná organizace</S0882>
+			<S0883>Registrovaný uživatel</S0883>
+			<S0916>Hlásit statistická data o instalaci</S0916>
+			<S0986>Zaslat hlášení Microsoftu</S0986>
+			<S1002>Nastavit jazyk uživatelského rozhraní</S1002>
+			<S1007>Nastavení příkazového řádku</S1007>
+			<S1022>Přeskočit automatickou aktivaci</S1022>
+			<S1023>Přeskočit  EULA stránku</S1023>
+			<S1026>Přeskočit nastavení WIFI</S1026>
+			<S1050>Specializovat</S1050>
+			<S1084>Provozní doba podpory</S1084>
+			<S1085>Telefon podpory</S1085>
+			<S1086>URL podpory</S1086>
+			<S1151>Časové pásmo</S1151>
+			<S1169>pravda</S1169>
+			<S1178>Pro automatické načtení OEM klíče z BIOSu během instalace, doslovně zadejte '[KEY]' (bez uvozovek).</S1178>
+			<S1184>Jazyk uživatelského rozhraní</S1184>
+			<S1231>Zkušenosti uživatele pro licencování Windows</S1231>
+			<S1232>Uživatelské nastavení lokalizace</S1232>
+			<S1233>Uživatelské nastavení</S1233>
+			<S1295>Jazyk Windows</S1295>
+			<S1296>Lokalizace Windows</S1296>
+			<S1311>Možnosti instalace Windows</S1311>
+			<S1324>V práci</S1324>
+			<S1506>Pro přeskočení dialogu pro zadání produktového klíče použijte správný klíč pro danou edici, jinak ponechte prázdné nebo instalace může na konci zkolabovat. Generický příkaz BIOSu '[KEY]' zde není podporován, použijte klíč pro instalaci.</S1506>
+			<S1721>Kompatní instalace</S1721>
+			<S1722>Znamená že Windows budou instalovány se zapnutou komprimací. Může to prodloužit dobu instalace. Pokud používáte předchozí verzi Windows PE, ovladač filtru překrytí(wofadk.sys) z Windows 10 ADK musí být zahrnut ve Windows PE obrazu.</S1722>
+			<S1727>Kopírovat profil</S1727>
+			<S1728>Určí, že uživatelský profil právě přihlášeného uživatele, v případě ručního provedení Sysprep zobecnění, bude použit při všechny nové uživatele.</S1728>
+			<S1729>Instalace</S1729>
+			<S1730>Aktivace</S1730>
+			<S1731>Pozor jsou dvě místa pro zadání produktového klíče, pro instalaci a aktivaci.</S1731>
+			<S1732>Použijte filtr nahoře pro snadnejší hledání.</S1732>
+			<S1734>Cíl</S1734>
+			<S1951>Přeskočí stranu 'Get going fast' (Možnosti Soukromí)</S1951>
+			<S1952>Pokud je zapnuto, stránka s možnostmi Soukromí nebude zobrazena. V tomto případě se ujistěte, že nastavíte možnosti ochrany Soukromí na stránkách Konfigurace vlevo.</S1952>
+			<S1977>Zapečetit (Reseal)</S1977>
+			<S1978>Mód</S1978>
+			<S1979>Lze využít pro nabootování přímo do Audit módu, užitečné pro administrátory, kteří sestavují základní obraz.</S1979>
+		</List>
+		<Title>
+			<S0814>Nakonfigurujte možnosti instalace Windows předem, získáte tak plně automatizovanou instalaci. Aktivujte tuto stránku v levém horním nástrojovém pruhu.</S0814>
+			<S1189>Bezobslužně</S1189>
+		</Title>
+	</Unattended>
+	<Drivers>
+		<Title>
+			<S0021>Přidat ovladače do seznamu a zkontrolovat požadavky hardwaru.</S0021>
+			<S0300>Ovladače</S0300>
+		</Title>
+		<Toolbar>
+			<S0264>Vybraný seznam zařízení. </S0264>
+			<S0298>Složka s více ovladači</S0298>
+			<S0299>Najít a přidat všechny ovladače ze složky a podsložek do fronty</S0299>
+			<S0303>Ovladače (INF výběr)</S0303>
+			<S0364>Vyloučit nepoužité</S0364>
+			<S0365>Detekovat vhodné ovladače pro vybraný seznam zařízení, odstranit zbytek fronty pro integrování. </S0365>
+			<S0386>Exportovat ovladač(e)</S0386>
+			<S0387>Exportuje vybrané nainstalované ovladače třetích stran ze systému nebo již obsažené v obrazu. </S0387>
+			<S0388>Exportovat seznam hardwaru</S0388>
+			<S0389>Exportovat seznam hardwaru z libovolného zařízení, který může být posléze naimportován do licencované verze.</S0389>
+			<S0467>Aktuální zařízení</S0467>
+			<S0507>Importovat hosta</S0507>
+			<S0508>Přidá ovladače třetích nainstalované na aktuálním stroji do seznamu. </S0508>
+			<S0509>Importovat seznam hardwaru</S0509>
+			<S0510>Import seznam zařízení. </S0510>
+			<S0616>Stroj</S0616>
+			<S0903>Odebrat vybraný ovladač z fronty pro integrování</S0903>
+			<S1013>Zobrazit skrytá zařízení</S1013>
+			<S1014>Ukáže skrytá a odpojená zařízení v kontrolním seznamu hardwaru. </S1014>
+		</Toolbar>
+		<Other>
+			<S0296>Fronta ovladačů</S0296>
+			<S0301>Ovladače přidány do fronty</S0301>
+			<S0302>Ovladače odstraněny z fronty</S0302>
+			<S0431>Nalezeno</S0431>
+			<S0455>Kontrolní seznam hardwaru</S0455>
+			<S0456>Seznam hardwaru</S0456>
+			<S0457>Seznam hardwaru exportován.</S0457>
+			<S0466>Host importován</S0466>
+			<S0656>Chybějící</S0656>
+			<S0726>Nenalezeno</S0726>
+			<S0773>Částečný</S0773>
+			<S0964>Vyberte složku a přidání všech ovladačů do fronty</S0964>
+			<S0965>Vyberte INF soubory ovladače pro přidání</S0965>
+			<S0970>Vyberte soubor pro uložení seznamu hardwaru</S0970>
+			<S0971>Vyberte soubory se seznamem hardwaru pro import</S0971>
+		</Other>
+	</Drivers>
+	<Tweaks>
+		<List>
+			<S0027>Mód administrátora pro vestavěný administrátorský účet</S0027>
+			<S0034>Povolit IRDP k detekování a konfiguraci adres výchozí brány.</S0034>
+			<S0035>Povolit UIAccess aplikacím vyžádat povolení bez použití bezpečné plochy (secure desktop)</S0035>
+			<S0038>Povolit aplikacím s povolením získat přístup k namapovaným síťovým jednotkám. Více o bezpečnosti na 'EnableLinkedConnections'.</S0038>
+			<S0044>Kombinovat vždy</S0044>
+			<S0045>Zobrazit vždy všechny ikony a oznámení na panelu</S0045>
+			<S0055>Auto-Reboot při BSOD havárii</S0055>
+			<S0062>Automaticky</S0062>
+			<S0067>Automaticky zamítnout žádosti o povolení</S0067>
+			<S0081>Bublinové tipy - Průzkumník a plocha</S0081>
+			<S0082>Bublinové tipy - Info o obsahu složky</S0082>
+			<S0083>Bublinové tipy - Oznamovací oblast</S0083>
+			<S0084>Bublinové tipy - Tlačítko Start</S0084>
+			<S0089>Chování výzvy k povolení pro administrátora v módu administrátora.</S0089>
+			<S0090>Chování výzvy k povolení pro běžného uživatele</S0090>
+			<S0101>Bootování</S0101>
+			<S0105>Bootování do plochy (přeskočit úvodní stránku )</S0105>
+			<S0114>Mezipaměť miniatur</S0114>
+			<S0127>Funkce vypalování CD</S0127>
+			<S0154>Vyčistit historii dříve otevřených dokumentů při ukončení</S0154>
+			<S0166>Seskupit při zaplnění hlavního panelu</S0166>
+			<S0169>Obecná nastavení a animace oken</S0169>
+			<S0195>Obsahuje počáteční nastavení služeb Windows.</S0195>
+			<S0198>Ovládací panely - klasické zobrazení</S0198>
+			<S0199>Ovládací panely - malé ikony</S0199>
+			<S0200>Řídí, co se stane v případě havárie.</S0200>
+			<S0216>Nastavení při havárii</S0216>
+			<S0235>Detekce mrtvé brány</S0235>
+			<S0236>Detekce mrtvé brány je funkce TCP, která zjišťuje nefunkční brány a zajišťuje přepnutí na novou výchozí bránu.</S0236>
+			<S0244>Ikona plochy - Ovládací panely</S0244>
+			<S0245>Ikona plochy - Tento počítač</S0245>
+			<S0246>Ikona plochy - Síť</S0246>
+			<S0247>Ikona plochy - Koš</S0247>
+			<S0248>Ikona plochy - Složka uživatele</S0248>
+			<S0253>Zjišťuje instalaci aplikace a zobrazí hlášení pro povolení</S0253>
+			<S0261>Zjišťuje možnosti systému v podpoře IP multicastingu a podílí se na protokolu Internet Group Management.</S0261>
+			<S0270>Zakázáno</S0270>
+			<S0279>Zobrazit ikony místo miniatur</S0279>
+			<S0280>Zobrazuje ikony místo miniatur u síťových složek</S0280>
+			<S0282>Zobrazit položky hlavního panelu</S0282>
+			<S0307>Záznamy dynamického DNS PTR zdroje</S0307>
+			<S0308>Aktualizace dynamického DNS</S0308>
+			<S0315>Povolit pouze podepsané</S0315>
+			<S0316>Povolit bez upozornění</S0316>
+			<S0321>Povolit propojené připojení</S0321>
+			<S0322>Povolte pouze v případě, že DHCP umožňuje Router Discovery</S0322>
+			<S0323>Povolit nebo zakázat DNS dynamickou aktualizaci registrace PTR (pointer) záznamů tímto DNS klientem, také reverse lookup. V PTR záznamech je asociace IP adresy se jménem počítače.</S0323>
+			<S0324>Povolit nebo zakázat DNS aktualizaci registrace všech adaptérů na tomto počítači. Políčko 'Registrovat adresy tohoto připojení v DNS' v pokročilých vlastnostech každého síťového rozhraní nebude mít vliv, v případě že je zde zakázáno.</S0324>
+			<S0325>Povolit UAC - filtrovat všechny administrátory (EnableLUA)</S0325>
+			<S0326>Povoleno</S0326>
+			<S0382>Průzkumník</S0382>
+			<S0414>Filtrovat vestavěného Administrátora</S0414>
+			<S0474>ICMP přesměrování</S0474>
+			<S0478>Pokud je zakázáno, ikona Windows Store bude prázdná.</S0478>
+			<S0535>Detekce instalátoru</S0535>
+			<S0573>Uchovat historii otevřených dokumentů</S0573>
+			<S0630>Ruční</S0630>
+			<S0677>Vrstva Multicast IGMP</S0677>
+			<S0683>Navigační okno - Automaticky rozbalit do aktuální složky</S0683>
+			<S0684>Navigační okno - Zobrazit všechny složky</S0684>
+			<S0685>Navigační okno - Zobrazit oblíbené</S0685>
+			<S0686>Navigační okno - Zobrazit knihovny</S0686>
+			<S0705>Síť</S0705>
+			<S0714>Nikdy neseskupovat</S0714>
+			<S0721>Žádná podpora multicastu</S0721>
+			<S0742>Povolit pouze podepsané a ověřené spustitelné soubory</S0742>
+			<S0743>Povolit pouze UIAccess aplikace instalované v bezpečném umístění</S0743>
+			<S0745>Posílat výhradně IP multicast pakety</S0745>
+			<S0785>Provést router discovery</S0785>
+			<S0840>Průvodce odstranění potíží s kompatibilitou</S0840>
+			<S0843>Výzva k souhlasu</S0843>
+			<S0844>Výzva k souhlasu pro nenativní Windows spustitelné soubory</S0844>
+			<S0845>Výzva k souhlasu pro bezpečnou plochu (secure desktop)</S0845>
+			<S0846>Žádost o přihlašovací údaje</S0846>
+			<S0847>Žádost o přihlašovací údaje pro bezpečnou plochu (secure desktop)</S0847>
+			<S0934>Spouštět všechny administrátory módu administrátora. Musí být povoleno pro aplikace Metro a Windows 10 Start Menu v obrazech/offline.</S0934>
+			<S0960>Bezpečná plocha (Secure Desktop) při výzvě</S0960>
+			<S0985>Přijmout a odeslat pakety IP multicast (podílí se na IGMP)</S0985>
+			<S0993>Služby</S0993>
+			<S1008>Zobrazit hodiny</S1008>
+			<S1010>Zobrazit Připojit/Odpojit síťovou jednotku</S1010>
+			<S1011>Zobrazit průvodce Umístění sítě u nově zjištěných sítí</S1011>
+			<S1012>Zobrazit nebo kompletně zakázat oznamovací oblast.</S1012>
+			<S1015>Vypnout bez odhlášení</S1015>
+			<S1064>Nabídka Start - Složka Dokumenty</S1064>
+			<S1065>Nabídka Start - Sledování využití</S1065>
+			<S1092>Přepnout do bezpečné plochy (secure desktop) při žádosti o povolení</S1092>
+			<S1096>Systém</S1096>
+			<S1106>Hlavní panel - Seskupování tlačítek</S1106>
+			<S1107>Oznamovací oblast hlavního panelu</S1107>
+			<S1108>Hlavní panel - Zobrazit na všech displejích</S1108>
+			<S1109>Hlavní panel - Zobrazit na aplikace ze Store</S1109>
+			<S1110>Hlavní panel - Malé ikony</S1110>
+			<S1112>TCP/IP</S1112>
+			<S1137>Hodnota představuje maximální procentní část místa na disku, kterou instalátor Windows může využít pro uložení starých souborů. Zásada neovlivní soubory, které již jsou uloženy.</S1137>
+			<S1143>Tento parametr řídí jestli Windows mění svoji směrovací tabulku v reakci na zprávy protokolu Internet Control Message (ICMP), který žádá o směrování datagramů pro příjemce odlišnými cestami.</S1143>
+			<S1149>Toto nastavení umožňuje zobrazení nebo schování hodin v systémové oblasti hlavního panelu.</S1149>
+			<S1173>Zapíná nebo vypíná funkce průzkumníka Vypálit na disk, Formátovat a Automaticky vysunout optický disk.</S1173>
+			<S1182>UAC prompt administrátora</S1182>
+			<S1183>UAC prompt uživatele</S1183>
+			<S1185>Vyžadováno UIAccess bezpečné umístění</S1185>
+			<S1186>UIAccess přepínač</S1186>
+			<S1244>Zobrazení - Zobrazit prázdné disky</S1244>
+			<S1245>Zobrazení - Zobrazit přípony známých typů souborů</S1245>
+			<S1246>Zobrazení - Zobrazit skryté soubory, složky a disky</S1246>
+			<S1247>Zobrazení - Zobrazit chráněné systémové soubory</S1247>
+			<S1251>Virtualizovaný soubor a chyby zápisu do registru dle umístění uživatele. Pokud je zakázáno, aplikace potřebující zapisovat do chráněných umístění nebudou funkční.</S1251>
+			<S1252>Virtualizovat, přesměrovat chyby zápisu</S1252>
+			<S1293>Instalátor Windows</S1293>
+			<S1294>Velikost mezipaměti záplat instalátoru Windows</S1294>
+			<S1342>Obnovit hodnotu</S1342>
+			<S1358>Aktualizace Windows (důležité aktualizace)</S1358>
+			<S1359>Instalovat aktualizace automaticky</S1359>
+			<S1360>Stáhnout aktualizace, ale nechat vybrat, zda budou nainstalovány</S1360>
+			<S1361>Zkontrolovat aktualizace, ale nechat vybrat, zda budou staženy a nainstalovány</S1361>
+			<S1362>Nikdy nezjišťovat nové aktualizace</S1362>
+			<S1363>Zahrnout doporučené aktualizace</S1363>
+			<S1364>Povolit běžným uživatelům instalovat aktualizace</S1364>
+			<S1377>Adobe Type Manager Font Driver (ATMFD)</S1377>
+			<S1378>Zakažte pro zabránění rizika získání povolení v případě ATMFD.DLL. Viz článek MS15-077 pro další info.</S1378>
+			<S1411>Zapsat událost do systémového logu</S1411>
+			<S1412>Zapsat informace o ladění</S1412>
+			<S1413>Malý výpis paměti (256 KB)</S1413>
+			<S1414>Výpis paměti jádra</S1414>
+			<S1415>Kompletní výpis paměti</S1415>
+			<S1416>Automatický výpis paměti</S1416>
+			<S1512>Povoleno</S1512>
+			<S1513>Uživatelé nemohou přidávat účty Microsoft</S1513>
+			<S1514>Uživatelé nemohou přidávat nebo se přihlašovat k účtům Microsoft</S1514>
+			<S1518>Stránkovací soubor (pagefile)</S1518>
+			<S1519>Pro zakázání stránkovacího souboru, což není obecně doporučeno, nastavte Disk na '-' (bez uvozovek). Pro plně automatické nastavení, nastavte Disk na '?' (bez uvozovek), v tomto případě jsou velikosti ignorovány. Pro specifické automatické velikosti disku nastavte písmeno a obě hodnoty na 0.</S1519>
+			<S1520>Velikost hybernačního souboru (RAM %)</S1520>
+			<S1521>Nastaví velikost souboru Hibernate.sys v poměru k paměti RAM. 75% velikosti RAM je výchozí hodnota, 75-100% je doporučeno, 50% je minimum. 0 před nastavením znamená 75%, nikoliv zakázáno; použijte stránku Po-instalaci Přidat-Šablona pro zakázání hibernace.</S1521>
+			<S1545>Disk</S1545>
+			<S1546>Výchozí velikost</S1546>
+			<S1547>Maximální velikost</S1547>
+			<S1680>Automatická instalace sponzorských aplikací (program uživatelské zkušenosti)</S1680>
+			<S1681>Zajistí zakázání propagovaných aplikací (jako jsou Candy Crush, Facebook a podobné) a automatickou instalaci u nových uživatelů.</S1681>
+			<S1682>Automatická aktivace</S1682>
+			<S1683>Slouží k řízení funkce automatické aktivace. Pokud je zakázáno, budete muset provést ruční aktivaci v nastavení systému.</S1683>
+			<S1684>Automaticky aktualizovat ovladače zařízení a ikon</S1684>
+			<S1685>Aktualizovat ovladače zařízení</S1685>
+			<S1686>Aby byla zajištěna funkčnost, automatická aktualizace musí být zakázána.</S1686>
+			<S1687>Pouze pokud není nainstalováno</S1687>
+			<S1723>Plocha</S1723>
+			<S1724>Při návratu, zobrazit obrazovku pro přihlášení</S1724>
+			<S1733>Možnosti napájení</S1733>
+			<S1737>Zobrazit tlačítko Zobrazení úloh</S1737>
+			<S1768>Použijte pouze nejnovější CLR</S1768>
+			<S1769>Vnutit .NET aplikacím použití nejnovějšího frameworku v systému, což umožní se vyhnout instalaci předchozích verzí, jako jsou 2.0 nebo 3.5.</S1769>
+			<S1770>Obnovit Prohlížeč fotografií Windows</S1770>
+			<S1771>Použití nativního prohlížeče fotografií Windows k otevírání obrázků, místo aplikace Fotky.</S1771>
+			<S1778>Povolit experimentování</S1778>
+			<S1779>Určuje úroveň, do které může Microsoft experimentovat s produktem a studovat uživatelské preference a chování zařízení.</S1779>
+			<S1780>Toto nastavení je indikováno jako nepodporované ve Win10 1607.</S1780>
+			<S1781>Povolit telemetrii</S1781>
+			<S1782>Nejnižší nastavení, Bezpečnostní úroveň (0), je indikováno jako nepodporované ve Win10 Pro a Home, odpovídá úrovni Základní.</S1782>
+			<S1783>Povolit lokalizaci</S1783>
+			<S1784>Určuje zda budou mít aplikace přístup k lokalizační službě.</S1784>
+			<S1786>Bezpečnost</S1786>
+			<S1787>Základní</S1787>
+			<S1788>Zvýšená</S1788>
+			<S1789>Plná</S1789>
+			<S1790>Toto nastavení není důležité, jestliže základní složka byla vyjmutá, je zde pro úplnost.</S1790>
+			<S1821>Výchozí pro Enterprise a Education edice</S1821>
+			<S1822>Výchozí pro Pro a Home edice</S1822>
+			<S1823>Zahrnuje aktualizací nástroje pro odebrání škodlivého softwaru</S1823>
+			<S1824>Automatická aktualizace modelů řeči</S1824>
+			<S1825>Automatická aktualizace seznamu důvěryhodných kořenových certifikátů</S1825>
+			<S1826>Uživatelské přizpůsobení řeči, psaní a vstupních metod díky zasílání zadávaných údajů Microsoftu</S1826>
+			<S1827>Dovoluje aplikacím používat reklamní ID uživatele pro sdílení zkušeností mezi aplikacemi</S1827>
+			<S1828>Zapnout filtr SmartScreen kvůli kontrole webového obsahu (URLs) používaného aplikacemi Windows Store</S1828>
+			<S1829>Použít online služby SmartScreen ke kontrole webového obsahu v prohlížeči Edge</S1829>
+			<S1830>Zasílat Microsoftu informace o psaní textu za účelem budoucích vylepšení</S1830>
+			<S1831>Povolit webovým stránkám používat regionální obsah díky přístupu k seznamu jazyků uživatele</S1831>
+			<S1832>Povolit aplikacím používat kameru</S1832>
+			<S1833>Povolit aplikacím používat mikrofon</S1833>
+			<S1834>Povolit aplikacím získat jméno uživatele, obrázek a další informace z účtu</S1834>
+			<S1835>Povolit aplikacím přístup ke kontaktům</S1835>
+			<S1836>Povolit aplikacím získat přístup ke kalendáři</S1836>
+			<S1837>Povolit aplikacím přistupovat k historii volání</S1837>
+			<S1838>Povolit aplikacím získat přístup k odeslaným emailům</S1838>
+			<S1839>Povolit aplikacím číst a posílat zprávy (textové nebo MMS)</S1839>
+			<S1840>Povolit aplikacím řídit bezdrátové prostředky</S1840>
+			<S1841>Povolit aplikacím sdílení a synchronizaci s bezdrátovými zařízeními, která nebyla explicitně spárována</S1841>
+			<S1842>Povolit aplikacím přístup ke zprávám</S1842>
+			<S1843>Povolit aplikacím přístup k oznámením</S1843>
+			<S1844>Povolit aplikacím přístup k telefonním hovorům</S1844>
+			<S1845>Povolit aplikacím přístup k pohybovým informacím (motion data)</S1845>
+			<S1846>Povolit aplikacím přístup ke prokoměru</S1846>
+			<S1847>Povolit aplikacím přístup k dalším senzorům</S1847>
+			<S1848>Sbírat zadávaný text a dovolit Windows a Cortaně lépe porozumět uživateli</S1848>
+			<S1849>Sbírat perem psaný text (ink) a dovolit Windows a Cortaně lépe porozumět uživateli</S1849>
+			<S1850>Sbírat kontakty a dovolit Windows a Cortaně lépe porozumět uživateli</S1850>
+			<S1851>Povolit aplikacím na dalších zařízeních uživatele otevírat aplikace a pokračovat v práci na těchto zařízeních</S1851>
+			<S1852>Povolit aplikacím na dalších zařízeních uživatele využít Bluetooth k otevření aplikací a pokračování v práci na těchto zařízeních</S1852>
+			<S1853>Automaticky připojí k doporučeným otevřeným hotspotům.</S1853>
+			<S1854>Automaticky dočasně připojí k hotspotům k ověření možnosti placených služeb a placených sítí.</S1854>
+			<S1855>Umožňuje Skypu (je-li nainstalován) pomáhat s připojení s přáteli v adresáři a ověření telefonního čísla</S1855>
+			<S1856>Použít online služeb SmartScreen k ochraně před škodlivými aplikacemi</S1856>
+			<S1857>Použít online služeb SmartScreen ke kontrole webového obsahu v prohlížeči Internet Explorer</S1857>
+			<S1858>Použít našeptávání stránky ke zlepšení čtení a urychlení brouzdání. Data o brouzdání internetem budou zasílány Microsoftu.</S1858>
+			<S1859>Sbírat seznam aplikací</S1859>
+			<S1860>Pouze WSUS</S1860>
+			<S1861>Pouze za stejným NATem</S1861>
+			<S1862>Pouze Soukromá skupina: buď ta samá Active Directory stránka nebo ta samá doména</S1862>
+			<S1863>Použít LAN a internetové peery</S1863>
+			<S1864>Pouze HTTP, nekontaktuje cloudové služby</S1864>
+			<S1865>Překonat(Bypass), použít službu BITS</S1865>
+			<S1888>Soukromí</S1888>
+			<S1889>Zobrazit oznámení poskytovatele synchronizace</S1889>
+			<S1890>Poskytuje rychlou informaci o věcech, které lze dělat nebo vyzkoušet, jako např. OneDrive reklamy.</S1890>
+			<S1899>Povolit Windows sledovat spuštění aplikací k vylepšení obsahu nabídky Start a výsledků hledání</S1899>
+			<S1900>Povolit aplikacím používat úlohy</S1900>
+			<S1901>Povolit aplikacím přístup k diagnostickým informacím</S1901>
+			<S1902>Povolit aplikacím spuštění na pozadí</S1902>
+			<S1903>Najít Moje zařízení</S1903>
+			<S1904>Windows spotlight na obrazovce po uzamčení</S1904>
+			<S1905>Získat zábavné informace, tipy, triky a další na obrazovce po uzamčení</S1905>
+			<S1906>Předinstalované aplikace</S1906>
+			<S1907>Propagované tituly jako Minecraft, Candy Crush, Flipboard atd.</S1907>
+			<S1908>Automaticky instalovat doporučené aplikace</S1908>
+			<S1909>Příležitostně ukázat návrhy v nabídce Start</S1909>
+			<S1910>Předinstalované aplikace aplikace</S1910>
+			<S1911>Zobrazit Windows uvítací zkušenost po aktualizaci</S1911>
+			<S1912>Získat tipy, triky a návrhy při použití Windows</S1912>
+			<S1913>Dvakrát klikněte nebo zadejte první písmeno údaje pro rychlejší výběr.</S1913>
+			<S1918>Nahradit Příkazový řádek za Windows PowerShell při kliknutí na tlačítko Start pravým tlačítkem myši</S1918>
+			<S1919>Pro přihlášení použít Hotspot 2.0 Online</S1919>
+			<S1933>Zobrazit často navštěvované složky v Rychlém přístupu</S1933>
+			<S1934>Zobrazit nedávno použité soubory v Rychlém přístupu</S1934>
+			<S1935>Otevřít průzkumníka v</S1935>
+			<S1936>Tento počítač</S1936>
+			<S1937>Rychlý přístup</S1937>
+			<S1938>Skrýt konflikty se sloučením adresářů</S1938>
+			<S1939>Použít průvodce sdílením</S1939>
+			<S1940>Zobrazit nedávno použité položky v seznamech nabídky Start nebo na hlavním panelu</S1940>
+			<S1941>Povolit Microsoftu používat diagnostická data a umožnit poskytnutí relevantních tipů a doporučení</S1941>
+			<S1942>Jedná se o zásadu, která ovlivní všechna relevantní nastavení ve Windows a závislých aplikacích.</S1942>
+			<S1943>Zahrnout ovladače do aktualizací Windows</S1943>
+			<S1944>Zobrazit hlášení 'Aktualizace Windows je na cestě'</S1944>
+			<S1949>Počítače v mé lokální síti</S1949>
+			<S1950>Počítače v mé lokální síti, a Počítače v internetu</S1950>
+			<S1964>Funkce DISM ResetBase</S1964>
+			<S1965>Za účelem použití plné funkcionality DISM's /ResetBase, musíte vovolit tuto volbu. Ve Windows 10 je tato funkce automaticky vypnuta, provádí se totiž  pouze delta komprese místo skutečného resetu báze.</S1965>
+			<S1968>Povolit Enhanced Protected Mode</S1968>
+			<S1969>Povolí Enhanced Protected Mode pro 64-bitové procesy</S1969>
+			<S1970>Adresáře Shellu</S1970>
+			<S1971>Překlad DNS multi-domovských jmen</S1971>
+			<S1972>Pokud je vypnuto, může pomoci s timeouty překladu DNS a vylepšenou bezpečností při únicích DNS žádostí v připojených sítích.</S1972>
+			<S1973>Paralelní překlad DNS jmen</S1973>
+			<S2407>Extra služby</S2407>
+			<S2408>Zahrnuje bootování kritických a ovladačových služeb, typicky odebraných spolu s komponenty.</S2408>
+			<S2421>Vždy ukázat více detailů v dialogu kopírování souboru</S2421>
+			<S2422>Vnořené kontextové nabídky</S2422>
+			<S2423>Tmavé schéma aplikací</S2423>
+			<S2424>Zobrazit akcentní barvu ve Startu, hlavním panelu a Centru akcí</S2424>
+			<S2425>Zobrazit akcentní barvu na aktivních titulkových pruzích</S2425>
+			<S2426>Akcentní barva</S2426>
+			<S2427>Akcentní barva v neaktivních titulkových pruzích</S2427>
+			<S2428>Pokud je nastavena černá, použije se aktuální Akcentní barva, Výchozí nastaví průhlednou barvu, použije barvu okna.</S2428>										 
+			<S2462>Zobrazit zamykací obrazovku (lock screen)</S2462>
+			<S2463>Zobrazit jméno posledního uživatele na přihlašovací obrazovce</S2463>
+			<S2464>Použít klasické přihlášení</S2464>
+			<S2465>Klasická přihlašovací obrazovka vyžaduje od uživatele ruční zadání jména a hesla pro přístup do systému. Výchozí nastavení Windows zobrazí jména uživatelů k výběru.</S2465>
+		</List>
+		<Title>
+			<S0611>Místní stroj</S0611>
+			<S1175>Vylepšení</S1175>
+			<S1235>Uživatelé</S1235>
+			<S1498>Změnit nastavení služby. Postupujte opatrně, abyste nezakázali klíčové služby.</S1498>
+			<S1499>Změnit různá nastavení Windows na úrovni stroje.</S1499>
+		</Title>
+		<Toolbar>
+			<S0922>Nastavit aktuální záložku na výchozí hodnoty.</S0922>
+			<S0953>Rozsah</S0953>
+		</Toolbar>
+	</Tweaks>
+	<Apply>
+		<List>
+			<S0031>Všechny změny jsou přímo uloženy na exitujících instalacích</S0031>
+			<S0033>Všechny ostatní připojené sourozenecké obrazy budou odpojeny a změny u nich budou uloženy</S0033>
+			<S0074>Zálohovat protokol událostí a konfiguraci zdroje</S0074>
+			<S0076>Zálohovat protokol událostí u zdroje</S0076>
+			<S0079>Zálohovat konfiguraci událostí u zdroje</S0079>
+			<S0106>Oba základní bootovací zavaděče určeny k odstranění (PCAT a EFI), obraz by nebylo možné spustit.</S0106>
+			<S0117>Zastavit zpracování. Nevrátí se dosud provedené změny.</S0117>
+			<S0129>Změnit</S0129>
+			<S0130>Změnit a spustit</S0130>
+			<S0147>Zrušit čekající operace</S0147>
+			<S0181>Komponenty byly dříve vyjmuty, aktualizace se pravděpodobně nepodaří kvůli chybějící výchozím souborům.</S0181>
+			<S0189>Konfigurovat funkce</S0189>
+			<S0269>Zakázat</S0269>
+			<S0275>Zjištěna bezobslužná konfigurace disku, oddíly se automaticky nakonfigurují při bootování tohoto obrazu.</S0275>
+			<S0286>Vícekrát toto nezobrazovat</S0286>
+			<S0371>Stávající soubor s odpověďmi bezobslužné instalace bude smazán</S0371>
+			<S0379>Explicitně spustit SetupComplete.cmd</S0379>
+			<S0425>V případě UEFI obrazu, GPT disku, přidejte povinný 100MB EFI oddíl jako první, neoznačujte žádný oddíl jako aktivní</S0425>
+			<S0500>Obraz bude zanechán v neznámém stavu, je důrazně doporučeno zrušit jakékoli změny před jeho dalším použitím.</S0500>
+			<S0530>Instalovat balíčky</S0530>
+			<S0538>Integrovat ovladače</S0538>
+			<S0539>Integrovat balíčky</S0539>
+			<S0574>Zachovat pouze</S0574>
+			<S0722>Žádné čekající operace, použijte pruh nástrojů nahoře nebo nabídku vlevo pro změnu nastavení</S0722>
+			<S0811>Po-instalační úkony</S0811>
+			<S0817>Připravit data</S0817>
+			<S0837>Pokračujte na vlastní riziko.</S0837>
+			<S0842>Postup</S0842>
+			<S0866>Načíst aktualizovaná data</S0866>
+			<S0900>Odebrat komponenty</S0900>
+			<S0901>Odebrané soubory</S0901>
+			<S0902>Neodebrány žádné soubory</S0902>
+			<S0933>Spustit</S0933>
+			<S0945>Uložit změny a uvolnit obraz</S0945>
+			<S0983>Volitelně projít kontrolní seznam zařízení vpravo na straně Ovladače</S0983>
+			<S1056>Rozdělit obraz do více dílů, pokud je větší než</S1056>
+			<S1071>Zastavit před uložením obrazu</S1071>
+			<S1072>Zastavit zpracování?</S1072>
+			<S1111>Úkony</S1111>
+			<S1141>Toto je živé (online) sezení a úpravy v aktuálním operačním systému. Je důrazně doporučeni pořídit jeho zálohu a použít ji v případě, že se něco pokazí.</S1141>
+			<S1150>Úkony na tomto zdroji byly dříve zrušeny během zpracování a pravděpodobně je v nestabilním stavu</S1150>
+			<S1191>Umístění souboru s odpověďmi bezobslužné instalace</S1191>
+			<S1193>Bezobslužná instalace</S1193>
+			<S1337>Bylo vybráno zastavení bezprostředně po provedení úkonů, proto bude muset být obraz ručně uvolněn na stránce Zdroj, aby byly změny uloženy do obrazu</S1337>
+			<S1373>Znovu projít zprávy o integraci aktualizací na stránce Aktualizace pro zjištění doporučených kroků</S1373>
+			<S1399>Alespoň jedna Metro musí zůstat ponechána jinak se Nabídka start ve Windows 10 nenainstaluje správně.</S1399>
+			<S1400>Prosím jděte na stránku Komponenty a označte jednu, která bude zachována.</S1400>
+			<S1429>Konečná velikost instalace</S1429>
+			<S1559>Povolte tohoto uživatele na serveru Active Directory k umožnění 'Připojit počítač k doméně', přičemž musíte uvést jméno počítače. Jméno počítače může být vygenerováno náhodně, více informací v popisu nastavení Jméno počítače.</S1559>
+			<S1572>Integrovat registr</S1572>
+			<S1598>Alespoň jedno rozložení klávesnice musí být zachováno, jinak nebude možné psát.</S1598>
+			<S1599>Alespoň jedno písmo musí být zachováno, jinak Windows nebude zobrazovat text.</S1599>
+			<S1600>Alespoň jeden jazyk musí být zachován, jinak Windows nebude zobrazovat obsah.</S1600>
+			<S1777>Instalovat ovladače</S1777>
+			<S1976>Ochrany jsou vypnuté, nevypínejte pokud nedochází k problémům se zapnutou ochranou.</S1976>
+			<S2406>Konfigurace funkcí a integrace vyžadují přítomnost komponenty Servisního zásobníku (Servicing Stack) a proto nesmí být odstraněn.</S2406>
+		</List>
+		<Title>
+			<S0051>Provést</S0051>
+			<S0929>Nastavte úkonů s obrazem, zkontrolujte čekající operace a použijte tlačítko Provést v nástrojovém pruhu až bude vše připraveno.</S0929>
+		</Title>
+		<Other>
+			<S0052>Provádím</S0052>
+			<S0148>Čistím</S0148>
+			<S0150>Čistím prázdné adresáře</S0150>
+			<S0151>Čistím zbytkové položky</S0151>
+			<S0271>Zakazuji</S0271>
+			<S0336>Povoluji</S0336>
+			<S0358>Chyby a varování</S0358>
+			<S0397>Rozbaluji</S0397>
+			<S0438>Ochrana funkčnosti</S0438>
+			<S0536>Instaluji</S0536>
+			<S0543>Integruji</S0543>
+			<S0544>Integruji bootovací část obrazu</S0544>
+			<S0762>Balíček</S0762>
+			<S0819>Připravuji data</S0819>
+			<S0821>Připravuji konfiguraci funkci</S0821>
+			<S0823>Připravuji integraci</S0823>
+			<S0834>Předešla integrace balíčků uzamkla provedení další integraci do tohoto obrazu.</S0834>
+			<S0838>Zpracovávám</S0838>
+			<S0909>Odstraňuji zastaralé soubory</S0909>
+			<S0928>Znovu používám soubory mezipaměti ovladačů</S0928>
+			<S0952>Zjišťuji zastaralé soubory</S0952>
+			<S1027>Přeskočeno</S1027>
+			<S1030>Provádím slipstream servisního balíčku</S1030>
+			<S1142>Tento balíček vyžaduje novou definici pro servisní zásobník nebo novější verzi Windows.</S1142>
+			<S1433>Zjištěn Windows Defender, je doporučeno jej deaktivovat a výrazně tak urychlit zpracování.</S1433>
+			<S1435>Nemohu automaticky vypnout Windows Defender, prosím ručně vypněte ochranu v reálném čase v jeho nastaveních.</S1435>
+			<S1436>Stiskněte Ano pro otevření nastavení Windows Defenderu.</S1436>
+		</Other>
+		<Toolbar>
+			<S0073>Zálohovat protokol událostí</S0073>
+			<S0075>Kopírovat protokol událostí aktuálního sezení ke zdroji, pro účely budoucího ladění.</S0075>
+			<S0077>Zálohovat konfiguraci</S0077>
+			<S0078>Kopírovat aktuální auto-uloženou konfiguraci ke zdroji, za účelem budoucího použití nebo ladění.</S0078>
+			<S0152>Vyčistit zálohu aktualizací</S0152>
+			<S0153>Odstranit zastaralé aktualizované záložní soubory, zachová se jen poslední verze. Všechny existující servisní balíčky a aktualizace po provedení této operace nemohou být odinstalovány. Nezablokuje to odinstalování budoucích servisních balíčků a aktualizací. </S0153>
+			<S0222>Po uložení obrazu automaticky vytvořit ISO obraz. Parametry ve frontě budou dotázány při vybrání této možnosti.</S0222>
+			<S0360>ESD komprese</S0360>
+			<S0361>Komprimuje obraz využitím ESD formátu, podporováno jen v instalaci Windows 8 a novějším. Výsledný obraz bude menší, ale vyžaduje zpětnou konverzi do WIM formátu kvůli dalšímu editaci.</S0361>
+			<S0385>Rekonstruuje obraz a zmenší jeho velikost. Tím pádem, aktuálně vybraná edice zůstane zachována jako jedina ve výsledném obrazu.</S0385>
+			<S0809>Post-processing obrazu</S0809>
+			<S0926>Znovu použít mezipamět ovladačů</S0926>
+			<S0927>Zmenší skutečnou velikost Windows za použití NTFS odkazů mezi identickými soubory ovladačů v mezipaměti a umístění (tj. System32). Nejvíce místa se ušetří při použití na živé instalaci s nainstalovanými ovladači. </S0927>
+			<S0944>Uložit změny a odpojit</S0944>
+			<S0946>Uloží změny a odpojí právě načtený obraz a jeho sourozence.</S0946>
+			<S0955>Zapečetit funkce</S0955>
+			<S0956>Odebere fukce Windows 7 a zastaralé aktualizace a redukuje výrazně obsazené místo. Funkce Windows (Panely nástrojů-&gt;Programy-&gt;Funkce) nebude možné změnit po provedení této operace, proto se ujistěte že je vše nastaveno na stránce Funkce. </S0956>
+			<S1053>Rozdělit</S1053>
+			<S1058>Rozdělí vybraný WIM obraz do více SWM dílů.  Používáno např. pro překonání FAT32 omezení na 4GB velikost jednotlivého souboru, popř. pro uložení instalace na více médií.</S1058>
+			<S1062>Provést</S1062>
+			<S1066>Začne provádět všechny čekající operace.</S1066>
+		</Toolbar>
+	</Apply>
+	<PostSetup>
+		<Other>
+			<S0032>Všechny soubory</S0032>
+			<S0125>Opatrně v případě tichých instalátorů, které se instalují při každém provedení.</S0125>
+			<S0366>Provést</S0366>
+			<S0367>Provádím</S0367>
+			<S0369>Stávající</S0369>
+			<S0534>Instalátor</S0534>
+			<S0771>Parametry</S0771>
+			<S0884>Registr</S0884>
+			<S0966>Vyberte soubory pro přidání</S0966>
+			<S0995>Nastavit</S0995>
+			<S1068>Status</S1068>
+			<S1088>Podporované typy</S1088>
+			<S1168>Pokus o odstranění neexistujícího příkazu</S1168>
+			<S1177>Typ</S1177>
+			<S1202>Neznámý</S1202>
+			<S1344>Dávka</S1344>
+			<S1345>Pasivní</S1345>
+			<S1352>použít jako</S1352>
+			<S1424>Zástupná řada pro potenciálně odložené aktualizace</S1424>
+			<S1425>Přesunout do vhodné pozice. Nejlépe na poslední místo nebo před jakoukoli konfliktní operaci jako je OEM aktivace nebo nucený restart.</S1425>
+			<S1561>Skript</S1561>
+		</Other>
+		<Toolbar>
+			<S0167>Příkaz</S0167>
+			<S0168>Přidá příkaz příkazové řádky k provedení po instalaci</S0168>
+			<S0368>Fronta k provedení</S0368>
+			<S0411>Přidejte jednoduchý instalační soubor a zadejte parametry, SFX archiv, PowerShell skript nebo REG soubor ke spuštění po provedení instalace Windows</S0411>
+			<S0769>Info k parametru</S0769>
+			<S0770>Vyzkoušejte parametr pro nápovědu na instalační soubor ke zjištění jeho dostupných parametrů</S0770>
+			<S0904>Odstranit vybranou řadu</S0904>
+			<S0921>Obnovit stav zdroje. Odstraní nové a vrátí existující hodnoty.</S0921>
+			<S1374>Posunout nahoru</S1374>
+			<S1375>Posunout dolů</S1375>
+			<S1515>Zakázat hibernaci</S1515>
+			<S1517>Zakázat vypršení doby uživatelského hesla</S1517>
+			<S1548>Šablona</S1548>
+			<S1975>Instalovat VMware nástroje</S1975>
+		</Toolbar>
+		<Title>
+			<S0626>Spravovat příkazy k provedení a instalaci aplikací Po-instalaci. Budou spuštěny po ukončení instalace pouze jednou jako systémový uživatel.</S0626>
+			<S0810>Po-instalační úkony</S0810>
+		</Title>
+	</PostSetup>
+	<Features>
+		<List>
+			<S0242>Popis</S0242>
+			<S0401>Funkce</S0401>
+			<S1067>Stav</S1067>
+		</List>
+		<Title>
+			<S0403>Funkce</S0403>
+			<S0975>Vyberte funkce k zapnutí. Tato stránka zajistí to samé jako Ovládací panely - 'Zapnout a vypnout funkce Windows'.</S0975>
+		</Title>
+		<Toolbar>
+			<S0443>Obecné</S0443>
+			<S0920>Nastavit stav funkcí na výchozí hodnoty zdroje</S0920>
+		</Toolbar>
+	</Features>
+	<Registry>
+		<Title>
+			<S1565>Integrovat soubory registru a upravit registry přímo v obrazu. HKCU se týká všech uživatelů.</S1565>
+		</Title>
+		<Toolbar>
+			<S1566>Přidat REG soubory do seznamu</S1566>
+			<S1569>Upravit</S1569>
+			<S1570>Upravit REG soubor nebo dočasně načíst registr do Regeditu.</S1570>
+			<S1575>Úprava registrů z obrazu je možná po jeho načtení do registru aktuálního OS dočasně pod HKLM\wdTmp{GUID}HIVENAME</S1575>
+			<S1576>Pokud si nejste jisti, nic ručně neupravujte.</S1576>
+			<S1577>Abyste zabránili nežádoucím změnám v registrech aktuálního stroje, omezte editaci pouze na na klíče v této části struktury.</S1577>
+			<S1578>Zavřete Editor registru před pokračováním v tomto programu.</S1578>
+		</Toolbar>
+		<List>
+			<S1567>Fronta registru</S1567>
+			<S1568>Hnízdo</S1568>
+			<S1571>Uživatel</S1571>
+		</List>
+		<Other>
+			<S1619>Nezdařilo se použití některých klíčů z tohoto REG souboru, pravděpodobně kvůli oprávnění uživatele. Vyzkoušejte možnost na stránce Po-instalaci.</S1619>
+		</Other>
+	</Registry>
+</NTLiteTranslation>

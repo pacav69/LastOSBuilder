@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+-Rename this file to see it in the list
+-E-Mail it to me if you want to contribute.
+--><root>
+	<info>
+		<author>NazzalApps</author>
+	</info>
+	<localization language="Nederlands" Translator="" Date="">
+		<items>
+			<item ID="1000" en="Add" tr=""/>
+			<item ID="1001" en="New" tr=""/>
+			<item ID="1002" en="Update" tr=""/>
+			<item ID="1003" en="Check" tr=""/>
+			<item ID="1004" en="Name" tr=""/>
+			<item ID="1005" en="Description" tr=""/>
+			<item ID="1006" en="Cancel" tr=""/>
+			<item ID="1007" en="Done" tr=""/>
+			<item ID="1008" en="Search" tr=""/>
+			<item ID="1009" en="Language" tr=""/>
+			<item ID="1010" en="Web page URL" tr=""/>
+			<item ID="1011" en="Folder" tr=""/>
+			<item ID="1012" en="Backup folder" tr=""/>
+			<item ID="1013" en="Icon" tr=""/>
+			<item ID="1014" en="Version" tr=""/>
+			<item ID="1015" en="Strings" tr=""/>
+			<item ID="1016" en="Download" tr=""/>
+			<item ID="1017" en="Download link" tr=""/>
+			<item ID="1018" en="Version link" tr=""/>
+			<item ID="1019" en="Test links" tr=""/>
+			<item ID="1020" en="Save" tr=""/>
+			<item ID="1021" en="Save as" tr=""/>
+			<item ID="1022" en="Unpack and look for" tr=""/>
+			<item ID="1023" en="List" tr=""/>
+			<item ID="1024" en="Exclude" tr=""/>
+			<item ID="1025" en="Run after" tr=""/>
+			<item ID="1026" en="Add / Edit" tr=""/>
+			<item ID="1027" en="Start string" tr=""/>
+			<item ID="1028" en="End string" tr=""/>
+			<item ID="1029" en="Updated on" tr=""/>
+			<item ID="1030" en="Update version" tr=""/>
+			<item ID="1031" en="Latest version" tr=""/>
+			<item ID="1032" en="Status" tr=""/>
+			<item ID="1033" en="Extension, name or trailing path" tr=""/>
+			<item ID="1034" en="Export" tr=""/>
+			<item ID="1035" en="Characters limit" tr=""/>
+			<item ID="1036" en="Result" tr=""/>
+			<item ID="1037" en="Private" tr=""/>
+			<item ID="1038" en="Public" tr=""/>
+			<item ID="1039" en="Failed to write file!" tr=""/>
+			<item ID="1040" en="Hide / show" tr=""/>
+			<item ID="1041" en="Up-to-Date" tr=""/>
+			<item ID="1042" en="Update available" tr=""/>
+			<item ID="1043" en="Cancelled by user" tr=""/>
+			<item ID="1044" en="Latest version returned too long" tr=""/>
+			<item ID="1045" en="Backup folder can not be app folder" tr=""/>
+			<item ID="1046" en="Latest version returned empty" tr=""/>
+			<item ID="1047" en="Links Test" tr=""/>
+			<item ID="1048" en="Test version and download links" tr=""/>
+			<item ID="1049" en="Back Up failed" tr=""/>
+			<item ID="1050" en="No download link" tr=""/>
+			<item ID="1051" en="returned empty" tr=""/>
+			<item ID="1052" en="not specified" tr=""/>
+			<item ID="1053" en="Exit" tr=""/>
+			<item ID="1054" en="Failed to save settings!" tr=""/>
+			<item ID="1055" en="General" tr=""/>
+			<item ID="1056" en="Error downloading file" tr=""/>
+			<item ID="1057" en="Error unpacking downloaded file" tr=""/>
+			<item ID="1058" en="file in use" tr=""/>
+			<item ID="1059" en="missing" tr=""/>
+			<item ID="1060" en="Move" tr=""/>
+			<item ID="1061" en="everything was excluded" tr=""/>
+			<item ID="1062" en="Changelog URL" tr=""/>
+			<item ID="1063" en="Updated successfully" tr=""/>
+			<item ID="1064" en="Error" tr=""/>
+			<item ID="1065" en="Can not be empty" tr=""/>
+			<item ID="1066" en="Must begin with http,https or ftp" tr=""/>
+			<item ID="1067" en="No valid entries found!" tr=""/>
+			<item ID="1068" en="No internet connection!" tr=""/>
+			<item ID="1069" en="No enabled entries!" tr=""/>
+			<item ID="1070" en="No active items!" tr=""/>
+			<item ID="1071" en="Delete selected items?" tr=""/>
+			<item ID="1072" en="Couldn&apos;t open folder" tr=""/>
+			<item ID="1073" en="Couldn&apos;t open link, copy to clipboard?" tr=""/>
+			<item ID="1074" en="Updates are available" tr=""/>
+			<item ID="1075" en="&amp;File" tr=""/>
+			<item ID="1076" en="&amp;View" tr=""/>
+			<item ID="1077" en="&amp;Settings" tr=""/>
+			<item ID="1078" en="&amp;Help" tr=""/>
+			<item ID="1079" en="&amp;Hide" tr=""/>
+			<item ID="1080" en="E&amp;xit" tr=""/>
+			<item ID="1081" en="&amp;Large icons" tr=""/>
+			<item ID="1082" en="&amp;On Windows start up (items)" tr=""/>
+			<item ID="1083" en="Toggle highlight all" tr=""/>
+			<item ID="1084" en="Toggle check all" tr=""/>
+			<item ID="1085" en="Auto check for updates" tr=""/>
+			<item ID="1086" en="Check for updates" tr=""/>
+			<item ID="1087" en="Auto update" tr=""/>
+			<item ID="1088" en="Donate" tr=""/>
+			<item ID="1089" en="Check for update now" tr=""/>
+			<item ID="1090" en="Help" tr=""/>
+			<item ID="1091" en="Downloading lists..." tr=""/>
+			<item ID="1092" en="Checking for updates..." tr=""/>
+			<item ID="1093" en="Open changelog page" tr=""/>
+			<item ID="1094" en="Version link string" tr=""/>
+			<item ID="1095" en="Download link string" tr=""/>
+			<item ID="1096" en="Can not contain any of the following characters" tr=""/>
+			<item ID="1097" en="The operating system on this computer is not supported!" tr=""/>
+			<item ID="1098" en="Downloading updates..." tr=""/>
+			<item ID="1099" en="Double click" tr=""/>
+			<item ID="1100" en="failed to create folder" tr=""/>
+			<item ID="1101" en="failed to unpack temporary resources" tr=""/>
+			<item ID="1102" en="failed" tr=""/>
+			<item ID="1103" en="contains bad character" tr=""/>
+			<item ID="1104" en="backup" tr=""/>
+			<item ID="1105" en="Can&apos;t be the same as download folder or inside it" tr=""/>
+			<item ID="1106" en="Resources" tr=""/>
+			<item ID="1107" en="failed to delete" tr=""/>
+			<item ID="1108" en="Temporary folder" tr=""/>
+			<item ID="1109" en="Error updating" tr=""/>
+			<item ID="1110" en="not found" tr=""/>
+			<item ID="1111" en="Delete" tr=""/>
+			<item ID="1112" en="Reset" tr=""/>
+			<item ID="1113" en="Open folder" tr=""/>
+			<item ID="1114" en="Open backup folder" tr=""/>
+			<item ID="1115" en="Open web page" tr=""/>
+			<item ID="1116" en="Del" tr=""/>
+			<item ID="1117" en="About" tr=""/>
+			<item ID="1118" en="The operating system on this computer is not supported." tr=""/>
+			<item ID="1119" en="Filter string is too short" tr=""/>
+			<item ID="1120" en="Filter" tr=""/>
+			<item ID="1121" en="Edit" tr=""/>
+			<item ID="1122" en="comma-separated" tr=""/>
+			<item ID="1123" en="Icons" tr=""/>
+			<item ID="1124" en="Keywords" tr=""/>
+			<item ID="1125" en="Space-separated" tr=""/>
+			<item ID="1126" en="Testing links..." tr=""/>
+			<item ID="1127" en="Output sizes" tr=""/>
+			<item ID="1128" en="Output folder" tr=""/>
+			<item ID="1129" en="Other options" tr=""/>
+			<item ID="1130" en="Open output folder" tr=""/>
+			<item ID="1131" en="Preferences" tr=""/>
+			<item ID="1132" en="Options" tr=""/>
+			<item ID="1133" en="Always on top" tr=""/>
+			<item ID="1134" en="Add to context menu" tr=""/>
+			<item ID="1135" en="Up-scale frame for small images" tr=""/>
+			<item ID="1136" en="Scan sub folders	Drag &apos;N Drop only" tr=""/>
+			<item ID="1137" en="Auto open output folder	Drag &apos;N Drop only" tr=""/>
+			<item ID="1138" en="More..." tr=""/>
+			<item ID="1139" en="12-256, comma-separated" tr=""/>
+			<item ID="1140" en="Browse for a folder" tr=""/>
+			<item ID="1141" en="Save icons to:" tr=""/>
+			<item ID="1142" en="See the help file for all possible relative paths" tr=""/>
+			<item ID="1143" en="Failed to create output folder!" tr=""/>
+			<item ID="1144" en="Indexing..." tr=""/>
+			<item ID="1145" en="Loading..." tr=""/>
+			<item ID="1146" en="Processing..." tr=""/>
+			<item ID="1147" en="Input file types" tr=""/>
+			<item ID="1148" en="Drag &apos;N Drop only" tr=""/>
+			<item ID="1149" en="Wait..." tr=""/>
+			<item ID="1150" en="Configuration" tr=""/>
+			<item ID="1151" en="Build" tr=""/>
+			<item ID="1152" en="Drag &apos;N Drop" tr=""/>
+			<item ID="1153" en="Skin" tr=""/>
+			<item ID="1154" en="Changelog" tr=""/>
+		</items>
+	</localization>
+</root>

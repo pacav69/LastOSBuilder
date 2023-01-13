@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Networking-Internet_Authentication_Service_MigPlugin-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      xmlns="urn:schemas-microsoft-com:asm.v3"
+      scope="Upgrade,SvrMig"
+      >
+    <registerSDF name="NPAS-Role"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\System\CurrentControlSet\Services\IAS")</condition>
+        </detect>
+      </detects>
+      <plugin
+          classId="{6df2d9df-1294-4637-82d3-d53761ca2c11}"
+          file="Microsoft-Windows-IasServer-MigPlugin\IasMigPlugin.dll"
+          offlineApply="Yes"
+          />
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [Allow LM Authentication]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [Default User Identity]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [User Identity Attribute]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [BackendServerTimeout]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [DisableLdapEncryption]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [DisableErrorLogging]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [Enable NTLMv2 Compatibility]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [Override User-Name]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [DisableAutoDOSProtection]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [AvgResponseTimeSmoothFactor]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [MaxResponseTime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [DropRateDecrement]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [DropRateIncrement]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [MaxDropRate]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [HealthyResponseTime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [WarningResponseTime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [AllSesssionDropRateThreshold]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Policy [NewSesssionDropRateThreshold]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\AccountLockout [MaxDenials]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\AccountLockout [ResetTime (mins)]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\ControlProtocols\BuiltIn [DefaultDomain]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\IAS\Parameters [Ping User-Name]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\IAS\Parameters [Allow SNMP Set]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

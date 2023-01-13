@@ -1,0 +1,58 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="ntfsdev"
+    buildFilter=""
+    company="Microsoft"
+    copyright="Microsoft Corporation 2006"
+    creationTimeStamp="2006-03-13T10:22:45.7383532-08:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2006-03-13T10:22:45.7383532-08:00"
+    manifestVersion="1.0"
+    owners="ntfsdev"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-NTFS-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!-- Begin migration to Vista from non-Vista Server OS -->
+    <!-- In-place section. Declarations here will not be migrated pc-to-pc. -->
+    <machineSpecific>
+      <migXml xmlns="">
+        <!-- Ruleset for migrating Windows XP SP2, Server 2003 and Server R2 -->
+        <rules context="System">
+          <detects>
+            <detect>
+              <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+            </detect>
+          </detects>
+          <include>
+            <objectSet>
+              <!-- Knob values in same order as in the <configuration> section. -->
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsDisable8dot3NameCreation]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsAllowExtendedCharacterIn8dot3Name]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsDisableLastAccessUpdate]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsMftZoneReservation]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsMemoryUsage]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsQuotaNotifyRate]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Control\FileSystem [NtfsDisableEncryption]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+    <!-- No pc-to-pc migration. -->
+  </migration>
+</assembly>

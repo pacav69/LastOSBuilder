@@ -1,0 +1,68 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-IIS-Metabase-Deployment-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="IIS-Metabase"/>
+    <migXml xmlns="">
+      <!-- This migXml secton was added post Vista RTM, registerSDF does not work
+             if migXml is wrapped by a machineSpecific section (as the migXml section below),
+             because of that, we must duplicate the migXml section. 
+             Removing machineSpecific from the manifests is a high risk because
+             it was shipped on Vista RTM.
+             -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\IISADMIN [ImagePath]" )</condition>
+        </detect>
+      </detects>
+    </migXml>
+    <machineSpecific>
+      <migXml xmlns="">
+        <!-- On a down-level system, we detect the presence of the    -->
+        <!-- metabase by looking for the IISADMIN service.  We base   -->
+        <!-- this on the registry key for the service declaration.    -->
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\IISADMIN [ImagePath]" )</condition>
+          </detect>
+        </detects>
+        <!-- For the metabase down-level manifest, we need to gather  -->
+        <!-- the IIS settings from the config store using our plugin. -->
+        <plugin
+            classId="{A33259A7-E9DB-4195-A31F-57E3C4D74C49}"
+            file="Microsoft-Windows-IIS-DL\iismig.dll"
+            offlineApply="Yes"
+            />
+        <!-- Save the iis7.log file that is written to during the     -->
+        <!-- gather phase of the migration plug-in.                   -->
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="File">%windir%\[iis7.log]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

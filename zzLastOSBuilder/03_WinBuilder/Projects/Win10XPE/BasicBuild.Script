@@ -1,0 +1,67 @@
+[Main]
+Title=Basic Build
+Type=XPEPlugin
+Description=Create a Basic Build Without All Apps Then Create boot.wim and ISO Before Halt
+Author=ChriSR
+Date=2019.04.04
+Version=001
+Selected=False
+Mandatory=False
+NoWarning=False
+Level=3
+Download_Level=0
+Credits=
+Contact=
+
+[Interface]
+AddPlugin1_CheckBox=,1,3,6,20,18,18,False,"__Check the box to enable this feature during building"
+AddPlugin1_TextLabel="Run this Plugin 1",1,1,25,21,106,18,8,Normal
+AddPlugin1_FileBox="%BaseDir%\Projects\MyPlugins\Apps\System Tools\RegShot2_XPE.Script",1,13,146,18,420,20,file
+AddPlugin2_CheckBox=,1,3,6,44,18,18,False,"__Check the box to enable this feature during building"
+AddPlugin2_TextLabel="Run this Plugin 2",1,1,25,45,106,18,8,Normal
+AddPlugin2_FileBox=,1,13,146,42,420,20,file
+AddPlugin3_CheckBox=,1,3,6,68,18,18,False,"__Check the box to enable this feature during building"
+AddPlugin3_TextLabel="Run this Plugin 3",1,1,25,69,106,18,8,Normal
+AddPlugin3_FileBox=,1,13,146,66,420,20,file
+AddProcmon_CheckBox="Add Process Monitor",1,3,6,92,170,18,True,"__Add Process Monitor (Procmon) an advanced monitoring tool"
+AddAdditions_CheckBox="Add Additions",1,3,6,116,170,18,False,"__Add Files and Folders, Configure the Registry"
+CreateISO_CheckBox="Create boot.wim and ISO",1,3,6,140,170,18,True,"__Create boot.wim and ISO"
+Halt_TextLabel="Halt for a Build without Apps",1,1,6,168,184,18,8,Bold
+
+[process]
+If,%AddPlugin1_CheckBox%,Equal,True,Begin
+If,ExistFile,%AddPlugin1_FileBox%,Exec,%AddPlugin1_FileBox%,Process
+Else,EchoExtended,"Plugin: %AddPlugin2_FileBox% Not Found",Warn,,MessageError,10
+End
+//-
+If,%AddPlugin2_CheckBox%,Equal,True,Begin
+If,ExistFile,%AddPlugin2_FileBox%,Exec,%AddPlugin2_FileBox%,Process
+Else,EchoExtended,"Plugin: %AddPlugin2_FileBox% Not Found",Warn,,MessageError,10
+End
+//-
+If,%AddPlugin3_CheckBox%,Equal,True,Begin
+If,ExistFile,%AddPlugin3_FileBox%,Exec,%AddPlugin3_FileBox%,Process
+Else,EchoExtended,"Plugin: %AddPlugin3_FileBox% Not Found",Warn,,MessageError,10
+End
+//-
+If,%AddProcmon_CheckBox%,Equal,True,Begin
+If,ExistFile,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Exec,"%BaseDir%\Projects\MyPlugins\Apps\System Tools\ProcessMonitor_XPE.Script",Process
+Else,EchoExtended,"Plugin: ProcessMonitor_XPE.Script Not Found",Warn,,MessageError,10
+End
+//-
+If,%AddAdditions_CheckBox%,Equal,True,Begin
+If,ExistFile,%ProjectDir%\Additions.script,Exec,%ProjectDir%\Additions.script,Process
+Else,EchoExtended,"Plugin: Additions.Script Not Found",Warn,,MessageError,10
+End
+//-
+If,%CreateISO_CheckBox%,Equal,True,Exec,%ProjectDir%\CreateISO.script,Process
+Halt,"Halt for a Basic Build Without All Apps"
+
+[AuthorEncoded]
+Logo=Halt.ico
+Halt.ico=3029,4039
+
+[EncodedFile-AuthorEncoded-Halt.ico]
+lines=0
+0=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
+

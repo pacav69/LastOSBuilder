@@ -1,0 +1,239 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Web-Services-for-Management-Core"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+
+
+  <migration
+      replacementSettingsVersionRange="0-9999"
+      scope="Upgrade,MigWiz,USMT"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsUpgrade()</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+          </objectSet>
+        </exclude>
+        <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Client\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Service\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Listener\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\CertMapping\* [*]</pattern>
+          </objectSet>
+        </locationModify>
+        <merge script="MigXmlHelper.DestinationPriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+      <rules context="System">
+        <detects>
+          <detect>
+            <condition negation="Yes">MigXmlHelper.IsUpgrade()</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+          </objectSet>
+        </exclude>
+        <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\* [*]</pattern>
+          </objectSet>
+        </locationModify>
+        <merge script="MigXmlHelper.DestinationPriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+      <plugin
+          classId="{E550301A-B9D0-4ff9-B22A-BD4A1DD34C20}"
+          file="$(runtime.system32)\WSManMigrationPlugin.dll" 
+          fileEx="C:\mspctl\WSManMigrationPlugin.dll"
+          offlineApply="yes"
+          />
+    </migXml>
+    <supportedComponents>
+      <supportedComponent>
+        <supportedComponentIdentity
+            buildFilter=""
+            buildType="$(build.buildType)"
+            language="neutral"
+            name="Microsoft-Windows-Web-Services-for-Management-Core"
+            processorArchitecture="*"
+            publicKeyToken="$(Build.WindowsPublicKeyToken)"
+            settingsVersionRange="0"
+            type=""
+            versionScope="nonSxS"
+            />
+        <migXml xmlns="">
+          <rules context="System">
+            <detects>
+              <detect>
+                <condition>MigXmlHelper.IsUpgrade()</condition>
+              </detect>
+            </detects>
+            <exclude>
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+              </objectSet>
+            </exclude>
+            <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Client\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Service\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Listener\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\CertMapping\* [*]</pattern>
+              </objectSet>
+            </locationModify>
+            <merge script="MigXmlHelper.DestinationPriority()">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+              </objectSet>
+            </merge>
+          </rules>
+          <rules context="System">
+            <detects>
+              <detect>
+                <condition negation="Yes">MigXmlHelper.IsUpgrade()</condition>
+              </detect>
+            </detects>
+            <exclude>
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+              </objectSet>
+            </exclude>
+            <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\* [*]</pattern>
+              </objectSet>
+            </locationModify>
+            <merge script="MigXmlHelper.DestinationPriority()">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+              </objectSet>
+            </merge>
+          </rules>
+        </migXml>
+      </supportedComponent>
+      <supportedComponent>
+        <supportedComponentIdentity
+            language="*"
+            name="Microsoft-Windows-Web-Services-for-Management-Core-DL"
+            processorArchitecture="*"
+            settingsVersionRange="0"
+            />
+        <migXml xmlns="">
+          <rules context="System">
+            <detects>
+              <detect>
+                <condition>MigXmlHelper.IsUpgrade()</condition>
+              </detect>
+            </detects>
+            <exclude>
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+              </objectSet>
+            </exclude>
+            <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Client\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Service\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Listener\* [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\CertMapping\* [*]</pattern>
+              </objectSet>
+            </locationModify>
+            <merge script="MigXmlHelper.DestinationPriority()">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+              </objectSet>
+            </merge>
+          </rules>
+          <rules context="System">
+            <detects>
+              <detect>
+                <condition negation="Yes">MigXmlHelper.IsUpgrade()</condition>
+              </detect>
+            </detects>
+            <exclude>
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.Windows.ServerManagerWorkflows [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell32 [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\Microsoft.PowerShell.Workflow [*]</pattern>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Plugin\WMI Provider [*]</pattern>
+              </objectSet>
+            </exclude>
+            <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan&apos;,&apos;HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration&apos;)">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\* [*]</pattern>
+              </objectSet>
+            </locationModify>
+            <merge script="MigXmlHelper.DestinationPriority()">
+              <objectSet>
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\WSMan\Migration\* [*]</pattern>
+              </objectSet>
+            </merge>
+          </rules>
+        </migXml>
+      </supportedComponent>
+    </supportedComponents>
+    <migrationDisplayID>Additional_Options\Windows_Core_Settings</migrationDisplayID>
+  </migration>
+</assembly>
+
+

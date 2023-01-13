@@ -1,0 +1,114 @@
+[Main]
+Title=IME Chinese zh-CN
+Type=XPEPlugin
+Description=Chinese TC IME Support
+Author=ChrisR
+Date=2019.04.01
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+HistoryNotes=Be Free to Customize
+HistoryNotes01= cobraman modified, zh-CN can work up to v1809
+
+[Variables]
+//%Custom%=True
+%Custom%=False
+
+[Process]
+Exec,%ProjectDir%\Features\Ime_Common.Script,Process,HiveLoaded
+//-
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,Ime_zh_CN_Files
+If,%Custom%,Equal,True,Run,%ScriptFile%,Custom_zh_CN_Files
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Keyboard_zh_CN_Reg
+If,%Custom%,Equal,True,Run,%ScriptFile%,Custom_zh_CN_Reg
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[Ime_zh_CN_Files]
+ExtractSectionFiles,%ScriptFile%,Ime_zh_CN_AddFiles
+//-
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  ExtractSectionFiles,%ScriptFile%,Ime_zh_CN_x64_AddFiles
+End
+
+[Keyboard_zh_CN_Reg]
+RegWrite,HKLM,0x1,"Tmp_Default\Keyboard Layout\Preload",2,00000409
+RegWrite,HKLM,0x1,"Tmp_Default\Keyboard Layout\Preload",1,00000804
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,67699721
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{FA550B04-5AD7-411F-A5AC-CA038EC515D7}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,134481924
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\HiddenDummyLayouts,00000804,00000804
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,CLSID,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,KeyboardLayout,67699721
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,Profile,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,CLSID,{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,KeyboardLayout,0
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,Profile,{FA550B04-5AD7-411F-A5AC-CA038EC515D7}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\Language,00000000,00000804
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile\0x00000804\{FA550B04-5AD7-411F-A5AC-CA038EC515D7},Enable,1
+// Not working IME, set enable=0 to hide
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{B115690A-EA02-48D5-A231-E3578D2FDF80}\LanguageProfile\0x00000404\{B2F9C502-1742-11D4-9790-0080C882687E},Enable,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{531fdebf-9b4c-4a43-a2aa-960e8fcdc732}\LanguageProfile\0x00000404\{6024B45F-5C54-11D4-B921-0080C882687E},Enable,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{531fdebf-9b4c-4a43-a2aa-960e8fcdc732}\LanguageProfile\0x00000404\{4BDF9F03-C7D3-11D4-B2AB-0080C882687E},Enable,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1}\LanguageProfile\0x00000404\{037B2C25-480C-4D7F-B027-D6CA6B69788A},Enable,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1}\LanguageProfile\0x00000404\{D38EFF65-AA46-4FD5-91A7-67845FB02F5B},Enable,0
+//-
+RegWrite,HKLM,0x1,"Tmp_System\Keyboard Layout\Preload",2,00000409
+RegWrite,HKLM,0x1,"Tmp_System\Keyboard Layout\Preload",1,00000804
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,67699721
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{FA550B04-5AD7-411F-A5AC-CA038EC515D7}
+RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,134481924
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\HiddenDummyLayouts,00000804,00000804
+RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile\0x00000804\{FA550B04-5AD7-411F-A5AC-CA038EC515D7},Enable,1
+
+[Ime_zh_CN_AddFiles]
+\Windows\InputMethod\CHS\ChsPinyin.lex
+\Windows\InputMethod\CHS\ChsPinyin.lm
+\Windows\InputMethod\CHS\ChsWubi.lex
+\Windows\System32\InputMethod\CHS
+\Windows\System32\MSWB70804.dll
+\Windows\System32\NL7Data0804.dll
+\Windows\System32\NL7Lexicons0804.dll
+\Windows\System32\NL7Models0804.dll
+\Windows\System32\NOISE.CHS
+\Windows\System32\chs_singlechar_pinyin.dat
+\Windows\System32\ChsStrokeDS.dll
+
+[Ime_zh_CN_x64_AddFiles]
+\Windows\SysWOW64\InputMethod\CHS
+\Windows\SysWOW64\chs_singlechar_pinyin.dat
+
+[CustomSectionNow]
+;------------------------------------------------
+;         Custom Section Now
+;------------------------------------------------
+
+[Custom_zh_CN_Files]
+ExtractSectionFiles,%ScriptFile%,Custom_zh_CN_AddFiles
+If,ExistFile,%BaseDir%\Custom\Fonts\*.*,FileCopy,%BaseDir%\Custom\Fonts\*.*,%GTarget_Win%\Fonts
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  ExtractSectionFiles,%ScriptFile%,Custom_zh_CN_x64_AddFiles
+End
+
+[Custom_zh_CN_Reg]
+If,ExistFile,%ScriptDir%\Custom_zh_CN_Reg.txt,RegImportFile,%ScriptDir%\Custom_zh_CN_Reg.txt
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  If,ExistFile,%ScriptDir%\Custom_zh_CN_x64_Reg.txt,RegImportFile,%ScriptDir%\Custom_zh_CN_x64_Reg.txt
+End
+
+[Custom_zh_CN_AddFiles]
+
+[Custom_zh_CN_x64_AddFiles]

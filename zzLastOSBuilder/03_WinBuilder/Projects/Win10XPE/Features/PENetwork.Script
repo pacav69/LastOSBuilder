@@ -1,0 +1,210 @@
+[Main]
+Title=PENetwork
+Type=XPEPlugin
+Description=PENetwork: PE Network Manager
+Author=ChriSR
+Date=2018.12.28
+Credits=KYHI
+Version=001
+Level=0
+Download_Level=0
+Selected=None
+Mandatory=False
+NoWarning=False
+History001=
+
+[Variables]
+%ProgramTitle%=PENetwork
+%ProgramExe%=PENetwork.exe
+%ProgramFolder%=PENetwork
+%StartMenuFolder%=Network
+%SetupFile%=PENetwork_x86.7z
+%SetupFilex64%=PENetwork_x64.7z
+%SetupURL%=https://www.penetworkmanager.de/scripts/PENetwork.7z
+%SetupURLx64%=https://www.penetworkmanager.de/scripts/PENetwork_x64.7z
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,ExistFile,%ProjectDir%\Core.script,AddInterface,%ProjectDir%\Core.script,InterfacePENetwork,""
+If,%PENMAddPENetwork_CheckBox%,Equal,False,Begin
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","//EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe"
+  Exit,"PENetwork is not Selected, No Processing %ScriptTitle%"
+End
+If,%PENMRunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+Run,%ScriptFile%,Extract
+//--
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+DirCopy,%GTemp%\%ProgramFolder%,%Target_Prog%
+//--
+If,ExistFile,%GCustom%\PENetworkini\PENetwork.ini,Begin
+  If,ExistFile,%Target_Prog%\%ProgramFolder%\PENetwork.ini,FileDeleteQ,%Target_Prog%\%ProgramFolder%\PENetwork.ini
+  Filecopy,%GCustom%\PENetworkini\PENetwork.ini,%Target_Prog%\%ProgramFolder%\PENetwork.ini
+End
+//--
+If,ExistDir,%GCustom%\WifiProfiles,Begin
+  Retrieve,FOLDERSIZE,%GCustom%\WifiProfiles,%WifiProfilesSize%
+  If,%WifiProfilesSize%,Bigger,1,DirCopy,%GCustom%\WifiProfiles,%Target_Prog%\%ProgramFolder%
+End
+//--
+If,%UseWifiProfile_CheckBox%,Equal,True,Run,%Scriptfile%,AutoConnectWifiProfile
+//--
+// Run PENetwork at Startup - Change Path in Pecmd.ini
+If,%PENMAutoRun_CheckBox%,Equal,True,TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","EXEC %PE_Programs%\%ProgramFolder%\%ProgramExe%"
+Else,TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","//EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe"
+//--
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Default,%RegDefault%
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+End
+Run,%ScriptFile%,Add_Registry
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Default
+  RegHiveunLoad,Tmp_Software
+End
+//--
+Run,%ScriptFile%,Add_Shortcuts
+
+[Add_Shortcuts]
+If,%PENMStartMenuFolder_TextBox%-,Equal,-,Set,%PENMStartMenuFolder_TextBox%,%StartMenuFolder%
+If,%PENMDesktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%PENMStartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%PENMStartMenuFolder_TextBox%
+If,%PENMStartMpin_CheckBox%,Equal,True,AddPin,StartMenu,,$Start_Menu\Programs\%PENMStartMenuFolder_TextBox%\PENetwork.lnk
+If,%PENMTaskBpin_CheckBox%,Equal,True,AddPin,TaskBar,,$Start_Menu\Programs\%PENMStartMenuFolder_TextBox%\PENetwork.lnk
+
+[Extract]
+If,Not,ExistFile,%GTemp%\%ProgramFolder%\%ProgramExe%,Begin
+  If,Not,ExistDir,%GTemp%\%ProgramFolder%,DirMake,%GTemp%\%ProgramFolder%
+  If,ExistFile,%ScriptDir%\%SetupFile%,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+  Else,EchoExtended,"%SetupFile% should be in the original package",Warn,,Message,,Halt
+End
+ExtractFile,%ScriptFile%,Folder,PENetwork.ini,%GTemp%\%ProgramFolder%
+
+[Add_Registry]
+Echo,"Adding Registry..."
+If,%PENMPromptAtStartup_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,AutoStart,0
+Else,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,AutoStart,1
+//-
+If,%PENMStartCountdown_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,UseStartCountdown,1
+Else,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,UseStartCountdown,0
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,StartCountdown,%PENMStartCountdown_NumberBox%
+//-
+If,%PENMUseProfilesStartup_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,UseProfiles,1
+Else,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,UseProfiles,0
+//-
+If,%PENMForceScanOnStartup_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,ForceScanOnStartup,1
+Else,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,ForceScanOnStartup,0
+//--
+If,%PENMAfterStart_ScrollBox%,Equal,"Show main window",RegWrite,HKLM,0x1,Tmp_Software\PENetwork,CloseAfterStartnet,0
+If,%PENMAfterStart_ScrollBox%,Equal,"Close program",RegWrite,HKLM,0x1,Tmp_Software\PENetwork,CloseAfterStartnet,1
+If,%PENMAfterStart_ScrollBox%,Equal,"Start to Tray",RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,StartToTray,1
+Else,RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,StartToTray,0
+//-
+If,%PENMMinToTray_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,MinimizeToTray,1
+Else,RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,MinimizeToTray,0
+//-
+If,%PENMCloseToTray_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,CloseToTray,1
+Else,RegWrite,HKLM,0x1,Tmp_Software\PENetwork,CloseToTray,0
+//-
+If,%PENMShowTrayActivity_CheckBox%,Equal,True,RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,ShowTrayActivity,1
+Else,RegWrite,HKLM,0x1,Tmp_Default\Software\PENetwork,ShowTrayActivity,0
+//-
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,Debug,1
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,EnableAutoIP,0
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,ForceServices,1
+//RegWrite,HKLM,0x1,Tmp_Software\PENetwork,FocusNo,1
+//-
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,TopMost,1
+//RegWrite,HKLM,0x4,Tmp_Default\Software\PENetwork,SmallTab,0
+//RegWrite,HKLM,0x4,Tmp_Default\Software\PENetwork,StartMode,1
+//-
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,StartSharing,0
+RegWrite,HKLM,0x1,Tmp_Software\PENetwork,ShareAll,0
+
+[PENMEditor]
+If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
+If,%HostOSArch%,Equal,x64,Set,%SetupFile%,%SetupFilex64%
+Run,%ScriptFile%,Extract
+If,ExistFile,%GTemp%\%ProgramFolder%\%ProgramExe%,Begin
+  If,Not,ExistFile,%GCustom%\PENetworkini\PENetwork.ini,Begin
+    If,Not,ExistDir,%GCustom%\PENetworkini,DirMake,%GCustom%\PENetworkini
+    FileCopy,"%GTemp%\%ProgramFolder%\PENetwork.ini",%GCustom%\PENetworkini\PENetwork.ini
+  End
+  If,ExistFile,%GCustom%\PENetworkini\PENetwork.ini,Begin
+    ShellExecuteEx,Open,%GTemp%\%ProgramFolder%\%ProgramExe%,"/profileeditor /ini=#$q%GCustom%\PENetworkini\PENetwork.ini#$q"
+  End
+End
+
+[ExportWifi]
+If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
+If,%HostOSArch%,Equal,x64,Set,%SetupFile%,%SetupFilex64%
+Run,%ScriptFile%,Extract
+If,ExistFile,%GTemp%\%ProgramFolder%\%ProgramExe%,Begin
+  If,Not,ExistDir,%GCustom%\WifiProfiles,DirMake,%GCustom%\WifiProfiles
+  ShellExecute,Open,%GTemp%\%ProgramFolder%\%ProgramExe%,"/wifiexporter #$q%GCustom%\WifiProfiles#$q"
+End
+
+[AutoConnectWifiProfile]
+Echo,"Adding Auto Connect to PeNetwork_AfterStartup.cmd..."
+StrFormat,RTRIM,%WifiProfile_TextBox%,4,%WifiProfile%
+Set,%w%,%GTarget_Sys%\PeNetwork_AfterStartup.cmd
+If,ExistFile,%w%,Begin
+  TXTDelLine,%w%,Exit
+  TXTAddLine,%w%,"Netsh WLan add profile filename=#$q%PE_Programs%\%ProgramFolder%\WifiProfiles\%WifiProfile_TextBox%#$q user=all",Append
+  TXTAddLine,%w%,"Netsh WLan set profileparameter name=%WifiProfile% connectionmode=auto",Append
+  TXTAddLine,%w%,Exit,Append
+End
+// Current AutoConnect via Edited PENetwork.ini - Wireless Profile (Need Network Profiles at Startup: UseProfiles=1)
+
+[PluginSetx64]
+Set,%SetupFile%,%SetupFilex64%
+Set,%ProgramFolder%,%ProgramFolder%_x64
+
+[Profiles_OpenDir]
+If,Not,ExistDir,%GCustom%\WifiProfiles,DirMake,%GCustom%\WifiProfiles
+OpenDir,%GCustom%\WifiProfiles
+
+[Update_Containers]
+If,ExistFile,%ScriptDir%\%SetupFile%,FileDeleteQ,%ScriptDir%\%SetupFile%
+If,ExistFile,%ScriptDir%\%SetupFilex64%,FileDeleteQ,%ScriptDir%\%SetupFilex64%
+Download,%ScriptDir%\%SetupFile%,%SetupURL%
+Download,%ScriptDir%\%SetupFilex64%,%SetupURLx64%
+
+[AuthorEncoded]
+Logo=PENetwork4848.ico
+PENetwork4848.ico=457,610
+
+[InterfaceEncoded]
+Launch.bmp=913,1218
+Penetwork.bmp=150,200
+opendir.bmp=571,762
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Penetwork.bmp]
+lines=0
+0=eJxz8jVjYQADMyDWAGIBKGZkUIBIQOVHApCSkvqPjCkxg5AacvVjk0d3Nz5/IIsh0/+v9GHF2NQOF/2Uhh85gBK9gwUAAKCom0V4nOMNSM1LLSnPL8rWS8otYBgFIwyYsUBoLxzyt1ab1TEwAQAzHAf5DYEjVAEAAAACAAAAKAAAAEoAAAAAAAAAAQAAAAAAAAAAAAAA
+
+[Folder]
+PENetwork.ini=4285,5714
+
+[EncodedFile-AuthorEncoded-PENetwork4848.ico]
+lines=0
+0=eJztWEFugzAQ3CqH/iDnXiLlGF6Qr/Qn9AV9R35BH9E7+QFHDhRcYGMVIdLa3l07rnYjZ4TxzoztYJsAPI2f0wnG7xe4HAD2AHAcy1gFr4D1U7wd4F9HURTGtTyi9nTPJaT8U7XXHPZ6q17af4j21lzZnBS/H6r2koPbbwztHPz7PPfcaxGH9tzPz/fgQp5forb6V//qn86Rau3Q8Vf/6j9v/zmff1w0ONrE4g3l8NGS4OTg4B7T2P7/as/JJcmxlSP1jEhxLPM4OEKDY31Moc3BEdu/1L7h2p6qPe/nxP/w7vl1yaFqrzns9Va9j3fXexza62JzXOaQsn9RtX8bkxT7qo82lUNib/LRlj7DSmrP/cz8/UX9q3/1T+NItXbo+Kt/9Z+3/5zPP6HajxL4VgNw3Rnz8Xwfh7MxX+UPApQDMriiDb88U1b9YCasO8SmRWwbxK5G7CvEoVzidddX2I+uRmwbxKbFftUd9qvqo/brNu7fSRwCEnicEwxw9UstKc8vyjaxMLHQy0zOZxgFIwjsU4XQFYzY5d+m5H9lYAIAiwUJ5T+egCQBAAAAAgAAAC0AAAB4AQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[EncodedFile-Folder-PENetwork.ini]
+lines=1
+0=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
+1=igG4I2QhwuNtTakNbSXTkck33uQ3Ju0b4WftmciEyd0p4JeQ+EF9Up1Ul3hQn1ux2ou75Om6Mznc/U2x60q7xiXEp3qlWHoB283FpdMfV7izF0ck7PXEGo08UL8Mx27fe0l0kp66soeW/pOGW69jEQdG2Hlv9mgg/F0Fs2pzd1j75KXj5qF0+YI92SkJrr+yTRhnQO1yfIy0/v1gH3bsjLzxPWrb+FTT4TIfpHecW4bPv28/HzCyhB/sKCktQGXPLycdS1oqI8onnd9JJlTVJqLXtcestLDtvfdsTVC9C7LV/P42/5emy+lh+DlDFIGxvjtctlt7yfT2lbctdJUhz8d0DOajme0iije9066+ccbvvHqF38fv0+Zd8H2t5vjzp9Wt9FDpUzXd+TKxXbiKnfj9AlNWpk6XxKVqNGGo/Bkfc2o146V2q95J61dCmSI02CuWaUKsXkSpM0prJTJXDqeMlyxkbth5GzM/ZvJfH8XdG1KCPmGYv9rF3N4QycZ1vG/I79tGM8fSN8xBvqwQvq93IdU+fC/PgAnh8DpfqtG1U/iaUus1K9vS/ypHBWpaI81zPYGZUc18fk13pGJGlmU8r79YQPjGVSOVmUzKAGlG/7chQzg5L16xDP2BiR/NlTbuYkx7xdigl9OZ2bNalaICLkdXMZPr+XiknSK0RYMmZKu2CrIWoTD+bVY5oXepyYJanoWV51OVJdfhSLHUO5UX5eJD2O8iMpOZFqaXmFMyKZPeL5wG3LTv3ZkKx5p+phvkyoLlIy219e/vxHtbq8wrlPnVwVmUndDqsrlvPUUadZhpvr5OQ5dfqyc5w6vfnym1Q8th7H2islr6njMiO3nJygTkt2PlCnJV8ukJ8H1NmPPweIcbm5X0ynijqtTJ7zpZUoWziNWtY0DYfMVdRcibxieUo8j9BzlHpKE299blJvIXYmk5+T1JVu5yM5cX6aBDszSI3x00rXM4KcuD6ldDcTSInrU0pWGUCsRGXb9ii8DSXIK9bPcvmkrdXx6dE75gNp8XtX87V18XuI1he/45wlnrHbFf/FJhy/+0tdx++fK35vVVda/B7j+LzxO889sY37nzB+j9U3HL/HuOyeLFc+zNWPWPzu7133id/D8+B2FBOi+5j43a+lUPwepv588Xv9ukGq3srG7yHNxOP3ENfHxu/hWvvj93r6EvF7fX3TtRSK3/0xrhu/x2MLPX6vozVj4TpqO36PU9vxe3gdYB2/r+P333b8PoKxVF458XsdXyh+9/PJ39JX9WjT6SP8vY2Rh07XTMiLSkr+n5OuLT3aq+2c2vadHfrlE77zJkSdjsUX0yCWXfKcPg49vkyRoOJKM/rc9taWU5t+P4XDbtM0nvRZaFW+P6b2R46mbTxh8r8z8KyxWV3IIVeAcPckjjju/wZ5AxaM+eQG7VFeeHPN0NrTOgdd56DrHHSdg65z0HUOus5B1znoOgdd56DrHHSdg65z0HUOep8cNJRnurmpu8Pxp2RZnFdx6qX/B8mL0ad4nOMNcPVLLSnPL8rWy8zLZBgFIwxsa4HQBQLY5bdk3JnJwAQA2M8JSOYHVkEBAAAAAgAAACkAAABwEAAAAAAAAAEAAAAAAAAAAAAAAA
+

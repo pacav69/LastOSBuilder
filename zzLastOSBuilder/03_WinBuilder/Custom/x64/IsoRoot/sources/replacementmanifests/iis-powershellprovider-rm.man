@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-IIS-PowerShellProvider"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+
+    <migration replacementSettingsVersionRange="0"
+       settingsVersion="0"
+       alwaysProcess="yes">
+      <registerSDF name="IIS-PowerShellProvider"/>
+      <migXml xmlns="">
+      <!-- On a Vista /LHS down-level system, we detect the presence of FTP7 by -->
+      <!-- looking for the FTPSVC service.  We base this on the                 -->
+      <!-- registry key for the service declaration.                            -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT", "6.0.*")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "File", "%windir%\system32\inetsrv [IIsProvider.dll]" )</condition>
+        </detect>
+      </detects>
+      </migXml>
+  </migration>
+</assembly>

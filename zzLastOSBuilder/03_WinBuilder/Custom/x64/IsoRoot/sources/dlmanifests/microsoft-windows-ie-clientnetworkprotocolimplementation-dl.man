@@ -1,0 +1,308 @@
+<assembly manifestVersion="1.0" description="WinINet Downlevel Settings" displayName="Microsoft-Windows-IE-ClientNetworkProtocolImplementation-DL" company="Microsoft Corporation" copyright="" supportInformation="" creationTimeStamp="2005-09-1T00:00:00.0-07:00" lastUpdateTimeStamp="2005-09-01T00:00:00.0-07:00" authors="ericsten" owners="winitri" testers="karend" buildFilter="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:asm.v3">
+	<!--
+    in DL manifest, we only care about name, processorArch, language and version
+    elements if the <assemblyIdentity> hence can delete the rest if you like
+    -->
+  <assemblyIdentity name="Microsoft-Windows-IE-ClientNetworkProtocolImplementation-DL" version="0.0.0.0" processorArchitecture="*" language="*" versionScope="nonSxS"></assemblyIdentity>
+
+  <migration scope="Upgrade,MigWiz,USMT">
+    <migXml xmlns="">
+
+      <!-- Check as this is only valid for down-level OS < than Windows Vista -->
+     <detects>
+       <detect>
+         <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+       </detect>
+     </detects>
+
+      <!-- reg keys in HKLM (wcm:scope="allUsers") -->
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Lsa\SSO\Passport1.4 [SSOURL]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Cache [Persistent]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections\* [*]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Passport\* [*]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [AutoConfigURL]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BypassHTTPNoCacheCheck]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BypassSSLNoCacheCheck]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [CertificateRevocation]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ConnectRetries]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ConnectTimeOut]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DialupUseLanSettings]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableBranchCache]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableCachingOfSSLPages]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableCredManager]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableLegacyPreAuthAsAserver]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableWorkerThreadHibernation]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DontUseDNSLoadBalancing]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EmailName]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableHttpTrace]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [NoCheckAutodialOverRide]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyEnable]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyOverride]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyServer]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReceiveTimeOut]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReleaseSocketDuring401Auth]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReleaseSocketDuringAuth]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SendTimeOut]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [UrlEncoding]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache [*]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Cache [Persistent]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [CertificateRevocation]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [DisableCachingOfSSLPages]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [ProxySettingsPerUser]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Http Filters\RPA [Default]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\P3P\History\* [*]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-internet-signup [Default]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-internet-signup [DllFile]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-internet-signup [FileExtensions]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-internet-signup [Flags]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-ns-proxy-autoconfig [Default]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-ns-proxy-autoconfig [DllFile]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-ns-proxy-autoconfig [FileExtensions]</pattern>
+
+            <pattern type="Registry">HKLM\SOFTWARE\Classes\AutoProxyTypes\Application/x-ns-proxy-autoconfig [Flags]</pattern>
+
+            </objectSet>
+        </include>
+      </rules>
+
+      <!-- reg keys in HKCU (wcm:scope="perUser") -->
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections\* [*]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Passport\* [*]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [AlwaysDrainOnRedirect]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [AutoConfigCustomUA]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [AutoConfigURL]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [AutoProxyDetectType]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BadProxyExpiresTime]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BypassFtpTimeCheck]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BypassHTTNoCacheCheck]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [BypassSSLNoCacheCheck]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [CacheMode]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [CertCacheNoValidate]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ConnectRetries]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ConnectTimeOut]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DaysBetweenDavDetection]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DialupUseLanSettings]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableBasicOverClearChannel]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableKeepAlive]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableLegacyPreAuthAsServer]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableNT4RasCheck]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableNTLMPreAuth]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisablePassport]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisablePasswordCaching]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableReadRange]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisableWorkerThreadHibernation]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DisconnectIdleTime]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DontUseDNSLoadBalancing]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DnsCacheEnabled]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DnsCacheEntries]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [DnsCacheTimeout]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EmailName]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableAutodial]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableAutodisconnect]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableHttp1_1]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableHttpTrace]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [EnableNegotiate]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [FromCacheTimeout]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [FtpDefaultExpiryTimeSecs]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [HeaderExclusionListForCache]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [HttpDefaultExpiryTimeSecs]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [KeepAliveTimeout]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [LeashLegacyCookies]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [MaxConnectionsPerServer]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [MaxConnectionsPer1_0Server]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [MaxHttpRedirects]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [MigrateProxy]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [MimeExclusionListForCache]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [NoCheckAutodialOverRide]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [NonBlockingClient32]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [NoNetAutodial]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [PerUserCookies]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [PrivacyAdvanced]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyEnable]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyHttp1.1]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyOverride]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ProxyServer]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReceiveTimeOut]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [RedialAttempts]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [RedialWait]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReleaseSocketDuringAuth]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ReleaseSocketDuring401Auth]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ScavengeCacheLowerBound]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SecureProtocols]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SendExtraCRLF]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SendTimeOut]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [ServerInfoTimeout]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SocketSendBufferLength]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SocketReceiveBufferLength]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [SyncMode5]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [TruncateFileName]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnAlwaysOnPost]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnBadCertRecving]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnBadCertSending]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnPost]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnZoneCrossing]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnPostRedirect]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WarnOnHTTPSToHTTPRedirect]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings [WpadSearchAllDomains]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\P3P\History\* [*]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [CertificateRevocation]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [DisableCachingOfSSLPages]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [DisplayScriptDownloadFailureUI]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [EnableAutoProxyResultCache]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [MBCSAPIforCrack]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [MBCSServername]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Cache [Persistent]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings [UTF8ServerNameRes]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\* [*]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache [*]</pattern>
+
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Http Filters\RPA [Default]</pattern>
+
+            <pattern type="File">%CSIDL_COOKIES% [*]</pattern>
+
+            <pattern type="File">%CSIDL_HISTORY% [*]</pattern>
+
+            <pattern type="File">%CSIDL_HISTORY%\* [*]</pattern>
+
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Network_and_Internet\Internet_Options</migrationDisplayID>
+  </migration>
+</assembly>

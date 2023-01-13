@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-TerminalServices-Role-Package"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration replacementSettingsVersionRange="0"
+        settingsVersion="0"
+        alwaysProcess="yes">
+    <registerSDF name="Remote-Desktop-Services"/>
+    <migXml>
+      <detects>
+        <detect>
+          <!-- Install Remote-Desktop-Services component if it is installed AND the OS is Windows Server 2008 R2 or below. -->
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Terminal Services")</condition>
+        </detect>
+        <detect>
+          <!-- Detection of OS version to be Windows Server 2008 R2 or lower. IsOSEarlierThan returns TRUE if the OS version matches. -->
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.2")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

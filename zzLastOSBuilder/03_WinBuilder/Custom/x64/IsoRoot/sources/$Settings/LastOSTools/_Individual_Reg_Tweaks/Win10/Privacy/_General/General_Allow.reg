@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+; Allows websites to provide locally relevant content by accessing your language list
+[-HKEY_CURRENT_USER\Control Panel\International\User Profile] 
+"HttpAcceptLanguageOptOut"=dword:00000001 
+ 
+; Allows apps to use an advertising ID to make ads more interesting to you based on your app usage (turning this off will reset your ID)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo] 
+"Enabled"=dword:00000001 
+
+; Allows Windows to track app launches to improve Start and Search results
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced] 
+"Start_TrackProgs"=dword:00000001 

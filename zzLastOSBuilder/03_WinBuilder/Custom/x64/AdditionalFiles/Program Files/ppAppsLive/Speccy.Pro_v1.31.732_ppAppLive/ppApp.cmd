@@ -1,0 +1,1 @@
+%AddToHosts% "license.piriform.com"

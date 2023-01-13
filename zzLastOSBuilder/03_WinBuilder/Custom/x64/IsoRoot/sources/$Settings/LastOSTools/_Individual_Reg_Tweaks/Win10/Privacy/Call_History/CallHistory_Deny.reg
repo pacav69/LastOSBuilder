@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Denies apps acccess to my call history
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{8BC668CF-7728-45BD-93F8-CF2B3B41D7AB}] 
+"Value"="Deny" 

@@ -1,0 +1,4 @@
+[SetupS]Title=Games LauncherVersion=v20.02.04.0Description=Install this to run the Games you have Installed from any Mega Games InstallerURL=http://www.LastOS.orgCategory=Games\Other|Games\GamesBuildType=ppGameApp-File Version=v9.17.12.3.0App-File Style=2 (INI)AppPath=%ppGames%\GamesLauncherStartMenuSourcePath=Games LauncherCatalog=Game OtherStartMenuLegacyPrimary=- Games\OtherStartMenuLegacySecondary=5 Games\OtherShortCutNamesKeep=Games LauncherPriorityOrder=4Flags=KeepAll|Root|Desktop|QuickLaunch[Meta]Tags=GamePublisher=LastOSReleaser=GlennReleaseDate=2020-02-04Rating=5InstalledSize=28998031LicenseType=1 (non-gratis)
+[Games Launcher.lnk]
+Target=ssWPI.exe
+Comment=Start this to play your ppGames installed to your PC.

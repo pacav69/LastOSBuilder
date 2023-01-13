@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="henryr"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-06-09T15:50:15.4121607-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2004-08-20T01:06:41.7339072-07:00"
+    manifestVersion="1.0"
+    owners="henryr"
+    supportInformation=""
+    testers="jonwhee"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-UPnPSSDP-DL"
+      processorArchitecture="*"
+      product="$(build.product)"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [AdditionalIPv6Scope]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [MaxCache]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [TTL]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [ReceiveScope]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [MaxDeviceLifetime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [MinDeviceLifetime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV\Parameters [MaxHttpSize]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SSDPSRV [Start]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

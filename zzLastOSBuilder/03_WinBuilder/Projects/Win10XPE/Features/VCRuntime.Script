@@ -1,0 +1,124 @@
+[Main]
+Title=VCRuntime
+Type=XPEPlugin
+Description=VCRuntime
+Author=ChriSR
+Date=2019.09.04
+Credits=
+Contact=
+Version=002
+Level=0
+Download_Level=0
+Selected=None
+Mandatory=None
+NoWarning=False
+History001=ChrisR Initial XPE Packed Plugin Created 2018.05.30
+History002=KYHI - Additional File Support For 10.0.18632 - 2019.05.10 - 2019.09.04
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+ExtractSectionFiles,%ScriptFile%,VCRuntime_%Architecture%_AddFiles
+If,%Architecture%,Equal,x64,Begin
+  IniRead,%ProjectDir%\Script.Project,Features,WoW64basic,%WoW64basic%
+  If,%WoW64basic%,Equal,True,ExtractSectionFiles,%ScriptFile%,VCRuntime_x6432_AddFiles
+End
+//-
+If,%FullSoftware%,Equal,False,Begin
+  If,Not,#1,Equal,HiveLoaded,Begin
+    RegHiveLoad,Tmp_Software,%RegSoftware%
+    RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
+  End
+  //-
+  If,%Architecture%,Equal,x86,Run,%ScriptFile%,Registry_x86
+  Else,Begin
+    Run,%ScriptFile%,Registry_amd64
+    If,%WoW64basic%,Equal,True,Run,%ScriptFile%,Registry_x86
+  End
+  //-
+  If,Not,#1,Equal,HiveLoaded,Begin
+    RegHiveunLoad,Tmp_Install_Software
+    RegHiveunLoad,Tmp_Software
+  End
+End
+
+[VCRuntime_x86_AddFiles]
+; In winre.wim \Windows\System32\msvcp_win.dll, msvcp60.dll, msvcp110_win.dll, msvcrt.dll, \Windows\System32\downlevel\ucrtbase.dll, \Windows\System32\ucrtbase.dll
+\Windows\System32\msvcirt.dll
+\Windows\System32\msvcp110.dll
+\Windows\System32\msvcr110.dll
+\Windows\System32\msvcrt20.dll
+\Windows\System32\msvcrt40.dll
+\Windows\System32\ucrtbase_enclave.dll
+; NetFx VC++ Runtimes
+\Windows\System32\msvcp120_clr0400.dll
+\Windows\System32\msvcp140_clr0400.dll
+\Windows\System32\msvcr100_clr0400.dll
+\Windows\System32\msvcr120_clr0400.dll
+; WinSxS VC++ runtimes
+\Windows\WinSxS\x86_microsoft.vc80.crt*
+\Windows\WinSxS\x86_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\x86_microsoft.vc80.crt*
+\Windows\WinSxS\manifests\x86_policy.8.0.microsoft.vc80.crt*
+\Windows\WinSxS\manifests\x86_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\x86_policy.9.0.microsoft.vc90.crt*
+
+[VCRuntime_x64_AddFiles]
+; In winre.wim \Windows\System32\msvcp_win.dll, msvcp60.dll, msvcp110_win.dll, msvcrt.dll, \Windows\System32\downlevel\ucrtbase.dll, \Windows\System32\ucrtbase.dll
+\Windows\System32\msvcirt.dll
+\Windows\System32\msvcp110.dll
+\Windows\System32\msvcr110.dll
+\Windows\System32\msvcrt20.dll
+\Windows\System32\msvcrt40.dll
+\Windows\System32\ucrtbase_enclave.dll
+; NetFx VC++ Runtimes
+\Windows\System32\msvcp120_clr0400.dll
+\Windows\System32\msvcp140_clr0400.dll
+\Windows\System32\msvcr100_clr0400.dll
+\Windows\System32\msvcr120_clr0400.dll
+; Additional Files for 1903
+\Windows\System32\ucrtbase_clr0400.dll
+; WinSxS VC++ runtimes
+\Windows\WinSxS\amd64_microsoft.vc80.crt*
+\Windows\WinSxS\amd64_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\amd64_microsoft.vc80.crt*
+\Windows\WinSxS\manifests\amd64_policy.8.0.microsoft.vc80.crt*
+\Windows\WinSxS\manifests\amd64_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\amd64_policy.9.0.microsoft.vc90.crt*
+
+[VCRuntime_x6432_AddFiles]
+; In winre.wim \Windows\SysWOW64\msvcp110_win.dll, \Windows\SysWOW64\downlevel\ucrtbase.dll
+\Windows\SysWOW64\msvcirt.dll
+\Windows\SysWOW64\msvcp_win.dll
+\Windows\SysWOW64\msvcp110.dll
+\Windows\SysWOW64\msvcp60.dll
+\Windows\SysWOW64\msvcr110.dll
+\Windows\SysWOW64\msvcrt.dll
+\Windows\SysWOW64\msvcrt20.dll
+\Windows\SysWOW64\msvcrt40.dll
+\Windows\SysWOW64\ucrtbase.dll
+; SysWOW64 NetFx VC++ Runtimes
+\Windows\SysWOW64\msvcp120_clr0400.dll
+\Windows\SysWOW64\msvcp140_clr0400.dll
+\Windows\SysWOW64\msvcr100_clr0400.dll
+\Windows\SysWOW64\msvcr120_clr0400.dll
+; Additional Files for 1903
+\Windows\SysWOW64\ucrtbase_clr0400.dll
+; SysWOW64 WinSxS VC++ runtimes
+\Windows\WinSxS\x86_microsoft.vc80.crt*
+\Windows\WinSxS\x86_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\x86_microsoft.vc80.crt*
+\Windows\WinSxS\manifests\x86_policy.8.0.microsoft.vc80.crt*
+\Windows\WinSxS\manifests\x86_microsoft.vc90.crt*
+\Windows\WinSxS\manifests\x86_policy.9.0.microsoft.vc90.crt*
+
+[Registry_amd64]
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,amd64_microsoft.vc80.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,amd64_microsoft.vc90.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,amd64_policy.8.0.microsoft.vc80.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,amd64_policy.9.0.microsoft.vc90.crt_*
+
+[Registry_x86]
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.vc80.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.vc90.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_policy.8.0.microsoft.vc80.crt_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_policy.9.0.microsoft.vc90.crt_*

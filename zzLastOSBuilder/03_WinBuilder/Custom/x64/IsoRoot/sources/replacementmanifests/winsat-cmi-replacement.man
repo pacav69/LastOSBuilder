@@ -1,0 +1,29 @@
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+    language="neutral"
+    name="Microsoft-Windows-WindowsSystemAssessmentTool"
+    processorArchitecture="*"
+    version="0.0.0.0"
+    versionScope="nonSxS" 
+    />
+    <migration settingsVersion="1"
+        replacementSettingsVersionRange="1"
+        replacementVersionRange="6.2-6.3"
+        alwaysProcess="yes"
+        >
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinSAT\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </migration>
+  </assembly>

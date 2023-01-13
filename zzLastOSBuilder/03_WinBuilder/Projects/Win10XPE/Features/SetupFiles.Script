@@ -1,0 +1,33 @@
+[Main]
+Title=SetupFiles
+Type=XPEPlugin
+Description=SetupFiles
+Author=ChriSR
+Date=2018.05.30
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+
+[AddFiles]
+Set,%w%,%Gtemp%\SetupFiles
+FileDeleteQ,%w%
+FileCreateBlank,%w%
+TxtAddline,%w%,setup.exe,Append
+TxtAddline,%w%,\sources,Append
+TxtAddline,%w%,\windows\system32\catroot\{f750e6c3-38ee-11d1-85e5-00c04fc295ee}\Microsoft-Windows-CoreSystem-Downlevel*,Append
+TxtAddline,%w%,\windows\system32\catroot\{f750e6c3-38ee-11d1-85e5-00c04fc295ee}\Microsoft-Windows-ImageBasedSetup-Media*,Append
+TxtAddline,%w%,\windows\system32\catroot\{f750e6c3-38ee-11d1-85e5-00c04fc295ee}\WinPE-Setup-Client-Package*,Append
+TxtAddline,%w%,\windows\system32\catroot\{f750e6c3-38ee-11d1-85e5-00c04fc295ee}\WinPE-Setup-Package*,Append
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\boot.wim#$q 2 @#$q%w%#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract SetupFiles return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract SetupFiles return: %ExitCode%",Warn,,MessageError,,Halt
+FileDelete,%w%

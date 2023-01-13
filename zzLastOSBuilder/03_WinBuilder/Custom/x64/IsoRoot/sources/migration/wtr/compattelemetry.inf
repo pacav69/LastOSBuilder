@@ -1,0 +1,28 @@
+[WTR]
+Name="Compat Telemetry"
+
+[WTR.*]
+NotifyUser="No"
+
+[System.File]
+"%windir%\system32\CompatTel\* [*]"
+"%windir%\system32\ [aepdu.dll]"
+"%windir%\system32\ [devinv.dll]"
+"%windir%\system32\appraiser\* [*]"
+"%windir%\system32\ [acmigration.dll]"
+"%windir%\system32\ [appraiser.dll]"
+"%windir%\system32\ [invagent.dll]"
+"%windir%\system32\ [generaltel.dll]"
+"%windir%\system32\Tasks\Microsoft\Windows\Application Experience\ [Microsoft Compatibility Appraiser]"
+"%windir%\system32\Tasks\Microsoft\Windows\Application Experience\ [ProgramDataUpdater]"
+"%windir%\appcompat\programs\ [FullCompatReport.xml]"
+"%windir%\appcompat\UA\* [*]"
+"%windir%\appcompat\Appraiser\* [*]"
+
+[System.Registry]
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\ClientTelemetry\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Appraiser\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeExperienceIndicators\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\OneSettings\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\TelemetryController\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Shared\ [UpgradeExperienceIndicators]"

@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-CodeIntegrity"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      replacementSettingsVersionRange="0-5"
+      scope="Upgrade"
+      settingsVersion="6"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI [IntegrityLevelPolicy]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI [UMCIAuditMode]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI\Config\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy\* [*]</pattern>
+              <pattern type="File">%windir%\System32\CodeIntegrity [SiPolicy.p7b]</pattern>
+            </objectSet>
+          </include>
+          <exclude>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy [ManufacturingMode]</pattern>
+            </objectSet>
+          </exclude>
+          <addObjects>
+            <conditions>
+              <condition>MigXmlHelper.IsOSEarlierThan("NT", "10.0.10586")</condition>
+            </conditions>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy [UpgradedSystem]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+          </addObjects>
+          <addObjects>
+            <conditions>
+              <condition>MigXmlHelper.IsOSEarlierThan("NT", "10.0.14393")</condition>
+            </conditions>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy [BootUpgradedSystem]</location>
+              <attributes>dword</attributes>
+              <bytes>01000000</bytes>
+            </object>
+          </addObjects>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

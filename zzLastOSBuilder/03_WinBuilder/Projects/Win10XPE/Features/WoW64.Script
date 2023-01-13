@@ -1,0 +1,87 @@
+[Main]
+Title=WoW64 basic
+Type=XPEPlugin
+Description=WoW64 basic
+Author=ChriSR
+Date=2019.12.04
+Version=003
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+HistoryNotes01=wimlib-imagex.exe (v1.13 and older) Extract Path with Wildward Does Not Work on Windows 7 32/64 bits but Works on Windows 10
+HistoryNotes02=The Same Path with Wildward Works on Windows 7 and 10 If Used in a @LISTFILE
+HistoryNotes03=Ex: ExtractWimFile,\Windows\WinSxS\x86_microsoft.windows.c..-controls.resources_*_%Language_LCase%_*
+HistoryNotes04=Or: ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% #$q\Windows\WinSxS\x86_microsoft.windows.c..-controls.resources_*_%Language_LCase%_*#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob --preserve-dir-structure"
+
+[Process]
+If,%Architecture%,Equal,x64,Begin
+  Echo,"Processing %ScriptTitle%..."
+  Set,%WoW64Support%,True,Permanent
+  Run,%ScriptFile%,AddFiles
+  //-
+  If,%FullSoftware%,Equal,False,Begin
+    If,Not,#1,Equal,HiveLoaded,Begin
+      RegHiveLoad,Tmp_Software,%RegSoftware%
+      RegHiveLoad,Tmp_Install_Software,%Gtemp%\Install.hives\SOFTWARE
+    End
+    Run,%ScriptFile%,Reg_WoW64
+    If,Not,#1,Equal,HiveLoaded,Begin
+      RegHiveunLoad,Tmp_Install_Software
+      RegHiveunLoad,Tmp_Software
+    End
+  End
+End
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\WoW64_AddFiles.txt,Begin
+  FileCopy,%ScriptDir%\WoW64_AddFiles.txt,%GTemp%\WoW64_AddFiles.txt
+  TXTReplace,%GTemp%\WoW64_AddFiles.txt,_xx-xx_,_%Language%_
+  // In Win10 17763 shellstyle.dll(.mui) does not exist in SysWOW64
+  If,%SourceBuild%,Equal,17763,TXTDelLine,%GTemp%\WoW64_AddFiles.txt,\Windows\SysWOW64\shellstyle.dll
+  ExtractListFiles,%GTemp%\WoW64_AddFiles.txt
+  FileDelete,%GTemp%\WoW64_AddFiles.txt
+End
+If,ExistFile,%GTarget_Sys%\imageres.dll,FileCopy,%GTarget_Sys%\imageres.dll,%GTarget_Win%\syswow64\
+//-
+If,%SourceBuild%,Bigger,18300,ExtractSectionFiles,%ScriptFile%,WoW64_1903_AddFiles
+
+[WoW64_1903_AddFiles]
+\Windows\SysWOW64\DXCore.dll
+\Windows\SysWOW64\umpdc.dll
+
+[Reg_WoW64]
+Echo,"Processing %ScriptTitle% Registry..."
+//RegImportFile,%ScriptDir%\WoW64_RegSoftware.txt
+RegCopyKey,HKLM,Tmp_Software\Classes\Wow6432Node\CLSID
+//RegCopyKey,HKLM,Tmp_Software\Classes\Wow6432Node\Interface
+//-
+RegCopyKey,HKLM,Tmp_Software\Classes\WOW6432Node\DirectShow
+RegCopyKey,HKLM,"Tmp_Software\Classes\WOW6432Node\Media Type"
+RegCopyKey,HKLM,Tmp_Software\Classes\WOW6432Node\MediaFoundation
+//-
+RegCopyKey,HKLM,Tmp_Software\Wow6432Node
+//-
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SMI
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.c..-controls.resources_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.common-controls_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,wow64_microsoft.windows.gdiplus.systemcopy_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.gdiplus_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.i..utomation.proxystub_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.isolationautomation_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft.windows.systemcompatible_*
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners,x86_microsoft-windows-m..tion-isolationlayer_*
+
+[Reg_WoW64_Bigger_Classes]
+RegCopyKey,HKLM,Tmp_Software\Classes\Wow6432Node
+
+[Reg_WoW64_Mini_Software]
+RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\CTF
+RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Authentication
+RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer
+RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Themes
+RegCopyKey,HKLM,"Tmp_Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Svchost"
+RegCopyKey,HKLM,"Tmp_Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon"

@@ -1,0 +1,34 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0">
+    <assemblyIdentity
+        name="Microsoft-Windows-DeviceAssociationFramework"
+        processorArchitecture="*"
+        version="0.0.0.0"
+        language="neutral"/>
+    <migration
+        replacementSettingsVersionRange="1-4"
+        settingsVersion="5"
+        alwaysProcess="yes">
+        <machineSpecific>
+            <migXml xmlns="">
+                <plugin
+                    classId="{C939EC0F-2F56-4CE8-AF56-2336596A5FA7}"
+                    file="Microsoft-Windows-DeviceAssociationFrameworkMigration\dafmigplugin.dll"
+                    />
+                <rules context="System">
+                    <include>
+                        <objectSet>
+                            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Device Association Framework\Store\* [*]</pattern>
+                            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\DeviceAssociationService\State\Store\* [*]</pattern>
+                            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\DeviceAssociationService [Start]</pattern>
+                        </objectSet>
+                    </include>
+                </rules>
+            </migXml>
+        </machineSpecific>
+    </migration>
+</assembly>

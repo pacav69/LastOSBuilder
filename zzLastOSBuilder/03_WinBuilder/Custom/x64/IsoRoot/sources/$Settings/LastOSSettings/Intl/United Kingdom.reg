@@ -1,0 +1,36 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\International]
+"Locale"="00000809"
+"LocaleName"="en-GB"
+"sCountry"="United Kingdom"
+"sCurrency"="£"
+"sLanguage"="ENG"
+"sLongDate"="dd MMMM yyyy"
+"sShortDate"="dd/MM/yyyy"
+"sTimeFormat"="HH:mm:ss"
+"sShortTime"="HH:mm"
+"iCountry"="44"
+"iTime"="1"
+"iTLZero"="1"
+
+[HKEY_CURRENT_USER\Control Panel\International\Geo]
+"Nation"="242"
+
+[HKEY_CURRENT_USER\Keyboard Layout\Preload]
+"2"="00000809"
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000809\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000]
+"CLSID"="{00000000-0000-0000-0000-000000000000}"
+"Profile"="{00000000-0000-0000-0000-000000000000}"
+"KeyboardLayout"=dword:08090809
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\SortOrder\Language]
+"00000000"="00000809"
+"00000001"=-
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\LangBar]
+"ShowStatus"=dword:00000003
+"Transparency"=dword:000000ff
+"Label"=dword:00000001
+"ExtraIconsOnMinimized"=dword:00000000

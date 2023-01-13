@@ -1,0 +1,136 @@
+ActiveX Installer	AxInstSV	Manual	Manual	
+Adaptive Brightness	SensrSvc	Manual	Manual	
+Application Experience	AeLookupSvc	Manual	Manual	
+Application Identity	AppIDSvc	Manual	Manual	
+Application Information	Appinfo	Manual	Manual	
+Application Layer Gateway Service	ALG	Manual	Manual	
+Application Management	AppMgmt	Manual	Manual	
+Background Intelligent Transfer Service	BITS	Manual	Manual	
+Base Filtering Engine	BFE	Automatic	Automatic	
+BitLocker Drive Encryption Service	BDESVC	Automatic	Automatic	
+Block Level Backup Engine Service	wbengine	Manual	Manual	
+Bluetooth Support Service	bthserv	Manual	Manual	
+BranchCache	PeerDistSvc	Manual	Manual	
+Certificate Propagation	CertPropSvc	Manual	Manual	
+CNG Key Isolation	KeyIso	Manual	Manual	
+COM+ Event System	EventSystem	Automatic	Automatic	
+COM+ System Application	COMSysApp	Manual	Manual	
+Computer Browser	Browser	Manual	Manual	
+Credential Manager	VaultSvc	Manual	Manual	
+Cryptographic Services	CryptSvc	Automatic	Automatic	
+DCOM Server Process Launcher	DcomLaunch	Automatic	Automatic	
+Desktop Window Manager Session Manager	UxSms	Automatic	Automatic	
+DHCP Client	Dhcp	Automatic	Automatic	
+Diagnostic Policy Service	DPS	Automatic	Automatic	
+Diagnostic Service Host	WdiServiceHost	Manual	Manual	
+Diagnostic System Host	WdiSystemHost	Manual	Manual	
+Disk Defragmenter	defragsvc	Manual	Manual	
+Distributed Link Tracking Client	TrkWks	Automatic	Automatic	
+Distributed Transaction Coordinator	MSDTC	Manual	Manual	
+DNS Client	Dnscache	Automatic	Automatic	
+Encrypting File System (EFS)	EFS	Manual	Manual	
+Extensible Authentication Protocol	EapHost	Manual	Manual	
+Fax	Fax	Manual	Manual	
+Function Discovery Provider Host	fdPHost	Manual	Manual	
+Function Discovery Resource Publication	FDResPub	Automatic	Automatic	
+Group Policy Client	gpsvc	Automatic	Automatic	
+Health Key and Certificate Management	hkmsvc	Manual	Manual	
+HomeGroup Listener	HomeGroupListener	Manual	Manual	
+HomeGroup Provider	HomeGroupProvider	Manual	Manual	
+Human Interface Device Access	hidserv	Manual	Manual	
+IKE and AuthIP IPsec Keying Modules	IKEEXT	Manual	Manual	
+Interactive Services Detection	UI0Detect	Manual	Manual	
+Internet Connection Sharing (ICS)	SharedAccess	Disabled	Disabled	
+IP Helper	iphlpsvc	Automatic	Automatic	
+IPsec Policy Agent	PolicyAgent	Manual	Manual	
+KtmRm for Distributed Transaction Coordinator	KtmRm	Manual	Manual	
+Link-Layer Topology Discovery Mapper	lltdsvc	Manual	Manual	
+Media Center Extender Service	Mcx2Svc		Disabled	Disabled	
+Microsoft .NET Framework NGEN v2.0.50727_X64	clr_optimization_v2.0.50727_64	Manual	Manual	
+Microsoft .NET Framework NGEN v2.0.50727_X86	clr_optimization_v2.0.50727_32	Manual	Manual	
+Microsoft iSCSI Initiator Service	MSiSCSI	Manual	Manual	
+Microsoft Software Shadow Copy Provider	swprv	Manual	Manual	
+Multimedia Class Scheduler	MMCSS	Automatic	Automatic	
+Netlogon	Netlogon	Manual	Manual	
+Network Access Protection Agent	napagent	Manual	Manual	
+Network Connections	Netman	Manual	Manual	
+Network List Service	netprofm	Manual	Manual	
+Network Location Awareness	NlaSvc	Automatic	Automatic	
+Network Store Interface Service	nsi	Automatic	Automatic	
+Offline Files	CscService	Automatic	Automatic	
+Parental Controls	WPCSvc	Manual	Manual	
+Peer Name Resolution Protocol	PNRPsvc	Manual	Manual	
+Peer Networking Grouping	p2psvc	Manual	Manual	
+Peer Networking Identity Manager	p2pimsvc	Manual	Manual	
+Performance Logs & Alerts	pla	Manual	Manual	
+Plug and Play	PlugPlay	Automatic	Automatic	
+PnP-X IP Bus Enumerator	IPBusEnum	Manual	Manual	
+PNRP Machine Name Publication Service	PNRPAutoReg	Manual	Manual	
+Portable Device Enumerator Service	WPDBusEnum	Manual	Manual	
+Power	Power	Automatic	Automatic	
+Print Spooler	Spooler	Automatic	Automatic	
+Problem Reports and Solutions Control Panel Support	wercplsupport	Manual	Manual	
+Program Compatibility Assistant Service	PcaSvc	Manual	Manual	
+Protected Storage	ProtectedStorage	Manual	Manual	
+Quality Windows Audio Video Experience	QWAVE	Manual	Manual	
+Remote Access Auto Connection Manager	RasAuto	Manual	Manual	
+Remote Access Connection Manager	RasMan	Manual	Manual	
+Remote Desktop Configuration	SessionEnv	Manual	Manual	
+Remote Desktop Services	TermService	Manual	Manual	
+Remote Desktop Services UserMode Port Redirector	UmRdpService	Manual	Manual	
+Remote Procedure Call (RPC) Locator	RpcLocator	Manual	Manual	
+Remote Registry	RemoteRegistry	Manual	Manual	
+Routing and Remote Access	RemoteAccess	Disabled	Disabled	
+RPC Endpoint Mapper	RpcEptMapper	Automatic	Automatic	
+Secondary Logon	seclogon	Manual	Manual	
+Secure Socket Tunneling Protocol Service	SstpSvc	Manual	Manual	
+Security Center	wscsvc	Automatic	Automatic	
+Server	LanmanServer	Automatic	Automatic	
+Shell Hardware Detection	ShellHWDetection	Automatic	Automatic	
+Smart Card	SCardSvr	Manual	Manual	
+Smart Card Removal Policy	SCPolicySvc	Manual	Manual	
+SNMP Trap	SNMPTRAP	Manual	Manual	
+Software Protection	sppsvc	Automatic	Automatic	
+SPP Notification Service	sppuinotify	Manual	Manual	
+SSDP Discovery	SSDPSRV	Manual	Manual	
+Superfetch	SysMain	Automatic	Automatic	
+System Event Notification Service	SENS	Automatic	Automatic	
+Tablet PC Input Service	TabletInputService	Manual	Manual	
+Task Scheduler	Schedule	Automatic	Automatic	
+TCP/IP NetBIOS Helper	lmhosts	Automatic	Automatic	
+Telephony	TapiSrv	Manual	Manual	
+Themes	Themes	Automatic	Automatic	
+Thread Ordering Server	THREADORDER	Manual	Manual	
+TPM Base Services	TBS	Manual	Manual	
+UPnP Device Host	upnphost	Manual	Manual	
+User Profile Service	ProfSvc	Automatic	Automatic	
+Virtual Disk	vds	Manual	Manual	
+Volume Shadow Copy	VSS	Manual	Manual	
+WebClient	WebClient	Manual	Manual	
+Windows Audio	AudioSrv	Automatic	Automatic	
+Windows Audio Endpoint Builder	AudioEndpointBuilder	Automatic	Automatic	
+Windows Backup	SDRSVC	Manual	Manual	
+Windows Biometric Service	WbioSrvc	Manual	Manual	
+Windows Color System	WcsPlugInService	Manual	Manual	
+Windows Connect Now - Config Registrar	wcncsvc	Manual	Manual	
+Windows Defender	WinDefend	Automatic	Automatic	
+Windows Driver Foundation - User-mode Driver Framework	wudfsvc	Manual	Manual	
+Windows Error Reporting Service	WerSvc	Manual	Manual	
+Windows Event Collector	Wecsvc	Manual	Manual	
+Windows Event Log	Eventlog	Automatic	Automatic	
+Windows Firewall	MpsSvc	Automatic	Automatic	
+Windows Font Cache Service	FontCache	Manual	Manual	
+Windows Image Acquisition (WIA)	StiSvc	Manual	Manual	
+Windows Installer	msiserver	Manual	Manual	
+Windows Management Instrumentation	Winmgmt	Automatic	Automatic	
+Windows Media Player Network Sharing Service	WMPNetworkSvc	Automatic	Automatic	
+Windows Remote Management (WS-Management)	WinRM	Manual	Manual	
+Windows Search	WSearch	Automatic	Automatic	
+Windows Time	W32Time	Manual	Manual	
+Windows Update	wuauserv	Automatic	Automatic	
+WinHTTP Web Proxy Auto-Discovery Service	WinHttpAutoProxySvc	Manual	Manual	
+Wired AutoConfig	dot3svc	Manual	Manual	
+WLAN AutoConfig	Wlansvc	Automatic	Automatic	
+WMI Performance Adapter	wmiApSrv	Manual	Manual	
+Workstation	LanmanWorkstation	Automatic	Automatic	
+WWAN AutoConfig	WwanSvc	Manual	Manual	

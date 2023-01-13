@@ -1,0 +1,61 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="ritwikt"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2004-03-19T02:16:50.0280106-08:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2004-08-02T07:04:09.1722500-07:00"
+    manifestVersion="1.0"
+    owners="ritwikt"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-Telnet-Client-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!--Declare for which Longhorn equivalent OC this manifest corresponds too -->
+    <registerSDF name="TelnetClient"/>
+    <migXml xmlns="">
+      <!-- As per mig rule, the detects section should be directly under migXml to enable them 
+    execute to determine whether the component is installed or not. -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File","%WINDIR%\system32\telnet.exe")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT","6.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <!-- Collect this file on Longhorn systems -->
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("File","%WINDIR%\system32\telnet.exe")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT","6.0.0")</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\TelnetClient [AllowedEnvVariables]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

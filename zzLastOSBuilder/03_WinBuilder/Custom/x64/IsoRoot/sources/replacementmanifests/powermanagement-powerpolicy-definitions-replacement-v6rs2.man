@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Power-Policy-Definitions"
+      processorArchitecture="*"
+      version="0.0.0.3"
+      />
+  <!-- version 6 (RS2) -->
+  <migration
+      replacementSettingsVersionRange="6"
+      settingsVersion="6"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\* [ProvAcSettingIndex]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\* [ProvDcSettingIndex]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\f8861c27-95e7-475c-865b-13c0cb3f9d6b\$ [SettingValue]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\SecurityDescriptors\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HibernateEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [CustomizeDuringSetup]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power [AwayModeEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [EnforceDisconnectedStandby]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [IgnoreCsComplianceCheck]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [EnforceConsoleLockScreenTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [LidNotifyReliable]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileType]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HighPerfDurationBoot]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [ManualDimTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [AllowSystemRequiredPowerRequests]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

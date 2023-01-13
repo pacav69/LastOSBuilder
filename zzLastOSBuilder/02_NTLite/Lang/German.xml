@@ -1,0 +1,2292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NTLiteTranslation version="1.8.0.6581" display="Deutsch" code="de-DE" rtl="false">
+	<Translator>
+		<Name>KrX</Name>
+		<EMail>Email hier (Optional)</EMail>
+	</Translator>
+	<Components>
+		<System>
+			<S0001>Systemsprache</S0001>
+			<S0013>Wartungscenter</S0013>
+			<S0014>Wartungscenter zeigt wichtige Meldungen über Sicherheits- und Wartungseinstellungen an, die Ihre Aufmerksamkeit benötigen.</S0014>
+			<S0042>Ermöglicht es Ihnen, mehrere Festplatten in verschiedenen Größen und Schnittstellen zu benutzen und gruppieren diese, damit das Betriebssystem sieht sie als eine große Festplatte sieht.</S0042>
+			<S0046>Anwendungskompatibilität</S0046>
+			<S0047>Anwendungsidentitätsdienst</S0047>
+			<S0048>Anwendungsverwaltung</S0048>
+			<S0050>Anwendungen können von Sicherheitstokendiensten ausgegebene Token mithilfe von WIF verarbeiten und identitätsbasierte Entscheidungen für die Webanwendung oder den Webdienst treffen..</S0050>
+			<S0065>Automatische Backups Revisionen von Dateien in Bibliotheken enthalten.</S0065>
+			<S0069>Automatische Wiedergabe</S0069>
+			<S0070>Mit der Automatischen Wiedergabe Funktionen werden Wechseldatenträger und Geräte erkannt, die in ein Laufwerk eingelegt oder an den Computer angeschlossen werden. Abhängig von den darauf enthaltenen Inhalten wie z. B. Bilder, Musik oder Videos können Sie dann eine geeignete Anwendung auswählen.</S0070>
+			<S0080>Backups von einigen Windows-Datenbankdateien. Dies ist nicht der gesamte WinSxS Ordner, sondern nur einige zusätzliche Duplikate einiges Paketes, diese zu entfernen sollten nichts zerstören.</S0080>
+			<S0095>BitLocker-Laufwerkverschlüsselung</S0095>
+			<S0097>Block Level Backup Engine Dienst</S0097>
+			<S0102>Boot Manager</S0102>
+			<S0113>Cache und temporäre Dateien</S0113>
+			<S0115>Caching-Mechanismus für Anwendungen um schneller zu starten.</S0115>
+			<S0124>Cardspace</S0124>
+			<S0182>Eine umfangreiche Synchronisierungsplattform, die Zusammenarbeit und Offlinezugriff für Anwendungen, Dienste und Geräte ermöglicht.</S0182>
+			<S0196>Kontextmenü-Optionen auf Dateien für Senden an Mail oder Desktop.</S0196>
+			<S0223>Anmeldeinformationsverwaltung</S0223>
+			<S0249>Desktop Kachel</S0249>
+			<S0250>Desktop Window Manager (DWM)</S0250>
+			<S0260>Bestimmt und überprüft die Identität einer Anwendung. Durch Deaktivierung dieses Diensts wird verhindert, dass AppLocker erzwungen wird.</S0260>
+			<S0262>Geräteinformationen und Ressourcen</S0262>
+			<S0263>Device Experience</S0263>
+			<S0266>Diagnose und Fehlerbehebung</S0266>
+			<S0267>Dialog Filter</S0267>
+			<S0276>Defragmentierung</S0276>
+			<S0277>Festplatten Fehlerdiagnose</S0277>
+			<S0311>Einfache Übertragung</S0311>
+			<S0314>Version Konfigurationsdatei (EI.cfg)</S0314>
+			<S0317>Eingebetteter Sperren-Manager</S0317>
+			<S0327>Ermöglicht es Anwendungen zu unterschiedlichen Zeitpunkten über heterogene Netzwerke und Systeme, die zeitweise auch offline sein dürfen, zu laufen. Für IIS benötigt.</S0327>
+			<S0331>Ermöglicht das Starten von Prozessen unter Verwendung alternativer Anmeldeinformationen. Ist für Blizzard Battle.net Updates erforderlich, und ähnlichen Sachen.</S0331>
+			<S0333>Ermöglicht die Verwendung der Hardware-Beschleunigung, um die grafische Benutzeroberfläche von Windows darzustellen.</S0333>
+			<S0337>Erzwingt Gruppenrichtlinien für Speichergeräte.</S0337>
+			<S0339>Erweiterte Speichergeräte</S0339>
+			<S0340>Erweiterte Speichergeräte sind Geräte, die das IEEE 1667-Protokoll unterstützen, um Funktionen bereitzustellen, wie beispielsweise die Authentifizierung auf der Hardwareebene des Speichergeräts.</S0340>
+			<S0363>Ereignisprotokoll</S0363>
+			<S0405>Dateiversionen</S0405>
+			<S0412>Dateien im Verzeichnis (Sources\SxS), beinhalten Dateien, welche benutzt werden können um Funktionen, wie .NET3.5 zu installieren, die über die Systemsteuerung nicht installiert werden können. Wenn Sie die Funktion in der Kategorie Funktionen aktiviert haben, sollte es sicher sein dies zu entfernen. Sie können immer das Original Image Verzeichnis benutzen, wenn Sie die Funktionen aktivieren möchten.</S0412>
+			<S0433>Framework von zusammenhängenden Microsoft-Technologien, die es Programmierern ermöglicht eine einheitliche und umfassende Art der Entwicklung von Anwendungen, welche fast auf jeden Datenspeicher zugreifen kann. Beinhaltete Komponenten: ActiveX Datenobjekte (ADO), OLE DB, und Open Database Connectivity (ODBC).</S0433>
+			<S0439>Gadgets</S0439>
+			<S0447>Gesture Filter</S0447>
+			<S0448>Holen Sie sich Hilfe, Anleitung und Tools, zur Identifizierung  von Kompatibilitätsproblemen, die beim Migrieren Ihrer Anwendungen auf eine neuere Windows Version auftreten. Wird unter anderem für die Zuverlässigkeitsanalyse, ABBYY FineReader und KB2758694 (MSXML4)gebraucht.</S0448>
+			<S0452>Gruppenrichtlinien Client</S0452>
+			<S0453>Speicherdienst</S0453>
+			<S0461>Hilft Ihnen, Ihre Dateien und Einstellungen auf einen neuen PC zu verschieben.</S0461>
+			<S0471>Hyper-V Gast</S0471>
+			<S0481>'Sources ei.cfg', wenn diese Datei entfernt wird und das fertige Image aus mehr als einer Windows Version besteht, wird der Benutzer aufgefordert eine Windows Version zu wählen, beim Starten der ISO Datei. Wenn der Fehler "Windows kann keine Microsoft-Software-Lizenzbedingungen finden" angezeigt wird, ersetzen Sie diese Datei mit der ursprünglichen ISO-Datei und versuchen Sie es erneut.</S0481>
+			<S0482>Wenn Sie unsicher sind, entfernen Sie dies nicht.</S0482>
+			<S0518>Enthält Mobilitätscenter.</S0518>
+			<S0525>Infrastruktur für Diagnose und Fehlersuche von Windows Komponenten.</S0525>
+			<S0550>Internet Information Server (IIS)</S0550>
+			<S0562>Es ermöglicht Ihnen, Tastenkombinationen zu konfigurieren, die Sie für Benutzer verhindern möchten.</S0562>
+			<S0576>Tastatur Filter</S0576>
+			<S0577>Tastatur Filter AppShim</S0577>
+			<S0610>Lokaler Sicherheitsrichtlinien Editor</S0610>
+			<S0612>Standort Benachrichtigungen</S0612>
+			<S0627>Verwaltet und implementiert Volumeschattenkopien, die für Sicherungen und andere Zwecke verwendet werden.</S0627>
+			<S0629>Manifest Backup (WinSxS\Backup)</S0629>
+			<S0631>Manuelle Quellfunktionen</S0631>
+			<S0632>Manuelles Setup</S0632>
+			<S0641>Speicherdiagnose</S0641>
+			<S0644>Dynamische Metro Desktop Kachel Startseite. Wird dies entfernt, fehlt die Desktop Verknüpfung auf der Metro Startseite.</S0644>
+			<S0647>Microsoft Datenzugriffskomponenten (MDAC)</S0647>
+			<S0650>Microsoft Nachrichten-Warteschlange (MSMQ)</S0650>
+			<S0651>Microsoft Sync Framework</S0651>
+			<S0662>MobilePC</S0662>
+			<S0689>Für die Festplattenverwaltung erforderlich - Die Funktion Volumen zu verkleinern.</S0689>
+			<S0690>Wird für Media Center  und andere Sachen benötigt, die .NET Framework 2.0 und 3.5 verwenden.</S0690>
+			<S0693>Wird für die Systemwiederherstellung, Windows Update, einige Anwendungsstarts beim Anmelde und  geplante Updates benötigt.</S0693>
+			<S0694>Benötigt für den BIOS-Typ (nicht UEFI) Betriebssystemstart.</S0694>
+			<S0695>Benötigt für den UEFI-Typ Betriebssystemstart.</S0695>
+			<S0700>.NET Assemblycache</S0700>
+			<S0701>.NET Framework </S0701>
+			<S0702>.NET Framework 2.0, 3.0 und 3.5</S0702>
+			<S0703>.NET Framework Kern</S0703>
+			<S0704>.NET 4.x Setup Cache</S0704>
+			<S0712>Netzwerk Projektion</S0712>
+			<S0719>NFS Verwaltungswerkzeuge</S0719>
+			<S0729>NTVDM 16-bit Teilsystem</S0729>
+			<S0730>NTVDM Teilsystem bietet die Unterstützung von 16-Bit DOS und 16-Bit Windows-Anwendungen auf x86 Systemen an.</S0730>
+			<S0772>Kindersicherung</S0772>
+			<S0786>Leistungsmonitor</S0786>
+			<S0812>PowerShell</S0812>
+			<S0813>Vorkompilierte .NET Bibliotheken. Dies zu entfernen führt dazu, dass es nach dem Setup neu erstellt wird. Spart Platz auf dem Installationsmedium.</S0813>
+			<S0818>Bereitet eine Installation von Windows für die Vervielfältigung, Auditierung und Kundenauslieferung vor.</S0818>
+			<S0851>Bietet die Möglichkeit, VHD oder ISO-Dateien zu mounten.</S0851>
+			<S0852>Stellt die Inhaltsindexierung und die richtige Zwischenspeicherung für schnelleres Suchergebnis von Dateien, E-Mails und anderen Inhalten bereit.</S0852>
+			<S0888>Zuverlässigkeitsanalyse Dienst</S0888>
+			<S0923>Ressourcen für die Systemsteuerung - Geräte und Drucker, dieses Symbole wird fehlen, wenn dies entfernt wird. Wird auch für den USB Button in der Taskleiste zum sicheren Entfernen benötigt.</S0923>
+			<S0958>Sekundäre Anmeldung</S0958>
+			<S0959>secpol.msc - kann verwendet werden, um die Sicherheitseinstellungen (Richtlinien) auf einem Host-Computer in einer Arbeitsgruppe oder Heimnetzgruppe zu überprüfen oder zu konfigurieren</S0959>
+			<S0961>Sicherheitscenter</S0961>
+			<S0962>Eine Sicherheitsfunktion, die Sie auffordert, den administrativen Zugriff für eine bestimmte Anwendung zu erlauben. Beinhaltet den Anwendungsinformationen Dienst.</S0962>
+			<S0987>Senden an E-Mail und Desktop</S0987>
+			<S0988>Sensoren</S0988>
+			<S0994>Stapel bearbeiten</S0994>
+			<S1000>Setup Dateien für .NET 4.x. Wenn Sie nicht die Deinstallation von .NET 4.x planen, ist dies sicher zu entfernen.</S1000>
+			<S1005>Wiederherstellungspunkt (SPP)</S1005>
+			<S1016>SideShow</S1016>
+			<S1033>Ein kleines Programm, um einige der Windows Boot und Startoptionen zu konfigurieren.</S1033>
+			<S1074>Speicherplätze</S1074>
+			<S1075>Subsystem für UNIX-basierte Anwendungen</S1075>
+			<S1076>Subsystem für UNIX-basierte Anwendungen (SUA) ist ein kompatibles Subsystem zum Kompilieren und Ausführen benutzerdefinierter UNIX-basierter Anwendungen und Skripte auf einem Computer mit Windows Betriebssystem.</S1076>
+			<S1077>Superfetch</S1077>
+			<S1079>Support Verzeichnis</S1079>
+			<S1080>Das 'Support' Verzeichnis liegt im Image Stammordner und enthält den Migrationsassistenten. Dies hat keinen Einfluss auf das endgültige installierte Produkt, nur auf die Installationsdateien.</S1080>
+			<S1081>Unterstützung für Plattenverschlüsselung.</S1081>
+			<S1083>Unterstützung für zusätzliche Funktionen von Herstellern, um Nutzern die Benutzung der Geräte, die an Ihren PC angeschlossen werden, zu verbessern.</S1083>
+			<S1097>Systemkonfiguration (MSConfig)</S1097>
+			<S1098>Systeminformationen (MSInfo32)</S1098>
+			<S1099>Systemvorbereitungstool (Sysprep)</S1099>
+			<S1100>Systemwiederherstellung</S1100>
+			<S1105>Aufgabenplanung</S1105>
+			<S1128>Entfernt die Funktion die für nicht gebootet Setup Installationen verwendet wird, wie autorun.inf, setup.exe und Upgrades von einem zuvor installierten Windows mit diesem Image.</S1128>
+			<S1156>Toast Benachrichtigung Filter</S1156>
+			<S1159>Anwendungen für die Verwaltung der Dienste für NFS auf lokalen und Remote Computern.</S1159>
+			<S1198>Einheitlicher Schreibfilter</S1198>
+			<S1221>USB Filter</S1221>
+			<S1224>Wird für das Hosting von Websites genutzt.</S1224>
+			<S1228>Benutzerkontensteuerung (UAC)</S1228>
+			<S1238>Verschiedene temporäre, Cache und Log Dateien, sollte sicher sein diese zu entfernen.</S1238>
+			<S1248>Virtuelle Festplattenunterstützung (VHD)</S1248>
+			<S1249>Virtual PC Lizenzierung (Veraltet)</S1249>
+			<S1255>Volumeschattenkopie</S1255>
+			<S1275>Windows Anytime Upgrade</S1275>
+			<S1276>Windows Backup</S1276>
+			<S1279>Windows Communication Foundation (WCF) 3</S1279>
+			<S1280>Windows Communication Foundation (WCF) 4</S1280>
+			<S1284>Windows Defender</S1284>
+			<S1285>Windows Embedded Funktionen</S1285>
+			<S1286>Hostdienst für Windows Encryption Provider</S1286>
+			<S1287>Hostdienst für Windows Encryption Provider zerstört die Verschlüsselungsfunktion von 3rd Party Encryption Providern auf Prozesse, die zur Bewertung und Anwendung von EAS Richtlinien benötigt werden.</S1287>
+			<S1290>Windows-Hilfeinhalt</S1290>
+			<S1291>Windows Identity Foundation (WIF)</S1291>
+			<S1299>Windows-Verwaltungsinstrumente</S1299>
+			<S1305>Windows Presentation Foundation</S1305>
+			<S1307>Windows Recovery</S1307>
+			<S1309>Windows Suche</S1309>
+			<S1313>Windows Sidebar</S1313>
+			<S1318>Windows Update</S1318>
+			<S1319>Erlaubt es Ihrem Computer, Windows Updates vom Microsoft oder WSUS Server zu erhalten, neue Sprachen hinzuzufügen und Update Pakete zu installieren (MSU Dateien).</S1319>
+			<S1339>Zip &amp; Cab Ordner</S1339>
+			<S1431>Disk Quota</S1431>
+			<S1432>Ermöglicht es den Speicherplatz pro Benutzer auf der Festplatte oder Partition einzuschränken.</S1432>
+			<S1437>Gerät sperren (Eingebettete Erfahrung)</S1437>
+			<S1438>Umfasst individuelles Logon, Tastatur Filter, Shell Start, Herstellerunabhängiges Booten und einheitliche Schreibfilter</S1438>
+			<S1439>Problemaufzeichnung</S1439>
+			<S1440>Es ist eine Fehlersuche und Unterstützung Werkzeug, benutzt um Aktionen eines Benutzers auf dem Computer aufzuzeichnen. Einmal erfasst, können die Informationen an eine Person oder Gruppe gesendet werden, die die Fehlersuche unterstützen</S1440>
+			<S1441>Lockscreen Hintergründe</S1441>
+			<S1445>Wird zum Darstellen von Daten im der Aufgabenplanung gebraucht.</S1445>
+			<S1452>Bietet Dienstleistungen für Speichereinstellungen und externe Speichererweiterung. Zum Beispiel Einstellungen-System-Speicher.</S1452>			
+			<S1455>Windows To Go</S1455>
+			<S1456>Bereitet portables Windows auf USB-Massenspeichergeräten, wie USB-Sticks und externe Festplattenlaufwerke mit einer Unternehmens Windows-Umgebung.</S1456>
+			<S1465>Eingebetteter-Modus</S1465>
+			<S1466>Eine spezielle Windows 10 IoT Kernfunktionalität.</S1466>
+			<S1467>Übermittlungsoptimierung</S1467>
+			<S1468>Mittels dieser "Übermittlungsoptimierung von Windows Update" werden Windows-Updates und Apps aus dem Windows Store nicht nur über Microsoft-Server an die Nutzer übertragen, sondern auch über eine abgesicherte P2P-Verbindung. Die Übermittlungsoptimierung sendet auch Updates und Apps von Ihrem PC an andere PCs über Ihr lokales Netzwerk oder das Internet.</S1468>
+			<S1479>Leistungs CMD Werkzeuge für Ablaufverfolgung</S1479>
+			<S1480>Beinhaltet logman.exe, Relog.exe Typeperf.exe, Tracerpt.exe und diskperf.exe.</S1480>
+			<S1481>Zertifikat Werkzeuge</S1481>
+			<S1482>Beinhaltet CertUtil, Zertifikatsanforderung (certreq.exe) und Zertifikatsregistrierung-Werkzeuge.</S1482>
+			<S1483>Windows Installation und Bereitstellung</S1483>
+			<S1484>Benötigt für den Wiedereinsatz von OOBE und sysprep während der Installation von Windows.</S1484>
+			<S1485>Font Cache Dienst</S1485>
+			<S1486>Optimiert die Leistung von Anwendungen, indem häufig verwendeten Zeichensatz -Daten zwischengespeichert werden. Deaktivieren oder Entfernen wird die Anwendungsleistung verschlechtern.</S1486>
+			<S1487>Windows Management Instrumentation Werkzeuge</S1487>
+			<S1488>Beinhaltet wbemtest.exe und WmiMgmt.msc.</S1488>
+			<S1489>Rechteverwaltung-Unterstützung</S1489>
+			<S1490>Hilft Unternehmen ihre Daten sicher zu bewahren, sowohl innerhalb als auch außerhalb des Unternehmens, sowohl Dokumente im Ruhezustand, als auch gerade genutzte zu schützen.</S1490>
+			<S1497>Diese enthält nur die integrierten Gadgets; Um die Gadgets Funktion zu entfernen, entfernen Sie auch die Sidebar.</S1497>
+			<S1509>Windows Update Dienst</S1509>
+			<S1510>Kern Dienst für Windows Update. Beachten Sie, dass dieser Dienst allein nicht ausreicht, um Updates zu installieren.</S1510>
+			<S1511>Erforderlich für die Windows Aktivierung (slmgr.vbs), entfernen Sie dies nicht, bevor Sie die Windows-Installation aktiviert haben.</S1511>
+			<S1554>Event Viewer</S1554>
+			<S1555>Event Collector</S1555>
+			<S1556>Verwaltet persistente Anforderungen von Ereignissen aus remote Quellen, die das WS-Management-Protokoll Unterstützung. Der Dienst speichert weitergeleitete Ereignisse in einem lokalen Ereignisprotokoll.</S1556>
+			<S1557>Erforderlich für die MMC-Erweiterungen, wie Taskplaner und Ereignisanzeige.</S1557>
+			<S1590>Vorherige Installation (Windows.old)</S1590>
+			<S1591>Sicherung der vorherigen Installation von Windows auf diesem Laufwerk. Durchsuchen Sie den Inhalt, vor allem die Benutzer Ordner, ob einige Dateien vorhanden sind, die sie brauchen, bevor Sie diesen Löschen.</S1591>
+			<S1644>Shell Suche</S1644>
+			<S1645>Grundlegende Such Unterstützung in Datei-Explorer, Gruppenrichtlinien-Editor und Outlook, um nur einige zu nennen.</S1645>
+			<S1656>Windows Symbolik Debugger-Engine</S1656>
+			<S1657>DbgEng.dll stellt eine Schnittstelle für die Prüfung und die Fehlersuche im Benutzermodus und Kernelmodus her. Behalten Sie dies, wenn Sie Debug oder allgemeine Crash-Dump-Unterstützung verwenden möchten.</S1657>
+			<S1658>Speicher Dienstqualität (Storage QoS)</S1658>
+			<S1659>Ähnlich wie Netzwerk-QoS, aber auf virtuelle Maschine Speicherleistung bezogen, verbessert automatisch Speicherressourcen Aufteilung zwischen mehreren virtuellen Maschinen die gleiche Datei-Server-Cluster verwenden und ermöglicht Richtlinien minimale und maximale Leistungsziele, die in Einheiten von normalisierten IOPs konfiguriert werden.</S1659>
+			<S1660>RPC-Locatordienst (Remote Procedure Call)</S1660>
+			<S1661>Dieser Dienst bietet keine Funktionalität und ist vorhanden, um die Abwärtsanwendungskompatibilität zu gewährleisten.</S1661>
+			<S1668>Windows Push-Benachrichtigung Dienst (WNS)</S1668>
+			<S1669>Unterstützung für Windows Systembenachrichtigungen oder 3rd-Party-Anwendungen, die diese Funktion verwenden, das Entfernen deaktiviert, das solche Benachrichtigungen auftauchen.</S1669>
+			<S1670>Windows-Komponenten (WinSxS) Speicherverzeichnis</S1670>
+			<S1671>Vollständig Deaktivierung von Windows Updates, Windows-Funktionen und neue Sprachen Konfiguration.</S1671>
+			<S1672>Windows-Komponenten Datenbank</S1672>
+			<S1673>In der letzten Sitzung entfernt, keine weiteren Entfernung in zukünftigen Sitzungen möglich, wenn dies entfernt wird.</S1673>
+			<S1674>Erforderlich für den PXE-Setup-Start, um die Installation des Images von einem Netzwerkserver zu starten.</S1674>
+			<S1675>Shell-Hardwareerkennung </S1675>
+			<S1676>Bietet Benachrichtigungen für Autoplay-Hardware-Events.</S1676>
+			<S1690>UI Multifunktionsleiste</S1690>
+			<S1691>Eine Multifunktionsleiste im Datei-Explorer und jeder anderen Anwendung, die Standard-Windows-Multifunktionsleiste-API benutzt.</S1691>
+			<S1703>Anwendungsvirtualisierung (App-V)</S1703>
+			<S1704>Wird verwendet um Anwendungen für End-Benutzer verfügbar zu machen, ohne, dass die Anwendung direkt auf dem Computer installiert werden muss, sie laufen in einer geschlossenen virtuellen Umgebung.</S1704>
+			<S1708>Virtuelle Benutzererfahrung (UE-V)</S1708>
+			<S1709>Fügt Unterstützung für die optimierte Bereitstellung von virtualisierten Büros und die Unterstützung für Windows Roaming Anmeldeinformationen.</S1709>
+			<S1710>Windows Teilsystem für Linux</S1710>
+			<S1711>Stellt Dienste und Umgebungen für die Ausführung von nativen Benutzermodus Linux-Shells und Tools auf Windows bereit.</S1711>
+			<S1725>Containers</S1725>
+			<S1726>Stellt Dienste und Werkzeuge bereit, um Windows Server Container und Ressourcen zu erstellen und zu verwalten. Ein Container ist ein isolierter Ort, an dem eine Anwendung ohne Auswirkungen auf den Rest des Systems und ohne, dass das System die Anwendung beeinflusst, ausgeführt werden kann.</S1726>
+			<S1809>Windows-Bildressource</S1809>
+			<S1810>Windows-Symbole für SysWOW64 (32-Bit) Anwendungen. Durch das Entfernen von Dateien und Ordnern aus 32-Bit-Anwendungen sind im Browserfenster keine Symbole verfügbar.</S1810>
+			<S1811>Speicherverwaltung</S1811>
+			<S1812>Optimiert die Platzierung von Daten in Speicherstufen auf allen abgestuften Speicherplätzen im System.</S1812>
+			<S1816>Hilfedatei Unterstützung (CHM)</S1816>
+			<S1817>Bietet die Möglichkeit, CHM-Dateien zu öffnen.</S1817>
+			<S1818>Symbolische Links</S1818>
+			<S1819>Entfernt alle symbolischen Links des Ziels, z. B. "Dokumente und Einstellungen", die aus Kompatibilitätsgründen vorhanden sind. Dies wird bei der Bereitstellung erstellt, so dass es überwiegend eine Live-Komponente ist.</S1819>
+			<S1866>Ablaufverfolgung für Windows (ETW)</S1866>
+			<S1867>ETW gibt dem Betriebssystem die Möglichkeit einheitliche Fehlermeldungen oder Informationen vom User aber auch Kernel Modus in einer holistische Übersicht anzuzeigen.</S1867>
+			<S1870>Geräte-Kopplungsdienst</S1870>
+			<S1871>Ermöglicht die Kopplung zwischen dem System und den drahtgebundenen oder drahtlosen Geräten.</S1871>
+			<S1880>Browser Fensterrahmen</S1880>
+			<S1881>WEB-ähnliche Anwendungsfenster-Unterstützung, die von einigen Anwendungen verwendet wird, um deren Inhalte anzuzeigen.</S1881>
+			<S1882>Leistungsindikatoren</S1882>
+			<S1883>Zähler werden verwendet, um Informationen auszugeben, wie gut das Betriebssystem oder eine Anwendung, ein Dienst oder ein Treiber ausgeführt wird. Windows 10 enthält dazu eine GPU-Auslastung im Task-Manager.</S1883>
+			<S1884>Leistungsprotokolle und Warnungen</S1884>
+			<S1885>Sammelt Leistungsdaten von lokalen oder entfernten Computern auf der Grundlage von vordefinierten Zeitplanparametern, schreibt dann die Daten in ein Protokoll oder löst eine Warnung aus.</S1885>
+			<S1886>Interaktive Datenerkennung</S1886>
+			<S1887>Ermöglicht die Benutzerbenachrichtigung der Benutzereingabe für interaktive Dienste, die den Zugriff auf Dialoge ermöglicht, die durch interaktive Dienste erstellt wurden, wenn sie angezeigt werden.</S1887>
+			<S1892>Anbieter</S1892>
+			<S1893>Bietet eine gemeinsame Schnittstelle und Objektmodell für den Zugriff auf Verwaltungsinformationen über Betriebssystem, Geräte, Anwendungen und Dienste. Wenn diese Komponente entfernt wird, funktioniert die meisten Windows-basierten Software nicht ordnungsgemäß.</S1893>
+			<S1897>Dienst</S1897>
+			<S1898>Kern</S1898>
+			<S1914>Netzwerk-Tray-Symbol, linke Maustasten Popup-Menü</S1914>
+			<S1920>Gerätefluss</S1920>
+			<S1921>Geräteerkennung und -verbindung. Enthält Einstellungen - 'Bluetooth &amp; andere Geräte' Seite</S1921>
+			<S1924>Benutzerdatenzugriff</S1924>
+			<S1925>Bietet Apps Zugriff auf strukturierte Benutzerdaten, einschließlich Kontaktinformationen, Kalender, Nachrichten und andere Inhalte.</S1925>
+			<S1926>Benutzerdatenspeicher</S1926>
+			<S1927>Behandelt die Speicherung von strukturierten Benutzerdaten, einschließlich Kontaktinformationen, Kalender, Nachrichten und anderen Inhalten.</S1927>
+			<S1928>Kontaktdaten</S1928>
+			<S1929>Indiziert Kontaktdaten für die schnelle Kontaktsuche.</S1929>
+			<S1962>Bildpasswort</S1962>
+			<S1963>Melden Sie sich mit einem Lieblingsfoto in Windows an.</S1963>
+			<S1980>Isolierter Benutzermodus (IUM)</S1980>
+			<S1981>UEFI Funktion, die die Codeintegrität sicherstellt, Teil des Speichers, der durch virtualisierungsbasierte Sicherheit geschützt ist. Wenn der Anmeldeinformationsschutz aktiviert ist, führt der Subsystemdienst der lokalen Sicherheitsautorität (lsass.exe) einen vertraulichen Code in einem isolierten Benutzermodusprozess (LsaIso.exe) aus, um Daten vor Malware zu schützen..</S1981>
+			<S1982>Bewachter Host</S1982>
+			<S1983>Ermöglicht dem Gerät die Erstellung und Ausführung von einer abgeschirmten virtuellen Maschine mit entfernter Attestierung.</S1983>
+			<S1984>Enthält DISM, das zum Konfigurieren von Windows-Updates und -Features, Live-Installation und -Abbild verwendet wird. Benötigt für NTLite Integrationen und Funktion-Konfiguration.</S1984>
+			<S1985>Systemdateiprüfung (SFC)</S1985>
+			<S1986>In Windows integriertes Dienstprogramm, das auf Anforderung auf Systemdateibeschädigungen prüft.</S1986>
+			<S2439>ISO-Komponenten, außerhalb des eigentlichen WIM-Images.</S2439>
+			<S2448>Grafik-Leistungsmonitor-Dienst</S2448>
+			<S2449>Dies entfernt nicht die Task-Manager-GPU-Leistungsinformationen.</S2449>
+			<S2452>Wiederherstellungs-Agent</S2452>
+			<S2453>Minimale Wiederherstellungsunterstützung für die UEFI Umschalt + Neustart Problembehandlungsoptionen und die Dual-Boot-Menüs.</S2453>
+			<S2456>Erweiterte Ansicht für MMC, z.B. Services.msc Beschreibungen auf der linken Seite.</S2456>
+			<S2457>Windows NAT Treiber</S2457>
+			<S2458>Netzwerkadressübersetzung (NAT) ermöglicht Ihnen die gemeinsame Nutzung einer Verbindung zum öffentlichen Internet über eine einzige Schnittstelle mit einer einzigen öffentlichen IP-Adresse.</S2458>
+			<S2459>Anti-Malware-Scan-Schnittstelle</S2459>
+			<S2460>Wird nur für VMWare-Computer (virtuell) benötigt, es können Fehlermeldungen beim Öffnen von Programmen und MMC-Fenstern auftreten.</S2460>
+			<S2466>API</S2466>
+			<S2467>API (Anwendungsprogrammierschnittstelle), enthält Bibliotheken für Anwendungen, die von der Hauptfunktionalität abhängig sind. Dies reicht normalerweise aus, um diese Anwendungen zu starten.</S2467>
+			<S2472>Verschlüsselndes Dateisystem (EFS)</S2472>
+			<S2473>Bietet die Kerndateiverschlüsselungstechnologie zum Speichern verschlüsselter Dateien auf NTFS-Dateisystemvolumes. Wenn dieser Dienst entfernt oder deaktiviert wird, können Anwendungen mit dieser Methode nicht auf verschlüsselte Dateien zugreifen.</S2473>
+			<S2474>Systemwächter</S2474>
+			<S2475>Schützt das Gerät und das System vor Malware auf Boot-Ebene. Versiegelt die Integritätsmessdaten mit TPM und hält sie für die Fernanalyse durch Managementsysteme verfügbar.</S2475>
+			<S2494>Um Windows nach dem Entfernen zu aktualisieren, verwenden Sie den Host-Aktualisierungsassistenten mit der gleichen Vorlage, der vollständigen ISO und den Updates.</S2494>
+			<S2539>URL-Behandlung von Apps</S2539>
+			<S2562>USB-UCSI-Treiber</S2562>
+			<S2563>USB-Typ-C-Anschluss System Software Interface (UCSI).</S2563>
+			<S2564>Korruptionsprüfung</S2564>
+			<S2565>Überprüft mögliche vom NTFS-Treiber gefundene Beschädigungen.</S2565>
+			<S2566>Zeitreise-Debugger (TTD)</S2566>
+			<S2567>Ein Werkzeug, mit dem Sie die Ausführung Ihres Prozesses aufzeichnen und später vorwärts und rückwärts abspielen können.</S2567>
+			<S2568>Datei-Widerrufsmanager</S2568>
+			<S2569>COM+ (Komponentendienste)</S2569>
+			<S2570>Wird verwendet, um unternehmensweite, geschäftskritische verteilte Anwendungen für Windows zu entwickeln. Stellt ein Framework für Anwendungs-Thread-Pooling, Objekt-Pooling und Just-in-Time-Objektaktivierung bereit.</S2570>
+			<S2571>Distributed Transaction Coordinator (DTC)</S2571>
+			<S2572>Koordiniert Transaktionen, die über verschiedene Computersysteme verteilt sind (z.B. Datenbanken, Nachrichtenwarteschlangen und Dateisysteme)</S2572>
+			<S2573>COM+ Ereignissystem</S2573>
+			<S2574>Unterstützt Systemereignisbenachrichtigungsdienst (SENS), der die automatische Verteilung von Ereignissen an abonnierte Komponentenkomponentenmodelle (COM) bietet.</S2574>
+			<S2575>Systemereignisbenachrichtigungsdienst (SENS)</S2575>
+			<S2576>Überwacht Systemereignisse und benachrichtigt Abonnenten des COM + -Ereignissystems über diese Ereignisse.</S2576>
+			<S2577>COM+ Systemanwendung</S2577>
+			<S2578>Verwaltet die Konfiguration und die Verfolgung von COM-Komponenten (Component Object Model).</S2578>
+		</System>
+		<Accessories>
+			<S0010>Barrierefreiheit</S0010>
+			<S0011>Werkzeuge, damit Sie Ihr System konfigurieren können, um Sehen, Hören und die Mobilität einzustellen. Beinhaltet Zentrum für erleichterte Bedienung, Bildschirmtastatur, Bildschirmlupe und Sprachausgabe.</S0011>
+			<S0012>Zubehör</S0012>
+			<S0132>Zeichenmappe</S0132>
+			<S0191>Beinhaltet alle Aero Cursors. Wenn dies entfernt wird, wird das Schema auf Standard zurückgesetzt (keine).</S0191>
+			<S0192>Beinhaltet Architektur, Cartoons/Animationen, Landschaften, Natur und Szenen Design.</S0192>
+			<S0193>Beinhaltet Einfache Benutzung Design, Hoher Kontrast Variationen.</S0193>
+			<S0310>Einfache Benutzung Design</S0310>
+			<S0514>Enthält</S0514>
+			<S0586>Legacy components</S0586>
+			<S0655>Diverses nützliche für Eingabeaufforderung</S0655>
+			<S0675>Mauszeiger</S0675>
+			<S0758>Andere Designs</S0758>
+			<S0768>Paint</S0768>
+			<S0836>Editor für benutzerdefinierte Zeichen</S0836>
+			<S0857>Bietet die Möglichkeit, Ihre eigenen Schriftarten zu erstellen.</S0857>
+			<S0954>Bildschirmschoner</S0954>
+			<S1018>Einfaches Zeichnungs- und Bildbearbeitungsprogramm.</S1018>
+			<S1236>Dienstprogramm, das alle  Zeichen einer Schriftarten zeigt.</S1236>
+			<S1323>Wordpad</S1323>
+			<S1606>Bildschirmtastatur</S1606>
+			<S1932>Paint 3D</S1932>
+			<S1960>Spatial Sound (3D Audio)</S1960>
+			<S1961>Audio-Wiedergabe-Geräte-Effekte, beinhaltet Windows Sonic und Dolby Atmos für Kopfhörer.</S1961>
+			<S2493>Erleichterte Bedienung</S2493>
+		</Accessories>
+		<Network>
+			<S0017>Active Directory Lightweight Directory Dienst (AD LDS)</S0017>
+			<S0018>ActiveX Kompatibilitätskennzeichen (Killbits)</S0018>
+			<S0019>ActiveX Installationsdienst</S0019>
+			<S0029>Adobe Flash für Internet Explorer</S0029>
+			<S0036>Hilft Administratoren die Menge und die Art der Daten zu verstehen, zu kontrollieren und zu verwalten  Daten, die auf ihren Servern gespeichert sind. Durch die Verwendung von Dateiserver Ressourcenmanager können Administratoren Bewertungen für Ordnern und Datenträgern setzen, Dateien aktiv prüfen und umfassende Speicherberichte generieren.</S0036>
+			<S0037>Erlaubt es, Daten mit einer Remote Quelle zu synchronisieren unter Verwendung von Komprimierungstechniken, um die Menge der Daten die über das Netzwerk gesendet werden zu minimieren.</S0037>
+			<S0039>Erlaubt die Umleitung Drucker / Laufwerke / Anschlüsse für RDP-Verbindungen.</S0039>
+			<S0040>Ermöglicht einem Benutzer, Daten auf sein Gerät aus seinem Benutzerordner aus seiner Firma zu synchronisieren. Enthält Active Directory Federation Dienst (ADFS).</S0040>
+			<S0041>Ermöglicht es Ihnen die letzten synchronisierte Elemente zu prüfen, wenn Sie Ihren Computer eingerichtet haben, Dateien über einen Netzwerkserver zu synchronisieren.</S0041>
+			<S0049>Application Layer Gateway Dienst</S0049>
+			<S0066>Verbindet automatisch mobile Computer zum Intranet über VPN, wenn eine Verbindung zum Internet besteht.</S0066>
+			<S0071>AxInstSV - unterstützt die Installation von ActiveX-Steuerelementen in einer Organisationsumgebung.</S0071>
+			<S0072>Intelligenter Hintergrundübertragungsdienst (BITS)</S0072>
+			<S0096>Blacklistet unsichere oder bösartige ActiveX-Steuerelementen und hilft dabei den Internet Explorer und Microsoft Office sicherer zu machen.</S0096>
+			<S0107>BranchCache Dienst</S0107>
+			<S0108>Aktentasche</S0108>
+			<S0116>Kann verwendet werden, um Profile für den Verbindungsmanager zu erstellen und diese an Ihre Benutzer zu verteilen. Der Benutzer baucht nicht die Telefonnummer  eines DFÜ-Servers, oder die IP-Adresse des VPN-Server zu kennen.</S0116>
+			<S0136>Kontrollpunkt, F5, Juniper und Sonicwall integrierte VPN-Unterstützung.</S0136>
+			<S0165>Sammelt und speichert die Konfigurationsinformationen für das Netz und benachrichtigt Programme, wenn diese Informationen geändert werden.</S0165>
+			<S0184>Arbeitsstationsdienst (Computerbrowser)</S0184>
+			<S0243>Konzipiert um die WAN-Verbindungsbelastung  zu reduzieren und die Anwendungsreaktionsfähigkeit zu verbessern, wenn auf Inhalte von weit entfernten Servern zugegriffen wird. Filial Clientcomputer verwenden einen lokal verwalteten Cache von Daten um den Datenverkehr über eine WAN-Verbindung zu reduzieren.</S0243>
+			<S0265>DHCP Client</S0265>
+			<S0268>Direktzugangsverbindung</S0268>
+			<S0283>Client zur Überwachung verteilter Verknüpfungen</S0283>
+			<S0284>DNS Client</S0284>
+			<S0329>Gibt IT-Administratoren die Möglichkeit, eine feinere Auswahl auf Firmenressourcen anzubieten. Wenn ein Benutzer sein Gerät registriert, kann die IT den Zugang gewähren, während immer noch einige Richtlinien am Gerät eingerichtet werden können.</S0329>
+			<S0330>Ermöglicht Remotebenutzern die Registrierungseinstellungen dieses Computers zu verändern.</S0330>
+			<S0332>Ermöglicht das Abrufen und Ändern von Netzwerkkonfigurationseinstellungen für den lokalen Computer.</S0332>
+			<S0335>Ermöglicht es Ihrem Computer überwacht und durch den Multipoint Manager und Dashboard Anwendungen verwaltet zu werden.</S0335>
+			<S0409>Ressourcen-Manager für Dateiserver</S0409>
+			<S0410>Dateifreigabe Unterstützung</S0410>
+			<S0430>Microsoft hat ADAM für Organisationen entwickelt, die eine flexible Unterstützung für Verzeichnis-fähige Anwendungen benötigen. ADAM ist ein LDAP-Verzeichnisdienst, der als Benutzerdienst und nicht als Systemdienst ausgeführt wird. </S0430>
+			<S0465>Heimnetzgruppe</S0465>
+			<S0477>Identifiziert die Netzwerke, mit denen der Computer verbunden ist, sammelt und speichert Eigenschaften für diese Netzwerke, und benachrichtigt Anwendungen, wenn diese Eigenschaften sich ändern.</S0477>
+			<S0504>Implementiert das WS Verwaltungsprotokoll für Remoteverwaltung.</S0504>
+			<S0515>Enthält Agents, welche die Aktivität in Netzwerkgeräte überwachen und diese dem Netzwerkkonsolen-Arbeitsplatz melden.</S0515>
+			<S0542>Integrierte Einloggen Unterstützung, die mit Skype und Office 365 genutzt werden kann; Spiele, Musik und Filme von Microsoft Store kaufen; OneDrive und Einstellung Synchronisierung. Wenn entfernt, können Sie alternativ auch Benutzer mit dem Befehl: 'control userpasswords2' hinzufügen</S0542>
+			<S0546>Internetauthentifizierungsdienst (IAS)</S0546>
+			<S0547>Internetverbindungsfreigabe (ICS)</S0547>
+			<S0548>Internet Explorer HTML Viewer</S0548>
+			<S0549>Internet Explorer</S0549>
+			<S0552>Internetprotokoll Helfer (IP Helfer)</S0552>
+			<S0620>Behält eine Synchronisation der ausgewählten Netzwerkdateien. Dies ist nützlich, wenn Sie einen Laptop verwenden, um sich in ein Firm Netzwerk zu verbinden.</S0620>
+			<S0628>Verwaltet DFÜ- und virtuelle private Netzwerk (VPN) Verbindungen von diesem Computer mit dem Internet oder anderen Remotenetzwerken. Wenn Sie einen Hardware-Gateway oder Router verwenden, wird dieser Dienst nicht für die Verbindung benötigt.</S0628>
+			<S0645>Microsoft Konto</S0645>
+			<S0680>MultiPoint Verbinder</S0680>
+			<S0687>Zum Verbinden von RDP auf diese Maschine benötigt.</S0687>
+			<S0688>Zum Verbinden mit andere Geräte über RDP erforderlich.</S0688>
+			<S0697>Kernkomponente für den Firewall-Dienst, der von vielen Firewall-Anwendungen von Drittanbietern und von Windows 10 verwendet wird.</S0697>
+			<S0706>Netzwerk- und Freigabecenter</S0706>
+			<S0707>Netzwerkverbindungsvermittler</S0707>
+			<S0709>Netzwerkübersicht Dienst</S0709>
+			<S0711>Netzwerkadressinformationen</S0711>
+			<S0734>Bietet eine komfortable Möglichkeit für jemanden, dem Sie vertrauen, wie ein Freund oder einem technischen Support-Mitarbeiter, um sich mit Ihrem Computer zu verbinden und Ihnen bei einem Problem zu helfen.</S0734>
+			<S0735>Bietet Routingdienste in LAN- und WAN-Netzwerkumgebungen.</S0735>
+			<S0736>Offlinedateien</S0736>
+			<S0740>OneDrive</S0740>
+			<S0783>Peer Netzwerk</S0783>
+			<S0854>Bietet Unterstützung für 3rd-Party Protokoll Plugins für die Internetverbindungsfreigabe.</S0854>
+			<S0861>RAS Verbindungsmanager Verwaltungskit (CMAK)</S0861>
+			<S0890>RAS-Verbindungsverwaltung</S0890>
+			<S0891>Fernzugriffsdienst Werkzeuge</S0891>
+			<S0892>Remoteunterstützung</S0892>
+			<S0893>Remotedesktop Client</S0893>
+			<S0894>Remotedesktop Server</S0894>
+			<S0895>Remotedesktopdienste Anschluss Umlenkung</S0895>
+			<S0896>Remotedifferenzialkomprimierung (RDC)</S0896>
+			<S0897>Netzwerk Registry</S0897>
+			<S0905>Entfernt verschiedene WAN Miniports.</S0905>
+			<S0931>Routing und RAS Dienst</S0931>
+			<S0932>Routing und RAS Unterstützung</S0932>
+			<S0990>Serverlose Networking-Technologie, die mehrere Netzwerkgeräten erlaubt, Ressourcen zu teilen und direkt miteinander zu kommunizieren.</S0990>
+			<S1017>Einfaches Netzwerk Verwaltungsprotokoll (SNMP)</S1017>
+			<S1019>Einfache TCP/IP Dienste</S1019>
+			<S1020>Der Einfache TCP / IP Dienst unterstützt die folgenden TCP / IP-Dienste: Schriftgenerator Tageszeit, Echo und Zitat des Tages. Der Einfache TCP / IP-Dienste ist für die Abwärtskompatibilität vorgesehen und sollten nicht installiert werden, solange er nicht gebraucht wird.</S1020>
+			<S1035>SMB v2</S1035>
+			<S1037>SMB Allgemein Server</S1037>
+			<S1039>SMB v1</S1039>
+			<S1090>Unterstützt die Realisierung von Client gesteuerten Geräten und Diensten und auch Geräte Hosts, gemäß dem Geräte Profil für Web Dienste (DPWS). Unter anderem für den Visual Studio Externen Debugger und Scan Verwaltung erforderlich.</S1090>
+			<S1093>Synchronisierungscenter</S1093>
+			<S1094>Synchronisiert Zeit über das Netzwerk.</S1094>
+			<S1115>Telnet Client</S1115>
+			<S1116>Telnet Server</S1116>
+			<S1125>TFTP Client</S1125>
+			<S1146>Dieser Dienst ist für die IEEE 802.1X-Authentifizierung von Ethernet-Schnittstellen verantwortlich.</S1146>
+			<S1147>Dieser Dienst, verwaltet mobile Breitband (GSM &amp; CDMA) Datenkarten / integrierte Modul Adapter und Anschlüsse mit automatischer Konfiguration der Netzwerke.</S1147>
+			<S1153>Um Netzwerkverbindungen herzustellen, wenn Sie dies entfernt haben, machen Sie in Win8 + einen Rechtsklick auf den Startmenübereich , ansonsten erstellen Sie eine Verknüpfung zu ncpa.cpl oder 'explorer shell:::{7007ACC7-3202-11D1-AAD2-00805FC1270E}'.</S1153>
+			<S1161>Überträgt Dateien im Hintergrund über die ungenutzte Netzwerkbandbreite.</S1161>
+			<S1256>VPN Plugins</S1256>
+			<S1268>Web verteilte Bereitstellung und Versionsverwaltung (WebDAV)</S1268>
+			<S1269>Webdienste auf Geräte API (WSDAPI)</S1269>
+			<S1271>WebClient</S1271>
+			<S1289>Windows Firewall</S1289>
+			<S1298>Windows Mail</S1298>
+			<S1308>Windows Remoteverwaltung (WS Verwaltung)</S1308>
+			<S1310>Windows Server Komponente, die zentrale Authentifizierung und Verwaltung bietet.</S1310>
+			<S1317>Windows Zeit</S1317>
+			<S1321>Autokonfiguration verkabelter Netzwerke</S1321>
+			<S1325>Arbeitsordner Client</S1325>
+			<S1328>Beitreten eines Arbeitsplatzes</S1328>
+			<S1329>Erstellt und verwaltet Client-Netzwerkverbindungen zu Remote-Servern mithilfe des SMB-Protokolls.</S1329>
+			<S1330>Autokonfiguration von WWAN</S1330>
+			<S1334>Sie können die Aktentasche verwenden, um Dateien synchron zwischen zwei verschiedenen Computern zu halten. Auch wenn die Computer nicht im selben Netzwerk sind.</S1334>
+			<S1346>Virtueller PC</S1346>
+			<S1347>Ermöglicht es Ihnen, eine oder mehrere virtuelle Maschinen, die jeweils ein eigenes Betriebssystem haben, auf einem Computer zu laufen. Dies gibt Ihnen die Möglichkeit, verschiedene Betriebssysteme auf einem physischen Computer zu verwenden.</S1347>
+			<S1384>Microsoft Onedrive (bisher SkyDrive) ist ein Cloud Speicher, File Hosting Dienst, der es Benutzern ermöglicht, Dateien zu synchronisieren und den Zugriff mit einem Webbrowser oder mobilen Gerät ermöglicht.</S1384>
+			<S1390>SMB Witness Client API</S1390>
+			<S1391>Verwendet in SMBv3, um die kontinuierliche Dateifreigaben zu verbessern und ermöglicht einen schnelleren Client Failover.</S1391>
+			<S1422>Windows Mail Kommunikation DLL</S1422>
+			<S1423>Für MHT Dateiformat Unterstützung benötigt.</S1423>
+			<S1442>Windows Firewall Dienst</S1442>
+			<S1443>Entfernt die Firewall UI und deaktiviert die Funktionen.</S1443>
+			<S1469>AllJoyn-Routerdienst</S1469>
+			<S1470>Leitet AllJoyn-Mitteilungen für die lokalen AllJoyn-Clients um. Wenn dieser Dienst angehalten wird, können die AllJoyn-Clients, die nicht über eigene gebündelte Router verfügen, nicht ausgeführt werden.</S1470>
+			<S1471>Angeschlossene Gerät Plattform Dienst (CDPSvc)</S1471>
+			<S1472>Dieser Service wird für die angeschlossenen Geräte und Universal Glass Szenarien verwendet.</S1472>
+			<S1475>Netzwerk Hintergrundübertragung</S1475>
+			<S1476>Wird von Windows-Runtime-Anwendungen verwendet, um im Hintergrund Netzwerkdaten vorab herunterzuladen.</S1476>
+			<S1491>Netzwerkzugriffsschutz (NAP)</S1491>
+			<S1492>NAP umfasst Client- und Serverkomponenten, die Ihnen das Erstellen und Erzwingen von Integritätsanforderungsrichtlinien ermöglichen, mit denen die erforderlichen Software- und Systemkonfigurationen für Computer definiert werden, die eine Verbindung mit Ihrem Netzwerk herstellen.</S1492>
+			<S1493>Exchange ActiveSync (EAS)</S1493>
+			<S1494>Ein Kommunikationsprotokoll für die Synchronisation von E-Mails, Kontakte, Kalender, Aufgaben und Notizen vom Messaging-Server, wie Microsoft Exchange Server.</S1494>
+			<S1495>IPsec-Richtlinien-Agent</S1495>
+			<S1496>Der Dienst "IPsec-Richtlinien-Agent" sichert und kontrolliert in Windows die Übertragung von IP-Paketen. IPsec ist zuständig für die Überprüfung, die Authentifizierung und ggf. für die Verschlüsselung der Daten zuständig.</S1496>
+			<S1507>Brieftaschen Dienst</S1507>
+			<S1508>Backend wird für die Brieftaschen App gebraucht, Microsoft Windows Bezahlsystem.</S1508>
+			<S1581>Netzlaufwerk verbinden</S1581>
+			<S1608>USB Terminaldienste Umleitung</S1608>
+			<S1610>Personen in meiner Umgebung</S1610>
+			<S1662>Netzwerkadapter Multiplexer Protokoll</S1662>
+			<S1663>Windows integrierten NIC Kooperation-Protokoll, auch als Lastverteilung und Failover (LBFO) bekannt, ermöglicht es mehreren Netzwerkadapter auf einem Computer, zusammen durch Bandbreitenaggregation und Traffic Failover zu arbeiten.</S1663>
+			<S1664>Dienstqualität-Paketplaner (QoS)</S1664>
+			<S1665>Hiermit kann die Anforderungen einer Arbeitsbelastung oder einer Anwendung berechnet werden, durch messen der Netzwerk-Bandbreite, Erfassen von Veränderungen der Netzwerkbedingungen (wie Staus oder die Verfügbarkeit von Bandbreite) und Priorisierung - oder Drosselung im Netzwerkverkehr.</S1665>
+			<S1666>Verbindungsschicht-Topologie Erkennung Protokol (LLTD)</S1666>
+			<S1667>Ermöglicht Anwendungen schnell Geräte in der Datenverbindungsschicht zu entdecken, und ermöglicht eine zentrale, grafische Ansicht von allem, was mit dem Netzwerk verbunden ist.</S1667>
+			<S1697>NDIS Benutzermodus I / O-Treiber</S1697>
+			<S1698>Unterstützt das Senden und Empfangen von Ethernet-Frames mithilfe von ReadFile und Writefile.</S1698>
+			<S1699>SMS Router Dienst</S1699>
+			<S1700>Navigiert Nachrichten basierend auf der Regeln des entsprechenden Clients.</S1700>
+			<S1701>Nachrichtendienst</S1701>
+			<S1702>Der Dienst unterstützt SMS-Nachrichten und den damit verbundenen Funktionalitäten.</S1702>
+			<S1707>Radioverwaltung und Flugmodus Dienst</S1707>
+			<S1714>.NET Framework Post-Setup Installation</S1714>
+			<S1715>Windows Update Dienst herunterladen</S1715>
+			<S1717>RemoteFX</S1717>
+			<S1718>Verbesserte die visuelle Erfahrung von Remotedesktopprotokoll. Kann auch in Hyper-V-Verbindungen verwendet werden.</S1718>
+			<S1738>SMB Direkt (RDMA)</S1738>
+			<S1739>Remote direkt Speicherzugriffs (RDMA) Unterstützung für das SMB3.x Dateifreigabe Protokoll. Erfordert einen Netzwerkadapter welches RDMA unterstützt, die über das Netzwerk niedriger Latenz und eine schnellere Datenübertragung ermöglicht.</S1739>
+			<S1740>Rechenzentrum Überbrückung (DCB)</S1740>
+			<S1741>Ein Set von Erweiterungen für Ethernet lokale Netzwerke für den Einsatz in Rechenzentren, wie Internet Schnittstelle für Kleincomputer, RDMA über konvergierte Ethernet und Fibre Channel over Ethernet.</S1741>
+			<S1763>USB 3G Modem</S1763>
+			<S1814>Windows Verbindungs-Manager</S1814>
+			<S1815>Entscheidet automatisch über die Verbindung / Trennung auf der Grundlage der Netzwerkverbindungsoptionen, die derzeit für den PC verfügbar sind, und ermöglicht die Verwaltung der Netzwerkkonnektivität auf der Basis von Gruppenrichtlinieneinstellungen.</S1815>
+			<S1872>Erweiterbares Authentifizierungsprotokoll (EAP)</S1872>
+			<S1873>Bietet eine Netzwerk-Authentifizierung, wie 802.1x verdrahtet und drahtlos, VPN und Network Access Protection (NAP), einschließlich MS / RAS CHAP, PPP EAP. Wenn Sie diese Komponente entfernen, wird Windows daran gehindert, auf Netzwerke zuzugreifen, die eine EAP-Authentifizierung erfordern.</S1873>
+			<S1876>Automatische Einrichtung von Netzwerk angeschlossenen Geräten</S1876>
+			<S1877>Das Deaktivieren oder Entfernen dieses Dienstes verhindert, dass Windows automatisch qualifizierte Netzwerkgeräte automatisch entdeckt und installiert. Benutzer können immer noch über die Benutzeroberfläche, angeschlossene Netzwerkgeräte zu einem PC hinzufügen.</S1877>
+			<S1878>Active Directory</S1878>
+			<S1879>Windows Netzwerk Domain Unterstützung.</S1879>
+			<S1930>Wi-Fi Sofortverbindung Manager Dienst</S1930>
+			<S1931>Verwaltet Verbindungen zu drahtlosen Diensten, einschließlich drahtloser Anzeige und Docking.</S1931>
+			<S1945>Edge HTML Viewer</S1945>
+			<S1946>Mindestens erforderliche Windows-Setup-HTML-Rendering-Engine.</S1946>
+			<S1996>Zahlungen und NFC / SE Manager</S1996>
+			<S1997>Verwaltet Zahlungen und Nahfeldkommunikation (NFC) basierte sichere Elemente.</S1997>
+			<S2409>Erforderlich für die Überprüfung der Internet Explorer-Zertifikatsperrung.</S2409>
+			<S2412>TCP/IP NetBIOS Helfer</S2412>
+			<S2413>Bietet Unterstützung für NetBIOS über TCP / IP-Protokoll und NetBIOS-Namensauflösung für Clients im Netzwerk, sodass Benutzer Dateien freigeben, drucken und sich beim Netzwerk anmelden können. Enthält den neueren Dateifreigabeprotokolltyp, der "NetbiosSmb" über den Port 445 bindet.</S2413>
+			<S2414>NetBIOS über TCP Transport</S2414>
+			<S2415>Der ältere Dateifreigabeprotokolltyp, der "NetBT_Tcpip" über die Ports 137-139 bindet.</S2415>
+			<S2418>Weitere Sprachen</S2418>
+			<S2419>Dies sind die zusätzlichen System32-Sprachverzeichnisse, in denen nur die Datei 'SyncRes.dll.mui' enthalten ist.</S2419>
+			<S2435>Assistent für lokale Profilassistenz</S2435>
+			<S2436>Dieser Dienst bietet Profilverwaltung für Teilnehmeridentitätsmodule.</S2436>
+			<S2454>Netlogon</S2454>
+			<S2455>Behält einen sicheren Kanal zwischen diesem Computer und dem Domänencontroller für die Authentifizierung von Benutzern und Diensten bei.</S2455>
+			<S2476>OpenSSH</S2476>
+			<S2477>Open-source SSL engine.</S2477>
+			<S2538>ActiveX-Client für Remotedesktopdienste</S2538>
+			<S2542>Klient</S2542>
+			<S2543>Server</S2543>
+			<S2544>Unterstützt die gemeinsame Nutzung von Dateien, Drucken und Named Pipe für diesen Computer über das Netzwerk.</S2544>
+			<S2579>WiFi-Synchronisierungsanbieter</S2579>
+		</Network>
+		<HardwareSupport>
+			<S0030>AGP</S0030>
+			<S0100>Bluetooth</S0100>
+			<S0170>GPIO wird verwendet, um mit Peripheriegeräten zu kommunizieren, die an Computer-Motherboards angeschlossen sind oder die in mobile Geräte eingebettet sind, wie z. B. Smartphones. Standardtreiber für Schaltflächen, DockMode und Laptop/Slate-Indikator.</S0170>
+			<S0328>Aktiviert die automatische Anschlussöffnung auf unterstützten Routern.</S0328>
+			<S0334>Ermöglicht es einem Host-Computer sich mit einem externen iSCSI-basierten Speicher-Array über eine Ethernet-Netzwerkadapter zu verbinden.</S0334>
+			<S0400>Fax</S0400>
+			<S0423>Diskettenlauf</S0423>
+			<S0444>General-Purpose I/O (GPIO)</S0444>
+			<S0458>Hardwareunterstützung</S0458>
+			<S0524>Infrarotgeräte</S0524>
+			<S0551>Internetdruckclient</S0551>
+			<S0557>iSCSI Initiator</S0557>
+			<S0648>Microsofts Implementierung vom Wi-Fi Protected Setup (WPS) Protokoll.</S0648>
+			<S0664>Modem</S0664>
+			<S0692>Wird für einige Webcams gebraucht.</S0692>
+			<S0806>Tragbare Geräte (WPD/MTP)</S0806>
+			<S0835>Drucken</S0835>
+			<S0855>Bietet Telefonie API Unterstützung (TAPI) für Programme, die Telefoniegeräte auf dem lokalen Computer und über LAN auf Servern benutzen.</S0855>
+			<S0856>Bietet die Logik die erforderlich ist, um drahtlose lokale Netzwerke (WLAN) zu konfigurieren, zu entdecken, zu verbinden, und zu trennen. Inklusive WLAN Autokonfigurationsdienst.</S0856>
+			<S0951>Scanner</S0951>
+			<S1004>Gemeinsame Modemeinstellungen (mdmgl*.inf)</S1004>
+			<S1034>Smartcard</S1034>
+			<S1070>Einzelbild Klassen Installer</S1070>
+			<S1082>Unterstützung für Bild Import von Geräten.</S1082>
+			<S1114>Telefonie</S1114>
+			<S1170>Trusted Platform Module (TPM)</S1170>
+			<S1219>UPnP Gerätehost</S1219>
+			<S1226>Wird verwendet, um die TPM-Sicherheitshardware in Ihrem Computer zu verwalten.</S1226>
+			<S1237>Medientransferprotokoll (MTP) ist eine Treiber-Technologie, die eine breite Palette von tragbaren Geräten wie Mobiltelefone, Digitalkameras und tragbare Media-Player unterstützt. USB Speicherunterstützung wird nicht entfernt.</S1237>
+			<S1250>Virtuelle Smart Card</S1250>
+			<S1282>Windows Sofortverbindung - Konfigurationsregistrierungsstelle (WCN)</S1282>
+			<S1292>Windows Bilderfassung (WIA)</S1292>
+			<S1322>WLAN</S1322>
+			<S1331>XPS Writer und Dienst</S1331>
+			<S1403>Als PDF drucken</S1403>
+			<S1418>Netzwerkerkennung</S1418>
+			<S1419>Enthält Dienste zur Erkennung von Funktionen. Diese FD Anbieter unterstützen den Netzwerk Suchdienste für das Simple Service Discovery Protocol (SSDP) und Web Services Discovery (WS-D) Protokoll.</S1419>
+			<S1460>Point of Service (POS)</S1460>
+			<S1461>Unterstützung für POS-Peripheriegeräten, wie zB Barcode-Scanner und Magnetkartenleser.</S1461>
+			<S1582>Fernzugriff-Verbindungsverwaltung</S1582>
+			<S1820>Erstellt eine Verbindung zu einem entfernten Netzwerk, wenn ein Programm auf einen entfernten DNS- oder NetBIOS-Namen oder eine entfernte Adresse verweist.</S1820>
+			<S1894>Virtuelles Privat Netzwerk (VPN) Unterstützung </S1894>
+			<S1895>Optionale Funktionen</S1895>
+			<S1896>Bietet die Konfiguration von integrierten Windows-Funktionen, wie in der Systemsteuerung - Windows-Funktionen ein- oder ausschalten und Funktionen On Demand-Helfer.</S1896>
+			<S1953>Spielperipheriegeräte (Xbox GIP)</S1953>
+			<S1998>Telefonservice</S1998>
+			<S1999>Verwaltet den Telefonstatus auf dem Gerät.</S1999>
+			<S2411>Batterie</S2411>
+			<S2429>Mobiles Gerät Aufzählerservice</S2429>
+			<S2430>Erzwingt die Gruppenrichtlinie für entfernbare Massenspeichergeräte. Ermöglicht Anwendungen wie Windows Media Player und Bildimportassistent zum Übertragung und Synchronisierung von Inhalten mithilfe von Wechselspeichermedien.</S2430>
+			<S2441>Microsoft GS Wavetable SW Synth (MIDI)</S2441>
+			<S2442>Unterstützung für MIDI-Synth-Audio, das normalerweise in professionellen Audio-Mischwerkzeugen verwendet wird.</S2442>
+			<S2478>Druck-Workflow-Dienst</S2478>
+			<S2479>Wird für die UWP-Apps benötigt, die die Druck-Workflow-API verwenden.</S2479>
+		</HardwareSupport>
+		<Metro>
+			<S0053>Anwendungen</S0053>
+			<S0109>Broker Verbindungen, die es den Windows Store Anwendungen erlauben Benachrichtigungen aus dem Internet zu empfangen.</S0109>
+			<S0110>Webbrowsern Wahl Backend</S0110>
+			<S0406>Dateimanager (OneDrive &amp; Fotos)</S0406>
+			<S0517>Enthält die Einstellungen App. Nicht entfernbar unter Windows 10, da es für Setup und Startmenü benötigt wird. Wenn Sie einen Produktschlüssel, ohne die PC Einstellungen eingeben möchten, geben Sie "slui.exe 3 ' aus der cmd.exe ein oder gehen Sie auf Systemeigenschaften.</S0517>
+			<S0643>Kern Metro Dienst.</S0643>
+			<S0646>Microsoft Kamera Backend</S0646>
+			<S0858>Umfeld</S0858>
+			<S0997>Einstellung Synchronisierung</S0997>
+			<S1089>Unterstützt Verbindungen zwischen Geräten, die in in der Nähe sind.</S1089>
+			<S1095>Synchronisiert vielen Einstellungen zwischen Ihrem Windows PCs und Geräten. Dies macht es einfacher, sich zwischen verschiedenen Rechnern zu bewegen und eine konsistente Umgebung zu haben.</S1095>
+			<S1270>Webcam Erfahrung</S1270>
+			<S1304>Windows PDF Dateibetrachter.</S1304>
+			<S1306>Windows Reader (PDF)</S1306>
+			<S1335>Sie können die Webbrowsern Auswahl verwenden, um den Webbrowser, den Sie auf Ihrem PC verwenden möchten, auszuwählen und zu installieren.</S1335>
+			<S1405>Einzelhandel Demo Inhalt</S1405>
+			<S1406>Demo Profil nützlich für Einzelhandelsgeschäfte zum werben und anzeigen von Windows Geräten.</S1406>
+			<S1417>System Anwendungen</S1417>
+			<S1446>Appx Implementierungsservice</S1446>
+			<S1447>Windows Maps</S1447>
+			<S1463>Client Lizenz Dienst (ClipSVC)</S1463>
+			<S1464>Bietet Infrastruktur-Unterstützung für den Microsoft Store. Dieser Service wird bei Bedarf gestartet und wenn er deaktiviert wird, verhalten sich gekaufte Anwendungen aus dem Windows Store nicht korrekt.</S1464>
+			<S1694>Synchronisations-Host</S1694>
+			<S1695>Dieser Dienst synchronisiert Emails, Kontakte, Kalender und verschiedene andere Benutzerdaten.</S1695>
+			<S1696>Wenn Sie dies entfernen, werden Anwendungen, die diese Daten nutzen, möglicherweise nicht korrekt funktionieren.</S1696>
+			<S1868>Anwendungs Bereitschaftsdienst</S1868>
+			<S1869>Bereitet Anwendungen für den ersten Start vor, wenn ein Benutzer sich anmeldet und wenn Sie neue Anwendungen installieren.</S1869>
+			<S1874>DevQuery Hintergrund Discovery Broker</S1874>
+			<S1875>Ermöglicht Apps, Geräte mit einer Hintergrundaufgabe zu entdecken</S1875>
+			<S1891>Nicht-Windows-Anwendung Push Benachrichtigungen API</S1891>
+			<S1916>Windows Gemischte Wirklichkeit</S1916>
+			<S1917>Wird mit Augmented Reality Headsets wie Microsoft HoloLens verwendet.</S1917>
+			<S1922>Windows PDF Engine</S1922>
+			<S1923>Wird in Reader und Edge verwendet, um PDFs anzuzeigen.</S1923>
+			<S1954>Entfernt den Cortana-Assistenten, die Tray- / Startmenü-Suche und die Funktionssuchfunktionalität.</S1954>
+			<S2404>Fähigkeiten Zugriff</S2404>
+			<S2405>Bietet die Möglichkeit, auf UWP-Apps auf App-Funktionen zuzugreifen und den Zugriff einer App auf bestimmte App-Funktionen zu überprüfen.</S2405>
+			<S2431>Datenfreigabedienst</S2431>
+			<S2432>Bietet Datenvermittlung zwischen Anwendungen.</S2432>
+			<S2450>Browser Brokers</S2450>
+			<S2451>Ein Proxy für Browser, der App-Zugriff auf den durchsuchbaren Inhalt ermöglicht und sichert.</S2451>
+			<S2545>Kartensteuerung</S2545>
+		</Metro>
+		<Localization>
+			<S0054>Arabisch</S0054>
+			<S0088>Baskisch</S0088>
+			<S0091>Bengalisch (Bangladesch)</S0091>
+			<S0092>Bengalisch (Indien)</S0092>
+			<S0112>Bulgarisch</S0112>
+			<S0126>Katalanisch</S0126>
+			<S0140>Chinesisch</S0140>
+			<S0173>Vollständige Entfernung der Sprachunterstützung. Entfernen Sie dies nicht, wenn Sie in dieser Sprache lesen oder schreiben möchten.</S0173>
+			<S0225>Kroatisch</S0225>
+			<S0231>Tschechisch</S0231>
+			<S0232>Dänisch</S0232>
+			<S0304>Holländisch</S0304>
+			<S0338>Englisch</S0338>
+			<S0362>Estnisch</S0362>
+			<S0419>Finnisch</S0419>
+			<S0437>Französisch</S0437>
+			<S0440>Galizisch</S0440>
+			<S0446>Deutsch</S0446>
+			<S0450>Griechisch</S0450>
+			<S0454>Gujarati</S0454>
+			<S0459>Hebräisch</S0459>
+			<S0463>Hindi</S0463>
+			<S0469>Ungarisch</S0469>
+			<S0473>Isländisch</S0473>
+			<S0521>Indonesisch</S0521>
+			<S0528>Eingabemethodeneditor (IME)</S0528>
+			<S0563>Italienisch</S0563>
+			<S0564>Japanisch</S0564>
+			<S0571>Kannada</S0571>
+			<S0578>Tastaturlayouts</S0578>
+			<S0579>Koreanisch</S0579>
+			<S0581>Sprache</S0581>
+			<S0582>Sprachpaket</S0582>
+			<S0583>Sprachen</S0583>
+			<S0585>Lettisch</S0585>
+			<S0587>Ältere Sprachunterstützung</S0587>
+			<S0595>Litauisch</S0595>
+			<S0623>Malaiisch (Brunei)</S0623>
+			<S0624>Malaiisch (Malaysia)</S0624>
+			<S0625>Malayalam</S0625>
+			<S0634>Marathi</S0634>
+			<S0682>Natürliche Sprache</S0682>
+			<S0691>Komplexe Charakterunterstützung für einige ostasiatische Sprachen.</S0691>
+			<S0724>Norwegisch</S0724>
+			<S0805>Polnisch</S0805>
+			<S0807>Portugiesisch (Brasilien)</S0807>
+			<S0808>Portugiesisch</S0808>
+			<S0860>Punjabi</S0860>
+			<S0930>Rumänisch</S0930>
+			<S0935>Russisch</S0935>
+			<S0989>Serbisch</S0989>
+			<S1031>Slowakisch</S1031>
+			<S1032>Slowenisch</S1032>
+			<S1048>Spanisch</S1048>
+			<S1091>Schwedisch</S1091>
+			<S1101>Tablet Text Dienst kann verwendet werden, um einen eigenen Texteingabe Prozessor anzupassen und zu definieren (TIP).</S1101>
+			<S1102>Tablet Text Dienst</S1102>
+			<S1104>Tamilisch</S1104>
+			<S1117>Telugu</S1117>
+			<S1126>Thailändisch</S1126>
+			<S1172>Türkisch</S1172>
+			<S1187>Ukrainisch</S1187>
+			<S1220>Urdu</S1220>
+			<S1223>Wird für zusätzliche Funktionen in Sprache und Suche verwendet. Es erweitert die Sprache und die Suche nach einer natürlichen Syntax Unterstützung, fast wie das Sprechen mit eine andere Person.</S1223>
+			<S1243>Vietnamesisch</S1243>
+			<S1388>Pseudo Gebietsschema</S1388>
+			<S1389>Wird verwendet zum Testen der Lokalisierung von Anwendungen.</S1389>
+			<S1473>Sprachpaket Installation</S1473>
+			<S1474>Unterstützung für die Installation und Deinstallation von Sprachpaketen.</S1474>
+			<S1532>Vereinfachtes Chinesisch</S1532>
+			<S1533>Traditionelles Chinesisch</S1533>
+			<S1549>Erforderlich für das ändern der Sprache Eingabe/Tastatur in der Systemsteuerung.</S1549>
+			<S1558>Französisch (Kanadisch)</S1558>
+			<S1595>Schriftarten</S1595>
+			<S1596>Überprüfen Sie sorgfältig einzelne Schriftarten in Systemsteuerung - Schriften vor dem Entfernen, einige können von einem unberührten Windows Image neu installiert werden.</S1596>
+			<S1597>Lokalisierung</S1597>
+			<S1602>Sprach Panel</S1602>
+			<S1603>Wenn dies entfernt wird, gibt es keine UI-Option (Systemsteuerung - Sprache) zum Ändern von Tastaturen oder Sprachen nach der Installation, nur durch Bearbeiten der Registrierung können Änderungen vorgenommen werden.</S1603>
+			<S1604>Statischer Schriftart-Cache</S1604>
+			<S2000>Eingabedienst</S2000>
+			<S2401>Textautovervollständigung und Verarbeitungsframework. Wenn Text Eingabe in einer UWP-Anwendung wie PC-Einstellungen, Cortana, Edge, Startmenüsuche, WIFI-SSID entfernt wird, wird diese in der Metro-Benutzeroberfläche nicht mehr funktioniert. Taschenrechner Eingabe ist nicht betroffen.</S2401>
+			<S2402>Rechtschreibprüfung</S2402>
+			<S2403>Enthält Unterstützung für UWP-Apps und automatische Textkorrektur für die Metro-Benutzeroberfläche.</S2403>
+			<S2537>Eingabeprozessoren</S2537>
+		</Localization>
+		<Media>
+			<S0056>Automatischer Dreh Manager</S0056>
+			<S0085>Basic Windows integrierter Directshow DVD Film Wiedergabe Unterstützung.</S0085>
+			<S0086>Basic Windows integrierter MPEG-2 (H.222 / H.262) Unterstützung. Wird nicht für Video-Player benötigt, die es integriert haben.</S0086>
+			<S0087>Windows-Tipps und Tutorials für Anfänger.</S0087>
+			<S0305>DVD Maker</S0305>
+			<S0306>DVD Wiedergabe</S0306>
+			<S0420>Erste Anmeldeanimation</S0420>
+			<S0441>Game Explorer</S0441>
+			<S0442>Games</S0442>
+			<S0485>Farbverwaltung (ICM)</S0485>
+			<S0516>Enthält DLNA und Miracast Unterstützung, Übertragung von Audio und Video auf andere, und von diesem Gerät.</S0516>
+			<S0519>Enthält Beispiel Videos, Musik, Bilder und Klingeltöne.</S0519>
+			<S0545>Intel Indeo Codecs</S0545>
+			<S0622>Erleichtert den Zugang, das Spielen und verwalten Ihrer Spiele.</S0622>
+			<S0635>Markt Designs</S0635>
+			<S0637>Media Center</S0637>
+			<S0638>Media Foundation</S0638>
+			<S0639>Media Viewer</S0639>
+			<S0649>Microsoft Media Foundation ermöglicht die Entwicklung von Anwendungen und Komponenten für den Einsatz von digitalen Medien unter Windows. Unter anderem für Internet Explorer Medienwiedergabe erforderlich</S0649>
+			<S0676>MPEG-2 Splitter</S0676>
+			<S0678>Multimedia</S0678>
+			<S0679>Multiplayer Spiele</S0679>
+			<S0696>Wird gebraucht für Touch Screen Unterstützung.</S0696>
+			<S0787>Foto Codec</S0787>
+			<S0788>Fotoanzeige</S0788>
+			<S0816>Premium Spiele</S0816>
+			<S0853>Bietet Funktionen, die es einer Anwendung ermöglichen, Videodaten zu verarbeiten. Wird gebraucht für Webcams, Reaper, FSViewer und viele andere Audio / Video Tools.</S0853>
+			<S0936>Medien Beispiele</S0936>
+			<S1003>Geteilte Mediensteuerung</S1003>
+			<S1040>Snipping Tool</S1040>
+			<S1041>Sound Recorder</S1041>
+			<S1042>Sound Themes</S1042>
+			<S1043>Sounds (Standard)</S1043>
+			<S1051>Spracherkennung</S1051>
+			<S1052>Sprach TTS</S1052>
+			<S1069>Sticky Notes</S1069>
+			<S1103>Tablet PC</S1103>
+			<S1124>Textvorhersage</S1124>
+			<S1132>Die Informative Animation nach der Installation von Windows bei der ersten Anmeldung.</S1132>
+			<S1133>Die markt benutzerdefinierten Designs sind spezifisch für eine bestimmte Region und umfassen Hintergrundbilder, Soundschemas und Aero Glass Farben.</S1133>
+			<S1174>TV Tuner Codecs und Unterstützung</S1174>
+			<S1225>Wird in Explorer Bilddatei Miniaturansichten und Metro Kacheln verwendet.</S1225>
+			<S1239>Verschiedene Windows Shell Sounds.</S1239>
+			<S1241>Assistenten zur Erstellung von Video DVD .</S1241>
+			<S1242>Video für Windows (VFW)</S1242>
+			<S1258>Hintergrundbilder (Standard)</S1258>
+			<S1259>Hintergrundbilder (Designs)</S1259>
+			<S1272>Tipps (Erste Schritte)</S1272>
+			<S1278>Windows Farbverwaltung Komponente, recht ausführlich von anderen Programmen verwendet, um Farbkorrekturen anzuwenden. Wird unter anderem für Fotoanzeige und vielen anderen Bildanzeige- und Bearbeitungssoftware wie Photoshop, Gimp und anderen gebraucht.</S1278>
+			<S1300>Windows Media Center Update</S1300>
+			<S1301>Windows Media Codec</S1301>
+			<S1302>Windows Media Player</S1302>
+			<S1303>Media Streaming</S1303>
+			<S1312>Windows Shell Sounds.</S1312>
+			<S1314>Windows Systembewertungstool (WinSAT)</S1314>
+			<S1315>Windows TIFF IFilter (OCR)</S1315>
+			<S1316>Windows TIFF IFilter verarbeitet TIFF-Bilder, und gibt dann den erkannten Text an den Aufrufer für den Aufbau des Suchindex weiter. Es kann für den Indexdienst (für Desktopsuche), Microsoft Office Sharepoint Server 2007 oder höher, Microsoft SQL Server 2008 und Microsoft SQL Server 2005 verwendet werden.</S1316>
+			<S1353>Windows Media Dienste für Remote Server Verwaltung</S1353>
+			<S1354>Ermöglicht es Ihnen Ihr Windows Media Server zu verwalten.</S1354>
+			<S1365>WMP Netzwerkfreigabedienst</S1365>
+			<S1366>Windows CD Image Brennprogramm</S1366>
+			<S1367>Integrierte Explorer ISO Brennfunktion und Windows Media Player rippen und brennen. Entfernt nicht die ISO Brennfunktion für andere Programme von Drittanbietern.</S1367>
+			<S1407>Xbox App</S1407>
+			<S1408>Inklusive Game Bar, Game Mode und Gaming Broadcast DVR.</S1408>
+			<S1409>PlayReady</S1409>
+			<S1410>Microsoft PlayReady hat ein neue Digital Rights Management System enthüllt. Damit können Standard-Audio- und -Video-Dateien, Klingeltöne, Bilder, Spiele und andere Inhalte geschützt werden, die an Nutzer von mobilen Endgeräten verkauft werden.</S1410>
+			<S1457>Beinhaltet Indeo 4.5 und 5.1.</S1457>
+			<S1458>Video Kompressions Manager (ACM) Codecs</S1458>
+			<S1459>Beinhaltet Indeo 3.2 und Cinepak-Codecs.</S1459>
+			<S1462>Grundlegende Windows Leistungs-Benchmark-Tool in der Systemsteuerung unter Leistungsinformationen und -tools.</S1462>
+			<S1477>Monitoren umschalten</S1477>
+			<S1478>Wer 2 Monitore oder einen Projektor sein eigen nennt kann mit Hotkeys oder Verknüpfungen zwischen den Monitoren umschalten.</S1478>
+			<S1560>Diese Komponente ist veraltet und enthält bekannte Schwachstellen.</S1560>
+			<S1579>Erweiterter Video Renderer (EVR)</S1579>
+			<S1580>Verwendet in den Media Playern für eine bessere Nutzung des GPU-Video-Ausganges.</S1580>
+			<S1607>Windows Journal</S1607>
+			<S1705>Kamerabild Server</S1705>
+			<S1706>Ermöglicht es mehreren Clients Videoframes von Kamera Geräten zuzugreifen.</S1706>
+			<S1987>DirectX-WARP-JIT-Dienst</S1987>
+			<S1988>Stellt einen JIT-Out-of-Process-Dienst für die Windows Advanced Rasterization Platform (WARP) bereit, wenn dieser mit aktiviertem ACG ausgeführt wird. Nützlich für die virtuelle Realität.</S1988>
+			<S2554>Zugriff auf Eingabegeräte Dienst</S2554>
+			<S2555>Aktiviert und verwaltet die Verwendung von Tastenkombinationen auf Tastaturen, Fernbedienungen und anderen Multimedia-Geräten.</S2555>
+			<S2556>Erweiterungsservice anzeigen</S2556>
+			<S2557>Ein Dienst zum Verwalten der Anzeigeoptimierung, z. B. Helligkeitssteuerung. Beinhaltet 'Nachtlicht'.</S2557>
+		</Media>
+		<Title>
+			<S0099>Blaue Komponenten sind gesperrt und benötigen eine Lizenz.</S0099>
+			<S0180>Komponenten</S0180>
+			<S0738>Geben Sie auf der rechten Seite Dateien ein, die bei der Entfernung geschützt werden sollen. Einträge werden als Dateipfad eingegeben, z.B..: System32\expand.exe um expand.exe im X:\Windows\System32 Verzeichnis zu behalten. Das gleiche funktioniert auch für Programme oder ein anderes Verzeichnis. Platzhalter (*) wird unterstützt</S0738>
+			<S0976>Wählen Sie aus welche Funktionen sie schützen möchten, einschließlich der Maschinen Unterstützung (Hardware Liste).</S0976>
+			<S1194>Deaktivieren Sie Komponenten für die Entfernung. Eine Entfernung ist dauerhaft, um eine Komponente wiederherzustellen, müssen Sie Windows (Win10) neu installieren oder aus einem Backup wiederherstellen.</S1194>
+			<S1260>Bevor Sie fortfahren mit dem Entfernen von Komponenten, lesen Sie dies bitte sorgfältig.</S1260>
+			<S1261>Das Entfernen von Windows Komponenten ist ein unumkehrbaren Prozess und kann unvorhersehbare Folgen haben.</S1261>
+			<S1262>Im Falle einer Image (offline) Modifikation, sollten Sie das bearbeitete Image in einer virtuellen Umgebung testen, bevor Sie es auf einer realen Maschine probieren.</S1262>
+			<S1263>Im Falle einer Live (online) Modifikation, sollten Sie ein Backup bereithalten, bevor Sie Änderungen vornehmen.</S1263>
+			<S1264>Aufgrund der Art der Windows Paketinstallation - wenn Sie Komponenten entfernen, können einige Updates (Hotfixes, Sprachpaket, etc.) und Funktionen, möglicherweise später nicht installiert werden.</S1264>
+			<S1265>Updates erwarten, dass Dateien auf den neusten Stand aktualisiert werden. Durch entfernen von Teilpaketen (Entfernen einer Komponente aus dem Paket), könnten Sie in eine Situation kommen, wo vor allem größere kumulativen Updates oder Sprachpakete Probleme haben, herauszufinden, was aktualisiert werden muss und somit die Installation fehlschlägt.</S1265>
+			<S1266>Wenn Sie Komponenten aus Windows zu entfernen, sollten Sie vorbereitet sein, an jeder Stelle neu zu installieren, sei es, weil Sie ein fehlgeschlagenes Update installieren möchten oder um einige entfernte Komponente zu behalten.</S1266>
+			<S1281>Warnmeldung Windows Komponenten Entfernung</S1281>
+			<S1541>Unter Windows 10 ist es möglich, nicht entfernte Komponenten, und Update ohne Windows Update,  mit dem Systemaktualisierung Assistenten ohne Neuinstallation neu zu konfigurieren.</S1541>
+			<S1959>Achten Sie darauf, eine solche Preset- und Update-Kombination zu melden.</S1959>
+			<S2546>Um einen vollständigeren Entfernungsmodus auszulösen, entfernen Sie auch Windows Update in derselben Sitzung.</S2546>
+		</Title>
+		<ReportingAndTelemetry>
+			<S0128>CEIP (SQM)</S0128>
+			<S0449>Gibt Client-Anwendungen die Möglichkeit, biometrische Daten zu erfassen, zu vergleichen, zu manipulieren und zu speichern, ohne einen direkten Zugang zu einer biometrischen Hardware oder Mustern zu haben.</S0449>
+			<S0526>Infrastruktur, um Crash-Dumps zu erfassen und  diese an Microsoft zu senden.</S0526>
+			<S0575>Kernel Debugging</S0575>
+			<S1113>Sammelt Telemetrie Daten und berichtet diese an Microsoft um Windows zu verbessern.</S1113>
+			<S1148>Dieser Service überwacht den aktuellen Standort des Systems und verwaltet Geofence (eine geographische Lage mit verbundenen Veranstaltungen).</S1148>
+			<S1197>Einheitlicher Telemetrie Client (Asimov)</S1197>
+			<S1277>Windows Biometrie Dienst</S1277>
+			<S1283>Windows-Programm zur Verbesserung der Benutzerfreundlichkeit (CEIP) sammelt Informationen, wie die Microsoft Kunden Programme benutzen und über die Probleme, die diese haben. Die gesammelten Informationen helfen Microsoft, die am häufigsten verwendeten Features zu verbessern und Lösungen für häufige Probleme zu entwickeln. Die Teilnahme am Programm ist freiwillig und die Endergebnisse sind Software-Verbesserungen, um die Bedürfnisse von Microsoft Kunden besser gerecht zu werden.</S1283>
+			<S1288>Windows Fehlerberichterstattung</S1288>
+			<S1297>Windows Location Framework Dienst</S1297>
+			<S1401>Wi-Fi Netzwerkmanager (WLAN Sens)</S1401>
+			<S1402>Bietet die Möglichkeit, Ihr Wi-Fi Kennwort automatisch mit Outlook, Skype oder Ihren Facebook Kontakten zu teilen, die eine nahtlose Wi-Fi Netzwerknutzung zwischen Freunden ermöglicht.</S1402>
+			<S1444>Berichterstattung und Datenschutz</S1444>
+			<S1453>Server eingeleitete Client Heilung</S1453>
+			<S1454>Erkennt online und behebt Systemkomponenten, die entscheidend für die automatische Aktualisierung von Windows und Microsoft-Software auf dem Rechner sind.</S1454>
+			<S1551>Datenverwendungsdienst</S1551>
+			<S1552>Netzwerkdatenverwendung, Datenlimit, Begrenzung von Hintergrunddaten, dosierte Netzwerke. Enthält Einstellungen - Netzwerk - Datenverwendung.</S1552>
+			<S1646>Geräteverwaltung</S1646>
+			<S1647>Bietet die Geräteverwaltung-Funktionen, die Enterprise-Level-Verwaltung von unternehmenseigenen und persönlichen Geräten ermöglichen.</S1647>
+			<S1648>Verwaltung mobiler Geräte (MDM)</S1648>
+			<S1649>Bietet Funktionen für die Verwaltung mobiler Geräte für PCs, Laptops, Tablet-PCs und Handys.</S1649>
+			<S1650>WAP Push-Nachrichten Routingdienst (dmwappushsvc)</S1650>
+			<S1651>Verantwortlich zur Bestimmung der Art der eingehenden Push-Nachricht und zur Weiterleitung der Nachricht an die entsprechende Client-Anwendung, um den Push-Inhalt anzuzeigen.</S1651>
+			<S1652>Windows Bereitstellung</S1652>
+			<S1653>Bereitstellungs-Pakete besitzen die Fähigkeit, ein oder mehrere Geräte für den Einsatz in Unternehmen vorzubereiten. Diese ausführbaren Pakete besitzen die Fähigkeit, Regeln auf beiden, Büro und persönlichen Geräten zur Erleichterung der Bereitstellung zu ermöglichen.</S1653>
+			<S1654>Benutzergeräteregistrierung</S1654>
+			<S1655>Erforderlich, um einer Domäne beizutreten.</S1655>
+			<S1688>Microsoft Passport</S1688>
+			<S1689>Bietet Prozessisolation für kryptographischer Schlüssel, wird verwendet, um eines Benutzers zugeordnete Identität zu authentifizieren.</S1689>
+			<S1712>Gemeinsamer PC-Modus</S1712>
+			<S1713>Optimiert Windows für die gemeinsame Nutzung von Szenarien, wie dem Aufsetzen von Bereiche n in einem Unternehmen und temporäre Kundennutzung im Einzelhandel.</S1713>
+			<S1719>NDIS Paket Aufzeichnung (NDISCAP)</S1719>
+			<S1720>Erfasst den Netzwerkverkehr, so dass es vom Windows Network Monitor gelesen werden kann (NetMon).</S1720>		
+			<S1735>SmartScreen</S1735>
+			<S1736>Phishing und Malware-Filter, entwickelt um Schutz vor angriffen zu bieten, indem URLs mit Hilfe von einer Blacklist von Websites mit bekannten Bedrohungen gescannt werden, welche vom Benutzer aufgerufen werden.</S1736>
+			<S1803>IKE und AuthIP IPsec Schlüsselmodule</S1803>
+			<S1804>Dienst für Authentifizierungs- und Schlüsselaustauschfunktionen, die für die Internetprotokollsicherheit (IPsec) benötigt wird.</S1804>
+			<S1805>KMS Verbindung Broker</S1805>
+			<S1806>Für Volumenlizenzierung, KMS-Aktivierung von Windows und Office erforderlich.</S1806>
+			<S1807>Windows Insider Hub</S1807>
+			<S1808>Verschiedene Tools für Windows Insider Programm Teilnehmer Feedback und Versionswechsel.</S1808>
+			<S1915>Wählen Sie, wo Sie Apps herunterladen können, in Apps &amp; Funktionen. Standard ist "Apps von überall zulassen".</S1915>
+			<S1955>Verbesserungsprogramm zulassen (NVIDIA-Treiber) </S1955>
+			<S1957>Geräteverwaltungsregistrierungsdienst</S1957>
+			<S1958>Führt die Einschreibeaktivitäten für die Geräteverwaltung durch.</S1958>
+			<S1966>Natürliche Authentifizierung</S1966>
+			<S1967>Ermöglicht die reibungsfreie Authentifizierung basierend auf Sensoreingang und anderen Vertrauensfaktoren. Unterstützte Funktionen sind Gerät freischalten, Dynamisches Schloss und Dynamo MDM Richtlinien.</S1967>
+			<S1989>WaaS Bewertung</S1989>
+			<S1990>Enthält Informationen zu Windows-Updates und -Support eines Geräts.</S1990>
+			<S1991>Windows als Dienst (WaaS)</S1991>
+			<S1992>Zugewiesener Zugriff</S1992>
+			<S1993>Ein Administrator kann zugewiesenen Zugriff verwenden, um ein vorhandenes Benutzerkonto so zu beschränken, dass nur eine installierte Windows-App verwendet wird. Dies kann nützlich sein, um auf Einzelgeräte bspw. Speisekarten anzuzeigen.</S1993>
+			<S1994>Unternehmensdatenschutz (EDP/WIP)</S1994>
+			<S1995>Auch als "Windows-Informationsschutz" bekannt, schützt Daten, die zu einer Organisation gehören, indem Richtlinien durchgesetzt werden, die von der Organisation definiert werden.</S1995>
+			<S2416>Universalbenachrichtigungsplatform (UNP)</S2416>
+			<S2417>Wird für Upgrade und Privacy Erfahrung (UPX) verwendet, eine Reihe von Datenschutzfragen, die möglicherweise bei Windows-Upgrades angezeigt werden. Wenn dies entfernt wird, werden die vorhandenen Datenschutzeinstellungen auf dem System bei Windows-Upgrades automatisch migriert.</S2417>
+			<S2433>Überwachungstreiber für Netzwerkdatenverwendung</S2433>
+			<S2434>Bietet Überwachungsfunktionen für die Netzwerkdatennutzung, sowie die Netzwerkauslastungswerte auf der Registerkarte Task-Manager-Prozesse.</S2434>
+			<S2443>MMGA MAPI</S2443>
+			<S2444>Microsoft Nachrichten Anwendungsprogrammierschnittstelle (MAPI) für MMGA-Client und -Server.</S2444>
+			<S2445>Gezielter Inhalt-Dienst</S2445>
+			<S2446>Gezielte Werbung unterstützt, angepasst an Ihre individuellen Interessen.</S2446>
+			<S2447>Gesichtserkennung</S2447>
+			<S2470>Aufgabenansicht</S2470>
+			<S2471>Task Switcher und virtuelles Desktop-System.</S2471>
+			<S2516>Remotedesktoplizenzierung</S2516>
+			<S2517>Enthält Lizenzierungsrichtlinien und Telemetrie, die für die Remotedesktoplizenzierung erforderlich sind.</S2517>
+			<S2558>Zwischenablage-Benutzerservice</S2558>
+			<S2559>Dieser Benutzerdienst wird für Szenarien der Zwischenablage verwendet.</S2559>
+			<S2560>Online Konto  Manager</S2560>
+			<S2561>Dieser Dienst wird vom Online Konto Manager verwendet, um Apps und Dienste mit einmalige Anmeldung zu unterstützen.</S2561>
+		</ReportingAndTelemetry>
+		<Toolbar>
+			<S0162>Alle einklappen</S0162>
+			<S0171>Kompatibilität</S0171>
+			<S0172>Schutz von Funktionen</S0172>
+			<S0177>Komponentenfunktionalität</S0177>
+			<S0375>Alle erweitern</S0375>
+			<S0395>Zusatzoptionen</S0395>
+			<S0413>Filter</S0413>
+			<S0415>Weitersuchen</S0415>
+			<S0416>Fokus auf das nächste gefundene Element</S0416>
+			<S0618>Maschinen Unterstützung (Hardware Liste)</S0618>
+			<S0849>Geschützte Dateien</S0849>
+			<S0917>Zurücksetzen</S0917>
+			<S0919>Setzen Sie alle Komponenten wieder auf ausgewählt, um nicht entfernt zu werden.</S0919>
+			<S0957>Suchfeld</S0957>
+			<S1195>Alle deaktivieren</S1195>
+			<S1601>Standardschriften</S1601>
+		</Toolbar>
+		<List>
+			<S0176>Komponente</S0176>
+			<S0394>Zusätzliche Informationen</S0394>
+			<S0728>Notizen</S0728>
+			<S1021>Größe</S1021>
+			<S1583>Gebraucht für: </S1583>
+			<S1594>Windows boot</S1594>
+			<S1609>Basisfunktionalität </S1609>
+			<S1785>Windows Aktivierung</S1785>
+		</List>
+		<Drivers>
+			<S0234>Datum</S0234>
+			<S0293>Treiber Exportieren</S0293>
+			<S0294>Exportierte Treiber</S0294>
+			<S0297>Treiber deinstallieren</S0297>
+			<S0520>Einzelgeräte [Erweitert]</S0520>
+			<S0698>Wird zum WIM mounten und Speicherung von Treibern benötigt.</S0698>
+			<S0869>Lesen Treiberdateien Informationen</S0869>
+			<S0870>Lesen Treiber Infos</S0870>
+			<S0969>Wählen Sie ein Verzeichnis, in den die Treiber exportiert werden sollen</S0969>
+			<S1138>Zu diesen Komponenten gehören Hardware Klassen und allgemeine Unterstützung, um überhaupt in der Lage zu sein, einen Treiber für einen bestimmten Typ der Hardware zu installieren.</S1138>
+			<S1201>Deinstallation von Geräten</S1201>
+			<S1620>Exportierbar</S1620>
+		</Drivers>
+		<Other>
+			<S0291>Fertig</S0291>
+			<S0344>Dateipfad eingeben</S0344>
+			<S0356>Fehler</S0356>
+			<S0378>Entfernung nicht unterstützt</S0378>
+			<S0421>Explorer Umbenennung beheben</S0421>
+			<S0470>Hyper-V</S0470>
+			<S0472>Hyper-V host</S0472>
+			<S0513>Ausgeblendete Geräte hinzufügen</S0513>
+			<S0613>Durch Kompatibilität gesperrt</S0613>
+			<S0850>Diese Schutzart fügt versteckten und abgezogenen Geräten, aus den ausgewählten Hardware Listen hinzu.</S0850>
+			<S0872>Neustart</S0872>
+			<S0874>Jetzt neustarten?</S0874>
+			<S0875>Teilkomponenten wieder auswählen?</S0875>
+			<S0876>Empfohlen</S0876>
+			<S0886>Ist abhängig von:</S0886>
+			<S0899>Entfernen</S0899>
+			<S0908>Entfernen</S0908>
+			<S0911>Umbenennung Routine erfolgreich abgeschlossen.</S0911>
+			<S0912>Umbenennung ist fehlgeschlagen, berichten Sie bitte mit der %temp%\NTLite.log Datei als Anhang.</S0912>
+			<S0963>Es scheint, als ob während der Bearbeitung der Live-Installation ein Fehler aufgetreten ist, legen Sie sich Ihr Backup bereit, falls diese Maschine nicht mehr booten.</S0963>
+			<S1160>Touch Screen Geräte,</S1160>
+			<S1357>Nur im Live Modus entfernbar.</S1357>
+			<S1398>Für das Startmenü und Metro Anwendungen benötigt.</S1398>
+			<S1450>Für Windows 10 Netzwerk benötigt..</S1450>
+			<S1451>Standardverhalten (OOBE)</S1451>
+			<S1767>Video-Wiedergabe</S1767>
+		</Other>
+	</Components>
+	<General>
+		<UI>
+			<S0002>Abbrechen</S0002>
+			<S0003>OK</S0003>
+			<S0098>Blau</S0098>
+			<S0138>Täglich nach Updates suchen</S0138>
+			<S0212>Datei kopieren</S0212>
+			<S0233>Dunkel</S0233>
+			<S0435>Freier Speicherplatz</S0435>
+			<S0602>Automatischen Vorlage laden</S0602>
+			<S0760>Überschreiben</S0760>
+			<S0761>Existierende Datei überschreiben?</S0761>
+			<S0973>Wähle temporäres Verzeichnis</S0973>
+			<S1009>Zeige Infoleiste</S1009>
+			<S1118>Temporäres Verzeichnis</S1118>
+			<S1119>Temporäres Verzeichnis existiert nicht, wird auf Standard zurückgesetzt.</S1119>
+			<S1120>Temporäres Verzeichnis ist nicht beschreibbar.</S1120>
+			<S1121>Temporäres Verzeichnis muss ein Unterverzeichnis einer Partition sein.</S1121>
+			<S1122>Temporäres Verzeichnis muss sich auf einer lokalen NTFS Partition befinden.</S1122>
+			<S1123>Temporäre Verzeichnispartition hat nicht genügend freien Speicherplatz.</S1123>
+			<S1139>Enthält Mount Punkte und temporäre Image Dateien.</S1139>
+			<S1157>Werkzeugeinstellungen</S1157>
+			<S1254>Visueller Stil</S1254>
+			<S1355>Hell</S1355>
+			<S1382>Temporäres Verzeichnis (entpackt)</S1382>
+			<S1383>Temporärer Speicherort für Paket und andere Dateiextraktionen. Stellen Sie dies auf Ihre schnellste Festplatte ein, dies kann zu einer Beschleunigung der Integrationen führen.</S1383>
+			<S1501>Start</S1501>
+			<S1502>Konfigurieren</S1502>
+			<S1503>Integrieren</S1503>
+			<S1504>Automatisieren</S1504>
+			<S1505>Fertigstellung</S1505>
+			<S1624>Alle Dateien und Verzeichnisse werden während der Verwendung gelöscht!</S1624>
+			<S1632>Schließen</S1632>
+			<S1677>Installieren</S1677>
+			<S1756>Kopieren</S1756>
+			<S1764>Überprüfen von Imagedateien</S1764>
+			<S1765>Es erkennt beschädigte Dateien aufgrund einer schlechten Sektoren oder eine fehlerhaften Netzwerkverbindung, aber die Image Bearbeitung dauert länger durch zusätzliche E / A-Vorgänge und zusätzliche Hash-Prüfungen.</S1765>
+			<S1766>Die Änderungen in dieser Einstellung, gelten nur für neu eingebundene Images.</S1766>
+			<S2410>Alles überspringen</S2410>
+			<S2420>Übersetzer</S2420>
+			<S2440>Eine weitere Instanz parallel starten?</S2440>
+			<S2461>Maximale Anzahl von Instanzen erreicht.</S2461>
+			<S2498>Anhängen</S2498>
+			<S2521>Löschen</S2521>
+			<S2522>Trimmen</S2522>
+			<S2523>Heruntergeladener Update-Cache</S2523>
+			<S2524>Löschen Sie nicht verwendete Updates aus dem Cache, die in keiner der aktuellen Listen gefunden wurden</S2524>
+		</UI>
+		<Other>
+			<S0005>Abgebrochener Vorgang.</S0005>
+			<S0007>Abgebrochen</S0007>
+			<S0120>Informationen zum temporären Verzeichnis, können nicht gelesen werden.</S0120>
+			<S0135>Suche nach Updates</S0135>
+			<S0159>Aktuelle Sitzung schließen?</S0159>
+			<S0160>Dieses Programm schließen?</S0160>
+			<S0178>Entfernung von Komponenten</S0178>
+			<S0214>Bitte kopieren Sie mit STRG + C in die Zwischenablage und fügen Sie dies in der E-Mail an support@ntlite.com ein</S0214>
+			<S0218>Ein nicht existierendes temporäres Verzeichnis erstellen?</S0218>
+			<S0256>Die Richtlinie 'Komprimierung auf allen NTFS Partitionen nicht erlauben' auf diesem Computer erkennen oder die NTFS-Komprimierung deaktivieren. Mounten eines Images ist auf einer solchen Maschine nicht vom Betriebssystem unterstützt. Um fortzufahren, müssen Sie zuerst diese Richtlinie deaktivieren und den Rechner neu starten.</S0256>
+			<S0258>Erkennen von vorigen abgebrochenen Vorgängen für dieses Quelle. Status ist unbekannt und es wäre am besten, nicht diese Quelle weiter zu nutzen. Entladen Sie es stattdessen, ersetzen Sie es durch ein funktionierendes Abbild oder ein Backup und laden Sie es mit dem Preset zum wiederherzustellen des Zustandes.</S0258>
+			<S0259>Erkennen von nicht unterstützte Windows Version.</S0259>
+			<S0295>Treiberintegration</S0295>
+			<S0398>Fehler beim Erstellen des temporären Verzeichnisses.</S0398>
+			<S0402>Installation von Funktionen</S0402>
+			<S0418>Hinzufügen von Paketen zur Integrationsliste wurde beendet.</S0418>
+			<S0522>Info</S0522>
+			<S0523>Information</S0523>
+			<S0597>Live Installation bearbeiten</S0597>
+			<S0599>Live (Online) Konfiguration ist nur in für die lizenzierte Version. Diese Option wird deaktiviert.</S0599>
+			<S0672>Gemountete Images bleiben gemountet.</S0672>
+			<S0725>Nicht genügend Speicherplatz.</S0725>
+			<S0744>Nur freie Lizenz verfügbar.</S0744>
+			<S0763>Paket Integration</S0763>
+			<S0790>Kopieren Sie bitte den gesamten Inhalt Ihres Images auf einen beschreibbaren Speicherort.</S0790>
+			<S0792>Bitte installieren Sie die 64-Bit Version dieses Tools.</S0792>
+			<S0794>Bitte melden Sie alle Probleme.</S0794>
+			<S0803>Dieses Tool muss neu gestartet werden, damit Sprach Änderungen wirksam werden.</S0803>
+			<S0829>Vorlage laden</S0829>
+			<S0832>Drücken Sie auf OK, um das Treiberintegrationsprotokoll zu öffnen. Lesen Sie am Endes der Datei, vor den (harmlosen) Fehlern des reg hive entladens.</S0832>
+			<S0833>Eine vorherige Instanz dieses Programms läuft bereits.</S0833>
+			<S0868>Lesen von Daten</S0868>
+			<S0873>Ein Neustart ist erforderlich, damit alle Änderungen wirksam werden.</S0873>
+			<S0949>Speichern von allgemeinen Einstellungen ist fehlgeschlagen.</S0949>
+			<S1134>Die Quelle ist in einem unbekannten Zustand und es ist nicht empfohlen, diese zu verwenden.</S1134>
+			<S1144>Dieses Programm bietet volle Unterstützung von Windows 7, 8.0, 8.1 und 10 (Weitere Informationen finden Sie online auf der Seite "Funktionen"), Einzelhandel, Volumen und OEM Clients an; in Form von Images oder welche bereits installiert sind (C: \ Windows).
+Teilweise Unterstützung für Server-Editionen, ohne die Komponenten und Funktionen zu konfigurieren.
+Unterstützt nicht geprüfte/ Debug und Eingebettete Versionen, noch Vista oder XP.</S1144>
+			<S1155>Um ein anderes Image zu wählen, entladen Sie das jetzige oder wählen Sie eine neue Sitzung in der Symbolleiste.</S1155>
+			<S1190>Unbeaufsichtigte Konfiguration</S1190>
+			<S1215>Update Integration</S1215>
+			<S1222>Verwenden Sie die seitliche Navigation links für weitere Optionen.</S1222>
+			<S1227>Abgebrochen durch Anwender </S1227>
+			<S1550>Ein 64-Bit-Programm kann nicht auf einem 32-Bit-Host ausgeführt werden</S1550>
+			<S1605>Das Programm ist unerwartet abgestürzt, entschuldigen Sie die Unannehmlichkeiten.
+Bitte senden Sie folgende Dateien zur Analyse an support@ntlite.com:</S1605>
+<S1761>Das Wegwerf-Verzeichnis muss sich von dem temporären Verzeichnis von Windows und diesem Tool unterscheiden, da es des Öfteren gelöscht wird.</S1761>
+		</Other>
+		<Menu>
+			<S0008>Über</S0008>
+			<S0009>Programminformationen, Versionsnummer und Copyright</S0009>
+			<S0137>Auf Updates prüfen</S0137>
+			<S0139>Überprüfen Sie, ob es eine neuere Version dieses Tools verfügbar ist</S0139>
+			<S0373>Beenden</S0373>
+			<S0374>Beenden der Anwendung; fordert zum Speichern von Dokumenten auf</S0374>
+			<S0404>Datei</S0404>
+			<S0619>Hauptmenü</S0619>
+			<S0880>Registrieren</S0880>
+			<S0881>Verwaltung und Aktualisieren Ihrer Lizenz und aktivieren aller Funktionen</S0881>
+			<S0998>Einstellungen</S0998>
+			<S0999>Anwendungseinstellungen</S0999>
+			<S1158>Symbolleiste</S1158>
+			<S1176>Besuchen Sie uns auf Twitter @NTLite</S1176>
+			<S1627>Lizenz verwalten</S1627>
+			<S1642>Website</S1642>
+			<S1643>Email</S1643>
+			<S2547>Hard Links</S2547>
+		</Menu>
+	</General>
+	<Source>
+		<Images>
+			<S0004>Ein Abbruch bricht den Vorgang ab.</S0004>
+			<S0058>Autokorrektur und wiederholen?</S0058>
+			<S0093>64-Bit</S0093>
+			<S0094>32-Bit</S0094>
+			<S0103>Bootsektor Lesefehler, stellen Sie sicher, dass das ursprüngliche 'Boot' oder 'Efi' Verzeichnis vorhanden ist.</S0103>
+			<S0104>Boot/Setup</S0104>
+			<S0123>Gemountetes Image kann nicht ersetzt werden.</S0123>
+			<S0143>Wählen Sie das Ziel für die ISO Datei </S0143>
+			<S0144>Wählen Sie, wo das Image gespeichert werden soll</S0144>
+			<S0145>Wählen Sie Ja, um zu überschreiben, oder Nein, um in das Ziel Image hinzuzufügen.</S0145>
+			<S0149>Bereinigung des Mount Verzeichnisses</S0149>
+			<S0183>Kompression erfordert viele Ressourcen</S0183>
+			<S0202>Soll das Image in das ESD Format konvertiert werden?</S0202>
+			<S0203>Soll das Image in das Standard WIM Format konvertiert werden?</S0203>
+			<S0213>Kopieren Sie zuerst die Imagedateien an einen beschreibbaren Speicherort.</S0213>
+			<S0215>Korrigiere Version</S0215>
+			<S0228>Aktuelle Image wird nach der Konvertierung ersetzt, erstellen Sie ein manuelles Backup, bevor Sie diese Option nutzen.</S0228>
+			<S0241>Löschen von temporären Dateien</S0241>
+			<S0254>Ein anderes gemountetes Image, aber eine unterschiedliche WIM, mit der gleichen Mountpath wurde erkannt.</S0254>
+			<S0255>Ein anderes gemountetes Image, mit der gleichen WIM und dem gleichem Index, aber einem anderem Mountpath wurde erkannt.</S0255>
+			<S0257>Eine Datei, die Verwendet wird, wurde innerhalb des Mount Verzeichnisses erkannt.</S0257>
+			<S0272>Änderungen verwerfen</S0272>
+			<S0287>Möchten Sie dieses übrig gebliebene Image aus der Liste der gemounteten Images entfernen?</S0287>
+			<S0346>Teilgröße eingeben:</S0346>
+			<S0359>ESD (Elektronischer Software Download) Image FormatFakten</S0359>
+			<S0380>Verzeichnis öffnen</S0380>
+			<S0381>Mount Verzeichnis öffnen</S0381>
+			<S0384>Alle exportieren</S0384>
+			<S0390>Exportiervorgang</S0390>
+			<S0407>Zieldatei ist von einem anderen Programm geöffnet, möglicherweise gemountet.</S0407>
+			<S0422>Flags</S0422>
+			<S0432>Oscdimg wurde im Anwendungsverzeichnis gefunden und wird genutzt.</S0432>
+			<S0462>Hohe Kompression, schreibgeschützt</S0462>
+			<S0468>Windows Host scheint sich derzeit im Komponenten Konfigurationsmodus zu befinden.</S0468>
+			<S0479>Wenn einige Pakete aus dem Image bereits entfernt worden sind, starten Sie die Sitzung erneut unter Verwendung eines unberührten Images.</S0479>
+			<S0480>Wenn das Problem unerwartete und weiterhin besteht, überprüfen Sie bitte manuell nach einem Update auf der offiziellen Website und versuchen Sie es mit der neueren Version erneut oder kontaktieren Sie uns über E-Mail.</S0480>
+			<S0483>Wenn Sie noch ausstehenden Änderungen haben, stellen Sie sicher, dass das Image nicht geladen und die ISO gespeichert ist, ansonsten fahren sie fort.</S0483>
+			<S0486>Image exportieren</S0486>
+			<S0487>Das Image zu exportieren ist fehlgeschlagen. Möglicherweise verschlüsseltes ESD Image. Wenn das der Fall ist, bitte benutzen Sie ein 'ESD Image Decrypter', um das verschlüsselte ESD in ein ISO-Format zu konvertieren. Oder nutzen Sie das offizielle Medien Download Tool (unverschlüsselt ESD) Version, die vollständig ohne Decrypter unterstützt wird.</S0487>
+			<S0488>Image Vorgeschichte</S0488>
+			<S0489>Das Image ist von einer anderen Anwendung geöffnet.</S0489>
+			<S0490>Image ist schreibgeschützt.</S0490>
+			<S0491>Image zusammenführen</S0491>
+			<S0492>Image laden</S0492>
+			<S0493>Image könnte unbrauchbar sein und die Bearbeitung sollte erneut nach einem Neustart gestartet werden.</S0493>
+			<S0494>Image Mount</S0494>
+			<S0495>Image speichern</S0495>
+			<S0496>Image teilen</S0496>
+			<S0497>Teilung des Images ist nicht erforderlich, die Größe ist bereits kleiner als die eingegebene Teilgröße</S0497>
+			<S0498>Image entladen</S0498>
+			<S0499>Image entladen ohne Änderungen zu speichern</S0499>
+			<S0503>Images</S0503>
+			<S0553>Ungültig</S0553>
+			<S0556>Ungültige Windows Image Pfad</S0556>
+			<S0558>ISO Image</S0558>
+			<S0559>Das ISO Image wird aus dem ganzen Verzeichnis erstellt</S0559>
+			<S0560>ISO Beschriftung</S0560>
+			<S0596>Live Installation</S0596>
+			<S0598>Lade Live Installation</S0598>
+			<S0604>Geladen</S0604>
+			<S0621>Stellen Sie sicher, dass die Registrierungsstrukturen nicht durch eine andere Anwendung geöffnet sind und probieren Sie es noch einmal.</S0621>
+			<S0652>Minimale Teilungsgröße für dieses Image</S0652>
+			<S0653>Empfohlene Mindestteilungsgröße für Windows 7 ist 200MB, aufgrund einer Windows Setup Einschränkung.
+			Wenn diese Image Installation zu lange nach dem 'Windows Dateien werden Expandiert' braucht, wandeln Sie das Image wieder in eine WIM um und versuchen eine größere Größe.</S0653>
+			<S0654>Warnung wegen minimaler Teilungsgröße</S0654>
+			<S0659>Fehlende erwartete Systembenutzerregistrierung.</S0659>
+			<S0660>Das geladene Abbild ist beschädigt, es wird dringend empfohlen, es zu entfernen, oder Sie erhalten möglicherweise Fehler beim entladen des Abbildes.</S0660>
+			<S0669>Mount Image</S0669>
+			<S0670>Gemountet</S0670>
+			<S0671>Gemountete Images</S0671>
+			<S0673>Image Mountvorgang</S0673>
+			<S0674>Mount Pfad</S0674>
+			<S0723>Keine</S0723>
+			<S0727>Hinweis: Diese ist nicht das aktuell geladene Image, um Änderungen mit dieser Anwendung zu unternehmen, müssen Sie das Image zuerst laden.</S0727>
+			<S0750>Betriebssystem</S0750>
+			<S0751>Betriebssysteme</S0751>
+			<S0791>Bitte löschen und mit einem funktionierenden Image ersetzen.</S0791>
+			<S0793>Bitte das System neu starten und versuchen Sie es dann erneut.</S0793>
+			<S0797>Bitte versuchen Sie erneut, wenn die Ressourcen  freigegeben wurde oder brechen Sie ab und starten den Rechner neu.</S0797>
+			<S0799>Bitte kopieren Sie Windows-Installationsdateien von einem Windows-Setup-DVD, ISO oder USB-Stick in ein beschreibbares Verzeichniss und fügen Sie diesen Speicherort hinzu.
+			Um den Inhalt von einer ISO zu erhalten, laden Sie die ISO entweder und verwende einen Dateimanager, um die Dateien zu kopieren oder benutzen Sie 7-Zip, um die Dateien zu extrahieren. </S0799>
+			<S0800>Bitte wählen Sie ein WIM Image, in der Regel ist der Dateinamen Install.wim oder Boot.wim aus einer Windows installations DVD, ISO Dateien, USB, Unterverzeichnis aus.</S0800>
+			<S0801>Bitte entfernen Sie alle gemounteten (blaues Statussymbol) Versionen aus dieser Image Datei, bevor Sie es erneuten Versuchen.</S0801>
+			<S0802>Bitte entladen Sie beide Images und starte den Prozess neu.</S0802>
+			<S0822>Vorbereiten von Dateien für das ISO Image.</S0822>
+			<S0863>Schreibgeschützt. Um das Image zu bearbeiten, muss es zurück in eine WIM umgewandelt werden</S0863>
+			<S0865>Registrierung lesen.</S0865>
+			<S0877>Wenn verfügbar, aktualisieren</S0877>
+			<S0885>Registrierung entladen</S0885>
+			<S0898>Das Entfernen ist auf dieser Windows Version nicht unterstützt.</S0898>
+			<S0914>Image erneut öffnen</S0914>
+			<S0915>Image ersetzen</S0915>
+			<S0924>Wiederholen</S0924>
+			<S0925>Wiederholungsanzahl</S0925>
+			<S0940>Vorhandene Änderungen am Image speichern</S0940>
+			<S0948>Änderungen am Image werden gespeichert</S0948>
+			<S0950>ISO Image wird gespeichert </S0950>
+			<S0968>Wählen Sie ein Verzeichnis mit Windows Installationsdateien</S0968>
+			<S0977>Wählen Sie eine Windows Imagedatei</S0977>
+			<S0982>Wählen Sie ein Verzeichnis, in dass eine ISO Datei erstellt werden soll, welches das derzeit geladene Abbild beinhaltet.</S0982>
+			<S0984>Ausgewählte Quelle ist bereits in der Liste</S0984>
+			<S0996>Möchten Sie die Größe festlegen auf</S0996>
+			<S1046>Quellenliste</S1046>
+			<S1049>Übergreifend, geteilt</S1049>
+			<S1054>Ein geteiltes  Image, wird nicht offiziell von Microsoft  Windows 8 und neuere unterstützt.
+			Es ist jedoch bekannt, dass es klappt, wenn die Teilgröße groß genug ist.
+			Empfohlene Mindestgröße für Windows 8 und neuere, ist die Hälfte des fertigen Images.
+			Wenn das Installationsimage   beim Hochfahren nach einem Produktschlüssel  oder nach einer Windows Lizenz fragt, auch wenn Sie eine gültige bereitgestellt haben, konvertieren Sie das Image in eine WIM zurück und versuchen eine größere Teilungsgröße einzugeben.</S1054>
+			<S1055>Image teilen nach</S1055>
+			<S1057>Teilt das ausgewählte  WIM Image in mehrere  SWM Teile?</S1057>
+			<S1059>Teilungsprozess</S1059>
+			<S1061>Standard, editierbare</S1061>
+			<S1073>Angehalten, bevor Daten in das Image gespeichert wurden. Entladen Sie das Image manuell auf der Quellen Seite.</S1073>
+			<S1087>Nur für die Installation von Windows 8 oder neuer</S1087>
+			<S1130>Das Image ist beschädigt.</S1130>
+			<S1131>Das Image ist eventuell beschädigt.</S1131>
+			<S1140>Dieses Image wird nicht unterstützt.</S1140>
+			<S1145>Dieses Programm verwendet Windows IMAPI 2 zum ISO Erstellen, stellen Sie sicher, dass auf Ihrem Betriebssystem die IMAPI Komponente funktioniert. Alternativ, kopieren Sie die OSCDimg.exe in das Stammverzeichnis (neben ntlite.exe) und diese wird dann verwendet.</S1145>
+			<S1154>Um Änderungen mit diesem Tool anzuwenden, verwenden Sie den Reiter Anwenden auf der linken Seite.</S1154>
+			<S1171>Versuchen Sie zuerst zu entmounten.</S1171>
+			<S1179>Geben Sie eine Bezeichnung für das ISO Image ein:</S1179>
+			<S1204>Image entladen</S1204>
+			<S1205>Registrierung zu entladen ist fehlgeschlagen.</S1205>
+			<S1207>Image entladen, Änderungen verwerfen</S1207>
+			<S1208>Unsicher</S1208>
+			<S1210>Nicht unterstützte Image Architektur.</S1210>
+			<S1211>Nicht unterstützte Entfernung</S1211>
+			<S1257>Auf aktuelle Systemaktion warten (ca. 40 Wiederholungen).</S1257>
+			<S1267>Warnung</S1267>
+			<S1273>Sollten Sie das Mount Verzeichnis öffnen, achten Sie beim speichern des Images darauf, dass Sie keine Dateien oder Verzeichnisse daraus geöffnet haben oder das Image wird beschädigt.</S1273>
+			<S1340>Das ausgewählte Quelle ist eine isoliertes Image, deshalb wird die Funktion, um eine ISO zu erstellen, deaktiviert.
+			Um alle Funktionen zu verwenden, sollten Sie den gesamten Windows installations DVD, ISO oder USB Inhalte kopieren und das Image aus diesem Verzeichnis laden.</S1340>
+			<S1341>Isoliert</S1341>
+			<S1351>Image wurde verändert und die Liste aktualisiert, versuchen Sie es erneut.</S1351>
+			<S1542>Ausgewählte Quelle ist eine Live, bereits installiertes Windows. Die Funktionen Unattended, Post-Setup-Seite, Registry-integrieren-Seite, Treiber hinzufügen und erstellen einer ISO werden deaktiviert, da diese nur für die Installationsabbilder sind.</S1542>
+			<S1621>Ebenfalls möglich, dass dies ein Image von einer Netzwerkfreigabe mit begrenzte Anzahl von Verbindungen ist, und diese keine parallelen Verbindungen mehr frei hat.</S1621>
+			<S1760>Image Speicherungsprozess abgebrochen, ein Fehler ist aufgetreten.</S1760>
+			<S1774>Inkompatibel</S1774>
+			<S1776>Datei derzeit in Benutzung oder der Zugriff ist verweigert. Manchmal kann es sein, dass ein Antivireren Programm einen Hintergrundscan der gleichen Datei gleichzeitig durchgeführt, Sie sollten es noch einmal versuchen.
+			Wenn abgebrochen, wird das Tool Sie warnen, wenn der Vorgang entscheidend war und der Vorgang wird abgebrochen.</S1776>
+			<S1813>Ausgewählte Image Version löschen?</S1813>
+			<S1974>Wählen Sie einen Speicherort für ein neues Image, oder eine existierende Datei zum zusammenführen aus</S1974>
+		</Images>
+		<Toolbar>
+			<S0020>Hinzufügen</S0020>
+			<S0023>Image Datei (WIM, ESD, SWM)</S0023>
+			<S0024>Windows Image in die Liste hinzufügen</S0024>
+			<S0155>Klonen</S0155>
+			<S0158>Eine Kopie der gewählten Vorlage erstellen</S0158>
+			<S0201>Konvertieren</S0201>
+			<S0205>Ausgewähltes Image in das WIM, ESD oder SWM Format konvertieren.</S0205>
+			<S0206>In ESD konvertieren</S0206>
+			<S0207>Ausgewähltes Image in ein hoch komprimiertes ESDFormat konvertieren, welches von Windows 8 oder neuer unterstützt wird.</S0207>
+			<S0208>In SWM konvertieren (geteiltes Image)</S0208>
+			<S0209>Konvertiert das ausgewählte Image in das SWM Format; auch als geteiltes Image bekannt. Wird zum Beispiel verwendet, um die FAT32 4 GB Einzeldatei Beschränkung zu umgehen oder das Image auf mehreren Medien aufzuteilen.</S0209>
+			<S0210>In WIM konvertieren</S0210>
+			<S0211>Ausgewähltes Image in das Standard WIM Format konvertieren, bereit um es zu mounten und zu bearbeiten.</S0211>
+			<S0220>ISO erstellen</S0220>
+			<S0221>Ein ISO Image des ausgewählten Windows Verzeichnisses erstellen. Ein ISO kann nicht erstellt werden von einem bereits installierten Windows (Live Installation).</S0221>
+			<S0238>Löschen</S0238>
+			<S0240>Eine ausgewählte Vorlage löschen</S0240>
+			<S0383>Exportieren</S0383>
+			<S0391>Ausgewählte Vorlage in eine Datei exportieren</S0391>
+			<S0427>Vergessen</S0427>
+			<S0428>Entfernt das ausgewählte Element aus der Image Verlaufsliste</S0428>
+			<S0484>Image</S0484>
+			<S0501>Image Verzeichnis</S0501>
+			<S0502>Windows Image Verzeichnis zur Liste hinzufügen</S0502>
+			<S0505>Importieren</S0505>
+			<S0512>Externe Vorlage in die Liste importieren</S0512>
+			<S0600>Laden</S0600>
+			<S0605>Mounten und laden der gewählten Quelle für die Bearbeitung</S0605>
+			<S0607>Gespeicherte Einstellungen laden</S0607>
+			<S0715>Neu</S0715>
+			<S0716>Setzt alle aktuellen Einstellungen auf Standardwerte zurück</S0716>
+			<S0717>Neue Sitzung</S0717>
+			<S0718>Neue Sitzung starten, bereit eine andere Quelle zu laden, ohne das Unmounten vorhandener gemounteten Quellen.</S0718>
+			<S0824>Vorlage</S0824>
+			<S0878>Listen aktualisieren</S0878>
+			<S0879>Image  und Vorlagenliste aktualisieren</S0879>
+			<S0910>Umbenennen</S0910>
+			<S0913>Ausgewählte Vorlage umbenennen</S0913>
+			<S0937>Speichern</S0937>
+			<S0938>Speichern als...</S0938>
+			<S0943>Aktuelle ausstehende Änderungen in eine Vorlage speichern</S0943>
+			<S0947>Aktuelle ausstehende Änderungen in ausgewählter Vorlage überschreiben</S0947>
+			<S1203>Entladen</S1203>
+			<S1206>Die gewählten Quelle entladen und unmounten, mit der Option Änderungen im Image zu speichern</S1206>
+			<S1420>Rekomprimieren</S1420>
+			<S1622>Zu lange Dateipfad erkannt, verschieben Sie die Installationsdateien in einem kürzeren Verzeichnispfad und wiederholen Sie diesen Schritt.</S1622>
+			<S1623>Übersprungene Dateien.</S1623>
+		</Toolbar>
+		<Presets>
+			<S0057>Automatisch gespeicherte Sitzung</S0057>
+			<S0142>Wählen Sie das Ziel für die zu exportierende Vorlage</S0142>
+			<S0156>Vorlage klonen</S0156>
+			<S0157>Ausgewählte Vorlage klonen</S0157>
+			<S0174>Fertiggestellt</S0174>
+			<S0175>Laden von mehreren Vorlagen abgeschlossene.</S0175>
+			<S0239>Ausgewählte Vorlagen löschen?</S0239>
+			<S0251>Zielnamen</S0251>
+			<S0252>Name der Vorlage</S0252>
+			<S0313>XML bearbeiten</S0313>
+			<S0506>Importiert</S0506>
+			<S0511>Vorlage importieren</S0511>
+			<S0555>Ungültige Vorlage</S0555>
+			<S0584>Letzte Bearbeitung</S0584>
+			<S0603>Vorlage laden</S0603>
+			<S0661>Fehlende Vorlage</S0661>
+			<S0756>Originaler Name</S0756>
+			<S0825>Vorlage geklont</S0825>
+			<S0826>Vorlage gelöscht</S0826>
+			<S0827>Vorlage exportieren.</S0827>
+			<S0828>Vorlage exportiert</S0828>
+			<S0830>Vorlagen Name</S0830>
+			<S0831>Vorlagen</S0831>
+			<S0867>XML lesen</S0867>
+			<S0918>Änderungen auf allen anstehenden Seiten auf Standard zurücksetzen?</S0918>
+			<S0941>Speichern (überschreiben)</S0941>
+			<S0942>Einstellungen speichern</S0942>
+			<S0972>Wählen Sie eine Vorlagendatei zum importieren aus</S0972>
+			<S1180>Geben Sie einen Namen ein, um eine neue oder bereits vorhandene Vorlage mit den aktuellen Einstellungen zu speichern.</S1180>
+			<S1181>Geben Sie einen neuen Namen für die Vorlage ein</S1181>
+			<S1343>Zum filtern hier eingeben</S1343>
+		</Presets>
+		<Title>
+			<S0601>Laden Sie unten eine vorhandenen Quelle, oder fügen Sie einen neuen in die Liste ein, indem Sie die Symbolleiste benutzen.</S0601>
+			<S1044>Quelle</S1044>
+			<S1045>Die Quelle kann eine Windows DVD, USB oder eine ISO, deren Inhalt in einem beschreibbarem Verzeichnis liegt, sein.</S1045>
+		</Title>
+		<Wizards>
+			<S1742>Host Aktualisieren</S1742>
+			<S1743>Dieser Assistent hilft Ihnen die aktuelle Host-Installation zu aktualisieren oder aufzurüsten (C:\Windows), ohne dabei bestehende Dateien, Einstellungen oder 3rd-Party-Anwendungen zu verlieren.</S1743>
+			<S1744>Diese Methode ist vor allem nützlich für:
+ - Installation von kumulativen Updates auf einer Lite-Installation
+ - Aufrüsten mit einem vorkonfigurierten Windows-Abbild
+ - Ändern der vorhandenen Komponentenkonfiguration 
+ - Wiederherstellung im Allgemeinen</S1744>
+			<S1745>Host Aktualisieren-Assistenten öffnen?</S1745>
+			<S1746>Wählen Sie das Basis, unbearbeitete, volle Windows-10 Abbild:</S1746>
+			<S1747>Liste filtern nach Host-Version und Architektur</S1747>
+			<S1748>Kopieren in ein temporären Speicherort während der Bearbeitung</S1748>
+			<S1749>Wählen Sie eine Voreinstellung:</S1749>
+			<S1750>Aufforderung für manuelle Einstellungen vor der Installation</S1750>
+			<S1751>Warten auf manuelle Fortsetzung auf der Fertigstellen Seite.</S1751>
+			<S1752>Es wird empfohlen, die neuesten kumulativen Updates auf der Seite Updates hinzuzufügen.</S1752>
+			<S1753>Führen Sie die setup.exe im Upgrade-Modus aus und starten Sie die Aktualisierung</S1753>
+			<S1754>Dieser Assistent erfordert ein Abbild mit einer setup.exe und dem Rest der Dateien auf der ISO.</S1754>
+			<S1755>Fehler beim starten der Windows Setup Aktualisierung, jedoch können Sie es manuell wiederholen.</S1755>
+			<S1757>Assistent</S1757>
+			<S1758>Installiere Updates</S1758>
+			<S1759>Hilft Ihnen bereits heruntergeladene Updates schnell zu installieren.</S1759>
+			<S2497>Werkzeuge</S2497>
+		</Wizards>
+		<Tasks>
+			<S1772>Wählen Sie aus, welche Image Aufgaben während des Prozesses automatisiert werden sollen. Das aktuell geladene Image und die anstehenden Änderungen sind die Referenz.</S1772>
+			<S1773>Setzt die Image Aufgaben auf dieser Seite auf die Standard Image Vorgaben zurück, wobei alle restlichen anstehenden Änderungen beibehalten werden</S1773>
+			<S1775>Image Aufgaben</S1775>
+			<S1791>Drücken Sie OK, um mit der nächsten Image Editionen fortzufahren.</S1791>
+			<S1792>Image Aufgaben auswählen</S1792>
+			<S1793>Gesamte ausstehende Aufgabenübersicht</S1793>
+			<S1794>Speichermodus</S1794>
+			<S1795>Image speichern</S1795>
+			<S1796>Image speichern und Editionen verkleinern</S1796>
+			<S1797>Optimieren der Image-Dateistruktur</S1797>
+			<S1798>Nicht-essentiell Editionen entfernen</S1798>
+			<S1799>Image Format</S1799>
+			<S1800>Image-Prozess-Warteschlange (Anstehende Aufgaben für andere Editionen übernehmen)</S1800>
+			<S1801>Protokoll und Voreinstellung nicht sichern</S1801>
+			<S1802>Änderungen in das Image speichern</S1802>
+		</Tasks>
+	</Source>
+	<Updates>
+		<Other>
+			<S0006>Abbrechen</S0006>
+			<S0111>Erstellungsdatum</S0111>
+			<S0118>Abgebrochen</S0118>
+			<S0119>DISM kann nicht gefunden werden. Betroffene Optionen für diese Sitzung werden deaktiviert.</S0119>
+			<S0161>DISM wird geschlossen</S0161>
+			<S0179>Komponenten Speicher ist beschädigt, bitte kopieren Sie das Originalimage erneut und beginnen Sie erneut.</S0179>
+			<S0197>Fortsetzen</S0197>
+			<S0226>Entscheidende Dateien werden bereits von einem anderen Prozess verwendet.</S0226>
+			<S0227>Entscheidendes Paket wurden nicht erkannt, berichten Sie bitte mit der Log Datei als Anhang.</S0227>
+			<S0372>Vorhandene Pakete</S0372>
+			<S0396>Entpacken</S0396>
+			<S0531>Installation ausstehend</S0531>
+			<S0533>Installiert</S0533>
+			<S0540>Integriert</S0540>
+			<S0541>Integriert Runonce</S0541>
+			<S0606>Wird geladen...</S0606>
+			<S0642>Meldungen</S0642>
+			<S0657>Entscheidende Dateien fehlen.</S0657>
+			<S0668>Gemountetes Verzeichnis scheint in Gebrauch zu sein. Dieses Tool ist dabei alle DISM Sitzungen auf Ihrem Computer zu schließen, stellen Sie sicher, dass keine anderen DISM Operation am laufen sind, bevor Sie fortfahren.
+			Wenn Sie wissen, was es geöffnet hält, klicken Sie auf Abbrechen nach dem Sie es schließen.</S0668>
+			<S0720>Nein</S0720>
+			<S0739>Einem oder mehreren übergeordnete Funktionen sind deaktiviert, so dass die Funktion nicht aktiviert werden kann.</S0739>
+			<S0747>Dateipfad öffnen</S0747>
+			<S0749>Web Artikel öffnen</S0749>
+			<S0752>Operation nicht unterstützt.</S0752>
+			<S0753>Die Operation erfordert fehlenden Dateien.</S0753>
+			<S0764>Das Paket ist nicht anwendbar auf diesem Image.</S0764>
+			<S0767>Pakete</S0767>
+			<S0782>Pfad</S0782>
+			<S0784>Ausstehende Registrierungsvorgänge wurden erkannt.</S0784>
+			<S0796>Bitte starten neu und versuchen es erneut.</S0796>
+			<S0798>Bitte wählen Sie ein anderes Image oder versuchen Sie einen Neustart Ihres Rechners.</S0798>
+			<S0864>Paketdaten lesen</S0864>
+			<S0871>Ein Paket scannen</S0871>
+			<S0887>Erscheinungstyp</S0887>
+			<S0967>Wählen Sie ein Verzeichnis mit Updates oder Sprachpaketen</S0967>
+			<S0974>Wählen Sie Update oder Sprachpaket Dateien zum hinzufügen</S0974>
+			<S1029>Überspringen der aktuellen Operation.</S1029>
+			<S1047>SP1 Voraussetzungen</S1047>
+			<S1060>Stufenweise</S1060>
+			<S1078>Abgelöst</S1078>
+			<S1129>Das Image wurde von einer Offlinewartung beschädigt und kein weiterer Service ist erlaubt.</S1129>
+			<S1135>Das ausgewählte Image beinhaltet nicht entscheidend Dateien die benötigt werden oder einige Dateien sind in Gebrauch.</S1135>
+			<S1136>Das ausgewählte Image hat keinen gültigen Zustand.</S1136>
+			<S1162>Unleserliche oder nicht unterstützte Datei</S1162>
+			<S1165>Vorhandene Elemente</S1165>
+			<S1167>Nicht vorhandener Dateipfad</S1167>
+			<S1199>Deinstallation ausstehend</S1199>
+			<S1200>Deinstalliert</S1200>
+			<S1213>Aktualisierung</S1213>
+			<S1240>Version</S1240>
+			<S1332>Ja</S1332>
+			<S1356>Falsche Architektur</S1356>
+			<S1370>Fehlende Voraussetzungen</S1370>
+			<S1371>Nicht empfohlen</S1371>
+			<S1372>Verlangsamt die Endphase der Installation und ist nicht wirklich eine benötigtes Update, überprüfen Sie online den KB Artikel.</S1372>
+			<S1396>Verhindert die Aktivierung der .NET Framework v3.5 Funktion, stellen Sie sicher, dass Sie es vor oder zusammen mit diesem Vorgang integriert wird.</S1396>
+			<S1397>Kann eine Neustartschleife verursachen, wenn Windows als Bootloader nicht verwendet wird. Ändern Sie die BIOS Einstellungen, um den Windows Bootloader direkt zu aktivieren, wenn Sie dieses Update installieren.</S1397>
+			<S1544>Kann zu Problemen mit .NET Framework v4.6 Anwendungen führen.</S1544>
+			<S1573>Microsoft empfiehlt ein Upgrade auf RDP 8.1 und nicht mehr die RDP 8.0 Updates ausführen.</S1573>
+			<S1574>Dieses Update ist nur für bestimmte Windows 10 Version</S1574>
+			<S1584>Abwesend</S1584>
+			<S1585>Lösen</S1585>
+			<S1586>Aufgelöst</S1586>
+			<S1587>Bereitstellen</S1587>
+			<S1588>Teilweise installiert</S1588>
+			<S1589>Permanent</S1589>
+			<S1592>Wenn unter Windows 7 hinzugefügt, könnte das Abbild beschädigt werden. Es wird empfohlen, dieses Update unter einem Windows 8.1 oder 10 Host zu integrieren.</S1592>
+			<S1593>Dies ist eine Windows Beschränkung, kein NTLite Bug.</S1593>
+			<S1618>Prüfen Sie Folgendes:
+- Wenn Sie Windows 7 als Host verwenden, um Windows 10 kumulativen Updates zu integrieren, verwenden Sie Windows 8.1 oder 10 anstelle (kann eine virtuelle Maschine sein)
+- Die Analyse auf der Aktualisierungen Seite enthalten hilfreiche Tipps
+- Es gibt vielleicht Wartung Stapel Updates für dieses Bild
+- Integration von Updates für die falsche Windows-Version, zum Beispiel Windows-10 1511 (10586) Updates auf Windows 10 RTM (10240) Image
+- Vor dieser Integration Sitzung wurden Komponenten aus diesem Image entfernt.</S1618>
+			<S1625>Achten Sie darauf, die Abhängigkeit der Post-Setup, vor den Update platzhaltern hinzuzufügen, oder die Installation könnte beim fertigstellen einfrieren.</S1625>
+			<S1626>oder</S1626>
+			<S1762>Internet Download öffnen</S1762>
+			<S1956>Ausstehende Dateioperationen erkannt, es ist nicht ratsam, Komponenten zu entfernen, während das Betriebssystem in diesem Zustand ist.
+Funktion-Konfiguration, Leerlauf Windows-Selbstreinigung oder Aktualisierung kann dies auslösen.
+Probieren Sie es erneut nach einem Neustart.
+
+Manchmal ist es erforderlich, Datenträgerbereinigung  (cleanmgr.exe, Win7) mit Update-Bereinigung oder den folgenden Befehl von der erhöhten Befehlszeile aus auszuführen, um diese ausstehenden Windows-Dateiänderungen (Win8 +) zu verarbeiten:
+DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase</S1956>
+		</Other>
+		<Title>
+			<S0022>Aktualisierungen oder Sprachpaketen zur Liste hinzufügen. Für Rot markierte Pakete, verwenden Sie die Analyse.</S0022>
+			<S1217>Aktualisierungen</S1217>
+		</Title>
+		<Toolbar>
+			<S0424>Verzeichnis enthält Pakete</S0424>
+			<S0765>Paketdateien</S0765>
+			<S0766>Fügen Sie ein Paket zur Integrationswarteschlange hinzu</S0766>
+			<S0907>Entfernen von ausgewählten Objekten aus der Integrationswarteschlange</S0907>
+			<S0978>Alle auswählen</S0978>
+			<S1216>Aktualisierungswarteschlange</S1216>
+			<S1368>Analysieren</S1368>
+			<S1369>Zeigt die empfohlenen Schritte in Bezug auf die vorliegenden Updates in der Liste, wie fehlende Aktualisierungsvoraussetzungen oder Erfolgsmethode. Nur aktiviert, wenn die entsprechenden (roten) Updates erkannt wurden.</S1369>
+			<S1617>Nichts ausgewählt</S1617>
+			<S2495>Kompatibel</S2495>
+			<S2496>Komplett</S2496>
+		</Toolbar>		
+		<Downloader>
+			<S2499>Überprüft</S2499>
+			<S2500>Unvollständig</S2500>
+			<S2501>Herunterladen</S2501>
+			<S2502>Updates herunterladen</S2502>
+			<S2503>Wird heruntergeladen</S2503>
+			<S2504>Laden Sie Updates in das Cache-Verzeichnis herunter</S2504>
+			<S2505>Holen Sie sich die neuesten Updates für die ausgewählte Windows-Version.
+Updates können während der Integration heruntergeladen oder in die Warteschlange gestellt werden, um eine vollständige Automatisierung mit anderen Aufgaben zu ermöglichen.</S2505>
+			<S2506>Neueste Online-Updates</S2506>
+			<S2507>In Warteschlange</S2507>
+			<S2508>Damit das hinzufügen in die Warteschlange aktiviert wird, laden Sie zunächst ein Zielbild auf der Seite "Quelle".</S2508>
+			<S2509>Fügen Sie der Integrationswarteschlange hinzu und laden Sie nur fehlende Updates der Reihe nach herunter.</S2509>
+			<S2510>Entladen Sie zuerst alle Bilder von der Quellseite.</S2510>
+			<S2511>Wählen Sie ein Verzeichnis für den heruntergeladenen Update-Cache</S2511>
+			<S2512>Verbinden</S2512>
+			<S2513>Host</S2513>
+			<S2514>Ausgewählt</S2514>
+			<S2515>Zuletzt überprüft</S2515>
+			<S2518>Überprüfen</S2518>
+			<S2519>Wird überprüft</S2519>
+			<S2520>Wählen Sie eine Update-Liste</S2520>
+			<S2525>Diese Nachricht ist bei vollständiger Lizenzierung nicht vorhanden.</S2525>
+			<S2526>Heruntergeladen</S2526>
+			<S2527>Sind Sie sicher, dass du abbrechen möchten?</S2527>
+			<S2528>Extern</S2528>
+			<S2529>Überprüfen Sie die Integrität der heruntergeladenen Dateien in der Liste der Online-Updates</S2529>
+		</Downloader>
+	</Updates>
+	<Licensing>
+		<Other>
+			<S0015>Lizenz Aktivierung ...</S0015>
+			<S0121>Festplatten Informationen können nicht gelesen werden.</S0121>
+			<S0122>Netzwerkadapter Informationen können nicht gelesen werden.</S0122>
+			<S0133>Bitte überprüfen Sie folgende Punkte und versuchen Sie es erneut:
+ - Ihre PC Uhrzeit und Datum müssen korrekt sein
+ - Stellen Sie sicher, dass Ihre Firewall die Verbindung nicht blockiert</S0133>
+			<S0134>Überprüfen Sie Ihre Internetverbindung einschließlich der Firewall-Einstellungen und versuchen Sie es erneut.</S0134>
+			<S0341>Genießen Sie die Vollversion!</S0341>
+			<S0357>Ein Serverproblem ist aufgetreten.</S0357>
+			<S0426>Zur Reaktivierung, kontaktieren Sie uns unter unserer E-Mail mit Ihrer E-Mail Adresse, mit der Sie die Lizenz gekauft haben, oder fügen Sie den Bestellnachweis Ihres kaufes hinzu.</S0426>
+			<S0436>Die kostenlose Version hat bestimmte Funktions- und Nutzungseinschränkungen.</S0436>
+			<S0537>Unzureichende Hardware Informationen</S0537>
+			<S0554>Ungültiger Lizenzcode.</S0554>
+			<S0590>Lizenzaktivierung fehlgeschlagen.</S0590>
+			<S0591>Lizenzaktivierung wird nicht funktionieren.</S0591>
+			<S0592>Lizenzcode</S0592>
+			<S0593>Lizenz erfolgreich wiederhergestellt, ohne dafür eine Online Aktivierungen zu verschwenden.</S0593>
+			<S0741>Online Aktivierungen benutzt.</S0741>
+			<S0748>Webseite in einem Browser öffnen, die den Installationsprogramm Download Link enthält?</S0748>
+			<S0789>Bitte SICHERN Sie Ihre Aktivierung durch Exportieren der Datei license.dat. Optional können Sie auch die settings.xml Datei sichern welche allgemeine Werkzeugeinstellungen  und den Lizenzcode beinhaltet. Beide Dateien können im Installationsverzeichnis der Anwendung gefunden werden.</S0789>
+			<S0795>Bitte melden, wenn etwas unerwartetes passiert.</S0795>
+			<S0841>Programm startet von selbst, damit die Änderungen wirksam werden.</S0841>
+			<S0889>weitere Online Aktivierungen vorhanden, wonach nur noch die E-Mail Aktivierung funktioniert.</S0889>
+			<S0991>Dienst Verbindungsfehler</S0991>
+			<S0992>Dienst Verbindungszeitüberschreitung.</S0992>
+			<S1127>Danke für deine Unterstützung an NTLite und einen Beitrag zur weiteren Produktentwicklung und Verbesserungen.</S1127>
+			<S1214>Update verfügbar</S1214>
+			<S1333>Sie haben bereits die neueste Version.</S1333>
+			<S1336>Sie haben erfolgreich Ihre Lizenz aktiviert.</S1336>
+			<S1426>Online reaktivieren mit diesem Schlüssel?</S1426>
+			<S1427>Diese Aktion wird eine Online Aktivierung verbrauchen.</S1427>
+			<S1428>Vorhandene Aktivierung entfernen?</S1428>
+			<S1543>Der Code ist in der "Auftragsbestätigung" E-Mail unter:
+Ihr Lizenzname ist: Name
+Ihren Lizenzcode ist: [DIES KOPIEREN]</S1543>
+			<S1635>Bitte geben Sie den Upgrade-Code ein oder schließen Sie dieses Fenster.</S1635>
+			<S1636>Offline-Lizenz Wiederherstellung ist fehlgeschlagen, überprüfen Sie Ihren Code oder benutzen Sie die Online Reaktivierung.</S1636>
+			<S1640>Fehler beim Kopieren der Datei</S1640>
+			<S1641>Datei erfolgreich kopiert.</S1641>
+			<S2437>Diese Lizenz ist deaktiviert. Es wurde wahrscheinlich durch einen erneuerten Code ersetzt, bitte kontaktieren Sie den Support, wenn Sie ihn nicht finden können.</S2437>
+			<S2438>Stellen Sie sicher, dass Sie die neueste Version von ntlite.com verwenden</S2438>
+		</Other>
+		<UI>
+			<S0146>Wählen Sie Ihre Lizenz.</S0146>
+			<S0345>Geben Sie Ihren Lizenzcode ein</S0345>
+			<S0434>Kostenlos (beschränkt, nicht-kommerzielle)</S0434>
+			<S0589>Lizenz</S0589>
+			<S0594>Lizenziert</S0594>
+			<S0667>Mehr Informationen</S0667>
+			<S1212>Bis die Lizenz aktiviert ist, stehen die Premium Funktionen nicht zur Verfügung.</S1212>
+			<S1218>Upgrade</S1218>
+			<S1253>Website besuchen</S1253>
+			<S1338>Ihre Lizenz erfordert eine online Reaktivierung, überprüfen Sie Ihren Lizenzschlüssel und klicken Sie auf OK um die Reaktivierung starten.</S1338>
+			<S1392>Home (Einzelplatz, nicht kommerziell)</S1392>
+			<S1393>Professional Einzelplatz, kommerziell)</S1393>
+			<S1394>Business (Einzelplatz, kommerziell)</S1394>
+			<S1395>Enterprise (Mehrplatz, kommerziell)</S1395>
+			<S1430>Ihre Lizenz ist bereits aktiviert.</S1430>
+			<S1611>Code vergessen</S1611>
+			<S1612>Rechnung erhalten, Code vergessen, Fragen zur Zahlung, oder weiteres kontaktieren Sie den NTLite Support.</S1612>
+			<S1613>Support kontaktieren</S1613>
+			<S1614>Email support@ntlite.com</S1614>
+			<S1615>Kaufen/Upgrade</S1615>
+			<S1616>Remote/Offline-Aktivierung</S1616>
+			<S1628>Neue Funktionen Abo bis</S1628>
+			<S1629>Lizenz muss aktualisiert werden, es werden keine Aktivierungen verwendet, drücken Sie OK, um fortzufahren.</S1629>
+			<S1630>Neue premium Funktionen Mitgliedschaft ist abgelaufen, Sie können die Anwendung normal weiterverwenden, wenn Sie dieses Fenster schließen, oder die Mitgliedschaft im Shop erneuern, um neuere Funktionen nach diesem Datum zu bekommen.
+Ihre Lizenz funktioniert wie zuvor, jedoch sind die Premium Funktionen, die nach dem Abonnement ende hinzugefügt wurden, gesperrt.</S1630>
+			<S1631>Bis die Lizenz aktualisiert wurde, sind die Premium-Funktionen, die von Version 1.2 und höher hinzugefügt wurden gesperrt.</S1631>
+			<S1633>Aktuelle Lizenz</S1633>
+			<S1634>Support</S1634>
+			<S1637>Wählen Sie die zuvor gespeicherte Lizenzdatei (z.B. license.dat)</S1637>
+			<S1638>Wählen Sie, wo die Sicherung der Lizenz kopiert werden soll</S1638>
+			<S1639>Lizenzdatei importiert, geben Sie bitte den richtigen Lizenzcode ein und drücken Sie OK.</S1639>
+			<S1716>Erkennung von neu unterstützten Windows Version. Bestehende Premium Funktionen müssen kontinuierlich angepasst werden, so dass jede neue Windows-Version unterstützt wird.</S1716>
+		</UI>
+	</Licensing>
+	<Unattended>
+		<Other>
+			<S0016>Aktiv</S0016>
+			<S0028>Administratoren</S0028>
+			<S0061>Automatische Benutzeranmeldung</S0061>
+			<S0063>Automatische Anmeldung</S0063>
+			<S0190>Passwort bestätigen</S0190>
+			<S0217>Erstellen</S0217>
+			<S0219>Partition erstellen</S0219>
+			<S0224>Anmeldeinformationen</S0224>
+			<S0229>Benutzerdefiniert</S0229>
+			<S0230>Benutzerdefinierte Gruppe</S0230>
+			<S0273>Festplatte</S0273>
+			<S0274>Festplattenkonfiguration</S0274>
+			<S0278>Festplatte ID</S0278>
+			<S0281>Anzeigename</S0281>
+			<S0285>Nicht formatieren</S0285>
+			<S0288>Domäne</S0288>
+			<S0289>Domänenname</S0289>
+			<S0292>Laufwerksbuchstabe</S0292>
+			<S0319>Ermöglichen das benutzen des vordefinierten Administrator Kontos</S0319>
+			<S0342>Benutzerdefinierte Gruppe eingeben</S0342>
+			<S0343>Domänenname eingeben</S0343>
+			<S0347>Partitionsbezeichnung eingeben</S0347>
+			<S0348>Passwort eingeben</S0348>
+			<S0350>Benutzerbeschreibung eingeben</S0350>
+			<S0351>Anzeigename eingeben</S0351>
+			<S0353>Benutzernamen eingeben</S0353>
+			<S0354>Arbeitsgruppe eingeben</S0354>
+			<S0392>Erweitern</S0392>
+			<S0429>Formatieren</S0429>
+			<S0451>Gruppe</S0451>
+			<S0475>ID</S0475>
+			<S0476>Identifikation</S0476>
+			<S0532>Auf diese Partition installieren</S0532>
+			<S0567>Domäne beitreten</S0567>
+			<S0568>Arbeitsgruppe beitreten</S0568>
+			<S0580>Beschriftung</S0580>
+			<S0588>Buchstabe</S0588>
+			<S0608>Lokales Konto</S0608>
+			<S0609>Lokale Konten</S0609>
+			<S0615>Anmeldeanzahl</S0615>
+			<S0617>Gerätepasswort</S0617>
+			<S0636>Maximal (Erweitert)</S0636>
+			<S0665>Ändern</S0665>
+			<S0666>Partition ändern</S0666>
+			<S0681>Name</S0681>
+			<S0755>Reihenfolge</S0755>
+			<S0775>Partition</S0775>
+			<S0776>Partition ID</S0776>
+			<S0777>Partition ID oder Laufwerkbuchstabe bereits konfiguriert.</S0777>
+			<S0778>Partitionsänderungen</S0778>
+			<S0779>Partitionen</S0779>
+			<S0780>Passwort</S0780>
+			<S0781>Passwörter sind nicht identisch</S0781>
+			<S0815>Premium Funktionen</S0815>
+			<S0862>Kennwort erneut eingeben</S0862>
+			<S1001>Installationsoptionen</S1001>
+			<S1024>Lokale Kontoeinrichtung überspringen</S1024>
+			<S1025>Online Kontoeinrichtung überspringen</S1025>
+			<S1152>Zeitüberschreitung [5-60 Minuten]</S1152>
+			<S1188>Nicht zugewiesen</S1188>
+			<S1209>Unsicherer beitritt</S1209>
+			<S1229>Benutzerkonten</S1229>
+			<S1230>Benutzer existiert bereits</S1230>
+			<S1234>Benutzername</S1234>
+			<S1274>Beim Überspringen des lokalen Konto Assistenten, müssen Sie mindestens ein lokales Konto hinzufügen oder Mitglied einer Domäne sein, um in der Lage zu sein sich anzumelden.</S1274>
+			<S1320>Festplatte löschen</S1320>
+			<S1326>Arbeitsgruppe </S1326>
+			<S1327>Name der Arbeitsgruppe</S1327>
+			<S1385>Primär</S1385>
+			<S1386>Erweitert</S1386>
+			<S1387>Logisch</S1387>
+			<S1522>Wiederherstellung</S1522>
+			<S1525>Größe in Megabyte eingeben.</S1525>
+			<S1526>0 um Partitionserstellung zu überspringen.</S1526>
+			<S1527>Dies ist die System-Partition, auf der Windows installiert wird.</S1527>
+			<S1528>Wenn Sie eine erweiterte Partition nutzen, müssen Sie die Wiederherstellungspartition verschieben.</S1528>
+			<S1529>Wiederherstellungsabbild</S1529>
+			<S1530>WinRE Werkzeuge</S1530>
+			<S1531>Bezeichnung ist auf 32 Zeichen für NTFS und 11 Zeichen für FAT32-Partitionen beschränkt.</S1531>
+			<S1534>Partition Bezeichnung können geändert werden auf der Unattended-Seite unter "Festplattenkonfiguration".</S1534>
+			<S1535>Vorhandene Konfiguration mit dem gleichen Festplatten ID wurde erkannt, entfernen sie diese von der Unattended Seite und versuchen Sie es erneut.</S1535>
+			<S1536>Optional können Partitionen einzeln Eingerichtet werden, oder nach diesem Assistenten mit Hilfe von 'Partition Wizard'.</S1536>
+			<S1678>Windows Willkommens-Text überspringen</S1678>
+			<S1679>Wenn diese Legacy-Option aktiviert ist, wird der Benutzer nicht aufgefordert Einstellungen vorzunehmen, die notwendig sind, um erfolgreich die Windows Installation abzuschließen.</S1679>
+			<S1947>Willkommenszentrum überspringen</S1947>
+			<S1948>Wenn ein Computer, der dieses Image verwendet, während der Windows-Installation online ist, überspringt diese Option die automatische Aktualisierung am Ende des Prozesses.</S1948>
+			<S2488>Es wird nicht empfohlen, die Legacy-Optionen SkipMachineOOBE und SkipUserOOBE zu verwenden. Verwenden Sie stattdessen die individuellen Einstellungen auf den Seiten "Unbeaufsichtigt" und "Einstellungen", um genaue Auswahlen zu definieren.</S2488>
+		</Other>
+		<Toolbar>
+			<S0025>Ein lokales Konto hinzufügen</S0025>
+			<S0026>Ein lokales Benutzerkonto in die unbeaufsichtigte Einstellungen hinzufügen.</S0026>
+			<S0059>Automatisch ausfüllen</S0059>
+			<S0060>Wenn verfügbar, Einträge vom Host Computer setzen und überschreiben.</S0060>
+			<S0187>Individuelle Partition</S0187>
+			<S0188>Individuelle Partition automatisch bei der Windows Installation einrichten. </S0188>
+			<S0237>Standard</S0237>
+			<S0318>Aktivieren</S0318>
+			<S0569>Netzwerk beitreten</S0569>
+			<S0570>Automatisch einer Netzwerk Domäne oder Arbeitsgruppe beitreten</S0570>
+			<S0708>Netzwerk beitreten</S0708>
+			<S0732>OEM SetupComplete</S0732>
+			<S0733>Bei Verwendung eines OEM Produktschlüssels in Windows 8 und neuere, wird die SetupComplete.cmd normalerweise nicht ausgeführt. Diese Option aktivieren, damit die SetupComplete.cmd in der unbeaufsichtigten RunSynchronous Befehle am Ende des Setup ausgeführt werden.</S0733>
+			<S0754>Optionen</S0754>
+			<S0906>Entfernen das ausgewählte lokale Konto, beigetretene Netzwerke oder konfigurierte Festplattenpartition aus den unbeaufsichtigten Einstellungen.</S0906>
+			<S1192>Unbeaufsichtigter Modus</S1192>
+			<S1349>Zum Installationsmedium kopieren (install.wim)</S1349>
+			<S1350>Die Antwortdatei direkt in das fertige Image kopieren (%WINDIR%\Panther\unattend.xml). Verwenden Sie diese Option nur, wenn Sie ein Image ohne Windows-Setup direkt auf einer Partition anwenden.</S1350>
+			<S1376>Überschreibt alle vorhandenen unbeaufsichtigten Einstellungen mit denen auf dieser Seite.</S1376>
+			<S1381>Behält die aktuelle unbeaufsichtigt Einstellungen auf dem ausgewählten Image.</S1381>
+			<S1448>Zum Startmedium kopieren (boot.wim)</S1448>
+			<S1449>Kopieren Sie die Antwortdatei direkt an das Boot-Image. Kann einigen Rechner helfen, die Probleme mit der Antwortdatei haben und diese sonst nicht berücksichtigen.</S1449>
+			<S1523>Festplatten-Vorlage</S1523>
+			<S1524>Einfach das Festplatten Partitionslayout mit den empfohlenen BIOS und UEFI-Vorlage einstellen.</S1524>
+			<S1537>Festplatte konfigurieren</S1537>
+			<S1538>Der Datenträger mit dem gewählten ID wird komplett gelöscht, wenn Sie dieses Abbild Booten.</S1538>
+			<S1539>Systempartition existiert bereits.</S1539>
+			<S1540>Entfernen Sie alle problematischen Partitionseinrichtung von der Unattended-Seite "Festplattenkonfiguration" und versuchen Sie es erneut.</S1540>
+			<S1562>Doppel Architektur</S1562>
+			<S1563>Bei Verwendung eines 64-Bit-Abbildes, speichert dies die 32-Bit-Einträge automatisch, und umgekehrt. Dies ist hilfreich, wenn Sie ein Multi-Architektur, All-In-One-Image erstellen, sonst ist es nicht zu empfehlen.</S1563>
+			<S1564>Deaktiviert die automatische Image Auswahl und Plattenpartitionierung, wenn mehr als ein Image pro Datei vorhanden ist.</S1564>
+		</Toolbar>
+		<List>
+			<S0043>Immer</S0043>
+			<S0064>Automatischer Schutz ist deaktiviert</S0064>
+			<S0185>Computername</S0185>
+			<S0186>Der Computername darf keine Leerzeichen oder Sonderzeichen enthalten und ist auf 15 Zeichen begrenzt. Kann nicht mit einem Benutzernamen identisch sein. Optional können Sie '*' (ohne Anführungszeichen) verwenden, für einen automatisch generierten zufälligen Computernamen mit einem statischen Präfix bestehend aus 'Eingetragener Eigentümer' (die ersten 8 Zeichen werden verwendet).</S0186>
+			<S0290>Fehlende Geräte nicht bereinigen</S0290>
+			<S0309>Dynamisches Update</S0309>
+			<S0320>Dynamisches Update aktivieren</S0320>
+			<S0349>Geben Sie einen Produktschlüssel für dieses Image ein, um diesen während der Installation zu verwendet, z.B. AAAAA-BBBBB-CCCCC-DDDDD-EEEEE.</S0349>
+			<S0399>falsch</S0399>
+			<S0445>Verallgemeinern</S0445>
+			<S0460>Angepasste Hilfe</S0460>
+			<S0464>Heimnetzwerk</S0464>
+			<S0527>Gebietsschema</S0527>
+			<S0529>Nur Updates installieren</S0529>
+			<S0572>Behalte alle PnP Geräte installiert</S0572>
+			<S0614>Logo</S0614>
+			<S0633>Hersteller</S0633>
+			<S0663>Modell</S0663>
+			<S0710>Netzwerkadresse</S0710>
+			<S0713>Niemals</S0713>
+			<S0731>OEM Informationen</S0731>
+			<S0737>Bei einem Fehler</S0737>
+			<S0746>OOBE (Finale Installationsoptionen)</S0746>
+			<S0757>Andere</S0757>
+			<S0759>Out-of-Box experience</S0759>
+			<S0804>PnP Sysprep</S0804>
+			<S0839>Produktschlüssel</S0839>
+			<S0848>Computer schützen</S0848>
+			<S0859>Öffentliches Netzwerk</S0859>
+			<S0882>Eingetragene Organisation</S0882>
+			<S0883>Eingetragener Eigentümer</S0883>
+			<S0916>Installationsstatistiken berichten</S0916>
+			<S0986>Bericht an Microsoft senden</S0986>
+			<S1002>Installations UI Sprache</S1002>
+			<S1007>Shell Optionen</S1007>
+			<S1022>Autoaktivierung überspringen</S1022>
+			<S1023>EULA Seite überspringen</S1023>
+			<S1026>WLAN Einrichtung überspringen</S1026>
+			<S1050>Spezialisieren</S1050>
+			<S1084>Supportzeiten</S1084>
+			<S1085>Support Telefon</S1085>
+			<S1086>Support URL</S1086>
+			<S1151>Zeitzone</S1151>
+			<S1169>wahr</S1169>
+			<S1178>Geben Sie '[KEY]' (ohne Anführungszeichen) ein, damit der OEM Schlüssel automatisch aus dem BIOS während der Installation gelesen wird.</S1178>
+			<S1184>UI Sprache</S1184>
+			<S1231>Benutzererfahrung für Windows Lizenzierung</S1231>
+			<S1232>Benutzersprache</S1232>
+			<S1233>Benutzereinstellungen</S1233>
+			<S1296>Windows Lokalisierung</S1296>
+			<S1311>Windows Einrichtungsoptionen</S1311>
+			<S1324>Arbeitsplatznetzwerk</S1324>			
+			<S1506>Um die Begrüßungsbildschirm Produktschlüssel Aufforderung zu überspringen, verwenden Sie einen geeigneten Produktschlüssel für die richtig geladene Version, ansonsten lassen Sie das Feld leer oder die Installation könnte am Ende fehlschlagen. Ein generischer BIOS-Befehl '[KEY]' wird hier nicht unterstützt, verwenden Sie dafür den Setup-Produktschlüssel, so dass dieser leer bleibt.</S1506>
+			<S1721>Kompakt</S1721>
+			<S1722>Gibt an das Windows komprimiert installiert werden soll. Dies könnte bewirken, dass der Installationsprozess länger dauern. Wenn Sie eine frühere Version von Windows PE verwenden, muss der Windows-Overlay-Filtertreiber (wofadk.sys) aus dem Windows 10 ADK in das Windows PE-Abbild integriert werden.</S1722>
+			<S1727>Profil kopieren</S1727>
+			<S1728>Gibt an, dass das derzeit angemeldete Benutzerprofil, wenn Sysprep Verallgemeinerung manuell ausgeführt wird, für alle neuen Benutzer angewendet wird.</S1728>
+			<S1729>Installation</S1729>
+			<S1730>Aktivierung</S1730>
+			<S1731>Beachten Sie, dass es zwei Arten für einen Product Key gibt, für die Installation und für die Aktivierung.</S1731>
+			<S1732>Verwenden Sie den Filter oben damit sie sie leichter finden.</S1732>
+			<S1734>Ziel</S1734>
+			<S1951>'Schnell einsteigen' Seite überspringen (Datenschutzoptionen)</S1951>
+			<S1952>Wenn diese Option aktiviert ist, wird die Seite "Datenschutzoptionen" nicht angezeigt. Stellen Sie in diesem Fall sicher, dass Sie Ihre Datenschutzeinstellungen auf der Konfigurations-Seiten links festlegen.</S1952>
+			<S1977>Wiederversiegeln</S1977>
+			<S1978>Modus</S1978>
+			<S1979>Sie können diese Option verwenden, um direkt im Überwachungsmodus zu booten, was für Administratoren nützlich ist, die das Basisimage einrichten und erfassen.</S1979>
+			<S2552>Geben Sie ein oder wählen Sie '[Prompt]', um das Ändern des Computernamens über eine Eingabeaufforderung während der Windows-Installation zu aktivieren.</S2552>
+			<S2553>Geben Sie den Computernamen ein</S2553>
+		</List>
+		<Title>
+			<S0814>Konfigurieren von Windows Setup Elementen im Voraus, so dass eine vollautomatische Installation erstellt wird. Sie können diese Seite oben-links in den Symbolleiste aktivieren.</S0814>
+			<S1189>Unbeaufsichtigt</S1189>
+		</Title>
+	</Unattended>
+	<Drivers>
+		<Title>
+			<S0021>Treiber zur Liste hinzufügen und Hardwareanforderungen einsehen.</S0021>
+			<S0300>Treiber</S0300>
+		</Title>
+		<Toolbar>
+			<S0264>Ausgewählte Geräteliste.</S0264>
+			<S0298>Verzeichnis enthält Treiber</S0298>
+			<S0299>Findet und fügt alle Treiber aus einem Verzeichnis in die Integration Warteschlange ein</S0299>
+			<S0303>Treiber Dateien</S0303>
+			<S0364>Unbenutzte ausschließen</S0364>
+			<S0365>Erkennen von richtigen Treiber für die ausgewählte Geräteliste, entfernt alle restlichen aus der Integration Warteschlange.</S0365>
+			<S0386>Treiber exportieren</S0386>
+			<S0387>Ausgewählte 3rd-Party Treiber exportieren, welche bereits auf dem Host installiert sind oder im Image integriert sind.</S0387>
+			<S0388>HW Liste exportieren</S0388>
+			<S0389>Exportiert die Host Hardware Geräteliste von jeder Maschine, welche dann in eine lizenzierte Version importiert werden kann</S0389>
+			<S0467>Host Maschine</S0467>
+			<S0507>Host importieren</S0507>
+			<S0508>Auf dem Hostcomputer installiert 3rd-Party Treiber zur Liste hinzufügen.</S0508>
+			<S0509>HW Liste importieren</S0509>
+			<S0510>Geräteliste importieren.</S0510>
+			<S0616>Maschine</S0616>
+			<S0903>Einen ausgewählten Treiber aus der Integration Warteschlange entfernen</S0903>
+			<S1013>Ausgeblendete Geräte anzeigen</S1013>
+			<S1014>Versteckte und abgezogene Geräte in der Hardware Liste anzeigen.</S1014>
+		</Toolbar>
+		<Other>
+			<S0296>Treiber Warteschlange</S0296>
+			<S0301>Treiber wurden zur Warteschlange hinzugefügt</S0301>
+			<S0302>Treibern wurden aus der Warteschlange entfernt</S0302>
+			<S0431>Gefunden</S0431>
+			<S0455>Hardware Checkliste</S0455>
+			<S0456>Hardware Liste</S0456>
+			<S0457>Hardware Liste wurde exportiert.</S0457>
+			<S0466>Host importiert</S0466>
+			<S0656>Fehlend</S0656>
+			<S0726>Nicht gefunden</S0726>
+			<S0773>Teilweise</S0773>
+			<S0964>Wählen Sie ein Treiberverzeichnis, um alle Treiber in die Warteschlange hinzuzufügen</S0964>
+			<S0965>Wählen Sie eine Treiber INF Dateien zum hinzufügen in die Warteschlange</S0965>
+			<S0970>Wählen Sie eine Hardware Liste Export Zieldatei</S0970>
+			<S0971>Wählen Sie eine Hardware Listen Dateien zum importieren</S0971>
+		</Other>
+	</Drivers>
+	<Tweaks>
+		<List>
+			<S0027>Administratorbestätigungsmodus für das integrierte Administratorkonto</S0027>
+			<S0034>Ermöglicht es IRDP, das erkennen und konfigurieren von Default Gateway Adressen.</S0034>
+			<S0035>UIAccess-Anwendungen können erhöhte Rechte ohne sicheren Desktop anfordern</S0035>
+			<S0038>Ermöglicht es Anwendungen mit erhöhte Rechten, den Zugang zu Netzlaufwerken. Lesen Sie mehr zum Thema 'EnableLinkedConnections' aus Sicherheitsgründen.</S0038>
+			<S0044>Immer gruppieren</S0044>
+			<S0045>Immer alle Symbole und Benachrichtigungen auf der Taskleiste anzeigen</S0045>
+			<S0055>Automatischer Neustart bei BSOD Crash</S0055>
+			<S0062>Automatisch</S0062>
+			<S0067>Anfragen für erhöhte Rechte automatisch ablehnen</S0067>
+			<S0081>Balloon Tipps - Explorer und Desktop</S0081>
+			<S0082>Balloon Tipps - Ordnerinhalte Informationen</S0082>
+			<S0083>Balloon Tipps - Benachrichtigungsbereich</S0083>
+			<S0084>Balloon Tipps - Start Button</S0084>
+			<S0089>Verhalten der Eingabeaufforderung für Administratoren im Administratorbestätigungsmodus</S0089>
+			<S0090>Verhalten der Eingabeaufforderung für Standardbenutzer</S0090>
+			<S0101>Hochfahren</S0101>
+			<S0105>Direkt Desktop hochfahren (Startseite überspringen)</S0105>
+			<S0114>Cache Miniaturansichten </S0114>
+			<S0127>CD Brennfunktionen</S0127>
+			<S0154>Liste der zuletzt geöffneten Dokumente beim Beenden bereinigen</S0154>
+			<S0166>Kombinieren, wenn Taskleiste voll ist</S0166>
+			<S0169>Allgemeine Steuerung und Fensteranimationen</S0169>
+			<S0195>Enthält Windows Dienst Systemstart Werte.</S0195>
+			<S0198>Systemsteuerung - Klassische Ansicht</S0198>
+			<S0199>Systemsteuerung - Kleine Symbole</S0199>
+			<S0200>Regelt, was Windows in einem Falle eines Absturzes macht.</S0200>
+			<S0216>Absturz Regelung</S0216>
+			<S0235>Erkennung inaktiver Gateways</S0235>
+			<S0236>Erkennung inaktiver Gateways ist eine Funktion von TCP, die Gateways, die nicht einwandfrei funktionieren identifiziert und den Computer auf einen neuen Standard Gateway umleitet.</S0236>
+			<S0244>Desktopsymbol - Systemsteuerung</S0244>
+			<S0245>Desktopsymbol - Arbeitsplatz</S0245>
+			<S0246>Desktopsymbol - Netzwerk</S0246>
+			<S0247>Desktopsymbol - Papierkorb</S0247>
+			<S0248>Desktopsymbol - Benutzerdateien</S0248>
+			<S0253>Erkennt Anwendungsinstallationen und führt die Eingabeaufforderung aus</S0253>
+			<S0261>Bestimmt das Ausmaß des System IP-Multicasting und des Internet Gruppenverwaltungsprotokolls.</S0261>
+			<S0270>Deaktiviert</S0270>
+			<S0279>Symbole anstatt Miniaturansichten anzeigen</S0279>
+			<S0280>Symbole anstatt von Miniaturansichten auf Netzwerkordner anzeigen</S0280>
+			<S0282>Taskleistensymbol anzeigen</S0282>
+			<S0307>Dynamische DNS PTR Ressourceneinträge</S0307>
+			<S0308>Dynamische DNS Updates</S0308>
+			<S0315>Nur signierte ausführen</S0315>
+			<S0316>Ohne Eingabeaufforderung ausführen</S0316>
+			<S0321>Aktiviert verknüpfte Verbindungen</S0321>
+			<S0322>Nur aktivieren, wenn der DHCP die Option Routersuche ausführt</S0322>
+			<S0323>Aktivieren oder deaktiviert die dynamische DNS Update Registrierung von PTR (Pointern) Datensätzen dieses DNS Clients, auch bekannt als Reverse-Lookup. PTR Einträge verbinden eine IP-Adresse mit einem Computernamen.</S0323>
+			<S0324>Aktivieren oder deaktivieren der DNS Update Registrierung für alle Adapter auf diesem Computer. 'Adressen dieser Verbindung in DNS registrieren' Kontrollkästchen von jeder Netzwerkschnittstelle TCP / IP erweiterten Eigenschaften, wird keine Wirkung haben, wenn hier deaktiviert.</S0324>
+			<S0325>UAC aktivieren - Alle Administratoren filtern (EnableLUA)</S0325>
+			<S0326>Aktiviert</S0326>
+			<S0382>Explorer</S0382>
+			<S0414>Integrierten Administrator filtern</S0414>
+			<S0474>ICMP Umleitung</S0474>
+			<S0478>Wenn deaktiviert, wird das Windows Store Taskleistensymbol leer bleiben.</S0478>
+			<S0535>Installer Erkennung</S0535>
+			<S0573>Verlauf der zuletzt geöffneten Dokumente behalten</S0573>
+			<S0630>Manuell</S0630>
+			<S0677>Multicast IGMP Ebene</S0677>
+			<S0683>Navigationsbereich - Automatisch zum aktuellen Ordner erweitern</S0683>
+			<S0684>Navigationsbereich - Alle Ordner anzeigen</S0684>
+			<S0685>Navigationsbereich - Favoriten anzeigen</S0685>
+			<S0686>Navigationsbereich - Bibliotheken anzeigen</S0686>
+			<S0705>Netzwerk</S0705>
+			<S0714>Nie gruppieren</S0714>
+			<S0721>Keine Multicast Unterstützung</S0721>
+			<S0742>Nur Dateien ausführen, welcher signiert und validiert sind</S0742>
+			<S0743>Nur UIAccess Anwendungen ausführen, welche an sicheren Orten installiert sind</S0743>
+			<S0745>Nur IP Multicast Pakete senden</S0745>
+			<S0785>Routersuche ausführen</S0785>
+			<S0840>Programmkompatibilitätsassistent</S0840>
+			<S0843>Eingabeaufforderung für Zustimmungen</S0843>
+			<S0844>Eingabeaufforderung für nicht Windows Binaries</S0844>
+			<S0845>Bei Eingabeaufforderung von Zustimmungen auf dem sicheren Desktop wechseln</S0845>
+			<S0846>Eingabeaufforderung der Anmeldeinformationen</S0846>
+			<S0847>Bei Eingabeaufforderung der Anmeldeinformationen auf dem sicheren Desktop wechseln</S0847>
+			<S0934>Alle Administratoren im Administratorbestätigungsmodus ausführen.</S0934>
+			<S0960>Sicherer Desktop bei Eingabeaufforderung</S0960>
+			<S0985>Senden und Empfangen von IP Multicast Paketen (nehmen an IGMP)</S0985>
+			<S0993>Dienste</S0993>
+			<S1008>Uhr anzeigen</S1008>
+			<S1010>Zeige die Netzlaufwerk verbinden/trennen Option</S1010>
+			<S1011>Zeige den Netzwerk Standort Assistenten bei neue Netzwerken</S1011>
+			<S1012>Anzeigen oder vollständig deaktivieren des Benachrichtigungsbereiches.</S1012>
+			<S1015>Abschalten ohne Anmeldung</S1015>
+			<S1064>Startmenü - Dokumenten Menü</S1064>
+			<S1065>Startmenü - Verwendungsverfolgung</S1065>
+			<S1092>Auf den sicheren Desktop wechseln, wenn Benutzeraufforderung nach erhöhten Rechten erscheint</S1092>
+			<S1096>System</S1096>
+			<S1106>Taskleiste - Schaltflächen gruppieren</S1106>
+			<S1107>Taskleiste Benachrichtigungen</S1107>
+			<S1108>Taskleiste - Auf alle Bildschirmen anzeigen</S1108>
+			<S1109>Taskleiste - Anzeigen von Store Anwendungen</S1109>
+			<S1110>Taskleiste - Kleine Symbole verwenden</S1110>
+			<S1112>TCP/IP</S1112>
+			<S1137>Der Wert ist die maximale Prozentzahl des Festplattenspeichers, welcher der Windows Installer für den Cache von alten Dateien verwenden kann. Die Richtlinie hat keinen Einfluss auf Dateien, die bereits gesichert sind.</S1137>
+			<S1143>Dieser Parameter steuert, ob Windows seine Routing Tabellen in Abhängigkeit von Internet Control Message Protocol (ICMP) Nachrichten ändert, welcher es direkt beauftragt, Datagramme für den Empfänger auf einem anderen Weg zu senden.</S1143>
+			<S1149>Diese Einstellung ermöglicht es Ihnen, das ein- oder ausblenden der Uhr in der Taskleiste.</S1149>
+			<S1173>Ein- oder ausgeschaltet der Explorer brennen, Format und automatisches Auswerfen von optischen Laufwerken Funktionen.</S1173>
+			<S1182>UAC Administrator Eingabeaufforderung</S1182>
+			<S1183>UAC Benutzer Eingabeaufforderung</S1183>
+			<S1185>UIAccess sicherer Speicherort erforderlich</S1185>
+			<S1186>UIAccess Toggle</S1186>
+			<S1244>Ansicht - Leere Laufwerke im Ordner Computer anzeigen</S1244>
+			<S1245>Ansicht - Erweiterungen bei bekannten Dateitypen anzeigen</S1245>
+			<S1246>Ansicht - Ausgeblendete Dateien, Ordner und Laufwerke anzeigen</S1246>
+			<S1247>Ansicht - Geschützte Systemdateien anzeigen</S1247>
+			<S1251>Virtualisiert Datei- und Registrierungsschreibfehler an Einzelbenutzerstandorten. Wenn deaktiviert, werden Anwendungen, die Daten an geschützten Orten schreiben, fehlschlagen.</S1251>
+			<S1252>Virtualisiert umgeleitete Schreibfehler </S1252>
+			<S1293>Windows Installer</S1293>
+			<S1294>Windows Installer Patch Cachegröße</S1294>
+			<S1342>Wert zurücksetzen</S1342>
+			<S1358>Windows Update (Wichtige Updates)</S1358>
+			<S1359>Updates automatisch installieren</S1359>
+			<S1360>Updates herunterladen, aber mich wählen lassen, wann Sie installieret werden sollen</S1360>
+			<S1361>Nach Updates suchen, aber mich wählen lassen, ob sie herunterladen und installieren werden sollen</S1361>
+			<S1362>Nie nach Updates suchen</S1362>
+			<S1363>Empfohlenen Updates hinzufügen</S1363>
+			<S1364>Erlaubt Benutzern (Nicht Admins) Updates zu installieren</S1364>
+			<S1377>Adobe Typ Verwaltung Schriftartentreiber  (ATMFD)</S1377>
+			<S1378>Deaktivieren Sie ATMFD.DLL, um die Erhöhung von Berechtigungen zu vermeiden. Sehen Sie sich die Security Bulletin MS15-077 für weitere Informationen an.</S1378>
+			<S1411>Schreibt ein Ereignis in das Systemprotokoll</S1411>
+			<S1412>Debuginformationen schreiben</S1412>
+			<S1413>Kleines Memory Dump (256 KB)</S1413>
+			<S1414>Kernel Memory Dump</S1414>
+			<S1415>Kompletter Memory Dump</S1415>
+			<S1416>Automatischer Memory Dump</S1416>
+			<S1512>Erlaubt</S1512>
+			<S1513>Benutzer können nicht Microsoft-Konten hinzufügen</S1513>
+			<S1514>Benutzer können nicht ein Microsoft-Konto hinzufügen oder sich damit anmelden</S1514>
+			<S1518>Auslagerungsdatei (pagefile)</S1518>
+			<S1519>Um die Auslagerungsdatei zu deaktivieren, was im Allgemeinen nicht zu empfehlen ist, setzen Sie Laufwerk auf '-' (ohne die Anführungszeichen). Für den automatischen Einstellungen, setzen Laufwerk auf '?' (ohne die Anführungszeichen), in diesem Fall wird die Größe ignoriert. Für eine automatische Größe stellen Sie den Buchstabe und beide Größen auf 0</S1519>
+			<S1520>Ruhezustand Größe (RAM %)</S1520>
+			<S1521>Legen Sie die Größe der hibernate.sys Datei in Bezug auf Ihren Arbeitsspeicher. 75% der Arbeitsspeicher-Größe ist der Standardwert, 75-100% wird empfohlen, 50% ist das Minimum. 0 vor der Installation bedeutet 75%, nicht deaktiviert; verwenden Sie die Post-Setup-Seite, um den Ruhezustand zu deaktivieren.</S1521>
+			<S1545>Laufwerk</S1545>
+			<S1546>Anfangsgröße </S1546>
+			<S1547>Maximale Größe</S1547>
+			<S1680>Automatische Installation von gesponserte Apps (Verbrauchererfahrung )</S1680>
+			<S1681>Dies wird Vorschläge und automatische Installation (wie Candy Crush, Facebook und ähnliches) von gesponserten Apps für neue Benutzer deaktivieren.</S1681>
+			<S1682>Automatische Aktivierung</S1682>
+			<S1683>Verwenden Sie dies, um die automatische Windows-Aktivierungsfunktion zu steuern. Wenn diese Option deaktiviert ist, müssen Sie in die Systemeigenschaften gehen und es manuell aktivieren.</S1683>
+			<S1684>Automatische Aktualisierung von Gerätetreibern und Symbolen über das Internet</S1684>
+			<S1685>Gerätetreiber aktualisieren</S1685>
+			<S1686>Damit dies funktioniert, muss die automatische Treiberaktualisierung deaktiviert sein.</S1686>
+			<S1687>Nur wenn nicht installiert</S1687>
+			<S1723>Desktop</S1723>
+			<S1724>Bei Reaktivierung, Anmeldeseite anzeigen</S1724>
+			<S1733>Energieoptionen</S1733>
+			<S1737>Zeige Task View Schaltfläche</S1737>
+			<S1768>Verwenden Sie nur die neueste CLR (.NET version)</S1768>
+			<S1769>Zwingt .NET-Anwendungen dazu, die neueste installierte Framework Version auf dem System zu verwenden, sodass es nicht mehr erforderlich ist, frühere Versionen wie 2.0 oder 3.5 zu installieren.</S1769>
+			<S1770>Windows Bildbetrachter wiederherstellen</S1770>
+			<S1771>Verwenden des herkömmlichen Windows Bildbetrachters, um Bilder zu öffnen, anstatt der Fotos App.</S1771>
+			<S1778>Erlauben Experimentieren</S1778>
+			<S1779>Bestimmt die Ebene, in der Microsoft mit dem Produkt experimentieren kann, um Benutzereinstellungen oder Geräteverhalten zu untersuchen.</S1779>
+			<S1780>Diese Einstellung wurde als nicht unter Win10 1607 unterstützt dokumentiert.</S1780>
+			<S1781>Telemetrie zulassen</S1781>
+			<S1782>Niedrigste Einstellung, Sicherheitsstufe (0), dokumentiert als nicht unter Win10 Pro und Home unterstützt, entspricht Basic.</S1782>
+			<S1783>Standort zulassen</S1783>
+			<S1784>Gibt an, ob der App-Zugriff auf den Standortdienst zugelassen werden soll, um auch den Dienst selbst zu deaktivieren: gehe zu Config - Dienste - 'Geolokalisierungsdienst'</S1784>
+			<S1786>Sicherheit</S1786>
+			<S1787>Basic</S1787>
+			<S1788>Verbessert</S1788>
+			<S1789>Voll</S1789>
+			<S1790>Diese Einstellung ist nicht wichtig, wenn die zugrundeliegende Komponente entfernt wird, hier zur Vollständigkeit. Diese Einstellung ist nicht wichtig, wenn die zugrundeliegende Komponente entfernt wird, hier zur Vollständigkeit.</S1790>
+			<S1821>Standard für Enterprise und Education Versionen</S1821>
+			<S1822>Standard für Pro und Home Versionen</S1822>
+			<S1823>Beinhaltet Microsoft Windows Tool zum Entfernen von bösartiger Software Updates</S1823>
+			<S1824>Automatische Aktualisierung der Sprachmodelle</S1824>
+			<S1825>Automatische Aktualisierung der Root-Zertifikat-Vertrauensliste</S1825>
+			<S1826>Personalisieren Sie Ihre Sprache, Eingabe und Maleingaben, indem Sie Ihre Eingabedaten an Microsoft senden</S1826>
+			<S1827>Lassen Sie Anwendungen die Benutzer-Werbe-ID für Erfahrungen über Apps nutzen</S1827>
+			<S1828>Schalten Sie SmartScreen-Filter ein, um die Webinhalte (URLs) zu überprüfen, die von den Windows Store-Apps verwendet werden</S1828>
+			<S1829>Verwenden Sie SmartScreen Online-Dienste, um Webinhalte in Edge zu überprüfen</S1829>
+			<S1830>Sendet Microsoft Infos darüber, wie Sie schreiben, um Microsoft zu helfen, das Schreiben und Eingeben in der Zukunft zu verbessern</S1830>
+			<S1831>Lässt Webseiten lokal relevante Inhalte, durch den Zugriff auf die Benutzersprachenliste zu</S1831>
+			<S1832>Kamera</S1832>
+			<S1833>Mikrofon</S1833>
+			<S1834>Benutzer Kontoinformation</S1834>
+			<S1835>Kontakte</S1835>
+			<S1836>Kalender</S1836>
+			<S1837>Anrufliste</S1837>
+			<S1839>Nachrichten (Text oder MMS)</S1839>
+			<S1840>Radios steuern</S1840>
+			<S1841>Teilen und synchronisieren Sie Informationen mit nicht explizit gekoppelten drahtlosen Geräten</S1841>
+			<S1843>Benachrichtigungen</S1843>
+			<S1844>Telefonanrufe</S1844>
+			<S1845>Bewegungsdaten</S1845>
+			<S1846>Schrittzähler</S1846>
+			<S1847>Andere Sensoren</S1847>
+			<S1848>Sammelt den eingegebenen Text, damit Windows und Cortana Sie besser verstehen können</S1848>
+			<S1849>Sammle den geschriebenen Text (Ink), damit Windows und Cortana Sie besser verstehen können</S1849>
+			<S1850>Sammle Kontakte, um Windows und Cortana besser zu verstehen</S1850>
+			<S1851>Erlaubt Anwendungen, auf Ihren anderen Geräten öffnen und fortsetzen, um eine bessere Benutzererfahrungen auf diesem Gerät zu haben</S1851>
+			<S1852>Erlaubt Anwendungen, die Benutzung von Bluetooth auf Ihren anderen Geräten, um Anwendungen zu öffnen und fortzusetzen, um eine bessere Benutzererfahrungen auf diesem Gerät zu haben</S1852>
+			<S1853>Automatische Verbindung zu vorgeschlagenen offenen Hotspots.</S1853>
+			<S1854>Automatische Verbindung zu temporären Hotspots, um zu sehen, ob bezahlte Netzwerkdienste verfügbar sind.</S1854>
+			<S1855>Erlaubt Skype (falls installiert), sich mit Freunden in Ihrem Adressbuch zu verbinden und Ihre Handynummer zu bestätigen</S1855>
+			<S1856>Verwenden Sie den SmartScreen-Online-Dienste zum Schutz vor schädlichen Anwendungen</S1856>
+			<S1857>Verwenden Sie SmartScreen-Online-Dienste, um Webinhalte im Internet Explorer zu überprüfen</S1857>
+			<S1858>Verwenden Sie die Seitenvorhersage, um das Lesen zu verbessern und das Surfen zu beschleunigen. Ihre Browser-Daten werden an Microsoft gesendet.</S1858>
+			<S1859>Sammle Anwendungsinventar</S1859>
+			<S1860>Windows Update und WSUS, ohne Peering, mit Cloud-Service</S1860>
+			<S1861>Peering nur im lokalen Netzwerk mit Cloud-Service</S1861>
+			<S1862>Peering nur in der Gruppe (basierend auf Active Directory), mit Cloud-Service</S1862>
+			<S1863>Peering auf LAN und Internet, mit Cloud-Service</S1863>
+			<S1864>Windows Update und WSUS, ohne Peering oder Cloud-Service</S1864>
+			<S1865>Vollständig umgehen, BITS-Dienst stattdessen verwenden</S1865>
+			<S1888>Privatsphäre-Einstellungen</S1888>
+			<S1889>Synchronisierungsanbieter-Benachrichtigungen anzeigen</S1889>
+			<S1890>Bietet schnelle Informationen über Dinge, die Sie tun können, oder neue Funktionen, die Sie ausprobieren können, wie OneDrive-Anzeigen.</S1890>
+			<S1899>Lässt Windows App Startvorgänge verfolgen, um Start und Suchergebnisse zu verbessern</S1899>
+			<S1901>Diagnoseinformationen</S1901>
+			<S1902>Lässt Apps im Hintergrund laufen</S1902>
+			<S1903>Finde mein Gerät</S1903>
+			<S1904>Windows-Bildschirm Spotlight sperren</S1904>
+			<S1905>Erhalten Sie lustige Tatsachen, Tipps, Tricks und mehr auf Ihrem Lockscreen</S1905>
+			<S1906>Vorinstallierte Apps</S1906>
+			<S1907>Werbefliesen wie Minecraft, Candy Crush, Flipboard etc.</S1907>
+			<S1908>Automatische Installation von vorgeschlagenen Apps</S1908>
+			<S1909>Im Startmenü gelegentlich Vorschläge anzeigen</S1909>
+			<S1910>Vorinstallierte OEM-Apps</S1910>
+			<S1911>Windows Willkommenserfahrung nach Updates anzeigen</S1911>
+			<S1912>Holen Sie sich Tipps, Tricks und Vorschläge, wie Sie Windows verwenden</S1912>
+			<S1913>Doppelklicken oder drücken des ersten Buchstaben eines Wertes, um schneller zu wählen.</S1913>
+			<S1918>Ersetzen Sie die Eingabeaufforderung mit Windows PowerShell im Startknopf mit der rechten Maustaste</S1918>
+			<S1919>Verwenden Sie Hotspot 2.0 Online-Anmeldung, um eine Verbindung herzustellen</S1919>
+			<S1933>Zeige häufig verwendete Ordner im Schnellzugriff</S1933>
+			<S1934>Zeige kürzlich verwendete Dateien im Schnellzugriff</S1934>
+			<S1935>Öffnet den Datei-Explorer nach</S1935>
+			<S1936>Dieser PC</S1936>
+			<S1937>Schnellzugriff</S1937>
+			<S1938>Konflikte beim zusammenführen von Ordnern ausblenden</S1938>
+			<S1939>Verwenden Sie den Freigabe-Assistenten</S1939>
+			<S1940>Zeigen Sie zuletzt geöffnete Einträge in Sprunglisten am Start oder der Taskleiste an</S1940>
+			<S1941>Lassen Sie Microsoft maßgeschneiderte Erfahrungen mit relevanten Tipps und Empfehlungen erhalten, indem Sie Ihre Diagnosedaten verwenden</S1941>
+			<S1942>Dies ist eine Richtlinie, die alle damit zusammenhängenden Einstellungen in Windows und Anwendungen betrifft, die es unterstützen.</S1942>
+			<S1943>Treiber mit Windows Updates einschließen</S1943>
+			<S1944>'Windows Update ist auf dem Weg' Nachricht anzeigen</S1944>
+			<S1964>DISM ResetBase-Funktionalität</S1964>
+			<S1965>Um die Funktion DISM / ResetBase voll auszunutzen, müssen Sie diese Option aktivieren. Unter Windows 10 ist es standardmäßig deaktiviert, nur Delta-Komprimierung statt echter Basis-Reset.</S1965>
+			<S1968>Verbesserter geschützter Modus aktivieren</S1968>
+			<S1969>Aktivieren Sie 64-Bit-Prozesse für den erweiterten Schutzmodus</S1969>
+			<S1970>Shell-Ordner</S1970>
+			<S1971>DNS-Multi-Heim-Namensauflösung</S1971>
+			<S1972>Wenn deaktiviert, kann es bei DNS-Auflösungs-Timeouts und erhöhter Privatsphäre aufgrund von DNS-Anforderung Lecks auf verbundenen Netzwerken helfen.</S1972>
+			<S1973>DNS parallele Namensauflösung</S1973>
+			<S2407>Zusatzdienste</S2407>
+			<S2408>Enthält bootkritische und Treiberdienste, die hauptsächlich mit Komponenten entfernt wurden.</S2408>
+			<S2421>Zeige immer mehr Details in einem Dateikopiedialog</S2421>
+			<S2422>Immersives Kontextmenü</S2422>
+			<S2423>Dunkles Design für Apps</S2423>
+			<S2424>Akzentfarbe auf Start, Taskleiste und Aktionscenter anzeigen</S2424>
+			<S2425>Akzentfarbe in aktiven Titelleisten anzeigen</S2425>
+			<S2426>Akzentfarbe</S2426>
+			<S2427>Akzentfarbe auf inaktiven Titelleisten</S2427>
+			<S2428>Bei der Einstellung "Schwarz" wird die aktive Akzentfarbe verwendet, während "Standard" auf "Transparent" gesetzt wird. Dabei wird eine Fensterfarbe verwendet.</S2428>
+			<S2462>Zeigt den Sperrbildschirm an</S2462>
+			<S2463>Zeigt den letzten Benutzernamen im Anmeldebildschirm an</S2463>
+			<S2464>Verwenden der klassischen Anmeldung</S2464>
+			<S2465>Für den klassischen Anmeldebildschirm müssen Benutzer manuell einen Anmeldenamen und ein Kennwort eingeben, um auf das System zugreifen zu können. Standardmäßig zeigt Windows Benutzernamen zur Auswahl an.</S2465>
+			<S2480>Apps Zugriff erlauben</S2480>
+			<S2481>Termine</S2481>
+			<S2482>Dateisystem</S2482>
+			<S2483>Dokumentenbibliothek</S2483>
+			<S2484>Bilder Bibliothek</S2484>
+			<S2485>Videos Bibliothek</S2485>
+			<S2486>Lass Windows meine Aktivitäten von diesem PC sammeln ('Zeitleiste')</S2486>
+			<S2487>Vorgeschlagenen Inhalten in der App "Einstellungen" anzeigen</S2487>
+			<S2489>Apps nach einem Update oder Neustart wieder öffnen</S2489>
+			<S2490>Wenn diese Option aktiviert ist, meldet sich ein Gerät automatisch an, stellt die Sitzung wieder her und sperrt den letzten interaktiven Benutzer nach einer Aktualisierung oder einem Neustart.</S2490>
+			<S2491>Vollbild-Optimierungen</S2491>
+			<S2492>Wenn aktiviert, kann dies zu einer besseren Spiele- und App-Leistung führen.</S2492>
+			<S2530>Fernzugriff auf administrative Freigaben</S2530>
+			<S2531>Eingabeaufforderung in Verzeichniskontextmenüs</S2531>
+			<S2532>Personen in der Taskleiste anzeigen</S2532>
+			<S2533>Edge Desktop-Verknüpfungserstellung</S2533>
+			<S2534>Defender Konto Schutz-Warnung zur Verwendung eines MS-Kontos</S2534>
+			<S2535>Papierkorb</S2535>
+			<S2536>Löschbestätigungsdialog anzeigen</S2536>
+			<S2540>Aktivitätsempfehlungen beim Gerätewechsel</S2540>
+			<S2541>Verwenden Sie den Verlauf meiner angemeldeten Geräte</S2541>
+			<S2580>Verlauf der Zwischenablage</S2580>
+		</List>
+		<Title>
+			<S0611>Lokaler Computer</S0611>
+			<S1175>Optimierungen</S1175>
+			<S1235>Benutzer</S1235>
+			<S1498>Diensteinstellungen ändern. Achten Sie darauf, dass Sie wichtige Dienste nicht deaktivieren.</S1498>
+			<S1499>Ändern Sie verschiedene Windows-Einstellungen für alle Benutzer.</S1499>
+		</Title>
+		<Toolbar>
+			<S0922>Setzt die aktuellen Registerkarten Einstellungen auf die Quellwerte.</S0922>
+			<S0953>Anwendungsbereich</S0953>
+		</Toolbar>
+	</Tweaks>
+	<Apply>
+		<List>
+			<S0031>Alle Änderungen werden direkt auf der existierenden Host Installation gespeichert</S0031>
+			<S0033>Alle anderen gemounteten Images werden ungemountet und die Änderungen gespeichert</S0033>
+			<S0074>Sicherungsprotokoll und Vorlage auf die Quelle sichern</S0074>
+			<S0076>Sicherungsprotokoll auf die Quelle sichern</S0076>
+			<S0079>Vorlage auf die Quelle sichern</S0079>
+			<S0106>Beide basis Bootmanager stehen in der Warteschlange für die Entfernung (PCAT and EFI), dies würde das Image nicht mehr bootfähig machen.</S0106>
+			<S0117>Beenden den Vorgang. Stellt bereits erledigte Änderungen nicht wieder her.</S0117>
+			<S0129>Ändern</S0129>
+			<S0130>Ändern und ausführen</S0130>
+			<S0147>Säubere ausstehende Aktionen</S0147>
+			<S0181>Komponenten wurden bereits auf diesem Image entfernt, deshalb könnte die Update Integration aufgrund fehlender Dateien scheitern</S0181>
+			<S0189>Funktionen konfigurieren</S0189>
+			<S0269>Deaktivieren</S0269>
+			<S0275>Unbeaufsichtigte Festplattenkonfiguration vorhanden, Partitionen werden zum starten dieses Images automatisch konfiguriert.</S0275>
+			<S0286>Diese Mitteilung nicht mehr in der Zukunft anzeigen</S0286>
+			<S0371>Die vorhandene unbeaufsichtigte Antwortdatei wird gelöscht</S0371>
+			<S0379>SetupComplete.cmd explizit ausführen</S0379>
+			<S0425>Für ein UEFI Image, GPT Datenträger, fügen Sie die zwingend benötigte 100 MB EFI als erste Partition ein und markieren Sie keine Partition als aktiv</S0425>
+			<S0500>Image wird in einem unbekannten Zustand gelassen, es wird sehr empfehlen die Änderungen zu verwerfen, bevor Sie weiter fortfahren.</S0500>
+			<S0530>Pakete installieren</S0530>
+			<S0538>Treiber integrieren</S0538>
+			<S0539>Pakete integrieren</S0539>
+			<S0574>Nur behalten</S0574>
+			<S0722>Keine ausstehenden Änderungen vorhanden, verwenden Sie die Symbolleiste oben oder das Navigationsmenü auf der linken Seite um einige Optionen zu verändern</S0722>
+			<S0811>Post Setup Aufgaben</S0811>
+			<S0817>Daten vorbereiten</S0817>
+			<S0837>Fortfahren auf eigene Gefahr.</S0837>
+			<S0842>Fortschritt</S0842>
+			<S0866>Lesen von aktualisierten Daten</S0866>
+			<S0900>Komponenten entfernen</S0900>
+			<S0901>Entfernte Dateien</S0901>
+			<S0902>Nicht entfernte Dateien</S0902>
+			<S0933>Ausführen</S0933>
+			<S0945>Änderungen speichern und das Image entladen</S0945>
+			<S0983>Optional: Überprüfen Sie die Geräte-Checkliste auf der rechten Seite unter Treiber</S0983>
+			<S1056>Image in mehrere Teile aufteilen, wenn größer als</S1056>
+			<S1071>Vor dem Speichern des Images anhalten</S1071>
+			<S1072>Prozess anhalten?</S1072>
+			<S1111>Aufgaben</S1111>
+			<S1141>Dies ist eine Live (online) Host Maschine Bearbeitungssitzung. Es wird dringend empfohlen, eine Sicherungskopie bereit zu haben, falls etwas schief geht.</S1141>
+			<S1150>Diese Quelle wurde zuvor während des Vorgangs abgebrochen und kann in einemunstabilen Zustand sein</S1150>
+			<S1191>Ziel der unbeaufsichtigten Antwortdatei</S1191>
+			<S1193>Unbeaufsichtigte Installation</S1193>
+			<S1337>Anhalten nach der Verarbeitung wurde gewählt, so dass das Image manuell von der Hauptseite entladen werden muss, damit Änderungen gespeichert werden können.</S1337>
+			<S1373>Schauen Sie sich die Update Integration Analyse Meldungen auf der Seite Aktualisierungen an, um empfohlenen Schritte zu sehen</S1373>
+			<S1399>Mindestens eine Metro Anwendung muss behalten werden, so dass das Windows 10 Startmenü richtig installiert wird.</S1399>
+			<S1400>Gehen Sie zur der Komponenten Seite und behalten Sie eine davon.</S1400>
+			<S1429>Finale Installation Größe</S1429>
+			<S1559>Stellen Sie sicher, dass der Benutzer auf dem Server in Active Directory "Computer in die Domäne Einbinden" zu ermöglichen, und Sie müssen einen Computernamen angeben. Der Computername dieses Images kann auch während der Installation zufällig generiert oder abgefragt werden. Weitere Informationen finden Sie in der Beschreibung der unbeaufsichtigten Computername-Option.</S1559>
+			<S1572>Registry integrieren</S1572>
+			<S1598>Mindestens ein Tastaturlayout muss behalten werden, sodass Sie tippen können.</S1598>
+			<S1599>Mindestens eine Schriftart muss behalten werden, sodass Windows Text angezeigt kann.</S1599>
+			<S1600>Mindestens eine Sprache muss behalten werden, sodass Windows Inhalte anzeigen kann.</S1600>
+			<S1777>Treiber installieren</S1777>
+			<S1976>Schutzfunktionen sind deaktiviert, es wird keine Unterstützung bereitgestellt, sofern das Problem nicht persistent ist und die Schutzfunktionen aktiviert sind.</S1976>
+			<S2406>Um Integrationen oder Funktionen-Konfiguration verwenden zu können, darf die Kernwartungsstapel-Komponente nicht entfernt werden..</S2406>
+			<S2468>Wenn Probleme auftreten, verwenden Sie den Host-Aktualisierungsassistenten zum Aktualisieren.</S2468>
+			<S2469>Wenn Sie ein Image erstellen, entfernen Sie Komponenten vor oder nach der Update Integration. Es wird immer empfohlen, bei der Integration neuer Updates von neuem anzufangen.</S2469>
+			<S2548>Dateien</S2548>
+			<S2549>Komplette Dateien</S2549>
+			<S2550>Einzigartige Dateien</S2550>
+			<S2551>ISO Dateien</S2551>
+		</List>
+		<Title>
+			<S0051>Anwenden</S0051>
+			<S0929>Konfigurieren Sie Image Aufgaben, schauen Sie sich noch einmal alle Änderungen an und benutzen Sie den Knopf zum Verarbeiten in der Symbolleiste, wenn Sie bereit sind.</S0929>
+		</Title>
+		<Other>
+			<S0052>Anwenden</S0052>
+			<S0148>Bereinigung</S0148>
+			<S0150>Bereinigung von leeren Verzeichnissen</S0150>
+			<S0151>Bereinigung von übergebliebenen Einträgen</S0151>
+			<S0271>Deaktivieren</S0271>
+			<S0336>Aktivieren</S0336>
+			<S0358>Fehler und Warnungen</S0358>
+			<S0397>Extrahieren</S0397>
+			<S0438>Funktionen Schutz</S0438>
+			<S0536>Installieren</S0536>
+			<S0543>Integrationsprozess</S0543>
+			<S0544>Integration Boot Image</S0544>
+			<S0762>Paket</S0762>
+			<S0819>Vorbereitung von Daten</S0819>
+			<S0821>Konfigurationsvorbereitung von Funktionen</S0821>
+			<S0823>Integration vorbereiten</S0823>
+			<S0834>Vorherige Paket Integration, hat jede weitere Integration in dieses Image gesperrt.</S0834>
+			<S0838>Bearbeitungsprozess</S0838>
+			<S0909>Veraltete Dateien entfernen</S0909>
+			<S0928>Treiber Cache Dateien weiterverwenden</S0928>
+			<S0952>Nach veraltete Dateien suchen</S0952>
+			<S1027>Übersprungen</S1027>
+			<S1030>Service Pack Slipstreamen</S1030>
+			<S1142>Dieses Paket erfordert einen neuen Wartungsstapel oder eine neuere Version von Windows.</S1142>
+			<S1433>Windows Defender ist aktiviert, es wird empfohlen diesen, für eine viel schnellere Verarbeitung zu deaktivieren.</S1433>
+			<S1435>Windows Defender kann nicht automatisch deaktiviert werden, bitte deaktivieren Sie den manuellen Echtzeitschutz in den Einstellungen.</S1435>
+			<S1436>Drücken Sie auf JA, um die Windows Defender Einstellungen zu öffnen.</S1436>
+		</Other>
+		<Toolbar>
+			<S0073>Sicherungsprotokoll</S0073>
+			<S0075>Kopieren des aktuellen Sitzungsprotokolls in die Quelle, für zukünftige Debugging Zwecke.</S0075>
+			<S0077>Sicherungsvorlage</S0077>
+			<S0078>Kopieren der aktuell automatisch gespeicherten Vorlage in die Quelle, für die künftige Wiederverwendung oder Debugging Zwecke.</S0078>
+			<S0152>Säubere Update Backups</S0152>
+			<S0153>Veraltete Backup Dateien werden entfernt und nur aktuelle Versionen werden behalten. Alle vorhandenen Service Packs und Updates, können dann nicht mehr nach dieser Operation deinstalliert werden. Dies wird nicht die Deinstallation von zukünftigen Service Packs oder Updates blockieren. </S0153>
+			<S0222>Nachdem das Image gespeichert ist, automatisch das ISO Image erstellen. Parameter in der Warteschlange werden aufgerufen, wenn diese Option aktiviert wird.</S0222>
+			<S0360>ESD Kompression</S0360>
+			<S0361>Komprimiert das Image mit dem ESD Format, wird nur von Windows 8 und neuere unterstützt. Fertiges Image wird kleiner, muss aber wieder in ein WIM Image konvertiert werden, um bearbeitete zu werden.</S0361>
+			<S0385>Image neu erstellen, möglicherweise wird die Größe reduziert. Auf diese Weise wird die aktuell ausgewählte Version, als einzige Imagedatei behalten.</S0385>
+			<S0809>Image Nachbearbeitung</S0809>
+			<S0926>Treiber Cache wiederverwenden</S0926>
+			<S0927>Reduziert effektiv die Windows Größe, verwendet NTFS Links zwischen identischen Treiberdateien im Cache und die im momentanen Einsatz (z.B. System32). Der meiste Speicherplatz wird gespart, wenn es im Live Einsatz mit installierten Treiber verwendet wird.</S0927>
+			<S0944>Änderungen speichern und unmounten</S0944>
+			<S0946>Änderungen speichern und das aktuell geladene Image unmounten.</S0946>
+			<S0955>Funktionen versiegeln</S0955>
+			<S0956>Entfernt veraltete Windows 7 Funktionen Updates und reduziert die Größe noch mehr. Windows Funktionen (CPanel-&gt;Programs-&gt;Features) können nicht mehr nach diesem Vorgang geändert werden, deshalb sollten Sie diese auf der Funktionen Seite einrichten, wenn Sie diese Option benutzen. </S0956>
+			<S1053>Teilen</S1053>
+			<S1058>Teilt das ausgewählte WIM Image in mehrere SWM Teile. Wird zum Beispiel verwendet, um die FAT32 4 GB Einzeldatei Beschränkung zu umgehen oder das Image auf mehreren Medien aufzuteilen.</S1058>
+			<S1062>Verarbeiten</S1062>
+			<S1066>Alle ausstehenden Änderungen anwenden.</S1066>
+		</Toolbar>
+	</Apply>
+	<PostSetup>
+		<Other>
+			<S0032>Alle Dateien</S0032>
+			<S0125>Vorsicht mit Silent Installationen, die sich als Ausführung installieren.</S0125>
+			<S0366>Ausführen</S0366>
+			<S0367>Ausführen von</S0367>
+			<S0369>Vorhanden</S0369>
+			<S0534>Installer</S0534>
+			<S0771>Parameter</S0771>
+			<S0884>Registry</S0884>
+			<S0966>Dateien zum hinzufügen wählen</S0966>
+			<S0995>Setzen</S0995>
+			<S1068>Status</S1068>
+			<S1088>Unterstützte Typen</S1088>
+			<S1168>Versuchte, nicht existierenden Befehl zu entfernen</S1168>
+			<S1177>Typ</S1177>
+			<S1202>Unbekannt</S1202>
+			<S1344>Batch</S1344>
+			<S1345>Passiv</S1345>
+			<S1352>benutzen als</S1352>
+			<S1424>Platzhalter Zeile für potenziell aufgeschobene Updates</S1424>
+			<S1425>An die entsprechende Position bewegen. Am besten zuletzt oder vor einer damit in Konflikt stehenden Ausführung, wie der OEM Aktivierung oder einem Zwangs Neustart.</S1425>
+			<S1561>Script</S1561>
+	</Other>
+		<Toolbar>
+			<S0167>Befehl</S0167>
+			<S0168>Hinzufügen einer Befehlszeile Anweisung für die Ausführung nach der Installation</S0168>
+			<S0368>Ausführungswarteschlange</S0368>
+			<S0411>Hinzufügen eines Installationsprogrammes mit Parametern, SFX Archiv, Powershell Skript oder eine REG-Datei für die Ausführung nach der Windows Einrichtung</S0411>
+			<S0769>Parameter Informationen</S0769>
+			<S0770>Probieren Sie die Hilfeschalter auf dem ausgewählten Installationsprogramm, um die Liste der verfügbaren Parameter zu sehen</S0770>
+			<S0904>Ausgewählte Zeilen entfernen</S0904>
+			<S0921>Quellenzustand zurücksetzen. Entfernt neue und stellt vorhandene Einträge wieder her.</S0921>
+			<S1374>Nach oben bewegen</S1374>
+			<S1375>Nach unten bewegen</S1375>
+			<S1515>Deaktiviert den Ruhezustand</S1515>
+			<S1517>Deaktiviert Benutzerkennwortablauf</S1517>
+			<S1548>Vorlage</S1548>
+			<S1975>VMware Tools installieren</S1975>
+		</Toolbar>
+		<Title>
+			<S0626>Verwaltet Post-Setup Befehlsausführung und Anwendungsinstallationen. Es wird am Ende der Einrichtung nur einmal als Systembenutzer ausgeführt.</S0626>
+			<S0810>Post-Setup</S0810>
+		</Title>
+	</PostSetup>
+	<Features>
+		<List>
+			<S0242>Beschreibung</S0242>
+			<S0401>Funktion</S0401>
+			<S1067>Zustand</S1067>
+		</List>
+		<Title>
+			<S0403>Funktionen</S0403>
+			<S0975>Wählen Sie, welche Funktionen aktiviert werden sollen. Diese Seite, macht das gleiche wie die Systemsteuerung - 'Windows Funktionen ein- oder ausschalten' macht.</S0975>
+		</Title>
+		<Toolbar>
+			<S0443>Allgemein</S0443>
+			<S0920>Funktion Einstellungen auf Quellen Standard zurücksetzen</S0920>
+		</Toolbar>
+	</Features>
+	<Registry>
+		<Title>
+			<S1565>Integrieren von Registry-Dateien und Bearbeiten von Registrierungsstrukturen, direkt auf das Image. HKCU gilt für alle Benutzer.</S1565>
+		</Title>
+		<Toolbar>
+			<S1566>REG-Dateien zur Liste hinzufügen</S1566>
+			<S1569>Bearbeiten</S1569>
+			<S1570>Bearbeiten von REG-Datei oder temporäres laden in Regedit.</S1570>
+			<S1575>Bearbeiten von Registrierungsstrukturen aus dem Image wird ermöglicht, indem die Struktur in Ihrem Host-Registrierung vorübergehend geladen wird unter:</S1575>
+			<S1576>Wenn Sie unsicher sind, nehmen Sie keine Änderungen manuell vor.</S1576>
+			<S1577>Um nicht die Registrierung der Host-Maschine zu beeinflussen, machen Sie alle Bearbeitungsschritte in dieser Registrierungsstrukturen und seinen Unterstrukturen.</S1577>
+			<S1578>Stellen Sie sicher, Regedit zu schließen, bevor Sie mit dem Tool weiter machen.</S1578>
+		</Toolbar>
+		<List>
+			<S1567>Registry-Warteschlange</S1567>
+			<S1568>Registrierungsstrukturen</S1568>
+			<S1571>Benutzer</S1571>
+		</List>
+		<Other>
+			<S1619>Einige Schlüssel aus dieser REG-Datei sind beim Anwenden fehlgeschlagen, wahrscheinlich wegen der Schlüsselberechtigungen. Versuchen Sie stattdessen die Post-Setup-Seite.</S1619>
+		</Other>
+	</Registry>
+</NTLiteTranslation>

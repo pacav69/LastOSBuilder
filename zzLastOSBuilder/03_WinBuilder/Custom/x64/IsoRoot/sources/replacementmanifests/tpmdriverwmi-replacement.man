@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-TPM-Driver-WMI"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      scope="Upgrade,Data"
+      settingsVersion="2"
+      replacementSettingsVersionRange="0-1"
+      alwaysProcess="yes"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <!--
+                 This rule will be used during the gather phase to capture all
+                 settings under the WMI key
+            -->
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\WMI\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\ODUID\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm [OsBootCount]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm [PlatformLogRetention]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\PlatformQuoteKeys [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <!--
+                 Don't copy over the old EkTries, EkRetryLast, or EkNoFetch values, so we have 10 more tries
+                 to get an EK cert if we don't already have one. Don't copy CHAS protocol version overrides, we might have updated
+                 them in new release
+            -->
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\WMI\Endorsement [EkTries]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\WMI\Endorsement [EkRetryLast]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tpm\WMI\Endorsement [EkNoFetch]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\TPM\WMI\HealthCert\Store\has.spserv.microsoft.com [GetProtocolOverride]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\TPM\WMI\HealthCert\Store\has.spserv.microsoft.com [VerifyProtocolOverride]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

@@ -1,0 +1,102 @@
+[Main]
+Title=Pre-Check
+Type=XPEPlugin
+Description=Pre-Check Before Building
+Author=ChriSR
+Date=2019.11.18
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=c't/ps
+Contact=
+History001=ChrisR - Initial plugin - 2019-11-18
+
+[Variables]
+%CheckRootDrive%=False
+%CheckBuild%=True
+%CheckTools%=True
+%CheckNtfsCompression%=True
+%CheckCmd%=True
+%CheckAV%=False
+%eicar%="X5O!P%@BP[4\PZX54(P^)7CC)7}$EICBR-STBNDBRD-BNTIVIRUS-TEST-FILE!$H+H*"
+%CheckCodeBox%=True
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,%CheckRootDrive%,Equal,True,Run,%scriptfile%,CheckRootDrive
+If,%CheckBuild%,Equal,True,Run,%ScriptFile%,CheckBuild
+If,%CheckTools%,Equal,True,Run,%ScriptFile%,CheckTools
+If,%CheckAV%,Equal,True,Run,%ScriptFile%,CheckAV
+If,%CheckNtfsCompression%,Equal,True,Run,%ScriptFile%,CheckNtfsCompression
+If,%CheckCmd%,Equal,True,Run,%ScriptFile%,CheckCmd
+If,%CheckCodeBox%,Equal,True,Run,%ScriptFile%,CheckCodeBox
+
+[CheckRootDrive]
+Set,%t%,0
+StrFormat,SPLIT,%BaseDir%,\,0,%t%
+If,%t%,Equal,1,EchoExtended,"Base Folder can not be a Root Drive (ex: D:).",Warn,,Message,,Halt
+
+[CheckBuild]
+If,%SourceBuild%,Smaller,16299,EchoExtended,"The Build is prepared for Windows 10 Build 16299 and maybe Following.#$x#$xDownload and choose a suitable Windows 10 Source.",Warn,,Message,,Halt
+
+[CheckTools]
+Set,%ToolsOK%,Yes
+If,Not,ExistFile,%GTools%\7z.dll,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\7z.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\CopyRegKey.cmd,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\GWT.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\HiveUnload.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\libwim-15.dll,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\mkisofs.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\SetACL.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\wiminfo.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\wimlib-imagex.exe,Set,%ToolsOK%,No
+If,Not,ExistFile,%GTools%\aria2c.exe,Set,%ToolsOK%,No
+If,%ToolsOK%,Equal,No,EchoExtended,"Error: Some Required Programs are Missing in the Tools Folder.",Warn,,MessageError,,Halt
+
+[CheckNtfsCompression]
+RegRead,HKLM,SYSTEM\CurrentControlSet\Control\FileSystem,NtfsDisableCompression,%NtfsDisableCompression%
+If,%NtfsDisableCompression%,Equal,1,EchoExtended,"NTFS File Compression s Disabled. Enable NTFS File Compression and Reboot to be Able to Build.",Warn,,Message,,Halt
+
+[CheckCmd]
+Set,%CmdAutorun%,""
+If,ExistRegKey,HKCU,"SOFTWARE\Microsoft\Command Processor",AutoRun,RegRead,HKCU,"SOFTWARE\Microsoft\Command Processor",AutoRun,%CmdAutorun%
+Else,Begin
+  If,ExistRegKey,HKLM,"SOFTWARE\Microsoft\Command Processor",AutoRun,RegRead,HKLM,"SOFTWARE\Microsoft\Command Processor",AutoRun,%CmdAutorun%
+End
+If,Not,-%CmdAutorun%,Equal,-,Echo,"AutoRun Command Processor = %CmdAutorun% is Executed Before All Other Variables.",Warn
+//-
+ShellExecute,Hide,cmd.exe,"/C echo ..."
+If,Not,%ExitCode%,Equal,0,EchoExtended,"cmd.exe Fails With the Return Code: %ExitCode% on a Basic Command (Echo).#$x#$xSolve the problem! on cmd.exe before building.",Warn,,Message,,Halt
+
+[CheckAV]
+Set,%w%,%GTemp%\Eicar_AntiMalware_Testfile.com
+StrFormat,Replace,%eicar%,B,A,%eicar%
+FileCreateBlank,%w%,NoWarn
+TXTAddLine,%w%,%eicar%,Append
+Wait,1
+ShellExecute,Hide,cmd.exe,"/D /C type #$q%w%#$q"
+If,ExistFile,%w%,FileDelete,%w%
+If,Not,%ExitCode%,Equal,0,Begin
+  Set,%answer%,No
+  If,Question,"The AntiVirus Software is Active on the Building Directory#$x#$xSome Tools, Programs are Wrongly Detected as Virus/Malware by Some AntiVirus Software (False Alert).#$xThe Build May be Corrupted.#$xFor More Infos, Read the Topic http://theoven.org/index.php?topic=2710.0#$x#$xFor a Successful Construction, It is Recommended to Add an AV Exclusion on the Base (Win10XPE) Folder.#$x#$xContinue Anyway ?",20,False,Set,%answer%,Yes
+  If,%answer%,Equal,No,Halt,"The AntiVirus Software is Active on the Building Directory"
+End
+
+[CheckCodeBox]
+Set,%w%,%ProjectDir%\CodeBox.txt
+If,Not,ExistFile,%w%,Begin
+  FileCreateBlank,%w%
+  TXTAddLine,%w%,"[main]",Append
+  TXTAddLine,%w%,"Title=CodeBox test",Append
+  TXTAddLine,%w%,"Description=Running custom commands",Append
+  TXTAddLine,%w%,"",Append
+  TXTAddLine,%w%,"[variables]",Append
+  TXTAddLine,%w%,"",Append
+  TXTAddLine,%w%,"[process]",Append
+  TXTAddLine,%w%,"If#$cExistFile#$c#$pAPI#$p#$cAddVariables#$c#$pAPI#$p#$cApiVar#$cGLOBAL",Append
+  TXTAddLine,%w%,"//-",Append
+End

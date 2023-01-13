@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity name="Microsoft-Hyper-V-Management-Clients"
+                    version="0.0.0.0"
+                    processorArchitecture="*"
+                    language="*"/>
+  <migration
+      scope="Upgrade"
+      settingsVersion="0"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.0-6.1"
+      alwaysProcess="yes"
+      >
+    <!-- This is used during in-place upgrade -->
+    <migXml xmlns="">
+      <detects>
+           <detect>
+               <condition>MigXmlHelper.DoesObjectExist("File", "%ProgramFiles%\Hyper-V [vmconnect.exe]")</condition>
+           </detect>
+      </detects>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <!-- Collect Hyper-V client configuration files. -->
+            <pattern type="File">%appdata%\Microsoft\Windows\Hyper-V\Client\1.0 [*.config]</pattern>
+          </objectSet>
+        </include>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <!-- Always copy the Hyper-V Client configuration files from source machine -->
+            <pattern type="File">%appdata%\Microsoft\Windows\Hyper-V\Client\1.0 [*.config]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

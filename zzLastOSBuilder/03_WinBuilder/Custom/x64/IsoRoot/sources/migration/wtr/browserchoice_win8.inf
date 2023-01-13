@@ -1,0 +1,25 @@
+[WTR]
+Name="BrowserChoice Win8"
+
+[WTR.*]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Windows\BrowserChoice\* [*]"
+"%SystemDrive%\ProgramData\Microsoft\Windows\AppRepository\ [BrowserChoice_6.2.0.0_neutral_neutral_cw5n1h2txyewy.xml]"
+"%SystemDrive%\ProgramData\Microsoft\Windows\Start Menu\Programs\ [Browser Choice.lnk]"
+
+[System.Registry]
+"HKLM\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\BrowserChoice_6.2.0.0_neutral_neutral_cw5n1h2txyewy\* [*]"
+"HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Families\BrowserChoice_cw5n1h2txyewy\* [*]"
+"HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\BrowserChoice_cw5n1h2txyewy\* [*]"
+"HKLM\SOFTWARE\Classes\Extensions\ContractId\Windows.Launch\PackageId\BrowserChoice_6.2.0.0_neutral_neutral_cw5n1h2txyewy\* [*]"
+
+[User.File]
+"%USERPROFILE%\AppData\Local\Packages\BrowserChoice_cw5n1h2txyewy\* [*]"
+"%USERPROFILE%\AppData\Local\PRICache\Microsoft\Windows\BrowserChoice_6.2.0.0_neutral_neutral_cw5n1h2txyewy\* [*]"
+
+[User.Registry]
+"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\browserchoice_cw5n1h2txyewy\* [*]"
+"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Families\BrowserChoice_cw5n1h2txyewy\* [*]"
+"HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\BrowserChoice_cw5n1h2txyewy\* [*]"

@@ -1,0 +1,104 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Hyper-V-VStack-Config"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <!--
+    To ensure that matching rules are used during the "gather" and "apply"
+    phases of an in-place upgrade, the following attributes should be updated
+    whenever a change is made to the...
+      
+      vm\manifests\root\vstack\microsoft-windows-virtualization-vstack-config.man
+      
+    ...manifest:
+
+      /assembly/migration/@settingsVersion
+    
+        This attribute should be incremented by one.  Any new value must be
+        mirrored in manifest located here:
+      
+        vm\manifests\root\vstack\microsoft-windows-virtualization-vstack-config.man
+        
+      /assembly/migration/@replacementSettingsVersionRange 
+    
+        This attribute should be set to "0-(@settingsVersion-1)".  For
+        example, if @settingsVersion is incremented to "4",
+        @replacementSettingsVersionRange should be "0-3".
+      
+    Additionally, the contents of the...
+    
+      /assembly/migration/migXml
+    
+    ...section should be mirrored between the two manifests.
+  -->
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      scope="Upgrade"
+      settingsVersion="1"
+      >
+    <!-- This is used during in-place upgrade -->
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File", "%systemroot%\system32 [vmms.exe]")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <!-- Collect Hyper-V Server settings in the registry -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization\* [*]</pattern>
+            <!-- Collect Hyper-V configuration files -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\Hyper-V\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <!-- Don't persist the Hyper-V Version value -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [Version]</pattern>
+            <!-- Don't persist the Hyper-V InstallDate value -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [InstallDate]</pattern>
+            <!-- Don't persist the Hyper-V CurrentVmVersion value -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [CurrentVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V CompatibleVmVersion value -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [CompatibleVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V MinimumImportVmVersion value. -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [MinimumImportVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V CachedClusterLowestVersion value -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [CachedClusterLowestVersion]</pattern>
+            <!-- Don't persist the Hyper-V CachedClusterFunctionalLevel value -->
+            <!-- This can be removed when we do not support upgrade from Threshold. -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [CachedClusterFunctionalLevel]</pattern>
+            <!-- Don't persist the Hyper-V ConfigMinSupportedFullVmVersion value -->
+            <!-- This can be removed when we do not support upgrade from Threshold. -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [ConfigMinSupportedFullVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V ConfigMinSupportedReadVmVersion value -->
+            <!-- This can be removed when we do not support upgrade from Threshold. -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [ConfigMinSupportedReadVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V StateMinSupportedFullVmVersion value -->
+            <!-- This can be removed when we do not support upgrade from Threshold. -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization [StateMinSupportedFullVmVersion]</pattern>
+            <!-- Don't persist the Hyper-V Integration Services version keys -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestInstaller\* [*]</pattern>
+            <!-- Don't persist the Hyper-V Virtual Device registration info -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization\VirtualDevices\* [*]</pattern>
+            <!-- Don't persist the Hyper-V WMI resource definition registration info -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization\WMI\* [*]</pattern>
+            <!-- Don't persist the Hyper-V WMI Resource Pool registration info -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\Virtualization\ResourcePools\* [*]</pattern>
+          </objectSet>
+        </exclude>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <!-- Always copy the Hyper-V configuration files and Azman store -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\Hyper-V\* [*]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

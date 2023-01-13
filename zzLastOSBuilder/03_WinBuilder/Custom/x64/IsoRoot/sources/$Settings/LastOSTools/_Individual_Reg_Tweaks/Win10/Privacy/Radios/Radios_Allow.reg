@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Allows apps to use radio (such as Bluetooth)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{A8804298-2D5F-42E3-9531-9C8C39EB29CE}] 
+"Value"="Allow" 

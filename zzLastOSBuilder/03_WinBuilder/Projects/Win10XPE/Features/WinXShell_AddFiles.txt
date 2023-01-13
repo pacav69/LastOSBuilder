@@ -1,0 +1,62 @@
+\Windows\Fonts\segoeui.ttf
+; DragAndDrop (in Winre.wim d2d1.dll,ksuser.dll)
+\Windows\System32\DataExchange.dll
+\Windows\System32\dcomp.dll
+\windows\system32\d3d11.dll
+\windows\system32\dxgi.dll
+; CopyProgress
+\Windows\System32\chartv.dll
+\Windows\System32\OneCoreUAPCommonProxyStub.dll
+; Control services
+\Windows\System32\sc.exe
+;
+; Browse folder. Additions for WinApps,...
+\Windows\System32\comctl32.dll
+\Windows\System32\shellstyle.dll
+\Windows\resources\Themes\aero\shell\
+\Windows\System32\twinapi.appcore.dll
+\Windows\System32\rmclient.dll
+\Windows\System32\StructuredQuery.dll
+\Windows\System32\ExplorerFrame.dll
+\Windows\System32\TextInputFramework.dll
+\Windows\System32\CoreUIComponents.dll
+\Windows\System32\Windows.Storage.Search.dll
+; System properties
+\windows\system32\systemcpl.dll
+;
+; Microsoft Managment Control (MMC)
+\windows\system32\apphelp.dll
+\Windows\System32\compmgmt.msc
+\Windows\System32\filemgmt.dll
+\Windows\System32\mycomput.dll
+\windows\system32\mmc.exe
+\windows\system32\mmcbase.dll
+\windows\system32\mmcndmgr.dll
+\windows\system32\mmcshext.dll
+\Windows\System32\OnDemandConnRouteHelper.dll
+;
+; Computer Manager
+\Windows\System32\compmgmt.msc
+\Windows\System32\??-??\compmgmt.msc
+\Windows\System32\CompMgmtLauncher.exe
+;
+;Disk Management
+\windows\system32\diskmgmt.msc
+\windows\system32\dmdlgs.dll
+\windows\system32\dmdskmgr.dll
+\windows\system32\dmdskres.dll
+\windows\system32\dmdskres2.dll
+\windows\system32\dmintf.dll
+\windows\system32\dmocx.dll
+\windows\system32\dmutil.dll
+\windows\system32\dmvdsitf.dll
+\windows\system32\dmview.ocx
+\windows\system32\hhsetup.dll
+;
+; Device Manager
+\Windows\System32\devmgmt.msc
+\Windows\System32\??-??\devmgmt.msc
+\Windows\System32\devmgr.dll
+;
+; Service Manager
+\Windows\System32\services.msc

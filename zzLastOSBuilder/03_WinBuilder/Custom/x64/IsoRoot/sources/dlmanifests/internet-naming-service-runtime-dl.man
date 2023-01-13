@@ -1,0 +1,97 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="v-yabors"
+    buildFilter=""
+    company="Microsoft Corp"
+    manifestVersion="1.0"
+    owners="sudpas"
+    testers="jsindell"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-Internet-Naming-Service-Runtime-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="WINSRuntime"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\WINS")</condition>
+        </detect>
+      </detects>
+    </migXml>
+    <machineSpecific>
+      <plugin
+          classId="{D26AA4A6-92AD-48DB-8D59-95EF0DCE6939}"
+          file="Microsoft-Windows-Internet-Naming-Service-Runtime\winsplgn.dll"
+          />
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\WINS")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins [WinsInternalVersNoNextTime_LW]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins [WinsInternalVersNoNextTime_HW]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [RefreshInterval]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [DoBackupOnTerm]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [TombstoneInterval]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [TombstoneTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [VerifyInterval]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [VersCounterStartVal_LowWord]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [VersCounterStartVal_HighWord]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [RplOnlyWCnfPnrs]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [LogDetailedEvents]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [LoggingOn]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [MigrateOn]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [UseSelfFndPnrs]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [McastIntvl]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [McastTtl]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [BurstHandling]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [BurstQueSize]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [DbFileNm]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [LogFilePath]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [BackupDirPath]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters [DoStaticDataInit]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Parameters\DataFiles [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Partners\Pull\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Wins\Partners\Push\* [*]</pattern>
+            </objectSet>
+          </include>
+          <excludeAttributes attributes="Security">
+            <objectSet>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Wins\Parameters</pattern>
+            </objectSet>
+          </excludeAttributes>
+          <include>
+            <objectSet>
+              <content filter="MigXmlHelper.ExtractDirectory(NULL,&apos;1&apos;,&apos;\* [*]&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Wins\Parameters [DbFileNm]</pattern>
+                </objectSet>
+              </content>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

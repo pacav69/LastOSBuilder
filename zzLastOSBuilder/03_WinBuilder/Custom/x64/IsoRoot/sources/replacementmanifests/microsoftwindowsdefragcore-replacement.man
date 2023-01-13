@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+  xmlns="urn:schemas-microsoft-com:asm.v3"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  manifestVersion="1.0"
+  >
+  <assemblyIdentity
+    language="neutral"
+    name="Microsoft-Windows-Defrag-Core"
+    processorArchitecture="*"
+    version="0.0.0.0"
+    />
+
+  <!--
+    Migrate volume statistics during in-place upgrades
+        Gather: This manifest
+        Apply : This manifest
+
+    The  machineSpecific element informs the  migration engine  to limit our
+    participation to inplace upgrades only and to not include us in PC-to-PC
+    migration scenarios.
+
+    This replacement manifest  is to migrage stats from builds that does not
+    have the change to migrate statistics.
+  -->
+  <migration
+    replacementSettingsVersionRange="0"
+    settingsVersion="1"
+    alwaysProcess="yes"
+    >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Dfrg\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

@@ -1,0 +1,89 @@
+[Main]
+Title=Mouse Keys
+Type=XPEPlugin
+Description=Turn on Mouse Keys. Use the Numeric Keypad to Move the Mouse Around the Screen.
+Author=ChrisR
+Date=2019.03.29
+Credits=
+Contact=http://theoven.org/index.php?topic=2712.0
+Version=002
+Level=5
+Download_Level=2
+Selected=False
+Mandatory=False
+NoWarning=False
+History001=ChrisR Initial Plugin - 2019.01.22
+History002=KYHI - 2019.03.29
+
+[Interface]
+TurnONMouseKeys_CheckBox="Turn on Mouse Keys",1,3,4,6,328,18,True
+KeyboardShortcut_TextLabel="Keyboard Shortcut",1,1,4,28,122,18,8,Bold
+TurnONMouseKeysASN_CheckBox="Turn on Mouse Keys with Left ALT + Left SHIFT + NUM Lock",1,3,20,46,328,18,True
+MakeSound_CheckBox="Make a Sound when Turning a Setting On or Off   (Need System Event Sounds feature)",1,3,20,65,460,18,True
+PointerSpeed_TextLabel="Pointer Speed",1,1,4,90,91,18,8,Bold
+MaximumSpeed_TextLabel="Top Speed",1,1,20,108,70,18,8,Normal
+MaximumSpeed_ScrollBox="Medium High",1,4,92,106,88,21,Lowest,"Low Medium",Medium,"Medium High",Highest
+TimeToMaximumSpeed_TextLabel=Acceleration,1,1,20,133,70,18,8,Normal
+TimeToMaximumSpeed_ScrollBox="Medium Fast",1,4,92,131,88,21,Slowest,"Slow Medium",Medium,"Medium Fast",Fastest
+SpeedSlow_CheckBox="Hold Down CTRL to Speed Up and SHIFT to Slow Down",1,3,20,154,300,18,True
+OtherSettings_TextLabel="Other settings",1,1,4,179,97,18,8,Bold
+NumLockIs_TextLabel="Use Mouse Key when NUM Lock is",1,1,20,196,230,18,8,Normal
+NumLockIsOn_RadioButton=On,1,11,36,212,36,18,False
+NumLockIsOff_RadioButton=Off,1,11,36,230,56,18,True
+MouseKeyIcon_CheckBox="Display the Mouse Key Icon",1,3,20,249,174,18,True
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+ExtractSectionFiles,%ScriptFile%,MouseKeys_AddFiles
+Run,%ScriptFile%,MouseKeys_RegSettings
+
+[MouseKeys_RegSettings]
+Set,%FlagsValue%,2
+If,%TurnONMouseKeys_CheckBox%,Equal,True,StrFormat,inc,%FlagsValue%,1
+If,%TurnONMouseKeysASN_CheckBox%,Equal,True,StrFormat,inc,%FlagsValue%,4
+If,%MakeSound_CheckBox%,Equal,True,StrFormat,inc,%FlagsValue%,16
+If,%MouseKeyIcon_CheckBox%,Equal,True,StrFormat,inc,%FlagsValue%,32
+If,%SpeedSlow_CheckBox%,Equal,True,StrFormat,inc,%FlagsValue%,64
+If,%NumLockIsOff_RadioButton%,Equal,True,StrFormat,inc,%FlagsValue%,128
+//--
+If,%MaximumSpeed_ScrollBox%,Equal,Lowest,Set,%MaximumSpeedValue%,10
+If,%MaximumSpeed_ScrollBox%,Equal,"Low Medium",Set,%MaximumSpeedValue%,97
+If,%MaximumSpeed_ScrollBox%,Equal,Medium,Set,%MaximumSpeedValue%,184
+If,%MaximumSpeed_ScrollBox%,Equal,"Medium High",Set,%MaximumSpeedValue%,271
+If,%MaximumSpeed_ScrollBox%,Equal,Highest,Set,%MaximumSpeedValue%,358
+//--
+If,%TimeToMaximumSpeed_ScrollBox%,Equal,Slowest,Set,%TimeToMaximumSpeedValue%,5000
+If,%TimeToMaximumSpeed_ScrollBox%,Equal,"Slow Medium",Set,%TimeToMaximumSpeedValue%,4000
+If,%TimeToMaximumSpeed_ScrollBox%,Equal,Medium,Set,%TimeToMaximumSpeedValue%,3000
+If,%TimeToMaximumSpeed_ScrollBox%,Equal,"Medium Fast",Set,%TimeToMaximumSpeedValue%,2000
+If,%TimeToMaximumSpeed_ScrollBox%,Equal,Fastest,Set,%TimeToMaximumSpeedValue%,1000
+//--
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Accessibility\MouseKeys",Flags,%FlagsValue%
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Accessibility\MouseKeys",MaximumSpeed,%MaximumSpeedValue%
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Accessibility\MouseKeys",TimeToMaximumSpeed,%TimeToMaximumSpeedValue%
+RegHiveUnLoad,Tmp_Default
+
+[MouseKeys_AddFiles]
+\Windows\System32\accessibilitycpl.dll
+\Windows\System32\??-??\accessibilitycpl.dll.mui
+\Windows\SystemResources\accessibilitycpl.dll.mun
+
+[FlagsMouseKeysInfo]
+Flags Initial value 2
+Turn on Mouse Keys: + 1
+Turn on Mouse Keys with Left Alt + Left Shift + Num Lock: +4
+Display a warning message when turning a setting on: + 8
+Make a sound when turning a setting on or off: + 16
+Display the Mouse Key ICon: + 32
+Hold down CTRL to speed up and SHIFT to slow down: + 64
+Use Mouse Key when NUM Lock is OFF: + 128
+
+[AuthorEncoded]
+MouseKeys.ico=866,1155
+Logo=MouseKeys.ico
+
+[EncodedFile-AuthorEncoded-MouseKeys.ico]
+lines=0
+0=eJzt2V9oEnEcAPCfubUKahG1fBmNYhA97TV6KAhivYweei+CKKbuPMT9SZ3HbqLDv9NTJxs0GIbM6wQ3ggXBYfQ0ggh9WS899NJToz8U7Y99b855iNs8/Z0u+H3l61fuPO9zP/x9vfMQ0sCjrw/Bcw9K9iLUhRC6CgmL0ENUXE7i4BAEQRsKhW44HA7Gbre/ZBjm/fT09EBpvc1mewMZZln2/vz8/NlWWuWRSCROOp3OxyMjI3m9Xr8FWSil3G8ymfaWw+tvHo/Hz/N8dyvt0Wj0utVq/QCmbbn7MH8paZpen5qasqRSqbZm2ycmJp5SFPWzmrtW/25uw2cJi4uLp5tld7vdRoPBsHGQXYF/J2HerCwtLZ1S285xXH8tdqX+3WN4vrq6qlHLHo/Hz5nN5i+12OvxSxmJRO6p5Yfx8dZqr9cPfewT9NcTuO2BQKALDD/U9kvp9Xof4PZDj3+ixN6IH3ryu0wmcwynH35Tl5vlHxoa+g3z4AIuezKZPG6xWL42yy8l/CbcweWfm5s7Dz1zs8l+Cpd/ZmbmilJ7o/6xsbFnuPzBYPDa4OBgQWlW+vd7XzX/6OiojfiJn/iJn/iJn/iJn/jri3A4rIPrUpfSlPuVbgvX2rdx+Um0NuLxuA7mAKc05d8fjuN8SraF69+7OP2NzN9cLqelaXpDybY4/VL/Oeha7zB/Pp9vB/+vVvZP4id+4v9//fJ9yfdZS/9stT8ajfY20v/r8eP8/21hYeGM9J9wtX2p5Z+cnHyEyy8IggbGI1u5T3nF6TcajX9jsVgPLr8UTqezX7/PfV7c/vHx8ReiKGK9j8fzvMbtdgerHQNO//Dw8Ec497mI016KdDrd5vP57BRFfVfBv2W1Wl/Pzs7q1LDLA86FL7tcLhrGKsmy7CuPx7NSmdBzl0v+bDbb7vf7M9XeB30yDXPVB+e4t9bW1lS793tUo7AT3QOFgvi2WJG4U7eReFOqm0i8JNU/SOyU6joSO6T6uVy1UhXLVSOvzBGpe8e5W8vrGVWqWK7a4jgxHcVxZDpljn8Mqb/1eJzj9c0vLU71Tq0s1stMzmcYBSMM7FOF0KLM2OVPZ6ZeZGACAAbCCINVWXB5AQAAAAIAAAApAAAAFQMAAAAAAAABAAAAAAAAAAAAAAA
+

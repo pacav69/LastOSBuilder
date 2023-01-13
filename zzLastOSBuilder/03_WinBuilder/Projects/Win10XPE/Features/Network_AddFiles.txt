@@ -1,0 +1,198 @@
+\Windows\INF\netlldp.inf
+\Windows\INF\ndiscap.inf
+\Windows\INF\netnwifi.inf
+;\Windows\INF\vwifibus.sys
+;
+\Windows\System32\drivers\http.sys
+\Windows\System32\drivers\ipfltdrv.sys
+\Windows\System32\drivers\ipnat.sys
+\Windows\System32\drivers\lltdio.sys
+\Windows\System32\drivers\mrxsmb10.sys
+\Windows\System32\drivers\mslldp.sys
+\Windows\System32\drivers\ndiscap.sys
+\Windows\System32\drivers\ndisimplatform.sys
+\Windows\System32\drivers\nwifi.sys
+\Windows\System32\drivers\rspndr.sys
+\Windows\System32\drivers\tcpipreg.sys
+\Windows\System32\drivers\tunnel.sys
+\Windows\System32\drivers\vwififlt.sys
+\Windows\System32\drivers\WdiWiFi.sys
+\Windows\System32\drivers\wfplwfs.sys
+\Windows\System32\drivers\??-??\http.sys.mui
+\Windows\System32\drivers\??-??\ipnat.sys.mui
+\Windows\System32\drivers\??-??\mslldp.sys.mui
+\Windows\System32\drivers\??-??\ndiscap.sys.mui
+\Windows\System32\drivers\??-??\ndisimplatform.sys.mui
+\Windows\System32\drivers\??-??\nwifi.sys.mui
+\Windows\System32\drivers\??-??\tunnel.sys.mui
+\Windows\System32\drivers\??-??\wfplwfs.sys.mui
+;
+\Windows\System32\DriverStore\FileRepository\netlldp.inf*
+\Windows\System32\DriverStore\FileRepository\netnwifi.inf*
+\Windows\System32\DriverStore\FileRepository\netvwifibus.inf*
+\Windows\System32\DriverStore\FileRepository\netvwififlt.inf*
+\Windows\System32\DriverStore\FileRepository\netvwifimp.inf*
+;
+; Folder
+\ProgramData\Microsoft\WwanSvc
+\Windows\L2Schemas
+\Windows\schemas
+\Windows\System32\icsxml
+;
+; Firewall (inWinre.wim: bfe.dll,mpssvc.dll,sscore.dll,firewallapi.dll,fwpuclnt.dll,fwremotesvr.dll,cmifw.dll,wfapigp.dll)
+\Windows\System32\authfwcfg.dll
+\Windows\System32\authfwgp.dll
+\Windows\System32\authfwwizfwk.dll
+\Windows\System32\Firewall.cpl
+\Windows\System32\firewallcontrolpanel.dll
+\Windows\System32\fwcfg.dll
+\Windows\System32\sscoreext.dll
+\Windows\System32\wfhc.dll
+;
+; netsh (fwcfg.dll,HNetMon.dll,NshHttp.dll,NshIpsec.dll,P2PNetsh.dll,P2P.dll,RpcNsh.dll,WcnNetsh.dll,WhHelper.dll,PeerDistSh.dll,MDMRegistration.dll,DMCmnutils.dll)
+\Windows\System32\P2P.dll
+\Windows\System32\p2pnetsh.dll
+\Windows\System32\mdmregistration.dll
+\Windows\System32\dmcmnutils.dll
+\Windows\System32\WcnNetsh.dll
+;
+; CoreMessaging Browser (in winre.wim: mi.dll,fwbase.dll,fwpolicyiomgr.dll)
+\Windows\System32\browser.dll
+\Windows\System32\CoreMessaging.dll
+;
+; Share folder (in Winre: gpapi.dll,gpsvc.dll,nlaapi.dll,smbwmiv2.dll,wmiclnt.dll - additional)
+\Windows\System32\comsvcs.dll
+\Windows\System32\gptext.dll
+\Windows\System32\shacct.dll
+\Windows\System32\shpafact.dll
+\Windows\System32\shrpubw.exe
+\Windows\System32\SMBHelperClass.dll
+;
+; password (in winre.wim DWrite.dll,credui.dll,credprovhost.dll,credprovs.dll)
+\Windows\System32\credssp.dll
+;
+; dot3svc (additional: dot3gpui.dll,dot3ui.dll,onexui.dll,Dot3Conn.dll)
+\Windows\System32\dot3api.dll
+\Windows\System32\dot3cfg.dll
+\Windows\System32\dot3dlg.dll
+\Windows\System32\dot3gpclnt.dll
+\Windows\System32\dot3msm.dll
+\Windows\System32\dot3svc.dll
+\Windows\System32\l2gpstore.dll
+\Windows\System32\l2nacp.dll
+\Windows\System32\onex.dll
+;
+; Control
+\Windows\System32\IEAdvpack.dll
+\Windows\System32\ieframe.dll
+\Windows\System32\shwebsvc.dll
+\Windows\System32\mshtml.dll
+;
+; Misc
+;\Windows\System32\fdWNet.dll
+\Windows\System32\inetcomm.dll
+\Windows\System32\iphlpsvc.dll
+\Windows\System32\msi.dll
+\Windows\System32\msvfw32.dll
+\Windows\System32\networkitemfactory.dll
+\Windows\System32\prnfldr.dll
+\Windows\System32\TSpkg.dll
+\Windows\System32\Windows.UI.Cred.dll
+; Map a network drive
+\Windows\System32\netplwiz.dll
+;
+; Control Pannel
+\Windows\System32\inetcpl.cpl
+\Windows\System32\netid.dll
+;
+; Windows Firewall/Internet Connection Sharing (ICS) ervice
+\Windows\System32\ipnathlp.dll
+\Windows\System32\icsigd.dll
+\Windows\System32\icsunattend.exe
+;
+; Network Diagnostic
+;\Windows\System32\ndfapi.dll
+;\Windows\System32\ndfetw.dll
+;\Windows\System32\NdfEventView.xml
+;\Windows\System32\ndfhcdiscovery.dll
+;
+; File Sharing (in winre.wim rtutils.dll,mpr.dll,mprapi.dll,mprmsg.dll) - optional netplwiz.dll,Netplwiz.exe)
+\Windows\System32\iprtprio.dll
+\Windows\System32\iprtrmgr.dll
+\Windows\System32\mprddm.dll
+\Windows\System32\mprdim.dll
+\Windows\System32\networkexplorer.dll
+\Windows\System32\NetworkStatus.dll
+\Windows\System32\rtm.dll
+;
+; Telephony service
+\Windows\System32\tapi32.dll
+\Windows\System32\tapisrv.dll
+\Windows\System32\TapiUnattend.exe
+; smb (in winre.wim wkssvc.dll,wkscli.dll)
+\Windows\System32\wkspbrokerax.dll
+\Windows\System32\wksprtps.dll
+;
+; NlaSvc (in Winre.wim: nlaapi.dll,nlasvc.dll,rasapi32.dll,tapi32.dll)
+; Security Components
+\Windows\System32\Keymgr.dll
+\Windows\System32\Msaudite.dll
+; Service Control
+\Windows\System32\sc.exe
+; service logon
+\Windows\System32\seclogon.dll
+; TCPIP support (in winre.wim: esent.dll,scecli.dll)
+\Windows\System32\ubpm.dll
+; Van NetStatus
+;\Windows\System32\VAN.dll
+;\Windows\System32\WlanRadioManager.dll
+; Airplane mode
+;\Windows\System32\RMapi.dll
+;
+; WcmSvc (in Winre.wim: nlaapi.dll)
+\Windows\System32\wcmapi.dll
+\Windows\System32\wcmcsp.dll
+\Windows\System32\wcmsvc.dll
+\Windows\System32\NetworkUXBroker.dll
+;
+; WcncSvc
+\Windows\System32\WcnApi.dll
+\Windows\System32\wcncsvc.dll
+;\Windows\System32\WcnEapAuthProxy.dll
+;\Windows\System32\WcnEapPeerProxy.dll
+\Windows\System32\wcnwiz.dll
+;
+; EapHost (in Winre.wim Eap3Host.exe,eapp3hst.dll,eappcfg.dll,eappgnui.dll,eapphost.dll,eappprxy.dll,eapprovp.dll,eapsvc.dll,keyiso.dll,ttlsauth.dll,ttlscfg.dll)
+\Windows\System32\cngcredui.dll
+\Windows\System32\cngprovider.dll
+;
+; Wlan (additional: wlangpui.dll,wlandlg.dll,WLanConn.dll,wlanpref.dll,wlanutil.dll,provcore.dll)
+\Windows\System32\mobilenetworking.dll
+\Windows\System32\wlanapi.dll
+\Windows\System32\wlancfg.dll
+\Windows\System32\WLanConn.dll
+\Windows\System32\wlandlg.dll
+\Windows\System32\wlanext.exe
+\Windows\System32\wlanhlp.dll
+\Windows\System32\WlanMediaManager.dll
+\Windows\System32\wlanmsm.dll
+\Windows\System32\wlanpref.dll
+\Windows\System32\wlansec.dll
+\Windows\System32\wlansvc.dll
+\Windows\System32\wlansvcpal.dll
+\Windows\System32\wlanui.dll
+\Windows\System32\wlanutil.dll
+;
+; Wlan password (additional: fdProxy.dll,webcheck.dll)
+\Windows\System32\fdWCN.dll
+\Windows\System32\fundisc.dll
+\Windows\System32\Windows.Globalization.dll
+\Windows\System32\winhttp.dll
+;
+; Net event
+\Windows\System32\netevent.dll
+;
+\Windows\System32\wbem\nlasvc.mof
+\Windows\System32\wbem\wlan.mof
+\Windows\SystemResources\Windows.UI.Cred\Windows.UI.Cred.pri
+\Windows\SystemResources\Windows.UI.Cred\pris\Windows.UI.Cred*

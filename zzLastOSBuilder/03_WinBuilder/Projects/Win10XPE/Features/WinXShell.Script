@@ -1,0 +1,62 @@
+[Main]
+Title=WinXShell
+Type=XPEPlugin
+Description=WinXShell
+Author=ChriSR
+Date=2019.09.19
+Version=003
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+RunFromRAM
+If,ExistFile,%ScriptDir%\WinXShell_%Architecture%.7z,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\WinXShell_%Architecture%.7z#$q -y -o#$q%Target_Prog%#$q"
+Else,EchoExtended,"WinXShell_%Architecture%.7z should be in the original package",Warn,,Message,,Halt
+//-
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Registry
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+//-
+Set,%Pecmd%,%GTarget_Sys%\Pecmd.ini
+If,ExistFile,%Pecmd%,Begin
+  TXTReplace,%Pecmd%,"SHEL #$pWinDir#$p\explorer.exe","//SHEL #$pWinDir#$p\explorer.exe"
+  TXTReplace,%Pecmd%,"//SHEL #$pProgramFiles#$p\WinXShell\WinXShell.exe -winpe","SHEL #$pProgramFiles#$p\WinXShell\WinXShell.exe -winpe"
+End
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\WinXShell_AddFiles.txt,ExtractListFiles,%ScriptDir%\WinXShell_AddFiles.txt
+//-
+IniRead,%ProjectDir%\Script.Project,Features,AllCatalogs,%AllCatalogs%
+If,%AllCatalogs%,Equal,True,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
+Else,Begin
+  If,ExistSection,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%
+  Else,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
+End
+
+[Registry]
+If,%FullSoftware%,Equal,False,Begin
+  // Microsoft Managment Control (MMC). Classes\AppID,CLSID,Interface,TypeLib already copied in Config.script
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\Applications\MMC.exe,NoOpenWith,
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\.msc,,MSCFile
+  RegCopyKey,HKLM,Tmp_Software\Classes\mscfile
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\MMC
+End
+//-
+RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings",Icon,"#$qX:\Program Files\WinXShell\wxsUI\display.ico#$q"
+RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings\command",,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_Resolution.zip"
+// Shell New Context Menu. New Folder and Text Document
+RegWrite,HKLM,0x7,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Discardable\PostSetup\ShellNew,Classes,.library-ms,.txt,Folder
+RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Discardable\PostSetup\ShellNew,~reserved~,08,00,00,00,00,00,06,00
+//-
+// Explorer++ Settings
+RegWrite,HKLM,0x4,Tmp_Default\Software\Explorer++\Settings,ViewModeGlobal,4
+RegWrite,HKLM,0x4,Tmp_Default\Software\Explorer++\Settings,ShowGridlinesGlobal,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Explorer++\Settings,ShowDisplayWindow,0

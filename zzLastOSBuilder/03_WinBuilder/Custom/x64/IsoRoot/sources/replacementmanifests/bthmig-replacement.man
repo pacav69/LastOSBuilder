@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      name="Microsoft-Windows-BTH-USER"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      language="neutral"
+      />
+  <migration
+      replacementSettingsVersionRange="0-6"
+      scope="Upgrade,Data"
+      settingsVersion="6"
+      >
+    <migXml xmlns="">
+      <plugin
+          classId="{e0cbf06c-cd8b-4647-bb8a-263b43f0f974}"
+          file="Microsoft-Windows-BTH-USER\bthmigplugin.dll"
+          offlineApply="yes"
+          />
+    </migXml>
+  </migration>
+</assembly>

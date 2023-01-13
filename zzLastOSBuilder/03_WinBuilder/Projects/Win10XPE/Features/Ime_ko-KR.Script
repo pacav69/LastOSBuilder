@@ -1,0 +1,218 @@
+[Main]
+Title=IME Korean
+Type=XPEPlugin
+Description=Korean IME Support
+Author=Flower3,ChrisR
+Date=2019.04.01
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+HistoryNotes=Be Free to Customize
+
+[Variables]
+//%Custom%=True
+%Custom%=False
+
+[Process]
+Exec,%ProjectDir%\Features\Ime_Common.Script,Process,HiveLoaded
+//-
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,Ime_ko_KR_Files
+If,%Custom%,Equal,True,Run,%ScriptFile%,Custom_ko_KR_Files
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Keyboard_ko_KR_Reg
+If,%Custom%,Equal,True,Run,%ScriptFile%,Custom_ko_KR_Reg
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[Ime_ko_KR_Files]
+ExtractSectionFiles,%ScriptFile%,Ime_ko_KR_AddFiles
+//-
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  ExtractSectionFiles,%ScriptFile%,Ime_ko_KR_x64_AddFiles
+End
+
+[Keyboard_ko_KR_Reg]
+// Set ko-KR;en-US Keyboard
+RegWrite,HKLM,0x1,"Tmp_Default\Keyboard Layout\Preload",1,00000412
+RegWrite,HKLM,0x1,"Tmp_Default\Keyboard Layout\Preload",2,00000409
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,67699721
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{A028AE76-01B1-46C2-99C4-ACD9858AE02F}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{B5FE1F02-D5F2-4445-9C03-C568F23C99A1}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,68289554
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\HiddenDummyLayouts,00000412,00000412
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\LangBar,ExtraIconsOnMinimized,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\LangBar,Label,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\LangBar,ShowStatus,4
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\LangBar,Transparency,255
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,CLSID,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,Profile,{00000000-0000-0000-0000-000000000000}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000409\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,KeyboardLayout,67699721
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,CLSID,{A028AE76-01B1-46C2-99C4-ACD9858AE02F}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,Profile,{B5FE1F02-D5F2-4445-9C03-C568F23C99A1}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000,KeyboardLayout,0
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\CTF\SortOrder\Language,00000000,00000412
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile\0x00000412\{B5FE1F02-D5F2-4445-9C03-C568F23C99A1},Enable,1
+//-
+RegWrite,HKLM,0x1,"Tmp_System\Keyboard Layout\Preload",1,00000412
+RegWrite,HKLM,0x1,"Tmp_System\Keyboard Layout\Preload",2,00000409
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},Default,{A028AE76-01B1-46C2-99C4-ACD9858AE02F}
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},Profile,{B5FE1F02-D5F2-4445-9C03-C568F23C99A1}
+RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31},KeyboardLayout,68289554
+RegWrite,HKLM,0x1,Tmp_System\Software\Microsoft\CTF\HiddenDummyLayouts,00000412,00000412
+RegWrite,HKLM,0x4,Tmp_System\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile\0x00000412\{B5FE1F02-D5F2-4445-9C03-C568F23C99A1},Enable,1
+
+[Ime_ko_KR_AddFiles]
+; In ko-KR Winre.wim \Windows\Fonts\gulim.ttc,malgun.ttf
+\Windows\IME\IMEKR\DICTS\imkrhjd.lex
+\Windows\System32\IME\IMEKR\DICTS\imkrhjd.dll
+\Windows\System32\IME\IMEKR\imkrapi.dll
+\Windows\System32\IME\IMEKR\imkrtip.dll
+\Windows\System32\IME\SHARED\IMEAPIS.DLL
+\Windows\System32\IME\SHARED\IMETIP.DLL
+\Windows\System32\IME\SHARED\IMJKAPI.DLL
+\Windows\System32\IME\SHARED\MSCAND20.DLL
+; Search
+\Windows\System32\korwbrkr.lex
+\Windows\System32\korwbrkr.dll
+
+[Ime_ko_KR_x64_AddFiles]
+\Windows\SysWOW64\IME\IMEKR\DICTS\imkrhjd.dll
+\Windows\SysWOW64\IME\IMEKR\imkrapi.dll
+\Windows\SysWOW64\IME\IMEKR\imkrtip.dll
+\Windows\SysWOW64\IME\SHARED\IMEAPIS.DLL
+\Windows\SysWOW64\IME\SHARED\IMETIP.DLL
+\Windows\SysWOW64\IME\SHARED\IMJKAPI.DLL
+\Windows\SysWOW64\IME\SHARED\MSCAND20.DLL
+
+[CustomSectionNow]
+;------------------------------------------------
+;         Custom Section Now
+;------------------------------------------------
+
+[Custom_ko_KR_Files]
+FileDelete,%GTarget_Win%\Fonts\*.*
+FileDelete,%GTarget_Sys%\C_*.NLS
+FileDelete,%GTarget_Sys%\KBD*.DLL
+ExtractSectionFiles,%ScriptFile%,Custom_ko_KR_AddFiles
+If,ExistFile,%BaseDir%\Custom\Fonts\*.*,FileCopy,%BaseDir%\Custom\Fonts\*.*,%GTarget_Win%\Fonts
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  FileDelete,%GTarget_Win%\SysWOW64\C_*.NLS
+  FileDelete,%GTarget_Win%\SysWOW64\KBD*.DLL
+  ExtractSectionFiles,%ScriptFile%,Custom_ko_KR_x64_AddFiles
+End
+
+[Custom_ko_KR_Reg]
+If,ExistFile,%ScriptDir%\Custom_ko_KR_Reg.txt,RegImportFile,%ScriptDir%\Custom_ko_KR_Reg.txt
+If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+  If,ExistFile,%ScriptDir%\Custom_ko_KR_x64_Reg.txt,RegImportFile,%ScriptDir%\Custom_ko_KR_x64_Reg.txt
+End
+//-
+//RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,1
+// Register Fonts
+//RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Gulim & GulimChe & Dotum & DotumChe (TrueType)",gulim.ttc
+//RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Malgun Gothic (TrueType)",malgun.ttf
+If,%FullSoftware%,Equal,False,Begin
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial (TrueType)",arial.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Consolas (TrueType)",consola.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Leelawadee UI (TrueType)",leelawui.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Lucida Console (TrueType)",lucon.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Microsoft Sans Serif (TrueType)",micross.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Microsoft YaHei & Microsoft YaHei UI (TrueType)",msyh.ttc
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Microsoft Yi Baiti (TrueType)",msyi.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","SimSun & NSimSun (TrueType)",simsun.ttc
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Segoe UI (TrueType)",segoeui.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Segoe UI Symbol (TrueType)",seguisym.ttf
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Tahoma (TrueType)",tahoma.ttf
+End
+
+[Custom_ko_KR_AddFiles]
+;------------------------------------------------
+;          National Language Support (.NLS)
+;------------------------------------------------
+\Windows\System32\C_437.NLS
+\Windows\System32\C_949.NLS
+\Windows\System32\C_1252.NLS
+\Windows\System32\C_1255.NLS
+\Windows\System32\C_1256.NLS
+\Windows\System32\C_1361.NLS
+\Windows\System32\C_10003.NLS
+\Windows\System32\C_20127.NLS
+\Windows\System32\C_20833.NLS
+\Windows\System32\C_20949.NLS
+\Windows\System32\C_28591.NLS
+\Windows\System32\C_65001.NLS
+;------------------------------------------------
+;          Keyboard
+;------------------------------------------------
+\Windows\System32\KBD101a.dll
+\Windows\System32\KBD101b.dll
+\Windows\System32\KBD101c.dll
+\Windows\System32\KBD103.dll
+\Windows\System32\KBDKOR.DLL
+\Windows\System32\KBDUS.DLL
+\Windows\System32\KBDUSA.DLL
+;------------------------------------------------
+;          Additional Fonts
+;------------------------------------------------
+\Windows\Fonts\gulim.ttc
+\Windows\Fonts\malgun.ttf
+;\Windows\Fonts\msyh.ttc
+;\Windows\Fonts\simsun.ttc
+\Windows\Fonts\app949.fon
+\Windows\Fonts\arial.ttf
+\Windows\Fonts\cga40woa.fon
+\Windows\Fonts\cga80woa.fon
+\Windows\Fonts\consola.ttf
+\Windows\Fonts\desktop.ini
+\Windows\Fonts\dosapp.fon
+\Windows\Fonts\ega40woa.fon
+\Windows\Fonts\ega80woa.fon
+\Windows\Fonts\fms_metadata.xml
+\Windows\Fonts\h8514fix.fon
+\Windows\Fonts\h8514oem.fon
+\Windows\Fonts\h8514sys.fon
+\Windows\Fonts\hvgafix.fon
+\Windows\Fonts\hvgasys.fon
+\Windows\Fonts\LeelawUI.ttf
+\Windows\Fonts\lucon.ttf
+\Windows\Fonts\marlett.ttf
+\Windows\Fonts\micross.ttf
+\Windows\Fonts\msyi.ttf
+\Windows\Fonts\segmdl2.ttf
+\Windows\Fonts\segoeui.ttf
+\Windows\Fonts\seguisym.ttf
+\Windows\Fonts\svgafix.fon
+\Windows\Fonts\svgasys.fon
+\Windows\Fonts\tahoma.ttf
+\Windows\Fonts\trebuc.ttf
+\Windows\Fonts\vga949.fon
+\Windows\Fonts\vgafix.fon
+\Windows\Fonts\vgaoem.fon
+\Windows\Fonts\vgasys.fon
+
+[Custom_ko_KR_x64_AddFiles]
+;------------------------------------------------
+;          National Language Support (.NLS)
+;------------------------------------------------
+\Windows\SysWOW64\C_437.NLS
+\Windows\SysWOW64\C_1252.NLS
+\Windows\SysWOW64\C_10003.NLS
+\Windows\SysWOW64\C_20833.NLS
+;------------------------------------------------
+;          Keyboard
+;------------------------------------------------
+\Windows\SysWOW64\KBD101a.dll
+\Windows\SysWOW64\KBD101b.dll
+\Windows\SysWOW64\KBD101c.dll
+\Windows\SysWOW64\KBD103.dll
+\Windows\SysWOW64\KBDKOR.DLL
+\Windows\SysWOW64\KBDUS.DLL
+\Windows\SysWOW64\KBDUSA.DLL

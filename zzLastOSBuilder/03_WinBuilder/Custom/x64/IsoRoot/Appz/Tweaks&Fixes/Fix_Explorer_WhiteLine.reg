@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+;Fix White line shown below Explorer Addressbar
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Toolbar] 
+"Locked"=dword:00000001 

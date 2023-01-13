@@ -1,0 +1,94 @@
+[Main]
+Title=Audio
+Type=XPEPlugin
+Description=Audio
+Author=ChriSR
+Date=2019.04.01
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%EnableMMDevicesStereo%=True
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Reg_Audio
+If,%Shell%,Equal,WinXShell,ACLRegKey,Tmp_Drivers
+Run,%ScriptFile%,Reg_AudioDrivers
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\Audio_AddFiles.txt,ExtractListFiles,%ScriptDir%\Audio_AddFiles.txt
+If,%SourceBuild%,Bigger,18300,ExtractSectionFiles,%ScriptFile%,Audio_1903_AddFiles
+
+[Audio_1903_AddFiles]
+\Windows\System32\SysFxUI.dll
+\Windows\System32\WMALFXGFXDSP.dll
+
+[Reg_Audio]
+If,%FullSoftware%,Equal,False,Begin
+  //Complete winre.wim audio registry
+  RegCopyKey,HKLM,Tmp_Software\Classes\AudioEngine
+  //In WinRE.wim RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Audio
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows\CurrentVersion\Media Center"
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\MMDevices
+  ACLRegKey,Tmp_Software\Microsoft\Windows\CurrentVersion\MMDevices
+  //MMDevices has special rights required, Audiosrv & AudioEndpointBuilder. It can be FullControl
+  //-
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\drivers.desc"
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Drivers32"
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\MCI Extensions"
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\MCI32"
+  //In WinRE.wim RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Multimedia"
+End
+// Sound Volume Bar
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows NT\CurrentVersion\MTCUVC,EnableMtcUvc,0
+// Associate .mp3 with mpg123.exe
+RegWrite,HKLM,0x1,Tmp_Software\Classes\.mp3,,mpg123
+RegWrite,HKLM,0x1,Tmp_Software\Classes\mpg123\DefaultIcon,,"#$pSystemRoot#$p\Windows\shell32.dll,-16824"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\mpg123\Shell\Open,,"&Play with mpg123"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\mpg123\Shell\Open,Icon,"#$pSystemRoot#$p\Windows\shell32.dll,-16824"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\mpg123\Shell\Open\Command,,"hiderun.exe mpg123.exe -q #$q#$p1#$q"
+//-
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Class\{c166523c-fe0c-4a94-a586-f1a80cfbbf3e}
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\AudioEndpointBuilder
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Audiosrv
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Beep
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\HDAudBus
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\MMCSS
+//In WinRE.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\volmgr
+//-
+If,%SourceBuild%%EnableMMDevicesStereo%,Equal,17763True,Begin
+  If,ExistFile,%ScriptDir%\MMDevices_Stereo.txt,RegImportFile,%ScriptDir%\MMDevices_Stereo.txt
+End
+
+[Reg_AudioDrivers]
+RegImportFile,%ScriptDir%\Audio_RegDrivers.txt
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\bda.inf
+//In winre.wim RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\c_media.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\gameport.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\ks.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\kscaptur.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\ksfilter.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\modemcsa.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\usbvideo.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\wave.inf
+//-
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,bda.inf*
+//In winre.wim RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,c_media.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,gameport.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,ks.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,kscaptur.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,ksfilter.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,modemcsa.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,usbvideo.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,wave.inf*

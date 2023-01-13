@@ -1,0 +1,80 @@
+[Main]
+Title=Display Drivers
+Type=XPEPlugin
+Description=Display Drivers
+Author=ChriSR
+Date=2019.01.18
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+RegAddDriver=Run,%ScriptFile%,MRegAddDriver
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+ExtractSectionFiles,%ScriptFile%,AddFiles_Display
+ExtractSectionFiles,%ScriptFile%,AddFiles_Monitor
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Drivers,%RegDrivers%
+  RegHiveLoad,Tmp_Install_Drivers,%Gtemp%\Install.hives\DRIVERS
+  RegHiveLoad,Tmp_System,%RegSystem%
+  RegHiveLoad,Tmp_Install_System,%Gtemp%\Install.hives\SYSTEM
+End
+If,%Shell%,Equal,WinXShell,ACLRegKey,Tmp_Drivers
+Run,%ScriptFile%,Reg_Display
+Run,%ScriptFile%,Reg_Monitor
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_System
+  RegHiveunLoad,Tmp_Install_System
+  RegHiveunLoad,Tmp_Install_Drivers
+  RegHiveunLoad,Tmp_Drivers
+End
+Run,%ScriptFile%,Load_At_Startup
+
+[Load_At_Startup]
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//EXEC =@!#$pWinDir#$p\System32\Drvload.exe #$pWinDir#$p\inf\basicdisplay.inf","EXEC =@!#$pWinDir#$p\System32\Drvload.exe #$pWinDir#$p\inf\basicdisplay.inf"
+
+[AddFiles_Display]
+\Windows\INF\display.inf
+\Windows\INF\displayoverride.inf
+\Windows\System32\DriverStore\FileRepository\display.inf_*
+\Windows\System32\DriverStore\FileRepository\displayoverride.inf_*
+
+[AddFiles_Monitor]
+\Windows\INF\c_monitor.inf
+\Windows\INF\monitor.inf
+\Windows\System32\drivers\monitor.sys
+\Windows\System32\DriverStore\FileRepository\c_monitor.inf_*
+\Windows\System32\DriverStore\FileRepository\monitor.inf_*
+
+[Reg_Display]
+RegAddDriver,display.inf
+RegAddDriver,displayoverride.inf
+
+[Reg_Monitor]
+Echo,"Register monitor Driver..."
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\monitor
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DeviceIds\Monitor
+RegWrite,HKLM,0x3,Tmp_Drivers\DriverDatabase\DeviceIds\*PNP09FF,monitor.inf,01,ff,00,00
+If,Not,ExistRegKey,HKLM,Tmp_Drivers\DriverDatabase\DeviceIds\{4d36e96e-e325-11ce-bfc1-08002be10318},c_monitor.inf,ShellExecute,Hide,Reg.exe,"Add #$qHKLM\Tmp_Drivers\DriverDatabase\DeviceIds\{4d36e96e-e325-11ce-bfc1-08002be10318}#$q /v #$qc_monitor.inf#$q /t REG_NONE"
+If,Not,ExistRegKey,HKLM,Tmp_Drivers\DriverDatabase\DeviceIds\{4d36e96e-e325-11ce-bfc1-08002be10318},monitor.inf,ShellExecute,Hide,Reg.exe,"Add #$qHKLM\Tmp_Drivers\DriverDatabase\DeviceIds\{4d36e96e-e325-11ce-bfc1-08002be10318}#$q /v #$qmonitor.inf#$q /t REG_NONE"
+RegWrite,HKLM,0x1,Tmp_Drivers\DriverDatabase\DriverFiles\monitor.sys,,monitor.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\c_monitor.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverInfFiles\monitor.inf
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,c_monitor.inf*
+RegCopyKey,HKLM,Tmp_Drivers\DriverDatabase\DriverPackages,monitor.inf*
+//RegCopyKey,HKLM,Tmp_Drivers\ControlSet001\Control\Class\{4d36e96e-e325-11ce-bfc1-08002be10318}
+
+[MRegAddDriver]
+If,-#1,Equal,-,EchoExtended,"Error: RegAddDriver - Missing Parameter: Driver File Name ",Warn,,MessageError,,Halt
+Echo,"Register #1 Driver..."
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C RegAddDriver.cmd #$q#1#$q",%GTools%
+System,FileRedirect,ON

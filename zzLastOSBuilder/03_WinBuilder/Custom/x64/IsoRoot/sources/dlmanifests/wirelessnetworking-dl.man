@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-WirelessNetworking-Package-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration scope="Upgrade,MigWiz,USMT">
+    <!-- Corresponding OC name -->
+    <registerSDF name="WirelessNetworking"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <!-- OC upgrate applicable to server 2K3 only -->
+          <condition>MigXmlHelper.DoesOSMatch("NT", "5.2.*.*")</condition>
+        </detect>
+        <detect>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WZCSVC\Parameters\Interfaces\{$}</pattern>
+          </objectSet>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WZCSVC\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\Wireless\GPTWirelessPolicy\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\Wireless\Policy\Cache\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Network_and_Internet\Networking_Connections</migrationDisplayID>
+  </migration>
+</assembly>

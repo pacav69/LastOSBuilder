@@ -1,0 +1,80 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-IE-AdminKitBranding"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      scope="Upgrade"
+      settingsVersion="2"
+      replacementSettingsVersionRange="0,1"
+      alwaysProcess="yes"
+      >
+    <migXml xmlns="">
+      <environment>
+        <variable name="IEAK.BrandGUID">
+          <script>MigXmlHelper.GetStringContent("Registry","HKLM\SOFTWARE\Microsoft\Internet Explorer [BrandGUID]")</script>
+        </variable>
+      </environment>
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Internet Explorer [BrandGUID]")</condition>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer [BrandGUID]")</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <!-- On upgrades, include the USER branding active setup stub so we won't re-run branding
+                 If we've previously applied IEAK branding (via {CUSTOM,SIGNUP}\install.ins) we don't want to
+                 re-apply when the user is doing an OS upgrade because it will stomp user customizations.
+                 Since the Active Setup stubs that IEAK uses to apply branding have no version,
+                 copying this key will cause the stub to not be re-run -->
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%\* [*]</pattern>
+            <!-- On a 64-bit OS for 32-bit stubs, Active Setup writes to HKCU\Software\Wow6432Node\Microsoft\Active Setup\Installed Components
+                 when a component stub has finished running. Since this isn't actually a redirected key, we'll have to copy
+                 it as well, if it exists, to prevent the 32-bit stub from applying the ins file, similar to above -->
+            <pattern type="Registry">HKCU\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%CSIDL_PROGRAM_FILES%\Internet Explorer\SIGNUP\* [*]</pattern>
+            <pattern type="File">%CSIDL_PROGRAM_FILESX86%\Internet Explorer\SIGNUP\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="System">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Internet Explorer [BrandGUID]")</condition>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer [BrandGUID]")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%")</condition>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%")</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="File">%CSIDL_PROGRAM_FILES%\Internet Explorer\CUSTOM\* [*]</pattern>
+            <pattern type="File">%CSIDL_PROGRAM_FILESX86%\Internet Explorer\CUSTOM\* [*]</pattern>
+            <pattern type ="Registry">HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%\* [*]</pattern>
+            <pattern type ="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components\%IEAK.BrandGUID%\* [*]</pattern>
+          </objectSet>
+        </include>
+    </rules>
+    </migXml>   
+  </migration>
+</assembly>

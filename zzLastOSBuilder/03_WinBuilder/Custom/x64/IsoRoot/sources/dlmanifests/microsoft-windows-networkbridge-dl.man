@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="alvint"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-07-21T13:09:49.2849104-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2005-02-15T18:10:56.2128715Z"
+    manifestVersion="1.0"
+    owners="alvint"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-NetworkBridge-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration>
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Bridge\Parameters\Adapters\* [ForceCompatibilityMode]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <plugin
+            classId="{ee036dc0-f9b7-4d2d-bb94-3dd3102c5804}"
+            file="Microsoft-Windows-NetworkBridge\BridgeMigPlugin.dll"
+            offlineApply="yes"
+            />
+      </migXml>
+    </machineSpecific>
+  </migration>
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+        <string
+            buildFilter=""
+            id="displayName"
+            value="Bridge upgrade downlevel manifest"
+            />
+        <string
+            buildFilter=""
+            id="description"
+            value="Bridge upgrade downlevel support"
+            />
+      </stringTable>
+    </resources>
+  </localization>
+</assembly>

@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-SmartCardSubsystem"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration settingsVersion="1" replacementSettingsVersionRange="0">
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon [scremoveoption]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\CertPropSvc [Start]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SCPolicySvc [Start]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Cryptography\Calais [AllowServiceAccessWithNoReaders]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Calais [AllowServiceAccessWithNoReaders]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SCardSvr [Start]</pattern>
+          </objectSet>
+        </exclude>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon [scremoveoption]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\CertPropSvc [Start]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SCPolicySvc [Start]</pattern>
+          </objectSet>
+        </merge>
+        <!-- Because we migrate service start settings, we need to make sure the SCM has the latest settings -->
+        <processing when="apply-success">
+          <script>MigXmlHelper.SyncSCM("CertPropSvc")</script>
+          <script>MigXmlHelper.SyncSCM("SCPolicySvc")</script>
+          <script>MigXmlHelper.SyncSCM("ScDeviceEnum")</script>
+        </processing>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Security\Security_Options</migrationDisplayID>
+  </migration>
+</assembly>

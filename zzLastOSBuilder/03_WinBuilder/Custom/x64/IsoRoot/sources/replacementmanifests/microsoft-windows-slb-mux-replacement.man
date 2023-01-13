@@ -1,0 +1,47 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-Slb-Mux"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <!--
+    To ensure that matching rules are used during the "gather" and "apply"
+    phases of an in-place upgrade, the following attributes should be updated
+    whenever a change is made to the Microsoft-Windows-Slb-Mux.  This is
+    because the new setting will only appear in the uplevel manifest but
+    the downlevel manifest is used during "gather".
+     -->
+  <migration
+      scope="Upgrade"
+      settingsVersion="0"
+      replacementSettingsVersionRange="0"
+      alwaysProcess="yes"
+      >
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [MuxCert]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [SlbmThumb]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [Start]</pattern>
+            </objectSet>
+          </include>
+          <!-- Prefer the values on the source host -->
+          <merge script="MigXmlHelper.SourcePriority()">
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [MuxCert]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [SlbmThumb]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SlbMux [Start]</pattern>
+            </objectSet>
+          </merge>
+        </rules>
+      </migXml>
+  </migration>
+</assembly>

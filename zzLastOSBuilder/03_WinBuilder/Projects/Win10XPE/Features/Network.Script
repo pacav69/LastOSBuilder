@@ -1,0 +1,272 @@
+[Main]
+Title=Network
+Type=XPEPlugin
+Description=Network
+Author=ChriSR
+Date=2019.08.26
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+History002=KYHI - Added Network and Sharing Center - Notes Below
+
+[Variables]
+// Network List Service need the Full Software
+%EnableNetworkListService%=False
+%EnableFunctionDiscoveryService%=False
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,%FullSoftware%,Equal,True,Set,%EnableNetworkListService%,True
+If,%FullSoftware%,Equal,True,Set,%EnableFunctionDiscoveryService%,True
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Network_Registry
+//-
+If,%EnableNetworkListService%,Equal,True,Run,%ScriptFile%,NetworkList
+If,%EnableFunctionDiscoveryService%,Equal,True,Run,%ScriptFile%,FunctionDiscovery
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\Network_AddFiles.txt,ExtractListFiles,%ScriptDir%\Network_AddFiles.txt
+
+[Network_Registry]
+Echo,"Processing %ScriptTitle% Registry..."
+If,%FullSoftware%,Equal,False,Begin
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\wcmsvc
+  RegCopyKey,HKLM,Tmp_Software\Policies\Microsoft\Windows\WcmSvc
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\SettingSync\WindowsSettingHandlers\Tethering
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{01578f96-c270-4602-ade0-578d9c29fc0c}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{017ba13c-9a55-4f1f-8200-323055aac810}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{67d07935-283a-4791-8f8d-fa9117f3e6f2}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{9580d7dd-0379-4658-9870-d5be7d52d6de}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{b92cf7fd-dc10-4c6b-a72d-1613bf25e597}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{c100becc-d33a-4a4b-bf23-bbef4663d017}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{c100becf-d33a-4a4b-bf23-bbef4663d017}
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\WlanSvc
+  //RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\XWizards
+  //If,%Architecture%,Equal,x64,RegCopyKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\XWizards
+  //Network Places to see network in file explorer (Default ParsingName,::{F02C1A0D-BE21-4350-88B0-7367FC96EF3C})
+  //RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{D20BEEC4-5CA8-4905-AE3B-BF251EA09B53},ParsingName,::{208D2C60-3AEA-1069-A2D7-08002B30309D}
+End
+//-
+//Done in Config.script: RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Lsa - LmCompatibilityLevel,2 - LimitBlankPasswordUse,0 - "Security Packages",tspkg
+//RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\SecurityProviders,SecurityProviders,credssp.dll
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\LanmanWorkstation
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\LanmanWorkstation\Parameters,AllowInsecureGuestAuth,1
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\NetTrace\Scenarios\WLAN
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\WlanSvc
+System,ERROROFF
+RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\WlanSvc,DependOnService,nativewifip,RpcSs,Ndisuio,wcmsvc
+//RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\WlanSvc,DependOnService,nativewifip,RpcSs,Ndisuio
+If,%SourceBuild%,Bigger,17000,Begin
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,ErrorControl,1
+  RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\WlanSvc,ImagePath,"#$pSystemRoot#$p\System32\Svchost.exe -k LocalSystemNetworkRestricted -p"
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,Start,2
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WlanSvc,Type,32
+End
+// wfplwfs
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\WFPLWFS
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Network\{4d36e974-e325-11ce-bfc1-08002be10318}\{3BFD7820-D65C-4C1B-9FEA-983A019639EA}
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Network\{4d36e974-e325-11ce-bfc1-08002be10318}\{B70D6460-3635-4D42-B866-B8AB1A24454C}
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Network\{4d36e974-e325-11ce-bfc1-08002be10318}\{E475CF9A-60CD-4439-A75F-0079CE0E18A1}
+If,%Architecture%,Equal,x64,RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Network\{4d36e974-e325-11ce-bfc1-08002be10318}\{E7C3B2F0-F3C5-48DF-AF2B-10FED6D72E7A}
+//
+// Holger: Fix WFPLWFS and both services nativewifip, wlanscv.
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\NetworkSetup2\Filters\{3BFD7820-D65C-4C1B-9FEA-983A019639EA}\Kernel,FilterClass,ms_medium_converter_top
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\NetworkSetup2\Filters\{B70D6460-3635-4D42-B866-B8AB1A24454C}\Kernel,FilterClass,ms_medium_converter_top
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\NetworkSetup2\Filters\{E475CF9A-60CD-4439-A75F-0079CE0E18A1}\Kernel,FilterClass,ms_medium_converter_top
+//-
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\RadioManagement
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\VAN
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\wcncsvc
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Winlogon\Notifications\Components\Dot3svc
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\Winlogon\Notifications\Components\Wlansvc
+//-
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\bowser
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Browser
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\dot3svc
+//RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\dot3svc,Start,2
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\EapHost
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\EventLog\System\Browser
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\EventLog\System\Microsoft-Windows-WLAN-AutoConfig
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\IPNAT
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\IpFilterDriver
+//Partial in Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\HTTP
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\HTTP\Parameters\UrlAclInfo
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NativeWifiP
+//-
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NdisCap
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\NlaSvc
+// Internet Connection Sharing (ICS)
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\SharedAccess
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\tcpipreg
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\TCPIPTUNNEL,NdisMajorVersion,6
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\TCPIPTUNNEL,NdisMinorVersion,40
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\TCPIPTUNNEL,DriverMajorVersion,0
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\TCPIPTUNNEL,DriverMinorVersion,0
+// Telephony service
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\TapiSrv
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\tdx
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\vwifibus
+RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\vwifibus,Owners,netvwifibus.inf
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\vwififlt
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Wcmsvc
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\wcncsvc
+//In Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\wdiwifi
+//Partial in Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\WinSock
+//Partial in Winre.wim RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\WinSock2
+// SMB v1.0 service. Extract mrxsmb10.sys from WinSxS Image 1 which seems Uncompressed. Expand Works for Uncompressed Files but Fails for Compressed Files on Win7 HostOS
+If,Not,ExistFile,%GTarget_Sys%\drivers\mrxsmb10.sys,Begin
+  ExtractWimFile,\Windows\System32\drivers\mrxsmb10.sys,,1
+End
+If,Not,ExistFile,%GTarget_Sys%\drivers\mrxsmb10.sys,Begin
+  ExtractWimFile,\Windows\WinSxS\*_microsoft-windows-smb10-minirdr_*\mrxsmb10.sys,%GTarget_Sys%\Drivers,1
+  If,ExistFile,%GTarget_Sys%\drivers\mrxsmb10.sys,Begin
+    ShellExecute,Hide,%GTools%\sxsexp32.exe,"#$q%GTarget_Sys%\drivers\mrxsmb10.sys#$q #$q%GTarget_Sys%\drivers\mrxsmb10.sys#$q"
+    //ShellExecute,Hide,cmd.exe,"/D /C Echo sxsexp32.exe #$q%GTarget_Sys%\drivers\mrxsmb10.sys#$q&Echo.&#$q%GTools%\sxsexp32.exe#$q #$q%GTarget_Sys%\drivers\mrxsmb10.sys#$q #$q%GTarget_Sys%\drivers\mrxsmb10.sys#$q&Pause"
+    If,Not,%ExitCode%,Equal,0,Begin
+      EchoExtended,"SMB v1.0 Service will Not be Available. The WinSxS mrxsmb10.sys Driver could Not be Expanded.",,5
+      If,ExistFile,%GTarget_Sys%\drivers\mrxsmb10.sys,FileDeleteQ,%GTarget_Sys%\drivers\mrxsmb10.sys
+    End
+  End
+End
+If,ExistFile,%GTarget_Sys%\drivers\mrxsmb10.sys,Begin
+  RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\mrxsmb10,DependOnService,mrxsmb
+  RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\mrxsmb10,Description,"@#$psystemroot#$p\system32\wkssvc.dll,-1005"
+  RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\mrxsmb10,DisplayName,"@#$psystemroot#$p\system32\wkssvc.dll,-1004"
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\mrxsmb10,ErrorControl,1
+  RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\mrxsmb10,Group,Network
+  RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\mrxsmb10,ImagePath,system32\DRIVERS\mrxsmb10.sys
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\mrxsmb10,Start,2
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\mrxsmb10,Tag,6
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\mrxsmb10,Type,2
+  System,ERROROFF
+  RegWrite,HKLM,0x7,Tmp_System\ControlSet001\Services\LanmanWorkstation,DependOnService,Bowser,MRxSmb10,MRxSmb20,NSI
+End
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\dnscache
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\nlasvc
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\wcmsvc
+RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3,Settings,30,00,00,00,fe,ff,ff,ff,02,00,00,00,03,00,00,00,3e,00,00,00,28,00,00,00,00,00,00,00,f2,03,00,00,90,06,00,00,1a,04,00,00,60,00,00,00,01,00,00,00
+//-
+// netprofm service is required for wlansvc and wcmsvc service in 1903! even disabled and not started.
+If,%EnableNetworkListService%,Equal,False,Begin
+  RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+  RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,4
+End
+
+[NetworkList]
+ExtractSectionFiles,%ScriptFile%,NetworkList_AddFiles
+Run,%ScriptFile%,NetworkList_Registry
+//-
+// Net Start: SystemSetupInProgress=0 -> Net Start netprofm -> SystemSetupInProgress=1. netprofm need wfplwfs.sys for pnidui icon
+TXTReplace,%GTarget_Sys%\Pecmd.ini,"_SUB NetInit","_SUB NetInit#$x#$xREGI #HKLM\SYSTEM\Setup\SystemSetupInProgress=0#$xEXEC !=#$pWinDir#$p\System32\Net.exe Start netprofm#$xREGI #HKLM\SYSTEM\Setup\SystemSetupInProgress=1"
+
+[NetworkList_AddFiles]
+\Windows\System32\nlmgp.dll
+\Windows\System32\nlmproxy.dll
+\Windows\System32\nlmsprep.dll
+\Windows\System32\ImplatSetup.dll
+\Windows\System32\networklist
+\Windows\System32\netprofm.dll
+\Windows\System32\netprofmsvc.dll
+\Windows\System32\npmproxy.dll
+\Windows\System32\pnidui.dll
+\Windows\System32\Wbem\netprofm.mof
+
+[NetworkList_Registry]
+// NetworkSetup2 and NetworkUxManager from Installed Win10
+RegImportFile,%ScriptDir%\NetworkList_RegSystem.txt
+RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\NetworkList"
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+//-
+// Folder System32\NetworkList: Netprofm SID: S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$q%GTarget_Sys%\networklist#$q -ot file -actn ace -ace #$qn:S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304;p:full;s:y#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist folder#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//-
+// AllowStart Network List Service! netprofm need SystemSetupInProgress=0 > net start netprofm > SystemSetupInProgress=1
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\netprofm
+
+[NetworkList_Registry_Permissions_Info]
+// Registry Permissions already done with RegCopyKey for: NetworkList, NetworkList\nla, NetworkList\Permissions
+//---
+// Reg .\NetworkList: Netprofm SID: S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList#$q -ot reg -actn ace -ace #$qn:S-1-5-80-3635958274-2059881490-2225992882-984577281-633327304;p:full;s:y#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist registry key#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//---
+// Reg .\NetworkList\Nla: Netprofm inherited from NetworkList - NlaSvc SID: S-1-5-80-3141615172-2057878085-1754447212-2405740020-3916490453
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla#$q -ot reg -actn ace -ace #$qn:S-1-5-80-3141615172-2057878085-1754447212-2405740020-3916490453;p:full;s:y#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist\nla registry key#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//---
+// Reg .\NetworkList\Permissions: Netprofm inherited from NetworkList - WwanSvc SID: S-1-5-80-3981856537-581775623-1136376035-2066872258-409572886 - Unknown account S-1-5-32-556 - Unknown account: S-1-5-92-1467204242-1103346305-4253404563-2848856930-0
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList\Permissions#$q -ot reg -actn ace -ace #$qn:S-1-5-80-3981856537-581775623-1136376035-2066872258-409572886;p:full;s:y#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist\Permissions#$q registry key#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//-
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList\Permissions#$q -ot reg -actn ace -ace #$qn:S-1-5-32-556;p:full#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist\Permissions#$q registry key#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//-
+//ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList\Permissions#$q -ot reg -actn ace -ace #$qn:Network Configuration Operators;p:full#$q"
+ShellExecute,Hide,%GTools%\SetAcl.exe,"-on #$qHKLM\Tmp_software\Microsoft\Windows NT\CurrentVersion\NetworkList\Permissions#$q -ot reg -actn ace -ace #$qn:S-1-5-92-1467204242-1103346305-4253404563-2848856930-0;p:full#$q"
+If,Not,%ExitCode%,Equal,0,EchoExtended,"Error set permission on #$x#$xnetworklist\Permissions#$q registry key#$x#$x return: %ExitCode%",Warn,,MessageError,,Halt
+//--
+//RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{27F69803-A090-4CA4-A555-A86F8A451F35}",Category,1
+//RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{27F69803-A090-4CA4-A555-A86F8A451F35}",CategoryType,0
+
+[FunctionDiscovery]
+// Function Discovery Provider Host and Publication and SSDP Discovery services
+ExtractSectionFiles,%ScriptFile%,FunctionDiscovery_AddFiles
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\fdPHost
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\FDResPub
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\SSDPSRV
+//--
+//-- KYHI Added Network and Sharing Center Service
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\upnphost
+//-- Add Network Icon To File Explorer Navagation Pane
+RegCopyKey,HKLM,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+
+[FunctionDiscovery_AddFiles]
+; Function Discovery Provider Host and Publication
+\Windows\System32\fdBth.dll
+\Windows\System32\fdBthProxy.dll
+\Windows\System32\FdDevQuery.dll
+\Windows\System32\fde.dll
+\Windows\System32\fdeploy.dll
+\Windows\System32\fdPHost.dll
+\Windows\System32\fdPnp.dll
+\Windows\System32\fdprint.dll
+\Windows\System32\fdProxy.dll
+\Windows\System32\FDResPub.dll
+\Windows\System32\fdSSDP.dll
+;Done in Network-AddFiles \Windows\System32\fdWCN.dll
+;Done in Network-AddFiles \Windows\System32\fdWNet.dll
+\Windows\System32\fdWSD.dll
+\Windows\System32\WSDApi.dll
+; SSDP Discovery services
+\Windows\System32\ssdpapi.dll
+\Windows\System32\ssdpsrv.dll
+;
+; KYHI Added Network and Sharing Center 2019.06.27
+; UPnP Device Host
+\Windows\System32\upnphost.dll
+\Windows\System32\upnp.dll
+\Windows\System32\upnpcont.exe
+\Windows\System32\upnpui.dll
+; Control Panel Applets
+\Windows\System32\netcenter.dll
+\Windows\System32\netdiagfx.dll
+\Windows\System32\hgcpl.dll
+; Firewall
+\Windows\System32\hnetmon.dll
+\Windows\System32\nettrace.dll
+\Windows\System32\nshhttp.dll
+\Windows\System32\nshipsec.dll
+\Windows\System32\PeerDistSh.dll
+\Windows\System32\rpcnsh.dll
+\Windows\System32\whhelper.dll
+\Windows\System32\wwancfg.dll
+\Windows\System32\PortableDeviceApi.dll

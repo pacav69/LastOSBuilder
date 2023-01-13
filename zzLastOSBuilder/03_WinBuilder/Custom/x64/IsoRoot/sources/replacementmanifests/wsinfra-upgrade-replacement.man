@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Winsock-Core-Infrastructure-Upgrade-Replacement"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <!--
+    To ensure that the correct plugin bits are loaded during the "gather"
+    phases of an in-place upgrade, the following attributes must be updated
+    whenever a fix is made to the "gather" code in WsUpgrade.dll:
+
+    /assembly/migration/@settingsVersion
+    
+      This attribute should be incremented by one.  Any new value must be
+      mirrored in manifest located here:
+      
+        net\sockets\winsock2\components\wsinfra-upgrade.man
+        
+    /assembly/migration/@replacementSettingsVersionRange 
+    
+      This attribute should be set to "0-(@settingsVersion-1)".  For
+      example, if @settingsVersion is incremented to "4",
+      @replacementSettingsVersionRange should be "0-3".
+  -->
+  <migration 
+      replacementSettingsVersionRange="0"
+      settingsVersion="1"
+      >
+    <migXml xmlns="">
+      <plugin
+          classId="{8707fcd0-e62a-4451-b224-7707ffe1c286}"
+          file="microsoft-windows-winsock\WsUpgrade.dll"
+          offlineApply="yes"
+          />
+    </migXml>
+  </migration>
+</assembly>

@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      buildFilter=""
+      language="*"
+      name="NetFx-WCF-TcpActivation-Registration-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="WCF-TCP-Activation45"/>
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\NetTcpActivator [Start]</pattern>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\NetTcpActivator [FailureActions]</pattern>
+          </objectSet>
+        </include>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\NetTcpActivator [Start]</pattern>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\NetTcpActivator [FailureActions]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\CDF\v4.0 [NonHttpActivationInstalled]")</condition>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\CDF\v4.0 [NonHttpActivationInstalled]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

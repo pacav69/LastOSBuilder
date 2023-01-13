@@ -1,0 +1,29 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\International]
+"Locale"="00000409"
+"LocaleName"="en-US"
+"sCountry"="United States"
+"sCurrency"="$"
+"sLanguage"="ENU"
+"sLongDate"="dddd, MMMM dd, yyyy"
+"sShortDate"="M/d/yyyy"
+"sTimeFormat"="h:mm:ss tt"
+"sShortTime"="h:mm tt"
+"sYearMonth"="MMMM, yyyy"
+"iCountry"="1"
+"iDate"="0"
+"iFirstDayOfWeek"="6"
+"iMeasure"="1"
+"iNegCurr"="0"
+"iPaperSize"="1"
+"iTime"="0"
+"iTLZero"="0"
+
+[HKEY_CURRENT_USER\Control Panel\International\Geo]
+"Nation"="244"
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\SortOrder\Language]
+"00000000"="00000409"
+
+

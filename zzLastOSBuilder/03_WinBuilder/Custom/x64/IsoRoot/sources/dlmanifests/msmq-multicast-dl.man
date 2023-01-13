@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="SanjibS"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2006-05-04T16:37:03.6090709-07:00"
+    description="Downleve manifest for MSMQ Multicast component"
+    displayName="Downleve manifest for MSMQ Multicast component"
+    lastUpdateTimeStamp="2006-05-04T23:01:42.1450255-08:00"
+    manifestVersion="1.0"
+    owners="MikeDice;AnandRaj"
+    supportInformation=""
+    testers="AshishW"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-msmq-multicast-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="MSMQ-Multicast"/>
+    <migXml xmlns="">
+      <detects>
+        <!-- Platform detection -->
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SOFTWARE\Microsoft\MSMQ\Setup[msmq_Multicast]", "0x00000001")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

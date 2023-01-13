@@ -1,0 +1,88 @@
+Windows Registry Editor Version 5.00
+
+;;Disable Wallpaper Slideshow - doesn't fix it
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers]  
+;"BackgroundType"=dword:00000000 
+
+;Allow Insecure Network Share connections
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+"AllowInsecureGuestAuth"=dword:1
+
+
+;Windows Update settings
+;Enable automatic checking and installing of Windows Updates
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+
+;Enable UAC Prompt
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"PromptOnSecureDesktop"=dword:00000000
+"EnableLUA"=dword:00000001
+"ConsentPromptBehaviorAdmin"=dword:00000005
+
+;The following tweaks are to deny (or allow) Store apps access to camera, microphone, name/pic/account info, my calendar, messages/texts, control radios, other devices, and giving feedback and diagnostic data to MS.
+;These tweaks set to "Deny" are safe when installed on a PC that will run in pure desktop mode and that will not make use of Store apps; if Store apps are used these tweaks may have to be set "Allow" accordingly.
+
+;Deny apps to use camera (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E5323777-F976-4f5b-9B55-B94699C46E44}] 
+"Value"="Allow" 
+
+;Deny apps to use microphone (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2EEF81BE-33FA-4800-9670-1CD474972C3F}] 
+"Value"="Allow" 
+
+;Deny apps to access name, picture, and other account info (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}] 
+"Value"="Allow" 
+
+;Deny apps to access my calendar (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{D89823BA-7180-4B81-B50C-7E471E6121A3}] 
+"Value"="Allow" 
+
+;Deny apps to read or send messages (text or MMS) (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{992AFA70-6F47-4148-B3E9-3003349C1548}] 
+"Value"="Allow" 
+
+;Deny apps to control radios (some apps use radio--like Bluetooth--in your device to send/receive data (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{A8804298-2D5F-42E3-9531-9C8C39EB29CE}] 
+"Value"="Allow" 
+
+;Deny letting your apps automatically share and sync info with wireless devices that don't explicitly pair with your PC, tablet, or phone (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled] 
+"Value"="Allow" 
+
+
+;;Show the Search box in the Taskbar
+;[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search] 
+;"SearchboxTaskbarMode"=dword:00000001
+
+;;Adds Action Center (notifications) icon from the sytem tray (requires explorer refresh or reboot)
+;[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+;"DisableNotificationCenter"=dword:00000000
+
+;;Changes notification message duration to 4 seconds.
+;[HKEY_CURRENT_USER\Control Panel\Accessibility] 
+;"MessageDuration"=dword:00000002
+
+;33 is confirmation to delete something, 37 is NO asking to delete (requires explorer restart)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"ShellState"=hex:24,00,00,00,33,28,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  01,00,00,00,13,00,00,00,00,00,00,00,62,00,00,00
+
+
+;Don't wake computer to install updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Group Policy Objects\{14EAA3A2-F30F-46B1-A3BA-9F646432F64D}Machine\Software\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+
+
+;Re-Enable Defender
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+"DisableAntiSpyware"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
+"DisableBehaviorMonitoring"=dword:00000000
+"DisableOnAccessProtection"=dword:00000000
+"DisableScanOnRealtimeEnable"=dword:00000000
+

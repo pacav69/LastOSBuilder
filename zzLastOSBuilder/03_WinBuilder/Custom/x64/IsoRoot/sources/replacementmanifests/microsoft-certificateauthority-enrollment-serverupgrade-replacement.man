@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-CertificateAuthority-Enrollment-ServerUpgrade"
+      processorArchitecture="*"
+      version="1.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.1.*"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADCS\CES [ConfigurationStatus]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="System">
+        <detects>
+          <detect>
+            <!-- Detection of CES. -->
+            <condition>MigXmlHelper.DoesObjectExist("File", "%systemroot%\systemdata\CES")</condition>
+          </detect>
+          <detect>
+            <!-- If the registry key doesn't exist, put a DWORD value of 2 -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\Software\Microsoft\ADCS\CES [ConfigurationStatus]")</condition>
+          </detect>
+        </detects>
+        <addObjects>
+          <object>
+            <location type="Registry">HKLM\Software\Microsoft\ADCS\CES [ConfigurationStatus]</location>
+            <attributes>Dword</attributes>
+            <bytes>02000000</bytes>
+          </object>
+        </addObjects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADCS\CES [ConfigurationStatus]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

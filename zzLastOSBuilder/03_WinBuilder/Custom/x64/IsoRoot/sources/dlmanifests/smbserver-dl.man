@@ -1,0 +1,138 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-SMBServer-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!-- Begin migration from Vista. This is the build-to-build upgrade or pc-to-pc case.
+         Everything else comes from the -DL manifest. -->
+    <!-- In-place section. Declarations here will not be migrated pc-to-pc. -->
+    <machineSpecific>
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSLaterThan("NT", "5.0")</condition>
+          </detect>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <!-- Migrate Server parameters -->
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Size]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [LmAnnounce]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Users]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Disc]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ConnectionNoSessionTimeout]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Announce]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [AnnDelta]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [AcceptDownlevelApis]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableOplocks]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableFcbOpens]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableSoftCompat]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableSharedNetDrives]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableForcedLogoff]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [RemoveDuplicateSearches]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [RestrictNullSessAccess]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SizReqBuf]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxWorkItems]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [InitWorkItems]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [IrpStackSize]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MinFreeConnections]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxFreeConnections]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxKeepSearch]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxThreadsPerQueue]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [IdleThreadTimeout]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ScavTimeout]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [QueueSampleSecs]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [OtherQueueAffinity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [PreferredAffinity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [BalanceCount]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [AutoShareServer]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [AutoShareWks]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableSecuritySignature]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [RequireSecuritySignature]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableW9xSecuritySignature]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableDos]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [LowDiskSpaceMinimum]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableStrictNameChecking]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxMpxCt]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [OplockBreakWait]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [OplockBreakRequestWait]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MinRcvQueue]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MinFreeWorkItems]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ThreadPriority]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxPagedMemoryUsage]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxNonPagedMemoryUsage]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DiskSpaceThreshold]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MaxLinkDelay]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MinLinkThroughput]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [LinkInfoValidTime]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ScavQosInfoUpdateTime]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SharingViolationRetries]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SharingViolationDelay]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [LockViolationDelay]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [LockViolationOffset]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [CachedOpenLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [CachedDirectoryLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [PipeFirewallActive]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableExtendedSignature]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [RequireExtendedSignature]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [TreatHostAsStableStorage]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableLargeRead]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableLargeWrite]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [MapNoIntermediateBuffering]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [NoAliasingOnFilesystem]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableDownlevelTimewarp]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ChunkMax]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ChunkWriteLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ChunkTotalWriteLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ChunkTimeout]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SMB1]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SMB2]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [EnableInvalidSmbLogging]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [KeepAliveTime]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [DisableClientSideEncryption]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Wsk]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [StripDnsOnAliasCheck]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ValidateTargetName]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ValidateAliasNotCircular]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ValidateShareScope]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ValidateShareScopeNotAliased]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [SrvComment]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [UserPath]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [Domain]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [NullSessionPipes]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [NullSessionShares]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [NoRemapPipeNames]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [AllowedPipesWithFirewall]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [PipesNeedLicense]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [CheckFile]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [CheckExtension]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [CheckShares]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters [ErrorLogIgnore]</pattern>
+              <!-- Migrate share, security, and alias data -->
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Shares\* [*]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\Aliases\* [*]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\LanmanServer\DefaultSecurity\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+    <!-- No pc-to-pc migration. -->
+  </migration>
+</assembly>

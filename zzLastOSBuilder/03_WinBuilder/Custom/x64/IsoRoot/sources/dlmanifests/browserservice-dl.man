@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-BrowserService-DL"
+      processorArchitecture="neutral"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <machineSpecific>
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [IsDomainMaster]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [MaintainServerList]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BackupBrowserRecoveryTime]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [CacheHitLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [CacheResponseSize]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [QueryDriverFrequency]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [DirectHostBinding]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [UnboundBindings]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [MasterPeriodicity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BackupPeriodicity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BrowserDebug]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BrowserDebugLimit]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [DisableStopOnPortsClosed]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [IcfWaitTimeout]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BackupPeriodicity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BackupPeriodicity]</pattern>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\Browser\Parameters [BackupPeriodicity]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

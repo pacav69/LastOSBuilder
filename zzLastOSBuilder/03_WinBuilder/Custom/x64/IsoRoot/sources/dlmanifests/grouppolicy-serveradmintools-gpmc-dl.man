@@ -1,0 +1,24 @@
+<assembly manifestVersion="1.0" description="Downlevel manifest to check if Out-of-band GPMC is installed in XP or Server 2003 and install GPMC (an optional component in Server 2008) on upgrade" displayName="Downlevel manifest to migrate Out-of-band GPMC" company="Microsoft Corporation" copyright="" supportInformation="" creationTimeStamp="2005-07-01T21:42:41.1667237Z" lastUpdateTimeStamp="2005-07-06T21:51:03.5983541Z" authors="gpdev" owners="gpdev" testers="" buildFilter="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:asm.v3">
+  <assemblyIdentity name="Microsoft-Windows-GroupPolicy-ServerAdminTools-GPMC-DL" version="0.0.0.0" processorArchitecture="*" language="*"/>
+
+  <migration>
+
+    <!-- Refers to the name of optional component that this manifest corresponds to -->
+    <!-- Install the optional component if the conditions specified below are satisfied -->
+    <registerSDF name="Microsoft-Windows-GroupPolicy-ServerAdminTools-Update"></registerSDF>
+
+    <migXml xmlns="">        
+      <detects>
+        <detect>
+          <!-- Check if OS is Windows Server 2003 (RTM, R2, Service Packs) -->
+          <condition>MigXmlHelper.DoesOSMatch("NT", "5.2.*")</condition>
+        </detect>
+
+        <detect>
+          <!-- AND check if GPMC is installed -->
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Group Policy Management Console")</condition>
+        </detect>
+      </detects>     
+    </migXml>
+  </migration>
+</assembly>

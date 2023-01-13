@@ -1,0 +1,328 @@
+;\ProgramData\Microsoft\User Account Pictures\user-200.png
+; Explorer
+\Windows\explorer.exe
+\Windows\??-??\explorer.exe.mui
+\Windows\SystemResources\Windows.UI.ShellCommon
+\Windows\System32\actxprxy.dll
+\Windows\System32\AppHelp.dll
+\Windows\System32\AppResolver.dll
+\Windows\System32\atlthunk.dll
+\Windows\System32\avifil32.dll
+;\Windows\System32\cdosys.dll > DO NOT ADD OR USE - it locks switch to Admin, even if cdosys.dll.mui is present in winre.wim
+\Windows\System32\clip.exe
+\Windows\System32\Clipc.dll
+\Windows\System32\comctl32.dll
+\Windows\System32\comsvcs.dll
+\Windows\System32\control.exe
+\Windows\System32\CoreMessaging.dll
+\Windows\System32\CoreUIComponents.dll
+\Windows\System32\credssp.dll
+\Windows\System32\cscapi.dll
+\Windows\System32\ctfmon.exe
+\Windows\System32\desk.cpl
+\Windows\System32\edputil.dll
+\Windows\System32\ELSCore.dll
+\Windows\System32\IconCodecService.dll
+\Windows\System32\imageres.dll
+\Windows\System32\InfDefaultInstall.exe
+\Windows\System32\InputSwitch.dll
+\Windows\System32\mblctr.exe
+\Windows\System32\mfperfhelper.dll
+\Windows\System32\MrmCoreR.dll
+\Windows\System32\mscories.dll
+\Windows\System32\MsCtfMonitor.dll
+; msimsg.dll.mui is present in winre.wim but not msimsg.dll (appropriate?)
+\Windows\System32\msutb.dll
+\Windows\System32\mycomput.dll
+\Windows\System32\nsi.dll
+\Windows\System32\policymanager.dll
+\Windows\System32\pdh.dll
+\Windows\System32\PhotoMetadataHandler.dll
+\Windows\System32\pnputil.exe
+\Windows\System32\ProximityCommon.dll
+\Windows\System32\ProximityCommonPal.dll
+\Windows\System32\ProximityService.dll
+\Windows\System32\ProximityServicePal.dll
+\Windows\System32\rmclient.dll
+\Windows\System32\rshx32.dll
+\Windows\System32\sendmail.dll
+\Windows\System32\SettingSyncCore.dll
+\Windows\System32\SharedStartModel.dll
+\Windows\System32\ShellCommonCommonProxyStub.dll
+\Windows\System32\shfolder.dll
+\Windows\System32\shutdown.exe
+\Windows\System32\StartTileData.dll
+\Windows\System32\Sti.dll
+\Windows\System32\stobject.dll
+\Windows\System32\StorageUsage.dll
+\Windows\System32\systemcpl.dll
+\Windows\System32\TDLMigration.dll
+\Windows\System32\TextInputFramework.dll
+\Windows\System32\TextShaping.dll
+\Windows\System32\thumbcache.dll
+\Windows\System32\twinapi.appcore.dll
+\Windows\System32\twinapi.dll
+\Windows\System32\twinui.appcore.dll
+\Windows\System32\twinui.pcshell.dll
+\Windows\System32\UIAnimation.dll
+\Windows\System32\UIRibbon.dll
+\Windows\System32\UIRibbonRes.dll
+\Windows\System32\Windows.Globalization.dll
+;\Windows\System32\windows.immersiveshell.serviceprovider.dll > DO NOT ADD OR USE
+\Windows\System32\Windows.Internal.Shell.Broker.dll
+\Windows\System32\Windows.Networking.Connectivity.dll
+\Windows\System32\Windows.UI.dll
+\Windows\System32\WorkFoldersShell.dll
+\Windows\System32\wpdshext.dll
+\Windows\System32\zipfldr.dll
+;
+; Windows.CloudStore.dll.mui is required for Pintool (mui file only)
+\Windows\System32\??-??\Windows.CloudStore.dll.mui
+;
+; Windows Management for Source Build > 18900
+;\Windows\System32\Windows.FileExplorer.Common.dll > in winre.wim
+\Windows\System32\WindowManagement.dll
+\Windows\System32\WindowManagementAPI.dll
+\Windows\System32\GameInput.dll
+;
+; Advanced system setting
+\Windows\System32\sysdm.cpl
+\Windows\System32\DeviceProperties.exe
+\Windows\System32\SystemPropertiesAdvanced.exe
+\Windows\System32\SystemPropertiesComputerName.exe
+\Windows\System32\systempropertieshardware.exe
+\Windows\System32\systempropertiesperformance.exe
+\Windows\System32\systempropertiesremote.exe
+;
+; Browse Folder
+\Windows\System32\ExplorerFrame.dll
+;
+; DragAndDrop (in Winre.wim d2d1.dll,ksuser.dll)
+\Windows\System32\DataExchange.dll
+\Windows\System32\dcomp.dll
+\Windows\System32\d3d11.dll
+\Windows\System32\dxgi.dll
+;
+; CopyProgress
+\Windows\System32\chartv.dll
+\Windows\System32\OneCoreUAPCommonProxyStub.dll
+;
+; Previous version tab
+\Windows\System32\twext.dll
+;
+; Shell extension for Windows Script Host
+\Windows\System32\wshext.dll
+;
+; Sets environment variables
+\Windows\System32\setx.exe
+;
+; Service Manager
+\Windows\System32\services.msc
+;
+; Timedate cpl
+\Windows\System32\timedate.cpl
+; Mouse cpl
+\Windows\System32\main.cpl
+; Region, Language
+\Windows\System32\intl.cpl
+;
+; Eject usb
+\Windows\System32\DeviceCenter.dll
+\Windows\System32\DeviceEject.exe
+\Windows\System32\StorageContextHandler.dll
+\windows\system32\DDOres.dll
+\windows\system32\DeviceSetupManager.dll
+\windows\system32\DeviceSetupManagerAPI.dll
+\windows\system32\DeviceSetupStatusProvider.dll
+\windows\system32\DevPropMgr.dll
+;
+; Map a network drive also in network addition
+\Windows\System32\netplwiz.dll
+\Windows\System32\netplwiz.exe
+;
+; Sharing from explorer
+\Windows\System32\dtsh.dll
+\Windows\System32\shpafact.dll
+\Windows\System32\networkexplorer.dll
+\Windows\System32\provsvc.dll
+;
+; Network: L2Schemas seems necessary in x86 with the default Winre.wim network support. otherwise the Wlansvc service does not start with Native Wifi Filter error
+\Windows\L2Schemas
+;
+; Password Notification from event-log
+\Windows\System32\kdcpw.dll
+;
+; Windows Trusted Runtime Interface Driver
+\Windows\System32\drivers\WindowsTrustedRT.sys
+;
+; Windows WinUSB Class Driver
+\Windows\INF\winusb.inf
+\Windows\System32\drivers\winusb.sys
+\Windows\System32\DriverStore\FileRepository\winusb.inf_*
+\Windows\System32\winusb.dll
+;
+; Theme and dwm
+\Windows\System32\dwm.exe
+\Windows\System32\dwmcore.dll
+\Windows\System32\dwmghost.dll
+\Windows\System32\dwminit.dll
+\Windows\System32\dwmredir.dll
+\Windows\System32\hotplug.dll
+\Windows\System32\InputHost.dll
+\Windows\System32\ISM.dll
+\Windows\System32\themeservice.dll
+\Windows\System32\themeui.dll
+\Windows\System32\twinui.dll
+\Windows\System32\ubpm.dll
+\Windows\System32\uDWM.dll
+\Windows\System32\wdi.dll
+\Windows\System32\Windows.Gaming.Input.dll
+\Windows\System32\Windows.UI.Immersive.dll
+; shellstyle.dll(.mui) does not exist in Win10 17763
+\Windows\System32\shellstyle.dll
+;
+; Resources for desktop background contextmenu
+\Windows\System32\Display.dll
+\Windows\System32\themecpl.dll
+;
+; Microsoft Managment Control (MMC)
+;\Windows\System32\dwwin.exe > windows error reporting not used
+\Windows\System32\filemgmt.dll
+\Windows\System32\mmc.exe
+\Windows\System32\mmcbase.dll
+\Windows\System32\mmcndmgr.dll
+\Windows\System32\mmcshext.dll
+\Windows\System32\wbem\servdeps.dll
+\Windows\System32\OnDemandConnRouteHelper.dll
+\Windows\System32\wbem\??-??\servdeps.dll.mui
+;
+; Disk Management
+\Windows\System32\diskmgmt.msc
+\Windows\System32\dmdlgs.dll
+\Windows\System32\dmdskmgr.dll
+\Windows\System32\dmdskres.dll
+\Windows\System32\dmdskres2.dll
+\Windows\System32\dmintf.dll
+\Windows\System32\dmocx.dll
+\Windows\System32\dmutil.dll
+\Windows\System32\dmvdsitf.dll
+\Windows\System32\dmview.ocx
+\Windows\System32\hhsetup.dll
+;
+; Device Manager cpl
+\Windows\System32\hdwwiz.cpl
+\Windows\System32\hdwwiz.exe
+;
+; Device Manager
+\Windows\System32\devmgmt.msc
+\Windows\System32\devmgr.dll
+;
+; Computer Manager
+\Windows\System32\compmgmt.msc
+\Windows\System32\CompMgmtLauncher.exe
+;
+; Filesystem Manager - Shared folder
+\Windows\System32\fsmgmt.msc
+;
+; Search
+\Windows\INF\wsearchidxpi
+\Windows\System32\esent.dll
+\Windows\System32\NaturalLanguage6.dll
+\Windows\System32\NOISE.DAT
+\Windows\System32\MSWB7.dll
+\Windows\System32\mssph.dll
+\Windows\System32\mssprxy.dll
+\Windows\System32\mssrch.dll
+\Windows\System32\mssvp.dll
+\Windows\System32\mssitlb.dll
+\Windows\System32\query.exe
+\Windows\System32\query.dll
+\Windows\System32\SearchFilterHost.exe
+\Windows\System32\SearchFolder.dll
+\Windows\System32\SearchIndexer.exe
+\Windows\System32\SearchProtocolHost.exe
+\Windows\System32\srchadmin.dll
+\Windows\System32\StructuredQuery.dll
+\Windows\System32\tquery.dll
+\Windows\System32\Windows.Shell.Search.UriHandler.dll
+\Windows\System32\Windows.Storage.Search.dll
+\Windows\System32\wsepno.dll
+\Windows\System32\prm*.dll
+\Windows\System32\MLS*.dll
+;
+; ShellHWDetection
+\Windows\System32\shsvcs.dll
+;
+; DLNA Namespace
+\Windows\System32\dlnashext.dll
+;
+; Explorer BitLocker integration
+\Windows\System32\bdesvc.dll
+\Windows\System32\bdeunlock.exe
+\Windows\System32\fvenotify.exe
+,
+; Taking Ownership (Appinfo and ProfSvc services). ProfSvc services already here (profsvc.dll,profsvcext.dll,provsvc.dll,objsel.dll)
+\Windows\System32\appinfo.dll
+\Windows\System32\appinfoext.dll
+\Windows\System32\objsel.dll
+;
+; Battery icon - In Winre.wim inf: hidbatt.inf,cmbatt.inf - drivers: battc.sys,HidBatt.sys,CmBatt.sys - system32: umpo.dll,umpnpmgr.dll
+\Windows\INF\battery.inf
+\Windows\INF\c_battery.inf
+\Windows\System32\batmeter.dll
+\Windows\System32\umpoext.dll
+; Possible Addition \Windows\System32\umpowmi.dll
+;
+; Power management - In Winre.wim system32: powrprof.dll,workerdd.dll
+\Windows\System32\powercfg.cpl
+\Windows\System32\powercpl.dll
+;
+; System Information (Optional)
+\Windows\System32\msinfo32.exe
+;
+; Version Info (Optional)
+\Windows\System32\winver.exe
+;
+; SendTo
+\Users\Default\AppData\Roaming\Microsoft\Windows\SendTo\Compressed (zipped) Folder.zfsendtotarget
+\Users\Default\AppData\Roaming\Microsoft\Windows\SendTo\Desktop (create shortcut).DeskLink
+\Users\Default\AppData\Roaming\Microsoft\Windows\SendTo\desktop.ini
+;
+; Additional Cmds (optional)
+\Windows\System32\cacls.exe
+\Windows\System32\Comp.exe
+\Windows\System32\choice.exe
+\Windows\System32\Fc.exe
+\Windows\System32\findstr.exe
+\Windows\System32\Help.exe
+\Windows\System32\Label.exe
+\Windows\System32\Makecab.exe
+\Windows\System32\sc.exe
+\Windows\System32\Sort.exe
+\Windows\System32\taskkill.exe
+;
+; Additional Fonts (optional) in addition to segoeui.ttf
+\Windows\Fonts\segoeui.ttf
+\Windows\Fonts\coure.fon
+\Windows\Fonts\sserife.fon
+\Windows\Fonts\arial.ttf
+\Windows\Fonts\arialbd.ttf
+\Windows\Fonts\arialbi.ttf
+\Windows\Fonts\ariali.ttf
+\Windows\Fonts\comic.ttf
+\Windows\Fonts\comicbd.ttf
+\Windows\Fonts\cour.ttf
+\Windows\Fonts\courbd.ttf
+\Windows\Fonts\courbi.ttf
+\Windows\Fonts\l_10646.ttf
+\Windows\Fonts\timesbd.ttf
+\Windows\Fonts\timesbi.ttf
+\Windows\Fonts\timesi.ttf
+\Windows\Fonts\trebuc.ttf
+\Windows\Fonts\trebucbd.ttf
+\Windows\Fonts\trebucbi.ttf
+\Windows\Fonts\trebucit.ttf
+\Windows\Fonts\verdana.ttf
+\Windows\Fonts\verdanab.ttf
+\Windows\Fonts\verdanai.ttf
+\Windows\Fonts\verdanaz.ttf

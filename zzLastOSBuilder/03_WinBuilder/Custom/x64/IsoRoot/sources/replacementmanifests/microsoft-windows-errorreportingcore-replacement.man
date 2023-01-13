@@ -1,0 +1,178 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      name="Microsoft-Windows-ErrorReportingCore"
+      language="neutral"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+        replacementSettingsVersionRange="0-1"
+        scope="Upgrade,MigWiz,USMT"
+        settingsVersion="2"
+        alwaysProcess="yes"
+        >
+    <migXml xmlns="">
+      <rules context="system">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DisableArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [ConfigureArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MaxQueueCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MaxArchiveCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [ForceQueue]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerServer]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerUseSSL]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerPortNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerUseAuthentication]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MinFreeDiskSpace]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DisableArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [ConfigureArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MaxQueueCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MaxArchiveCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [ForceQueue]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerServer]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerUseSSL]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerPortNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerUseAuthentication]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MinFreeDiskSpace]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\RuntimeExceptionHelperModules [*]</pattern>
+          </objectSet>
+        </include>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DisableArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [ConfigureArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MaxQueueCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MaxArchiveCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [ForceQueue]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerServer]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerUseSSL]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerPortNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [CorporateWerUseAuthentication]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting [MinFreeDiskSpace]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\RuntimeExceptionHelperModules [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DisableArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [ConfigureArchive]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MaxQueueCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MaxArchiveCount]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [ForceQueue]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerServer]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerUseSSL]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerPortNumber]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [CorporateWerUseAuthentication]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting [MinFreeDiskSpace]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\RuntimeExceptionHelperModules [*]</pattern>
+          </objectSet>
+        </merge>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [DefaultConsent]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [NewUserDefaultConsent]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\Consent [DefaultConsent]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\MICROSOFT\Windows\Windows Error Reporting\Consent [NewUserDefaultConsent]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+      <rules context="user">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [DefaultConsent]</pattern>
+          </objectSet>
+        </exclude>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontSendAdditionalData]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [Disabled]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Consent [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [LoggingDisabled]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [QueuePesterInterval]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\ExcludedApplications  [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting\DebugApplications  [*]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [DontShowUI]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassPowerThrottling]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [BypassNetworkCostThrottling]</pattern>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting [AutoApproveOSDumps]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+    </migXml>
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="File">%ProgramData%\Microsoft\Windows\WER\ReportQueue\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

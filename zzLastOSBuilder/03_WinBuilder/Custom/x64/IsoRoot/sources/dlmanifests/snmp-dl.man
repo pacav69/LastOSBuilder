@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="frankli"
+    buildFilter=""
+    company="MICROSOFT"
+    copyright=""
+    creationTimeStamp="2003-07-21T11:45:10.1193767-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2005-02-18T19:07:27.3001037Z"
+    manifestVersion="1.0"
+    owners="frankli"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-SNMP-Agent-Service-DL"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="SNMP"/>
+    <migXml xmlns="">
+      <!-- Ensure this runs on pre-Loonghorn OS only -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\SNMP")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters [EnableAuthenticationTraps]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent [sysContact]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent [sysLocation]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\RFC1156Agent [sysServices]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\TrapConfiguration\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

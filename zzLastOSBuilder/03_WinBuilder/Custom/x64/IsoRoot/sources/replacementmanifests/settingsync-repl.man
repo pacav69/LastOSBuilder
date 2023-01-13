@@ -1,0 +1,37 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-SettingSync"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+    <migration
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2.*"
+      scope="Upgrade,MigWiz,USMT"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\SettingSync\* [*]</pattern>
+          </objectSet>
+        </include>
+        <addObjects>
+          <object>
+            <location type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\SettingSync [UpgradedProfile]</location>
+            <attributes>dword</attributes>
+            <bytes>01000000</bytes>
+          </object>
+        </addObjects>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

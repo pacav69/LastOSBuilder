@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-Winsock-Core-Infrastructure-other-MinWin"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration 
+      replacementSettingsVersionRange="1" 
+      settingsVersion="1"
+      replacementVersionRange="6.0-6.2"
+	  alwaysProcess="yes">
+	<migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%windir%\system32\drivers\etc [hosts]</pattern>
+            <pattern type="File">%windir%\system32\drivers\etc [networks]</pattern>
+            <pattern type="File">%windir%\system32\drivers\etc [protocol]</pattern>
+            <pattern type="File">%windir%\system32\drivers\etc [services]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

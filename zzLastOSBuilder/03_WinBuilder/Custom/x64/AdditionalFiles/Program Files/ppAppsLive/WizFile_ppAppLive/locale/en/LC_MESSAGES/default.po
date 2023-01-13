@@ -1,0 +1,488 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WizFile\n"
+"POT-Creation-Date: 2018-03-13 13:19\n"
+"PO-Revision-Date: 2018-06-18 12:49+1200\n"
+"Last-Translator: Dominic Dumée <webmaster@antibody-software.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: dxgettext 1.2.2\n"
+"Language-Team: \n"
+
+#: SelectLanguage.pas:56
+#: supportercode.pas:280
+#: WizFileMain.pas:4230
+msgid "OK"
+msgstr ""
+
+#: SelectLanguage.pas:57
+#: supportercode.pas:281
+#: WizFileMain.pas:4231
+msgid "Cancel"
+msgstr ""
+
+#: SelectLanguage.pas:58
+#: SelectLanguage.pas:59
+#: WizFileMain.pas:4140
+msgid "Language"
+msgstr ""
+
+#: supportercode.pas:165
+msgid "Invalid Key - Please try again."
+msgstr ""
+
+#: supportercode.pas:166
+msgid "It is recommended that you copy and paste your supporter code."
+msgstr ""
+
+#: supportercode.pas:167
+msgid "Only use digits 0 to 9 and letters A to F."
+msgstr ""
+
+#: supportercode.pas:252
+#: WizFileMain.pas:4105
+msgid "Thank you for your support!"
+msgstr ""
+
+#: supportercode.pas:253
+msgid "WizFile will now restart."
+msgstr ""
+
+#: supportercode.pas:282
+#: WizFileMain.pas:4226
+msgid "Enter Supporter Code"
+msgstr ""
+
+#: supportercode.pas:283
+msgid "Supporter Code"
+msgstr ""
+
+#. warning dialog title
+#: uVistaTaskDialog.pas:228
+msgid "Warning"
+msgstr ""
+
+#. confirmation dialog title
+#: uVistaTaskDialog.pas:233
+msgid "Confirmation"
+msgstr ""
+
+#. error dialog title
+#: uVistaTaskDialog.pas:238
+#: WizFileMain.pas:1996
+msgid "Error"
+msgstr ""
+
+#. information dialog title
+#: uVistaTaskDialog.pas:243
+msgid "Information"
+msgstr ""
+
+#: WizFileMain.pas:994
+msgid "Scanning..."
+msgstr ""
+
+#: WizFileMain.pas:994
+msgid "Folders"
+msgstr ""
+
+#: WizFileMain.pas:994
+#: WizFileMain.pas:4172
+msgid "Files"
+msgstr ""
+
+#: WizFileMain.pas:1064
+msgid "GB"
+msgstr ""
+
+#: WizFileMain.pas:1067
+msgid "MB"
+msgstr ""
+
+#: WizFileMain.pas:1070
+msgid "KB"
+msgstr ""
+
+#: WizFileMain.pas:1075
+msgid "Bytes"
+msgstr ""
+
+#: WizFileMain.pas:1136
+msgid "Selected Files"
+msgstr ""
+
+#: WizFileMain.pas:1136
+#: WizFileMain.pas:3398
+msgid "Total Size"
+msgstr ""
+
+#: WizFileMain.pas:1212
+#: WizFileMain.pas:1337
+#: WizFileMain.pas:1584
+msgid "You are about to open"
+msgstr ""
+
+#: WizFileMain.pas:1213
+msgid "Command Prompt windows - are you sure?"
+msgstr ""
+
+#: WizFileMain.pas:1338
+msgid "Explorer windows - are you sure?"
+msgstr ""
+
+#: WizFileMain.pas:1585
+msgid "files - are you sure?"
+msgstr ""
+
+#. FileName := FDir;
+#: WizFileMain.pas:1706
+#: WizFileMain.pas:1721
+msgid "Select Folder"
+msgstr ""
+
+#. YMMV
+#: WizFileMain.pas:1708
+msgid "Select"
+msgstr ""
+
+#. we have an update!
+#: WizFileMain.pas:2310
+msgid "An update is available"
+msgstr ""
+
+#: WizFileMain.pas:2311
+msgid "Click on the \"View Update\" button to learn more."
+msgstr ""
+
+#. if tag set then display error if any
+#: WizFileMain.pas:2318
+msgid "No update found."
+msgstr ""
+
+#. if tag set then display error if any
+#: WizFileMain.pas:2330
+msgid "Error checking for updates:"
+msgstr ""
+
+#: WizFileMain.pas:2716
+msgid "64 bit"
+msgstr ""
+
+#: WizFileMain.pas:2718
+msgid "32 bit"
+msgstr ""
+
+#: WizFileMain.pas:3192
+msgid "Loading file list..."
+msgstr ""
+
+#. if TotFilesNum <> 0 then
+#: WizFileMain.pas:3397
+msgid "files"
+msgstr ""
+
+#: WizFileMain.pas:4121
+msgid "File"
+msgstr ""
+
+#: WizFileMain.pas:4122
+msgid "Options"
+msgstr ""
+
+#: WizFileMain.pas:4123
+#: WizFileMain.pas:4151
+msgid "Refresh"
+msgstr ""
+
+#: WizFileMain.pas:4124
+msgid "New Instance"
+msgstr ""
+
+#: WizFileMain.pas:4125
+msgid "Explore Folder"
+msgstr ""
+
+#: WizFileMain.pas:4126
+msgid "Command Prompt Here"
+msgstr ""
+
+#: WizFileMain.pas:4127
+msgid "Copy Path"
+msgstr ""
+
+#: WizFileMain.pas:4128
+msgid "Delete (to Recycle Bin)"
+msgstr ""
+
+#: WizFileMain.pas:4129
+msgid "Delete (No undelete possible)"
+msgstr ""
+
+#: WizFileMain.pas:4130
+msgid "Exit"
+msgstr ""
+
+#: WizFileMain.pas:4132
+msgid "Display Dynamic values"
+msgstr ""
+
+#: WizFileMain.pas:4133
+msgid "Display Byte values"
+msgstr ""
+
+#: WizFileMain.pas:4134
+msgid "Display KB values"
+msgstr ""
+
+#: WizFileMain.pas:4135
+msgid "Display MB values"
+msgstr ""
+
+#: WizFileMain.pas:4136
+msgid "Display GB values"
+msgstr ""
+
+#: WizFileMain.pas:4146
+msgid "View Update"
+msgstr ""
+
+#: WizFileMain.pas:4147
+msgid "Dismiss"
+msgstr ""
+
+#: WizFileMain.pas:4148
+msgid "Check for updates"
+msgstr ""
+
+#: WizFileMain.pas:4149
+msgid "Check for updates now"
+msgstr ""
+
+#: WizFileMain.pas:4152
+msgid "Cancel Scan"
+msgstr ""
+
+#: WizFileMain.pas:4175
+msgid "Clear"
+msgstr ""
+
+#: WizFileMain.pas:4176
+msgid "Match file name only"
+msgstr ""
+
+#: WizFileMain.pas:4177
+msgid "(Fast)"
+msgstr ""
+
+#: WizFileMain.pas:4178
+msgid "Match entire path"
+msgstr ""
+
+#: WizFileMain.pas:4179
+msgid "(Warning: can be slow!)"
+msgstr ""
+
+#: WizFileMain.pas:4180
+msgid "Max files to display:"
+msgstr ""
+
+#: WizFileMain.pas:4182
+msgid "(Selecting ALL can be very slow!)"
+msgstr ""
+
+#: WizFileMain.pas:4184
+msgid "ALL"
+msgstr ""
+
+#: WizFileMain.pas:4189
+msgid "File Name"
+msgstr ""
+
+#: WizFileMain.pas:4190
+msgid "Path"
+msgstr ""
+
+#: WizFileMain.pas:4191
+msgid "Size"
+msgstr ""
+
+#: WizFileMain.pas:4192
+msgid "Allocated"
+msgstr ""
+
+#: WizFileMain.pas:4193
+msgid "Modified"
+msgstr ""
+
+#: WizFileMain.pas:4194
+msgid "Attributes"
+msgstr ""
+
+#: WizFileMain.pas:4196
+msgid "About"
+msgstr ""
+
+#: WizFileMain.pas:4199
+msgid "If you use WizFile commercially or you'd just like to support the freeware community then please make a donation by clicking on the Donate button at the top right of the screen. Thank you! :)"
+msgstr ""
+
+#: WizFileMain.pas:4201
+msgid "What is WizFile?"
+msgstr ""
+
+#: WizFileMain.pas:4202
+msgid "WizFile is a very fast file search utility that can find files on your hard drive almost instantly."
+msgstr ""
+
+#: WizFileMain.pas:4203
+msgid "The entire file system can be quickly sorted by name, size or date."
+msgstr ""
+
+#: WizFileMain.pas:4207
+msgid "What makes WizFile so fast?"
+msgstr ""
+
+#: WizFileMain.pas:4209
+msgid "When scanning NTFS formatted hard drives (most modern hard drives use this format), WizFile reads the hard drive's Master File Table (MFT) directly from the disk."
+msgstr ""
+
+#: WizFileMain.pas:4210
+msgid "The MFT is a special hidden file used by the NTFS file system to keep track of all files and folders on a hard drive. Scanning for files this way completely bypasses the operating system (Windows) and provides a huge performance boost."
+msgstr ""
+
+#: WizFileMain.pas:4212
+msgid "WizFile currently only supports NTFS formatted hard drives."
+msgstr ""
+
+#: WizFileMain.pas:4214
+msgid "Please visit the Antibody Software website for more great software, such as:"
+msgstr ""
+
+#: WizFileMain.pas:4215
+#: WizFileMain.pas:4219
+msgid "(click for more information)"
+msgstr ""
+
+#: WizFileMain.pas:4216
+msgid "A powerful yet easy to use web gallery downloading tool. It supports most of the popular image hosting sites (such as flickr, facebook, Google image search, imgur, deviantart etc.)."
+msgstr ""
+
+#: WizFileMain.pas:4217
+msgid "It doesn't require any complicated setup or project files - it just works."
+msgstr ""
+
+#: WizFileMain.pas:4220
+msgid "A keyboard enhancement utility that makes it easy to type accented and other special Unicode characters on a standard US/UK keyboard using easy to remember keyboard shortcuts."
+msgstr ""
+
+#: WizFileMain.pas:4221
+msgid "For example, to type an à (a with grave accent), you press Ctrl+` then press a. These shortcuts work from any Windows application."
+msgstr ""
+
+#. btnDonate.Hint := _( 'Help support WizFile development by making a donation' );
+#: WizFileMain.pas:4224
+msgid "Help support WizFile development by making a donation"
+msgstr ""
+
+#: WizFileMain.pas:4225
+msgid "(You can hide the Donate button by making a donation)"
+msgstr ""
+
+#: WizFileMain.pas:4228
+#: WizFileMain.pas:4229
+msgid "Select Drives"
+msgstr ""
+
+msgid "Scan"
+msgstr ""
+
+#: WizFileMain.pas:4543
+msgid "Rescan Drives"
+msgstr ""
+
+#: WizFileMain.pas:4578
+msgid "No matching files"
+msgstr ""
+
+msgid "Start with Windows"
+msgstr ""
+
+#: WizFileMain.pas:4836
+msgid "Rename"
+msgstr ""
+
+#: WizFileMain.pas:4837
+msgid "Monitor file system for changes"
+msgstr ""
+
+#: WizFileMain.pas:4838
+msgid "Minimize to tray when closed"
+msgstr ""
+
+msgid "Add Folder"
+msgstr ""
+
+msgid "Auto scan USB drives when connected"
+msgstr ""
+
+msgid "Remove Folder"
+msgstr ""
+
+#: "<drive/folder>" is included within "<drive/folder>"
+msgid "is included within"
+msgstr ""
+
+msgid "They cannot both be selected."
+msgstr ""
+
+msgid "Filters"
+msgstr ""
+
+msgid "Filter Name"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Compressed"
+msgstr ""
+
+msgid "Document"
+msgstr ""
+
+msgid "Executable"
+msgstr ""
+
+msgid "Monitor folder size"
+msgstr ""
+
+msgid "Clear search when minimized"
+msgstr ""
+

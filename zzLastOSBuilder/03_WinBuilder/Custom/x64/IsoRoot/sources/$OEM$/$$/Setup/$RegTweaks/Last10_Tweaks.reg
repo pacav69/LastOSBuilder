@@ -1,0 +1,1764 @@
+Windows Registry Editor Version 5.00
+
+;===============================================================================
+;===============================================================================
+; Explorer- & UI-related Tweaks:
+;===============================================================================
+;===============================================================================
+
+;New Windows 10 Tweaks
+
+;Show More Details by default in File Operation Windows
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager]
+"EnthusiastMode"=dword:00000001
+
+;Expand Task Manager By Default
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\TaskManager]
+"UseStatusSetting"=dword:00000000
+"Preferences"=hex:0d,00,00,00,78,00,00,00,78,00,00,00,20,01,00,00,20,01,00,00,\
+  fa,02,00,00,f1,02,00,00,00,00,00,00,00,00,00,80,00,00,00,80,4e,02,00,80,57,\
+  02,00,80,00,01,00,01,20,01,00,00,20,01,00,00,29,04,00,00,6c,04,00,00,e8,03,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,0f,00,00,00,01,00,00,00,00,00,00,\
+  00,f8,68,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,ea,00,00,00,\
+  1e,00,00,00,89,90,00,00,00,00,00,00,01,00,00,00,01,01,50,02,00,00,00,00,0d,\
+  00,00,00,00,00,00,00,38,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,\
+  ff,ff,96,00,00,00,1e,00,00,00,8b,90,00,00,01,00,00,00,00,00,00,00,00,10,10,\
+  01,00,00,00,00,03,00,00,00,00,00,00,00,50,69,b6,9d,f7,7f,00,00,00,00,00,00,\
+  00,00,00,00,ff,ff,ff,ff,43,00,00,00,1e,00,00,00,8c,90,00,00,02,00,00,00,00,\
+  00,00,00,01,02,12,00,00,00,00,00,04,00,00,00,00,00,00,00,68,69,b6,9d,f7,7f,\
+  00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,96,00,00,00,1e,00,00,00,8d,90,00,\
+  00,03,00,00,00,00,00,00,00,00,01,10,01,00,00,00,00,02,00,00,00,00,00,00,00,\
+  88,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,32,00,00,00,1e,\
+  00,00,00,8a,90,00,00,04,00,00,00,00,00,00,00,00,08,20,01,00,00,00,00,05,00,\
+  00,00,00,00,00,00,a0,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,\
+  ff,c8,00,00,00,1e,00,00,00,8e,90,00,00,05,00,00,00,00,00,00,00,00,01,10,01,\
+  00,00,00,00,06,00,00,00,00,00,00,00,c8,69,b6,9d,f7,7f,00,00,00,00,00,00,00,\
+  00,00,00,ff,ff,ff,ff,04,01,00,00,1e,00,00,00,8f,90,00,00,06,00,00,00,00,00,\
+  00,00,00,01,10,01,00,00,00,00,07,00,00,00,00,00,00,00,f0,69,b6,9d,f7,7f,00,\
+  00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,49,00,00,00,49,00,00,00,90,90,00,00,\
+  07,00,00,00,00,00,00,00,00,04,25,00,00,00,00,00,08,00,00,00,00,00,00,00,20,\
+  69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,49,00,00,00,49,00,\
+  00,00,91,90,00,00,08,00,00,00,00,00,00,00,00,04,25,00,00,00,00,00,09,00,00,\
+  00,00,00,00,00,10,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,\
+  49,00,00,00,49,00,00,00,92,90,00,00,09,00,00,00,00,00,00,00,00,04,25,08,00,\
+  00,00,00,0a,00,00,00,00,00,00,00,28,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,\
+  00,00,ff,ff,ff,ff,49,00,00,00,49,00,00,00,93,90,00,00,0a,00,00,00,00,00,00,\
+  00,00,04,25,08,00,00,00,00,0b,00,00,00,00,00,00,00,48,6a,b6,9d,f7,7f,00,00,\
+  00,00,00,00,00,00,00,00,ff,ff,ff,ff,49,00,00,00,49,00,00,00,39,a0,00,00,0b,\
+  00,00,00,00,00,00,00,00,04,25,08,00,00,00,00,1c,00,00,00,00,00,00,00,68,6a,\
+  b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,c8,00,00,00,49,00,00,\
+  00,3a,a0,00,00,0c,00,00,00,00,00,00,00,00,01,10,08,00,00,00,00,1d,00,00,00,\
+  00,00,00,00,90,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,64,\
+  00,00,00,49,00,00,00,4c,a0,00,00,0d,00,00,00,00,00,00,00,00,02,15,08,00,00,\
+  00,00,1e,00,00,00,00,00,00,00,b0,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,\
+  00,ff,ff,ff,ff,64,00,00,00,49,00,00,00,4d,a0,00,00,0e,00,00,00,00,00,00,00,\
+  00,02,15,08,00,00,00,00,03,00,00,00,0a,00,00,00,01,00,00,00,00,00,00,00,f8,\
+  68,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,d7,00,00,00,1e,00,\
+  00,00,89,90,00,00,00,00,00,00,ff,00,00,00,01,01,50,02,00,00,00,00,04,00,00,\
+  00,00,00,00,00,68,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,01,00,00,00,\
+  96,00,00,00,1e,00,00,00,8d,90,00,00,01,00,00,00,00,00,00,00,01,01,10,00,00,\
+  00,00,00,03,00,00,00,00,00,00,00,50,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,\
+  00,00,ff,ff,ff,ff,64,00,00,00,1e,00,00,00,8c,90,00,00,02,00,00,00,00,00,00,\
+  00,00,02,10,00,00,00,00,00,0c,00,00,00,00,00,00,00,e0,6a,b6,9d,f7,7f,00,00,\
+  00,00,00,00,00,00,00,00,03,00,00,00,64,00,00,00,1e,00,00,00,94,90,00,00,03,\
+  00,00,00,00,00,00,00,01,02,10,00,00,00,00,00,0d,00,00,00,00,00,00,00,08,6b,\
+  b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,64,00,00,00,1e,00,00,\
+  00,95,90,00,00,04,00,00,00,00,00,00,00,00,01,10,01,00,00,00,00,0e,00,00,00,\
+  00,00,00,00,30,6b,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,05,00,00,00,32,\
+  00,00,00,1e,00,00,00,96,90,00,00,05,00,00,00,00,00,00,00,01,04,20,01,00,00,\
+  00,00,0f,00,00,00,00,00,00,00,58,6b,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,\
+  00,06,00,00,00,32,00,00,00,1e,00,00,00,97,90,00,00,06,00,00,00,00,00,00,00,\
+  01,04,20,01,00,00,00,00,10,00,00,00,00,00,00,00,78,6b,b6,9d,f7,7f,00,00,00,\
+  00,00,00,00,00,00,00,07,00,00,00,46,00,00,00,1e,00,00,00,98,90,00,00,07,00,\
+  00,00,00,00,00,00,01,01,10,01,00,00,00,00,11,00,00,00,00,00,00,00,98,6b,b6,\
+  9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,64,00,00,00,1e,00,00,00,\
+  99,90,00,00,08,00,00,00,00,00,00,00,00,01,10,01,00,00,00,00,06,00,00,00,00,\
+  00,00,00,c8,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,09,00,00,00,04,01,\
+  00,00,1e,00,00,00,8f,90,00,00,09,00,00,00,00,00,00,00,01,01,10,01,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,04,00,00,00,0b,00,00,00,01,00,00,00,00,00,00,00,f8,68,b6,\
+  9d,f7,7f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,d7,00,00,00,1e,00,00,00,\
+  9e,90,00,00,00,00,00,00,ff,00,00,00,01,01,50,02,00,00,00,00,12,00,00,00,00,\
+  00,00,00,c0,6b,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,2d,00,\
+  00,00,1e,00,00,00,9b,90,00,00,01,00,00,00,00,00,00,00,00,04,20,01,00,00,00,\
+  00,14,00,00,00,00,00,00,00,e0,6b,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,\
+  ff,ff,ff,ff,64,00,00,00,1e,00,00,00,9d,90,00,00,02,00,00,00,00,00,00,00,00,\
+  01,10,01,00,00,00,00,13,00,00,00,00,00,00,00,08,6c,b6,9d,f7,7f,00,00,00,00,\
+  00,00,00,00,00,00,ff,ff,ff,ff,64,00,00,00,1e,00,00,00,9c,90,00,00,03,00,00,\
+  00,00,00,00,00,00,01,10,01,00,00,00,00,03,00,00,00,00,00,00,00,50,69,b6,9d,\
+  f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,64,00,00,00,1e,00,00,00,8c,\
+  90,00,00,04,00,00,00,00,00,00,00,01,02,10,00,00,00,00,00,07,00,00,00,00,00,\
+  00,00,f0,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,05,00,00,00,49,00,00,\
+  00,49,00,00,00,90,90,00,00,05,00,00,00,00,00,00,00,01,04,21,00,00,00,00,00,\
+  08,00,00,00,00,00,00,00,20,69,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,06,\
+  00,00,00,49,00,00,00,49,00,00,00,91,90,00,00,06,00,00,00,00,00,00,00,01,04,\
+  21,00,00,00,00,00,09,00,00,00,00,00,00,00,10,6a,b6,9d,f7,7f,00,00,00,00,00,\
+  00,00,00,00,00,07,00,00,00,49,00,00,00,49,00,00,00,92,90,00,00,07,00,00,00,\
+  00,00,00,00,01,04,21,08,00,00,00,00,0a,00,00,00,00,00,00,00,28,6a,b6,9d,f7,\
+  7f,00,00,00,00,00,00,00,00,00,00,08,00,00,00,49,00,00,00,49,00,00,00,93,90,\
+  00,00,08,00,00,00,00,00,00,00,01,04,21,08,00,00,00,00,0b,00,00,00,00,00,00,\
+  00,48,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,09,00,00,00,49,00,00,00,\
+  49,00,00,00,39,a0,00,00,09,00,00,00,00,00,00,00,01,04,21,08,00,00,00,00,1c,\
+  00,00,00,00,00,00,00,68,6a,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,0a,00,\
+  00,00,64,00,00,00,49,00,00,00,3a,a0,00,00,0a,00,00,00,00,00,00,00,00,01,10,\
+  08,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00,08,00,00,00,01,00,00,00,00,00,00,00,f8,68,b6,9d,f7,\
+  7f,00,00,00,00,00,00,00,00,00,00,00,00,00,00,c6,00,00,00,1e,00,00,00,b0,90,\
+  00,00,00,00,00,00,ff,00,00,00,01,01,50,02,00,00,00,00,15,00,00,00,00,00,00,\
+  00,28,6c,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,6b,00,00,00,\
+  1e,00,00,00,b1,90,00,00,01,00,00,00,00,00,00,00,00,04,25,00,00,00,00,00,16,\
+  00,00,00,00,00,00,00,58,6c,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,\
+  ff,ff,6b,00,00,00,1e,00,00,00,b2,90,00,00,02,00,00,00,00,00,00,00,00,04,25,\
+  00,00,00,00,00,18,00,00,00,00,00,00,00,80,6c,b6,9d,f7,7f,00,00,00,00,00,00,\
+  00,00,00,00,ff,ff,ff,ff,6b,00,00,00,1e,00,00,00,b4,90,00,00,03,00,00,00,00,\
+  00,00,00,00,04,25,00,00,00,00,00,17,00,00,00,00,00,00,00,a8,6c,b6,9d,f7,7f,\
+  00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,6b,00,00,00,1e,00,00,00,b3,90,00,\
+  00,04,00,00,00,00,00,00,00,00,04,25,00,00,00,00,00,19,00,00,00,00,00,00,00,\
+  e0,6c,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,a0,00,00,00,1e,\
+  00,00,00,b5,90,00,00,05,00,00,00,00,00,00,00,00,04,20,01,00,00,00,00,1a,00,\
+  00,00,00,00,00,00,10,6d,b6,9d,f7,7f,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,\
+  ff,7d,00,00,00,1e,00,00,00,b6,90,00,00,06,00,00,00,00,00,00,00,00,04,20,01,\
+  00,00,00,00,1b,00,00,00,00,00,00,00,40,6d,b6,9d,f7,7f,00,00,00,00,00,00,00,\
+  00,00,00,ff,ff,ff,ff,7d,00,00,00,1e,00,00,00,b7,90,00,00,07,00,00,00,00,00,\
+  00,00,00,04,20,01,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,01,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,da,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,9d,20,00,00,20,00,00,00,90,00,00,00,64,00,00,00,31,00,00,00,61,\
+  00,00,00,50,00,00,00,31,00,00,00,31,00,00,00,28,00,00,00,50,00,00,00,3c,00,\
+  00,00,50,00,00,00,50,00,00,00,31,00,00,00,50,00,00,00,50,00,00,00,50,00,00,\
+  00,50,00,00,00,50,00,00,00,50,00,00,00,50,00,00,00,28,00,00,00,50,00,00,00,\
+  22,00,00,00,22,00,00,00,22,00,00,00,22,00,00,00,50,00,00,00,50,00,00,00,50,\
+  00,00,00,31,00,00,00,31,00,00,00,31,00,00,00,78,00,00,00,78,00,00,00,50,00,\
+  00,00,3c,00,00,00,50,00,00,00,61,00,00,00,78,00,00,00,31,00,00,00,78,00,00,\
+  00,31,00,00,00,50,00,00,00,50,00,00,00,50,00,00,00,50,00,00,00,00,00,00,00,\
+  01,00,00,00,02,00,00,00,03,00,00,00,04,00,00,00,05,00,00,00,06,00,00,00,07,\
+  00,00,00,08,00,00,00,09,00,00,00,0a,00,00,00,0b,00,00,00,0c,00,00,00,0d,00,\
+  00,00,0e,00,00,00,0f,00,00,00,10,00,00,00,11,00,00,00,12,00,00,00,13,00,00,\
+  00,14,00,00,00,15,00,00,00,16,00,00,00,17,00,00,00,18,00,00,00,19,00,00,00,\
+  1a,00,00,00,1b,00,00,00,1c,00,00,00,1d,00,00,00,1e,00,00,00,1f,00,00,00,20,\
+  00,00,00,21,00,00,00,22,00,00,00,23,00,00,00,24,00,00,00,25,00,00,00,26,00,\
+  00,00,27,00,00,00,28,00,00,00,29,00,00,00,2a,00,00,00,2b,00,00,00,2c,00,00,\
+  00,2d,00,00,00,00,00,00,00,00,00,00,00,1f,00,00,00,00,00,00,00,b4,00,00,00,\
+  31,00,00,00,a0,00,00,00,64,00,00,00,64,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,01,00,00,00,02,00,00,00,03,00,00,00,04,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00
+
+;Expand ThisPC, Contract Library in Nav Panel
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Modules\NavPane]
+"ExpandedState"=hex:0b,00,00,00,16,00,14,00,1f,80,cb,85,9f,67,20,02,80,40,b2,\
+  9b,55,40,cc,05,aa,b6,00,00,01,00,00,00,4d,00,00,00,1c,00,00,00,31,53,50,53,\
+  a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,00,00,00,2d,00,00,00,31,\
+  53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,77,6d,11,00,00,00,02,00,\
+  00,00,00,0b,00,00,00,ff,ff,00,00,00,00,00,00,00,00,00,00,16,00,14,00,1f,42,\
+  25,48,1e,03,94,7b,c3,4d,b1,31,e9,46,b4,4c,8d,d5,00,00,01,00,00,00,4d,00,00,\
+  00,1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,\
+  00,00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,\
+  27,77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,16,00,14,00,1f,60,98,3f,fb,b4,ea,c1,8d,42,a7,8a,d1,f5,65,9c,ba,93,\
+  00,00,01,00,00,00,4d,00,00,00,1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,\
+  11,b5,d6,00,c0,4f,d9,18,d0,00,00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,\
+  e3,1b,50,43,a4,8c,75,63,d7,27,77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,\
+  ff,ff,00,00,00,00,00,00,00,00,00,00,16,00,14,00,1f,50,e0,4f,d0,20,ea,3a,69,\
+  10,a2,d8,08,00,2b,30,30,9d,00,00,01,00,00,00,4d,00,00,00,1c,00,00,00,31,53,\
+  50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,00,00,00,2d,00,00,\
+  00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,77,6d,11,00,00,00,\
+  02,00,00,00,00,0b,00,00,00,ff,ff,00,00,00,00,00,00,00,00,00,00,16,00,14,00,\
+  1f,58,0d,1a,2c,f0,21,be,50,43,88,b0,73,67,fc,96,ef,3c,00,00,01,00,00,00,4d,\
+  00,00,00,1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,\
+  18,d0,00,00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,\
+  63,d7,27,77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,50,3a,5c,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,\
+  ba,77,2c,fb,f5,2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,\
+  00,00,1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,\
+  d0,00,00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,\
+  d7,27,77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,4d,3a,5c,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,ba,\
+  77,2c,fb,f5,2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,00,\
+  00,1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,\
+  00,00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,\
+  27,77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,45,3a,5c,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,ba,77,\
+  2c,fb,f5,2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,00,00,\
+  1c,00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,\
+  00,00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,\
+  77,6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,44,3a,5c,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,ba,77,2c,\
+  fb,f5,2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,00,00,1c,\
+  00,00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,00,\
+  00,00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,77,\
+  6d,11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,47,3a,5c,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,ba,77,2c,fb,\
+  f5,2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,00,00,1c,00,\
+  00,00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,00,00,\
+  00,2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,77,6d,\
+  11,00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  57,00,55,00,1f,00,2f,00,10,b7,a6,f5,19,00,2f,46,3a,5c,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,74,1a,59,5e,96,df,d3,48,8d,67,17,33,bc,ee,28,ba,77,2c,fb,f5,\
+  2f,0e,16,4a,a3,81,3e,56,0c,68,bc,83,00,00,01,00,00,00,4d,00,00,00,1c,00,00,\
+  00,31,53,50,53,a6,6a,63,28,3d,95,d2,11,b5,d6,00,c0,4f,d9,18,d0,00,00,00,00,\
+  2d,00,00,00,31,53,50,53,35,7e,c7,77,e3,1b,50,43,a4,8c,75,63,d7,27,77,6d,11,\
+  00,00,00,02,00,00,00,00,0b,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+
+;Fix White line shown below Explorer Addressbar
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Toolbar] 
+"Locked"=dword:00000001 
+
+;Disable Edge desktop shortcut creation
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"DisableEdgeDesktopShortcutCreation"=dword:00000001
+
+;Disable Wallpaper Slideshow
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers]  
+"BackgroundType"=dword:00000000 
+
+;Allow Insecure Network Share connections
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+"AllowInsecureGuestAuth"=dword:1
+
+; Removes 3D Objects folder
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+
+; Removes "People" icon on taskbar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People]
+"PeopleBand"=dword:00000000 
+
+; This tweak allows you to change the lock screen (prevents 'Some settings are managed by your organization' message)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization]
+"NoLockScreen"=dword:00000000
+
+
+;Don't wake computer to install updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Group Policy Objects\{14EAA3A2-F30F-46B1-A3BA-9F646432F64D}Machine\Software\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUPowerManagement"=dword:00000000
+
+
+
+
+;===============================================================================
+;===============================================================================
+; Explorer- & UI-related Tweaks:
+;===============================================================================
+;===============================================================================
+
+
+;Speed up shell response
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="80"
+[HKEY_USERS\S-1-5-19\Control Panel\Desktop]
+"MenuShowDelay"="80"
+[HKEY_USERS\S-1-5-20\Control Panel\Desktop]
+"MenuShowDelay"="80"
+
+;Disable Aero Peak when you hover the task bar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ExtendedUIHoverTime"=dword:000186a0
+
+;Set the Visual Effects setting to "Manual"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects] 
+"VisualFXSetting"=dword:00000003 
+
+;Disable "Play animations in Windows"
+[HKEY_CURRENT_USER\Control Panel\Desktop] 
+"UserPreferencesMask"=hex:90,12,07,80,10,00,00,00 
+
+[HKEY_USERS\.DEFAULT\Control Panel\Desktop]
+"UserPreferencesMask"=hex:9e,3e,03,80,12,00,00,00
+
+;Disable "Animate windows when minimizing and maximizing"
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics] 
+"MinAnimate"="0" 
+
+[HKEY_USERS\.DEFAULT\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"="0" 
+
+;;Set the desktop backgrounds (wallpapers) to shuffle and show new image every 3 minutes
+;[HKEY_CURRENT_USER\Control Panel\Personalization\Desktop Slideshow] 
+;"Interval"=dword:0002bf20 
+;"Shuffle"=dword:00000001 
+
+;Sets the desktop backgrounds "Picure position" to "Fill"
+[HKEY_CURRENT_USER\Control Panel\Desktop] 
+"WallpaperStyle"="10" 
+
+;Speed up Windows Thumb Time-Delay
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseHoverTime"="80"
+
+;Show Libraries on the Explorer Navigation Pane
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}] 
+"System.IsPinnedToNameSpaceTree"=dword:00000001 
+
+;Places the Libraries in the Navigation Pane above the "This PC" section (as default in Win7, etc.). (Value 00000054 sets Libraries to the default below 'This PC', whereas 00000042 sets it above 'This PC'.)
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}] 
+"SortOrderIndex"=dword:00000042 
+;"SortOrderIndex"=dword:00000054 
+
+; Enables folder/file view for the Windows\assembly directory
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Fusion]
+"DisableCacheViewer"=dword:00000001
+
+;Show all items in System Tray
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=-
+
+;Remove "Shortcut To ..." text when new shorcuts are created
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"link"=hex:00,00,00,00
+
+;Only combine taskbar when it's full
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarGlomLevel"=dword:00000001
+
+;Enable show: Hidden Files, File Extensions, Drives without Media (for current user -- requires log off)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"HideDrivesWithNoMedia"=dword:00000000
+"HideIcons"=dword:00000000
+;"ShowSuperHidden"=dword:00000001
+
+;Set Control Panel on Classic View and small icons
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel]
+"AllItemsIconView"=dword:00000001
+"StartupPage"=dword:00000001
+
+;Put "My Computer" on the desktop for current user
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{20D04FE0-3AEA-1069-A2D8-08002B30309D}"=dword:00000000
+
+;Add "My Computer" to the Desktop by default for all users
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{20D04FE0-3AEA-1069-A2D8-08002B30309D}"=dword:00000000
+
+;Disallow themes to change desktop icons
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes] 
+"ThemeChangesDesktopIcons"=dword:00000000 
+
+;Hide 6 extra folders from Windows 10 "This PC" explorer window
+;(To restore the 6 folders to "This PC" explorer window, change below "Hide" to "Show")
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag]
+"ThisPCPolicy"="Hide"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag]
+"ThisPCPolicy"="Hide"
+
+;This tweak causes the Immersive Panel in Win10 to use its built-in dark theme
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"AppsUseLightTheme"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"AppsUseLightTheme"=dword:00000000
+
+;Turns off "Hide app icons on the taskbar in tablet mode"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced] 
+"TaskbarAppsVisibleInTabletMode"=dword:00000001 
+
+;Do not show most used apps, nor show recently opened items in Jump Lists on Start or Taskbar
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced] 
+"Start_TrackProgs"=dword:00000000 
+"Start_TrackDocs"=dword:00000000 
+
+;Hide the Search box in the Taskbar
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search] 
+"SearchboxTaskbarMode"=dword:00000000 
+
+;Removes Action Center (notifications) icon from the sytem tray (requires explorer refresh or reboot)
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableNotificationCenter"=dword:00000001
+
+;Changes notification message duration to 2 second (vs the default 5 seconds).
+[HKEY_CURRENT_USER\Control Panel\Accessibility] 
+"MessageDuration"=dword:0000000
+
+;Sets all folders to "generic" type (Size, Type, Date Modified); basically turns off content-based folder view.
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell] 
+"FolderType"="NotSpecified" 
+
+; Disables "Show me the Windows welcome experience after updates..." (under 'Notifications & actions')
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager] 
+"SubscribedContent-310093Enabled"=dword:00000000 
+
+; Disables "Get tips, tricks, and suggestions" (under 'Notifications & actions')
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager] 
+"SoftLandingEnabled"=dword:00000000 
+
+; Disables "Show recommended app suggestions" for Windows Ink Workspace
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PenWorkspace] 
+"PenWorkspaceAppSuggestionsEnabled"=dword:00000000 
+
+; Disables "Let me open apps on other devices..." (Shared Experiences)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CDP]
+"CdpSessionUserAuthzPolicy"=dword:00000001
+"NearShareChannelUserAuthzPolicy"=dword:00000001
+"RomeSdkChannelUserAuthzPolicy"=dword:00000000
+
+; The following tweaks set the accent color for Windows and the prevalence of that accent color in the system: Title Bars only (\DWM -> ColorPrevalence), or also Taskbar/Start Menu/Action Center (Personalize -> ColorPrevalence)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent] 
+"AccentPalette"=hex:9b,9a,99,00,84,83,81,00,6d,6b,6a,00,4c,4a,48,00,36,35,33,\
+   00,26,25,24,00,19,19,19,00,10,7c,10,00 
+"StartColorMenu"=dword:ff333536 
+"AccentColorMenu"=dword:ff484a4c 
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM] 
+"ColorizationColor"=dword:c44c4a48 
+"ColorizationAfterglow"=dword:c44c4a48 
+"AccentColor"=dword:ff484a4c 
+"ColorPrevalence"=dword:00000001 
+
+; This entry allows you to set the inactive window title bar color (you will have to customize this color a lighter or darker shade of your main title bar accent color)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM]
+"AccentColorInactive"=dword:00636363
+
+; This entry (when active) sets the chosen accent color to taskbar, start menu, and action center
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize] 
+;"ColorPrevalence"=dword:00000001 
+
+;Sets Visual Effects to Custom and list of custom settings for All Users
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects]
+"VisualFXSetting"=dword:00000003
+;Change dword:00000000 to dword:00000001 to enable the appropriate option
+;Animate windows when minimizing and maximizing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\AnimateMinMax]
+"DefaultValue"=dword:00000000
+;Slide open combo boxes
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ComboBoxAnimation]
+"DefaultValue"=dword:00000000
+;Animate controls and elements inside windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ControlAnimations]
+"DefaultValue"=dword:00000001
+;Show shadows under mouse pointer
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\CursorShadow]
+"DefaultValue"=dword:00000001
+;Show window contents while dragging
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DragFullWindows]
+"DefaultValue"=dword:00000001
+;Show shadows under windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DropShadow]
+"DefaultValue"=dword:00000001
+;Smooth edges of screen fonts
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\FontSmoothing]
+"DefaultValue"=dword:00000001
+;Smooth-scroll list boxes
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListBoxSmoothScrolling]
+"DefaultValue"=dword:00000001
+;Show translucent selection rectangle
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewAlphaSelect]
+"DefaultValue"=dword:00000001
+;Use drop shadows for icon labels on the desktop
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewShadow]
+"DefaultValue"=dword:00000001
+;Fade or slide menus into view
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\MenuAnimation]
+"DefaultValue"=dword:00000000
+;Fade out menu items after clicking
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\SelectionFade]
+"DefaultValue"=dword:00000000
+;Animations in the taskbar and StartMenu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TaskbarAnimations]
+"DefaultValue"=dword:00000001
+;Fade or slide ToolTips into view
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TooltipAnimation]
+"DefaultValue"=dword:00000000
+;Hide 'Recently Added Apps' in Start Menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"HideRecentlyAddedApps"=dword:00000001
+;Open Command Prompt, not PowerShell; don't show taskbar badges; enable 'Preview Desktop' function on taskbar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced] 
+"DontUsePowerShellOnWinX"=dword:00000001 
+"TaskbarBadges"=dword:00000000 
+"DisablePreviewDesktop"=dword:00000000 
+
+;===============================================================================
+;===============================================================================
+; Context Menu Tweaks:
+;===============================================================================
+;===============================================================================
+
+;Add "Take Ownership" to context menu
+[HKEY_CLASSES_ROOT\*\shell\runas]
+@="Take Ownership"
+"Icon"="imageres.dll,-78"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\*\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+[HKEY_CLASSES_ROOT\Directory\shell\runas]
+@="Take Ownership"
+"Icon"="imageres.dll,-78"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+
+;Add "Open with Notepad" to right-click context menu
+[HKEY_CLASSES_ROOT\*\shell\Open with Notepad]
+"icon"="notepad.ico"
+[HKEY_CLASSES_ROOT\*\shell\Open with Notepad\command]
+@="notepad.exe %1"
+
+;Remove the "New" -> "Contact" from the desktop context menu
+[-HKEY_CLASSES_ROOT\.contact\ShellNew]
+
+;Adds new reg file to right-click context menu
+[HKEY_CLASSES_ROOT\.reg\ShellNew]
+"ItemName"=hex(2):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,\
+6f,00,74,00,25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,\
+00,72,00,65,00,67,00,65,00,64,00,69,00,74,00,2e,00,65,00,78,00,65,00,2c,00,\
+2d,00,34,00,37,00,30,00,00,00
+"Data"="Windows Registry Editor Version 5.00"
+
+;Adds new .cmd file to right-click context menu
+[HKEY_CLASSES_ROOT\.cmd\ShellNew]
+@="0"
+"ItemName"=hex(2):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,\
+6f,00,74,00,25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,\
+00,63,00,6d,00,64,00,2e,00,65,00,78,00,65,00,2c,00,2d,00,34,00,37,00,30,00,\
+00,00
+"Data"="@echo off"
+
+;Add Register/UnRegister .dll, .ocx, and .ax to context menu
+[HKEY_CLASSES_ROOT\dllfile\Shell\Register]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\dllfile\Shell\Register\command]
+@="regsvr32.exe \\\"%1\\\""
+[HKEY_CLASSES_ROOT\dllfile\Shell\UnRegister]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\dllfile\Shell\UnRegister\command]
+@="regsvr32.exe /u \\\"%1\\\""
+
+[HKEY_CLASSES_ROOT\ocxfile\Shell\Register]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\ocxfile\Shell\Register\command]
+@="regsvr32.exe \\\"%1\\\""
+[HKEY_CLASSES_ROOT\ocxfile\Shell\UnRegister]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\ocxfile\Shell\UnRegister\command]
+@="regsvr32.exe /u \\\"%1\\\""
+
+[HKEY_CLASSES_ROOT\.ax]
+@="axfile"
+[HKEY_CLASSES_ROOT\axfile\Shell\Register]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\axfile\Shell\Register\command]
+@="regsvr32.exe \\\"%1\\\""
+[HKEY_CLASSES_ROOT\axfile\Shell\UnRegister]
+"Icon"="imageres.dll,62"
+[HKEY_CLASSES_ROOT\axfile\Shell\UnRegister\command]
+@="regsvr32.exe /u \\\"%1\\\""
+
+;Add "Command Prompt Here" to the context-menus of Drives, Folders & My Computer (which equals the Users\UserName\Desktop location)
+[HKEY_CLASSES_ROOT\Folder\shell\Command Prompt Here]
+"icon"="cmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\Command Prompt Here\command]
+@="cmd.exe /k pushd %L"
+
+;===============================================================================
+; Desktop Context Menus:
+;===============================================================================
+
+;Adds cascading context "System Tools" to the Desktop. Includes menu entries for: Administrative Tools; Autoruns; Calculator (Classic); Command Prompt; Control Panel; Control Mode; Date & Time; Device Manager; Folder Options; MyUninstaller; Power Options; Programs and Features; Regedit; Regional Settings; Services; Settings (Immersive); User Accounts; Windows Update (Immersive); Windows Update Hide tool.
+;If you edit this context menu, make sure to update the values in "SystemMenu" to reflect which entries you want to show in the menu (and enable the corresponding CommandStore shell entries).
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\SystemMenu]
+"MUIVerb"="System Tools"
+"SubCommands"="Autoruns;Calclassic;CommandPrompt;ControlPanel;DeviceManager;DiskMgmt;MyUninstaller;Network;Notepad;PowerOptions;ProgFeatures;Regedit;Settings;WinUpdate;WUHide"
+;"icon"="explorer.exe"
+"icon"="imageres.dll,313"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\AdminTools]
+;@="Administrative Tools"
+;"icon"="imageres.dll,109"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\AdminTools\command]
+;@="control admintools"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Autoruns]
+@="Autoruns"
+"icon"="autoruns.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Autoruns\command]
+@="autoruns.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Calclassic]
+@="Calculator"
+"icon"="calclassic.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Calclassic\command]
+@="C:\\Windows\\calclassic.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\CommandPrompt]
+@="Command Prompt"
+"icon"="cmd.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\CommandPrompt\command]
+@="cmd.exe"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ControlMode]
+;@="Control Mode"
+;"icon"="control.exe"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ControlMode\command]
+;@="explorer shell:::{ED7BA470-8E54-465E-825C-99712043E01C}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ControlPanel]
+@=hex(2):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,\
+00,25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,73,00,\
+68,00,65,00,6c,00,6c,00,33,00,32,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,\
+00,30,00,34,00,38,00,38,00,00,00
+"Icon"=hex(2):63,00,6f,00,6e,00,74,00,72,00,6f,00,6c,00,2e,00,65,00,78,00,65,\
+00,00,00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ControlPanel\command]
+@="rundll32.exe shell32.dll,Control_RunDLL"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DateTime]
+;@="Date and Time"
+;"icon"="timedate.cpl"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DateTime\command]
+;@="control timedate.cpl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DeviceManager]
+@="Device Manager"
+"icon"="devmgr.dll,5"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DeviceManager\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,6d,00,6d,00,\
+63,00,2e,00,65,00,78,00,65,00,20,00,2f,00,73,00,20,00,25,00,53,00,79,00,73,\
+00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,00,5c,00,73,00,79,00,73,00,\
+74,00,65,00,6d,00,33,00,32,00,5c,00,64,00,65,00,76,00,6d,00,67,00,6d,00,74,\
+00,2e,00,6d,00,73,00,63,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DiskMgmt]
+@="Disk Management"
+"HasLUAShield"=""
+"icon"="dmdskres.dll,0"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DiskMgmt\command]
+@="mmc.exe /s diskmgmt.msc"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\FolderOptions]
+;@="Folder Options"
+;"icon"="imageres.dll,203"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\FolderOptions\command]
+;@="control folders"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\MyUninstaller]
+@="MyUninstaller"
+"icon"="myuninst.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\MyUninstaller\command]
+@="myuninst.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Network]
+@="Network Connections"
+"icon"="ncpa.cpl"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Network\command]
+@="control ncpa.cpl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Notepad]
+@="Notepad"
+"icon"="notepad.ico"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Notepad\command]
+@="notepad.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PowerOptions]
+@="Power Options"
+"icon"="powercfg.cpl"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\PowerOptions\command]
+@="control powercfg.cpl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ProgFeatures]
+@="Programs and Features"
+"icon"="imageres.dll,82"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ProgFeatures\command]
+@="control appwiz.cpl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Regedit]
+@="Regedit"
+"icon"="regedit.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\Regedit\command]
+@="regedit.exe"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Regional]
+;@="Regional Settings"
+;"icon"="imageres.dll,138"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Regional\command]
+;@="control intl.cpl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Run]
+@="Run"
+"icon"="shell32.dll,24"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Run\command]
+@="explorer shell:::{2559A1F3-21D7-11D4-BDAF-00C04F60B9F0}"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Services]
+;@="Services"
+;"icon"="shell32.dll,71"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Services\command]
+;@="mmc services.msc"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Settings]
+@="Settings"
+"icon"="shell32.dll,316"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Settings\command]
+@="\"C:\\Windows\\explorer.exe\" ms-settings:"
+
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\UserAccount]
+;@="User Accounts"
+;"icon"="imageres.dll,74"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\UserAccount\command]
+;@="Control userpasswords"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\WinUpdate]
+@="Windows Update"
+"icon"="imageres.dll,20"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\WinUpdate\command]
+@="\"C:\\Windows\\explorer.exe\" ms-settings:windowsupdate"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\WUHide]
+@="WU - Hide Updates"
+"icon"="imageres.dll,20"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\WUHide\command]
+@="%SystemDir%\\msdt.exe /cab C:\\Windows\\wushowhide.diagcab"
+
+;Adds desktop context menu entry for Task Manager
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\DesktopBackground\Shell\Task Manager]
+@="Task Manager"
+"icon"="taskmgr.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\DesktopBackground\Shell\Task Manager\command]
+@="taskmgr.exe"
+
+;Adds desktop context menu entry for Kill Not Responding Tasks
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\KillNRTasks]
+"icon"="taskmgr.exe,-30651"
+"MUIverb"="Kill all not responding tasks"
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\KillNRTasks\command]
+@="CMD.exe /C taskkill.exe /f /fi \"status eq Not Responding\" & Pause"
+
+;Adds "Create Restore Point" to the Desktop context menu (works in combination with the 'CreateRP-Success_Message.vbs' file in C:\Windows -- see $OEM$ folder)
+;[HKEY_CLASSES_ROOT\Directory\Background\shell\Create Restore Point]
+;"HasLUAShield"=""
+;"Icon"="SystemPropertiesProtection.exe"
+;[HKEY_CLASSES_ROOT\Directory\Background\shell\Create Restore Point\command]
+;@="WScript C:\\Windows\\CreateRP-Success_Message.vbs"
+
+;Adds "Safe Mode" options to the Desktop context menu (works in combination with the 4 'Safe Mode' .vbs files in C:\Windows -- see $OEM$ folder)
+;[HKEY_CLASSES_ROOT\DesktopBackground\Shell\SafeMode]
+;"MUIVerb"="Safe Mode"
+;"SubCommands"="NormalMode;SafeMode;SafeModeNetworking;SafeModeCommandPrompt"
+;"icon"="bootux.dll,-1032"
+;"Position"=-
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeMode]
+;@="Restart in Safe Mode"
+;"HasLUAShield"=""
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeMode\command]
+;@="WScript C:\\Windows\\Safe_Mode\\Safe_Mode.vbs"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeModeNetworking]
+;@="Restart in Safe Mode with Networking"
+;"HasLUAShield"=""
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeModeNetworking\command]
+;@="WScript C:\\Windows\\Safe_Mode\\Safe_Mode_Networking.vbs"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\NormalMode]
+;@="Restart in Normal Mode"
+;"HasLUAShield"=""
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\NormalMode\command]
+;@="WScript C:\\Windows\\Safe_Mode\\Normal_Mode.vbs"
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeModeCommandPrompt]
+;@="Restart in Safe Mode with Command Prompt"
+;"HasLUAShield"=""
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\SafeModeCommandPrompt\command]
+;@="WScript C:\\Windows\\Safe_Mode\\Safe_Mode_Command_Prompt.vbs"
+
+;Adds cascading context "Personalize Extra" to the Desktop. Includes menu entries for: Desktop Icons, Explorer Icon Refresh, Mouse, Screen Saver, and Sound.
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\PersonalizeExtra]
+"MUIVerb"="Personalize Extra"
+"SubCommands"="DesktopIcons;ExplorerIconRefresh;Mouse;ScreenSaver;Sound"
+"icon"="imageres.dll,186"
+"Position"="Bottom"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DesktopIcons]
+@="Desktop Icons"
+"icon"="imageres.dll,105"
+"Position"="Bottom"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\DesktopIcons\Command]
+@="rundll32 shell32.dll,Control_RunDLL desk.cpl,,0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ExplorerIconRefresh]
+@="Explorer Icon Refresh"
+"Icon"="ExplorerIconRefresh.exe"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ExplorerIconRefresh\command]
+@="ExplorerIconRefresh.exe"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Mouse]
+@="Mouse"
+"icon"="DDORes.dll,28"
+"Position"="Bottom"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Mouse\Command]
+@="rundll32.exe shell32.dll,Control_RunDLL main.cpl,,0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ScreenSaver]
+@="Screen Saver"
+"Position"="Bottom"
+"icon"="imageres.dll,96"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\ScreenSaver\Command]
+@="rundll32.exe shell32.dll,Control_RunDLL desk.cpl,screensaver,@screensaver"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Sound]
+@="Sound"
+"Position"="Bottom"
+"Icon"="mmsys.cpl"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Sound\Command]
+@="rundll32.exe shell32.dll,Control_RunDLL mmsys.cpl ,2"
+
+;Adds cascading context "Power" to the Desktop. Includes menu entries for: Restart; Shut down; Log off
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Power]
+"MUIVerb"="Power"
+"SubCommands"="Signout;Restart;Shutdown"
+"icon"="shell32.dll,-221"
+"Position"="bottom"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Signout]
+@="Sign out"
+"icon"="shell32.dll,-45"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Signout\command]
+@="shutdown.exe -L"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Restart]
+@="Restart"
+"icon"="shell32.dll,-290"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Restart\command]
+@="shutdown.exe -r -f -t 00"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Shutdown]
+@="Shut down"
+"icon"="shell32.dll,-28"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\Shutdown\command]
+@="shutdown.exe -s -f -t 00"
+
+
+;===============================================================================
+;===============================================================================
+; System-related Tweaks:
+;===============================================================================
+;===============================================================================
+
+;Set the Problem Reporting service to "Never Check for Solutions"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting]
+"DisableArchive"=dword:00000001
+"Disabled"=dword:00000001
+"DisableQueue"=dword:00000001
+"DontSendAdditionalData"=dword:00000001
+"DontShowUI"=dword:00000001
+"LoggingDisabled"=dword:00000001
+
+;Disable CEIP (Customer Experience Improvement Program)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+;Disable Hibernate
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Power]
+"HibernateEnabled"=dword:00000000
+
+;Disable Remote Assistance
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
+"fAllowToGetHelp"=dword:00000000
+
+;Disable Program Compatibility prompt
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc]
+"Start"=dword:00000004
+
+;Disable Remote Registry
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RemoteRegistry]
+"Start"=dword:00000004
+
+; Sets UAC settings to minimal whilst maintaining Modern App support; if Modern App support is not required, the rem'd out lines can be set to active
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000000
+"ConsentPromptBehaviorUser"=dword:00000001
+"dontdisplaylastusername"=dword:00000000
+"EnableCursorSuppression"=dword:00000001
+"EnableInstallerDetection"=dword:00000000
+"EnableLUA"=dword:00000001
+"EnableSecureUIAPaths"=dword:00000000
+"EnableUIADesktopToggle"=dword:00000000
+"EnableVirtualization"=dword:00000000
+"legalnoticecaption"=""
+"legalnoticetext"=""
+"PromptOnSecureDesktop"=dword:00000000
+"scforceoption"=dword:00000000
+"shutdownwithoutlogon"=dword:00000001
+"undockwithoutlogon"=dword:00000001
+"ValidateAdminCodeSignatures"=dword:00000000
+;Below line when set to "1" enables Modern Apps to work on built-in Administrator (requires EnableLUA set to '1'). 
+"FilterAdministratorToken"=dword:00000001
+;"FilterAdministratorToken"=dword:00000000
+;Below line when set to "1" allows Modern Apps to function -- when set to "0" it gives full Admin rights, also to newly created user accounts (requires reboot); setting to "0" will also allow access to C:\ and other system locations without errors and access fails
+"EnableLUA"=dword:00000001
+;"EnableLUA"=dword:00000000
+
+;Turns off system notifications
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings] 
+"NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK"=dword:00000000 
+"NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK"=dword:00000000 
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications] 
+"ToastEnabled"=dword:00000000 
+
+;Turn off automatic map updates
+[HKEY_LOCAL_MACHINE\SYSTEM\Maps] 
+"AutoUpdateEnabled"=dword:00000000 
+
+;Disable Autoplay across devices
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers] 
+"DisableAutoplay"=dword:00000001 
+
+;Disable "Play animations in Windows"
+[HKEY_CURRENT_USER\Control Panel\Desktop] 
+"UserPreferencesMask"=hex:90,12,07,80,10,00,00,00 
+
+;Disable "Let websites provide locally relevant content by accessing my language list"
+[HKEY_CURRENT_USER\Control Panel\International\User Profile] 
+"HttpAcceptLanguageOptOut"=dword:00000001 
+
+;The following tweaks are to deny (or allow) Store apps access to camera, microphone, name/pic/account info, my calendar, messages/texts, control radios, other devices, and giving feedback and diagnostic data to MS.
+;These tweaks set to "Deny" are safe when installed on a PC that will run in pure desktop mode and that will not make use of Store apps; if Store apps are used these tweaks may have to be set "Allow" accordingly.
+
+;Deny apps to use camera (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E5323777-F976-4f5b-9B55-B94699C46E44}] 
+"Value"="Deny" 
+
+;Deny apps to use microphone (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2EEF81BE-33FA-4800-9670-1CD474972C3F}] 
+"Value"="Deny" 
+
+;Deny apps to access name, picture, and other account info (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}] 
+"Value"="Deny" 
+
+;Deny apps to access my calendar (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{D89823BA-7180-4B81-B50C-7E471E6121A3}] 
+"Value"="Deny" 
+
+;Deny apps to read or send messages (text or MMS) (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{992AFA70-6F47-4148-B3E9-3003349C1548}] 
+"Value"="Deny" 
+
+;Deny apps to control radios (some apps use radio--like Bluetooth--in your device to send/receive data (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{A8804298-2D5F-42E3-9531-9C8C39EB29CE}] 
+"Value"="Deny" 
+
+;Deny letting your apps automatically share and sync info with wireless devices that don't explicitly pair with your PC, tablet, or phone (change to "Allow" to allow)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled] 
+"Value"="Deny" 
+
+;Sets "Windows to ask for my feedback" to NEVER, and disallow telemetry
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules] 
+"NumberOfSIUFInPeriod"=dword:00000000 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection] 
+"AllowTelemetry"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection] 
+"AllowTelemetry"=dword:00000000
+
+;Windows Update settings (Automatic;Notify;Never)
+;
+;Enable automatic checking and installing of Windows Updates
+;[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+
+;Notify before downloading and installing Windows Updates
+;[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+;"NoAutoUpdate"=dword:00000000
+;"AUOptions"=dword:00000002
+;"ScheduledInstallDay"=dword:00000000
+;"ScheduledInstallTime"=dword:00000003
+
+;Never check or notify for Windows Updates (requires reboot to take effect)
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"NoAutoUpdate"=dword:00000001
+
+;Disables the Program Compatibility Assistant
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat] 
+"DisablePCA"=dword:00000001 
+
+;Turns off Search Indexer. (Note: with Search Indexer turned off, Store Photo and Video apps will not be able to detect pictures or videos on your drives.)
+;[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WSearch] 
+;"Start"=dword:00000004 
+;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch] 
+;"Start"=dword:00000004 
+
+;Turns off NTFS 8.3 Name Creation and Last Access
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FileSystem]
+"NtfsDisable8dot3NameCreation"=dword:00000001
+"NtfsDisableLastAccessUpdate"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"NtfsDisable8dot3NameCreation"=dword:00000001
+"NtfsDisableLastAccessUpdate"=dword:00000001
+
+;Force apps to shut down when powering off system (no more force-close screen upon shutdown/restart)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System] 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System] 
+"AllowBlockingAppsAtShutdown"=dword:00000001 
+
+;Shorten time for current user to a) kill apps to speed up shut down of Windows (waittokillapptimeout) and b) determine a hung process (hungapptimeout)
+[HKEY_CURRENT_USER\Control Panel\Desktop] 
+"WaitToKillAppTimeout"="6000" 
+"HungAppTimeout"="2000" 
+
+;Shorten time for all users to a) kill apps to speed up shut down of Windows (waittokillapptimeout) and b) determine a hung process (hungapptimeout)
+[HKEY_USERS\.DEFAULT\Control Panel\Desktop]
+"WaitToKillAppTimeout"="6000" 
+"HungAppTimeout"="2000" 
+
+;Disable the Lock screen
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization]
+"NoLockScreen"=dword:00000001
+
+;Adds "Windows Photo Viewer" to "Open with" context (both regular and modern contexts). From there you can associate Photo Viewer with the various image formats. (Photo Viewer is completely hidden in Win10 and the default viewer is a Store app now.)
+[HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open]
+"MuiVerb"="@photoviewer.dll,-3043"
+[HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\Applications\photoviewer.dll\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Bitmap]
+"ImageOptionFlags"=dword:00000001
+"FriendlyTypeName"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\
+  00,46,00,69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,\
+  77,00,73,00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,\
+  00,65,00,72,00,5c,00,50,00,68,00,6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,\
+  65,00,72,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,35,00,36,00,00,\
+  00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Bitmap\DefaultIcon]
+@="%SystemDir%\\imageres.dll,-70"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Bitmap\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Bitmap\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF]
+"EditFlags"=dword:00010000
+"ImageOptionFlags"=dword:00000001
+"FriendlyTypeName"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\
+  00,46,00,69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,\
+  77,00,73,00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,\
+  00,65,00,72,00,5c,00,50,00,68,00,6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,\
+  65,00,72,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,35,00,35,00,00,\
+  00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF\DefaultIcon]
+@="%SystemDir%\\imageres.dll,-72"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF\shell\open]
+"MuiVerb"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\
+  69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,\
+  00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,\
+  72,00,5c,00,70,00,68,00,6f,00,74,00,6f,00,76,00,69,00,65,00,77,00,65,00,72,\
+  00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,34,00,33,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.JFIF\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Jpeg]
+"EditFlags"=dword:00010000
+"ImageOptionFlags"=dword:00000001
+"FriendlyTypeName"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\
+  00,46,00,69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,\
+  77,00,73,00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,\
+  00,65,00,72,00,5c,00,50,00,68,00,6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,\
+  65,00,72,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,35,00,35,00,00,\
+  00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Jpeg\DefaultIcon]
+@="%SystemDir%\\imageres.dll,-72"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Jpeg\shell\open]
+"MuiVerb"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\
+  69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,\
+  00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,\
+  72,00,5c,00,70,00,68,00,6f,00,74,00,6f,00,76,00,69,00,65,00,77,00,65,00,72,\
+  00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,34,00,33,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Jpeg\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Jpeg\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Gif]
+"ImageOptionFlags"=dword:00000001
+"FriendlyTypeName"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\
+  00,46,00,69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,\
+  77,00,73,00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,\
+  00,65,00,72,00,5c,00,50,00,68,00,6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,\
+  65,00,72,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,35,00,37,00,00,\
+  00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Gif\DefaultIcon]
+@="%SystemDir%\\imageres.dll,-83"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Gif\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Gif\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Png]
+"ImageOptionFlags"=dword:00000001
+"FriendlyTypeName"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,\
+  00,46,00,69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,\
+  77,00,73,00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,\
+  00,65,00,72,00,5c,00,50,00,68,00,6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,\
+  65,00,72,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,35,00,37,00,00,\
+  00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Png\DefaultIcon]
+@="%SystemDir%\\imageres.dll,-71"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Png\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Png\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Wdp]
+"EditFlags"=dword:00010000
+"ImageOptionFlags"=dword:00000001
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Wdp\DefaultIcon]
+@="%SystemDir%\\wmphoto.dll,-400"
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Wdp\shell\open]
+"MuiVerb"=hex(2):40,00,25,00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,\
+  69,00,6c,00,65,00,73,00,25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,\
+  00,20,00,50,00,68,00,6f,00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,\
+  72,00,5c,00,70,00,68,00,6f,00,74,00,6f,00,76,00,69,00,65,00,77,00,65,00,72,\
+  00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,33,00,30,00,34,00,33,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Wdp\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\
+  6e,00,64,00,6c,00,6c,00,33,00,32,00,2e,00,65,00,78,00,65,00,20,00,22,00,25,\
+  00,50,00,72,00,6f,00,67,00,72,00,61,00,6d,00,46,00,69,00,6c,00,65,00,73,00,\
+  25,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,68,00,6f,\
+  00,74,00,6f,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5c,00,50,00,68,00,\
+  6f,00,74,00,6f,00,56,00,69,00,65,00,77,00,65,00,72,00,2e,00,64,00,6c,00,6c,\
+  00,22,00,2c,00,20,00,49,00,6d,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+  5f,00,46,00,75,00,6c,00,6c,00,73,00,63,00,72,00,65,00,65,00,6e,00,20,00,25,\
+  00,31,00,00,00
+[HKEY_CLASSES_ROOT\PhotoViewer.FileAssoc.Wdp\shell\open\DropTarget]
+"Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities]
+"ApplicationDescription"="%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3069"
+"ApplicationName"="%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3009"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]
+".jpg"="PhotoViewer.FileAssoc.Jpeg"
+".wdp"="PhotoViewer.FileAssoc.Wdp"
+".jfif"="PhotoViewer.FileAssoc.JFIF"
+".dib"="PhotoViewer.FileAssoc.Bitmap"
+".png"="PhotoViewer.FileAssoc.Png"
+".jxr"="PhotoViewer.FileAssoc.Wdp"
+".bmp"="PhotoViewer.FileAssoc.Bitmap"
+".jpe"="PhotoViewer.FileAssoc.Jpeg"
+".jpeg"="PhotoViewer.FileAssoc.Jpeg"
+".gif"="PhotoViewer.FileAssoc.Gif"
+".tif"="PhotoViewer.FileAssoc.Tiff"
+".tiff"="PhotoViewer.FileAssoc.Tiff"
+".ico"="PhotoViewer.FileAssoc.Tiff"
+
+;Disable Cortana Search
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowCortana"=dword:00000000
+
+;Disable Advertising Info
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+"Enabled"="0"
+
+;Disable smart screen filter to check web content (URLs) that Windows Store apps use
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"="0"
+
+;Disable TIPC
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Input\TIPC]
+"Enabled"="0"
+
+;Disable websites local language provision
+[HKEY_USERS\.DEFAULT\Control Panel\International\User Profile]
+"HttpAcceptLanguageOptOut"="1"
+
+;Deny account info
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}]
+"Value"="Deny"
+
+;Deny "getting to know me"
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Personalization\Settings]
+"AcceptedPrivacyPolicy"="0"
+
+;Restrict handwriting data and contacts sharing
+[HKEY_USERS\.DEFAULT\Software\Microsoft\InputPersonalization]
+"RestrictImplicitTextCollection"="1"
+"RestrictImplicitInkCollection"="1"
+[HKEY_USERS\.DEFAULT\Software\Microsoft\InputPersonalization\TrainedDataStore]
+"HarvestContacts"="0"
+
+;Don't send information to MS when you activate windows (turns off Online Client Activation Validation Telemetry)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform]
+"NoGenTicket"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\Activation]
+"NoGenTicket"=dword:00000001
+
+;;Disable 'Windows Defender' startup (Leave Defender as default and people can remove via Disable Defender in ssWPI)
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+;"Windows Defender"=-
+;;Disable Windows Defender
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+;"DisableAntiSpyware"=dword:00000001
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
+;"DisableBehaviorMonitoring"=dword:00000001
+;"DisableOnAccessProtection"=dword:00000001
+;"DisableScanOnRealtimeEnable"=dword:00000001
+
+;Disable Media DRM Internet Access
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WMDRM]
+"DisableOnline"=dword:00000001
+
+;Disable Windows Update sharing (sharing updates in a P2P fashion with other local devices)
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization]
+"SystemSettingsDownloadMode"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\DeliveryOptimization\DODownloadMode]
+"value"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DODownloadMode"=dword:00000000
+
+; Allow changing of the Lock Screen (prevents 'Some settings are managed by your organization' message)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization]
+"NoLockScreen"=dword:00000000
+
+; Prevents RuntimeBroker process from running (meant for images with Store/Appx stuff removed)
+;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBroker]
+;"Start"=dword:00000004 
+
+;; Disable listing recently opened folder and files in "Quick Access" (navigation pane)
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+;"ShowFrequent"=dword:00000000
+;"ShowRecent"=dword:00000000
+
+
+;===============================================================================
+;===============================================================================
+; Misc Tweaks:
+;===============================================================================
+;===============================================================================
+
+;Eula accepted tweak for Autoruns app 
+[HKEY_CURRENT_USER\Software\Sysinternals\AutoRuns]
+"EulaAccepted"=dword:00000001
+
+;VirtualBox trusted publishers certificate (so that VM installs of Guest Additions won't request permission to install)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\Certificates\5BDEFE580A816661CDB57A57107BF4187486EFCC]
+"Blob"=hex:03,00,00,00,01,00,00,00,14,00,00,00,5b,de,fe,58,0a,81,66,61,cd,b5,\
+  7a,57,10,7b,f4,18,74,86,ef,cc,04,00,00,00,01,00,00,00,10,00,00,00,a3,7a,95,\
+  a4,84,b2,e0,73,c2,8a,47,3a,47,9c,86,cc,14,00,00,00,01,00,00,00,14,00,00,00,\
+  ec,a0,3b,fe,b3,14,73,4a,f1,b8,64,00,57,4a,ca,7a,3b,79,af,3d,19,00,00,00,01,\
+  00,00,00,10,00,00,00,1f,24,a0,b3,33,c7,ca,26,d6,ee,9b,1b,34,81,60,e4,0f,00,\
+  00,00,01,00,00,00,14,00,00,00,f7,c4,b6,94,9a,a8,26,30,fc,59,59,3e,9f,20,86,\
+  5e,3e,8d,d1,73,20,00,00,00,01,00,00,00,17,05,00,00,30,82,05,13,30,82,03,fb,\
+  a0,03,02,01,02,02,10,65,d3,65,a2,4e,e7,e1,37,10,5b,ba,c2,33,58,16,d8,30,0d,\
+  06,09,2a,86,48,86,f7,0d,01,01,05,05,00,30,81,b4,31,0b,30,09,06,03,55,04,06,\
+  13,02,55,53,31,17,30,15,06,03,55,04,0a,13,0e,56,65,72,69,53,69,67,6e,2c,20,\
+  49,6e,63,2e,31,1f,30,1d,06,03,55,04,0b,13,16,56,65,72,69,53,69,67,6e,20,54,\
+  72,75,73,74,20,4e,65,74,77,6f,72,6b,31,3b,30,39,06,03,55,04,0b,13,32,54,65,\
+  72,6d,73,20,6f,66,20,75,73,65,20,61,74,20,68,74,74,70,73,3a,2f,2f,77,77,77,\
+  2e,76,65,72,69,73,69,67,6e,2e,63,6f,6d,2f,72,70,61,20,28,63,29,31,30,31,2e,\
+  30,2c,06,03,55,04,03,13,25,56,65,72,69,53,69,67,6e,20,43,6c,61,73,73,20,33,\
+  20,43,6f,64,65,20,53,69,67,6e,69,6e,67,20,32,30,31,30,20,43,41,30,1e,17,0d,\
+  31,36,31,32,31,34,30,30,30,30,30,30,5a,17,0d,31,39,30,33,31,35,32,33,35,39,\
+  35,39,5a,30,75,31,0b,30,09,06,03,55,04,06,13,02,55,53,31,13,30,11,06,03,55,\
+  04,08,0c,0a,43,61,6c,69,66,6f,72,6e,69,61,31,17,30,15,06,03,55,04,07,0c,0e,\
+  52,65,64,77,6f,6f,64,20,53,68,6f,72,65,73,31,1b,30,19,06,03,55,04,0a,0c,12,\
+  4f,72,61,63,6c,65,20,43,6f,72,70,6f,72,61,74,69,6f,6e,31,1b,30,19,06,03,55,\
+  04,03,0c,12,4f,72,61,63,6c,65,20,43,6f,72,70,6f,72,61,74,69,6f,6e,30,82,01,\
+  22,30,0d,06,09,2a,86,48,86,f7,0d,01,01,01,05,00,03,82,01,0f,00,30,82,01,0a,\
+  02,82,01,01,00,97,9a,13,45,94,5d,4c,c2,0e,ee,7f,93,80,e7,1e,c7,e1,ed,67,97,\
+  03,a4,fd,bc,53,44,f5,c7,47,48,cc,de,be,d1,21,ae,ca,6a,63,7c,93,11,ec,68,64,\
+  5a,2f,af,94,58,f2,00,22,ac,3f,2a,3c,1d,18,b7,48,3a,81,08,fd,d0,de,5c,44,ce,\
+  a2,34,66,f7,cd,f9,58,5b,c3,16,c6,b6,ee,91,38,52,82,d6,57,22,b2,66,01,ff,43,\
+  fd,31,ac,cd,a0,1b,14,e4,ab,af,ef,59,42,d6,aa,d0,8d,62,fd,0a,cc,d8,36,17,7c,\
+  4c,26,da,b2,7d,83,c6,a0,a9,dd,49,3b,f7,4c,ae,fd,6a,0b,1a,84,c7,ee,40,aa,4e,\
+  16,33,5e,94,92,f2,3c,a0,23,eb,db,45,e3,16,c8,c3,67,bb,76,d0,77,78,f6,d5,90,\
+  a2,6e,f0,07,af,b6,d6,91,16,69,a3,4b,d3,8f,10,25,a3,8c,05,87,d1,84,2f,40,5d,\
+  31,be,2b,05,12,3f,78,2e,ad,22,a0,8c,52,8e,63,a8,6a,c8,bb,8d,06,ef,ae,24,05,\
+  d3,2d,6c,58,da,9c,83,fd,39,b0,4d,d0,8d,a5,2b,de,37,44,d0,34,aa,ca,55,ea,35,\
+  81,ee,a3,0a,b7,d3,00,e6,ae,e8,01,02,03,01,00,01,a3,82,01,5d,30,82,01,59,30,\
+  09,06,03,55,1d,13,04,02,30,00,30,0e,06,03,55,1d,0f,01,01,ff,04,04,03,02,07,\
+  80,30,2b,06,03,55,1d,1f,04,24,30,22,30,20,a0,1e,a0,1c,86,1a,68,74,74,70,3a,\
+  2f,2f,73,66,2e,73,79,6d,63,62,2e,63,6f,6d,2f,73,66,2e,63,72,6c,30,61,06,03,\
+  55,1d,20,04,5a,30,58,30,56,06,06,67,81,0c,01,04,01,30,4c,30,23,06,08,2b,06,\
+  01,05,05,07,02,01,16,17,68,74,74,70,73,3a,2f,2f,64,2e,73,79,6d,63,62,2e,63,\
+  6f,6d,2f,63,70,73,30,25,06,08,2b,06,01,05,05,07,02,02,30,19,0c,17,68,74,74,\
+  70,73,3a,2f,2f,64,2e,73,79,6d,63,62,2e,63,6f,6d,2f,72,70,61,30,13,06,03,55,\
+  1d,25,04,0c,30,0a,06,08,2b,06,01,05,05,07,03,03,30,57,06,08,2b,06,01,05,05,\
+  07,01,01,04,4b,30,49,30,1f,06,08,2b,06,01,05,05,07,30,01,86,13,68,74,74,70,\
+  3a,2f,2f,73,66,2e,73,79,6d,63,64,2e,63,6f,6d,30,26,06,08,2b,06,01,05,05,07,\
+  30,02,86,1a,68,74,74,70,3a,2f,2f,73,66,2e,73,79,6d,63,62,2e,63,6f,6d,2f,73,\
+  66,2e,63,72,74,30,1f,06,03,55,1d,23,04,18,30,16,80,14,cf,99,a9,ea,7b,26,f4,\
+  4b,c9,8e,8f,d7,f0,05,26,ef,e3,d2,a7,9d,30,1d,06,03,55,1d,0e,04,16,04,14,ec,\
+  a0,3b,fe,b3,14,73,4a,f1,b8,64,00,57,4a,ca,7a,3b,79,af,3d,30,0d,06,09,2a,86,\
+  48,86,f7,0d,01,01,05,05,00,03,82,01,01,00,d8,e9,00,ef,e4,dd,37,ed,9b,23,ba,\
+  73,ed,b9,3b,2a,4c,ea,4e,8f,02,cc,a9,ce,50,75,90,67,42,fb,5b,09,21,31,e3,f0,\
+  27,b8,57,4e,a9,1f,de,7a,c3,6f,68,09,38,6e,7f,67,18,53,e5,69,84,8c,46,82,e6,\
+  81,e2,fd,79,24,4a,11,39,07,e8,a1,0c,81,fb,68,92,3b,b8,56,66,c9,c0,db,73,b8,\
+  3f,1f,8a,5e,ba,ec,e6,1b,e3,eb,5d,25,ae,90,c0,d8,ff,48,9c,41,1c,8f,45,ff,a9,\
+  7b,7e,65,9e,9b,70,15,33,ec,19,5d,e9,d2,5a,f0,e5,f0,30,6f,0b,ee,cb,84,8a,e4,\
+  49,28,64,58,29,c8,08,a7,a5,0e,76,5e,41,81,71,7d,0f,e2,b2,b9,22,0b,d8,2a,65,\
+  b2,ee,ae,9c,22,61,78,c0,2b,27,2d,bd,6d,5d,dd,37,46,fe,f0,e7,4b,55,26,16,da,\
+  11,bd,26,6e,d8,65,25,8e,07,4f,22,4d,21,b6,19,f0,d6,c1,a5,a1,4a,2e,a9,9b,65,\
+  ee,9f,1b,fe,76,51,bc,c9,73,ca,cd,90,e0,3d,ab,24,23,32,43,e7,cf,d9,ae,75,1b,\
+  7c,12,c2,5e,35,bf,9b,11,83,5c,36,fd,a6,a0,e3,eb,bc,76,48,50
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\SystemCertificates\TrustedPublisher\Certificates\5BDEFE580A816661CDB57A57107BF4187486EFCC]
+"Blob"=hex:03,00,00,00,01,00,00,00,14,00,00,00,5b,de,fe,58,0a,81,66,61,cd,b5,\
+  7a,57,10,7b,f4,18,74,86,ef,cc,04,00,00,00,01,00,00,00,10,00,00,00,a3,7a,95,\
+  a4,84,b2,e0,73,c2,8a,47,3a,47,9c,86,cc,14,00,00,00,01,00,00,00,14,00,00,00,\
+  ec,a0,3b,fe,b3,14,73,4a,f1,b8,64,00,57,4a,ca,7a,3b,79,af,3d,19,00,00,00,01,\
+  00,00,00,10,00,00,00,1f,24,a0,b3,33,c7,ca,26,d6,ee,9b,1b,34,81,60,e4,0f,00,\
+  00,00,01,00,00,00,14,00,00,00,f7,c4,b6,94,9a,a8,26,30,fc,59,59,3e,9f,20,86,\
+  5e,3e,8d,d1,73,20,00,00,00,01,00,00,00,17,05,00,00,30,82,05,13,30,82,03,fb,\
+  a0,03,02,01,02,02,10,65,d3,65,a2,4e,e7,e1,37,10,5b,ba,c2,33,58,16,d8,30,0d,\
+  06,09,2a,86,48,86,f7,0d,01,01,05,05,00,30,81,b4,31,0b,30,09,06,03,55,04,06,\
+  13,02,55,53,31,17,30,15,06,03,55,04,0a,13,0e,56,65,72,69,53,69,67,6e,2c,20,\
+  49,6e,63,2e,31,1f,30,1d,06,03,55,04,0b,13,16,56,65,72,69,53,69,67,6e,20,54,\
+  72,75,73,74,20,4e,65,74,77,6f,72,6b,31,3b,30,39,06,03,55,04,0b,13,32,54,65,\
+  72,6d,73,20,6f,66,20,75,73,65,20,61,74,20,68,74,74,70,73,3a,2f,2f,77,77,77,\
+  2e,76,65,72,69,73,69,67,6e,2e,63,6f,6d,2f,72,70,61,20,28,63,29,31,30,31,2e,\
+  30,2c,06,03,55,04,03,13,25,56,65,72,69,53,69,67,6e,20,43,6c,61,73,73,20,33,\
+  20,43,6f,64,65,20,53,69,67,6e,69,6e,67,20,32,30,31,30,20,43,41,30,1e,17,0d,\
+  31,36,31,32,31,34,30,30,30,30,30,30,5a,17,0d,31,39,30,33,31,35,32,33,35,39,\
+  35,39,5a,30,75,31,0b,30,09,06,03,55,04,06,13,02,55,53,31,13,30,11,06,03,55,\
+  04,08,0c,0a,43,61,6c,69,66,6f,72,6e,69,61,31,17,30,15,06,03,55,04,07,0c,0e,\
+  52,65,64,77,6f,6f,64,20,53,68,6f,72,65,73,31,1b,30,19,06,03,55,04,0a,0c,12,\
+  4f,72,61,63,6c,65,20,43,6f,72,70,6f,72,61,74,69,6f,6e,31,1b,30,19,06,03,55,\
+  04,03,0c,12,4f,72,61,63,6c,65,20,43,6f,72,70,6f,72,61,74,69,6f,6e,30,82,01,\
+  22,30,0d,06,09,2a,86,48,86,f7,0d,01,01,01,05,00,03,82,01,0f,00,30,82,01,0a,\
+  02,82,01,01,00,97,9a,13,45,94,5d,4c,c2,0e,ee,7f,93,80,e7,1e,c7,e1,ed,67,97,\
+  03,a4,fd,bc,53,44,f5,c7,47,48,cc,de,be,d1,21,ae,ca,6a,63,7c,93,11,ec,68,64,\
+  5a,2f,af,94,58,f2,00,22,ac,3f,2a,3c,1d,18,b7,48,3a,81,08,fd,d0,de,5c,44,ce,\
+  a2,34,66,f7,cd,f9,58,5b,c3,16,c6,b6,ee,91,38,52,82,d6,57,22,b2,66,01,ff,43,\
+  fd,31,ac,cd,a0,1b,14,e4,ab,af,ef,59,42,d6,aa,d0,8d,62,fd,0a,cc,d8,36,17,7c,\
+  4c,26,da,b2,7d,83,c6,a0,a9,dd,49,3b,f7,4c,ae,fd,6a,0b,1a,84,c7,ee,40,aa,4e,\
+  16,33,5e,94,92,f2,3c,a0,23,eb,db,45,e3,16,c8,c3,67,bb,76,d0,77,78,f6,d5,90,\
+  a2,6e,f0,07,af,b6,d6,91,16,69,a3,4b,d3,8f,10,25,a3,8c,05,87,d1,84,2f,40,5d,\
+  31,be,2b,05,12,3f,78,2e,ad,22,a0,8c,52,8e,63,a8,6a,c8,bb,8d,06,ef,ae,24,05,\
+  d3,2d,6c,58,da,9c,83,fd,39,b0,4d,d0,8d,a5,2b,de,37,44,d0,34,aa,ca,55,ea,35,\
+  81,ee,a3,0a,b7,d3,00,e6,ae,e8,01,02,03,01,00,01,a3,82,01,5d,30,82,01,59,30,\
+  09,06,03,55,1d,13,04,02,30,00,30,0e,06,03,55,1d,0f,01,01,ff,04,04,03,02,07,\
+  80,30,2b,06,03,55,1d,1f,04,24,30,22,30,20,a0,1e,a0,1c,86,1a,68,74,74,70,3a,\
+  2f,2f,73,66,2e,73,79,6d,63,62,2e,63,6f,6d,2f,73,66,2e,63,72,6c,30,61,06,03,\
+  55,1d,20,04,5a,30,58,30,56,06,06,67,81,0c,01,04,01,30,4c,30,23,06,08,2b,06,\
+  01,05,05,07,02,01,16,17,68,74,74,70,73,3a,2f,2f,64,2e,73,79,6d,63,62,2e,63,\
+  6f,6d,2f,63,70,73,30,25,06,08,2b,06,01,05,05,07,02,02,30,19,0c,17,68,74,74,\
+  70,73,3a,2f,2f,64,2e,73,79,6d,63,62,2e,63,6f,6d,2f,72,70,61,30,13,06,03,55,\
+  1d,25,04,0c,30,0a,06,08,2b,06,01,05,05,07,03,03,30,57,06,08,2b,06,01,05,05,\
+  07,01,01,04,4b,30,49,30,1f,06,08,2b,06,01,05,05,07,30,01,86,13,68,74,74,70,\
+  3a,2f,2f,73,66,2e,73,79,6d,63,64,2e,63,6f,6d,30,26,06,08,2b,06,01,05,05,07,\
+  30,02,86,1a,68,74,74,70,3a,2f,2f,73,66,2e,73,79,6d,63,62,2e,63,6f,6d,2f,73,\
+  66,2e,63,72,74,30,1f,06,03,55,1d,23,04,18,30,16,80,14,cf,99,a9,ea,7b,26,f4,\
+  4b,c9,8e,8f,d7,f0,05,26,ef,e3,d2,a7,9d,30,1d,06,03,55,1d,0e,04,16,04,14,ec,\
+  a0,3b,fe,b3,14,73,4a,f1,b8,64,00,57,4a,ca,7a,3b,79,af,3d,30,0d,06,09,2a,86,\
+  48,86,f7,0d,01,01,05,05,00,03,82,01,01,00,d8,e9,00,ef,e4,dd,37,ed,9b,23,ba,\
+  73,ed,b9,3b,2a,4c,ea,4e,8f,02,cc,a9,ce,50,75,90,67,42,fb,5b,09,21,31,e3,f0,\
+  27,b8,57,4e,a9,1f,de,7a,c3,6f,68,09,38,6e,7f,67,18,53,e5,69,84,8c,46,82,e6,\
+  81,e2,fd,79,24,4a,11,39,07,e8,a1,0c,81,fb,68,92,3b,b8,56,66,c9,c0,db,73,b8,\
+  3f,1f,8a,5e,ba,ec,e6,1b,e3,eb,5d,25,ae,90,c0,d8,ff,48,9c,41,1c,8f,45,ff,a9,\
+  7b,7e,65,9e,9b,70,15,33,ec,19,5d,e9,d2,5a,f0,e5,f0,30,6f,0b,ee,cb,84,8a,e4,\
+  49,28,64,58,29,c8,08,a7,a5,0e,76,5e,41,81,71,7d,0f,e2,b2,b9,22,0b,d8,2a,65,\
+  b2,ee,ae,9c,22,61,78,c0,2b,27,2d,bd,6d,5d,dd,37,46,fe,f0,e7,4b,55,26,16,da,\
+  11,bd,26,6e,d8,65,25,8e,07,4f,22,4d,21,b6,19,f0,d6,c1,a5,a1,4a,2e,a9,9b,65,\
+  ee,9f,1b,fe,76,51,bc,c9,73,ca,cd,90,e0,3d,ab,24,23,32,43,e7,cf,d9,ae,75,1b,\
+  7c,12,c2,5e,35,bf,9b,11,83,5c,36,fd,a6,a0,e3,eb,bc,76,48,50
+
+
+;============== Allow Running downloaded .exe files without prompts =============
+;vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+;Disable Zone Checking (so can run .exe you download without being prompted to allow it)
+[HKEY_CURRENT_USER\Environment]
+"SEE_MASK_NOZONECHECKS"="1"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1]
+"Flags"=dword:000000db
+
+;Disable Security Warning Popup when Running Files
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Download]
+"CheckExeSignatures"="no"
+"RunInvalidSignatures"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments]
+"SaveZoneInformation"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Associations]
+"LowRiskFileTypes"=".zip;.rar;.nfo;.txt;.exe;.bat;.com;.cmd;.reg;.msi;.htm;.html;.gif;.bmp;.jpg;.avi;.mpg;.mpeg;.mov;.mp3;.m3u;.wav;.vbs;"
+
+; Disable IE security warning popup when running files
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Security]
+"DisableSecuritySettingsCheck"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments]
+"HideZoneInfoOnProperties"=-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
+"HideZoneInfoOnProperties"=-
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Security]
+"DisableSecuritySettingCheck"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Security]
+"DisableSecuritySettingsCheck"=dword:00000001
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Security]
+"DisableSecuritySettingsCheck"=dword:00000001"
+
+;Set Default Zones
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1] 
+"1001"=dword:00000001 
+"1004"=dword:00000003 
+"1201"=dword:00000003 
+"1206"=dword:00000000 
+"1207"=dword:00000000 
+"1208"=dword:00000000 
+"1209"=dword:00000000 
+"120A"=dword:00000003 
+"120B"=dword:00000000 
+"1402"=dword:00000000 
+"1405"=dword:00000000 
+"1406"=dword:00000001 
+"1407"=dword:00000000 
+"1408"=dword:00000000 
+"1409"=dword:00000003 
+"1601"=dword:00000000 
+"1604"=dword:00000000 
+"1605"=dword:00000000 
+"1606"=dword:00000000 
+"1607"=dword:00000000 
+"1608"=dword:00000000 
+"1609"=dword:00000001 
+"160A"=dword:00000000 
+"1802"=dword:00000000 
+"1803"=dword:00000000 
+"1804"=dword:00000001 
+"1809"=dword:00000003 
+"1A00"=dword:00020000 
+"1A02"=dword:00000000 
+"1A03"=dword:00000000 
+"1A04"=dword:00000000 
+"1A05"=dword:00000000 
+"1A06"=dword:00000000 
+"1C00"=dword:00020000 
+"2000"=dword:00000000 
+"2005"=dword:00000000 
+"2100"=dword:00000000 
+"2101"=dword:00000000 
+"2102"=dword:00000000 
+"2103"=dword:00000000 
+"2104"=dword:00000000 
+"2105"=dword:00000000 
+"2106"=dword:00000000 
+"2200"=dword:00000000 
+"2201"=dword:00000000 
+"2300"=dword:00000001 
+"2301"=dword:00000003 
+"2400"=dword:00000000 
+"2401"=dword:00000000 
+"2402"=dword:00000000 
+"2600"=dword:00000000 
+"2700"=dword:00000003 
+"2107"=dword:00000000 
+"2701"=dword:00000000 
+"2702"=dword:00000003 
+"2703"=dword:00000000 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2] 
+"1001"=dword:00000001 
+"1004"=dword:00000003 
+"1201"=dword:00000003 
+"1206"=dword:00000003 
+"1207"=dword:00000000 
+"1208"=dword:00000000 
+"1209"=dword:00000003 
+"120A"=dword:00000003 
+"120B"=dword:00000000 
+"1402"=dword:00000000 
+"1405"=dword:00000000 
+"1406"=dword:00000003 
+"1407"=dword:00000001 
+"1408"=dword:00000000 
+"1409"=dword:00000000 
+"1601"=dword:00000000 
+"1604"=dword:00000000 
+"1605"=dword:00000000 
+"1606"=dword:00000000 
+"1607"=dword:00000003 
+"1608"=dword:00000000 
+"1609"=dword:00000001 
+"160A"=dword:00000000 
+"1802"=dword:00000000 
+"1803"=dword:00000000 
+"1804"=dword:00000001 
+"1809"=dword:00000000 
+"1A00"=dword:00020000 
+"1A02"=dword:00000000 
+"1A03"=dword:00000000 
+"1A04"=dword:00000003 
+"1A05"=dword:00000001 
+"1A06"=dword:00000000 
+"1C00"=dword:00010000 
+"2000"=dword:00000000 
+"2005"=dword:00000000 
+"2100"=dword:00000000 
+"2101"=dword:00000000 
+"2102"=dword:00000003 
+"2103"=dword:00000000 
+"2104"=dword:00000000 
+"2105"=dword:00000000 
+"2106"=dword:00000000 
+"2200"=dword:00000003 
+"2201"=dword:00000003 
+"2300"=dword:00000001 
+"2301"=dword:00000000 
+"2400"=dword:00000000 
+"2401"=dword:00000000 
+"2402"=dword:00000000 
+"2600"=dword:00000000 
+"2700"=dword:00000003 
+"2107"=dword:00000000 
+"2701"=dword:00000000 
+"2702"=dword:00000000 
+"2703"=dword:00000000 
+"2500"=dword:00000003 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3] 
+"2402"=dword:00000000 
+"2400"=dword:00000003 
+"2401"=dword:00000000 
+"2702"=dword:00000000 
+"1208"=dword:00000003 
+"1209"=dword:00000003 
+"2201"=dword:00000003 
+"2000"=dword:00000000 
+"120A"=dword:00000003 
+"1001"=dword:00000001 
+"1004"=dword:00000003 
+"1201"=dword:00000003 
+"120B"=dword:00000003 
+"1405"=dword:00000000 
+"1803"=dword:00000000 
+"1604"=dword:00000000 
+"2600"=dword:00000000 
+"1406"=dword:00000003 
+"1608"=dword:00000000 
+"1206"=dword:00000003 
+"2102"=dword:00000003 
+"2300"=dword:00000001 
+"2104"=dword:00000003 
+"1609"=dword:00000001 
+"1A04"=dword:00000003 
+"1802"=dword:00000000 
+"2100"=dword:00000000 
+"160A"=dword:00000003 
+"1806"=dword:00000000 
+"1804"=dword:00000001 
+"1607"=dword:00000003 
+"1809"=dword:00000000 
+"2301"=dword:00000000 
+"1606"=dword:00000000 
+"2101"=dword:00000000 
+"1407"=dword:00000001 
+"2103"=dword:00000003 
+"2105"=dword:00000003 
+"1409"=dword:00000000 
+"1402"=dword:00000000 
+"1A00"=dword:00020000 
+"2500"=dword:00000000 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4] 
+"1001"=dword:00000003 
+"1004"=dword:00000003 
+"1201"=dword:00000003 
+"1206"=dword:00000003 
+"1207"=dword:00000003 
+"1208"=dword:00000003 
+"1209"=dword:00000003 
+"120A"=dword:00000003 
+"120B"=dword:00000003 
+"1402"=dword:00000003 
+"1405"=dword:00000003 
+"1406"=dword:00000003 
+"1407"=dword:00000003 
+"1408"=dword:00000003 
+"1409"=dword:00000000 
+"1601"=dword:00000001 
+"1604"=dword:00000003 
+"1605"=dword:00000000 
+"1606"=dword:00000003 
+"1607"=dword:00000003 
+"1608"=dword:00000003 
+"1609"=dword:00000001 
+"160A"=dword:00000003 
+"1802"=dword:00000001 
+"1803"=dword:00000003 
+"1804"=dword:00000003 
+"1809"=dword:00000000 
+"180B"=dword:00000001 
+"1A00"=dword:00010000 
+"1A02"=dword:00000003 
+"1A03"=dword:00000003 
+"1A04"=dword:00000003 
+"1A05"=dword:00000003 
+"1A06"=dword:00000003 
+"2000"=dword:00000003 
+"2005"=dword:00000003 
+"2100"=dword:00000003 
+"2101"=dword:00000003 
+"2102"=dword:00000003 
+"2103"=dword:00000003 
+"2104"=dword:00000003 
+"2105"=dword:00000003 
+"2106"=dword:00000003 
+"2200"=dword:00000003 
+"2201"=dword:00000003 
+"2300"=dword:00000003 
+"2301"=dword:00000000 
+"2400"=dword:00000003 
+"2401"=dword:00000003 
+"2402"=dword:00000003 
+"2600"=dword:00000003 
+"2700"=dword:00000000 
+"2107"=dword:00000003 
+"2701"=dword:00000003 
+"2702"=dword:00000000 
+"2703"=dword:00000003 
+"2500"=dword:00000000
+;^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;============== Allow Running downloaded .exe files without prompts =============

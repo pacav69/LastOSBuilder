@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-OneCore-TileDataRepository"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration scope="Upgrade"
+      replacementSettingsVersionRange="0-1"
+      settingsVersion="2"
+      alwaysProcess="yes">
+    <migXml xmlns="">
+      <plugin
+          classId="{59735225-901B-4A9F-A7B6-52D7D5E0776D}"
+          file="Microsoft-OneCore-TileDataRepository\TileStoreMigrationPlugin.dll"
+          />
+    </migXml>
+  </migration>
+</assembly>

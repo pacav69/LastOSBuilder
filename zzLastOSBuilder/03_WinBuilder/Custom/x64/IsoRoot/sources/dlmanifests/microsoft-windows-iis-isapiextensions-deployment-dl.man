@@ -1,0 +1,46 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="edchou"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2005-04-17T23:19:59.7179214-07:00"
+    description="Downlevel manifest for ISAPI Extensions Migration"
+    displayName="ISAPI Extensions Downlevel"
+    lastUpdateTimeStamp="2005-06-21T21:50:06.5375172-07:00"
+    manifestVersion="1.0"
+    owners="edchou"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-IIS-ISAPIExtensions-Deployment-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="IIS-ISAPIExtensions"/>
+    <migXml xmlns="">
+      <!-- On a down-level system, we detect the presence of WWW by -->
+      <!-- looking for the W3SVC service.  We base this on the      -->
+      <!-- registry key for the service declaration.                -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\W3SVC [ImagePath]" )</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

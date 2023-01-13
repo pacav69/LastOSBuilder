@@ -1,0 +1,45 @@
+[WTR]
+Name="Microsoft Windows PowerShell snap-in for IIS 7.0"
+Name="Microsoft Windows PowerShell snap-in für IIS 7.0"
+Name="Complemento PowerShell de Microsoft Windows para IIS 7.0"
+Name="Composant logiciel enfichable Microsoft Windows PowerShell pour IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [AppHostNavigators.dll]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [IIsConsole.psc1]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [iisprovider.format.ps1xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [iisprovider.types.ps1xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [NavigationTypes.namespace.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [Readme.htm]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [XPath.dll]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\de-DE\ [ApphostNavigators.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\de-DE\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\de-DE\ [xpath.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\en-us\ [ApphostNavigators.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\en-us\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\en-us\ [xpath.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\es-ES\ [ApphostNavigators.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\es-ES\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\es-ES\ [xpath.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\fr-FR\ [ApphostNavigators.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\fr-FR\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\fr-FR\ [xpath.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ja-JP\ [ApphostNavigators.dll.mui]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ja-JP\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ja-JP\ [xpath.dll.mui]"
+
+[System.Gac]
+"[Microsoft.IIS.PowerShell.Framework,*]"
+"[Microsoft.IIS.Powershell.Provider,*]"
+"[Microsoft.IIS.PowerShell.Framework.resources,*]"
+"[Microsoft.IIS.Powershell.Provider.resources,*]"
+
+[System.Registry]
+"HKLM\Software\Microsoft\PowerShell\1\PowerShellSnapIns\webAdministration\* [*]"
+
+[ProductID]
+"{3C557BC2-9FC4-4293-9E36-F6F5079E3E0C}"
+

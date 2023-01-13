@@ -1,0 +1,158 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="xinyanz"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-07-31T17:06:03.3437377-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2003-07-31T17:06:03.3437377-07:00"
+    manifestVersion="1.0"
+    owners="tcpipdev"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-TCPIP-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <machineSpecific>
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DefaultTTL]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableICMPRedirect]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableAddrMaskReply]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableIPSourceRouting]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableTaskOffload]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableUserTOSSetting]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableDHCPMediaSense]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableMediaSenseEventLog]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IGMPLevel]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IGMPVersion]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableMulticastForwarding]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnablePMTUDiscovery]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [TcpUseRFC1122UrgentPointer]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [DisableTaskOffload]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [TcpMaxDataRetransmissions]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [KeepAliveTime]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [KeepAliveInterval]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [TcpTimedWaitDelay]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [TcpFinWait2Delay]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnablePMTUBHDetect]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IPAutoconfigurationSubnet]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IPAutoconfigurationMask]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [MaxUserPort]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [ArpRetryCount]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableBcastArpReply]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [Tcp1323Opts]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableConnectionRateLimiting]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IPAutoconfigurationEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [IPEnableRouter]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [ArpUseEtherSNAP]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [OverrideDefaultAddressSelection]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters [EnableIPAutoConfigurationLimits]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [IPAddress]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [SubnetMask]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [InterfaceMetric]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [PerformRouterDiscovery]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [DefaultGateway]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [DefaultGatewayMetric]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [SolicitationAddressBcast]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [UseZeroBroadcast]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [TypeOfInterface]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [TcpAckFrequency]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [TcpDelAckTicks]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [MTU]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [IPAutoconfigurationAddress]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [IPAutoconfigurationEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* [EnableDhcp]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [EnableLMHOSTS]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [NameServerPort]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MaxPreloadEntries]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [CacheTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [InitialRefreshT.O.]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MinimumRefreshSleepTime]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [InboundDgramNameCacheTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MaxNumNameCache]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [BcastNameQueryCount]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [BcastQueryTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [NameSrvQueryCount]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [NameSrvQueryTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [SessionKeepAlive]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [RandomAdapter]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [SingleResponse]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [NoNameReleaseOnDemand]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [CachePerAdapterEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [ConnectOnRequestedInterfaceOnly]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [SendDgramOnRequestedInterfaceOnly]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MultipleCacheFlags]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [UseDnsOnlyForNameResolutions]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [EnableDns]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [TryAllNameServers]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [SmbDisableNetbiosNameCacheLookup]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [TryAllIpAddrs]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [LmhostsTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MaxDgramBuffering]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [EnableProxyRegCheck]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [WinsDownTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MaxConnBacklog]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [BacklogIncrement]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [MinFreeLowerConnections]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [BreakOnAssert]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [CacheRemoteNameOnDgramReceive]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [DhcpProcessingDelay]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [RefreshOpCode]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [EnableProxy]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [Size/Small/Medium/Large]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [PendingNameQueriesCount]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [NodeType]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters [BroadcastAddress]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces\* [NameServerList]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces\* [NetbiosOptions]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Nsi\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+        <string
+            buildFilter=""
+            id="description"
+            value="Downlevel TCP/IP Network Stack"
+            />
+        <string
+            buildFilter=""
+            id="displayName"
+            value="Downlevel TCPIP Protocol Driver"
+            />
+        <string
+            buildFilter=""
+            id="displayName1"
+            value="Downlevel TCP/IP Protocol Driver"
+            />
+      </stringTable>
+    </resources>
+  </localization>
+</assembly>

@@ -1,0 +1,414 @@
+[Main]
+Title=Win10XPE
+Type=XPEPlugin
+Description=Build Win10XPE by using an Original Windows 10 ISO x86 or x64...#$xThe build is based on the Winre.wim recovery environment.
+Author=ChrisR
+Date=2019.09.14
+Version=002
+Selected=True
+Mandatory=True
+NoWarning=False
+PathSetting=False
+Level=1
+Download_Level=0
+Credits=
+Contact=
+AttachDir=
+SourceDir=F:\Source\Win10_1809Oct,D:\Source\Win10_1809Oct,O:\Source\Win10_1809Oct,O:\LTT_Win10\Source\Win10_1809Oct_English_x64(RS5_ORIG)
+
+[Variables]
+%ProjectName%=Win10XPE
+%GSource%=M:\zLast20_Builder\00_Source\01Windows_Original
+%GTools%=%BaseDir%\Projects\Tools
+%GTarget%=M:\zLast20_Builder\03_WinBuilder\Target
+%GTemp%=%BaseDir%\Temp
+%GISO%=M:\zLast20_Builder\03_WinBuilder\ISO
+%GTarget_Win%=%GTarget%\Windows
+%GTarget_Sys%=%GTarget%\Windows\System32
+%GCustom%=%BaseDir%\Custom
+%ProgCache%=%BaseDir%\ProgCache
+%XPECache%=M:\zLast20_Builder\03_WinBuilder\ProgCache\10.0.17763.1_EnterpriseS_x64_en-US
+%Target_Prog%=M:\zLast20_Builder\03_WinBuilder\Target\Program Files
+%PE_Programs%=X:\Program Files
+//-
+%Shell%=Explorer
+%WoW64Support%=True
+%FullSoftware%=True
+%RegSystem%=%GTarget_Sys%\config\System
+%RegSoftware%=%GTarget_Sys%\config\Software
+%RegDefault%=%GTarget_Sys%\config\Default
+%RegComponents%=%GTarget_Sys%\config\Components
+%RegDrivers%=%GTarget_Sys%\config\Drivers
+//-
+%OS%=Win10
+%Image%=1
+%DisplayName%=Windows 10 Enterprise LTSC
+%EditionID%=EnterpriseS
+%SourceVersion%=10.0.17763.1
+%SourceBuild%=17763
+%Architecture%=x64
+%Language%=en-US
+%FallBackLanguage%=en-US
+//-
+%HostOSArch%=x64
+%OpenHideOutput%=Open
+//-
+%API%=%ProjectDir%\Macro.script
+%APIDEF%=XPEMacro
+%APIVAR%=ApiVar
+%APISUBDEF%=AddShortcut,AddPin,Associate,DirDeleteQ,FileDeleteQ,Download,ExtractListFiles,ExtractSectionFiles,ExtractWimFile,EchoExtended,HiveLoadALL,RegCopyKey,RegImportFile,ACLRegKey,HiveUnLoadALL,OpenDir,RunFromRAM,Start
+
+[TargetBasePath]
+// To Load TargetBasePath variables: AddVariables,%ProjectDir%\script.project,TargetBasePath
+%TargetAppDataLocal%=%GTarget%\Users\Default\AppData\Local
+%TargetAppDataRoaming%=%GTarget%\Users\Default\AppData\Roaming
+%TargetProgramData%=%GTarget%\ProgramData
+
+[Features]
+TargetArch=False
+AllInRam=True
+AllCatalogs=False
+SetupFiles=False
+VCRuntime=True
+DisplayDrivers=True
+WoW64basic=True
+Msi=False
+ImDisk=True
+Network=True
+NetDrivers=True
+PENetwork=True
+Audio=True
+SoundEvents=False
+Accessibility=False
+WinApps=True
+Admin=False
+IE11=False
+DotNET=False
+
+[InterfaceDefaultValue]
+Image_ValuePos2=,1,4,16,158,264,21,
+Image_ValuePos4=,_Select_Image_Value_,False
+
+[Interface]
+Reset_Button=Reset,1,8,513,10,38,18,ResetValue,0,False,"__Reset Global Variables and Interfaces Values"
+TechBench_TextLabel="Download Windows 10 Original ISO (Final) From ",1,1,10,10,280,18,8,Bold
+TechBench_WebLabel="TechBench by WZT - RG Adguard",1,10,291,10,160,18,https://tb.rg-adguard.net/public.php
+Mount_TextLabel="Mount Windows 10 ISO or Extract the ISO in a Folder",1,1,10,37,345,18,8,Bold
+SelectISO_Button=" Select the Windows 10 Source Folder",1,8,10,65,220,50,SelectISO,opendir.bmp,False,"__Select the Root of the Mounted or Extracted Windows 10 Source Folder"
+SourceTab_TextLabel="* No Need To Use The Source Tab, Source Directory",1,1,10,116,276,18,8,Normal
+Source_Value=M:\zLast20_Builder\00_Source\01Windows_Original,1,1,236,83,315,18,10,Bold
+Image_TextLabel="Choose Image",1,1,16,137,80,18,8,Normal
+Image_Bevel=Image_Bevel,1,12,10,151,276,144
+Image_Value="1 - Windows 10 Enterprise LTSC",1,4,16,158,264,21,"1 - Windows 10 Enterprise LTSC","2 - Windows 10 Enterprise N LTSC",_Select_Image_Value_,False
+EditionID_TextLabel=EditionID,1,1,16,185,99,18,8,Normal
+Version_TextLabel=Version,1,1,16,203,99,18,8,Normal
+Build_TextLabel=Build,1,1,16,221,99,18,8,Normal
+Architecture_TextLabel=Architecture,1,1,16,239,99,18,8,Normal
+Language_TextLabel=Language,1,1,16,257,99,18,8,Normal
+FBLanguage_TextLabel="FallBack Language",1,1,16,275,99,18,8,Normal
+EditionID_Value=EnterpriseS,1,1,116,183,164,18,8,Bold
+Version_Value=10.0.17763.1,1,1,116,203,164,18,8,Bold
+Build_Value=17763,1,1,116,221,164,18,8,Bold
+Architecture_Value=x64,1,1,116,239,164,18,8,Bold
+Language_Value=en-US,1,1,116,257,164,18,8,Bold
+FBLanguage_Value=,1,1,116,275,164,18,8,Bold
+Play_TextLabel="Start Building By Using The Big Blue Arrow 'Play' Button On Top",1,1,10,305,375,18,8,Bold
+Donate_Bevel=Donate_Bevel,1,12,421,223,128,95
+Donate_TextLabel="Support Win10XPE Dev",1,1,427,228,120,18,8,Normal
+Image_Donate=btn_donate.gif,1,5,443,247,86,25,https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9WZ5EDAMPH6SE
+Homepage_WebLabel="Win10XPE Home Page",1,10,432,278,105,18,http://theoven.org/index.php?topic=2421.0
+SupportLog_CheckBox="Enable Support Log",1,3,427,297,120,18,False,"__Enable extended Win10XPE Support Log: SupportLog_Win10XPE_YYMMDDHHMM00.7z"
+
+[ResetValue]
+Run,%ScriptFile%,ResetGlobalVar
+Run,%ScriptFile%,ResetInterface
+Run,%ScriptFile%,Show_Basic_Gui
+
+[Check_Case_InSensitive]
+ShellExecute,Hide,cmd.exe,"/D /C If Defined WIMLIB_IMAGEX_IGNORE_CASE ( If #$pWIMLIB_IMAGEX_IGNORE_CASE#$p== 0 Exit 1 )"
+If,%ExitCode%,Equal,1,Begin
+Run,%ScriptFile%,ResetValue
+EchoExtended,"ERROR:#$xWIMLIB_IMAGEX_IGNORE_CASE Environment Variable is Defined and Set to 0 (Case-Sensitive) in your Environment.#$xWhy?#$x#$xTo Get the 'expected' behavior on Windows#$c it Must be Case-Insensitive#$c which is the Default value.#$xEXIT the Builder and Delete or Set this Environment Variable to 1#$xBefore Rebuilding.",Warn,,MessageError,,Halt
+End
+
+[SelectISO]
+Run,%ScriptFile%,Check_Case_InSensitive
+Set,%TmpSource%,""
+If,ExistFile,%Source_Value%\sources\install.wim,Set,%InitSource%,%Source_Value%
+Else,Set,%InitSource%,C:\
+System,ErrorOff
+Retrieve,Dir,%InitSource%,%TmpSource%
+StrFormat,CTRIM,%TmpSource%,\,%TmpSource%
+If,ExistFile,%TmpSource%\sources\install.wim,Begin
+If,Not,%Source_Value%,Equal,%TmpSource%,Begin
+Set,%Source_Value%,%TmpSource%,Permanent
+Set,%GSource%,%TmpSource%,Permanent
+Run,%ScriptFile%,Load_Image_Value
+//- Default Values If Blank (%GTarget%, %GISO%, %Target_Prog%, %PE_Programs%). To possibly continue a previous compilation without going through Build Core
+If,%GTarget%-,Equal,-,Run,%ScriptFile%,Load_Default_Value
+Run,%ScriptFile%,Show_Extended_Gui
+End
+End
+Else,Begin
+Set,%GSource%,"",Permanent
+Run,%ScriptFile%,Check_Image_Exist
+End
+Run,%ScriptFile%,GetHostOSArch
+
+[Load_Default_Value]
+If,ExistFile,%ProjectDir%\Core.script,AddInterface,%ProjectDir%\Core.script,InterfaceBuild,""
+If,%TargetArch_CheckBox%,Equal,True,Begin
+Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
+Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
+End
+Else,Begin
+Set,%GTarget%,%BaseDir%\Target,Permanent
+Set,%GISO%,%BaseDir%\ISO,Permanent
+End
+If,ExistFile,%ProjectDir%\Core.script,AddInterface,%ProjectDir%\Core.script,InterfaceMain,""
+If,%AllInRam_CheckBox%,Equal,True,Begin
+Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
+Set,%PE_Programs%,"X:\Program Files",Permanent
+End
+Else,Begin
+Set,%Target_Prog%,%GISO%\Programs,Permanent
+Set,%PE_Programs%,Y:\Programs,Permanent
+End
+
+[Select_Image_Value]
+Run,%ScriptFile%,Check_Image_Exist
+System,Cursor,Wait
+StrFormat,SPLIT,%Image_Value%," - ",1,%Save_Image_Value%
+If,Not,ExistFile,%GTemp%\WimInfo.ini,Run,%ScriptFile%,Load_Image_Value
+Set,%Image%,%Save_Image_Value%,Permanent
+Run,%ScriptFile%,Image_Value_Info,%Image%
+System,RefreshInterface
+System,Cursor,Normal
+
+[Check_Image_Exist]
+If,Not,ExistFile,%GSource%\sources\install.wim,Begin
+Run,%ScriptFile%,ResetValue
+EchoExtended,"install.wim image was not found in the Windows 10 source folder.#$x#$xSelect the root of the Windows 10 source folder.",Warn,,Message,,Halt
+End
+
+[GetHostOSArch]
+If,Not,ExistFile,%Gtemp%\HostOSArch.cmd,Begin
+FileCreateBlank,%Gtemp%\HostOSArch.cmd
+TXTAddLine,%Gtemp%\HostOSArch.cmd,"If #$pPROCESSOR_ARCHITECTURE#$p== x86 (If Not Defined PROCESSOR_ARCHITEW6432 Exit 86)",Append
+TXTAddLine,%Gtemp%\HostOSArch.cmd,"Exit 64",Append
+End
+ShellExecute,Hide,cmd.exe,"/D /C #$q%Gtemp%\HostOSArch.cmd#$q"
+Set,%HostOSArch%,x%ExitCode%,Permanent
+
+[DeleteWithCmd_Examples]
+//If,ExistDir,%GTemp%,Shellexecute,Hide,cmd.exe,"/D /C rd /s /q #$q%GTemp%#$q"
+//If,ExistFile,%GTemp%\WimInfo.ini,Shellexecute,Hide,cmd.exe,"/D /C del /q /f #$q%GTemp%\WimInfo.ini#$q"
+
+[Run_WimInfo]
+If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
+ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GSource%\sources\install.wim#$q -ini:#$q%GTemp%\WimInfo.ini#$q"
+If,Not,ExistFile,%GTemp%\WimInfo.ini,Run,%ScriptFile%,WimInfo_Missing
+IniRead,%GTemp%\WimInfo.ini,Attributes,ImageCount,%ImageCountVar%
+If,%ImageCountVar%,Smaller,1,Run,%ScriptFile%,WimInfo_Missing
+
+[WimInfo_Missing]
+EchoExtended,"Error: Wim file information missing. A problem occurred to Get Image Information.#$x#$xTry using an official MS sources.",Warn,,MessageError,,Halt
+
+[Load_Image_Value]
+Run,%ScriptFile%,Run_WimInfo
+IniRead,%ScriptFile%,InterfaceDefaultValue,Image_ValuePos2,%Image_ValuePos2%
+Set,%Image_ValuePos3%,""
+IniRead,%ScriptFile%,InterfaceDefaultValue,Image_ValuePos4,%Image_ValuePos4%
+//-
+Set,%ImageTmp%,1
+IniRead,%GTemp%\WimInfo.ini,Attributes,ImageCount,%ImageCountVar%
+Loop,%ScriptFile%,Load_Image_Value_Loop,1,%ImageCountVar%
+Set,%Image%,%ImageTmp%,Permanent
+//-
+IniRead,%GTemp%\WimInfo.ini,%Image%,DISPLAYNAME,%DisplayNameVar%
+Set,%Image_ValuePos1%,"#$q%Image% - %DisplayNameVar%#$q"
+IniWrite,%ScriptFile%,Interface,Image_Value,"%Image_ValuePos1%%Image_ValuePos2%%Image_ValuePos3%%Image_ValuePos4%"
+//-
+Run,%ScriptFile%,Image_Value_Info,%Image%
+
+[Load_Image_Value_Loop]
+IniRead,%GTemp%\WimInfo.ini,#c,DISPLAYNAME,%DisplayNameVar%
+If,%Image_ValuePos3%-,Equal,-,Set,%Image_ValuePos3%,"#$q#c - %DisplayNameVar%#$q"
+Else,Set,%Image_ValuePos3%,"%Image_ValuePos3%,#$q#c - %DisplayNameVar%#$q"
+// Auto select Professional Edition
+IniRead,%GTemp%\WimInfo.ini,#c,EDITIONID,%EditionIDVar%
+If,%EditionIDVar%,Equal,Professional,Set,%ImageTmp%,#c
+
+[Image_Value_Info]
+IniRead,%GTemp%\WimInfo.ini,#1,DISPLAYNAME,%DisplayNameVar%
+Set,%DisplayName%,%DisplayNameVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,EDITIONID,%EditionIDVar%
+Set,%EditionID%,%EditionIDVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,VERSION,%VersionVar%
+Set,%SourceVersion%,%VersionVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,MAJOR,%MajorVar%
+Set,%OS%,Win%MajorVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,BUILD,%BuildVar%
+Set,%SourceBuild%,%BuildVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,ARCH,%ArchVar%
+If,%ArchVar%,Equal,0,Set,%Architecture%,x86,Permanent
+If,%ArchVar%,Equal,9,Set,%Architecture%,x64,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,LANGUAGE,%LanguageVar%
+Set,%Language%,%LanguageVar%,Permanent
+IniRead,%GTemp%\WimInfo.ini,#1,FALLBACKLANGUAGE,%FallBackLanguageVar%
+If,Not,%FallBackLanguageVar%-,Equal,-,Begin
+StrFormat,REPLACE,%FallBackLanguageVar%,#$c,|,%FallBackLanguageVar%
+Set,%FallBackLanguage%,%Language%|%FallBackLanguageVar%,Permanent
+End
+Else,Set,%FallBackLanguage%,%Language%,Permanent
+Set,%XPECache%,%ProgCache%\%SourceVersion%_%EditionID%_%Architecture%_%Language%,Permanent
+//-
+Set,%EditionID_Value%,%EditionIDVar%,Permanent
+Set,%Version_Value%,%VersionVar%,Permanent
+Set,%Build_Value%,%BuildVar%,Permanent
+Set,%Architecture_Value%,%Architecture%,Permanent
+Set,%Language_Value%,%Language%,Permanent
+Set,%FBLanguage_Value%,%FallBackLanguageVar%,Permanent
+
+[ResetGlobalVar]
+Set,%GTarget%,"",Permanent
+Set,%GISO%,"",Permanent
+Set,%XPECache%,"",Permanent
+Set,%Target_Prog%,"",Permanent
+Set,%PE_Programs%,"",Permanent
+Set,%Shell%,"",Permanent
+Set,%WoW64Support%,False,Permanent
+Set,%FullSoftware%,"",Permanent
+Set,%GSource%,"",Permanent
+Set,%OS%,"",Permanent
+Set,%Image%,"",Permanent
+Set,%DisplayName%,"",Permanent
+Set,%EditionID%,"",Permanent
+Set,%SourceVersion%,"",Permanent
+Set,%SourceBuild%,"",Permanent
+Set,%Architecture%,"",Permanent
+Set,%Language%,"",Permanent
+Set,%FallBackLanguage%,"",Permanent
+Set,%HostOSArch%,x86,Permanent
+Set,%OpenHideOutput%,Open,Permanent
+IniWrite,%ProjectDir%\Script.Project,Main,AttachDir,""
+IniWrite,%ProjectDir%\Script.Project,Features,TargetArch,""
+IniWrite,%ProjectDir%\Script.Project,Features,AllInRam,""
+IniWrite,%ProjectDir%\Script.Project,Features,AllCatalogs,""
+IniWrite,%ProjectDir%\Script.Project,Features,SetupFiles,""
+IniWrite,%ProjectDir%\Script.Project,Features,VCRuntime,""
+IniWrite,%ProjectDir%\Script.Project,Features,DisplayDrivers,""
+IniWrite,%ProjectDir%\Script.Project,Features,WoW64basic,""
+IniWrite,%ProjectDir%\Script.Project,Features,Msi,""
+IniWrite,%ProjectDir%\Script.Project,Features,ImDisk,""
+IniWrite,%ProjectDir%\Script.Project,Features,Network,""
+IniWrite,%ProjectDir%\Script.Project,Features,NetDrivers,""
+IniWrite,%ProjectDir%\Script.Project,Features,PENetwork,""
+IniWrite,%ProjectDir%\Script.Project,Features,Audio,""
+IniWrite,%ProjectDir%\Script.Project,Features,SoundEvents,""
+IniWrite,%ProjectDir%\Script.Project,Features,Accessibility,""
+IniWrite,%ProjectDir%\Script.Project,Features,WinApps,""
+IniWrite,%ProjectDir%\Script.Project,Features,Admin,""
+IniWrite,%ProjectDir%\Script.Project,Features,IE11,""
+IniWrite,%ProjectDir%\Script.Project,Features,DotNET,""
+
+[ResetInterface]
+Set,%Source_Value%,"",Permanent
+IniRead,%ScriptFile%,InterfaceDefaultValue,Image_ValuePos2,%Image_ValuePos2%
+IniRead,%ScriptFile%,InterfaceDefaultValue,Image_ValuePos4,%Image_ValuePos4%
+IniWrite,%ScriptFile%,Interface,Image_Value,"%Image_ValuePos2%%Image_ValuePos4%"
+Set,%EditionID_Value%,"",Permanent
+Set,%Version_Value%,"",Permanent
+Set,%Build_Value%,"",Permanent
+Set,%Architecture_Value%,"",Permanent
+Set,%Language_Value%,"",Permanent
+Set,%FBLanguage_Value%,"",Permanent
+
+[Show_Extended_Gui]
+System,Cursor,Wait
+Run,%ScriptFile%,Show_Hide_Gui,True
+System,RefreshInterface
+System,Cursor,Normal
+
+[Show_Basic_Gui]
+System,Cursor,Wait
+Run,%ScriptFile%,Show_Hide_Gui,False
+System,RefreshInterface
+System,Cursor,Normal
+
+[Show_Hide_Gui]
+Visible,%Image_TextLabel%,#1,Permanent
+Visible,%Image_Bevel%,#1,Permanent
+Visible,%Image_Value%,#1,Permanent
+Visible,%EditionID_TextLabel%,#1,Permanent
+Visible,%Version_TextLabel%,#1,Permanent
+Visible,%Build_TextLabel%,#1,Permanent
+Visible,%Architecture_TextLabel%,#1,Permanent
+Visible,%Language_TextLabel%,#1,Permanent
+Visible,%FBLanguage_TextLabel%,#1,Permanent
+Visible,%EditionID_Value%,#1,Permanent
+Visible,%Version_Value%,#1,Permanent
+Visible,%Build_Value%,#1,Permanent
+Visible,%Architecture_Value%,#1,Permanent
+Visible,%Language_Value%,#1,Permanent
+Visible,%FBLanguage_Value%,#1,Permanent
+Visible,%Play_TextLabel%,#1,Permanent
+Visible,%Donate_Bevel%,#1,Permanent
+Visible,%Donate_TextLabel%,#1,Permanent
+Visible,%Image_Donate%,#1,Permanent
+Visible,%Homepage_WebLabel%,#1,Permanent
+Visible,%SupportLog_CheckBox%,#1,Permanent
+
+[process]
+If,ExistFile,%API%,AddVariables,%API%,ApiVar,GLOBAL
+System,ONBUILDEXIT,Exec,%ProjectDir%\script.project,WinXPE_OnBuildExit
+
+[WinXPE_OnBuildExit]
+If,ExistDir,%GTarget%,Run,%ScriptFile%,HiveUnload,%GTarget%
+If,ExistDir,%GTemp%,Run,%ScriptFile%,HiveUnload,%GTemp%
+If,#1,Equal,ERROR,Begin
+Echo,"Build Stopped due to an Error.",Warn
+End
+If,#1,Equal,EXCEPTION,Begin
+Echo,"Build Stopped by Exception.",Warn
+End
+If,#1,Equal,STOP,Begin
+Echo,"Build Stopped by User.",Warn
+End
+If,#1,Equal,COMMAND,Begin
+Echo,"Build Stopped by script Command.",Warn
+End
+If,#1,Equal,DONE,Message,"Success of the Project Building. Enjoy :)",Information,2
+//-
+If,%SupportLog_CheckBox%,Equal,True,Begin
+If,ExistFile,%ProjectDir%\Features\SupportLog_XPE.script,Exec,%ProjectDir%\Features\SupportLog_XPE.script,Process
+End
+
+[HiveUnload]
+If,Not,#1-,Equal,-,Begin
+ShellExecute,Hide,%GTools%\HiveUnload.exe," /HKLM /Target:#$q#1#$q"
+If,%ExitCode%,Equal,1,Begin
+EchoExtended,"Error on Unloading hives from#$x#$x%1\Windows\System32\config#$x#$xCommon Reason: Loaded Hives is being used by ex: regedit.exe#$xClose the program which locks the hives.",Warn,,MessageError,10
+End
+End
+
+[AuthorEncoded]
+Win10XPE.ico=2711,3615
+Logo=Win10XPE.ico
+
+[EncodedFile-AuthorEncoded-Win10XPE.ico]
+lines=0
+0=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
+
+[InterfaceEncoded]
+btn_donate.gif=1641,2188
+opendir.bmp=571,762
+
+[EncodedFile-InterfaceEncoded-btn_donate.gif]
+lines=0
+0=eJzV0/8/03kAwPH3PolR4orL4WoufXOVj3NJR/VpK2zIdK7r2+VTu043ZVMhki1bHfkcMkpfbIRosakhTeyzIV3YjsuVR77e9UWq7ZG6SvF53+P+jHv99vwDXsHsIP/Vu3cCV/DOAcBXD+HUe+pJLVT7wqrl1CM1NVxOjSipoRKqRwqv+UPNGixyC1XHbL5ZbJqBOK6NFUkSmpWp2K4EsSCYuhGCH07VZQc4ruU7frPH/FAtV+SiUYfUJwIYnHij7oxKWQANexnsA5YKPyNZxGDhKGeHvCQfjdzP3RYlOpXRXFdAacOFx0/Cdj6DLaDqWPIyOX44DTZvzy4g4JVFcsWvsL8yOz9zSLEaF8QL94Uz2HEM5i5RphTbETf4u9I8qIVPW2B9MBa5NZtIMhWuyZb9AmvXm/K/ZgTzdblYTiLLUroMw48ymNHwngxPEIuILNi03dxbAqu9YSt/6AIKrwfAvzWU8SjVlSJMz4L1LMoohtoI+JeGG5tGdUvh+EBzbR7Vfx7eDKX68s33igY7SvDE444Be6Due/mZZGFMqLFNCbtEVN9ZlfK06Ndcqn0/pVnTXHcOxyPgsConmS0UpcPfBLC/AlruibJl0CQx6s4NGi/DUQN8O4rtSsR3RwpFYkofbe5TUp3JlGE3ZdiDRSfB10PUrc3wtgDbvM0xgMfdK4DKpZR2ExxrN/952VTgTw1XCpMPiYVs7s8pqqpCleri4N0iynRMncGCDRw4ct3YWo7hKVDloxAHKY6tg2MtXP5R9cl1VMuP3FixIo0pFEmpAYWO8Ke6jmWfyaGeaqlnJJwww8dNsE8O3z6GXWI4/hBaeqB+N3xxB9YxoXIJ8P2pEwB4zhf8P/OYsKIB4ACW/Yf/ngB0CObT3f25hXoJfY7Xzjs1JS2/zLTlXHyPbaWv5SH7+u9cK23PYbBOuf8Wn1sZbFjCcfqpPKL6LMq7e5Gtudx1wV/gly7bXI4GNqTbfc6prewuDZF5/eAaxTUV4IfZRZw6Ze/VrRr+wN0CfnkFcmKqb2N9VZ9m3x/KHzrqq3fUbiPPMHuvqgYaj7weG+i4oR7Speicdm64WjPSkuHQDm67FNqsWz87VB52bkuuS4Hvgrc9MlK5rZiVNW/5+Sze4k0MwNuorXt+XxDYmRzemLAMcb7mb/AsvmEZIo/JkCfFqxx7S9MChMUeDcB+lhhED/YnueBFqSxv862PFlbCTAPE11eIJ16P/qGIIUZTZ+DXOxXcroa2FHzz6KG8iPkPbF9PXYnE0ogmx4wU+qXF1jNQlyi9JNOdMSJ12nIE2JK3sBI7slJIWpN4DY3uDjT6E0Q8YDqR6EHxQo90jJVhUzZix/PKRRfYJNYUnjqBbXKxWejgeo88bb9k/BQtzO9ZmcwfLJDIUoBEQgsEGkR2EGgyaX6gZZozzpnwZBA+NxFUimbSULkLtvF8xJ99jz4N8cN/R1LH+9rmxTAYo8VSOz4NDXb0QtD5qYCgS/JonVZ09zFJScYX4pPTs74KWoqsBTw6kr3pG70V4az0Qvbu+4SjSHWFZWRVrZF/cobCs/i5qvESIKwaP6URs21DQKeDHillIc1Ixwu17SQgPGdvAGGLtGMgzK1tlpv+xtC4VxyyoiYyttr6Ox9S+6L+eVwjUR3AnEcs98FmkfmoASzYgBBNr1RuQjIX8O5qFwJea9OEKtZqiSXIPd7ZeopJtrnEVPncnvv1k/gvXebQCNvzgbQwD6vD+w1tXtH7D9otRRP1bcTLYjuaz5xrLa7kzuuvTG4ReXmozunAm+4QtwHatDDfcL1z8KqRIGvyDba+O9T3+Mpp2yES6vAZF6NNYzuF03orJntaP4+SFb15KHjnGWYvvH/g3cCRp9VJAysDcxYS3mKbFe+HpXPj3o9kLFY1jOC2Eivv3OAVE4/yv4+beFwYo1r9OET8XffMm9IVH0bLzsZ9eFZZofowVmoaTt7q0f/Fxxe19+M+vmx4qvpovtUxz/B8un28ZHnrXMHkqzuL1ZPjnatMk/YsoOtx4tJp5D8PYtRTb/uTLFPvhmO8rZy+DbHM2TBaoaY+2Fx5g2Eg4F9PTApjeJzjSyrJi0/Jz0ssSdVLz0xjGAUjC2xig9DSbNjlH916ysnABAD6JwkW5GQZcwEAAAACAAAAKgAAABsGAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+

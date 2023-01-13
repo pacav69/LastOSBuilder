@@ -1,0 +1,35 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-ELAM"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      scope="Upgrade"
+      settingsVersion="1"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2.*"
+      alwaysProcess="yes"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <!-- include everything under the ELAM key -->
+            <objectSet>
+              <pattern type="Registry">HKLM\ELAM\* [*]</pattern>
+            </objectSet>
+          </include>
+          <exclude>
+            <!-- exclude Defender's key -->
+            <objectSet>
+              <pattern type="Registry">HKLM\ELAM\Windows Defender [*]</pattern>
+            </objectSet>
+          </exclude>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

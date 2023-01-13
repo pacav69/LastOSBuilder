@@ -1,0 +1,20 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Hyper-V-Drivers"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <!--
+    This replacement manifest exists to ensure that we no longer run the gather
+    portion of the old Hyper-V migration plugin when upgrading from pre-RS4
+    machines. It replaces the old migration settings with these no-op settings.
+  -->
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0-7"
+      scope="Upgrade"
+      settingsVersion="8"
+      />
+</assembly>

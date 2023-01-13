@@ -1,0 +1,336 @@
+[Main]
+Title=Explorer
+Type=XPEPlugin
+Description=Explorer
+Author=ChriSR
+Date=2019.08.26
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+RunFromRAM
+Run,%ScriptFile%,AddWinXShell
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+Run,%ScriptFile%,Reg_Themes
+Run,%ScriptFile%,Reg_Explorer
+Run,%ScriptFile%,Reg_Search
+Run,%ScriptFile%,Reg_MMC
+Run,%ScriptFile%,Reg_ShellHWDetection
+Run,%ScriptFile%,Reg_BitLocker
+Run,%ScriptFile%,WinUSBClassDriver
+Run,%ScriptFile%,Reg_Environment
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[AddWinXShell]
+If,ExistFile,%ScriptDir%\WinXShell_%Architecture%.7z,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\WinXShell_%Architecture%.7z#$q -y -o#$q%Target_Prog%#$q"
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\Explorer_AddFiles.txt,ExtractListFiles,%ScriptDir%\Explorer_AddFiles.txt
+//-
+If,%SourceBuild%,Bigger,17000,ExtractSectionFiles,%ScriptFile%,Explorer_1803_AddFiles
+If,%SourceBuild%,Bigger,17700,ExtractSectionFiles,%ScriptFile%,Explorer_1809_AddFiles
+//-
+IniRead,%ProjectDir%\Script.Project,Features,AllCatalogs,%AllCatalogs%
+If,%AllCatalogs%,Equal,True,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
+Else,Begin
+  If,ExistSection,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_%SourceBuild%
+  Else,ExtractSectionFiles,%ScriptDir%\Catalog_AddFiles.txt,Catalog_AddFiles_All
+End
+
+[Explorer_1803_AddFiles]
+\Windows\System32\cdp.dll
+\Windows\System32\coloradapterclient.dll
+\Windows\System32\dsreg.dll
+\Windows\System32\VEEventDispatcher.dll
+
+[Explorer_1809_AddFiles]
+\Windows\resources\Themes\aero\shell
+; Dlls for StateRepository (AppRepository). The StateRepository service is not registered
+\Windows\System32\StateRepository.core.dll
+\Windows\System32\Windows.StateRepository.dll
+\Windows\System32\Windows.StateRepositoryBroker.dll
+\Windows\System32\Windows.StateRepositoryClient.dll
+
+[Reg_Themes]
+RegImportFile,%ScriptDir%\Themes_RegDefault.txt
+If,%FullSoftware%,Equal,False,Begin
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Direct3D
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectDraw
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectInput
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectMusic
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectPlay
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectPlay8
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectPlayNATHelp
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectShow
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\DirectX
+  //-
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\RADAR
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows\CurrentVersion\Control Panel"
+  RegCopyKey,HKLM,"Tmp_Software\Microsoft\Windows\CurrentVersion\Controls Folder"
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Themes
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\DWM
+End
+//-
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\CoreMessagingRegistrar
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Themes
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\WindowsTrustedRT
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\DWM,OneCoreNoBootDWM,0
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\DWM,ColorPrevalence,1
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\Themes
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\CoreMessagingRegistrar
+
+[Reg_Explorer]
+RegImportFile,%ScriptDir%\Explorer_RegDefault.txt
+// Shell New Context Menu. New Folder and Text Document
+RegWrite,HKLM,0x7,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Discardable\PostSetup\ShellNew,Classes,.library-ms,.txt,Folder
+RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Discardable\PostSetup\ShellNew,~reserved~,08,00,00,00,00,00,06,00
+// PinTool must be Launched after Explorer. Seems better to Launched it in pecmd.ini
+//If,ExistFile,%GTarget_Sys%\PinTool.exe,RegWrite,HKLM,0x2,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,PinTool,"PinTool.exe -debug #$pWindir#$p\System32\Pecmd.ini"
+If,%FullSoftware%,Equal,False,Begin
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\Explorer
+  RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Winlogon",shell,explorer.exe
+  // Registry cached version of the Start menu + Windows.CloudStore.dll seem require Else Pintool and others does not work
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\CloudStore
+  // Integrated zip files
+  RegCopyKey,HKLM,Tmp_Software\Classes\.zip
+  RegCopyKey,HKLM,Tmp_Software\Classes\CompressedFolder
+  RegImportFile,%ScriptDir%\Explorer_RegSoftware.txt
+  Run,%ScriptFile%,AdditionalFonts
+End
+If,ExistRegSection,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Display,RegDelete,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Display
+If,ExistRegSection,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Personalize,RegDelete,HKLM,Tmp_Software\Classes\DesktopBackground\Shell\Personalize
+If,ExistFile,"%GTarget%\Program Files\WinXShell\WinXShell.exe",Begin
+  RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings",Icon,"#$qX:\Program Files\WinXShell\wxsUI\display.ico#$q"
+  RegWrite,HKLM,0x1,"Tmp_Software\Classes\DesktopBackground\Shell\Display Settings\command",,"#$qX:\Program Files\WinXShell\WinXShell.exe#$q -ui -jcfg wxsUI\UI_Resolution.zip"
+End
+// Redirect modern Settings (eg: ms-settings:dateandtime) to: Open With - Control Panel . To note that many control panel items, such as Displays, are replaced by new modern settings
+RegWrite,HKLM,0x2,Tmp_Software\Classes\ms-settings\Shell\Open\Command,,#$pSystemRoot#$p\system32\control.exe
+// Remove Removable Drive Icon from Navigation Pane of This PC for not having it twice
+If,ExistRegSection,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83},RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83}
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegSection,HKLM,Tmp_Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83},RegDelete,HKLM,Tmp_Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83}
+End
+// Remove Quick access from Navigation Pane
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer,HubMode,1
+// Remove Libraries from this PC
+If,ExistRegSection,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{031e4825-7b94-4dc3-b131-e946b44c8dd5},RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{031e4825-7b94-4dc3-b131-e946b44c8dd5}
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegSection,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{031e4825-7b94-4dc3-b131-e946b44c8dd5},RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{031e4825-7b94-4dc3-b131-e946b44c8dd5}
+End
+// Hide_Network_to_Navigation_Pane
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder,Attributes,-1332477852
+// Hide_3D-Objects_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\PropertyBag,ThisPCPolicy,Hide
+// Hide_Contacts_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{56784854-C6CB-462B-8169-88E350ACB882}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{56784854-C6CB-462B-8169-88E350ACB882}\PropertyBag,ThisPCPolicy,Hide
+// Show_Desktop_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag
+End
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{754AC886-DF64-4CBA-86B5-F7FBF4FBCEF5}\PropertyBag
+End
+// Show_Documents_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{f42ee2d3-909f-4907-8871-4c22fc0bf756}\PropertyBag
+End
+// Show_Downloads_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d83ee9b-2244-4e70-b1f5-5393042af1e4}\PropertyBag
+End
+// Show_Favorites_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{1777F761-68AD-4D8A-87BD-30B759FA33DD}\PropertyBag
+End
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7CFBEFBC-DE1F-45AA-B843-A542AC536CC9}\PropertyBag
+End
+// Hide_Links_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{bfb9d5e0-c6a9-404c-b2b2-ae6db6af4968}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{bfb9d5e0-c6a9-404c-b2b2-ae6db6af4968}\PropertyBag,ThisPCPolicy,Hide
+// Show_Music_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag
+End
+// Hide_OneDrive_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{A52BBA46-E9E1-435f-B3D9-28DAA648C0F6}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{A52BBA46-E9E1-435f-B3D9-28DAA648C0F6}\PropertyBag,ThisPCPolicy,Hide
+// Show_Pictures_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag
+End
+// Hide_Saved_Games_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{4C5C32FF-BB9D-43b0-B5B4-2D72E54EAAA4}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{4C5C32FF-BB9D-43b0-B5B4-2D72E54EAAA4}\PropertyBag,ThisPCPolicy,Hide
+// Hide_Searches_folder
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d1d3a04-debb-4115-95cf-2f29da2920da}\PropertyBag,ThisPCPolicy,Hide
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x1,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{7d1d3a04-debb-4115-95cf-2f29da2920da}\PropertyBag,ThisPCPolicy,Hide
+// Show_Videos_folder
+If,ExistRegKey,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag,ThisPCPolicy
+RegWrite,HKLM,0x0,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag
+If,%Architecture%,Equal,x64,Begin
+  If,ExistRegKey,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag,ThisPCPolicy,RegDelete,HKLM,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag,ThisPCPolicy
+  RegWrite,HKLM,0x0,Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag
+End
+// remove "Include in Library" Context Menu
+If,ExistRegSection,HKLM,"Tmp_Software\Classes\Folder\shellex\ContextMenuHandlers\Library Location",RegDelete,HKLM,"Tmp_Software\Classes\Folder\shellex\ContextMenuHandlers\Library Location"
+// Shortcuts without 'shortcut' name and transparent icon
+RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer,link,00,00,00,00
+System,ERROROFF
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons",29,"#$pSystemRoot#$p\system32\transparent.ico"
+//Eject_Device
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\DsmSvc
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\DsmSvc
+
+[AdditionalFonts]
+// Additional Fonts, optional in addition to segoeui.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Segoe UI (TrueType)",segoeui.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Courier 10#$c12#$c15",coure.fon
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","MS Sans Serif 8#$c10#$c12#$c14#$c18#$c24",sserife.fon
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial (TrueType)",arial.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial Black (TrueType)",ariblk.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial Bold (TrueType)",arialbd.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial Bold Italic (TrueType)",arialbi.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Arial Italic (TrueType)",ariali.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Comic Sans MS (TrueType)",comic.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Comic Sans MS Bold (TrueType)",comicbd.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Courier New (TrueType)",cour.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Courier New Bold (TrueType)",courbd.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Courier New Bold Italic (TrueType)",courbi.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Courier New Italic (TrueType)",couri.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Lucida Sans Unicode (TrueType)",l_10646.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Times New Roman Bold (TrueType)",timesbd.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Times New Roman Bold Italic (TrueType)",timesbi.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Times New Roman Italic (TrueType)",timesi.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Trebuchet MS (TrueType)",trebuc.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Trebuchet MS Bold (TrueType)",trebucbd.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Trebuchet MS Bold Italic (TrueType)",trebucbi.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Trebuchet MS Italic (TrueType)",trebucit.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana (TrueType)",verdana.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Bold (TrueType)",verdanab.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Italic (TrueType)",verdanai.ttf
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows NT\CurrentVersion\Fonts","Verdana Bold Italic (TrueType)",verdanaz.ttf
+
+[Reg_MMC]
+If,%FullSoftware%,Equal,False,Begin
+  // Classes\AppID,CLSID,Interface,TypeLib already copied
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\Applications\MMC.exe,NoOpenWith,
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\.msc,,MSCFile
+  RegCopyKey,HKLM,Tmp_Software\Classes\mscfile
+  RegCopyKey,HKLM,Tmp_Software\Microsoft\MMC
+End
+
+[Reg_ShellHWDetection]
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\ShellHWDetection
+
+[Reg_BitLocker]
+If,%FullSoftware%,Equal,False,Begin
+  RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\BDESVC
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\Drive\shell\unlock-bde,,"@#$pSystemRoot#$p\System32\bdeunlock.exe,-100"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\Drive\shell\unlock-bde,AppliesTo,System.Volume.BitLockerProtection:=6
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\Drive\shell\unlock-bde,DefaultAppliesTo,
+  RegWrite,HKLM,0x1,Tmp_software\Classes\Drive\shell\unlock-bde,Icon,bdeunlock.exe
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\Drive\shell\unlock-bde,MultiSelectModel,Single
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\Drive\shell\unlock-bde\command,,"#$pSystemRoot#$p\System32\bdeunlock.exe #$p1"
+End
+
+[Reg_Search]
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,Start_SearchFiles,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,Start_SearchPrograms,1
+RegCopyKey,HKLM,Tmp_Software\Microsoft\Windows Search
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Control\ContentIndex
+//RegCopyKey,HKLM,Tmp_System\ControlSet001\services\WSearch
+//RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\WSearch,Start,4
+RegCopyKey,HKLM,Tmp_System\ControlSet001\services\WSearchIdxPi
+//-
+Run,%ScriptFile%,Reg_VolumeInfoCache
+//Run,%ScriptFile%,Reg_Search_CLSID (CLSID already copied)
+
+[Reg_VolumeInfoCache]
+// Failed to get data VolumeInfoCache \C:,DriveType in x64 build > Delete + Write
+If,ExistRegSection,HKLM,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache",RegDelete,HKLM,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache"
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\C:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\C:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\D:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\D:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\E:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\E:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\F:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\F:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\G:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\G:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\H:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\H:",VolumeLabel,
+RegWrite,HKLM,0x4,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\I:",DriveType,3
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows Search\VolumeInfoCache\I:",VolumeLabel,
+
+[Reg_Search_CLSID]
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{1D49F57D-47D2-4AEE-A69B-593EC558773F}\InProcServer32,,X:\Windows\System32\Windows.Globalization.dll
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{1D49F57D-47D2-4AEE-A69B-593EC558773F}\InProcServer32,ThreadingModel,Both
+RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{61A48126-EF74-4D4A-9DDA-43FD542CAD1E}\InprocServer32,,#$pSystemRoot#$p\System32\MSWB7.dll
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{61A48126-EF74-4D4A-9DDA-43FD542CAD1E}\InprocServer32,ThreadingModel,Both
+RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{9DAA54E8-CD95-4107-8E7F-BA3F24732D95}\InprocServer32,,#$pSystemRoot#$p\System32\MSWB7.dll
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{9DAA54E8-CD95-4107-8E7F-BA3F24732D95}\InprocServer32,ThreadingModel,Both
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{DF1E92F3-F333-4EF5-9C38-B75CB65FFC39},,Windows.Globalization
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{DF1E92F3-F333-4EF5-9C38-B75CB65FFC39}\InProcServer32,,X:\Windows\System32\Windows.Globalization.dll
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{DF1E92F3-F333-4EF5-9C38-B75CB65FFC39}\InProcServer32,ThreadingModel,Both
+
+[WinUSBClassDriver]
+RegWrite,HKLM,0x1,Tmp_Drivers\DriverDatabase\DriverFiles\winusb.sys,,winusb.inf
+
+[Reg_Environment_Info]
+//- Not Sure Values Needed
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",LOGONSERVER,\\Win10XPE
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",USERDOMAIN,Win10XPE
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",USERDOMAIN_ROAMINGPROFILE,Win10XPE
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment\2",SESSIONNAME,Console
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment\2",CLIENTNAME,
+//- Registry Values Exist
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",USERNAME,System
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",USERPROFILE,x:\Users\Default
+//RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",APPDATA,x:\Users\Default\AppData\Roaming
+
+[Reg_Environment]
+Iniread,%ProjectDir%\Script.Project,Features,Admin,%Admin%
+If,Not,%Admin%,Equal,True,Begin
+  RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",HOMEPATH,\Users\Default
+  RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",HOMEDRIVE,X:
+  RegWrite,HKLM,0x1,"Tmp_Default\Volatile Environment",LOCALAPPDATA,X:\Users\Default\AppData\Local
+End
+

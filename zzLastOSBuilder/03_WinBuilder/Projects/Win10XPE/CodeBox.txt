@@ -1,0 +1,9 @@
+[main]
+Title=CodeBox test
+Description=Running custom commands
+
+[variables]
+
+[process]
+If,ExistFile,%API%,AddVariables,%API%,ApiVar,GLOBAL
+//-

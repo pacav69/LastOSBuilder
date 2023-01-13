@@ -1,0 +1,81 @@
+[Main]
+Title=Msi
+Type=XPEPlugin
+Description=Msi Windows Installer
+Author=ChriSR
+Date=2019.09.01
+Credits=
+Contact=
+Version=002
+Level=0
+Download_Level=0
+Selected=None
+Mandatory=None
+NoWarning=False
+History002=KYHI - Additional File Support - 2019.05.10
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_System,%RegSystem%
+End
+Run,%ScriptFile%,Registry
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Software
+  RegHiveunLoad,Tmp_System
+End
+//-
+If,ExistFile,%GTarget_Sys%\autorun.cmd,Run,%ScriptFile%,AutorunRegsvr32
+
+[AddFiles]
+ExtractSectionFiles,%ScriptFile%,Msi_AddFiles
+If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,Msix64_AddFiles
+
+[Registry]
+If,%FullSoftware%,Equal,False,Begin
+  If,ExistFile,%ScriptDir%\Msi_RegSoftware.txt,RegImportFile,%ScriptDir%\Msi_RegSoftware.txt
+  If,%Architecture%%WoW64Support%,Equal,x64True,Begin
+    If,ExistFile,%ScriptDir%\Msi6432_RegSoftware.txt,RegImportFile,%ScriptDir%\Msi6432_RegSoftware.txt
+  End
+End
+If,ExistFile,%ScriptDir%\Msi_RegSystem.txt,RegImportFile,%ScriptDir%\Msi_RegSystem.txt
+
+[AutorunRegsvr32]
+TXTDelLine,%GTarget_Sys%\autorun.cmd,Exit
+TXTAddLine,%GTarget_Sys%\autorun.cmd,":: Register Msi Windows Installer",Append
+TXTAddLine,%GTarget_Sys%\autorun.cmd,"If Exist #$pWinDir#$p\System32\Msi.dll (#$pWinDir#$p\System32\Regsvr32.exe /S #$pWinDir#$p\System32\Msi.dll)",Append
+If,%Architecture%%WoW64Support%,Equal,x64True,TXTAddLine,%GTarget_Sys%\autorun.cmd,"If Exist #$pWinDir#$p\SysWOW64\Msi.dll (#$pWinDir#$p\SysWOW64\Regsvr32.exe /S #$pWinDir#$p\SysWOW64\Msi.dll)",Append
+TXTAddLine,%GTarget_Sys%\autorun.cmd,Exit,Append
+
+[Msi_AddFiles]
+\windows\AppPatch\msimain.sdb
+\windows\AppPatch\sysmain.sdb
+\Windows\Installer
+\Windows\System32\msi.dll
+\Windows\System32\msiexec.exe
+\Windows\System32\msihnd.dll
+\Windows\System32\msiltcfg.dll
+\Windows\System32\msimsg.dll
+\Windows\System32\msisip.dll
+;\Windows\System32\mscoree.dll
+;\Windows\System32\pcacli.dll
+;\Windows\System32\RstrtMgr.dll
+;\Windows\System32\srpapi.dll
+\Windows\System32\wbem\msi.mof
+\Windows\System32\wbem\msiprov.dll
+\Windows\System32\wbem\??-??\msi.mfl
+
+[Msix64_AddFiles]
+\Windows\SysWOW64\Msi.dll
+\Windows\SysWOW64\Msiexec.exe
+\Windows\SysWOW64\Msihnd.dll
+\Windows\SysWOW64\Msiltcfg.dll
+\Windows\SysWOW64\Msimsg.dll
+\Windows\SysWOW64\Msisip.dll
+;\Windows\SysWOW64\mscoree.dll
+;\Windows\SysWOW64\pcacli.dll
+;\Windows\SysWOW64\RstrtMgr.dll
+;\Windows\SysWOW64\srpapi.dll

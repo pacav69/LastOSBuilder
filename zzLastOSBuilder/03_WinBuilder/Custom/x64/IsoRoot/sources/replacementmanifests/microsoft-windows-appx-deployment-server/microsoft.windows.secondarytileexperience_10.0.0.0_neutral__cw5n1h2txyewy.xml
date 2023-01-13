@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:wincap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities">
+
+  <Identity Name="Microsoft.Windows.SecondaryTileExperience"
+            Publisher="CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+            Version="10.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="8F6C1F18-5A7A-4E49-B8C2-4A67596288E9" PhonePublisherId="ecb99882-54f5-4c51-adc3-e27619164fde"/>
+  <Properties>
+    <DisplayName>SecondaryTileExperience</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Resources>
+    <Resource Language="en-us"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+        Executable="SecondaryTileExperience.exe"
+        EntryPoint="SecondaryTileExperience.App">
+      <uap:VisualElements
+          AppListEntry="none" 
+          DisplayName="SecondaryTileExperience"
+          Square150x150Logo="Assets\Logo.png"
+          Square44x44Logo="Assets\SmallLogo.png"
+          Description="SecondaryTileExperience"
+          BackgroundColor="#464646">
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0"/>
+  </Dependencies>
+
+</Package>

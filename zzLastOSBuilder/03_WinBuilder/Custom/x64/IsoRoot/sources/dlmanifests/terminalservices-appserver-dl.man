@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="jiazou"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    description="$(resourceString.description1)"
+    displayName="$(resourceString.displayName0)"
+    manifestVersion="1.0"
+    owners="jiazou"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-TerminalServices-AppServer-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration>
+    <registerSDF name="AppServer"/>
+    <registerSDF name="AppServer-UI"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\System\CurrentControlSet\Control\Terminal Server [TSAppCompat]", "0x00000001")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Control\Terminal Server [TSEnabled]</pattern>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Control\Terminal Server\Licensing Core [PolicyAcOn]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

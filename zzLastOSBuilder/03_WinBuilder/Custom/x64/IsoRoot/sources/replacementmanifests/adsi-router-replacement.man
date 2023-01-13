@@ -1,0 +1,46 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Active-Directory-Services-Interface-Router"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      replacementSettingsVersionRange="0"
+      settingsVersion="1"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADs\Providers\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\ADs\Providers\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADs\Providers\IIS\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADs\Providers\LDAP\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADs\Providers\WinNT\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\ADs\Providers\IIS\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\ADs\Providers\LDAP\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\ADs\Providers\WinNT\* [*]</pattern>
+          </objectSet>
+        </exclude>
+        <merge script="MigXmlHelper.DestinationPriority()">
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\ADs\Providers\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\ADs\Providers\* [*]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DeviceFilters ver="0004">
+
+    <!-- =========================================================== -->
+    <!-- == Include any of the following devices before they get  == -->
+    <!-- == excluded by the exclude rules:                        == -->
+    <!-- ==                                                       == -->
+    <!-- == HwId starts with "HDAUDIO\FUNC_01"                    == -->
+    <!-- == HwId starts with "HDAUDIO\FUNC_02"                    == -->
+    <!-- ==                                                       == -->
+    <!-- =========================================================== -->
+    <filter exclude="Never">
+        <expression name="HwId" match="HDAUDIO\\FUNC_01.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="HDAUDIO\\FUNC_02.*" />
+    </filter>
+    
+    <!-- =========================================================== -->
+    <!-- == Exclude any of the following devices:                 == -->
+    <!-- ==                                                       == -->
+    <!-- == Provider="Microsoft" and Class="System"               == -->
+    <!-- == Provider="Microsoft" and Model starts with "Generic"  == -->
+    <!-- == Provider="Microsoft" and Class="Battery"              == -->
+    <!-- == Manufacturer="Microsoft" and Model contains "LifeCam" and ends with "." == -->
+    <!-- == Manufacturer="Microsoft" and HwId starts with "microsoftmicrosoft"      == -->
+    <!-- == Manufacturer starts with "(Standard"                  == -->
+    <!-- == HwId contains "Genuine"                               == -->
+    <!-- == HwId contains "Authen"                                == -->
+    <!-- == HwId contains "Virtual_CPU"                           == -->
+    <!-- == HwId starts with "PCI\" and Class="USB"               == -->
+    <!-- == HwId starts with "PCI\" and Class="1394"              == -->
+    <!-- == Class="SCSIAdapter"                                   == -->
+    <!-- == Class="hdc"                                           == -->
+    <!-- == Class="fdc"                                           == -->
+    <!-- == Class="sdhost"                                        == -->
+    <!-- == Class="hidclass"                                      == -->
+    <!-- == HwId starts with "USB\ROOT_HUB"                       == -->
+    <!-- == Class="ports" and Manufacturer="Microsoft"            == -->
+    <!-- == HwId="usb\class_07" and Manufacturer="Microsoft"      == -->
+    <!-- == HwId="usbprint\unknownprinter"                        == -->
+    <!-- ==                                                       == -->
+    <!-- =========================================================== -->
+    
+    <filter exclude="Always">
+        <expression name="Class" match="System"/>
+    </filter>
+    <!-- en-us -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="Generic.*"/>
+    </filter>
+    <!-- de-de -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="Generisch.*"/>
+    </filter>
+    <!-- fr-fr -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="Générique.*"/>
+    </filter>
+    <!-- ja-jp -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="汎用.*"/>
+    </filter>
+    <!-- ko-kr -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="일반.*"/>
+    </filter>
+    <!-- ar-sa -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="عام.*"/>
+    </filter>
+    <!-- hi-in -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="सामान्य.*"/>
+    </filter>
+    <!-- zh-cn -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="通用.*"/>
+    </filter>
+    <!-- pt-br -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="genérico.*"/>
+    </filter>
+    <!-- zh-tw -->
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Model" match="泛型.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Provider" match="Microsoft"/>
+        <expression name="Class" match="Battery"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="Microsoft"/>
+        <expression name="Model" match=".*LifeCam.*\."/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="Microsoft"/>
+        <expression name="HwId" match="microsoftmicrosoft.*"/>
+    </filter>
+    <!-- en-us, de-de, fr-fr -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*standard.*)"/>
+    </filter>
+    <!-- es-es -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*estándar.*)"/>
+    </filter>
+    <!-- hu-hu -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*szabvány.*)"/>
+    </filter>
+    <!-- nl-nl -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*standaard.*)"/>
+    </filter>
+    <!-- pt-br -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*padrão.*)"/>
+    </filter>
+    <!-- tr-tr -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*standart.*)"/>
+    </filter>
+    <!-- ko-kr -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*표준.*)"/>
+    </filter>
+    <!-- zh-cn -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*标准.*)"/>
+    </filter>
+    <!-- ja-jp, zh-tw -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*標準.*)"/>
+    </filter>
+    <!-- ar-sa -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*قياسي.*)"/>
+    </filter>
+    <!-- hi-il -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*תקן.*)"/>
+    </filter>
+    <!-- ru-ru -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.*стандарт.*)"/>
+    </filter>
+    <!-- hi-in -->
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="(.मानक.*)"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="HwId" match=".*Genuine.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="HwId" match=".*Authen.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="HwId" match=".*Virtual_CPU.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="USB"/>
+        <expression name="HwId" match="PCI\\.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="1394" />
+        <expression name="HwId" match="PCI\\.*"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="SCSIAdapter" />
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="hdc" />
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="fdc"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="sdhost"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Class" match="hidclass"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="HwId" match=".*USB.*\\ROOT_HUB.*" />
+    </filter>
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="Microsoft"/>
+        <expression name="Class" match="ports"/>
+    </filter>
+    <filter exclude="Always">
+        <expression name="Manufacturer" match="Microsoft" />
+        <expression name="HwId" match="usb\\class_07" />
+    </filter>
+    <filter exclude="Always">
+        <expression name="HwId" match="usbprint\\unknownprinter" />
+    </filter>
+
+    <!-- =========================================================== -->
+    <!-- == Conditionally exclude the following special cases:    == -->
+    <!-- ==                                                       == -->
+    <!-- == Generic Apple USB Device Driver                       == -->
+    <!-- == eHome keyboard components                             == -->
+    <!-- == Video cards                                           == -->
+    <!-- == Xerox Office PS Color Class Driver                    == -->
+    <!-- == Generic PS/2 compatible mouse                         == -->
+    <!-- =========================================================== -->
+
+    <filter exclude="Sometimes">
+        <expression name="Manufacturer" match="Apple, Inc" />
+        <expression name="Class" match="usb"/>
+    </filter>
+    <filter exclude="Sometimes">
+      <expression name="Model" match=".*eHome.*" />
+      <expression name="Manufacturer" match="Microsoft" />
+      <expression name="Class" match="keyboard" />
+    </filter>
+    <filter exclude="Sometimes">
+      <expression name="HwId" match="xeroxworkcentre_.*" />
+    </filter>
+    <filter exclude="Sometimes">
+      <expression name="Manufacturer" match="Microsoft" />
+      <expression name="Model" match="PS/2.*" />
+    </filter>
+
+
+    <!-- =========================================================== -->
+    <!-- == Include any of the following devices:                 == -->
+    <!-- ==                                                       == -->
+    <!-- == No matching driver id present (for Win7 devices only) == -->
+    <!-- == Belongs to printer class                              == -->
+    <!-- == Belongs to multifunction class                        == -->
+    <!-- == HwId starts with "ACPI\"                              == -->
+    <!-- == HwId starts with "PCI\"                               == -->
+    <!-- == HwId starts with "USB\"                               == -->
+    <!-- == HwId starts with "lptenum\"                           == -->
+    <!-- == HwId starts with "USBPRINT\"                          == -->
+    <!-- == HwId starts with "DOT4PRT\"                           == -->
+    <!-- == HwId starts with "HDAUDIO\"                           == -->
+    <!-- == HwId starts with "DOT4\"                              == -->
+    <!-- == HwId starts with "WSDPRINT\"                          == -->
+    <!-- == HwId starts with "BTHPRINT\"                          == -->
+    <!-- == HwId starts with "Bluetooth\"                         == -->
+    <!-- == HwId starts with "PCMCIA\"                            == -->
+    <!-- == HwId starts with "HID\"                               == -->
+    <!-- == HwId starts with "VMBUS\" (virtual bus for VMs)       == -->
+    <!-- == HwId starts with "MONITOR\"                           == -->
+    <!-- ==                                                       == -->
+    <!-- == Exclude devices with other HwIds                      == -->
+    <!-- ==                                                       == -->
+    <!-- =========================================================== -->
+    <filter exclude="Never">
+        <expression name="HwId" match="noMatchingId.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="Class" match="printer" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="Class" match="multifunction" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="Class" match="ComputerHardwareId" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="ACPI\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="PCI\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="USB\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="lptenum\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="USBPRINT\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="DOT4PRT\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="HDAUDIO\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="DOT4\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="BTHPRINT\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="WSDPRINT\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="Bluetooth\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="PCMCIA\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="HID\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="VMBUS\\.*" />
+    </filter>
+    <filter exclude="Never">
+        <expression name="HwId" match="MONITOR\\.*" />
+    </filter>
+
+    
+    <filter exclude="Always">
+        <expression name="HwId" match=".*"/>
+    </filter>
+
+</DeviceFilters>

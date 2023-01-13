@@ -1,0 +1,40 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+
+<!-- Downlevel manifest for component Microsoft-Windows-NETFX35CDFComp --><assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="wdong"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2006-07-27T12:29:38.8364502Z"
+    description="CDF for .NET Framework 3.5 Downlevel"
+    displayName="CDF for .NET Framework 3.5 Downlevel"
+    lastUpdateTimeStamp="2006-07-27T12:29:38.8364502Z"
+    manifestVersion="1.0"
+    owners="cdfsetc"
+    supportInformation="cdfsetc"
+    testers="cdfsetc"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-NETFX35CDFComp-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

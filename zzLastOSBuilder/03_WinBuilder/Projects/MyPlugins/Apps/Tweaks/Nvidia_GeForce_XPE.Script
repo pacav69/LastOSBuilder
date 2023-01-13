@@ -1,0 +1,224 @@
+[Main]
+Title=Nvidia GeForce
+Type=XPEPlugin
+Description=(v418.81 x64 Trim Down Version) Nvidia GeForce Game Ready Drivers.#$xNvidia GeForce Titan/Rtx 20/10/900/700/600 Series whql Windows 10 x64 Drivers
+Author=ChrisR
+Date=2019.03.18
+Credits=JFX
+Contact=
+Version=003
+Level=5
+Download_Level=2
+Selected=False
+Mandatory=False
+NoWarning=False
+HistoryNote=Other Manufacturer Driver To Be Developed By Comparing INF Files With Originals. Originals INF Attached In File Container
+History001=ChrisR Initial XPE Plugin Using JFX's DrvInstPatch and Modified INF for the Reduced Versions. Created 2019.02.05
+History002=ChrisR from JFX Removes "CopyINF = nvppc.inf" in nv_trim.txt and in mod inf files - 2019.02.10
+History003=ChrisR JFX DrvInstPatch v1.03
+
+[Variables]
+%ProgramTitle%=Nvidia GeForce
+%DrvInstPatchExe%=DrvInstPatch.exe
+%ProgramFolder%=Nvidia_GeForce
+%PackDriver%=nvidia-418.81-win10-64bit.7z
+%PackDriverInf%=nvidia-418.81-win10-64bit_Inf.7z
+%PackDriverReg%=nvidia-418.81-win10-64bit_Reg.7z
+%Driver_FolderName%=""
+%Driver_InfName%=""
+%SetupFile%=Win10XPE_Nvidia_GeForce_XPE_File.7z
+%SetupURL%=http://win10se.cwcodes.net/Compressed/%SetupFile%
+%FileContainer%=%ScriptDir%\Nvidia_GeForce_XPE_File.Script
+
+[Interface]
+nv_dispi_CheckBox="nv_dispi.inf - Nvidia GeForce 1st Checks Before Manufacturer Drivers",1,3,6,10,364,18,True
+nvaci_CheckBox="nvaci.inf   - Acer, Gateway",1,3,6,30,200,18,True
+nvami_CheckBox="nvami.inf  - Asus",1,3,6,50,200,18,False
+nvdmi_CheckBox="nvdmi.inf  - Dell",1,3,6,70,200,18,False
+nvbli_CheckBox="nvbli.inf   - HP Business Market",1,3,6,90,200,18,False
+nvhmi_CheckBox="nvhmi.inf - HP Non Business Market",1,3,6,110,200,18,False
+nvlti_CheckBox="nvlti.inf    - Lenovo",1,3,6,130,200,18,False
+OtherManufacturer_TextLabel=". . . Other Manufacturer Drivers . . .",1,1,6,170,200,18,8,Normal
+InfTrim_TextLabel="Use JFX InfTrim to Mod the Nvidia Geforce Inf File and Trim Down the Driver",1,1,6,190,380,18,8,Normal
+InfTrim_TextLabel1="(ex: InfTrim #$qnv_trim.txt#$q #$qnv_dispi.inf#$q). Then Use the Drivers Integration",1,1,6,206,380,18,8,Normal
+Extract_Button="Extract InfTrim",1,8,10,226,120,25,Extract_InfTrim,Launch.bmp,False,_Extract_Program_,False,"__Click Here To Extract InfTrim.exe and nv_trim.txt. Be Careful, Save, It's a Temp Folder."
+Extract_CheckBox="Extract Also Nvidia Geforce Driver Files",1,3,136,230,225,18,True,"__Enable to also Extract Nvidia Geforce Driver Files"
+Image_Software=nvidia.ico,1,5,260,50,48,48
+HomePage_WebLabel="Home Page",1,10,258,98,54,18,https://www.geforce.com/drivers
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,%Architecture%,Equal,x86,Exit,"%ScriptTitle% Only Available For x64 Architecture"
+If,Not,ExistFile,%FileContainer%,Run,%ScriptFile%,Download
+If,Not,ExistFile,%FileContainer%,Exit,"%FileContainer% Not Found"
+//--
+If,%nv_dispi_CheckBox%-%nvaci_CheckBox%-%nvami_CheckBox%-%nvdmi_CheckBox%-%nvbli_CheckBox%-%nvhmi_CheckBox%-%nvlti_CheckBox%,Equal,False-False-False-False-False-False-False,Exit,"%ScriptTitle% No Drivers Selected"
+//--
+Run,%ScriptFile%,Extract
+Run,%ScriptFile%,DrvInstPatch
+//--
+RegHiveLoad,Tmp_Drivers,%RegDrivers%
+If,%nv_dispi_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nv_dispi
+If,%nvaci_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvaci
+If,%nvami_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvami
+If,%nvdmi_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvdmi
+If,%nvbli_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvbli
+If,%nvhmi_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvhmi
+If,%nvlti_CheckBox%,Equal,True,Run,%ScriptFile%,Process_nvlti
+RegHiveUnLoad,Tmp_Drivers
+//--
+TXTReplace,%GTarget_Sys%\pecmd.ini,"_SUB OSInit","_SUB OSInit#$x#$x// Load and install %ProgramTitle% drivers"
+
+[Extract]
+Echo,"Extracting %ScriptTitle% Drivers..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+//-
+ExtractFile,%FileContainer%,Folder,%DrvInstPatchExe%,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%PackDriver%,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%PackDriverInf%,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%PackDriverReg%,%GTemp%\%ProgramFolder%
+//-
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%PackDriverInf%#$q -y -o#$q%GTemp%\%ProgramFolder%\Inf#$q"
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%PackDriverReg%#$q -y -o#$q%GTemp%\%ProgramFolder%\Reg#$q"
+
+[DrvInstPatch]
+ShellExecute,Hide,%GTemp%\%ProgramFolder%\%DrvInstPatchExe%,"P %GTarget_Sys%\drvinst.exe"
+
+[Process_nv_dispi]
+Set,%Driver_FolderName%,nv_dispi.inf_amd64_fffda39b6974da20
+Set,%Driver_InfName%,nv_dispi.inf
+Run,%ScriptFile%,Process_Drivers
+FileDelete,%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%\nvpciflt.sys
+
+[Process_nvaci]
+Set,%Driver_FolderName%,nvaci.inf_amd64_1d9c1a581e54bf2b
+Set,%Driver_InfName%,nvaci.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_nvami]
+Set,%Driver_FolderName%,nvami.inf_amd64_4dfbd1a3ed7e081c
+Set,%Driver_InfName%,nvami.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_nvdmi]
+Set,%Driver_FolderName%,nvdmi.inf_amd64_44fb14d91060b3c6
+Set,%Driver_InfName%,nvdmi.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_nvbli]
+Set,%Driver_FolderName%,nvbli.inf_amd64_3d8bd9e75a9194be
+Set,%Driver_InfName%,nvbli.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_nvhmi]
+Set,%Driver_FolderName%,nvhmi.inf_amd64_131d16f582526af2
+Set,%Driver_InfName%,nvhmi.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_nvlti]
+Set,%Driver_FolderName%,nvlti.inf_amd64_f8ca296e8a8c50d2
+Set,%Driver_InfName%,nvlti.inf
+Run,%ScriptFile%,Process_Drivers
+
+[Process_Drivers]
+Echo,"Extracting %ScriptTitle% %Driver_InfName% Drivers..."
+If,ExistDir,%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%,DirDeleteQ,%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%
+DirMake,%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%
+//-
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%PackDriver%#$q -y -o#$q%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%#$q"
+FileCopy,%GTemp%\%ProgramFolder%\Inf\%Driver_InfName%,%GTarget_Sys%\DriverStore\FileRepository\%Driver_FolderName%
+FileCopy,%GTemp%\%ProgramFolder%\Inf\%Driver_InfName%,%GTarget_Win%\INF
+//-
+RegImportFile,%GTemp%\%ProgramFolder%\Reg\%Driver_FolderName%.reg.txt
+//-
+TXTReplace,%GTarget_Sys%\pecmd.ini,"_SUB OSInit","_SUB OSInit#$xEXEC @!#$pWinDir#$p\System32\pnputil.exe /add-driver #$pWinDir#$p\inf\%Driver_InfName% /install"
+
+[Download]
+Echo,"Download %SetupFile% - File Container..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+//-
+Download,%GTemp%\%ProgramFolder%\%SetupFile%,%SetupURL%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%ScriptDir%#$q"
+
+[Extract_InfTrim]
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+//-
+ExtractFile,%FileContainer%,Folder,InfTrim.7z,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\InfTrim.7z#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+FileDelete,%GTemp%\%ProgramFolder%\InfTrim.7z
+//-
+If,%Extract_CheckBox%,Equal,True,Begin
+  ExtractFile,%FileContainer%,Folder,%PackDriver%,%GTemp%\%ProgramFolder%
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%PackDriver%#$q -y -o#$q%GTemp%\%ProgramFolder%\Drivers#$q"
+  FileDelete,%GTemp%\%ProgramFolder%\%PackDriver%
+  ExtractFile,%FileContainer%,Folder,nvidia-418.81-win10-64bit_Original_Inf.7z,%GTemp%\%ProgramFolder%
+  ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\nvidia-418.81-win10-64bit_Original_Inf.7z#$q -y -o#$q%GTemp%\%ProgramFolder%\nvidia-418.81-win10-64bit_Original_Inf#$q"
+  FileDelete,%GTemp%\%ProgramFolder%\nvidia-418.81-win10-64bit_Original_Inf.7z
+End
+//-
+OpenDir,%GTemp%\%ProgramFolder%
+
+[INF_files_by_manufacturer]
+// Depending to the release or the version (internationnal, english, french ...), the inf name can be a bit different
+nv_dispi.inf=Nvidia Driver checks before moving on to the other manufacturer specific ones
+nvaci.inf=Acer, Gateway
+nvami.inf=Asus
+nvaoi.inf=Apple
+nvari.inf=Arima
+nvbli.inf=HP Business Marketed
+nvcti.inf=Compal
+nvcvi.inf=Clevo
+nvdmi.inf=Dell
+nvfmi.inf=Fujitsu
+nvfui.inf=Siemens
+nvhmi.inf=HP Non Business Marketed
+nvloi.inf=LG
+nvlti.inf=Lenovo
+NVMIi.inf=MSI
+nvqni.inf=NEC
+nvsmi.inf=Samsung
+nvszci.inf=Sony
+nvtdi.inf=Toshiba Qosmio
+nvtsi.inf=Toshiba
+.....
+
+[Create_Registry_File_Info]
+Create the Registry file to reduce time integration vs Dism /Add-Driver (example with nvaci.inf)
+Load an Empty Drivers registry hive (ex: FileCreateBlank) in Tmp_Drivers
+Reg Add HKEY_LOCAL_MACHINE\Tmp_Drivers\DriverDatabase\DriverPackages (subkey required for Dism /Add-Driver)
+Place the driver files, and only them (no other drivers) in Custom\x64\Drivers
+Integrate Drivers=Dism /Add-Driver
+Save folder from \DriverStore\FileRepository\nvaci.inf_amd64_1392a7b8258b048d
+Save nvaci.inf from \Windows\INF
+Load Drivers hive in Tmp_Drivers and Export HKLM\Tmp_Drivers\DriverDatabase with the same name as the folder "nvaci.inf_amd64_1392a7b8258b048d.reg.txt"
+Unload Tmp_Drivers
+In nvaci.inf_amd64_1392a7b8258b048d.reg.txt Replace oemX.inf by nvaci.inf (the name must match the \Windows\INF file name. Also, the folder Name must match the one Registered, ex: "nv_dispi.inf_amd64_fffda39b6974da20" )
+//-
+Integrate Driver :
+regedit.exe /s "nvaci.inf_amd64_1392a7b8258b048d.reg.txt"
+DirCopy nvaci.inf_amd64_1392a7b8258b048d in \DriverStore\FileRepository
+FileCopy nvaci.inf in \Windows\INF
+
+[AuthorEncoded]
+nvidia.ico=2369,3159
+Logo=nvidia.ico
+
+[EncodedFile-AuthorEncoded-nvidia.ico]
+lines=0
+0=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
+
+[InterfaceEncoded]
+Launch.bmp=913,1218
+nvidia.ico=2369,3159
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-nvidia.ico]
+lines=0
+0=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
+

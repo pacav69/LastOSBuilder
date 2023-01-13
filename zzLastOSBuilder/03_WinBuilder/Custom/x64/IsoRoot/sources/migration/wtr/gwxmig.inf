@@ -1,0 +1,27 @@
+[WTR]
+Name="Microsoft-Windows-GWX"
+
+[WTR.*]
+NotifyUser="No"
+
+[System.File]
+"%windir%\System32\GWX\* [*]"
+"%windir%\SysWOW64\GWX\* [*]"
+"%windir%\System32\Tasks\Microsoft\Windows\Setup\GWX\* [*]"
+"%windir%\System32\Tasks\Microsoft\Windows\Setup\GWXTriggers\* [*]"
+"%windir%\System32\winevt\Logs\ [Microsoft-Windows-GWX-Ins*]"
+
+[System.Registry]
+"HKLM\SOFTWARE\Microsoft\GWX\* [*]"
+"HKLM\SOFTWARE\Classes\GWX\* [*]"
+"HKLM\SOFTWARE\Microsoft\Internet Explorer\ProtocolExecute\ms-gwx\* [*]"
+"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-GWX-Ins*\* [*]"
+"HKLM\SOFTWARE\RegisteredApplications [GWX]"
+"HKLM\SOFTWARE\Classes\ms-gwx\* [*]"
+"HKLM\SOFTWARE\Classes\CLSID\{BEBA2AA5-B5A7-4DD3-9AD6-43B24CDD3B7D}\* [*]"
+"HKLM\SOFTWARE\Classes\CLSID\{C74C5910-D594-43DD-850F-3AFFEB9B756D}\* [*]"
+"HKLM\SOFTWARE\Classes\Interface\{C74C5910-D594-43DD-850F-3AFFEB9B756D}\* [*]"
+"HKLM\SOFTWARE\Classes\Interface\{34B154A4-F695-4C06-9106-56E5FAC65B9E}\* [*]"
+
+[User.Registry]
+"HKCU\Software\Microsoft\Windows\CurrentVersion\GWX\* [*]"

@@ -1,0 +1,42 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\International]
+"Locale"="00000C09"
+"LocaleName"="en-AU"
+"sCountry"="Australia"
+"sCurrency"="$"
+"sLanguage"="ENA"
+"sLongDate"="dddd, d MMMM yyyy"
+"sShortDate"="d/MM/yyyy"
+"sYearMonth"="MMMM yyyy"
+"sTimeFormat"="h:mm:ss tt"
+"sShortTime"="h:mm tt"
+"iCountry"="61"
+"iDate"="1"
+"iFirstDayOfWeek"="0"
+"iMeasure"="0"
+"iNegCurr"="1"
+"iPaperSize"="9"
+"iTime"="0"
+"iTLZero"="0"
+
+[HKEY_CURRENT_USER\Control Panel\International\Geo]
+"Nation"="12"
+
+[HKEY_CURRENT_USER\Keyboard Layout\Preload]
+"2"="00000c09"
+
+[HKEY_CURRENT_USER\Keyboard Layout\Substitutes]
+"00000c09"="00000409"
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\SortOrder\Language]
+"00000000"="00000c09"
+"00000001"=-
+
+[HKEY_CURRENT_USER\Software\Microsoft\CTF\LangBar]
+"ShowStatus"=dword:00000003
+"Transparency"=dword:000000ff
+"Label"=dword:00000001
+"ExtraIconsOnMinimized"=dword:00000000
+
+

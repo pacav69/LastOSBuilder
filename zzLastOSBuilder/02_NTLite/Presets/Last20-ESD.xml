@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Preset isAutoSaved="true" xmlns="urn:schemas-nliteos-com:pn.v1">
+    <Date>10/31/2019 10:22:31</Date>
+    <AppInfo>
+        <Version>1.8.0.6760</Version>
+        <Licensed>Yes</Licensed>
+        <Protections>Yes</Protections>
+        <Host></Host>
+    </AppInfo>
+    <ImageInfo>
+    </ImageInfo>
+    <RemoveComponents>
+        <c>font_malgungothicbold 'Malgun Gothic Bold'</c>
+        <c>font_malgungothicsemilight 'Malgun Gothic SemiLight'</c>
+        <c>font_microsoftjhengheibold 'Microsoft JhengHei Bold &amp; Microsoft JhengHei UI Bold'</c>
+        <c>font_microsoftjhengheilight 'Microsoft JhengHei Light &amp; Microsoft JhengHei UI Light'</c>
+        <c>font_microsoftyaheibold 'Microsoft YaHei Bold &amp; Microsoft YaHei UI Bold'</c>
+        <c>font_microsoftyaheilight 'Microsoft YaHei Light &amp; Microsoft YaHei UI Light'</c>
+        <c>font_simsunb 'SimSun-ExtB'</c>
+        <c>font_yugothic 'Yu Gothic Regular &amp; Yu Gothic UI Semilight'</c>
+        <c>font_yugothicbold 'Yu Gothic Bold &amp; Yu Gothic UI Semibold &amp; Yu Gothic UI Bold'</c>
+        <c>font_yugothiclight 'Yu Gothic Light &amp; Yu Gothic UI Light'</c>
+        <c>langimejp 'Japanese (IME)'</c>
+        <c>langimeko 'Korean (IME)'</c>
+        <c>langimetc 'Chinese Traditional (IME)'</c>
+        <c>manifestbackup 'Manifest Backup (WinSxS\Backup)'</c>
+        <c>mapcontrol 'Map Control'</c>
+        <c>otherthemes 'Other Themes'</c>
+        <c>pdfreader 'Windows Reader (PDF)'</c>
+        <c>retaildemo 'Retail Demo Content'</c>
+        <c>soundthemes 'Sound Themes'</c>
+        <c>tempcache 'Cache and temp files'</c>
+        <c>wallpapers 'Wallpapers (Themes)'</c>
+    </RemoveComponents>
+    <Compatibility protectHidden="true">
+        <ComponentFeatures>
+            <Feature enabled="yes">CortanaSupport</Feature>
+            <Feature enabled="yes">DefaultFonts</Feature>
+            <Feature enabled="no">Hyper-V</Feature>
+            <Feature enabled="yes">OfficeSupport</Feature>
+            <Feature enabled="no">NetworkDiscovery</Feature>
+            <Feature enabled="yes">NvidiaSetup</Feature>
+            <Feature enabled="yes">OOBE</Feature>
+            <Feature enabled="yes">Printing</Feature>
+            <Feature enabled="yes">Recommended-All</Feature>
+            <Feature enabled="no">SamsungSwitch</Feature>
+            <Feature enabled="yes">ServicingStack</Feature>
+            <Feature enabled="yes">ShellSearchSupport</Feature>
+            <Feature enabled="yes">Spotify</Feature>
+            <Feature enabled="no">SafeMode</Feature>
+            <Feature enabled="no">Recommended-Tablet</Feature>
+            <Feature enabled="yes">USBModem</Feature>
+            <Feature enabled="yes">USB</Feature>
+            <Feature enabled="yes">VideoPlayback</Feature>
+            <Feature enabled="no">VPN</Feature>
+            <Feature enabled="no">VisualStudio</Feature>
+            <Feature enabled="yes">ActivationKMS</Feature>
+            <Feature enabled="yes">Activation</Feature>
+            <Feature enabled="yes">AppxSupport</Feature>
+            <Feature enabled="yes">WindowsUpdate</Feature>
+            <Feature enabled="yes">WLAN</Feature>
+        </ComponentFeatures>
+        <MachineDrivers>
+            <Machine enabled="yes">HostMachine</Machine>
+            <Machine enabled="no">Hyper-V virtual machine</Machine>
+            <Machine enabled="no">Hyper-V VM</Machine>
+            <Machine enabled="no">Parallels VM</Machine>
+            <Machine enabled="no">Virtual Box VM</Machine>
+            <Machine enabled="no">Virtual Box</Machine>
+            <Machine enabled="no">VMWare virtual machine</Machine>
+            <Machine enabled="no">VMware VM</Machine>
+        </MachineDrivers>
+    </Compatibility>
+    <Features></Features>
+    <AddPackages></AddPackages>
+    <Drivers showHidden="true">
+        <AddDrivers></AddDrivers>
+    </Drivers>
+    <Unattended mode="0">
+        <OEMSetupComplete>false</OEMSetupComplete>
+        <AnswerFileLocationPanther>true</AnswerFileLocationPanther>
+        <AnswerFileLocationBoot>false</AnswerFileLocationBoot>
+        <SaveBothArch>false</SaveBothArch>
+        <settings pass="windowsPE">
+            <component name="Microsoft-Windows-Setup">
+                <DynamicUpdate>
+                    <WillShowUI>OnError</WillShowUI>
+                </DynamicUpdate>
+                <ImageInstall>
+                    <OSImage>
+                        <WillShowUI>OnError</WillShowUI>
+                        <InstallFrom>
+                            <MetaData>
+                                <Key>/IMAGE/NAME</Key>
+                                <Value>Windows 10 Enterprise</Value>
+                            </MetaData>
+                        </InstallFrom>
+                    </OSImage>
+                </ImageInstall>
+            </component>
+        </settings>
+    </Unattended>
+    <Tweaks>
+        <Settings>
+            <TweakGroup name="WindowsUpdate">
+                <Tweak name="MRT\DontOfferThroughWUAU">1</Tweak>
+            </TweakGroup>
+        </Settings>
+        <Services></Services>
+        <ExtraServices></ExtraServices>
+    </Tweaks>
+    <ApplyOptions>
+        <ImageTasks>            
+            <Task>imageSaveRebuild</Task>
+			<Task>imageFormatEsd</Task>
+			<Task>imageOptionsDontBackupPresetLog</Task>
+        </ImageTasks>
+        <AutoIsoFile>NTLite.iso</AutoIsoFile>
+        <AutoIsoLabel>NTLite</AutoIsoLabel>
+        <AutoSplitSize>4000</AutoSplitSize>
+        <CleanHotfixedLeftovers>0</CleanHotfixedLeftovers>
+        <ReuseDriverCache>false</ReuseDriverCache>
+    </ApplyOptions>
+    <Execution>
+        <Remove></Remove>
+        <Change></Change>
+        <Add>
+            <Item type="Placeholder">
+                <Index>0</Index>
+            </Item>
+        </Add>
+    </Execution>
+    <Registry></Registry>
+</Preset>

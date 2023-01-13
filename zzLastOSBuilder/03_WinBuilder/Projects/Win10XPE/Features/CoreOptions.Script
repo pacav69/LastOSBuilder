@@ -1,0 +1,220 @@
+[Main]
+Title=Core Options
+Type=XPEPlugin
+Description=Core Interface Options
+Author=ChriSR
+Date=2019.09.19
+Version=004
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+History003=KYHI - Update JFX's DrvInstPatch - 2019.07.12
+History004=ChrisR - Change ComputerName in Penetwork.ini - 2019-09-19
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,ExistFile,%ProjectDir%\Core.script,Begin
+  AddInterface,%ProjectDir%\Core.script,InterfaceMain,""
+  AddInterface,%ProjectDir%\Core.script,InterfaceOption,""
+  AddInterface,%ProjectDir%\Core.script,InterfacePENetwork,""
+End
+//--
+If,Not,#1,Equal,HiveLoaded,HiveLoadALL
+//--
+Run,%ScriptFile%,OptionsPlay
+//--
+If,Not,#1,Equal,HiveLoaded,HiveUnLoadALL
+
+[OptionsPlay]
+Echo,"Integrate Options..."
+// 0=Always combine, hide labels, 1=Combine when taskbar is full,2=Never combine
+If,%Taskbar_Button%,Equal,0,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,TaskbarGlomLevel,0
+If,%Taskbar_Button%,Equal,1,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,TaskbarGlomLevel,1
+If,%Taskbar_Button%,Equal,2,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,TaskbarGlomLevel,2
+// Hide Taskbar For Fullscreen Use - Following Oscar
+If,%HideTaskbar_CheckBox%,Equal,True,RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3,Settings,30,00,00,00,fe,ff,ff,ff,03,00,00,00,03,00,00,00,9b,00,00,00,64,00,00,00,00,00,00,00,0c,08,00,00,00,0f,00,00,70,08,00,00,f0,00,00,00,01,00,00,00
+// Automtically expand to current folder
+If,%ExpandCurDir_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,NavPaneExpandToCurrentFolder,1
+Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,NavPaneExpandToCurrentFolder,0
+// Show My Computer on Desktop
+If,%Computer_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel,{20D04FE0-3AEA-1069-A2D8-08002B30309D},0
+Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel,{20D04FE0-3AEA-1069-A2D8-08002B30309D},1
+// Open the Ribbon by default
+If,%Ribbon_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Ribbon,MinimizedStateTabletModeOff,0
+Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Ribbon,MinimizedStateTabletModeOff,1
+// StartIsBack Display as flyout menu (Windows XP style) value 0/1
+If,%SIBFlyoutMenu_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,AllProgramsFlyout,1
+Else,RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,AllProgramsFlyout,0
+// StartIsBack Style Menu Windows 10
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,AlterStyle,"X:\Program Files\StartIsBack\Styles\%SIBSkin_ScrollBox%.msstyles"
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,TaskbarStyle,"X:\Program Files\StartIsBack\Styles\%SIBSkin_ScrollBox%.msstyles"
+// StartIsBack Start Menu Opaque
+If,%SIBOpaque_CheckBox%,Equal,True,Begin
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMenuAlpha,255
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMenuBlur,2
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMenuColor,-1
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,TaskbarAlpha,255
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,TaskbarBlur,0
+  RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,TaskbarColor,-1
+End
+// Explorer Dark or Light Theme
+If,%SourceBuild%,Bigger,17700,Begin
+  If,%DarkTheme_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
+  Else,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,1
+  If,%DarkThemeShortcut_CheckBox%,Equal,True,Begin
+    TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pDesktop#$p\Change Explorer Theme","LINK #$pDesktop#$p\Change Explorer Theme"
+    TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\System Tools\Change Explorer Theme","LINK #$pPrograms#$p\System Tools\Change Explorer Theme"
+  End
+End
+// Change Default DPI Scaling to Off
+If,%DPI_CheckBox%,Equal,True,RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",Win8DpiScaling,0
+// Show Touch Keyboard Button. Accessibility must be enabled
+If,%TouchKeyboard_CheckBox%%WinApps_CheckBox%,Equal,TrueTrue,Begin
+  If,ExistFile,%ProjectDir%\Features\Osk_AddFiles.txt,Begin
+    ExtractListFiles,%ProjectDir%\Features\Osk_AddFiles.txt
+    FileCopy,%ProjectDir%\Features\OskTray_%Architecture%.exe,%Gtarget_Sys%\OskTray.exe
+    TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\Accessibility\OSK","LINK #$pPrograms#$p\Accessibility\OSK"
+    TXTReplace,%GTarget_Sys%\pecmd.ini,"//EXEC %WinDir%\System32\OskTray.exe","EXEC %WinDir%\System32\OskTray.exe"
+  End
+End
+If,%ComputerName_RadioGroup%,Equal,1,Begin
+  Run,%ScriptFile%,CheckComputerName
+  Run,%ScriptFile%,RegComputerName
+End
+Run,%ScriptFile%,NumLock
+If,%Shell%,Equal,Explorer,Run,%ScriptFile%,PowerOptions
+Run,%ScriptFile%,ControlVolume
+Run,%ScriptFile%,FitWallpaper
+
+[CheckComputerName]
+StrFormat,LEFT,%CustomComputerName_TextBox%,15,%ComputerName%
+If,%ComputerName%-,Equal,-,Set,%ComputerName%,%ProjectName%
+StrFormat,REPLACE,%ComputerName%,\,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,/,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,:,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,*,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,#$q,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,<,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,>,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,|,"",%ComputerName%
+If,%ComputerName%-,Equal,-,Set,%ComputerName%,%ProjectName%
+Set,%PENMComputerName%,%ComputerName%
+StrFormat,REPLACE,%ComputerName%,?,"",%ComputerName%
+StrFormat,REPLACE,%ComputerName%,+,"",%ComputerName%
+StrFormat,RIGHT,%ComputerName%,1,%EndChar%
+If,%EndChar%,Equal,-,StrFormat,RTRIM,%ComputerName%,1,%ComputerName%
+If,%EndChar%,Equal,_,StrFormat,RTRIM,%ComputerName%,1,%ComputerName%
+If,%ComputerName%-,Equal,-,Begin
+  Set,%ComputerName%,%ProjectName%
+  Set,%PENMComputerName%,%ProjectName%
+End
+//-
+If,%PENMRunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+Set,%PENetworkFolder%,PENetwork
+If,%Architecture%,Equal,x64,Set,%PENetworkFolder%,%PENetworkFolder%_x64
+//-
+If,ExistFile,%Target_Prog%\%PENetworkFolder%\PENetwork.ini,Begin
+  ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%Target_Prog%\%PENetworkFolder%\PENetwork.ini#$q -s u:Win10XPE -r u:#$q%PENMComputerName%#$q"
+End
+//-
+If,Not,%PENMComputerName%,Equal,%CustomComputerName_TextBox%,Echo,"The computer name has been changed to %ComputerName%, its max size is 15 chars and it must not contain special chars: \ / : * ? #$q < > |",Warn
+
+[RegComputerName]
+System,ERROROFF,6
+RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D},LocalizedString,#$pComputerName#$p
+RegWrite,HKLM,0x1,"Tmp_System\ControlSet001\Control\Session Manager\Environment",ComputerName,%ComputerName%
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\ComputerName\ComputerName,ComputerName,%ComputerName%
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Control\ComputerName\ActiveComputerName,ComputerName,%ComputerName%
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\services\Tcpip\Parameters,"NV Hostname",%ComputerName%
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\services\Tcpip\Parameters,Hostname,%ComputerName%
+
+[Numlock]
+If,%NumLock_CheckBox%,Equal,True,Set,%Numlock%,2
+Else,Begin
+  Set,%Numlock%,2147483648
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"NUMK 1","NUMK 0"
+End
+System,ERROROFF
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Keyboard",InitialKeyboardIndicators,%Numlock%
+
+[PowerOptions]
+Set,%MonitorDC%,%MonitorDC_NumberBox%
+Set,%MonitorAC%,%MonitorAC_NumberBox%
+Set,%DiskDC%,%DiskDC_NumberBox%
+Set,%DiskAC%,%DiskAC_NumberBox%
+StrFormat,MULT,%MonitorDC%,60
+StrFormat,MULT,%MonitorAC%,60
+StrFormat,MULT,%DiskDC%,60
+StrFormat,MULT,%DiskAC%,60
+// Monitor Timeout
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\7516b95f-f776-4464-8c53-06167f40cc99\3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e,ACSettingIndex,%MonitorAC%
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\7516b95f-f776-4464-8c53-06167f40cc99\3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e,DCSettingIndex,%MonitorDC%
+// Disk Timeout
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\0012ee47-9041-4b5d-9b77-535fba8b1442\6738e2c4-e8a5-4a42-b16a-e040e769756e,ACSettingIndex,%DiskAC%
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\0012ee47-9041-4b5d-9b77-535fba8b1442\6738e2c4-e8a5-4a42-b16a-e040e769756e,DCSettingIndex,%DiskDC%
+// Disable USB Selective suspend on battery
+If,%USBsuspendDC_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\2a737441-1930-4402-8d77-b2bebba308a3\48e6b7a6-50f5-4782-a5d4-53bb8f07e226,DCSettingIndex,0
+Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\2a737441-1930-4402-8d77-b2bebba308a3\48e6b7a6-50f5-4782-a5d4-53bb8f07e226,DCSettingIndex,1
+// Disable USB Selective suspend plugged in
+If,%USBsuspendAC_CheckBox%,Equal,True,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\2a737441-1930-4402-8d77-b2bebba308a3\48e6b7a6-50f5-4782-a5d4-53bb8f07e226,ACSettingIndex,0
+Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\2a737441-1930-4402-8d77-b2bebba308a3\48e6b7a6-50f5-4782-a5d4-53bb8f07e226,ACSettingIndex,1
+// Sleep Button To Turn Off Screen
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\4f971e89-eebd-4455-a8de-9e59040e7347\96996bc0-ad50-47ec-923b-6f41874dd9eb,ACSettingIndex,4
+
+[ControlVolume]
+If,%Mute_CheckBox%,Equal,False,Begin
+  Set,%Volume%,%Volume_NumberBox%
+  StrFormat,MULT,%Volume%,65535
+  StrFormat,DIV,%Volume%,100
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"//EXEC=!%WinDir%\System32\nircmd.exe setsysvolume 21626","EXEC=!%WinDir%\System32\nircmd.exe setsysvolume %Volume%"
+End
+Else,Begin
+  TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC @!%WinDir%\System32\mpg123.exe","//EXEC @!%WinDir%\System32\mpg123.exe"
+End
+
+[FitWallpaper]
+// Default Fill. Win10 Center and Fit position Not Used Here
+If,%Position_ScrollBox%,Equal,Stretch,Run,%ScriptFile%,RegStretch
+If,%Position_ScrollBox%,Equal,Fill,Run,%ScriptFile%,RegFill
+If,%Position_ScrollBox%,Equal,Tile,Run,%ScriptFile%,RegTile
+If,%Position_ScrollBox%,Equal,Span,Run,%ScriptFile%,RegSpan
+
+[RegStretch]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,2
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,2
+
+[RegCenter]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,0
+
+[RegFit]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,6
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,6
+
+[RegFill]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,10
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,10
+
+[RegTile]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,1
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,1
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,0
+
+[RegSpan]
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WallpaperStyle,22
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",TileWallpaper,0
+RegWrite,HKLM,0x1,"Tmp_Default\Software\Microsoft\Internet Explorer\Desktop\General",WallpaperStyle,22

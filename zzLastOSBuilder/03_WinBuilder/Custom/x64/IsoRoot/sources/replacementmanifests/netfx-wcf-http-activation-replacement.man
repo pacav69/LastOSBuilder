@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="WCF-HTTP-Activation-45-RM"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      replacementVersionRange="6.1"
+      >
+    <registerSDF name="WCF-HTTP-Activation45"/>
+    <migXml xmlns="">
+      <!-- We detect the presence of WWW by -->
+      <!-- looking for the W3SVC service.  We base this on the      -->
+      <!-- registry key for the service declaration.                -->
+      <!-- WSUS already installs IIS, and .NET4.5.                  -->
+      <!-- So, WCF HTTP Activation can straightaway                 -->
+      <!-- be installed, if WSUS is installed                       -->
+      <detection>
+        <conditions operation="OR">
+          <conditions operation="AND">
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.2")</condition>
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\System\CurrentControlSet\Services\W3SVC [ImagePath]")</condition>
+            <conditions operation="OR">
+              <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full [Install]")</condition>
+              <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\v4\Full [Install]")</condition>
+            </conditions>
+          </conditions>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Role Services [UpdateServices-Services]")</condition>
+        </conditions>
+      </detection>
+    </migXml>
+  </migration>
+</assembly>

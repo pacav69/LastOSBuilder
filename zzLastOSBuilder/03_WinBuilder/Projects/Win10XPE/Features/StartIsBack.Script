@@ -1,0 +1,60 @@
+[Main]
+Title=StartIsBack
+Type=XPEPlugin
+Description=StartIsBack Start menu is back and it's better than ever. Get the most useful shell enhancement for Windows 10 now!
+Author=ChriSR
+Date=2019.01.31
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%ProgramFolder%=StartIsBack
+%SetupFile%=StartIsBackPlusPlus_setup.exe
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%ScriptDir%\%SetupFile%,EchoExtended,"%SetupFile% should be in the original package",Warn,,Message,,Halt
+RunFromRAM
+//--
+Run,%ScriptFile%,Add_StartIsBack
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,Reg_StartIsBack
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Software
+  RegHiveunLoad,Tmp_Default
+End
+
+[Add_StartIsBack]
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+DirMake,%Target_Prog%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\%SetupFile%#$q -y -o#$q%Target_Prog%\%ProgramFolder%#$q"
+FileDelete,%Target_Prog%\%ProgramFolder%\UpdateCheck.exe
+If,%Architecture%,Equal,x86,FileDelete,%Target_Prog%\%ProgramFolder%\StartIsBack64.dll
+
+[Reg_StartIsBack]
+RegImportFile,%ScriptDir%\StartIsBack_RegDefault.txt
+RegImportFile,%ScriptDir%\StartIsBack_RegSoftware.txt
+//-
+// TaskbarJumpList is disabled by default. SIB v2.8.9 crashes desktop with TaskbarJumpList enabled
+//RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,TaskbarJumpList,1
+//-
+If,%Architecture%,Equal,x86,Begin
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9}\InprocServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{c71c41f1-ddad-42dc-a8fc-f5bfc61df958}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},LocalizedString,"@X:\Program Files\StartIsBack\StartIsBack32.dll,-510"
+End

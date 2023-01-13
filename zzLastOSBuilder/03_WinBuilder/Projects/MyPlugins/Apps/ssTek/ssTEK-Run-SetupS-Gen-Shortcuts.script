@@ -1,0 +1,22 @@
+[main]
+Title=Generate Apps Shortcuts (ssTEK Style)
+Description=Run SetupS To Generate Live Apps shortcuts, and start menu shortcuts, Install OS, and ssWPI.
+Selected=True
+Level=5
+Locked=false
+Author=ssTEKies
+Version=1
+Contact=google.com
+Date=04-17-2012
+Credits=
+Updates=
+Download_Level=1
+NoWarning=False
+
+[Process]
+RunFromRam,True
+//Add_Shortcut,AutoStart,,"%ProgramFiles%\ssTek\RunAway.exe","ppAppsGenPE",,"",,3
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegWrite,HKLM,0x2,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,SetupS,"#$q%ProgramFiles%\ssTek\RunAway.exe#$q"
+RegHiveUnLoad,Tmp_Default
+

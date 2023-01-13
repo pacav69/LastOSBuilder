@@ -1,0 +1,616 @@
+[Main]
+Title=Create ISO
+Type=XPEPlugin
+Description=Create or Recreate boot.wim and ISO.#$xCopy the ISO on a USB stick, disk, with both Bios and UEFI compatibility.#$xUse the Tools to Add files or Edit Win10XPE registry hives.
+Author=ChriSR
+Date=2019.12.10
+Version=005
+Selected=True
+Mandatory=False
+NoWarning=False
+Level=8
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%Debug_Display_CheckSysFiles%=False
+%ImageName%=%ProjectName%_%Architecture%
+%ISOFileName%=%BaseDir%\%ProjectName%_%Architecture%.ISO
+%BcdEditExe%=%GTools%\%Architecture%\BCDBoot\bcdedit.exe
+%tmout%=5
+%DisplayMenu%=False
+%Usb7iceExe%=%GTools%\Usb7ice.exe
+%RufusExe%=%GTools%\rufus-3.8p.exe
+%RufusIni%=%GTools%\rufus.ini
+//-
+%RegSoftware%=%GTarget_Sys%\config\SOFTWARE
+%RegSystem%=%GTarget_Sys%\config\SYSTEM
+%RegDefault%=%GTarget_Sys%\config\DEFAULT
+%RegDrivers%=%GTarget_Sys%\config\DRIVERS
+//-
+%KeySoftware%=Tmp_Software
+%KeySystem%=Tmp_System
+%KeyDefault%=Tmp_Default
+%KeyDrivers%=Tmp_Drivers
+//-
+Copy=Run,%ScriptFile%,PCopy
+CopyMui=Run,%ScriptFile%,PCopyMui
+
+[Interface]
+ISO_Bevel=ISO_Bevel,1,12,6,6,248,199
+ISO_TextLabel="Image & ISO",1,1,12,12,84,18,8,Bold
+CompressMax_CheckBox="Max Compression",1,3,141,12,110,16,True,"__Use LZX max compression (slower for packing) instead of XPRESS"
+CreateWimISO_Button=" Create boot.wim and ISO",1,8,10,30,240,50,Process,CreateISO24.bmp,False,"__Create or Recreate boot.wim and ISO (eg: after adding files, edit registry,...)"
+CreateISO_Button=" Create ISO",1,8,10,86,240,30,CreateISO,CreateISO.bmp,False,"__Create or Recreate ISO from an already existing boot.wim image"
+IsoRoot_Bevel=IsoRoot_Bevel,1,12,11,121,238,58
+IsoRoot_CheckBox=" Include Files In ISO Root",1,3,16,125,176,16,True,"__include files and folders at the Root of ISO"
+OpenRoot_Button="Open ISO Root Folders",1,8,16,143,228,32,IsoRootOpen,opendir.bmp,True,"__Open the IsoRoot folder and copy your files and folders inside"
+PressAnyKey_CheckBox="Add Press Any Key To Boot...",1,3,12,184,170,18,True,"__Add Press any key to boot from USB, CD/DVD"
+Bcdedit_CheckBox=bcd,1,3,213,184,40,18,True,"__Set boot configuration data localization + Menu legacy"
+USB_Bevel=USB_Bevel,1,12,6,217,248,99
+USB_TextLabel="Copy to USB",1,1,12,221,84,18,8,Bold
+Copy2USB_Button=" USB7ice - Copy ISO to USB",1,8,10,238,240,34,Copy2USB,USB7ice24.bmp,False,"__Copy the ISO previously created on your USB stick, disk, with USB7ice. Support Dual Boot BIOS+UEFI"
+Rufus_Button=" Rufus - Reliable USB Formatting Utility",1,8,10,276,240,34,LoadRufus,Rufus.bmp,False,"__Copy the ISO previously created on your USB stick, disk, with Rufus - The Reliable USB Formatting Utility"
+RufusDualBoot_CheckBox="Enable Dual Boot BIOS+UEFI in Rufus",0,3,292,292,220,18,True,"__Enable Dual Boot Legacy BIOS + UEFI in Rufus"
+//-
+Tools_Bevel=Tools_Bevel,1,12,292,6,248,199
+Tools_TextLabel=Tools,1,1,298,12,42,18,8,Bold
+Hive_Bevel=Hive_Bevel,1,12,298,30,236,77
+BTN_LoadHive="  Edit Target Hives",1,8,302,34,152,48,EditHive,RegEdit24.bmp,False,"__Edit Target Hives (eg: Tmp_Software)"
+BTN_HiveUnLoad=H,1,8,302,85,18,18,HiveUnloadPlay,0,False,"__Unload all project hives that remain loaded"
+CB_SoftwareHive=Software,1,3,460,34,70,18,True,"__Edit the Software registry hive "
+CB_SystemHive=System,1,3,460,52,70,18,True,"__Edit the System registry hive "
+CB_DefaultHive=Default,1,3,460,70,70,18,True,"__Edit the Default registry hive "
+CB_DriversHive=Drivers,1,3,460,88,70,18,False,"__Edit the Drivers registry hive "
+RegConvertPE_Button=" Reg Convert PE",1,8,298,115,236,44,RegConvertPE,Registry.bmp,False,"__Convert a Registry file to a script or a converted (Tmp_*) Reg file"
+TargetOpen_Button=" Open Target Folder",1,8,298,167,236,32,TargetOpen,opendir.bmp,False,"__Open Target Folder"
+pWebLabel1="Rufus Downloads",1,10,292,217,83,18,https://rufus.akeo.ie/downloads/
+//-
+HideAdvancedOptions_Button=,0,8,292,238,8,8,HideAdvancedOptions,0,False,"__Hide Advanced Options"
+ShowAdvancedOptions_Button=,1,8,292,238,8,8,ShowAdvancedOptions,0,False,"__Show Advanced Options"
+WimOnly_CheckBox="Create Boot.Wim Only without ISO",0,3,292,252,212,16,False,"__Pack and Create Boot.Wim Only without ISO Creation"
+NoCDUsbY_CheckBox="Do not Create CDUsb.y (All In Ram)",0,3,292,272,212,16,False,"__Do not Create CDUsb.y with Run ALL Programs From RAM selected for AIOBoot"
+
+[ShowAdvancedOptions]
+System,CURSOR,Wait
+Run,%ScriptFile%,AdvancedOptions,True
+Visible,%ShowAdvancedOptions_Button%,False,Permanent
+Visible,%HideAdvancedOptions_Button%,True,Permanent
+System,RefreshInterface
+System,CURSOR,Normal
+
+[HideAdvancedOptions]
+System,CURSOR,Wait
+Run,%ScriptFile%,AdvancedOptions,False
+Visible,%ShowAdvancedOptions_Button%,True,Permanent
+Visible,%HideAdvancedOptions_Button%,False,Permanent
+System,RefreshInterface
+System,CURSOR,Normal
+
+[AdvancedOptions]
+Visible,%WimOnly_CheckBox%,#1,Permanent
+Visible,%NoCDUsbY_CheckBox%,#1,Permanent
+Visible,%RufusDualBoot_CheckBox%,#1,Permanent
+
+[PreCheck_Image_Exist]
+If,Not,ExistFile,%GSource%\sources\install.wim,EchoExtended,"install.wim image was not found in the Windows 10 source folder.#$x#$xSelect the root of the Windows 10 source folder.",Warn,,Message,,Halt
+If,Not,ExistFile,%GSource%\sources\boot.wim,EchoExtended,"boot.wim image was not found in the Windows 10 source folder.#$x#$xSelect the root of the Windows 10 source folder.",Warn,,Message,,Halt
+
+[PreCheck_Hives_Exist]
+If,Not,ExistFile,%RegSystem%,EchoExtended,"The System registry hive was not found.#$x#$xThe project must be built beforehand.",Warn,,Message,,Halt
+If,Not,ExistFile,%RegSoftware%,EchoExtended,"The Software registry hive was not found.#$x#$xThe project must be built beforehand.",Warn,,Message,,Halt
+If,Not,ExistFile,%RegDefault%,EchoExtended,"The Default registry hive was not found.#$x#$xThe project must be built beforehand.",Warn,,Message,,Halt
+If,Not,ExistFile,%RegDrivers%,EchoExtended,"The Drivers registry hive was not found.#$x#$xThe project must be built beforehand.",Warn,,Message,,Halt
+
+[process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,PreCheck_Image_Exist
+Run,%ScriptFile%,PreCheck_Hives_Exist
+//-
+AddInterface,%ProjectDir%\Core.script,InterfaceBuild,""
+StrFormat,SPLIT,%FallBackLanguage%,|,0,%NbLang%
+//-
+// To be sure, Unload Hive to avoid error 47 (sharing violation eg registry hive loaded) when capturing
+Run,%ScriptFile%,HiveUnload,%GTarget%
+Run,%ScriptFile%,CleanupFiles
+//-
+If,%DrvInstPatch_CheckBox%,Equal,True,Run,%ScriptFile%,DrvInstPatch
+If,%ControllerPatch_CheckBox%,Equal,True,Run,%ScriptFile%,ControllerPatch
+If,Not,ExistFile,%GTarget_Sys%\DeviceSetupManager.dll.org,Run,%ScriptFile%,EjectDevicePatch
+//-
+Run,%ScriptFile%,Check_Extract_SysFiles
+//-
+DirDeleteQ,%GISO%\sources
+DirMake,%GISO%\sources
+//-
+Echo,"Packing boot.wim image file, Be patient..."
+//ShellExecute,Open,%GTools%\wimlib-imagex.exe,"capture #$q%GTarget%#$q #$q%GISO%\sources\boot.wim#$q #$q%ImageName%#$q #$q%ImageName%#$q --boot --flags=9 --compress=LZX --verbose"
+If,%CompressMax_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Packing boot.wim image file, Be patient...&Echo.&wimlib-imagex.exe capture #$q%GTarget%#$q #$q%GISO%\sources\boot.wim#$q #$q%ImageName%#$q #$q%ImageName%#$q --boot --flags=9 --compress=LZX --verbose",%GTools%
+Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Packing boot.wim image file, Be patient...&Echo.&wimlib-imagex.exe capture #$q%GTarget%#$q #$q%GISO%\sources\boot.wim#$q #$q%ImageName%#$q #$q%ImageName%#$q --boot --flags=9 --compress=XPRESS --verbose",%GTools%
+If,%ExitCode%,Equal,0,Echo,"Wimlib Packing boot.wim image file return : %ExitCode%"
+Else,Begin
+  Echo,"Wimlib Packing boot.wim image file return : %ExitCode%",Warn
+  EchoExtended,"Error: boot.wim image file was not properly packaged.",Warn,,MessageError,,Halt
+End
+//-
+If,Not,%WimOnly_CheckBox%,Equal,True,Run,%ScriptFile%,CreateISO
+
+[DrvInstPatch]
+Echo,"Patch DrvInst.exe..."
+If,ExistDir,%GTemp%\DrvInstPatch,DirDeleteQ,%GTemp%\DrvInstPatch
+DirMake,%GTemp%\DrvInstPatch
+ExtractFile,%ScriptFile%,Folder,DrvInstPatch.exe,%GTemp%\DrvInstPatch
+//FileCopy,%GTarget_Sys%\drvinst.exe,%GTarget_Sys%\drvinst_org.exe
+ShellExecute,Hide,%GTemp%\DrvInstPatch\DrvInstPatch.exe,"P %GTarget_Sys%\drvinst.exe"
+
+[ControllerPatch]
+// Patch Windows.UI.CredDialogController.dll to Get the Credentials Window Only If both Remote Desktop and Switch to Admin Enabled
+Iniread,%ProjectDir%\Script.Project,Features,Admin,%Admin%
+If,%Admin%,Equal,True,Begin
+  If,ExistFile,%GTarget_Sys%\mstsc.exe,Begin
+    Echo,"Patch Controller.dll to Get the Credentials Window..."
+    //FileCopy,%GTarget_Sys%\Windows.UI.CredDialogController.dll,%GTarget_Sys%\Windows.UI.CredDialogController_org.dll
+    If,ExistFile,%GTarget_Sys%\Windows.UI.CredDialogController.dll,ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\Windows.UI.CredDialogController.dll#$q -s 5C004D0069006E0069004E0054000000 -r 5C004D0069006E0069004E0058000000"
+  End
+End
+
+[EjectDevicePatch]
+ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\DeviceSetupManager.dll#$q -s u:SystemSetupInProgress -r u:DisableDeviceSetupMgr"
+
+[Check_Extract_SysFiles]
+Echo,"Check and Add System Resources Files..."
+If,%Debug_Display_CheckSysFiles%,Equal,True,Set,%Action_After%,Display
+Else,Set,%Action_After%,ExtractListFiles
+If,%SourceBuild%,Bigger,18300,Set,%CheckmunFiles%,True
+Else,Set,%CheckmunFiles%,False
+//-
+Exec,%ProjectDir%\Features\CheckSysFiles.script,CheckSysFiles,Project,True,%CheckmunFiles%,%Action_After%
+
+[CreateISO]
+Echo,"Create ISO"
+If,Not,ExistFile,%GISO%\sources\boot.wim,EchoExtended,"boot.wim image was not found in ISO\sources source folder.#$x#$xThe project must be built beforehand.",Warn,,Message,,Halt
+StrFormat,SPLIT,%FallBackLanguage%,|,0,%NbLang%
+//-
+If,%IsoRoot_CheckBox%,Equal,True,Run,%ScriptFile%,IsoRootAdd
+//-
+// For AIOBoot do not create CDUsb.y if Run All programs from RAM selected
+IniRead,%ProjectDir%\script.project,Features,AllInRam,%AllInRam%
+If,%NoCDUsbY_CheckBox%-%AllInRam%,Equal,True-True,Begin
+  If,ExistFile,%GISO%\CDUsb.y,FileDelete,%GISO%\CDUsb.y
+End
+Else,Begin
+  If,Not,ExistFile,%GISO%\CDUsb.y,Begin
+    FileCreateBlank,%GISO%\CDUsb.y
+    TXTAddLine,%GISO%\CDUsb.y,"Flag File to mount CD/USB on drive Y:",Append
+  End
+End
+//-
+Run,%ScriptFile%,CheckISOBootFiles
+If,%ISOBootFilesOK%,Equal,No,Begin
+  Run,%ScriptFile%,CheckTargetBootFiles
+  If,%TargetBootFilesOK%,Equal,Yes,Run,%ScriptFile%,CopyBootFiles,%GTarget%
+  Else,Run,%ScriptFile%,ExtractBootFiles
+End
+If,%Bcdedit_CheckBox%,Equal,True,Run,%ScriptFile%,SetBcd
+//-
+FileDeleteQ,%ISOFileName%
+Run,%ScriptFile%,MakeISO
+
+[IsoRootAdd]
+//Retrieve,FolderSize,%GCustom%\%Architecture%\IsoRoot,%IsoRootSize%
+//If,%IsoRootSize%,Bigger,0,Begin
+Echo,"Copy Iso Root Files..."
+DirCopy,%GCustom%\%Architecture%\IsoRoot\*,%GISO%
+//End
+
+[IsoRootOpen]
+OpenDir,%GCustom%\%Architecture%\IsoRoot
+
+[CheckISOBootFiles]
+Set,%ISOBootFilesOK%,Yes
+If,Not,ExistDir,%GISO%\boot,Set,%ISOBootFilesOK%,No
+If,Not,ExistDir,%GISO%\efi,Set,%ISOBootFilesOK%,No
+If,%ISOBootFilesOK%,Equal,Yes,Begin
+  // In case of change of PressAnyKey_CheckBox
+  If,%PressAnyKey_CheckBox%,Equal,True,Begin
+    If,Not,ExistFile,%GISO%\boot\bootfix.bin,Set,%ISOBootFilesOK%,No
+  End
+  Else,Begin
+    If,ExistFile,%GISO%\boot\bootfix.bin,FileDeleteQ,%GISO%\boot\bootfix.bin
+    If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDeleteQ,%GISO%\efi\microsoft\boot\efisys.bin
+  End
+  If,Not,ExistFile,%GISO%\bootmgr,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\bootmgr.efi,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\boot\BCD,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\boot\boot.sdi,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\boot\etfsboot.com,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\efi\microsoft\boot\BCD,Set,%ISOBootFilesOK%,No
+  If,Not,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,Set,%ISOBootFilesOK%,No
+  If,%Architecture%,Equal,x64,Begin
+    If,Not,ExistFile,%GISO%\efi\boot\bootx64.efi,Set,%ISOBootFilesOK%,No
+  End
+  Else,Begin
+    If,Not,ExistFile,%GISO%\efi\boot\bootia32.efi,Set,%ISOBootFilesOK%,No
+  End
+End
+
+[CheckTargetBootFiles]
+Set,%TargetBootFilesOK%,Yes
+If,Not,ExistDir,%GTarget_Win%\Boot,Set,%TargetBootFilesOK%,No
+If,%TargetBootFilesOK%,Equal,Yes,Begin
+  If,Not,ExistFile,%GTarget_Win%\Boot\PCAT\bootmgr,Set,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgr.efi,Set,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\bcd,Set,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\boot.sdi,Set,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\etfsboot.com,Set,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\bcd,Set,%TargetBootFilesOK%,No
+  //If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\en-US\efisys.bin,%TargetBootFilesOK%,No
+  If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgfw.efi,Set,%TargetBootFilesOK%,No
+End
+
+[ExtractBootFiles]
+Echo,"Extract Bios and EFI boot Files..."
+DirDeleteQ,%Gtemp%\ISOBootFiles
+DirMake,%Gtemp%\ISOBootFiles
+FileDeleteQ,%Gtemp%\ExtractBootFiles
+Set,%w%,%Gtemp%\ExtractBootFiles
+FileDeleteQ,%w%
+FileCreateBlank,%w%
+TxtAddline,%w%,\Windows\Boot\PCAT\bootmgr,Append
+TxtAddline,%w%,\Windows\Boot\PXE\bootmgr.exe,Append
+TxtAddline,%w%,\Windows\Boot\PXE\??-??\bootmgr.exe.mui,Append
+TxtAddline,%w%,\Windows\Boot\DVD\PCAT\bcd,Append
+TxtAddline,%w%,\Windows\Boot\DVD\PCAT\boot.sdi,Append
+TxtAddline,%w%,\Windows\Boot\DVD\PCAT\etfsboot.com,Append
+TxtAddline,%w%,\Windows\System32\bootsect.exe,Append
+TxtAddline,%w%,\Windows\System32\??-??\bootsect.exe.mui,Append
+TxtAddline,%w%,\Windows\Boot\PCAT\memtest.exe,Append
+TxtAddline,%w%,\Windows\Boot\PCAT\??-??\memtest.exe.mui,Append
+TxtAddline,%w%,\Windows\Boot\Fonts\*.*,Append
+//-
+TxtAddline,%w%,\Windows\Boot\EFI\bootmgr.efi,Append
+TxtAddline,%w%,\Windows\Boot\EFI\??-??\bootmgr.efi.mui,Append
+TxtAddline,%w%,\Windows\Boot\EFI\bootmgfw.efi,Append
+TxtAddline,%w%,\Windows\Boot\EFI\??-??\bootmgfw.efi.mui,Append
+TxtAddline,%w%,\Windows\Boot\DVD\EFI\bcd,Append
+TxtAddline,%w%,\Windows\Boot\EFI\memtest.efi,Append
+TxtAddline,%w%,\Windows\Boot\EFI\??-??\memtest.efi.mui,Append
+//-
+If,%PressAnyKey_CheckBox%,Equal,True,Begin
+  TxtAddline,%w%,\Windows\Boot\DVD\PCAT\??-??\bootfix.bin,Append
+  TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys.bin,Append
+End
+Else,Begin
+  TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys_noprompt.bin,Append
+End
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GISO%\sources\boot.wim#$q 1 @#$q%w%#$q --dest-dir=#$q%Gtemp%\ISOBootFiles#$q --no-acls --nullglob"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract Bios and EFI boot Files return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract Bios and EFI boot Files return: %ExitCode%",Warn,,MessageError,,Halt
+FileDelete,%w%
+Run,%ScriptFile%,CopyBootFiles,%Gtemp%\ISOBootFiles
+
+[CopyBootFiles]
+Echo,"Copy Bios and EFI boot Files..."
+Loop,%ScriptFile%,DirMakeMui_Loop,1,%NbLang%,%GISO%\boot
+If,Not,ExistDir,%GISO%\boot\Fonts,DirMake,%GISO%\boot\Fonts
+//-
+//- Copy(Mui),SourceFolder,File,TargetFolder,[TargetFile]
+Copy,#1\Windows\Boot\PCAT,bootmgr,%GISO%,BOOTMGR
+CopyMui,#1\Windows\Boot\PXE,bootmgr.exe,%GISO%\boot
+If,ExistFile,%GISO%\boot\bootmgr.exe,Begin
+  FileCopy,%GISO%\boot\bootmgr.exe,%GISO%\bootmgr.exe
+  FileDeleteQ,%GISO%\boot\bootmgr.exe
+End
+Copy,#1\Windows\Boot\DVD\PCAT,bcd,%GISO%\boot
+Copy,#1\Windows\Boot\DVD\PCAT,boot.sdi,%GISO%\boot
+Copy,#1\Windows\Boot\DVD\PCAT,etfsboot.com,%GISO%\boot
+CopyMui,#1\Windows\System32,bootsect.exe,%GISO%\boot
+CopyMui,#1\Windows\Boot\PCAT,memtest.exe,%GISO%\boot
+FileCopy,#1\Windows\Boot\Fonts\*.*,%GISO%\boot\Fonts
+// Cleanup empty language folder
+Loop,%ScriptFile%,CleanupDirMui_Loop,1,%NbLang%,%GISO%\boot
+//-----------------------------------------------
+// Create EFI folder and copy EFI boot files
+//-----------------------------------------------
+Loop,%ScriptFile%,DirMakeMui_Loop,1,%NbLang%,%GISO%\efi\boot
+Loop,%ScriptFile%,DirMakeMui_Loop,1,%NbLang%,%GISO%\efi\microsoft\boot
+If,Not,ExistDir,%GISO%\efi\microsoft\boot\fonts,DirMake,%GISO%\efi\microsoft\boot\fonts
+//-
+CopyMui,#1\Windows\Boot\EFI,bootmgr.efi,%GISO%\efi\microsoft\boot
+If,ExistFile,%GISO%\efi\microsoft\boot\bootmgr.efi,Begin
+  FileCopy,%GISO%\efi\microsoft\boot\bootmgr.efi,%GISO%\bootmgr.efi
+  FileDeleteQ,%GISO%\efi\microsoft\boot\bootmgr.efi
+End
+If,%Architecture%,Equal,x64,CopyMui,#1\Windows\Boot\EFI,bootmgfw.efi,%GISO%\efi\boot,bootx64.efi
+Else,CopyMui,#1\Windows\Boot\EFI,bootmgfw.efi,%GISO%\efi\boot,bootia32.efi
+Copy,#1\Windows\Boot\DVD\EFI,bcd,%GISO%\efi\microsoft\boot
+CopyMui,#1\Windows\Boot\EFI,memtest.efi,%GISO%\efi\microsoft\boot
+FileCopy,#1\Windows\Boot\Fonts\*.*,%GISO%\efi\microsoft\boot\fonts
+// Cleanup empty language folder
+Loop,%ScriptFile%,CleanupDirMui_Loop,1,%NbLang%,%GISO%\efi\boot
+Loop,%ScriptFile%,CleanupDirMui_Loop,1,%NbLang%,%GISO%\efi\microsoft\boot
+//-----------------------------------------------
+// Add Press any key to boot...
+//-----------------------------------------------
+If,%PressAnyKey_CheckBox%,Equal,True,Begin
+  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\PCAT,bootfix.bin,%GISO%\boot
+  If,ExistFile,%GISO%\efi\microsoft\boot\efisys_noprompt.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys_noprompt.bin
+  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys.bin,%GISO%\efi\microsoft\boot
+End
+Else,Begin
+  If,ExistFile,%GISO%\boot\bootfix.bin,FileDelete,%GISO%\boot\bootfix.bin
+  If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys.bin
+  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys_noprompt.bin,%GISO%\efi\microsoft\boot,efisys.bin
+End
+
+[SetBcd]
+Echo,"Set boot configuration data localization"
+If,Not,ExistDir,%XPECache%,DirMake,%XPECache%
+If,ExistFile,%XPECache%\HiveCache.ini,Run,%ScriptFile%,CheckBcdCacheINI
+Else,Begin
+  If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
+  If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
+End
+//-
+If,ExistFile,%XPECache%\bcdboot,FileCopy,%XPECache%\bcdboot,%GISO%\Boot\bcd,Nowarn
+Else,Run,%ScriptFile%,SetBcdBoot
+//-
+If,ExistFile,%XPECache%\bcdefi,FileCopy,%XPECache%\bcdefi,%GISO%\efi\microsoft\boot\bcd,Nowarn
+Else,Run,%ScriptFile%,SetBcdEfi
+
+[CheckBcdCacheINI]
+If,Not,ExistFile,%XPECache%\bcdboot,IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdboot,False
+IniRead,%XPECache%\HiveCache.ini,BcdCache,bcdboot,%bcdbootValue%
+If,%bcdbootValue%,Equal,False,Begin
+  If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
+End
+//-
+If,Not,ExistFile,%XPECache%\bcdefi,IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdefi,False
+IniRead,%XPECache%\HiveCache.ini,BcdCache,bcdefi,%bcdefiValue%
+If,%bcdefiValue%,Equal,False,Begin
+  If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
+End
+
+[SetBcdBoot]
+If,%HostOSArch%,Equal,x86,Set,%BcdEditExe%,%GTools%\x86\BCDBoot\bcdedit.exe
+If,ExistFile,%BcdEditExe%,Begin
+  StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
+  If,ExistFile,%GISO%\Boot\bcd,Begin
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture%#$q",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
+    // Display Boot Menu to access Memory Test
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
+    // Show progress bars "windows is loading"
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
+    If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
+    //-
+    FileCopy,%GISO%\Boot\bcd,%XPECache%\bcdboot
+    IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdboot,True
+  End
+End
+
+[SetBcdEfi]
+If,%HostOSArch%,Equal,x86,Set,%BcdEditExe%,%GTools%\x86\BCDBoot\bcdedit.exe
+If,ExistFile,%BcdEditExe%,Begin
+  StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
+  If,ExistFile,%GISO%\efi\microsoft\boot\bcd,Begin
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture% UEFI#$q",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
+    // Display Boot Menu to access Memory Test
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
+    // Show progress bars "windows is loading"
+    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
+    If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
+    //-
+    FileCopy,%GISO%\efi\microsoft\boot\bcd,%XPECache%\bcdefi
+    IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdefi,True
+  End
+End
+
+[MakeISO]
+Retrieve,FolderSize,%GISO%,%SizeFolder%
+StrFormat,BYTES,%SizeFolder%
+echo,"Creating ISO: [%ISOFileName%] Folder size: %SizeFolder%"
+//ShellExecute,Open,%GTools%\mkisofs.exe,"-iso-level 4 -udf -r -force-uppercase -duplicates-once -volid #$q%ProjectName%_%Architecture%#$q -hide boot.catalog -hide-udf boot.catalog -b #$qboot/etfsboot.com#$q -no-emul-boot -boot-load-size 8 -eltorito-platform efi -no-emul-boot -b #$qefi/microsoft/boot/efisys.bin#$q -o #$q%ISOFileName%#$q #$q%GISO%#$q",%GTools%
+ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Creating ISO: [%ISOFileName%] Folder size: %SizeFolder%, Be patient...&Echo.&mkisofs.exe -iso-level 4 -udf -r -force-uppercase -duplicates-once -volid #$qLast20_%Architecture%#$q -hide boot.catalog -hide-udf boot.catalog -b #$qboot/etfsboot.com#$q -no-emul-boot -boot-load-size 8 -eltorito-platform efi -no-emul-boot -b #$qefi/microsoft/boot/efisys.bin#$q -o #$q%ISOFileName%#$q #$q%GISO%#$q",%GTools%
+If,%ExitCode%,Equal,0,Echo,"mkisofs make ISO return : %ExitCode%"
+Else,Echo,"mkisofs make ISO  return : %ExitCode%",Warn
+Wait,1
+If,ExistFile,%ISOFileName%,Begin
+  Retrieve,FileSize,%ISOFileName%,%SizeISO%
+  StrFormat,BYTES,%SizeISO%
+  Echo,"ISO build size: %SizeISO%"
+End
+
+[Copy2USB]
+If,ExistFile,%Usb7iceExe%,Begin
+  If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%Usb7iceExe%,%ISOFileName%,%GTools%
+  Else,ShellExecuteEx,Open,%Usb7iceExe%,,%GTools%
+End
+
+[LoadRufus]
+If,ExistFile,%RufusExe%,Begin
+  Message,"To Avoid Any Failure at Startup#$xor USB Key Not Mounted on Drive Y:#$x#$xBe Sure to Use These Recommended Settings :#$x  Partition Scheme : MBR#$x  Target System : BIOS or UEFI#$x  File System : FAT32",Information
+  If,ExistFile,%RufusIni%,Begin
+    TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1"
+    TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0"
+  End
+  Else,Begin
+    FileCreateBlank,%RufusIni%
+    TXTAddLine,%RufusIni%,"UpdateCheckInterval=-1",Append
+  End
+  If,%RufusDualBoot_CheckBox%,Equal,True,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1",Prepend
+  Else,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0",Prepend
+  //-
+  If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32 -i %ISOFileName%",%GTools%
+  Else,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32",%GTools%
+End
+
+[CleanupFiles]
+If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
+// Do not use, it causes a problem at startup with Pintool,SIB,...
+If,ExistFile,%GTarget_Sys%\Windows.CloudStore.dll,FileDeleteQ,%GTarget_Sys%\Windows.CloudStore.dll
+// Do not use, it causes a problem at startup with Pintool,...
+If,ExistFile,%GTarget_Sys%\windows.immersiveshell.serviceprovider.dll,FileDeleteQ,%GTarget_Sys%\windows.immersiveshell.serviceprovider.dll
+//-
+If,ExistFile,%GTarget%\Users\Default\Desktop\Desktop.ini,FileDelete,%GTarget%\Users\Default\Desktop\Desktop.ini
+If,ExistFile,%GTarget_Sys%\config\*.LOG1,FileDelete,%GTarget_Sys%\config\*.LOG1
+If,ExistFile,%GTarget_Sys%\config\*.LOG2,FileDelete,%GTarget_Sys%\config\*.LOG2
+If,ExistFile,%GTarget_Sys%\config\*.blf,FileDelete,%GTarget_Sys%\config\*.blf
+If,ExistFile,%GTarget_Sys%\config\*.regtrans-ms,FileDelete,%GTarget_Sys%\config\*.regtrans-ms
+If,ExistFile,%GTarget_Sys%\SMI\Store\Machine\*.LOG1,FileDelete,%GTarget_Sys%\SMI\Store\Machine\*.LOG1
+If,ExistFile,%GTarget_Sys%\SMI\Store\Machine\*.LOG2,FileDelete,%GTarget_Sys%\SMI\Store\Machine\*.LOG2
+If,ExistFile,%GTarget_Sys%\SMI\Store\Machine\*.blf,FileDelete,%GTarget_Sys%\SMI\Store\Machine\*.blf
+If,ExistFile,%GTarget_Sys%\SMI\Store\Machine\*.regtrans-ms,FileDelete,%GTarget_Sys%\SMI\Store\Machine\*.regtrans-ms
+If,ExistFile,%GTarget%\Users\Default\*.LOG1,FileDelete,%GTarget%\Users\Default\*.LOG1
+If,ExistFile,%GTarget%\Users\Default\*.LOG2,FileDelete,%GTarget%\Users\Default\*.LOG2
+If,ExistFile,%GTarget%\Users\Default\*.blf,FileDelete,%GTarget%\Users\Default\*.blf
+If,ExistFile,%GTarget%\Users\Default\*.regtrans-ms,FileDelete,%GTarget%\Users\Default\*.regtrans-ms
+
+[DirMakeMui_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+If,Not,ExistDir,#1\#9,DirMake,#1\#9
+
+[CleanupDirMui_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+Retrieve,FolderSize,#1\#9,%FolderSizeVar%
+If,%FolderSizeVar%,Equal,0,DirDelete,#1\#9
+
+[PCopy]
+// Copy,SourceFolder,File,TargetFolder,[TargetFile]
+If,#4-,Equal,-,Set,#4,#2
+If,ExistFile,#1\#2,Begin
+  If,Not,ExistFile,#3\#4,FileCopy,#1\#2,#3\#4
+End
+
+[PCopyMui]
+// CopyMui,SourceFolder,File,TargetFolder,[TargetFile] (Copy .mui from language folder to language folder)
+If,#4-,Equal,-,Set,#4,#2
+Copy,#1,#2,#3,#4
+If,ExistFile,#3\#4,Loop,%ScriptFile%,PCopyMui_Loop,1,%NbLang%,#1,#2,#3,#4
+
+[PCopyMui_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+If,ExistFile,#1\#9\#2.mui,Begin
+  If,Not,ExistFile,#3\#9\#4.mui,FileCopy,#1\#9\#2.mui,#3\#9\#4.mui
+  Loop,BREAK
+End
+
+[CopyFromMuiDir_Loop]
+// CopyMui,SourceFolder,File,TargetFolder,[TargetFile] (Copy file from language folder to folder without sub language folfer)
+If,#4-,Equal,-,Set,#4,#2
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+If,ExistFile,#1\#9\#2,Begin
+  If,Not,ExistFile,#3\#4,FileCopy,#1\#9\#2,#3\#4
+  Loop,BREAK
+End
+
+[Tools_Process_above]
+//-------------------
+
+[EditHive]
+Run,%ScriptFile%,PreCheck_Hives_Exist
+Run,%scriptfile%,LoadHive
+Echo,"Regedit is running. Please close Regedit to continue."
+System,FileRedirect,OFF
+ShellExecute,Open,regedit.exe,""
+System,FileRedirect,ON
+Run,%ScriptFile%,UnloadHive
+
+[LoadHive]
+If,%CB_SoftwareHive%,Equal,True,RegHiveLoad,%KeySoftware%,%RegSoftware%
+If,%CB_SystemHive%,Equal,True,RegHiveLoad,%KeySystem%,%RegSystem%
+If,%CB_DefaultHive%,Equal,True,RegHiveLoad,%KeyDefault%,%RegDefault%
+If,%CB_DriversHive%,Equal,True,RegHiveLoad,%KeyDrivers%,%RegDrivers%
+
+[UnloadHive]
+Echo,"Unloading registry hives..."
+If,%CB_SoftwareHive%,Equal,True,RegHiveUnLoad,%KeySoftware%
+If,%CB_SystemHive%,Equal,True,RegHiveUnLoad,%KeySystem%
+If,%CB_DefaultHive%,Equal,True,RegHiveUnLoad,%KeyDefault%
+If,%CB_DriversHive%,Equal,True,RegHiveUnLoad,%KeyDrivers%
+
+[HiveUnloadPlay]
+If,ExistDir,%GTarget%,Run,%ScriptFile%,HiveUnload,%GTarget%
+If,ExistDir,%GTemp%,Run,%ScriptFile%,HiveUnload,%GTemp%
+
+[HiveUnload]
+If,Not,#1-,Equal,-,Begin
+  ShellExecute,Hide,%GTools%\HiveUnload.exe," /HKLM /Target:#$q#1#$q"
+  If,%ExitCode%,Equal,1,Begin
+    EchoExtended,"Error on Unloading hives from#$x#$x%1\Windows\System32\config#$x#$xCommon Reason: Loaded Hives is being used by ex: regedit.exe#$xClose the program which locks the hives.",Warn,,MessageError,10
+  End
+End
+
+[RegConvertPE]
+If,ExistFile,%GTools%\RegCPE.exe,Begin
+  ShellExecuteEx,Open,%GTools%\RegCPE.exe,,%GTools%
+End
+
+[TargetOpen]
+OpenDir,%GTarget%
+
+[AuthorEncoded]
+CreateISO.ico=5588,7451
+Logo=CreateISO.ico
+
+[EncodedFile-AuthorEncoded-CreateISO.ico]
+lines=1
+0=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
+1=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
+
+[InterfaceEncoded]
+opendir.bmp=571,762
+CreateISO24.bmp=1841,2455
+CreateISO.bmp=1403,1871
+RegEdit24.bmp=1610,2147
+Registry.bmp=2012,2683
+USB7ice24.bmp=1471,1962
+Rufus.bmp=1062,1416
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-CreateISO24.bmp]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-CreateISO.bmp]
+lines=0
+0=eJx1VOlT01cUtV/60Y+d/gHt1KVuiIhSKkhpwQp1BLHaBhWFARIEAUWMIIRNAiVBQAhLEiVkIQkhAUJICFsSSMgCGBOysYmCYkmgDlOJ5Hf7i7hV2zNzZ968986Z++679xyN2Pr5ltfwQ2MbGl+8ic+2fLnlLRRbN+Mt4BOsra09NJmbOdLsfOrFZNIFbOX123xWh9pssaFHn97/N9xut1o7drWIHRJT4xtG9Aku2HUoZ3tgwd4Ybgh2CFNkJjSoNQYjeu1DluP90ul0MtqHMPiuIAz90C9VvmFlPsGFO/1v7jhK9IntCbqsP37TFnRlIuRSF4UudLlc74jV7wSWqUI1pnT0FL43PKk18HSdX1i5T1DBtoM3vg0tP3Bp+OjVqeCsOd841d6wmp3+2UQSy+VybnLxb57Q2afNolvjKo0xherIzM6Q87TDkaR93+d9fSBrdxjZHzcRin8SkGLcf5K9M6Bwm29WQGj+fbZ481Fyr4bhwcPbXas5nMWURkcs2RidpzyWwgs6Q/H5segrv8y9xyoPp5l+yJ4+fE66O5i0fX/2noBc//DSE/H3dWMTKJ3s/YWmbvP19rVM3otUxvOE+lkM2RyTpziOaw2Irt4RhD8U1RCYOYlWYl9E0zcH8Lu/y/MLLwuMqg2JbS6u7UTpWrBYJ5Nz2WdvyRIbZ1JbV1JaVhIaFmIrbemVKlabvE0goja34mukkVjGniP4XYE5B3/+48hpSugFZiRWgCuU2B12NWi0+tIKZkIq+fgF8rErnNjyURz1CYG/NKLR9b1Gb29vu0hUT6v+6WTRdyergjH08CR+ZIYkGi//vWBQqtQ/A7PJsrTw0mr+Uyo1VdZK0gmccze4HXItSlUoFHq9Xjs62t/f397GzyuhhqcJI671ROUOnSnRxZKM8dUmhnjUANbxB8jSC8/zv1853WvPPQuzL7WaBUlPj0wm0+l0KysraCuo1WqJRFJPZ6Y0TMVVW87XTsfVP7rYNJ9If3RXaEA1dAZkehGxLyDWBcS+uDG/7H68yuFwu7q6UOria2g0GrFYzOK2Z1JtydRZLOMZjrWMYzsvc5zVwgkO2A3j8HAG9DZQGWHI4NEYPOPGAX5bM53WI5EMq1QjIyNoVXhcrmrEWEHXxJcIzxFEF2/3JpJGsFV6mnB4DuxGo3vU7FGMgWQYEciRtj6kc3CVJ2Kw6+oaGjgcDp/HYzKZwwrl2vTi6vxf5gdzXJGmsKY7vZifdKtVOqi2g8NhW1aPuwe0SMcAMDuhngsU7qs69nxNS0cjj0ZrFvD4tt7BFfGQSzm+PjmHzC+tP3UuP3ZNWZ5MjDscUzapt8dsyuF1mQoRSKFZCFUtSGkjFDXAtYp1bP7SpetPM0peEps8VAHS3rcxoEMMk2CdRZWQZy9mbHaUTvT2+qTJ+EquBK4YofKgnAaEu5BTBelEBJO1cSp9Iz4fuUnykGmee0Lo6Ef61R71xMaYxW2dsVhMKJ3yZuYmVUo3q2PjLhOKKZBDhqwywBHgbCZgsiGRANllUEqBWjawxSDqgx4lIh+1atSbM6d6bx52qQypuAe37sC1MrhcCHF4iE6DXzMgKQ/SiyH/DpDvQ5MAGJ3Ak80qVO9m/wOge9aubg+hCnAFkJADv12FEzivTHyOdyeb6E2lusVzT2AfGPzQgwo+9kLruOERmbKRmIucSoOIZIhK9SaEppJRghAp86w2m3HiIy/E/4eroqV22CzWzm5HWY0DX+ogkKZqqNNi6ZTN8j+e/A+09TU6eJzjdS5KTSxJ9Qz210vKLWAYBSMM8LFBaD1W7PLut07OZ2ACABtgB4wBILrMAQAAAAIAAAApAAAALgUAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-RegEdit24.bmp]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-Registry.bmp]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-USB7ice24.bmp]
+lines=0
+0=eJztlHtMU1ccxy8gVDARjCAyHb7wGYUFBmqm4mubIVMzGGY4JuyPAUZBVBBbkIs85Fna0hZaaGlBoECh5SEISnk/fQDTCESX4HyCZUZBRXzsuwOMzRiYOv/dN/eb+zg3n98553vO2bozzpAaUxxxCPHcv6xDLaT0RhtIe8PMcf8jTFxjL1u/dj7KqX+64tsKSzPLKK2OnZ3dbC8vr2XEBmKx2HCjUbfeCneO7ZuEadT/+lh5eHhMj/Pzsw7y9AxPYLFqxUFBlh/DI3nq0F5eRqcOHNi139U1y9HO7tZ8c/OXDAMDBB07hnQe76qMpk3+C/uIu7vn7s2bNZ8tX/7I1MQE4+XGbWpqCj6fj5LiYihEohYeTc/MiY39JDk42DUlKMjmffgOq1e3TfAMDQ2xcuVK+Pj4QCaToampCRqNBmVlZWhqbER+cvLjutJStDe34JxS+VweFbXnXfwdjo5XXFxcEB4eDqlUOubU1FTI5XIolUqUl5ejsrISHR0d6OnuRpVKhdaaWrRU16C6uGSYf/y4hxFFWVCjW2sSydlstlgo/CMlJQVvWiQSQSKRwNnZGdbW1mN1tFotbvf24kxWNlo01bjU0Ag5h/PiK2PjhmUUZU9wupOU0EkJDT2cJhCMMJlMODk5ISkp6e86AoEAycnJKCYZNJI5GujvR75IjAt19bhQ3wB+cDBCGQx46uuXz6eoeZONAYBOMk1vFyUkPDxx4sRYv0fnaKJGqliM0xkZyCWZKMn3TA4PlxubcJ7UDNuyBUm6uojQ13/lMGtWOMExpsoiMzY2Wk3mfTTLAoUCEi4XafHxSI9PgIxYGhcPGZsDhTgNiaGhiNi1CxzS9/ilSxFAxu1lbv5s55w57o5THEM5XC67QlmAbB4PCoEQeeJUFKbLca5QhQ6yZm7euIEbXd2I9vOD/4wZYE+bBraFBQqFQiT4+yNy9mwwTUwGHRmMHZPlreDzhWfzlGgla6O78xd0tXeMZdhA1k91STFqS1VoLMsBj3kQgRbm4JF5Ob5uHYS+vghZswbHNm1CmJUVAszMau0oSv9t/hm5fE9nc/NrFelzjjAFJZkSXGnOQt/1PAzdVuL5HQWGe+X4vZOPohh3sKzmwnv5MrDJvknX04OU7Pdk8hy9fv1L51Wr9ppT1Iy3a+QlJQVWqdWvVDIxRoZUePkoByN9aRi4FgNJrAu0rUcw2HwAA1WeaBM7QeBmg7jpDByytwdz8WKELFoEFjkHSN5PvqOoo2/zaZrWzUlM9NGoi15db8/CiwEZ6bcAQz3RUHBdkcTajl9L90FbsRcDJbtRF2WPk/ONEGE8EwGWlqDXrkUaOVfitm9/fUhH5/xUaymXy3WtVquGe9rkGL7JwbOeSDzpZOKuxhtOX1gi9+RGFIQ54M7pjahirUC8rTHCN6wDh7BzSf6p3t4IYjCKp+KPKiMmYoNGpervrMnA4NWTGLocgMdN+xHv5wAZcy2kR21Auy3AfYkNLoUvQJmvFTizjJHg5obEefNwxNZW9G/88Rq0ZalM1nSxSo07DTQe1f+M/rI94By0QcQ+K0gOWuE34Src4y9BO8sMkQsNEEkyTty2Deq0tKJ38ccyZx82VAqSWBpV4bOu6jQ8KP8R2sId6BQ44BrPGuyflkBb8D0GKpnoyAxEPusHtLe04FJNTdv78CeUHhH8aYFQqKjKz37aVRSC+9lfok9qhwe5O/HwrD8GL4hIVo14fKUQfXdvkb1SVvEh/FGNnlWZEcGLMmNOReVxY+/VycNfX1eH4HZJIO6Vk3tVInpb1bh28eKIgsv95kP5byqfpg1SWCwHSVioryIxUVooFpWpJKkleQIBWxJJfz76z588xk0OeJzjDQ12Ms9MTjUy0UvKLWAYBSMMdHFC6GJW7PJq6iyTGZgAD24GJD3YbQMBAAAAAgAAACgAAABzBQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Rufus.bmp]
+lines=0
+0=eJzFll1IW2cYx5VusNXdDLYxGJRBx7rJkM0uJprvnJycmuTkJJ7EfJjEo4k1ae1gDrGmylxgNxOL+2rRzqHIBF292FDvtCp+JH7i58WEIcLa3nQwezPc9jx730OEDnaRUwd7yAMn58D/l//7vv/nxMKnni+QK0W6ifSruS4seL3gDH2Qe/7PwpOP/KXwiSf5XP8fZbVaizmO6xIE4eX/UjcQCBhaW1t/TKfTf7a0tEB7e3tGFMWi0+omEolz3d3dmb6+PiD62NPTg3t7e7CwsICpVGqS+Hj2NPptbW3G5uZm7O3thd3dXTw8PMT9/X3Y2trC+fl5JMwhxmI+8/aF86p3it9klOp3dXWdHRsbuzc9PQ0HBwdwdHQEo6OjEA6HKQ/m5uYg4Pf98l5JMZRdLAGjVnVDKWNkZKRofHz8ntfrxYGBAaS6mUwGae/s7EDqegv6PA4069Wo05QCa6qoV8oYHh4uunv3+xniA6empmBiYgI/77mJH15LQFOiDhPxCEYCHrQY1MTD+8cco7MrZbAWww/pTzqh48Z1+OBKHK5eliBWGwQp4of6aADiUhBqQ1XAGDVg1pc95iw6Vb7aLoetyOOqPCY6mIhFIBIUMRryohSuhrqIHwlH7sv1NSCFRGQMMuPhJav+jXz07RxT6Bf5W7zdCqJgh6BPwDBh1Nb4ZH3KzTGgMRZG6oOsFVr06p/srPGVfH04OMunvJ0Fr9uBoWo3Eh9APOAJozEWhc6ONkzGo3St5D0nXrLER95ZdFYyH7ns7F+EAYRB14rsRwPc6b0Ns7OzsLKyAl9/9QUkG6IQDVbRdSJ7Uj5us2ifyZ9hjbkc7B81AREGB77FpaUlXF9fx7W1NaDXlHP71pd4pSGK0aCHMpA1V9zJV58WX2kVyb78Pjg4CIuLizAzMwPLy8uwsbEB2WwWaCZvdn9GzlkthP1u2QdhfKyEQXywlZz1MZlPuLq6itvb2/LsoGtEcoIk+5ju7ICrjRISBuYYivJH9rucd3CPhoaGcHNzk/5+JPMPJicnkd5LJpPg9wrYlKAMAUw61bFJq+KUMAQnV+Jx2e/39/fLM4nOQ0mSwMpYoMrtlHMYl0JwLVEHIZ8LtOrSBxrVu88pYbid3HmP4PjZxrJoMujALwqYO7twko8cA91OG1aoS8uU6Ms+HLbXPPylneoqHnL5kDN4kpFoyAcBn5voc7+RefOiUn2Z4eReIowsmalAOdUiT/MI5D6Q80Z1v2FMugtPo/0E4wW7zTzBmLRoNpT/atKXf2fUaUTS//pP5GmqQn2xkPRbmrLSU71DT1N/A7o1I814nOMMKk0rLdZLyi1gGAUjEFRxQui7zNjl+Wbul2FgAgDB3wZzOWj3vQEAAAACAAAAJQAAAN0DAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]
+DrvInstPatch.exe=5664,7552
+
+[EncodedFile-Folder-DrvInstPatch.exe]
+lines=1
+0=eJztO390G8WZI3mTyI4SKUSACabZmCV1ieVItpzYiVKUxKZJcUDETuISu/FaWtk6ZMlIq/y4c642cnhVFR/mjuuVO15Lj95d+VHaP2ifwxHq4HB5fS/0KD96oVxfw6V3T0J971J6EIIB3ffN7K52bTkxBa73XpHfzO7MfPPNN9+vmflmveOOcVJGCOEgFQqETBD285HL/16AtHTlU0vJk+XPr5owtT2/qqM/nOAH47G+uDjAB8RoNCbzvRIfT0b5cJRvua2dH4gFpbolSyoEBUem4rlf/Oudj6WL6dH0z+H5kPz99Gml7ieQXn57Xfqn8NwZDvRj3Vw0+VsJaTNxZGLLom617iwpMy02LXCSGijYlUq7knzKbPHdTMgCYtIS/Q0y5nzD7d1YRnwmCmhXENiLqNRfBFB58aWHEHnhPJg43x/gjVyiuU6WDsrwrPisQlANo1v/44GqunhQlEVCHjcznBSmdtZQvjoGRrwI51fgXLPgJuviiXiAKHPtgWSB5JmN7/IT/PT3h/j185jRt6qdPpIdX01I6qSV1mSPQeFhHqofxrYJgm8CZP1vFQqF7Lex1QPFQiPm2SNQTk+lzpnS17mwfD3Y+MNNGngcwWuwwa4OmV2A2UZomNrV/hRqTuo33CmO+oYvJn831iLY/RQQ3hz+YpZ96gak0pGeWvWa7chFAMh0CdwtachOQTtabmpI4IjcNSH4fcSfiQjWXd2FJJf9K9rRgh2TVwBsJWKHZxX2yTsneCN4UAduR3CTDhzHXPWaXAHPKnia84smKBaze3LVJBSDMBO0njzJtAjcRk4Yai7IQiXFDjWWE2fN3abnCkmS/U8rIdCFc0/mF1AcULDgTJC6Aifc9Uw/cLAwMXw7UJctvx4qZcGRO/5BocAa7qEN56uBr7T8eZxG9qxWPk3LL0DZPZk6ye/tBn67J/1+RNOZ5gSYQuXIFAF8wMNKGJl6Dkp45UYoDa3vX0PoqNzx4BU+sivbJVA9oZxZkqkS1nQJjvSZ/JY8Framq4QCdLvrxzCjteMt8fB+Kc4PioE7xT6JD4nhiBTkE+G+qCgn4xK/X4yEwd2EY9E6Sp9lb/ezFsIoBMocwLHK9KsnLq68vX2s1ZKxmxxCxs8t6xC4zjuQ+CohNcWh8DO1wqlWspwM74QuHLyu5Mte0YTykRFfdVnEe57iZypx4UlhHN4olx8X7ke96SYar1u0Oi41zSUX5DpgMe5H7h+3Xw18BnXn/dm3qplR0nqHUl/jz/6S1Ss4xlr5wiBXcI0IAjlfKKSCAle4t0XwYZoNUrBBXwAhMNUWoQ0QVoLxTpUBUZbMg5Rm6ISPsm4vVMowc9n249aF/k6AD7JSd+XI9GLQ8WQj6Ey/hRmFPDJlAdZAnyFQGBnBDwL4wbFWFx0c6BnElK/BTpzW6R3COiHqTKvngZ1+FRIVkjKbUJ6jRtqO3mimCjmICSgdRTyt1gdMnIACVLuqU4kIQ2XdDtBLwNWjKDfUZVrtgK3HdvQUIC54BCTWAnJPnzmGhD1w4WL6JdDwqwHWgpZ68WpqnHpLt42KJjoAAuCEMWUf/QwhO/17923sErzJhRuHBJ/OvMuhU62Jkm/BEV3Q27WrO9PKwaRRfO/dxGRzrAJpB82BGWXvAt0CLUqz2XVgAgQ0YR8yyfrs3ZeaJsnyVIEk9SPKNSrwMasO6XsrZyEFabQpVkHp91P6Owz0y4M4YSC5+72R6d+ZiSdZqVa8AxVl5MakwRtuBqTWrSBdKwzMJOvAxDqNtb4DdZlR4RvI889xwjVADsj0QaqylnvJvT5OFXWKE0wpaCaahDV/02MbqQGzgqGGUlM1VP9QU0ZOvQ/WMCRYiSo3AUqdRF4KQ+CIYM9YDdNbPA7bpnHOtOI+9+TIyWGo3AeWbaWWfc1My1ZMgIxM77gDNkDl7hfdk7lli5g6YyMzHC+8etHmp3FvqoC9sZCqjFczKAcraQa1B/S0VjEor2ZQLcABL4L7ANwHa9QPz1PfAgulWjGuVFixQmdyTZjyX0S0nIZWMbkWHBw7n9VhoxXDOmxezSgpLoVgbuQcnhvaFRPsTLeiWtdCcVgpwpCCSV1OHGBuwpAbOrdkuq2gXfavLFP41YIGCmtp3pzHqhYmwxaQoXDXc6ziDFaA8KqIbfTfzXQWVZkhSm7LmsNW0zS0d0ChI3WYA5BjKgjUZA5zeqiaYr2hdydSSxiDasEl244UmPvoxDW7hq3ZqcMgSMNqvSC3yTwLDIV+DtqHR6YxB+/+BNEIMgAeJhoNqSkzknccN1u7kJPZV6uKm5DBItlWw3QAsgkTVHbp3CCMUYum1SJ44QEAVkzZm6s0q++8o+gxqVxhJfDAKpghuVZQlNwek2FeZUDuGIgYtWouTzODM9fPjSEFvB4J0t3GMMNmGUF+DxudzYLcz2YzDvFoizdDRxkDk1c8iDY18Blm6jPoWqfn7eFrP3bevrFiPrzNMdUU0CcKuXvfp26rIzXFowbnmrFsdAh2oyPILzVa8KWNzDrTyPh5GBkPFvR5RiYPRmbgyTYobEsdtgLItSoI1MzkHIMCY1lRhCB6iLZ8ZbHFYIhtWFdI2tH7dKmLNtS1IT7b6F+z5bMNm/2arf6TAjPb8r5KNCrbijSkTpkZoTqV+JNriiqxSxM9bHl0cu8vIfc3K+cj998CHblnGJn+D20GR+Y9i+9UFmex80PMonY+s8jX4R6hDLhOBdUl9KAa9+S62eq7LTWFOrYt92+gxu5J94upk0FcR+10HX1k5jqaelqYwHOSvAL3gzhteEbM7KQ1iEzJVyotk9jCKS0LtZMrrjT9ZVrRxI4qQ7D1Pg1osi9fTeeE2/npgm30N2UKIB5nsj/BRljgWFctg7aD6osje5QBcfRUaRv9+zI9qAo2REHvY6AWALUAaLSMnl5r8ODqouctCvXYhUKBLqUCJqiiaQ6HahvdbqJyrxmZDj4KjFrO3k9C7Yyt6Hhx5UouPl4j+Egadrn58uN1yiuQcdAPjBlmNHvQiSFZVZiyWxdR4j1AvIfApu1BKhlQobp+5LbSDwawg/C9qamF7dkvXUXPIMqJVabEaG+5cTYMnd0YGDQcQOhuDoatArUba61UN3dWdecATw42fad89Ax6CjPYBNqNZZwFZC1Iuj272kaXmtWaJlVopFwBUD6q3lnuTThytdD9uY7bC4DbBjNL4oHeM+tAbxv9W9NleKsZ0bfg+IU7pVG6JVIesL1F5jFaPBV4PDAC0G0Tey0qyhOLYUdMIY8yyKMM1Vc1VLlyBdX9DOB+Mi9dkftmqQLri1grs6vNek1oLmrCar0m4HY0u8dxCQ3I9wHoKOuBD70SzJK6UarfAy5eXqqv/LcmVUuWdyhW/cpyepzLPr+cMuNgatqU3NG/FPpmn1xmsNsnhacB+cQPMILSj6fMsVHhcWRDdu9ynFcljaBA5YO08ij0zv0aXZhKVRRYJBP5ygk/oMC9cz8e2rI7ADC/vB/PWtnN8D7xhF9pVr2KOvTZ2UOfvaLE0MsQY0QdTTCM9it7cbSX4H0idPsco9X4Z40WLzXaw4AlewqGBFOV80sbJjNnxsfdk+l/wXzk5HfM7GykhFMwgERX4G8X/YMjNfU+HMwytcKubtuPui9MZKGteSo5BDVQJhMyK69RIT6YOMJqrlFr3pvIsBqD5tpo81jre7kMUJGvpRqJgRlaiWohZJ9eVoxPLYY2Xjnk5R5hBAK1FtuRBw3UvvUJU/tL01zULp2DWo3Qlw2E/lZH6LRCqO3IYwijEJuZQZpp4kwJ0vxqs3nWXMomJkt0uE5t5iaSrHkx1MA2Jmeac2719jkkcdowpzdLzum7l5zT+RIk7rjUnN4u0WHFrDlZ2JzyrtITEm2lJ4SBQA5MwgEm8dRyMjMOKAudSqi1Swv/dUEpSO3mNXRIONjx4TUsvlflz76/lI6EMW+MzeHB0AJ4ejCErJysi4HaLhYWG1MRoR9kaH6wtEhwT/8CxnYOV286WDpPF/Kv6aCWK6Ewuxa2yX/W0BEjMdlOXQ+LFhUvhn9tIxJ4lNxZszq18eLUqktMDZB34gGPxU1oiEOLj7hYyR
+1=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
+

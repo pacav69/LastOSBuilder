@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" manifestVersion="1.0">
+  <assemblyIdentity name="Microsoft-Windows-RetailDemo-Service.Deployment" version="0.0.0.0" processorArchitecture="*" language="neutral" />
+  <migration scope="Upgrade" settingsVersion="1" replacementSettingsVersionRange="0">
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RetailDemo [Start]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\RetailDemo\* [*]</pattern>
+              <pattern type="File">%ProgramData%\Microsoft\Windows\RetailDemo\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

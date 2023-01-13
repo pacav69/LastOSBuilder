@@ -1,0 +1,28 @@
+;; Revision 2019.08.26
+;
+;in winre.wim activeds.dll,adsldpc.dll,BCP47mrm.dll,certca.dll,certcli.dll,CredProv2faHelper.dll,CredProvDataModel.dll,credprovhost.dll,credprovs.dll,credprovslegacy.dll,dfscli.dll,Faultrep.dll
+;in winre.wim gpsvc.dll,joinutil.dll,logoncli.dll,LogonController.dll,msiltcfg.dll,netjoin.dll,ninput.dll,nlaapi.dll,profapi.dll,profext.dll,profsvc.dll,samcli.dll,SensApi.dll
+;in winre.wim userinit.exe,usermgr.dll,usermgrcli.dll,UserMgrProxy.dll,weretw.dll,WerFault.exe,wersvc.dll,wincorlib.dll,Windows.Internal.UI.Logon.ProxyStub.dll,Windows.UI.CredDialogController.dll,Windows.System.RemoteDesktop.dll,wmiclnt.dll
+;dll in PESE does not seem required apprepapi.dll,CredDialogBroker.dll,cscapi.dll,cscdll.dll,hnetcfg.dll,mtxex.dll,profprov.dll,runas.exe,runonce.exe,Sens.dll,Windows.Globalization.Fontgroups.dll,Windows.UI.Cred.dll + WinSxS and Manifests *_microsoft-windows-p..al-securitytemplate_*
+\Windows\inf\wvmic_ext.inf
+\Windows\System32\AuthExt.dll
+\Windows\System32\batmeter.dll
+\Windows\System32\FontGlyphAnimator.dll
+\Windows\System32\InputSwitch.dll
+\Windows\System32\LogonUI.exe
+\Windows\System32\MrmCoreR.dll
+\Windows\System32\profsvcext.dll
+\Windows\System32\secedit.exe
+\Windows\System32\seclogon.dll
+\Windows\System32\shacct.dll
+\Windows\System32\threadpoolwinrt.dll
+\Windows\System32\tsdiscon.exe
+\Windows\System32\whoami.exe
+\Windows\System32\Windows.Globalization.Fontgroups.dll
+\Windows\System32\Windows.UI.dll
+\Windows\System32\Windows.UI.Immersive.dll
+\Windows\System32\Windows.UI.Logon.dll
+\Windows\System32\Windows.UI.Xaml.dll
+\Windows\System32\Windows.UI.Xaml.Resources.dll
+\Windows\System32\Windows.UI.XamlHost.dll
+\Windows\SystemResources\Windows.UI.Logon

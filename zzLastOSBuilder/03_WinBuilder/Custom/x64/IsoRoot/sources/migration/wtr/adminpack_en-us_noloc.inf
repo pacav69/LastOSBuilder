@@ -1,0 +1,22 @@
+[WTR]
+Name="Administration Pack for IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Windows\Migration\WTR\ [MSIISAdminPack70.inf]"
+
+
+[System.Gac]
+"[Microsoft.Web.Management.AdminPack.Client,*]"
+"[Microsoft.Web.Management.AdminPack.Server,*]"
+
+
+[System.Registry]
+"HKLM\SOFTWARE\Microsoft\IIS Extensions\AdminPack\* [*]"
+
+[ProductID]
+"{C6E9540C-4B66-4367-A8CF-570DCFD9F030}"
+
+

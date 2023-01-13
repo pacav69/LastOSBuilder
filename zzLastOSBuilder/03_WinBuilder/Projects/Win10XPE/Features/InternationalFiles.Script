@@ -1,0 +1,142 @@
+[Main]
+Title=International Files
+Type=XPEPlugin
+Description=Copy Keyboard (kbdxx.dll) and National Language Support (.NLS) Files from International setting
+Author=ChriSR
+Date=2019.01.19
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%IFiles%=%GTemp%\International_Files.txt
+
+[Process]
+If,ExistFile,%ProjectDir%\Core.script,AddInterface,%ProjectDir%\Core.script,InterfaceBuild,""
+If,Not,%AllKeyboard_CheckBox%%AllNls_CheckBox%,Equal,TrueTrue,Begin
+  Echo,"Processing %ScriptTitle%..."
+  If,Not,#1,Equal,HiveLoaded,Begin
+    RegHiveLoad,Tmp_Default,%RegDefault%
+    RegHiveLoad,Tmp_System,%RegSystem%
+  End
+  //--
+  Run,%ScriptFile%,International
+  //--
+  If,Not,#1,Equal,HiveLoaded,Begin
+    RegHiveUnLoad,Tmp_Default
+    RegHiveunLoad,Tmp_System
+  End
+End
+
+[International]
+Echo,"Add Keyboard and NLS files..."
+If,ExistFile,%IFiles%,FileDeleteQ,%IFiles%
+FileCreateBlank,%IFiles%
+//-
+If,%AllNls_CheckBox%,Equal,False,Begin
+  FileDelete,%GTarget_Sys%\C_*.NLS,Nowarn
+  // Copy Minimum NLS files. Copy National Language Support (NLS) files from registry setting is not enough for advanced or extended languages
+  If,ExistSection,%ScriptFile%,minNLS_%Language%,ExtractSectionFiles,%ScriptFile%,minNLS_%Language%
+  Run,%ScriptFile%,CopyLocaleNLS
+End
+//-
+If,%AllKeyboard_CheckBox%,Equal,False,Begin
+  FileDelete,%GTarget_Sys%\KBD*.DLL,Nowarn
+  If,%Architecture%%WoW64Support%,Equal,x64True,FileDelete,%GTarget_Win%\SysWOW64\KBD*.DLL,Nowarn
+  // Copy Up to Four Default Keyboard Layout DLLs
+  Loop,%ScriptFile%,LoopCopyKeyboardDLL,1,4
+End
+//-
+ExtractListFiles,%IFiles%
+FileDelete,%IFiles%
+
+[CopyLocaleNLS]
+Set,%ACP%,""
+Set,%ACPFile%,""
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,ACP,%ACP%
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,%ACP%,%ACPFile%
+If,Not,%ACPFile%-,Equal,-,TXTAddLine,%IFiles%,\Windows\System32\%ACPFile%,Append
+Set,%MACCP%,""
+Set,%MACCPFile%,""
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,MACCP,%MACCP%
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,%MACCP%,%MACCPFile%
+If,Not,%MACCPFile%-,Equal,-,TXTAddLine,%IFiles%,\Windows\System32\%MACCPFile%,Append
+Set,%OEMCP%,""
+Set,%OEMCPFile%,""
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,OEMCP,%OEMCP%
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,%OEMCP%,%OEMCPFile%
+If,Not,%OEMCPFile%-,Equal,-,TXTAddLine,%IFiles%,\Windows\System32\%OEMCPFile%,Append
+Set,%OEMHAL%,""
+RegRead,HKLM,Tmp_System\ControlSet001\Control\Nls\CodePage,OEMHAL,%OEMHAL%
+If,Not,%OEMHAL%-,Equal,-,Begin
+  If,Not,ExistFile,%GTarget_Win%\Fonts\%OEMHAL%,TXTAddLine,%IFiles%,\Windows\Fonts\%OEMHAL%,Append
+End
+
+[LoopCopyKeyboardDLL]
+If,ExistRegKey,HKLM,"Tmp_Default\Keyboard Layout\Preload",#c,Begin
+  RegRead,HKLM,"Tmp_Default\Keyboard Layout\Preload",#c,%KBDLayout%
+  If,ExistRegKey,HKLM,"Tmp_System\ControlSet001\Control\Keyboard Layouts\%KBDLayout%","Layout File",Begin
+    RegRead,HKLM,"Tmp_System\ControlSet001\Control\Keyboard Layouts\%KBDLayout%","Layout File",%KBDLayoutFile%
+    If,Not,%KBDLayoutFile%-,Equal,-,Begin
+      TXTAddLine,%IFiles%,\Windows\System32\%KBDLayoutFile%,Append
+      If,%Architecture%%WoW64Support%,Equal,x64True,TXTAddLine,%IFiles%,\Windows\SysWOW64\%KBDLayoutFile%,Append
+    End
+  End
+  // Substitutes
+  If,ExistRegKey,HKLM,"Tmp_Default\Keyboard Layout\Substitutes",%KBDLayout%,Begin
+    RegRead,HKLM,"Tmp_Default\Keyboard Layout\Substitutes",%KBDLayout%,%KBDLayoutSub%
+    If,ExistRegKey,HKLM,"Tmp_System\ControlSet001\Control\Keyboard Layouts\%KBDLayoutSub%","Layout File",Begin
+      RegRead,HKLM,"Tmp_System\ControlSet001\Control\Keyboard Layouts\%KBDLayoutSub%","Layout File",%KBDLayoutSubFile%
+      If,Not,%KBDLayoutSubFile%-,Equal,-,Begin
+        TXTAddLine,%IFiles%,\Windows\System32\%KBDLayoutSubFile%,Append
+        If,%Architecture%%WoW64Support%,Equal,x64True,TXTAddLine,%IFiles%,\Windows\SysWOW64\%KBDLayoutSubFile%,Append
+      End
+    End
+  End
+End
+Else,Loop,BREAK
+
+[minNLS_he-IL]
+\Windows\System32\C_1255.NLS
+\Windows\System32\C_862.NLS
+\Windows\System32\C_10005.NLS
+
+[minNLS_ko-KR]
+\Windows\System32\C_949.NLS
+\Windows\System32\C_1361.NLS
+\Windows\System32\C_10003.NLS
+\Windows\System32\C_20833.NLS
+
+[minNLS_ru-RU]
+\Windows\System32\C_437.NLS
+\Windows\System32\C_850.NLS
+\Windows\System32\C_866.NLS
+\Windows\System32\C_1251.NLS
+\Windows\System32\C_1252.NLS
+
+[minNLS_tr-TR]
+\Windows\System32\C_857.NLS
+\Windows\System32\C_1254.NLS
+
+[minNLS_zh_CN]
+\Windows\System32\C_437.NLS
+\Windows\System32\C_936.NLS
+\Windows\System32\C_950.NLS
+\Windows\System32\C_1251.NLS
+\Windows\System32\C_1252.NLS
+\Windows\System32\C_1258.NLS
+\Windows\System32\C_20127.NLS
+
+[minNLS_zh_TW]
+\Windows\System32\C_437.NLS
+\Windows\System32\C_936.NLS
+\Windows\System32\C_950.NLS
+\Windows\System32\C_1251.NLS
+\Windows\System32\C_1252.NLS
+\Windows\System32\C_1258.NLS
+\Windows\System32\C_20127.NLS

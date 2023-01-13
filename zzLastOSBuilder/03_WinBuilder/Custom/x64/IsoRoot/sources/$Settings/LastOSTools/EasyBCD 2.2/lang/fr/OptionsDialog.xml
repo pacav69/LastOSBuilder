@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <strings>
+    <string key="btnOK" value="OK" version="2" />
+    <string key="btnCancel" value="Annuler" version="2" />
+    <string key="chkExpertMode" value="lancer EasyBCD en mode expert" version="1" />
+    <string key="chkRememberBackup" value="Se souvenir du dossier de sauvegarde de la BCD en quittant" version="1" />
+    <string key="lblExpertMode" value="Le mode expert n'est pas la pour guider l'utilisateur avant une action avancée !" version="1" />
+    <string key="chkLoadDefaultBcd" value="Charger automatiquement le fichier BCD suivant au démarrage :" version="1" />
+    <string key="btnBrowseBcd" value="..." version="1" />
+    <string key="chkAutoUpdate" value="Vérifier les mises à jour chaque" version="1" />
+    <string key="chkRss" value="Inclure NeoSmart Technologies dans la plateforme RSS Windows" version="1" />
+    <string key="numUpdateInterval" value="0" version="1" />
+    <string key="rdoDays" value="jour(s)" version="1" />
+    <string key="rdoWeeks" value="semaine(s)" version="1" />
+    <string key="rdoMonths" value="mois" version="1" />
+    <string key="lblLastUpdateCheck" value="Dernière vérification le : " version="1" />
+    <string key="tabGeneralSettings" value="Réglages généraux" version="1" />
+    <string key="lblDefaultTab" value="Onglet par défaut au démarrage :" version="1" />
+    <string key="lblDefaultDisplay" value="Mode d'affichage par défaut au démarrage :" version="1" />
+    <string key="lblOverviewFont" value="Police du mode d'affichage simple :" version="1" />
+    <string key="lblDetailedFont" value="Police du mode d'affichage détaillé :" version="1" />
+    <string key="lblOverviewSize" value="Taille : " version="1" />
+    <string key="numFontOverview" value="8" version="1" />
+    <string key="lblOverviewPt" value="pt." version="1" />
+    <string key="lblDetailedSize" value="Taille : " version="1" />
+    <string key="numFontDetailed" value="8" version="1" />
+    <string key="lblDetailedPt" value="pt." version="1" />
+    <string key="chkWordWrap" value="Retour à la ligne activé par défaut" version="1" />
+    <string key="chkSaveWindow" value="Enregistrer la taille de la fenêtre EasyBCD en quittant" version="1" />
+    <string key="ResetSize" value="Réinitialiser les options d'affichage" version="1" />
+    <string key="tabDisplayOptions" value="Options d'affichage" version="1" />
+    <string key="OptionsDialog" value="Paramètres EasyBCD" version="1" />
+    <string key="overview" value="Simple" version="1" />
+    <string key="detailed" value="Détaillé" version="1" />
+    <string key="locateBcd" value="Localiser un magasin BCD valide" version="1" />
+    <string key="never" value="Jamais" version="1" />
+    <string key="MinimumWidth" value="550" />
+    <string key="MinimumHeight" value="360" />
+  </strings>
+</localization>

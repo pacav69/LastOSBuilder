@@ -1,0 +1,13 @@
+[WTR]
+Name="Standard Collector Migration"
+
+[WTR.*]
+NotifyUser="No"
+
+[System.File]
+"%windir%\system32\ [DiagnosticsHub.Packaging.dll]"
+"%windir%\system32\ [DiagnosticsHub.StandardCollector.Proxy.dll]"
+"%windir%\system32\ [DiagnosticsHub.StandardCollector.Runtime.dll]"
+"%windir%\system32\ [DiagnosticsHub.StandardCollector.Service.exe]"
+"%windir%\system32\ [DiagnosticsHub.StandardCollector.ServiceRes.dll]"
+"%windir%\syswow64\ [DiagnosticsHub.StandardCollector.Proxy.dll]"
