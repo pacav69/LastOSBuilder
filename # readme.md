@@ -48,6 +48,19 @@ To clone create a subdirectory and use the following command from the command pr
 
 this will copy the files to your computer into the created subdirectory.
 
+## Builder Updates
+
+To update, change to subdirectory of builder (LastOSBuilder) and use the following command from the command prompt:
+
+        git pull  https://github.com/pacav69/LastOSBuilder
+
+this will update only the changed files from the repositry into the builder directory.
+
+If all is fine you should see this
+
+        Already up to date.
+
+
 ## Documentation WIP (work In Progress)
 
 LastOS Builder Documentation
