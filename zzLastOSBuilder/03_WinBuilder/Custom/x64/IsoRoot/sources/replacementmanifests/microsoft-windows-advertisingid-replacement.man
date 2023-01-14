@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-AdvertisingId"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0-1"
+      settingsVersion="2"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <!-- This "rules" section aims to treat the AdvertisingInfo::Enabled value as if it was set/true IF the downlevel OS
+             is pre-Win8 (6.2.9200).
+             The intent is that upgrading from builds prior to Win8 *should* cause AdvertisingId to be enabled.
+             But upgrading from builds Win8+ should *not* enable AdvertisingId, because the user would have had the opportunity
+             to opt-out during OOBE for Win8+, and we should not re-enable it against their earlier decision.  -->
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT","6.2.9200")</condition>
+          </detect>
+        </detects>
+        <addObjects>
+          <!-- If this regkey doesn't exist, this will simulate its existence during the gather stage, so that it can be applied. -->
+          <conditions>
+            <condition negation="yes">
+              MigXmlHelper.DoesObjectExist("Registry", "HKLM\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]")
+            </condition>
+          </conditions>
+          <object>
+            <location type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]</location>
+            <attributes>dword</attributes>
+            <bytes>01000000</bytes>
+          </object>
+        </addObjects>
+      </rules>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <conditions>
+              <condition>MigXmlHelper.IsOSLaterThan("NT","10.0")</condition>
+            </conditions>
+            <!-- We will migrate the HKLM...[Enabled] value when upgrading from Win10 only -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <!-- Desktop OS-swap upgrade will remove all keys under HKCU\S\MS\Windows unless they are specifically "included". -->
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <conditions>
+              <condition negation="Yes">MigXmlHelper.IsOSLaterThan("NT","10.0")</condition>
+            </conditions>
+            <!-- We will not migrate the HKCU...[Enabled] value when upgrading from Pre-Win10 -->
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo [Enabled]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; Disables Location itself/completely. (So you can NOT do the following: 'If location is on, each person using this device can choose their own location settings.')
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}] 
+"SensorPermissionState"=dword:00000000 
+

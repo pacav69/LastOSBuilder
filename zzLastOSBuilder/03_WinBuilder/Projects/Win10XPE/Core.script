@@ -1,0 +1,1052 @@
+[Main]
+Title=Build Core
+Type=XPEPlugin
+Description=Build Win10XPE Core based on WinRE.wim Recovery Environment with Features additions and Options
+Author=ChriSR
+Date=2022.12.17
+Version=008
+Selected=True
+Mandatory=True
+NoWarning=False
+Level=1
+Download_Level=0
+Credits=
+Contact=
+Interface=InterfaceMain
+History08=ChrisR Check winre.wim Version
+
+[Variables]
+%AdditionalFiles%=%BaseDir%\Projects\Include\%Architecture%\AdditionalFiles
+%DismExe%=%GTools%\%Architecture%\DISM\dism.exe
+%DismLog%=%GTarget_Win%\Logs\DISM\dism.log
+%sr-Latn%=No
+
+[InterfaceMain]
+Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
+Main_TextLabel="Main Interface",1,1,32,8,124,18,8,Bold
+Option_Button="Additional Options",1,8,147,2,145,26,OptionInterface,0,True,"__Display Additional Options"
+PENetwork_Button="Network Options",1,8,292,2,145,26,PENetworkInterface,0,True,"__Display PENetwork Options"
+Build_Button="Build Options",1,8,437,2,145,26,BuildInterface,0,True,"__Display Advanced Build Options"
+//-
+Shell_Bevel=Shell_Bevel,1,12,6,38,220,24
+Shell_TextLabel="Shell :",1,1,12,44,40,18,8,Bold
+Explorer_RadioButton=Explorer,1,11,66,41,65,20,True,"__Default Windows Explorer Shell"
+WinXShell_RadioButton=WinXShell,1,11,135,41,75,20,False,"__A small portable Shell program without dependencies. To keep it light, avoid using all components"
+Keyboard_TextLabel=Keyboard,1,1,6,71,54,18,8,Normal
+Keyboard_ScrollBox=HostOS,1,4,76,67,150,21,HostOS,Default,"Belgian French | fr-BE","Chinese PRC | zh-CN","Chinese Taiwan | zh-TW","Dutch | nl-NL","English UK | en-GB","English US | en-US","French | fr-FR","German | de-DE","Greek | el-GR","Hebrew | he-IL","Hungarian | hu-HU","Italian | it-IT","Korean | ko-KR","Portuguese | pt-PT","Portuguese Brazil | pt-BR","Russian | ru-RU","Spanish | es-ES","Swedish | sv-SE","Turkish | tr-TR","__Choose the Keyboard. en-US keyboard added if not already present"
+Format_TextLabel=Format,1,1,6,95,54,18,8,Normal
+Format_ScrollBox=HostOS,1,4,76,91,150,21,HostOS,Default,"Belgian French | fr-BE","Chinese PRC | zh-CN","Chinese Taiwan | zh-TW","Dutch | nl-NL","English UK | en-GB","English US | en-US","French | fr-FR","German | de-DE","Greek | el-GR","Hebrew | he-IL","Hungarian | hu-HU","Italian | it-IT","Korean | ko-KR","Portuguese | pt-PT","Portuguese Brazil | pt-BR","Russian | ru-RU","Spanish | es-ES","Swedish | sv-SE","Turkish | tr-TR","__Choose the date and time format"
+TimeZone_TextLabel=TimeZone,1,1,6,119,54,18,8,Normal
+TimeZone_ScrollBox=HostOS,1,4,76,115,150,21,HostOS,Default,"(UTC-12:00) Dateline Standard Time","(UTC-11:00) UTC-11","(UTC-10:00) Hawaiian Standard Time","(UTC-10:00) Aleutian Standard Time","(UTC-09:30) Marquesas Standard Time","(UTC-09:00) Alaskan Standard Time","(UTC-09:00) UTC-09","(UTC-08:00) Pacific Standard Time (Mexico)","(UTC-08:00) Pacific Standard Time","(UTC-08:00) UTC-08","(UTC-07:00) US Mountain Standard Time","(UTC-07:00) Mountain Standard Time (Mexico)","(UTC-07:00) Mountain Standard Time","(UTC-06:00) Central America Standard Time","(UTC-06:00) Central Standard Time","(UTC-06:00) Central Standard Time (Mexico)","(UTC-06:00) Easter Island Standard Time","(UTC-06:00) Canada Central Standard Time","(UTC-05:00) SA Pacific Standard Time","(UTC-05:00) Eastern Standard Time (Mexico)","(UTC-05:00) Eastern Standard Time","(UTC-05:00) Haiti Standard Time","(UTC-05:00) Cuba Standard Time","(UTC-05:00) Turks And Caicos Standard Time","(UTC-05:00) US Eastern Standard Time","(UTC-04:00) Paraguay Standard Time","(UTC-04:00) Venezuela Standard Time","(UTC-04:00) Central Brazilian Standard Time","(UTC-04:00) SA Western Standard Time","(UTC-04:00) Atlantic Standard Time","(UTC-04:00) Pacific SA Standard Time","(UTC-03:30) Newfoundland Standard Time","(UTC-03:00) Tocantins Standard Time","(UTC-03:00) E. South America Standard Time","(UTC-03:00) Argentina Standard Time","(UTC-03:00) SA Eastern Standard Time","(UTC-03:00) Greenland Standard Time","(UTC-03:00) Montevideo Standard Time","(UTC-03:00) Magallanes Standard Time","(UTC-03:00) Saint Pierre Standard Time","(UTC-03:00) Bahia Standard Time","(UTC-02:00) UTC-02","(UTC-01:00) Cape Verde Standard Time","(UTC-01:00) Azores Standard Time","(UTC) UTC","(UTC+00:00) Morocco Standard Time","(UTC+00:00) GMT Standard Time","(UTC+00:00) Greenwich Standard Time","(UTC+01:00) W. Central Africa Standard Time","(UTC+01:00) W. Europe Standard Time","(UTC+01:00) Central Europe Standard Time","(UTC+01:00) Romance Standard Time","(UTC+01:00) Sao Tome Standard Time","(UTC+01:00) Central European Standard Time","(UTC+02:00) Jordan Standard Time","(UTC+02:00) GTB Standard Time","(UTC+02:00) Middle East Standard Time","(UTC+02:00) E. Europe Standard Time","(UTC+02:00) Syria Standard Time","(UTC+02:00) West Bank Standard Time","(UTC+02:00) South Africa Standard Time","(UTC+02:00) FLE Standard Time","(UTC+02:00) Israel Standard Time","(UTC+02:00) Kaliningrad Standard Time","(UTC+02:00) Sudan Standard Time","(UTC+02:00) Egypt Standard Time","(UTC+02:00) Libya Standard Time","(UTC+02:00) Namibia Standard Time","(UTC+03:00) Arabic Standard Time","(UTC+03:00) Turkey Standard Time","(UTC+03:00) Arab Standard Time","(UTC+03:00) Belarus Standard Time","(UTC+03:00) Russian Standard Time","(UTC+03:00) E. Africa Standard Time","(UTC+03:30) Iran Standard Time","(UTC+04:00) Arabian Standard Time","(UTC+04:00) Astrakhan Standard Time","(UTC+04:00) Azerbaijan Standard Time","(UTC+04:00) Caucasus Standard Time","(UTC+04:00) Russia Time Zone 3","(UTC+04:00) Mauritius Standard Time","(UTC+04:00) Saratov Standard Time","(UTC+04:00) Georgian Standard Time","(UTC+04:30) Afghanistan Standard Time","(UTC+05:00) West Asia Standard Time","(UTC+05:00) Ekaterinburg Standard Time","(UTC+05:00) Pakistan Standard Time","(UTC+05:30) India Standard Time","(UTC+05:30) Sri Lanka Standard Time","(UTC+05:45) Nepal Standard Time","(UTC+06:00) Central Asia Standard Time","(UTC+06:00) Bangladesh Standard Time","(UTC+06:00) Omsk Standard Time","(UTC+06:30) Myanmar Standard Time","(UTC+07:00) SE Asia Standard Time","(UTC+07:00) Altai Standard Time","(UTC+07:00) W. Mongolia Standard Time","(UTC+07:00) North Asia Standard Time","(UTC+07:00) N. Central Asia Standard Time","(UTC+07:00) Tomsk Standard Time","(UTC+08:00) China Standard Time","(UTC+08:00) North Asia East Standard Time","(UTC+08:00) Singapore Standard Time","(UTC+08:00) Ulaanbaatar Standard Time","(UTC+08:00) W. Australia Standard Time","(UTC+08:00) Taipei Standard Time","(UTC+08:30) North Korea Standard Time","(UTC+08:45) Aus Central W. Standard Time","(UTC+09:00) Transbaikal Standard Time","(UTC+09:00) Yakutsk Standard Time","(UTC+09:00) Tokyo Standard Time","(UTC+09:00) Korea Standard Time","(UTC+09:30) Cen. Australia Standard Time","(UTC+09:30) AUS Central Standard Time","(UTC+10:00) E. Australia Standard Time","(UTC+10:00) AUS Eastern Standard Time","(UTC+10:00) West Pacific Standard Time","(UTC+10:00) Tasmania Standard Time","(UTC+10:00) Vladivostok Standard Time","(UTC+10:30) Lord Howe Standard Time","(UTC+11:00) Russia Time Zone 10","(UTC+11:00) Bougainville Standard Time","(UTC+11:00) Norfolk Standard Time","(UTC+11:00) Central Pacific Standard Time","(UTC+11:00) Magadan Standard Time","(UTC+11:00) Sakhalin Standard Time","(UTC+12:00) Russia Time Zone 11","(UTC+12:00) New Zealand Standard Time","(UTC+12:00) Fiji Standard Time","(UTC+12:00) UTC+12","(UTC+12:45) Chatham Islands Standard Time","(UTC+13:00) Tonga Standard Time","(UTC+13:00) Samoa Standard Time","(UTC+13:00) UTC+13","(UTC+14:00) Line Islands Standard Time","__Choose the Time Zone.  Use 'TZUTIL /L' for the link between the Time Zone ID used here and the Windows display name"
+Fbwf_TextLabel1="WinPE Cache Size",1,1,6,145,96,18,8,Normal
+Fbwf_ScrollBox=1024,1,4,103,141,58,21,512,1024,2048,3072,4092,"__WinPE Cache Threshold or FBWF Cache Size. Limited to 1024 Mb with x86"
+Fbwf_TextLabel2=MB,1,1,166,145,26,18,8,Normal
+AllInRam_CheckBox="Run ALL Programs From RAM",1,3,6,164,170,18,False,"__Run All Programs From Ram requires more memory. It is recommended for PXE server"
+Custom_Bevel=Custom_Bevel,1,12,6,183,220,53
+Custom_CheckBox="Add Your Custom Folder",1,3,12,187,150,18,False,"__Add Your Custom Files and Folders"
+CustomOpen_Button="Open Custom Folder",1,8,10,206,212,26,CustomOpen,opendir.bmp,True,"__Copy your Custom Files and Folders here"
+SetupFiles_CheckBox="Windows Installer Files (Setup.exe)",1,3,6,240,225,18,False,"__Add boot.wim Windows Installer Files (Setup.exe)"
+VCRuntime_CheckBox="VC++ 8-9 Runtime",1,3,6,258,115,18,True,"__Add Embedded VC++ (8.0 - 9.0) Runtime"
+Accessibility_CheckBox=Accessibility,1,3,122,258,108,18,False,"__Add Ease of Access, Magnify, OnScreenKeybord in addition to Narrator"
+WoW64_CheckBox="WoW64 Basic",1,3,6,276,115,18,True,"__Add WoW64 Basic. Not Required If You Use Only 64-bit Apps"
+DisplayDrivers_CheckBox="Display Drivers",1,3,122,276,108,18,True,"__Add Basic Display Drivers:"
+Network_CheckBox="Network Additions",1,3,6,294,115,18,False,"__Add Network Support Additions"
+NetDrivers_CheckBox="Network Drivers",1,3,122,294,108,18,True,"__Add Original Network Drivers Additions: Atheros,Broadcom,Intel,Realtek"
+Audio_CheckBox=Audio,1,3,6,312,70,18,True,"__Add Audio Support Additions"
+SoundEvents_CheckBox="System Event Sounds",1,3,122,312,142,18,False,"__Add Windows Event Sounds. Audio Must Be Enabled"
+WinApps_CheckBox="Windows Apps",1,3,6,330,115,18,True,"__Add Windows Apps: Paint,PhotoViewer,SnippingTool,Wordpad. Only Paint and Wordpad With WinXShell To Keep Light"
+Msi_CheckBox="Msi Windows Installer",1,3,122,330,142,18,True,"__Add Msi Windows Installer"
+DotNET_CheckBox="Microsoft .NETFx4",1,3,6,348,115,18,False,"__Add Embedded Microsoft .NET Framework 4 - To Get WIFI, You Must Also Enable Network Addition"
+ImDisk_CheckBox="ImDisk Ramdisk B:\Temp",1,3,122,348,142,18,True,"__ImDisk Virtual Disk Driver. Create B: RamDisk and Set %Temp% to B:\Temp"
+Admin_CheckBox="Switch To Admin",1,3,6,366,115,18,False,"__Switch to Administrator Account Login At Startup"
+IE11_CheckBox="Internet Explorer 11",1,3,122,366,138,18,False,_IE11_Info_,False,"__Add Internet Explorer 11. Only available in Windows 10. It Requires Administrator Account For Downloads."
+//-
+Drivers_Bevel=Drivers_Bevel,1,12,270,280,226,61
+Drivers_CheckBox="Integrate Drivers",1,3,276,284,112,18,True,"__Integrate Your Custom Drivers"
+PauseDrivers_CheckBox=Pause,1,3,392,284,52,18,False,"__Pause When Integrating Drivers"
+DriversOpen_Button="Copy Drivers Here",1,8,274,303,144,34,DriversOpen,opendir.bmp,True,"__Copy Your Custom Drivers Here"
+DriversPlay_Button=,1,8,419,303,24,34,DriversPlay,Play16.bmp,False,"__Integrate Provided Drivers Into The Build"
+ExportDrivers_Button=Export,1,8,444,303,48,34,ExportDrivers,0,False,"__Export Host Third-Party (OEM) Driver Packages"
+HostNetDrivers_Bevel=HostNetDrivers_Bevel,1,12,270,339,226,29
+HostNetDrivers_CheckBox="Add Host Net Drivers",1,3,276,345,144,18,False,"__Add the Host's Network Drivers (If Same OS and Architecture)"
+HostNetDriversPlay_Button=,1,8,464,342,28,24,HostNetDriversPlay,Play16.bmp,False,"__Extract and Integrate Host's Network Drivers Into The Build"
+//-
+Wallpaper_Button="Copy Wallpaper (img0.jpg) Here",1,8,270,37,226,26,WallpaperOpen,wallpaper.bmp,False,"__Copy Your Custom Wallpaper Image (img0.jpg) Here"
+UserAccount_Button="Copy User Logo (user-200.png) Here",1,8,270,67,226,26,UserAccountOpen,User-Account.bmp,False,"__Copy Your Custom User Account Picture (user-200.png) Here"
+StartupMP3_Button="Copy (Startup.mp3) Sound Here",1,8,270,97,226,26,StartupMP3Open,sound.bmp,False,"__Copy Your Custom Startup Sound (startup.mp3) Here"
+PecmdEdit_Button="Edit Pecmd.ini",1,8,270,127,112,26,PecmdEdit,Pecmd.bmp,True,"__Edit Pecmd.ini Shell Loader and Customize Shortcuts..."
+PecmdAdminEdit_Button=PecmdAdmin.ini,1,8,384,127,112,26,PecmdAdminEdit,Pecmd.bmp,True,"__Edit PecmdAdmin.ini Shell Loader"
+Pecmd_TextLabel="Customize Desktop, Start Menu Shortcuts,...",1,1,272,153,234,18,8,Normal
+Taskbar_Button="Taskbar Button",1,14,270,171,226,68,"Always Combine, Hide Labels","Combine When Taskbar Is Full","Never Combine",1
+ExpandCurDir_CheckBox="Auto Expand To Current Folder",1,3,270,242,194,18,True,"__Enable To Automatically Expand To Current Folder in Navigation Pane"
+NumLock_CheckBox="NumLock ON",1,3,270,259,178,18,True,"__Determines Whether the NUMLOCK Key is ON or OFF when the Computer Starts"
+
+[InterfaceOption]
+Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
+Main_Button="Main Interface",1,8,2,2,145,26,MainInterface,0,True,"__Display Main Interface"
+Option_TextLabel="Additional Options",1,1,167,8,120,18,8,Bold
+PENetwork_Button="Network Options",1,8,292,2,145,26,PENetworkInterface,0,True,"__Display PENetwork Options"
+Build_Button="Build Options",1,8,437,2,145,26,BuildInterface,0,True,"__Display Advanced Build Options"
+//-
+Computer_CheckBox="Display Computer on Desktop",1,3,6,38,172,18,True,"__Displays MyComputer on Desktop by Default"
+DarkTheme_CheckBox="Explorer Dark Theme",1,3,6,57,125,18,False,"__File Explorer's Dark Theme from Windows 10 1809 and up"
+DarkThemeShortcut_CheckBox="Theme Shortcut",1,3,138,57,125,18,True,"__Create Shortcut To Change Between Light and Dark Themes In Windows 10 1809"
+DPI_CheckBox="Turn Off the Default DPI Scaling",1,3,6,76,180,18,False,"__On High Resolution Displays - Turn DPI Scaling Off To Increase Icon and Application Size"
+Ribbon_CheckBox="Explorer Show Ribbon",1,3,6,95,130,18,True,"__Displays The File Explorer Ribbon Expanded"
+HideTaskbar_CheckBox="Auto Hide The Taskbar",1,3,138,95,135,18,False,"__Select To Allow The Taskbar To Automaticlly Hide For Full Screen Use"
+TouchKeyboard_CheckBox="Show Touch Keyboard Button",1,3,6,114,200,18,True,"__Show Touch Keyboard Button on System Tray"
+SIBSkin_TextLabel="StartIsBack Skin:",1,1,6,136,96,18,8,Normal
+SIBSkin_ScrollBox=Plain8,1,4,102,133,84,21,"Windows 7",Plain8,Plain10,"__StartIsBack Interface Skin"
+SIBOpaque_CheckBox=Opaque,1,3,192,136,60,18,True,"__Make the Start Menu Opaque"
+SIBFlyoutMenu_CheckBox="StartIsBack Display as Flyout Menu",1,3,6,155,210,18,True,"__StartIsBack Display as flyout menu (Windows XP Style)"
+Position_TextLabel="Fit Wallpaper:",1,1,6,177,96,18,8,Normal
+Position_ScrollBox=Fill,1,4,102,174,84,21,Stretch,Fill,Tile,Span,"__Choose a Fit between Stretch, Fill (Default), Tile and Span"
+//-
+Colors_Bevel=Colors_Bevel,1,12,6,200,270,112
+Colors_TextLabel="Window Title Bars Color:",1,1,12,208,135,18,8,Normal
+Colors_ScrollBox=1,1,4,148,205,38,21,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,"__Choose Window Title Bars and Taskbar color Theme"
+Colors_Image=ThemeColors.jpg,1,5,11,228,260,80
+//-
+Admin_Bevel=Admin_Bevel,1,12,301,135,250,57
+AdminName_TextLabel="Administrator Name",1,1,308,142,105,18,8,Normal
+AdminName_TextBox=,1,0,433,140,113,21,Administrator
+AdminCountDown_TextLabel="Ask to Switch to Administrator for",1,1,308,168,174,18,8,Normal
+AdminCountDown_NumberBox=CountDown_NumberBox,1,2,482,165,40,22,5,0,10,1,"__Countdown to Ask to Switch to Administrator or continue with the System session. 0=Logon as Administrator without Question"
+AdminSec_TextLabel=Sec,1,1,527,168,22,18,8,Normal
+//-
+Power_Bevel=Power_Bevel,1,12,282,38,269,91
+PowerOptions_TextLabel="Power Options",1,1,289,43,96,18,8,Bold
+Battery_TextLabel="On Battery",1,1,432,42,62,18,8,Normal
+Plugged_TextLabel="Plugged In",1,1,495,42,57,18,8,Normal
+Monitor_TextLabel="Turn Off Display (Minutes):",1,1,288,62,145,18,8,Normal
+MonitorDC_NumberBox=MonitorDC_NumberBox,1,2,434,59,50,22,10,0,300,1
+MonitorAC_NumberBox=MonitorAC_NumberBox,1,2,496,59,50,22,0,0,300,1
+Disk_TextLabel="Turn Off Hard Disk (Minutes):",1,1,288,88,145,18,8,Normal
+DiskDC_NumberBox=DiskDC_NumberBox,1,2,434,85,50,22,20,0,300,1
+DiskAC_NumberBox=DiskAC_NumberBox,1,2,496,85,50,22,0,0,300,1
+USBsuspend_TextLabel="Disable USB Selective Suspend:",1,1,288,110,160,18,8,Normal
+USBsuspendDC_CheckBox=,1,3,452,109,20,18,True
+USBsuspendAC_CheckBox=,1,3,515,109,20,18,True
+//-
+Volume_Bevel=Volume_Bevel,1,12,346,198,205,51
+Volume_TextLabel="System Volume At Startup:",1,1,354,208,143,18,8,Normal
+Volume_NumberBox=Volume1,1,2,506,204,40,22,33,0,100,1
+Mute_CheckBox="Mute The System Volume At Startup",1,3,352,229,198,18,False
+//-
+ComputerName_RadioGroup="Computer Name",1,14,400,252,150,48,"Project Name","Custom Name",0
+CustomComputerName_TextBox=,1,0,400,298,150,21,Win10XPE-??++,"__Custom Computer Name. Also Used in PENetwork.ini with the Possibility to Use Wildcards ? (char) and + (num)"
+
+[InterfacePENetwork]
+Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
+Main_Button="Main Interface",1,8,2,2,145,26,MainInterface,0,True,"__Display Main Interface"
+Option_Button="Additional Options",1,8,147,2,145,26,OptionInterface,0,True,"__Display Additional Options"
+PENetwork_TextLabel="Network Options",1,1,316,8,108,18,8,Bold
+Build_Button="Build Options",1,8,437,2,145,26,BuildInterface,0,True,"__Display Advanced Build Options"
+//-
+PENMAddPENetwork_CheckBox="Add PENetwork To Build",0,3,10,40,143,18,True,"__Add PENetwork To The Build"
+PENMRunFromWhere_ScrollBox="Run From USB",1,4,214,36,104,21,"Run From USB","Run From RAM"
+PENMUpdate_Button=U,0,8,419,36,14,14,Update_PENProgramFiles,0,False,"__Update PENetwork Program Files"
+PENMShortcut_Bevel=PENMShortcut_Bevel,1,12,4,62,133,121
+PENMDesktop_CheckBox="Desktop Shortcut",1,3,10,66,122,18,True,"__Add PENetwork Desktop Shortcut"
+PENMStartMenu_CheckBox="Start Menu Shortcut",1,3,10,84,122,18,True,"__Add PENetwork Start Menu Shortcut"
+PENMTaskBpin_CheckBox="Pin To TaskBar",1,3,10,102,122,18,False,"__Add PENetwork Pin To Taskbar Shortcut"
+PENMStartMpin_CheckBox="Pin To StartMenu",1,3,10,120,122,18,False,"__Add PENetwork Pin To StartMenu Shortcut"
+PENMStartMenuFolder_TextBox="Start Menu Folder:",1,0,10,156,121,21,Network,"__PENetwork Start Menu Folder Name"
+PENM_TextLabel=PENetwork,1,1,145,67,72,18,8,Bold
+PENMImage_Software=PENetwork64.ico,1,5,143,83,64,64
+PENMHomePage_WebLabel="Home Page",1,10,148,151,54,18,https://www.penetworkmanager.de/
+//-
+PENMEditor_Button="Start PENetwork Configuration Editor",1,8,214,62,220,26,PENMEditor,Penetwork.bmp,True,"__Start PE Network Manager Configuration/Profile Editor"
+WifiProfile_Bevel=WifiProfile_Bevel,1,12,214,92,220,91
+ExportWifi_Button="Start Wireless Configuration Exporter",1,8,220,97,210,26,ExportWifi,Penetwork.bmp,True,"__Start PENetwork Wireless Network Configuration Exporter - Export/Save Your PC's Wireless Network Configuration into PE Build"
+WifiProfile_TextLabel=SSIDProfile.xml,1,1,222,126,91,18,8,Normal
+WifiProfile_TextBox=,1,0,220,140,186,21,SSIDProfile.xml,"__Enter Full Name Of SSID Profile.xml (SSIDProfile.xml)"
+Profiles_Opendir_Button=,1,8,408,140,22,22,Profiles_OpenDir,opendir.bmp,False,"__Click Here To Open WIFI Profiles Folder:"
+UseWifiProfile_CheckBox="AutoConnect To Wireless SSID Profile",1,3,220,163,209,18,True,"__Start PENetwork With Custom Wifi Profile"
+WifiProfile_TextLabel1="1. Export Wireless SSID Profile",1,1,438,102,175,18,8,Normal,"__Export Wireless SSID Profile"
+WifiProfile_TextLabel2="2. Enter Full Name Of SSID Profile",1,1,438,143,175,18,8,Normal,"__Enter Full Name Of SSID Profile"
+WifiProfile_TextLabel3="3. Enable Connect To SSID Profile",1,1,438,165,175,18,8,Normal,"__Enable Connect To SSID Profile"
+//-
+Splitter1_Bevel=Splitter1_Bevel,1,12,0,190,578,4
+IE11Shortcut_Bevel=IE11Shortcut_Bevel,1,12,4,201,133,121
+IE11Desktop_CheckBox="Desktop Shortcut",1,3,10,205,122,18,True,"__Add IE11 Desktop Shortcut"
+IE11StartMenu_CheckBox="Start Menu Shortcut",1,3,10,223,122,18,True,"__Add IE11 Start Menu Shortcut"
+IE11TaskBpin_CheckBox="Pin To TaskBar",1,3,10,241,122,18,False,"__Add IE11 Pin To Taskbar Shortcut"
+IE11StartMpin_CheckBox="Pin To StartMenu",1,3,10,259,122,18,False,"__Add IE11 Pin To StartMenu Shortcut"
+IE11StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,295,121,21,Network,"__IE11 Start Menu Folder Name"
+IE11_TextLabel=IE11,1,1,164,212,36,18,8,Bold
+IE11_Image=IE11_64.ico,1,5,143,226,64,64
+IE11_Bevel=IE11_Bevel,1,12,214,208,220,86
+HomePage_TextLabel=HomePage,1,1,220,216,57,18,8,Normal
+HomePage_TextBox=,1,0,278,214,152,21,https://www.google.com,"__Define IE11 Home Page"
+Search_TextLabel="Search Engine",1,1,220,242,77,18,8,Normal
+Search_ScrollBox=Google,1,4,298,240,132,21,Baidu,Bing,DuckDuckGo,Google,Yahoo!,Yandex,"__Select IE11 Search Engine"
+Favorites_Button="Copy Favorites (*.url) Here",1,8,220,265,210,25,Favorites_OpenDir,0,False,"__Copy your IE11 Favorites (*.url) Here"
+IE11Admin_TextLabel="(*) Internet Explorer 11 Requires Administrator Account For Downloads.",1,1,151,304,376,18,8,Normal
+//-
+Splitter2_Bevel=Splitter2_Bevel,0,12,0,329,578,4
+PENMOptions_TextLabel=PENetwork,0,1,493,348,72,18,8,Bold
+PENMOptions2_TextLabel="Advanced Options",0,1,473,364,116,18,8,Bold
+PENMAutoRun_CheckBox="Run PENetwork at Startup",0,3,10,338,169,18,True,"__Run PENetwork at Startup"
+PENMPromptAtStartup_CheckBox="Prompt for Starting Network",0,3,10,356,169,18,True,"__Prompt for Starting Network Support"
+PENMStartCountdown_CheckBox="Startup Countdown:",0,3,10,375,120,20,False,"__Use a Countdown on 1st Startup (Only if AutoStart is Disabled). Time in Seconds for the Countdown"
+PENMStartCountdown_NumberBox=StartCountdown_NumberBox,0,2,130,374,44,22,5,0,600,1
+PENMUseProfilesStartup_CheckBox="Use Network Profiles at Startup",0,3,10,396,200,20,True,"__Read and Use Profiles From PENetwork ini File at Startup"
+PENMForceScanOnStartup_CheckBox="Force Detection of Network Cards",0,3,10,415,200,20,False,"__Force Device Detection of Network Cards"
+PENMAfterStart_TextLabel="After Starting Network:",0,1,220,344,124,18,8,Normal
+PENMAfterStart_ScrollBox="Start to Tray",0,4,340,340,115,21,"Show main window","Start to Tray","Close program"
+PENMMinToTray_CheckBox="Minimize to Tray",0,3,220,360,110,18,True,"__Minimizing PENetwork in System Tray"
+PENMCloseToTray_CheckBox="Close to Tray",0,3,220,379,110,18,True,"__Closing PENetwork in System Tray"
+PENMShowTrayActivity_CheckBox="Show Network Activity in Tray",0,3,220,398,200,20,True,"__Show the Network Activity in System Tray"
+PENMHideOptions_Button=,0,8,580,328,8,8,PENMHideOptions,0,False,"__Hide PENetwork Advanced Options"
+PENMShowOptions_Button=,1,8,580,328,8,8,PENMShowOptions,0,False,"__Show PENetwork Advanced Options"
+
+[InterfaceBuild]
+Menu_Bevel=Menu_Bevel,1,12,0,0,583,29
+Main_Button="Main Interface",1,8,2,2,145,26,MainInterface,0,True,"__Display Main Interface"
+Option_Button="Additional Options",1,8,147,2,145,26,OptionInterface,0,True,"__Display Additional Options"
+PENetwork_Button="Network Options",1,8,292,2,145,26,PENetworkInterface,0,True,"__Display PENetwork Options"
+Build_TextLabel="Build Options",1,1,469,8,120,18,8,Bold
+//-
+Buildtype_RadioButton="Build type",1,14,6,40,240,88,"Full Winre.wim","Full Winre.wim with light WinSxS (default)","Use this ListFiles",1
+ListFilesEdit_Button="Edit ListFiles here",1,8,122,96,120,26,ListFilesEdit,opendir.bmp,False,"__Edit the listfile here. It is an addition to the prepared base of 'Full winre.wim with WinSxS lightened'"
+FullSoftware_CheckBox="Use Full Win10 Software hive",1,3,256,45,200,18,False,"__Use the Full Win10 Software hive from Install.wim"
+TargetArch_CheckBox="Use Arch in Target and ISO Folders Names",1,3,256,64,240,18,False,"__Use architecture for Target and ISO Folders Names: Target_x64(x86), ISO_x64(x86)"
+DrvInstPatch_CheckBox="Patch DrvInst.exe",1,3,256,83,120,18,True,"__Patch DrvInst.exe to Ignores the Validation of the Signed Catalog File"
+ControllerPatch_CheckBox="Patch Controller.dll to Get the Credentials Window",1,3,256,102,302,18,True,"__Patch Windows.UI.CredDialogController.dll to Get the Credentials Window instead of the Credentials Console. It needs both Remote Desktop and Switch to Admin plugins"
+ControllerPatch_TextLabel="If both Remote Desktop and Switch to Admin Enabled",1,1,272,118,286,18,8,Normal
+AllCatalogs_CheckBox="Add All Win10 Catalogs",1,3,6,132,200,18,False,"__Add All Windows 10 (install.wim) Catalogs"
+AllNls_CheckBox="Add All National Language Support (NLS) Files",1,3,6,151,255,18,True,"__Add All National Language Support (NLS) Files. Otherwise They Will be Copied According to the Registry Settings. It May Not Be Enough for Extended Languages."
+AllKeyboard_CheckBox="Add All KeyBoards",1,3,6,170,110,18,True,"__Add All KeyBoards. Otherwise They Will be Copied According to the Registry Settings. It May Not Be Enough for Extended Languages."
+DelSpeech_CheckBox="Delete Speech Folder in Builds Without 'Accessibility' Feature",1,3,6,189,360,18,False,"__Cleanup, Delete the Speech Folder in Constructions Without the Accessibility Feature."
+DelSysWOW64_CheckBox="Delete SysWOW64 Folder in x64 Builds Without 'WoW64 Basic' Feature",1,3,6,208,375,18,True,"__Cleanup, Delete the SysWOW64 Folder in x64 Constructions Without 'WoW64 Basic' Feature."
+DelEdgeWebPlateform_CheckBox="Delete Edge Web Plateform",1,3,6,227,375,18,False,"__Cleanup, Delete Edge Web Plateform Component. Adding Edge Web Browsing Functionalities Should Be Done in Apps Plugins."
+DelwbemRepository_CheckBox="Delete WMI Repository folder",1,3,6,246,375,18,True,"__Cleanup, Delete the wbem Repository Folder. The WMI Repository Will be Rebuilt, Refresh at Startup But it Takes a Little Time."
+
+[MainInterface]
+IniWrite,%ScriptFile%,Main,Interface,InterfaceMain
+System,RefreshInterface
+
+[OptionInterface]
+IniWrite,%ScriptFile%,Main,Interface,InterfaceOption
+System,RefreshInterface
+
+[PENetworkInterface]
+IniWrite,%ScriptFile%,Main,Interface,InterfacePENetwork
+System,RefreshInterface
+
+[BuildInterface]
+IniWrite,%ScriptFile%,Main,Interface,InterfaceBuild
+System,RefreshInterface
+
+[PENMShowOptions]
+System,CURSOR,Wait
+Run,%ScriptFile%,PENMOptions,True
+Visible,%PENMShowOptions_Button%,False,Permanent
+Visible,%PENMHideOptions_Button%,True,Permanent
+System,RefreshInterface
+System,CURSOR,Normal
+
+[PENMHideOptions]
+System,CURSOR,Wait
+Run,%ScriptFile%,PENMOptions,False
+Visible,%PENMShowOptions_Button%,True,Permanent
+Visible,%PENMHideOptions_Button%,False,Permanent
+System,RefreshInterface
+System,CURSOR,Normal
+
+[PENMOptions]
+Visible,%Splitter2_Bevel%,#1,Permanent
+Visible,%PENMAddPENetwork_CheckBox%,#1,Permanent
+Visible,%PENMAutoRun_CheckBox%,#1,Permanent
+Visible,%PENMPromptAtStartup_CheckBox%,#1,Permanent
+Visible,%PENMStartCountdown_CheckBox%,#1,Permanent
+Visible,%PENMStartCountdown_NumberBox%,#1,Permanent
+Visible,%PENMUseProfilesStartup_CheckBox%,#1,Permanent
+Visible,%PENMForceScanOnStartup_CheckBox%,#1,Permanent
+Visible,%PENMAfterStart_TextLabel%,#1,Permanent
+Visible,%PENMAfterStart_ScrollBox%,#1,Permanent
+Visible,%PENMMinToTray_CheckBox%,#1,Permanent
+Visible,%PENMCloseToTray_CheckBox%,#1,Permanent
+Visible,%PENMShowTrayActivity_CheckBox%,#1,Permanent
+Visible,%PENMUpdate_Button%,#1,Permanent
+Visible,%PENMOptions_TextLabel%,#1,Permanent
+Visible,%PENMOptions2_TextLabel%,#1,Permanent
+
+[IE11_Info]
+If,%IE11_CheckBox%,Equal,True,Begin
+  //If,%Architecture%_%WoW64_CheckBox%,Equal,x64_False,Message,"Internet Explorer 11 x64 Run in Hybrid-Mode. It needs WoW64 basic",Information
+  If,%Admin_CheckBox%,Equal,False,Message,"To Download with Internet Explorer 11, you need to Enable Switch to Admin",Information
+End
+
+[Check_Image_Exist]
+If,Not,ExistFile,%GSource%\sources\install.wim,EchoExtended,"install.wim image was Not Found in the Windows 10 Source Folder.#$x#$xSelect the Root of the Windows 10 Source Folder.",Warn,,Message,,Halt
+If,Not,ExistFile,%GSource%\sources\boot.wim,EchoExtended,"boot.wim image was Not Found in the Windows 10 Source Folder.#$x#$xSelect the Root of the Windows 10 Source Folder.",Warn,,Message,,Halt
+
+[Check_sr-Latn_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+If,#9,Equal,sr-Latn-CS,Set,%sr-Latn%,Yes
+If,#9,Equal,sr-Latn-RS,Set,%sr-Latn%,Yes
+If,%sr-Latn%,Equal,Yes,Begin
+  EchoExtended,"Win10XPE does not support sr-Latn-CS and sr-Latn-RS languages.",Warn,,Message,,Halt
+  //If,ExistFile,%ProjectDir%\Features\Explorer_AddFiles.txt,TXTReplace,%ProjectDir%\Features\Explorer_AddFiles.txt,\??-??\,\*\
+  Loop,BREAK
+End
+
+[CheckInput]
+If,%WinXShell_RadioButton%,Equal,True,Begin
+  If,%Admin_CheckBox%,Equal,True,EchoExtended,"Do Not Use Switch to Admin with WinXShell.",Warn,,Message,,Halt
+  If,%IE11_CheckBox%,Equal,True,EchoExtended,"Do Not Use IE11 with WinXShell.",Warn,,Message,,Halt
+  If,%DotNET_CheckBox%,Equal,True,EchoExtended,"Do Not Use DotNET with WinXShell.",Warn,,Message,,Halt
+  If,%FullSoftware_CheckBox%,Equal,True,EchoExtended,"WinXShell is Designed to be Light, it is not intended for using the Full Software hive.",Warn,,Message,,Halt
+End
+
+[SaveConfig]
+If,%Explorer_RadioButton%,Equal,True,Set,%Shell%,Explorer,Permanent
+Else,Set,%Shell%,WinXShell,Permanent
+//-
+If,%TargetArch_CheckBox%,Equal,True,Begin
+  Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
+  Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
+End
+Else,Begin
+  Set,%GTarget%,%BaseDir%\Target,Permanent
+  Set,%GISO%,%BaseDir%\ISO,Permanent
+End
+//-
+If,%AllInRam_CheckBox%,Equal,True,Begin
+  Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
+  Set,%PE_Programs%,"X:\Program Files",Permanent
+End
+Else,Begin
+  Set,%Target_Prog%,%GISO%\Programs,Permanent
+  Set,%PE_Programs%,Y:\Programs,Permanent
+End
+// Full Software Hive
+Set,%FullSoftware%,%FullSoftware_CheckBox%,Permanent
+//If,%Network_CheckBox%,Equal,True,Set,%FullSoftware%,True,Permanent
+//-
+// ShellExecute's Standard Output Redirect in PEBakery
+If,ExistFile,%WBExe%,Set,%OpenHideOutput%,Open,Permanent
+Else,Set,%OpenHideOutput%,Hide,Permanent
+//-
+Run,%scriptfile%,IniWriteFeatures
+
+[IniWriteFeatures]
+IniWrite,%ProjectDir%\Script.Project,Features,TargetArch,%TargetArch_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,AllInRam,%AllInRam_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,AllCatalogs,%AllCatalogs_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,SetupFiles,%SetupFiles_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,VCRuntime,%VCRuntime_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,DisplayDrivers,%DisplayDrivers_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,WoW64basic,%WoW64_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,Msi,%Msi_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,ImDisk,%ImDisk_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,Network,%Network_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,NetDrivers,%NetDrivers_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,PENetwork,%PENMAddPENetwork_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,Audio,%Audio_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,SoundEvents,%SoundEvents_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,Accessibility,%Accessibility_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,WinApps,%WinApps_CheckBox%
+IniWrite,%ProjectDir%\Script.Project,Features,Admin,%Admin_CheckBox%
+If,Not,ExistFile,%ProjectDir%\Features\IE11.Script,IniWrite,%ProjectDir%\Script.Project,Features,IE11,False
+Else,IniWrite,%ProjectDir%\Script.Project,Features,IE11,%IE11_CheckBox%
+If,Not,ExistFile,%ProjectDir%\Features\DotNET.Script,IniWrite,%ProjectDir%\Script.Project,Features,DotNET,False
+Else,IniWrite,%ProjectDir%\Script.Project,Features,DotNET,%DotNET_CheckBox%
+// System,RebuildVars not required with PEBakery
+If,ExistFile,%WBExe%,System,RebuildVars
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Exec,%ProjectDir%\Features\PreCheck.Script,Process
+//-
+Run,%ScriptFile%,Check_Image_Exist
+StrFormat,SPLIT,%FallBackLanguage%,|,0,%NbLang%
+Loop,%ScriptFile%,Check_sr-Latn_Loop,1,%NbLang%
+Run,%scriptfile%,CheckWaikTool
+//-
+AddInterface,%ScriptFile%,InterfaceMain,""
+AddInterface,%ScriptFile%,InterfaceOption,""
+AddInterface,%ScriptFile%,InterfacePENetwork,""
+AddInterface,%ScriptFile%,InterfaceBuild,""
+//-
+Run,%ScriptFile%,CheckInput
+Run,%scriptfile%,SaveConfig
+//-
+Echo,"Deleting Target & Temp folders..."
+Run,%ScriptFile%,ClearMakeFolder
+If,Not,ExistFile,%GTemp%\WimInfo.ini,Run,%ScriptFile%,Run_WimInfo
+//-
+Echo,"Extract Winre.wim image file from install.wim"
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\Recovery\Winre.wim --dest-dir=#$q%GTemp%#$q --no-globs --no-acls"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract Winre.wim image file from install.wim return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract Winre.wim image file from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
+//-
+If,Not,%SourceBuild%,Smaller,19041,Run,%ScriptFile%,Check_Winre_Version
+//-
+If,ExistFile,%XPECache%\HiveCache.ini,Begin
+  IniRead,%XPECache%\HiveCache.ini,Cache,FullSoftware,%FullSoftwareIni%
+  If,%FullSoftwareIni%,Equal,True,Begin
+    If,ExistFile,%XPECache%\FullSOFTWARE,FileCopy,%XPECache%\FullSOFTWARE,%GTemp%\Install.hives\SOFTWARE
+  End
+End
+If,Not,ExistFile,%GTemp%\Install.hives\SOFTWARE,Begin
+  Echo,"Extract Software hive from install.wim"
+  ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SOFTWARE --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
+  If,%ExitCode%,Equal,0,Echo,"Wimlib extract Software hive from install.wim return: %ExitCode%"
+  Else,EchoExtended,"Error: Wimlib extract Software hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
+End
+//-
+Echo,"Extract System & Drivers hive from install.wim"
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SYSTEM \Windows\System32\config\DRIVERS --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract System & Drivers hive from install.wim return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract System & Drivers hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
+//-
+If,%Buildtype_RadioButton%,Equal,0,Begin
+  Run,%ScriptFile%,ExtractWimFiles
+  If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
+End
+Else,Begin
+  Run,%ScriptFile%,PrepareSmallWim
+  If,%Buildtype_RadioButton%,Equal,1,Run,%ScriptFile%,ExtractWimFiles
+  If,%Buildtype_RadioButton%,Equal,2,Begin
+    If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
+      Echo,"\Project\CoreListFiles.txt does not exist! continue with the Lightened Winre.wim",Warn
+      Run,%ScriptFile%,ExtractWimFiles
+    End
+    Else,Run,%ScriptFile%,ExtractWimListFiles
+  End
+End
+If,%FullSoftware%,Equal,True,Begin
+  FileDeleteQ,%GTarget_Sys%\config\SOFTWARE
+  Filecopy,%GTemp%\Install.hives\SOFTWARE,%GTarget_Sys%\config
+End
+// Additional folder for pins
+If,Not,ExistDir,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu",DirMake,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu"
+If,Not,ExistDir,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar",DirMake,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+ShellExecute,Hide,Attrib.exe,"+A +H +S +R #$q%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned#$q"
+ShellExecute,Hide,Attrib.exe,"+S #$q%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned#$q"
+//-
+// Better and safer to use the same registry for Explorer and WinXShell with the copy of AppID,CLSID,Interface,TypeLib
+Exec,%ProjectDir%\Features\Config.Script,Process
+//-
+Run,%ScriptFile%,AddProjectFiles
+If,%Custom_CheckBox%,Equal,True,Run,%ScriptFile%,AddCustomFiles
+If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
+  If,ExistFile,%GTarget_Sys%\pecmd.ini,FileDeleteQ,%GTarget_Sys%\pecmd.ini
+  Filecopy,%GCustom%\Pecmdini\pecmd.ini,%GTarget_Sys%
+End
+If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
+  If,ExistFile,%GTarget_Sys%\PecmdAdmin.ini,FileDeleteQ,%GTarget_Sys%\PecmdAdmin.ini
+  Filecopy,%GCustom%\Pecmdini\PecmdAdmin.ini,%GTarget_Sys%
+End
+If,ExistFile,%GCustom%\Wallpaper\img0.jpg,Begin
+  If,Not,ExistDir,%GTarget_Win%\Web\Wallpaper\Windows,DirMake,%GTarget_Win%\Web\Wallpaper\Windows
+  Filecopy,%GCustom%\Wallpaper\img0.jpg,%GTarget_Win%\Web\Wallpaper\Windows,NoWarn
+End
+If,ExistFile,%GCustom%\UserAccountPicture\user-200.png,Begin
+  If,Not,ExistDir,"%GTarget%\ProgramData\Microsoft\User Account Pictures",DirMake,"%GTarget%\ProgramData\Microsoft\User Account Pictures"
+  Filecopy,%GCustom%\UserAccountPicture\user-200.png,"%GTarget%\ProgramData\Microsoft\User Account Pictures",NoWarn
+End
+If,%Audio_CheckBox%,Equal,True,Begin
+  If,ExistFile,%GCustom%\StartupMP3\startup.mp3,Begin
+    If,Not,ExistDir,%GTarget_Win%\media,DirMake,%GTarget_Win%\media
+    Filecopy,%GCustom%\StartupMP3\startup.mp3,%GTarget_Win%\media
+  End
+End
+//-
+//-----------------------------------------------------------------------------
+// Add Features
+//-----------------------------------------------------------------------------
+// International Section use dism /Get-Intl -> dism /Set-InputLocale... Hives should not be mounted
+If,Not,%Keyboard_ScrollBox%%Format_ScrollBox%%TimeZone_ScrollBox%,Equal,DefaultDefaultDefault,Exec,%ProjectDir%\Features\International.Script,Process
+//-
+HiveLoadALL
+Run,%ScriptFile%,WinPE_StartUp
+//-
+If,Not,%AllKeyboard_CheckBox%%AllNls_CheckBox%,Equal,TrueTrue,Exec,%ProjectDir%\Features\InternationalFiles.Script,Process,HiveLoaded
+//-
+// Fbwf Cache Size. Limited to 1024 Mb with x86
+If,%Architecture%,Equal,x64,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
+Else,Begin
+  If,%Fbwf_ScrollBox%,Bigger,1024,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,1024
+  Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
+End
+//-
+Set,%WoW64Support%,False,Permanent
+If,%Architecture%%WoW64_CheckBox%,Equal,x64True,Exec,%ProjectDir%\Features\WoW64.Script,Process,HiveLoaded
+//-
+If,%SetupFiles_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SetupFiles.Script,Process
+If,%VCRuntime_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\VCRuntime.Script,Process,HiveLoaded
+//-
+If,%Shell%,Equal,Explorer,Begin
+  Exec,%ProjectDir%\Features\Explorer.Script,Process,HiveLoaded
+  If,%SourceBuild%,Smaller,22000,Exec,%ProjectDir%\Features\StartIsBack.Script,Process,HiveLoaded
+  Else,Exec,%ProjectDir%\Features\StartAllBack.script,Process,HiveLoaded
+End
+Else,Exec,%ProjectDir%\Features\WinXShell.Script,Process,HiveLoaded
+//-
+If,ExistFile,%ProjectDir%\Features\Ime_%Language%.Script,Exec,%ProjectDir%\Features\Ime_%Language%.Script,Process,HiveLoaded
+//-
+If,%DisplayDrivers_CheckBox%,Equal,True,Begin
+  If,%Shell%,Equal,Explorer,Exec,%ProjectDir%\Features\DisplayDrivers.Script,Process,HiveLoaded
+End
+//-
+If,%Network_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Network.Script,Process,HiveLoaded
+Else,Run,%ScriptFile%,FullSoftwareNetworkDefault
+//-
+If,%NetDrivers_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\NetDrivers.Script,Process,HiveLoaded
+//-
+If,%PENMAddPENetwork_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\PENetwork.Script,Process,HiveLoaded
+Else,TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","//EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe"
+//-
+If,%Audio_CheckBox%,Equal,True,Begin
+  Exec,%ProjectDir%\Features\Audio.Script,Process,HiveLoaded
+  If,%SoundEvents_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SoundEvents.Script,Process,HiveLoaded
+End
+If,%Msi_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Msi.Script,Process,HiveLoaded
+//-
+If,%Accessibility_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Accessibility.Script,Process,HiveLoaded
+Else,Begin
+  AddVariables,%ProjectDir%\script.project,TargetBasePath
+  If,ExistFile,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk",FileDelete,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk"
+End
+//-
+If,%WinApps_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\WinApps.Script,Process,HiveLoaded
+//-
+If,%ImDisk_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\ImDisk.Script,Process,HiveLoaded
+//-
+If,%Admin_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Admin.Script,Process,HiveLoaded
+If,%IE11_CheckBox%,Equal,True,Begin
+  If,ExistFile,%ProjectDir%\Features\IE11.Script,Exec,%ProjectDir%\Features\IE11.Script,Process,HiveLoaded
+End
+If,%DotNET_CheckBox%,Equal,True,Begin
+  If,ExistFile,%ProjectDir%\Features\DotNET.Script,Exec,%ProjectDir%\Features\DotNET.Script,Process,HiveLoaded
+End
+Exec,%ProjectDir%\Features\CoreOptions.Script,Process,HiveLoaded
+Exec,%ProjectDir%\Features\ThemesColor.Script,Process,HiveLoaded
+HiveUnLoadALL
+If,%Drivers_CheckBox%,Equal,True,Run,%ScriptFile%,DriversPlay
+If,%HostNetDrivers_CheckBox%,Equal,True,Run,%ScriptFile%,HostNetDriversPlay
+
+[FullSoftwareNetworkDefault]
+//- Added from Network Additions to get Wifi Network with Full Software Hive & without requiring Network Additions
+ExtractSectionFiles,%ScriptFile%,FullSoftwareNetworkDefault_AddFiles
+System,ERROROFF
+If,%SourceBuild%,Bigger,17000,RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\WlanSvc,ImagePath,"#$pSystemRoot#$p\System32\Svchost.exe -k LocalSystemNetworkRestricted -p"
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\netprofm
+RegCopyKey,HKLM,Tmp_System\ControlSet001\Services\Wcmsvc
+RegWrite,HKLM,0x0,Tmp_System\Setup\AllowStart\wcmsvc
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\netprofm,Start,4
+
+[FullSoftwareNetworkDefault_AddFiles]
+\Windows\System32\wcmapi.dll
+\Windows\System32\wcmcsp.dll
+\Windows\System32\wcmsvc.dll
+\Windows\System32\mobilenetworking.dll
+\Windows\System32\netprofmsvc.dll
+\Windows\System32\termsrv.dll
+
+[CheckWaikTool]
+Set,%WaikToolOK%,Yes
+If,Not,ExistDir,%GTools%\x86,Set,%WaikToolOK%,No
+If,Not,ExistDir,%GTools%\x64,Set,%WaikToolOK%,No
+If,%WaikToolOK%,Equal,Yes,Begin
+  If,Not,ExistFile,%GTools%\x86\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\DISM\dism.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\DISM\dism.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\DISM\imagex.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\DISM\imagex.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x86\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+  If,Not,ExistFile,%GTools%\x64\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+End
+If,%WaikToolOK%,Equal,No,Begin
+  Set,%answer%,No
+  If,Question,"%ProjectName% needs some Windows ADK files (8.50 MB)#$x#$x Download now ?",10,True,Set,%answer%,Yes
+  If,%answer%,Equal,Yes,Begin
+    Run,%ScriptFile%,GetWaikTool
+    Run,%ScriptFile%,CheckWaikTool
+  End
+  Else,Halt,"You did not download the Windows ADK files required for %ProjectName%."
+End
+
+[GetWaikTool]
+DirDeleteQ,%GTools%\x86
+DirDeleteQ,%GTools%\x64
+ShellExecute,Open,%GTools%\GWT.exe,"-Win10 -Win10Dism -Silent",%GTools%
+//ShellExecute,Open,%GTools%\GWT.exe,"-Win10 -Win10Dism -devcon -Silent",%GTools%
+DirMove,%GTools%\ADK_6\x86,%GTools%
+If,Not,ExistDir,%GTools%\x64,DirMake,%GTools%\x64
+DirMove,%GTools%\ADK_6\amd64\BCDBoot,%GTools%\x64
+DirMove,%GTools%\ADK_6\amd64\DISM,%GTools%\x64
+DirMove,%GTools%\ADK_6\amd64\Oscdimg,%GTools%\x64
+DirDelete,%GTools%\ADK_6
+
+[Run_WimInfo]
+If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
+ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GSource%\sources\install.wim#$q -ini:#$q%GTemp%\WimInfo.ini#$q"
+If,Not,ExistFile,%GTemp%\WimInfo.ini,EchoExtended,"Error: Wim file information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
+IniRead,%GTemp%\WimInfo.ini,Attributes,ImageCount,%ImageCountVar%
+If,%ImageCountVar%,Smaller,1,EchoExtended,"Error: Wim file information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
+
+[Check_Winre_Version]
+If,%SourceVersion%,Bigger,10.0.19041.264,Begin
+  If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
+  ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GTemp%\winre.wim#$q -ini:#$q%GTemp%\WinreInfo.ini#$q"
+  If,Not,ExistFile,%GTemp%\WinreInfo.ini,EchoExtended,"Error: Winre.wim Image information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
+  IniRead,%GTemp%\WinreInfo.ini,1,VERSION,%WinreVersion%
+  If,Not,%WinreVersion%,Equal,%SourceVersion%,Begin
+    Set,%answer%,No
+    If,%SourceBuild%,Equal,19041,Begin
+      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Windows 10 version 2004 - 20H1#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1"
+      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1",Warn
+    End
+    Else,Begin
+      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Another Windows 10 Version#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version"
+      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version",Warn
+    End
+  End
+End
+
+[ClearMakeFolder]
+DirDeleteQ,%GTarget%
+DirMake,%GTarget%
+// Set the NTFS permissions on target folder to Full Control to everyone - this avoids the black screen on boot problem
+ShellExecute,Hide,%GTools%\SetAcl.exe," -ot #$qfile#$q -on #$q%GTarget%#$q -actn ace -actn setprot  -op #$qdacl:p_nc#$q  -ace #$qn:S-1-1-0;p:full;s:y#$q"
+If,Not,%ExitCode%,Equal,0,Echo,"SetAcl - NTFS permission on Target folder FAIL -> Black Screen on boot",Warn
+//-
+DirDeleteQ,%GTemp%
+DirMake,%GTemp%\Install.hives
+//-
+DirDeleteQ,%GISO%
+DirMake,%GISO%
+
+[ListFilesEdit]
+If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Run,%ScriptFile%,Create_CoreListFiles
+If,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
+  Echo,"Waiting for changes in CoreListFiles.txt and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%ProjectDir%\CoreListFiles.txt#$q"
+  System,FileRedirect,ON
+End
+
+[Create_CoreListFiles]
+Set,%w%,%ProjectDir%\CoreListFiles.txt
+If,Not,ExistFile,%w%,Begin
+  FileCreateBlank,%w%
+  TXTAddLine,%w%,"; Add Win10 Sources Files and Folders with absolute path. Wildcard ? and * accepted.",Append
+  TXTAddLine,%w%,"; See wimlib extract: https://wimlib.net/man1/wimextract.html",Append
+  TXTAddLine,%w%,"; It is here, an addition to the prepared base of 'Full winre.wim with WinSxS lightened'",Append
+  TXTAddLine,%w%,"; Examples:",Append
+  TXTAddLine,%w%,";\sources   (source folder)",Append
+  TXTAddLine,%w%,";\Windows\System32\*base.dll",Append
+  TXTAddLine,%w%,";\Windows\System32\??-??\*base.dll.mui",Append
+  TXTAddLine,%w%,"",Append
+  TXTAddLine,%w%,"\ProgramData",Append
+  TXTAddLine,%w%,"\Program Files",Append
+  TXTAddLine,%w%,"\sources",Append
+  TXTAddLine,%w%,"\Users",Append
+  TXTAddLine,%w%,"\Windows",Append
+End
+
+[PENMEditor]
+Exec,%ProjectDir%\Features\PENetwork.Script,PENMEditor
+
+[ExportWifi]
+Exec,%ProjectDir%\Features\PENetwork.Script,ExportWifi
+
+[Profiles_OpenDir]
+Exec,%ProjectDir%\Features\PENetwork.Script,Profiles_OpenDir
+
+[Update_PENProgramFiles]
+Exec,%ProjectDir%\Features\PENetwork.Script,Update_Containers
+
+[Favorites_OpenDir]
+Exec,%ProjectDir%\Features\IE11.Script,Favorites_OpenDir
+
+[PecmdEdit]
+If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
+If,Not,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
+  If,ExistFile,%AdditionalFiles%\Windows\System32\pecmd.ini,Begin
+    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+    FileCopy,%AdditionalFiles%\Windows\System32\pecmd.ini,%GCustom%\Pecmdini\pecmd.ini
+  End
+  Else,EchoExtended,"pecmd.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\pecmd.ini",Warn,,Message,,Exit
+End
+If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
+  Echo,"Waiting for changes in Pecmd.ini and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\pecmd.ini#$q"
+  System,FileRedirect,ON
+End
+
+[PecmdAdminEdit]
+If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
+If,Not,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
+  If,ExistFile,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,Begin
+    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+    FileCopy,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,%GCustom%\Pecmdini\PecmdAdmin.ini
+  End
+  Else,EchoExtended,"PecmdAdmin.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\PecmdAdmin.ini",Warn,,Message,,Exit
+End
+If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
+  Echo,"Waiting for changes in PecmdAdmin.ini and closing the editor..."
+  System,FileRedirect,OFF
+  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\PecmdAdmin.ini#$q"
+  System,FileRedirect,ON
+End
+
+[WinPE_StartUp]
+If,ExistFile,%GTarget_Sys%\startnet.cmd,TXTDelLine,%GTarget_sys%\startnet.cmd,wpeinit
+Set,%w%,%GTarget_Sys%\winpeshl.ini
+FileDeleteQ,%w%
+FileCreateBlank,%w%
+TXTAddLine,%w%,[LaunchApps],Append
+TXTAddLine,%w%,wpeinit.exe,Append
+If,ExistFile,%GTarget_Sys%\Pecmd.exe,Begin
+  System,ERROROFF
+  RegWrite,HKLM,0x1,Tmp_System\Setup,CmdLine,"Pecmd.exe Main #$pWindir#$p\system32\Pecmd.ini"
+End
+Else,Begin
+  TXTAddLine,%w%,cmd.exe,Append
+End
+If,ExistFile,%GTarget_Sys%\autorun.cmd,RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,Autorun,"hiderun.exe /w Autorun.cmd"
+
+[AddProjectFiles]
+Echo,"Copy Project Folder..."
+If,ExistDir,%AdditionalFiles%,DirCopy,%AdditionalFiles%\*,%GTarget%
+
+[AddCustomFiles]
+Echo,"Copy Custom Folder..."
+If,ExistDir,%GCustom%\%Architecture%\AdditionalFiles,DirCopy,%GCustom%\%Architecture%\AdditionalFiles\*,%GTarget%
+
+[CustomOpen]
+OpenDir,%GCustom%\%Architecture%\AdditionalFiles
+
+[WallpaperOpen]
+OpenDir,%GCustom%\Wallpaper
+
+[UserAccountOpen]
+OpenDir,%GCustom%\UserAccountPicture
+
+[StartupMP3Open]
+OpenDir,%GCustom%\StartupMP3
+
+[DriversPlay]
+Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\Drivers
+
+[HostNetDriversPlay]
+If,ExistRegKey,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,Begin
+  RegRead,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,%HostOS%
+  If,Win%HostOS%%HostOSArch%,Equal,%OS%%Architecture%,Begin
+    Echo,"Export Host Net Drivers..."
+    If,ExistDir,%GCustom%\%Architecture%\HostNetDrivers,DirDeleteQ,%GCustom%\%Architecture%\HostNetDrivers
+    //Set,%PatchInfFile%,""
+    Set,%PatchInfFile%,1
+    ShellExecute,Hide,%GTools%\HostNetDrv.exe,"#$q%GCustom%\%Architecture%\HostNetDrivers#$q %PatchInfFile%"
+    Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\HostNetDrivers
+  End
+  Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Win%HostOS% %HostOSArch% Does Not Match Your Build %OS% %Architecture%",warn
+End
+Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Does Not Match Your Build %OS% %Architecture%",warn
+
+[IntegrateDrivers]
+Set,%DriverFolder%,#1
+Echo,"Integrate Drivers From #$q%DriverFolder%#$q ..."
+If,ExistDir,%DriverFolder%,Begin
+  Retrieve,FOLDERSIZE,%DriverFolder%,%DriverFolderSize%
+  If,Not,%DriverFolderSize%,Equal,0,Begin
+    StrFormat,PATH,%DismLog%,%DismLogPath%
+    If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
+    If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
+    If,ExistFile,%DismExe%,Begin
+      StrFormat,PATH,%DismExe%,%DismExePath%
+      System,FileRedirect,OFF
+      If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Drivers integration and Pause From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+      Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Integrate Drivers From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q",%DismExePath%
+      System,FileRedirect,ON
+      ShellExecute,Hide,%Gtools%\HiveUnload.exe,"/HKLM /Target:%GTarget_Sys%\config"
+    End
+  End
+End
+
+[DriversOpen]
+OpenDir,%GCustom%\%Architecture%\Drivers
+
+[ExportDrivers]
+Echo,"Export Host Third-Party (OEM) Driver Packages..."
+If,ExistDir,%GCustom%\ExportDrivers\x86,DirDeleteQ,%GCustom%\ExportDrivers\x86
+If,ExistDir,%GCustom%\ExportDrivers\x64,DirDeleteQ,%GCustom%\ExportDrivers\x64
+If,Not,ExistDir,%GCustom%\ExportDrivers\%HostOSArch%,DirMake,%GCustom%\ExportDrivers\%HostOSArch%
+If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Start #$qExport Host Third-Party (OEM) Driver Packages...#$q /W /B #$q%GTools%\ExportHostDrv.exe#$q #$q%GCustom%\ExportDrivers\%HostOSArch%#$q"
+Else,ShellExecute,%OpenHideOutput%,%GTools%\ExportHostDrv.exe,"#$q%GCustom%\ExportDrivers\%HostOSArch%#$q"
+OpenDir,%GCustom%\ExportDrivers\%HostOSArch%
+
+[Dism_ExportDrivers]
+Echo,"Export Host PC Drivers..."
+If,ExistDir,%GCustom%\ExportDrivers\x86,DirDeleteQ,%GCustom%\ExportDrivers\x86
+If,ExistDir,%GCustom%\ExportDrivers\x64,DirDeleteQ,%GCustom%\ExportDrivers\x64
+If,Not,ExistDir,%GCustom%\ExportDrivers\%HostOSArch%,DirMake,%GCustom%\ExportDrivers\%HostOSArch%
+If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
+If,ExistFile,%DismExe%,Begin
+  StrFormat,PATH,%DismExe%,%DismExePath%
+  System,FileRedirect,OFF
+  If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Export Host PC Drivers and Pause. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+  Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Export Host PC Drivers. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q",%DismExePath%
+  System,FileRedirect,ON
+End
+OpenDir,%GCustom%\ExportDrivers\%HostOSArch%
+
+[PrepareSmallWim]
+Echo,"Extract Small SxS"
+Set,%w%,%Gtemp%\ExtractSmallSxS
+FileDeleteQ,%w%
+FileCreateBlank,%w%
+Run,%ScriptFile%,PrepareSmallSxSFile
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GTemp%\Winre.wim#$q 1 @#$q%w%#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract WinSxS from Winre.wim return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract WinSxS from Winre.wim return: %ExitCode%",Warn,,MessageError,,Halt
+FileDelete,%w%
+If,Not,ExistDir,%GTarget_Win%\WinSxS\Catalogs,DirMake,%GTarget_Win%\WinSxS\Catalogs
+//Extract Small SxS with 7-zip. Same file without first "\" char
+//TXTReplace,%w%,\Windows,Windows
+//ShellExecute,Hide,%GTools%\7z.exe,"x -y #$q%GTemp%\Winre.wim#$q -o#$q%GTarget%#$q @#$q%w%#$q"
+//Echo,"7-Zip Extract SxS return : %ExitCode%"
+//-
+Echo,"Cleanup and reduce Winre.wim"
+Set,%w%,%Gtemp%\WimSmallUpdate
+FileDeleteQ,%w%
+FileCreateBlank,%w%
+Run,%ScriptFile%,WimSmallUpdate
+ShellExecute,Hide,cmd.exe,"/D /C wimlib-imagex.exe update #$q%GTemp%\Winre.wim#$q 1 < #$q%w%#$q",%GTools%
+If,%ExitCode%,Equal,0,Echo,"Wimlib Cleanup and reduce Winre.wim return : %ExitCode%"
+Else,Echo,"Wimlib Cleanup and reduce Winre.wim return : %ExitCode%",Warn
+FileDelete,%w%
+
+[ExtractWimFiles]
+Echo,"Apply Winre.wim in Target Folder. Be patient..."
+ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Apply Winre.wim in Target Folder. Be patient...&Echo.&wimlib-imagex.exe apply #$q%GTemp%\Winre.wim#$q 1 #$q%GTarget%#$q --no-acls",%GTools%
+If,%ExitCode%,Equal,0,Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%"
+Else,Begin
+  Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%",Warn
+  EchoExtended,"Error: Winre.wim image files were not successfully applied in Target Folder.",Warn,,MessageError,,Halt
+End
+
+[ExtractWimListFiles]
+Echo,"Extract Winre.wim in Target Folder using CoreListFiles. Be patient..."
+ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Extract Winre.wim in Target Folder using CoreListFiles. Be patient...&Echo.&wimlib-imagex.exe extract #$q%GTemp%\Winre.wim#$q 1 @#$q%ProjectDir%\CoreListFiles.txt#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob",%GTools%
+If,%ExitCode%,Equal,0,Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%"
+Else,Begin
+  Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%",Warn
+  EchoExtended,"Error: Extract Winre.wim using CoreListFiles were not successfully extracted in Target Folder.",Warn,,MessageError,,Halt
+End
+
+[PrepareSmallSxSFile]
+If,%Architecture%,Equal,x86,Set,%SxSArch%,x86
+Else,Set,%SxSArch%,amd64
+//- Language without fallback language should be enough for WinSxS
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.c..-controls.resources_*_%Language%*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.common-controls*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.gdiplus.systemcopy_*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.gdiplus_*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.isolationautomation_*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft.windows.i..utomation.proxystub_*\*.*",Append
+TxtAddline,%w%,"\Windows\WinSxS\%SxSArch%_microsoft-windows-servicingstack_*\*.*",Append
+//-
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.c..-controls.resources_*_%Language%*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.common-controls*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.gdiplus.systemcopy_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.gdiplus_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.isolationautomation_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.i..utomation.proxystub_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-comdlg32_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-comctl32-v5.resources_*_%Language%*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-comdlg32.resources_*_%Language%*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.systemcompatible_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-a..core-base.resources_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-blb-engine-main_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.s...smart_card_library_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.s..rt_driver.resources_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft.windows.s..se.scsi_port_driver_*.manifest",Append
+TxtAddline,%w%,"\Windows\WinSxS\manifests\%SxSArch%_microsoft-windows-servicingstack_*.manifest",Append
+//TxtAddline,%w%,"\Windows\WinSxS\manifests\x86_microsoft.windows.s..ation.badcomponents_*.manifest",Append
+
+[WimSmallUpdate]
+// If Add Windows Installer files done > delete '\sources' folder
+If,%SetupFiles_CheckBox%,Equal,True,TxtAddline,%w%,"delete '\sources' --force --recursive",Append
+If,%DelSpeech_CheckBox%%Accessibility_CheckBox%,Equal,TrueFalse,TxtAddline,%w%,"delete '\Windows\Speech' --force --recursive",Append
+// Pure 64 bit, without WoW64 support): Program Files (x86) is not required
+If,%DelSysWOW64_CheckBox%,Equal,True,Begin
+  If,%Architecture%%WoW64_CheckBox%,Equal,x64False,TxtAddline,%w%,"delete '\Windows\SysWOW64' --force  --recursive",Append
+End
+If,%Architecture%,Equal,x64,TxtAddline,%w%,"delete '\Program Files (x86)' --force  --recursive",Append
+TxtAddline,%w%,"delete '\Windows\WinSxs' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\WallpaperHost.exe' --force",Append
+//-
+// Disable Diagnostic Telemetry Service (DiagTrack and diagnosticshub.standardcollector.service are disabled in Config.script)
+TxtAddline,%w%,"delete '\Windows\DiagTrack' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\DiagSvcs' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\diagER.dll' --force",Append
+TxtAddline,%w%,"delete '\Windows\System32\diagtrack.dll' --force",Append
+Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,diagtrack.dll.mui
+//-
+// WMI Repository will be rebuilt, refresh at startup
+If,%DelwbemRepository_CheckBox%,Equal,True,Begin
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\AutoRecover' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\Logs' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\Repository' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\tmf' --force --recursive",Append
+  TxtAddline,%w%,"delete '\Windows\System32\wbem\xml' --force --recursive",Append
+End
+//-
+// Edge web plateform
+If,%DelEdgeWebPlateform_CheckBox%,Equal,True,Begin
+  TxtAddline,%w%,"delete '\Windows\System32\edgehtml.dll' --force",Append
+  Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,edgehtml.dll.mui
+  TxtAddline,%w%,"delete '\Windows\SystemResources\edgehtml.dll.mun' --force",Append
+  TxtAddline,%w%,"delete '\Windows\System32\edgeIso.dll' --force",Append
+  TxtAddline,%w%,"delete '\Windows\System32\EdgeManager.dll' --force",Append
+End
+//-
+TxtAddline,%w%,"delete '\Windows\System32\config\Journal' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\config\RegBack' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\config\systemprofile' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\config\TxR' --force --recursive",Append
+//-
+Run,%ScriptFile%,WimSmallUpdateMuiDir,\Windows\System32
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,WimSmallUpdateMuiDir,\Windows\SysWOW64
+Run,%ScriptFile%,WimSmallUpdateMuiDir,\Windows\Boot\EFI
+Run,%ScriptFile%,WimSmallUpdateMuiDir,\Windows\Boot\PCAT
+Run,%ScriptFile%,WimSmallUpdateMuiDir,\Windows\Boot\PXE
+
+[WimSmallUpdateMuiFile_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+TxtAddline,%w%,"delete '#1\#9\#2' --force",Append
+
+[WimSmallUpdateMuiDir]
+TxtAddline,%w%,"delete '#1\ar-SA' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\bg-BG' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ca-ES' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\cs-CZ' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\da-DK' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\de-DE' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\el-GR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\en-GB' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\en-US' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\es-ES' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\es-MX' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\et-EE' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\eu-ES' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\fi-FI' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\fr-CA' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\fr-FR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\gl-ES' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\he-IL' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\hr-HR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\hu-HU' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\id-ID' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\it-IT' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ja-JP' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ko-KR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\lt-LT' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\lv-LV' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\nb-NO' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\nl-NL' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\pl-PL' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\pt-BR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\pt-PT' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\qps-ploc' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ro-RO' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\ru-RU' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\sk-SK' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\sl-SI' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\sr-Latn-CS' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\sr-Latn-RS' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\sv-SE' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\th-TH' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\tr-TR' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\uk-UA' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\vi-VN' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\zh-CN' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\zh-HK' --force --recursive",Append
+TxtAddline,%w%,"delete '#1\zh-TW' --force --recursive",Append
+Loop,%ScriptFile%,WimSmallUpdateMuiDir_Loop,1,%NbLang%,#1
+
+[WimSmallUpdateMuiDir_Loop]
+StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
+TXTDelLine,%w%,"delete '#1\#9' --force --recursive"
+
+[AuthorEncoded]
+Core.ico=5741,7655
+Logo=Core.ico
+
+[EncodedFile-AuthorEncoded-Core.ico]
+lines=1
+0=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
+1=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
+
+[EncodedFolders]
+InterfaceEncoded
+
+[InterfaceEncoded]
+opendir.bmp=571,762
+Play16.bmp=963,1284
+wallpaper.bmp=361,482
+User-Account.bmp=494,659
+sound.bmp=569,759
+Penetwork.bmp=150,200
+Pecmd.bmp=643,858
+ThemeColors.jpg=14635,19514
+PENetwork64.ico=1406,1875
+IE11_64.ico=7426,9902
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Play16.bmp]
+lines=0
+0=eJx9k31M1GUcwI9EmGXJxEai0QvOkf80ueZqy3/Q6ai50JjUxiraglBgEyrRJFhYIfJS8dKBeIziTQkVEaKXQbyEcnfMk91B4P28gx8e9/O46zhk1Wi/T787asEqv3s+fzx7vp/n+zzPnm/MvsJAlT8KFU4ohPxFgOpx1SrfgrLe/9AS/wR/D/8kZu+BrNK+haj9XREPR3zkDFCr1aHJyclbFYKqqqrW7Lx/bFVUYmn08h0CVfcOap8OkTt2psl9sW2yLs4kD8WZ5d7YDvny85k0qDfcy5U1W5Lkc2o3vbEw9hqI6TCVBuZE6NmL3LTdK2si0//L/b1gUz5VW+Dis6DbD5OHkb2FyHMFYEuFa3HQugM0kfx2clP5cvdOxoZXFvLCkSsjoeUZGHgReTwJ7FkKmTD+BvS9AOfUyBVPcjd3I8700FSfOxivWjOdFGL3HA1jsTgCtE8x07wHU0cG7v6DyIb4JffSc3A2isWiCH55Lwzx9XUe60vrQky7V796K34tUmoo8zkb+aP0MW5W72PErON6fz3jjQncrVPDma0slkQoOY/geHs9wstrGd0VfMgQHVBj3h2MNeFBHKnr8RwLY6wkFmFy3I/FOoq5q4yJj3fgPBrud3255l3B6KMDWnu3qX7QR9+HKSYYy4EHlHOFYMzdg2NWWsG0aMGozWE4IVzJDcLn9G1TDQtl2d3O858i5iUivLkdS8JmdO/E4p73/gu7aMVwMgWpPBPXhXJsmg+uu6+2Nzqv1DDbXMTs2RxcZRmYK99f4d1xSpjbvmT0dBpSVTbOhgKclzTM9rV2eka6U6Tv6pFaPkOqy0f64l1GNHl+zzXn4ecfr2D85BDThW8pdY8gaXNxNBfj6KzFbejKlqdHQ53XOmdvt1VjbyrCrs3DWJ2PcEOHoSIX4VQK9tLD2MuzsNfkYK8/xe0LlTgHL8+7buoe9f0Bz8RQquOnNsSLGsSmYm5p8xlT7jClOYboo/oEYu2HiA2FiF9X4OhtxW0eOA5Ku/p6pqcncG5iqEwa+obJdi22FuVtmkqwNZxeorEY2/nPmWw7g2OwHdfY4FfA6hV9B4FzwvAR9+jA3MzVDqa+b8LWUedn6ttGZnyeqX/BY9HnYDIF/V8PLog3NnsFw3GvoO/2WnQWr0UvzAuG3nnrcN6vNuMTSp2A5fl/AoGimLJ4nOMKyEmsNDTTS8otYBgFIw90sUDoKmbs8km8lUcZmACFTQYvY7eRfwEAAAACAAAAJQAAAHoDAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-sound.bmp]
+lines=0
+0=eJx10s1L23AYB3AF/wBPgoLQw5iCDAsDd99x4NkNb0M21LleZId5ErxsMBTZ0cNAl7mmmqrVubimL0m11mkbT3qoKIhgZSt9fzt8zfOogf3MAl9CSD4PvzzP87S/r6WJrz4r3VZab9Pc5Lp5cfve6dr8sYmN9Q0EAgGsra7B71+BsqzA51uC7JXxfdGLb9Iivi5ImJ9fgOjVnyoajQbq9bqdWq3GqVardiqVCtcQ/a+tLfZH2hf4xx9BetkKbXoA50dx5PN55HI5DtWgc4g+GAyyVz/0Izn1EOef3dDfu6DNvEChULBrkKd/EX1IC7E35kax6unE6aybIw21oVgs2jXIUz9EHwmH2ef/XmJXmoDs6Yb0qsNKO/vTVJBrUD+op6LXo1H21J+7lMtlSK87USqVoM+NIXt1wZ7mInpD1+95ijTs4joHykecmSGeC81W9NuxmLMfecBe/fQcZ4dh9rQfoo/v7Dj7N11Qpwchjz9G7s8le9ox0Sd2487+bQ/kd09wrHv5HPQN7ano9xIJZ+/pxbHhs5/pG9p10e//3nP0/slnfDdNE4qicGjXRZ882Hf0dyGfyWSQTqehaVpW9Klkkv3/Qv7EstFIJGvtulv0h2YKVIPOQf9C/aCe0lxotrQfMcPIWnv6j70GANiPg3ic4yzOL81L0UvKLWAYBSMQmLFA6A+M2OXDd06VY2ACAOXfBpC4cN1MAQAAAAIAAAAlAAAA8AEAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-wallpaper.bmp]
+lines=0
+0=eJxz8jVjYQADMyDWAGIBKGZkUIBIQOWHG1i6dOl/cjCyflIBNv2ri53/ryxx+b+6yuf/5s6E/wfm1fw/uXbC/8v7l/+/cWzj/9tnd/y/e2E3Tv3lseb/y+Is/pfFW/7vrY7931wW8X/B7Kb/G1dP/r953bT/B/Yt/7939yKc+l389P+7BBv998mw/x9Z7PU/tS70f2NXAtCMgv/rVrf+v3dyzf+/H57g1J9ZE/Y/qyHsf2V70v916yf+///hLnaMQ/++vYv+37+44f//12f+/3978f//d1f+/7+16///B0f+/38F5L+99v//kxM49f/bUP3//8XV///f2Pz/38Hp///t7ASLoWOc+uenEoVx6ack/ilJfwMJAIYV8kd4nOMtT8zJKUgsSC3SS8otYBgFIwyYsUBoGUbs8hkfHyQwMAEAQrAINRow6YQBAAAAAgAAACkAAAAcAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-User-Account.bmp]
+lines=0
+0=eJx1Ur9LAmEYVoygWgIJmqIhorUM6TTouqUhDqHSIQtPwlvTXFIir0FNl1JIcZH+gA7HdAiyLQcdg1zU0XQ8/IF6PXhFZ3f38L7wPj/4vve4j6LjBt0YcfQVev6n9bpFyYBvnJP6D+JvjQm1d+Dn3oQ1Jr+0sBz+0pMmk5Fj2VWSZacfM5mZ7dkPw8rJ3Yb8hCndJEQZms3me6n0nM8/8TwKAyhEcRKf1WogGFw3mXYp6szjufD7QxyHwgAKERYCiCE8HA5Bc7mcIAiiBmAhgBjCoITFUm80tMIS6vU6YbVK80Mqxbjd3W5XKwzLxTCpdFqio9HoMhDYp+l8oTAYDORJUIiwsD9icuu1WDx1uTbN5kO73evzoTCAQoSlem+73aZttiOHAxuiMIBC1Nrz2OlMJJNy5T6RgKgaLpfL2PPfkqAQK5WKMp/NZm9jMaUOEZZSxwPgbm6UOn40z/NKvVar7ZBkr9eTi6AQYal+wnUodO71djodiWIAxfmqYaDf74cjkS2CQAyFdxKJRiFq5SW0Wq2XMTAo3W/9647BeJwTCC1OLdJ1TE7OL80r0UvKLWAYBSMJdDFD6HmM2OWPKa/2YWACABKACSXrZElMAQAAAAIAAAAsAAAAngEAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Penetwork.bmp]
+lines=0
+0=eJxz8jVjYQADMyDWAGIBKGZkUIBIQOVHApCSkvqPjCkxg5AacvVjk0d3Nz5/IIsh0/+v9GHF2NQOF/2Uhh85gBK9gwUAAKCom0V4nOMNSM1LLSnPL8rWS8otYBgFIwyYsUBoLxzyt1ab1TEwAQAzHAf5DYEjVAEAAAACAAAAKAAAAEoAAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Pecmd.bmp]
+lines=0
+0=eJxz8jVjZgADMyDWAGIBKGZkkGCAgcN8EAwD/5HAm5cvz549dwIJALlAwf/YAFB81tSpc6vK5lcUwhGQCxTE1AIUmT1t6rIo3/1uMkc8pOEIyAUKAqWQtQDZ82bOWBblt89F7rin9I5gvUNTGvd2lBzwkAFygYJAKaACiBYguXDOnOVRQTscVPa5KADRtpKED+/fv3z+fL2HFkQEKAVUAFQGVHzs2LHledmbrNW326lC0Dpv8y1ttRtrizfaqsEFgQqAys6dO3f8+ImVibGbLLU2WWpC0MaEsANbNh3YtH61gzFcEKgAqAyo+PTp06viYjaY6m8wg6J1/p77du7YuXXLrkl9q80NoOKm+kBlQMVnz55dkxi/28drX0jQgYjwg1ER+6MiDne0Xzx75vyZ02dXrdwbEbYvNHi3r/eaxASgYqCTNuXlnMpMR0YnM9PPTJ/2+OHDp48fnayvgwgClQEVnz9/fkN+3uWKMiiaP/9Me9u58tITba3v3r59/+7dpZkzIFJAZUDFT548nVpXe6qs5E5Xx63O9kcXL379+vX1s2cf37///v37xw8frkzoB0oBFQCVff70CRgFd+7cmVxRcaGx4fGM6Xe2bHn58NGnT5+AUi8fPry5ds2jGdMuNDUAFbxEiuLbt29PKC+71tP1YumSZ0uXPAIjIOPlsqXXerqBUi8xkhBQS39Z2a7qqgMN9XAE5PaXlr548QJrEr179+7WLVu2bN4MRzt37Hj9+jWyGgA3UwOieJzjDEhNzk3RS8otYBgFIxCYMUNoKybs8rd/nP7DwAQATzkHcRp9giQBAAAAAgAAACUAAAA6AgAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-ThemeColors.jpg]
+lines=4
+0=eJyluns0VO3/N76LUk6TQ+Q4lUQkFVKSuUslxIQQxdxSCSGFxml2kvNh7hJKMndJUpjKqZzGOE2SJscJMQchp8yIsZmZPc/u8/19v8/6rfX88Vu/Zyxmz5699nW9rvf7eh1miL+JWcAmu5O2J4E1a9YAfyM/gJgNXD2B978CAA4OgAEAABsAyTXqwDrkaA3ya7VG43+OT67RByT+c4z8XbMPWIscKyC/jsB/HlmFACDx87+fr/v4B4ftCb4cttV0z949+/chIw0D1n/G/b96/LnJ/+091oibAIUNwJk1khJrtgNrFdZIKKwRtwJoBNS6/7oA+H8ea9ZKSK5bL7Vho7QMckHVJmDtGgmJtZIS69ZJSiLvxiLvA5IK6xS37Tu6XsnJR2p7qPL+uHtPN+gce0vd7NzN3WFy8cadjdIqqlvU1HV36unvMjA1O2B+8JCF9fETJ21O2dq5nHV1cz/n4el76fIVv6v+ATfDwiNu4SOj4u8mJCYlp6Tez3qQnZP78FHes8LnRS+KX5a8eldRWVVd8/5DbXNLa1s77WPHp57evv4BxrfBITZn7Mf4xOTPqWnewu/FJf4ytLL6BxdSr/+B/n/EpYDgWispKSEp9QfXmrW3/lygILlu2771ikedpHxClbbvj9ugfOze07fUjTomztzNF290S6vsMGXr8v5A+w+y/2/A7vz/QvY/wP43riFAVmINUjwJBQADwP2YoPk0MaAoBvzEwDcxwM+BRrgh1FDhcaiYW8yqaUVrQShqlqf3tMrqZErMIfbwnL1D4vzpXt2avqXzh/3/VWXkOT4KDXk5nVP9boqv1HLrpmwJROaqwtJVAqzerA87JJNRa5wIXvOVmhvGzIoB1VYwqVGyjmvGpImBwUksFM7BJcMGUAY3ieq5p8wqK5SHau75GcVIDPPa3h6EteF5Ld81rjwcjYVOhZvVxS87xNjyzFu1d/NGc/8NLNjYbUqUnomIMnvuWRNvVkaAJ+lfF+ecA9PSOnFaP1VYkTVdmqG6qXPHNZ6klG2Za9zbot6GSm9Ub1MHSjRBGaG15tVCyNWFU96vTQ31bGs36Em/HFFQVqbu5j4ewaSUt99wznLcf79qIMd/puGxVyUGsFIVA9R2q80D8Ga8/GSrGKggpcT48F67Q+u4SRxKshDDZbbj5GMOszvMmMkYVKMEft491UuqXftwf0wot5PKOEDRNv3NpXvxftw6QFG8xDVu0zJvXn1BjuUKWlGqU5RZHTGwzhQKEUQJT4oKG7UhJTYtw1IhVHAY/y8+0KXP0oscY0V5z1tLTha6sPFLtjHGbNzmQIIB1zKqTAzcrZILaR4oONxjKkNXgVTEQEvBwa+FH7rNht2Jsz6XeWHHqlva0XJWn5PfFlGEBiNgx6mxLRmKGMjz8eZN687+Ved6VlIaaHdrKBVe4DY+DH9MVo6x6iudnQ97WF5qBGtD8dgCzpDA7c2bvIPGl6Dsl7qlnXK9lfsbnny+yrb+a6ZNrtnu0y7bn3kPlnsG3KrmY7XzRM0ujr8c2sLGM+aCy+zEQFJOcQl+Yab9gLcUL2G+ZQTTkkcmllkaky9Aeqd5hOKSqwVKfZYe63PD9ZJKhfalV1cdG15PRcl9eVV9L2B59UrK6wCVHFSoWcGTW9fvNYmBuFU/4ebiMUYL/Rudj4aGeRrsxlyeHgfVmobREHqJyL5cTLylvVlNC2XQno1OYzTj1AnGeJfj3Uv6vxbjWFvqPdjGW6hgqXW5f211CnsObLEvekHhPEG59Vi9Ff0LXptPp8gT9uKXqVYa77mXolBJ4RkYbO+zvph90SDBh9RcoDYwEf34Y73NxSyTkRlzg6dG2zdKhhau//vXqD4mRAwQz8e8NW9pSlDfH081p8bUiAEPbanU5rsX1/x9UkNC55/Apd251C+H6Pu/H/C/3anvTh3bpt5nYHnaR8/hRTbDMGBuLtorHHOoK8aFrfl6LzmHw+uf4rypyDb4mqntqnxZ7cSv5+SwvJnCn5FJqWKAxSbGeYIZpjOoDZB1izojbpZJK9jCS0oV2vKYrJo4y8OFMbbdLyBzMbABqYYZKrlxF6/xMQu78by/GOCSoGoGxxCf9+swXZYJ3cImXNw5MWEq+gpt5uEcIB7XhTVP00KdYMSYPRVehty5YoBTTmTTlc8Pe0KP/+q12oZ3seVFkArxiUOfJvhf5ELsK/rZb/ufVjbUVWXCGwdGJ/DHkC4gMrlMMaB9yc09iz12st35Y4xSjKuQ5RbUBL0kMqVCd1qrScSsyDYtFWwU1Tcenmk04wanxN5kufdWkVXx7if7ctAbpvfS+XK4VvWIxzFGkyHKdm/o/PMlMSkFatm6G9r10IYzeXhD2iNvCYWHF9/lKb/5ZuFS5h3a1l54lq3RsbAwyqeM+I1n4jgMqTFe5RvT0G8pnH2bt9k90E28fuH3u/N1z5nuy3o3+S//2SDJymdFLWOIEEOOh2nNgg6zya3GqucDYDRXREuol+PMK1DJ+Hdyx8aah3asase9DAgNgHVrekaPOIKoKXJATe1ni7B7zM7iozdygmvWH0Bno6sYc0d5dDaFht6Et6Fqm3kptVSre8cdqUriy8fHOHP4rdib2z5QesuDz3dlLwf5S7/YW+eeukKCNfz4/4qBZw8x3BwucvDdfApyX3FvEwOVOs0EWU69GEgwkU1Kfbvli2YX78NJg2rtRNVvrq1/B35K8MMWvMutmLz7QSPz1Zdh0vB388ULPOPUd7Kvk99RZnGzwrF1Nui74RWqduS35M360aei9ToNMZE4h/C5X2juccpwIQc718Wd5CfwcJmYqyF3cZVJSTEonvvxr7A6frjJW4m73IJT72A/sW9WcY+qb8RAHux5ZXxRParwAvSF0ZojBmR0eA7tpLGum9S8gEBt455KkV2ov9RcRaLhwuT19n20UIbVyOuVb+hq2pyVSQ3HM26OjdtIbB07uRp7xEGHMMysktTdgWB8UKpy/FNNQoz+0XW3t4qB1oehkHYV54zoOSzvu+/sXi67cU/xboco04vjSdSFY656G05ic6pmiwwrc20+THGskgsM/+ZWvTUrODbFLnGsOllxYGLM0XJOdzZ4PEixsewcnHozLmeMMvVlH6k3z6uFOHmPxsiH/2L8VkDo+ZyoARMwfxusDImPkeCCnCzIvHkoqYm5Ht8sBhzTWrxV+j0nWz1pycIQn5cB6+fdu8nlYx5lprEW2/yVO/3R/9CVbXdUWJLycNwlCqQvJdJcx4QVvNeIgYnA4pU2wgxJtOvg4a1d+w65xpAPlLnLza68Ombah64skr5XxfR/Pb3K9xvCRy5u4j1ubZTveD+cNMPtu5G+kGEHHRwz2dXd+tKlzEKR/6B/o35nQf5sea99LHYEC+nMz83w6HwaVCGIxmM4xFbjDTEeXL0mSgoGNduohP9NZW40blQaPloM9dDb30FZTeqjRJA8M5RD4qDXTGurVfSS6404K7TWWGnD17E27ZLGyWGPA7HfhSWTt0MzQ/Oj/O5lik6R2V4Y1itKzY/oTzGx7611crP87lgCdd9uy3zAyWb8+mv88Y7b66+v10S4xpUJ6SsH9KCG1s7rm8tCek26jlLhVhpU7ULiteuBn0D70Q0lTjd+fGg9m+/sVnRJ1B9rNDD3s2rR71snPxASnXwwaem+0cxOKf9x1yvvbkdPAptpX1TegesUvKQHiwG4vKDBRmdqIO/6v/9skLivLMujO4qBox3kccyfPXQnFWaMroP8BVqBBBRUIkp5FeMgyrfcN0bW8jJOiNGJCqdvDpBT955OPDynwjFUsFJrpP2dw3fKaT1jEIdD5t/CwISki4GOiCw0XwcvNUwWusTw2giPXGjySkWz/aetrhZZbImCxzfY6iYX2itsKLFI5WecP3Lfv6jQSiPBKp5gHJp44i5Hk4xuDuMe/PR+2rQw9TPPdKbk8kqioVHp5AZWwMldjGbXB0bm+BsNI7m/yLM+ApDQg67ECZUD+RUiUqN+jCyP1MS8w5QnKEHmbRgJIWaMtCbQwiZt6XE0NsUKwzVOttKBSG3mB/7xd/Dn7YyVNxQDUvhouw/9psNo1FWuRUCu+g
+1=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
+2=FNMXtq37hkkv2DzMvSVc4FFgdUoqTtjO4D1C1vK5qFYMXCPGg9wz5DQMEmHgHpJKoxaEOsGdb3m0SN4IubS5R7ml+FoVseb2rMLndrOaDUe9HYxauzr8L+TzyZ/moUi6UPkwkkgSP0EiogBtZgwbUJ7ijX/60zRDmgfRm1n4rMQ37y2X11hrJT1NyfFZSj073Xaj/V1xfL5yf8O4WseeSW517OK9T/t3T+7/hEb5hhrvaetvtnvX1v38lWO2o62t9SA225zgGjG3gOlRhVUY8ZTJ3AykCQdinJDEfuADTg0vBv7i7UzYmVQ4CH2ZdKb0CS1zvnZyhzlm6ccR87AnUvt8l3VzTrXbWxtZZ9sdDPNNzcnpXk3rKV+IsPZNZCHkxUAhMn8xkDBRBJv1QmhY2h85LfWeR7tjFEy5hiWau9UQ9nMbikbKaJlmG4N+BQWHd24J3lpgrnsp9ar3qecZcW42W38oGn7/bBVvCWZfhmY/kZW5lVN/X8/mhW9z9Mi1fJr4YsZuX+O6Ex0vTbP8cRE5xY9tpqyzBl7bZbHzY44UnbJ+4nu1g1bglNEXmx7cz8T9BvvRc22ISyKlg/6o5IKt3KRmpgaUdLTPzMiA0+nWY2o43GW1oMu9dbe0KDD6pc/V8YX53cGs6+hduxUN1zXRP2YIdhN695RmcO051oaym0ZV+7bsPSR1fe8/LVLvj0BmPLpQU0YQAQ+iAUxILJq9TEUPuXCYzXTJDsGRmAM8zYItXPdUsqmX1tIIttUbU9Nn5lZZ3Ww291099oHJ5xt0rVID/Akax1h4xBeWRryGTZ3gOBJsqP2Ydspxbhe+Uohh1x5y8F6f4+RiWLgU4JGpYVKSEnZZQzflB+HLzZq2kPC5tyvzWy4L1TI5+b37ypI4Wy5OXxx3u/n0oY//STO00cp2bpWuclXN/A7+rTq/RXqQQJvQXc0444Xk4Szo0e682AdDwZk12uj+Yi8lh4Jzkx/e9qqcDa+sKMCPZf9bs1D4+VRdxLO4OTGwVgxcIQ+hT0E0bqfrgNWmmGNvehB/rgUdW1hdnW+pveuWkxNRsKPnV3B5+ZWrx07Ibjqx493HHwYnM1uFLyj3SVAUTahMgom3+AgntcS/AjOiVWfHkSZB+PBOSiCzEjcrYotu8TshUelVTzFAQ91d3Vn1fFrbsq98t5kD2o03EedTMlVT/cvOwS/2siU/d+/7wR0mFpus1RdNPme1ZTc/mnAmJT3UrNkc196pKrseZVLk2h72+LVF1I1X91P9D+2srn3bmdPLNvD45fXYraj1YambqsKxMwU6+1v6I4oPHiyOMQgyPKJcuFCHeWc8HN80ehhJ+1dJStPq5nH1fmX+FT9H1TdNW5gnVI04N7unnT6bc3B+9zW96lspVA/Xy0YacuVryPdBtocQSxdmGSdDTRKwfogyXwy8d28gRCGMG4IJpgyrshBylqGRUI0KhG4xsLlRC6/jwNVrFgyjZRC2UI1yywiKfAWd/CJwrk39Iru1gP/LvYBj/eHJF1vWmpVtYgCFdMidZOJKPUiMiRMDJqOFvTUg3AB+wakTPplzpFRCUZo2be8vv+V8H1ZrlTGOOWRpTS0dqGiPlsIJjuW9mop21768wXv4AtJu70KG4onc30ZU7gGNlgC1BHmlu+8M8NODj4tcVDVrQ2RnakPjz/Dv3y36VO1gtIgpJkFuoBLl50Mh4mqaVdvQwtcvMM3zqSbXUjEJYkBRa/RckxMLp3xJOJMPtpKFVlXCVqTW3SDrGWYxEq2NcE5tH9he6gFSnZBz6MAqKT4NWjz6/vammPCXb3wmXrjGHdy6uJV78qhkqLe8DP9Ip0xa80VS+teXb6BUsxHM0sXQCb7ZNpfcxwLbwc4cRkXVcEW31kPKUH+e75v36VpYmb3dmQYZdooPbvp/OOGammQa23VZ44NuRcAw+itNqIJjo9qYKnA/QXKgHs0lcW6lh12l+OEAf5cAWImLSq23eUF9NYQnc5RrPC+38TOKvIeoL4ePhgeGhvrueH1TVtWtp0ORZnmamUXi0sVApZ5IY5mGEZriNoGYFdVAvgCWpgkc4K+gLOiPkcLfZDPbjdF4w2MfIBnWkYhJW+4oJbxo8EKgZ1KKEAyKLumSqzPouHUzpNjDekdZzr6hpoZN7hN6wgPzc4hW2ujwosWAjBHCC5nu3YgGxglNobqDmSbJNx9e9Hd9erL0+soVxSLtAHyANDf/t7TL/QDGxN3woPNX8I+k5pbLFiM7fVijSlS1yT68YrXeLo+Ga5yMjWOk6pyd4Q33c99/mPm0D3t+x2gx/b/AGIs05mnY/4AxXlGt7bsB0ymVJjqvkCct+bNxxLu4TbY7uACaS7xlGRv4E4SCmEMCONOGswyreJKCSQs9jzBzVMHfNpI9NgLbGNy67feyKex9fSmyL+24l7ay0tPvGP7YBWk0W/XkXbAhmXdp4HY1FRGuPn8M9/XioOBRpFd6PGgcnd2HV4+8fNUdlp8TbX/C+WsIp788sKji2+pNfiOkwatxhRwEG4f8MesbDWdUo6Rmi9hy6FaVWpsWimpArsX6CuWnk91LH3eHRY73mAWG69B7qySr6++OX0o4tTUGsYWyU384trtRiOhWi+0YYh1EMktLJKHmOkEwzMBULLcRB7EnIR2BdYwz5FGEf80PfsszT561VOJEd8kPn2dM8DYvldY2Fmk9dboZNcCzQeWtNO8B1K6JAQyTu0SHdh3A/OBjrv7hTBkld/i+++yHZclLat7+OCNyRlfAQJMzlTXpnGG5279vtRGFss/bl5+fa+obbV4Y4kXsf2/Nr/LLV2j5pq3ZBGGzJ7Zc2MF7/+pcqfetlBZGXleFrGOIfl/RyQTPUL4JzTE1lNSw4aSnue/SYVit9w+zFhIghFQTsxADKqQjBCM7899wMcu2lkhbfULBDYRzJMhgUqj8YElUjbkaXzDJ2UkehoecwZYBMcB6TlqMRldiYM0juD+tdw9+fZ0hkpz0Mk9EdQpGyNAK2h4hrhwOuGoSiYZ3bJk3Xk1YEgN7mF8xQpU6ljkNVBWuQ0jKaQjSY91qx2iOQib8aF7BvTFDlKTQmEdJMxaiX33H32RtH55qNHz3NeywgCTPvGD7YvrM8FCgggfddOhKkfJVum/YW4IEetCP/1YKdjDhF+rAXb85TDGwf7Poz/fYjpgg3FALG5xFrIZkFo/UQidSFC23cShpSOYyLdCHSOSfeYsDeaTMmGNWmjC9NnVGe3utqzEYYyy0Lh9Z6fGpF7ktfTlNQ6diuItoSB8r0ppsH0Vss0k4jUBZ+EJ5FkpQ/Bv/iF3hPxaq3FAute7kJpd09eKklp5CKX2BdPWDQnl/3QPkqmqrpGbUUEV74yauIyr+HVZ+vywNeDtYECl70ie9fbcdScF3xs/1Zee3vnTNq2fbP6Wrey/6qCxdW1mG1QL575Cq2YteUnhoApLGfiMcPz3vEDLoy38Xjlhw2WyB048SxKltWeaF3D8qsYWbeOoL5gIR9xTD/onjniGtHqZn1I/BV2YyRzDjT/SERyRgaSSY20TyasSA9AwR3v5B9fZglH8pTaEQ69n9iyRCpNxzBbc4SBgCFX/kg5zN10m7s7Cimr0NeTVCIVxPHCQNF7KkaCTkNlRkSqzsRmUkWVJRaUPzaZZqrANJ7QTlbit1iO7GM4+fzKIOydqGcBqkW06877c8fN0v0/7menKgn8H3E7tl75watOHcEu53n/Nh8r1EhSD3YwwSPyYuMeYYws3m/O+iMisl5N4mFFaOGFBq1IgBoXssejJ6s1CHT0/R3vM1nFbBsPQLI6EsjV6mLM20pTf8uAPzp3/mtPs9+bH1bRd4mMTlk6BdWJF2Lo0o3O0nBsZcRa/ZtEyP4qTvernXG1G6VN+r46NDCq3uZE8zvSgi54ydhSk/tffZLUzOAua5998vfUNntrXUFFz5UAAejI5scyp54ht4xVXfZiSo/QFv/91LI9+djxTDaoZ8JEIVXvjfMK5k/Tn55v998mI9DtbuRawNQjeFPRBC3QlILBVeIULRWKFyMUy0GaPBKkif8fIEFCgv5jdZbpwCOeE6YRQrGs
+3=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
+4=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
+
+[EncodedFile-InterfaceEncoded-PENetwork64.ico]
+lines=0
+0=eJztm11MI1UUx29F7PbLpa0tLVtSnjYbNWyigZiYANkVXwxrNJv9kM0qGkApCA+8L4nv8EBiSHziYftgEIwPJj4aQsy+u/u0JqjRICRLCC5pLHA8/5mO2zZ0Oh+3H2PnkMOZzse5/9/03pm5w0EID/8MDQn+3SMuXREiLoS4xM6rxIJQ17tW3aLRaCiZTK74/f4sf8x6PJ6qjv0ikUg2lUpN10sn2kKbZjSCCWxgrJQ3EAjEY7HYPyMjI5TJZGhiYkLxmZkZxScnJ2l2dpampqb+24bl/v5+CofD39WLH22hzXId0AaNml5tG1jABDYw6qSOhUKhvzY2Ngh2cnJCp6entL+/r3g+n6fd3V06OjpS1sNhaJuPzdaLH22hTZimA5qgDRo1vVgPBhiYwAZGnbwl/Bqfdg6Rv6+vj9bW1kq2N5ofBk3QBo1a3y3eboT/rP6Pdrq7u2lsbIx2dnaop6eHBgYGSrY3uv9DCzRBGzRCKzQXbzfS/8+6/hXiNsYWzm1vby++663i7Y2+/gm1721BGzRCKzQXbzdy/dOx1bm5Odrb29P4r8mjkWbXoA0aoZU/r0rMvTo/P0+Hh4dNzw+N0CoM8nd1dWV9wY6saOM+/3zwbG/zbV98+TK9d/02dUQTxPtuVd43mO2IxHg8JKWNB+RCTuSu3K5/C9qgEVqhWWdfhRnsiUSS3h3uo8xHb1Pmzltn+tSdq/Tx9Tfp9juv0eStoYr7KX53mN54/RUKR2LSrofIhZzIrdc2tEEjtEJzxX2ZFcxgf7EjSt+vfEq0+xXR42V7/gv7Hyv0+YfDpPQnWca5kBO5lTbs6mRWMIMd/u3yONFvXxI9XLTnjxYVfTjHsvmRU2F/ZFMjnFnBDPbz4ZdoA/y/Mv/Pi/YcuR8X+DHOZBnnUvjx3T20qRHOrGAGu8tfI/42/31p/JzLefwBec8fnMtJ/J99cIVe8J3/M5FI/CDDkQs5XX5n8Cv9/zmvvP7PuZzU/wv88q5/nMtx/K1+/3MIf6s//7b6/MfI/FeZA49eVe5ruvPKovkvz9e/loWPXEbmv9CmaBytorFo/mvo/Qd7mzf04FwwnBftoXW9/bT3HxcudC3zvfuuXXbkQK6q7z/grA0aoVVf47P3H0Z1JJPJUfa/eTFgZP/Ozs6bvP8Tjq/yR68FdC+OLeS4afCYADRCq4X2dI01jCF3MBjU+/tBsRXrv2GhvRtmzx+0QSO0mm2vmnHeT7i/PI3H451mjkP/ZT3fcLxn4ph7hWNMjR9og0ZoNXOcEbPKDzPDY+V8adas/DAD/dnWeIE1M7+owmdlvJdbk/MrpvVv9gVtHZatjPdycwI/rHA9uM/5bsGxbGW8l1st+S3c/3QtFou9n0qlCI5lGTlrfP8z9fxTzWrBL2w+/+jV/7S3tz/w+Xx5Xl63W/9jt//r1P+sQyO0yq7/mZ6epvHxcdv1PzKuf3r1P9AIrU1Y/yPz/ue4+h/Jzz+Oqv+R/fzrpPqfWsx/HFL/U+/5b1PV/zTg/UdT1f/U/f1Xk9X/NOL9p1v/49b/uPU/5v7+5fK79T9u/Y9b/+Lyu/U/kvnd+h9Z5sT7n0P4W/35t9XnP0brfwx7A///xbBbqP8x7I36/ydTGs3X//xfjQq2LdJEOeE1GukLHPUjaVEID9ECMlqN5WY5D+HlH/10PHg8+Ds9i5TOkRKXDtS4uVkaD5bUmEur8XiwKDJ3Lq3yHyypcXOzNC4dqDGdU84P2sX5UaOmq/HnR43a9/4vl/JPi3ic4w9w9UstKc8vyjYz0ctMzmcYBSMK2DlBaH1W7PLPdy7YzcAEAI06CRM//RyrAQAAAAIAAAArAAAALwUAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-IE11_64.ico]
+lines=2
+0=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
+1=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
+2=q1/5ly0D4Pel3dqmH5u/ckT82HJ0dvjYAm2JF/TlW2hv3E2xQLUKrWFG54eHukSqFQ04S7Gwk3LCROodu1P//F2yeT20pbXQnuJhUIIGEbxw6BXe5rzK7S9cfqG+wyBaAx1vKdRZ86i+n0Hsk4ndE8/P9JYELWu+gOqk313fvU8KarUMxI2vOu+w/av4uUGxYB17qMtVaeYKrU7yC8UC1Yiqylg4g0JdOM7qxfChODhK62ExrYcBtB6c0sx7JBcL7UgH5wcslqXmIFd4APoy4pb8BL1wNbT5y6DOXEDsP6A8fioEkR76e7s6PvRf2MT5XdfldqG0HvE//qrLzvf6fuSf1KDmjbWtpry4NDRNVbDOqCvdDIN8J+mwn3qGY9DpziFa+5T6Rz18SIOttEeOF1EsZHOxwML2IYtvb7MUCyzlBT0Opd2F+NVaqLMXQ/VyAeTJsyF5NNX47HTvPMpzCwMXNf3D70Bb/xTv2iIQL75s79Xyr+avHFQj1LnlZbMg9eLgFGn6Co1OvIXqpZ20LrxpXRxGiSYAgZpXOGowkrFYLmMxtICFcxr1jvGkQQwD2ygGjneMGBgrx+mEEGTfmaN7dqZ/5q2N9iuurrGp4vd9R1Vre7L4pNVFY3L1Wp7v3Xt86KCe4VOKiSGPvF1OZIZ6FJSmrlDpirezBsleGMoPIUsWjIvKfBzRGbFbzeAHkRH9s41wemaA/SMDaaCnXlrHdritN/Z6IFd123nrVH2n9RTvo2r98d+bjKrWatmd+dbByGq2PuXY+/x9yl8xrq1s9vn11S26R22ynZ9wos+xZN9ht7OuT3qZe2du0cMHW0uOZz6W7lfqmG1yPTOjSG/sn2XQOyczWvsnrKrdQ1ZuFwOpwwOUusSxIpfLgmjrhSHrGrpuc/vki0l1K/4WqWaFfdqon7dLG+80n9ZhyG11BTmNR5/p/neyV3XMUhutVmqYXbt0LG+HBrJZEpQPyUNp1zSIHZJQYheHYrsHKLJ/AIHDI/A7xqLQ5Qmb1+WuOu47//xIh8uCW84PjS/s76KgTQR41tdQ0Gpz6sEvrOb+rb5/3zFLa6w9T8l4rFMzQT8pWf6iMghH8lDklgmBy3MIHBPBbx8Pvv0Tsjh6zBn3OBZ8u3sopJqisG0ECm32vQqs027Vv//4jP+7g2Ki7hw5M3aRgjk8U8QmjRVAMDgXgp4ZEHR5QXqkgO/0DIKOiRB0SADfkTRwijYktz+aNe/L1is/as37vzBmlBmaTBYb+00oYX4YU8j8PIZn3DMy33hw0HPdpqEZmjl9Ikq6tBx24H/+O1f/jH/G3znwB4O1cDXNUotabDWa8y2q5VvUAWLqbLCwoCc2WErpKF7Y4MrNrrBwzae5Diy8YmiuRTO9zqIGzdzZqsHC/OkTLMw7sVfF7Lqhc8X8JfdLC0uaayDGNNeik9aJ4Q4qNc2W0FrUyudm0/WYL1D6xqzlLso8c6OGsWJm35hROW94Y44xzbVodoXxjVlruibLitl0XTRXPubey83V6FjcazhEy4oLqQNjxWy+gFjg9bkazSa9Yk1kFrViTUQWlrFmEtdYmN6IbTC90KuWGZnziOkVdcw+M2tjulZuGN/u5v8H/Ji2/Xic4/Z0NTSMNzPRy0zOZxgFIw7YOUHo7TLY5V8oaj9nYAIA9YkGnrkxms8BAAAAAgAAACcAAAC3HAAAAAAAAAEAAAAAAAAAAAAAAA
+

@@ -1,0 +1,61 @@
+;;;
+;;; NXQuery
+;;;
+;;; Copyright (c) Microsoft Corporation
+;;;
+
+[SourceDisksNames]
+1 = %InstallDisk1%, Instd1, 0
+
+[SourceDisksFiles]
+nxquery.sys = 1
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "System"
+ClassGuid   = {D0A1C3D7-8382-403B-8556-34A55D314A73}
+Provider    = %Msft%
+DriverVer   = 12/05/2012,1.0.0.0
+
+[DestinationDirs]
+DefaultDestDir	        = 12
+NXQuery.DriverFiles     = 12          ;%windir%\system32\drivers
+
+;;
+;; Default install sections
+;;
+
+[DefaultInstall]
+OptionDesc          = %NXQueryServiceDesc%
+CopyFiles           = NXQuery.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %NXQueryServiceName%,,NXQuery.Service
+
+;;
+;; Default uninstall sections
+;;
+
+[DefaultUninstall]
+DelFiles   = NXQuery.DriverFiles
+
+[DefaultUninstall.Services]
+DelService = NXQuery,0x200      ; Flags not to stop service first
+
+; Service Parameters
+[NXQuery.Service]
+DisplayName      = %NXQueryServiceName%
+Description      = %NXQueryServiceDesc%
+ServiceBinary    = %12%\NXQuery.sys     ;%windir%\system32\drivers\NXQuery.sys
+ServiceType      = 1                    ;SERVICE_KERNEL_DRIVER
+StartType        = 3                    ;SERVICE_DEMAND_START
+ErrorControl     = 1                    ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = ""
+
+[NXQuery.DriverFiles]
+NXQuery.sys
+
+[Strings]
+Msft                = "Microsoft Corporation"
+NXQueryServiceDesc  = "NX query driver"
+NXQueryServiceName  = "NXQuery"

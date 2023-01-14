@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="ankitm;ashnando;dinesha"
+    company="Microsoft"
+    creationTimeStamp="2003-06-11T06:17:14.8593750+05:30"
+    description="$(resourceString.description5)"
+    displayName="$(resourceString.displayName4)"
+    lastUpdateTimeStamp="2005-02-11T08:18:45.6559110+05:30"
+    manifestVersion="1.0"
+    owners="aknanda"
+    testers="arpang"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-RasApi-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration scope="Upgrade,SvrMig,MigWiz,USMT">
+    <!-- Corresponding OC name -->
+    <registerSDF name="RasServerAll"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [ConfigurationFlags]")</condition>
+        </detect>
+        <detect>
+          <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry","HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [ConfigurationFlags]", "0x00000000")</condition>
+        </detect>
+      </detects>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="File">%CSIDL_APPDATA%\Microsoft\Network\Connections\Pbk\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\RAS Phonebook\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%CSIDL_COMMON_APPDATA%\Microsoft\Network\Connections\Pbk\* [*]</pattern>
+            <pattern type="File">%windir%\system32\ras [router.pbk]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Additional_Options\Windows_Core_Settings</migrationDisplayID>
+  </migration>
+</assembly>

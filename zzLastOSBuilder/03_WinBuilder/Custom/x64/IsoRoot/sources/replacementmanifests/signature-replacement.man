@@ -1,0 +1,83 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Signature"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="Yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="1"
+      >
+    <migXml xmlns="">
+      <rules>
+        <detects>
+          <detect>
+            <!-- the OS version is prior to 10.0 -->
+            <condition negation="Yes">MigXmlHelper.IsOSLaterThan("NT","10.0")</condition>
+          </detect>
+        </detects>
+        <!-- Signature Key -->
+        <rules context="System">
+          <detects>
+            <detect>
+              <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\Software\Microsoft\Signature [IsSignaturePC]", "0x00000001")</condition>
+            </detect>
+          </detects>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\Software\Microsoft\Windows\Signature [ImageType]</location>
+              <attributes>DWORD</attributes>
+              <bytes>03000000</bytes>
+            </object>
+          </addObjects>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows\Signature [ImageType]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <!-- SQM Study ID -->
+        <rules context="System">
+          <detects>
+            <detect>
+              <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\Software\Microsoft\SQMClient\Windows [StudyId]", "0x000004df")</condition>
+            </detect>
+          </detects>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\Software\Microsoft\Windows\Signature [ImageType]</location>
+              <attributes>DWORD</attributes>
+              <bytes>04000000</bytes>
+            </object>
+          </addObjects>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows\Signature [ImageType]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </rules>
+      <rules>
+        <detects>
+          <detect>
+            <!-- the OS version is 10.0 or later -->
+            <condition>MigXmlHelper.IsOSLaterThan("NT","10.0")</condition>
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\Signature [ImageType]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

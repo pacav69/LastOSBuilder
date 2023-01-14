@@ -1,0 +1,109 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Flighting-Settings"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <!--Since these keys were previously managed by a different manifest, alwaysProcess is needed to add this migration section to older versions of this manifest and keep our keys.-->
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0-3"
+      settingsVersion="4"
+      >
+    <migXml xmlns="">
+      <environment context="System">
+        <variable name="Ring">
+          <script>MigXmlHelper.GetStringContent("Registry","HKLM\Software\Microsoft\WindowsSelfHost\Applicability [Ring]")</script>
+        </variable>
+        <!--Branch names could have been moved instead of copying over since branch is not migrated, but keeping it consistent with ring which is copied over and not moved.-->
+        <variable name="BranchName">
+          <script>MigXmlHelper.GetStringContent("Registry","HKLM\Software\Microsoft\WindowsSelfHost\Applicability [BranchName]")</script>
+        </variable>
+      </environment>
+      <rules context="System">
+        <addObjects>
+          <object>
+            <location type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\PreMigration [FlightedBuildRingName]</location>
+            <attributes>String</attributes>
+            <bytes
+                expand="Yes"
+                string="Yes"
+                >%Ring%</bytes>
+          </object>
+          <object>
+            <location type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\PreMigration [FlightedBuildBranchName]</location>
+            <attributes>String</attributes>
+            <bytes
+                expand="Yes"
+                string="Yes"
+                >%BranchName%</bytes>
+          </object>
+        </addObjects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\* [*]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Flighting\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Flighting\Build\* [*]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability [BranchName]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability [ThresholdRiskLevel]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability [ThresholdOptedin]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability [ThresholdInternal]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability [UserPreferredBranchName]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\Applicability\RecoveredFrom\* [*]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\PreMigration\* [*]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\AU [AUOptions]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\AU [ScheduledInstallTime]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\AU [ScheduledInstallDay]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\ClientState [BootMgrBcd]</pattern>
+          </objectSet>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\WindowsSelfHost\OneSettings\* [*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\WindowsSelfHost\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

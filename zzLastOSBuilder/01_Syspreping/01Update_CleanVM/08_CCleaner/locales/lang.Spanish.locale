@@ -1,0 +1,56 @@
+File|Fichero
+Help|Ayuda
+Proxy Server:|Servidor Proxy:
+Port:|Puerto:
+Exit|Salir
+User Name:|Nombre de usuario:
+Password:|Contraseña:
+Save and Close|Guardar y cerrar
+Version|Versión
+Save Log|Guardar registro
+Refresh|Refrescar
+Close|Cerrar
+Settings|Configuración
+Documentation|Documentación
+About|Acerca de
+Check For Update|Comprobar actualizaciones
+Functions|Funciones
+Proxy Settings|Configuración del proxy
+Visit Website|Visitar la página Web
+Save To:|Guardar en:
+File Size:|Tamaño del fichero:
+Download Speed:|Velocidad de descarga:
+Language:|Idioma:
+Online Documentation|Documentación en línea
+Saved Path|trazado guardado
+Speed:|Velocidad:
+Speed: Calculating...|Velocidad: El cálculo de...
+Rules Last Updated:|Reglas Última actualización:
+Would you like to save|¿Quieres salvar a
+so CCEnhancer can find it next time?|CCEnhancer lo puede encontrar la próxima vez?
+Rules Last Updated:|Última actualización de las reglas:
+Download Latest|Descargar la última versión
+Automatically download and install the latest definitions to increase the cleaning capabilities of CCleaner by adding hundreds of extra programs.|Descargar e instalar las últimas definiciones automáticamente para aumentar las habilidades de limpieza de CCleaner añadiendo cientos de programas extra.
+Buy Me Cake :)|Cómprame una tarta :)
+Update On Windows Startup|Actualizar al iniciar Windows
+Run CCleaner Silently On Completion|Ejecutar CCleaner en modo silencioso al finalizar
+Delete Custom Rules|Borrar reglas personalizadas
+Install For Portable CCleaner|Instalar para CCleaner portable
+Cancelled|Cancelado
+Download has been cancelled.|La descarga ha sido cancelada.
+Successfully downloaded|Descargado con éxito
+Would you like to run CCleaner now?|¿Quiere ejecutar CCleaner ahora?
+Update completed|Actualización completada
+The rules have not been downloaded yet.|Las reglas todavía no se ha descargadas.
+The custom rules were successfully removed.|Las reglas personalizadas han sido eliminadas con éxito.
+It looks like the rules aren't installed or you don't have permission to delete the file. You can manually remove the custom rules by deleting the following file:|Parece que las reglas no están instaladas o no tiene permisos para borrar el fichero. Puede eliminar las reglas personalizadas borrando el fichero siguiente:
+Could not make a connection to The Web Atom server or the Upload Central server. Please see our online help for assistance.|No se ha podido realizar una conexión al servidor de The Web Atom o al servidor de Upload Central. Por favor lea nuestra ayuda online para más información.
+This error can be caused by incorrect proxy settings or a security product conflict.|Este error puede ser ocasionarse por configuración incorrecta del proxy o un conflicto con un producto de seguridad.
+An error was encountered.|Se ha encontrado un error
+An error occurred while downloading file. Possibe causes:|Ha ocurrido un error mientras se descargaba el fichero. Posibles causas:
+1) File doesn't exist|1) El fichero no existe
+2) Remote server error|2) Error del servidor remoto
+error|error
+Please select the directory containing portable CCleaner.|Por favor seleccione el directorio que contiene CCleaner portable.
+CCleaner.exe could not be found in the directory you selected.|CCleaner.exe no se ha encontrado en el directorio seleccionado.
+Use proxy server to download definitions?|¿Usar un servidor proxy para descargar las definiciones?"

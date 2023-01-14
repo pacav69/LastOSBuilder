@@ -1,0 +1,101 @@
+[Main]
+Title=StartIsBack
+Type=XPEPlugin
+Description=StartIsBack Start menu is back and it's better than ever. Get the most useful shell enhancement for Windows 10 now!
+Author=ChriSR
+Date=2020.09.02
+Credits=
+Contact=
+Level=0
+Download_Level=0
+Version=003
+Selected=None
+Mandatory=None
+NoWarning=False
+History003=ChrisR - Support v2.9.17 - 2021.11.29
+
+[Variables]
+%ProgramFolder%=StartIsBack
+%SetupFile%=StartIsBackPlusPlus_setup.exe
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%ScriptDir%\%SetupFile%,EchoExtended,"%SetupFile% should be in the original package",Warn,,Message,,Halt
+RunFromRAM
+//--
+Run,%ScriptFile%,Add_StartIsBack
+ExtractSectionFiles,%ScriptFile%,StartIsBack_AddFiles
+If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,StartIsBack_AddFiles6432
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,Reg_StartIsBack
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Software
+  RegHiveunLoad,Tmp_Default
+End
+
+[Add_StartIsBack]
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+DirMake,%Target_Prog%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\%SetupFile%#$q -y -o#$q%Target_Prog%\%ProgramFolder%#$q"
+FileDelete,%Target_Prog%\%ProgramFolder%\startscreen.exe
+FileDelete,%Target_Prog%\%ProgramFolder%\UpdateCheck.exe
+If,ExistFile,%Target_Prog%\%ProgramFolder%\StartIsBackARM64.dll,FileDelete,%Target_Prog%\%ProgramFolder%\StartIsBackARM64.dll
+If,%Architecture%,Equal,x86,FileDelete,%Target_Prog%\%ProgramFolder%\StartIsBack64.dll
+If,%Architecture%%WoW64Support%,Equal,x64False,FileDelete,%Target_Prog%\%ProgramFolder%\StartIsBack32.dll
+//- SIB User Account Picture v2.9*
+If,Not,ExistDir,%GTarget%\Users\Default\AppData\Roaming\Microsoft\Windows\AccountPictures,DirMake,%GTarget%\Users\Default\AppData\Roaming\Microsoft\Windows\AccountPictures
+FileCopy,%GCustom%\UserAccountPicture\*.*,%GTarget%\Users\Default\AppData\Roaming\Microsoft\Windows\AccountPictures,NoWarn
+FileDelete,%GTarget%\Users\Default\AppData\Roaming\Microsoft\Windows\AccountPictures\user-200.png
+
+[StartIsBack_AddFiles]
+\Windows\System32\authui.dll
+\Windows\System32\nrtapi.dll
+\Windows\System32\shdocvw.dll
+\Windows\System32\shutdownux.dll
+\windows\system32\sud.dll
+\windows\system32\van.dll
+\Windows\System32\??-??\authui.dll.mui
+\Windows\System32\??-??\shdocvw.dll.mui
+\Windows\System32\??-??\ShutdownUX.dll.mui
+\Windows\System32\??-??\sud.dll.mui
+\Windows\System32\??-??\VAN.dll.mui
+\Windows\SystemResources\authui.dll.mun
+\Windows\SystemResources\sud.dll.mun
+\Windows\SystemResources\VAN.dll.mun
+
+[StartIsBack_AddFiles6432]
+\Windows\SysWOW64\authui.dll
+\Windows\SysWOW64\imagehlp.dll
+\Windows\SysWOW64\nrtapi.dll
+\Windows\SysWOW64\sud.dll
+\Windows\SysWOW64\VAN.dll
+\Windows\SysWOW64\??-??\VAN.dll.mui
+
+[Reg_StartIsBack]
+RegImportFile,%ScriptDir%\StartIsBack_RegDefault.txt
+RegImportFile,%ScriptDir%\StartIsBack_RegSoftware.txt
+//-
+// TaskbarJumpList is disabled by default. SIB v2.8.9 crashes desktop with TaskbarJumpList enabled but it looks good with v2.9.5
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,TaskbarJumpList,1
+//-
+If,%Architecture%,Equal,x86,Begin
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9}\InprocServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{c71c41f1-ddad-42dc-a8fc-f5bfc61df958}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}\InProcServer32,,"X:\Program Files\StartIsBack\StartIsBack32.dll"
+  RegWrite,HKLM,0x2,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},LocalizedString,"@X:\Program Files\StartIsBack\StartIsBack32.dll,-510"
+End
+//- SIB User Account Picture v2.9*
+RegCopyKey,HKLM,Tmp_Software\Classes\.accountpicture-ms
+RegCopyKey,HKLM,Tmp_Software\Classes\accountpicturefile
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\PropertySystem\PropertyHandlers\.accountpicture-ms,,{9a02e012-6303-4e1e-b9a1-630f802592c5}
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\AccountPicture,SourceId,AccountPicture
+// Support SIB v2.9.4 >
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell,TabletMode,0

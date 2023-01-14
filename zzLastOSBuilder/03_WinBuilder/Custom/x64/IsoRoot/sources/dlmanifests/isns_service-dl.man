@@ -1,0 +1,36 @@
+<assembly manifestVersion="1.0" description="iSNS Downlevel OOB Migration" displayName="Microsoft-Windows-iSNS_Service" company="Microsoft Corp." copyright="" supportInformation="" authors="KeithFr" owners="KeithFr" buildFilter="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:asm.v3">
+  <assemblyIdentity name="Microsoft-Windows-iSNS_Service-DL" version="0.0.0.0" processorArchitecture="*" language="*"/>
+
+  <migration>
+    <!-- Declare that this OOB (if found) is tied to the iSNS_Service Optional Component (OC) -->
+    <registerSDF name="iSNS_Service"></registerSDF>
+
+    <migXml xmlns="">
+      <!-- Detect if the iSNS OOB is installed -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT" , "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Services\MSiSNS")</condition>
+        </detect>
+      </detects>
+    </migXml>
+    
+    <machineSpecific>
+      <migXml xmlns="">
+        <!-- Specify which registry keys/values and files should be gathered -->
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="File">%PROFILESFOLDER%\LocalService\ [MSISNS*.DAT]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\MSiSNS [Cluster]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\Windows NT\CurrentVersion\MSiSNS [Path]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+
+  </migration>
+</assembly>

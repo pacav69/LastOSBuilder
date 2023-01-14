@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="sammun"
+    buildFilter=""
+    company="Msft"
+    copyright=""
+    creationTimeStamp="2003-07-16T15:33:19.8561193-07:00"
+    description="NDIS downlevel manifest"
+    displayName="NDIS downlevel manifest"
+    estimatedSize=""
+    lastUpdateTimeStamp="2003-07-16T15:33:19.8561193-07:00"
+    manifestVersion="1.0"
+    owners="sammun"
+    supportInformation=""
+    testers="philof"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-NDIS-DL"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration xmlns="">
+    <machineSpecific>
+      <migXml>
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NDIS\Parameters [PacketStackSize]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\NDIS\Parameters [PadShortPackets]</pattern>
+            </objectSet>
+          </include>
+          <rules context="System">
+            <detects>
+              <detect>
+                <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+              </detect>
+            </detects>
+            <include>
+              <objectSet>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\TCPIP\Parameters [MaxNumRssCpus]</pattern>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\TCPIP\Parameters [RssBaseCpu]</pattern>
+              </objectSet>
+            </include>
+          </rules>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

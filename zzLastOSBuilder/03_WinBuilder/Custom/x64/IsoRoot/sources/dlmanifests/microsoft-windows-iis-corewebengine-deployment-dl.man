@@ -1,0 +1,41 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-IIS-CoreWebEngine-Deployment-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="IIS-CoreWebEngine"/>
+    <migXml xmlns="">
+      <!-- On a down-level system, we detect the presence of WWW by -->
+      <!-- looking for the W3SVC service.  We base this on the      -->
+      <!-- registry key for the service declaration.                -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "Registry", "HKLM\System\CurrentControlSet\Services\W3SVC [ImagePath]" )</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%SystemDrive%\inetpub\wwwroot\[iisstart.htm]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

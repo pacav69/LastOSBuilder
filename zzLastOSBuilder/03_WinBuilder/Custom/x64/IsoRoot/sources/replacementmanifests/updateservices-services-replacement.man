@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="UpdateServices-Services"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration replacementVersionRange="6.2.*" alwaysProcess="yes" scope="Upgrade">
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\$ [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate [CertHash]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SystemCertificates\WSUS\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [VersionString]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [EnableRemoting]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [TargetDir]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [InstallLanguage]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [ServicePackLevel]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [ConfigurationSource]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [SqlDatabaseName]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [IISInstallRevision]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [IISPreviousInstallRevision]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup [Version]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Role Services [UpdateServices-Services]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Role Services [UpdateServices-UI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Role Services [UpdateServices-WidDatabase]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Role Services [UpdateServices-Database]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

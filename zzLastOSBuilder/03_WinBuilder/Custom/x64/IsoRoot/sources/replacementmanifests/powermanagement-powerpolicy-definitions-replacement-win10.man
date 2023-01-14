@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Power-Policy-Definitions"
+      processorArchitecture="*"
+      version="0.0.0.3"
+      />
+  <!-- version 3 = Win10 -->
+  <migration
+      replacementSettingsVersionRange="3"
+      settingsVersion="3"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\SecurityDescriptors\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HibernateEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [CustomizeDuringSetup]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power [AwayModeEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [EnforceDisconnectedStandby]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [IgnoreCsComplianceCheck]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [EnforceConsoleLockScreenTimeout]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [LidNotifyReliable]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileType]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="frankli"
+    buildFilter=""
+    company="ms"
+    copyright=""
+    creationTimeStamp="2003-07-23T17:40:50.9867565-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2005-06-20T21:45:05.2541901Z"
+    manifestVersion="1.0"
+    owners="frankli"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-SNMP-Evntagnt-Extension-Agent-DL"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <migXml xmlns="">
+      <!-- Ensure this runs on pre-Loonghorn OS only -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.0.*")</condition>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SNMP_EVENTS\EventLog [ConfigurationType]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SNMP_EVENTS\EventLog [TranslatorEnabled]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SNMP_EVENTS\EventLog\Parameters [BaseEnterpriseOID]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SNMP_EVENTS\EventLog\Parameters [SupportedView]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\SNMP_EVENTS\EventLog\Sources\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

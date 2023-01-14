@@ -1,0 +1,365 @@
+[Main]
+Title=System Event Sounds
+Type=XPEPlugin
+Description=Add System Event Sounds
+Author=James
+Date=2019.04.01
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+//--
+Run,%ScriptFile%,AddFiles
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,Add_Registry
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveUnLoad,Tmp_Software
+  RegHiveUnLoad,Tmp_Default
+End
+
+[AddFiles]
+ExtractSectionFiles,%ScriptFile%,SoundEvents_AddFiles
+If,%Architecture%%WoW64Support%,Equal,x64True,ExtractSectionFiles,%ScriptFile%,SoundEvents_AddFiles6432
+
+[SoundEvents_AddFiles]
+\windows\media\*.wav
+\Windows\System32\audiodev.dll
+\Windows\System32\mfc40u.dll
+\Windows\System32\WinTypes.dll
+\windows\System32\mmres.dll
+\windows\System32\ieframe.dll
+
+[SoundEvents_AddFiles6432]
+\Windows\SysWOW64\audiodev.dll
+\Windows\SysWOW64\mfc40u.dll
+\Windows\SysWOW64\WinTypes.dll
+\windows\SysWOW64\mmres.dll
+\windows\SysWOW64\ieframe.dll
+
+[Add_Registry]
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation,DisableStartupSound,0
+//--
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\.Default,,"Default Beep"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\.Default,DispFileName,"@mmres.dll,-5824"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ActivatingDocument,,"Complete Navigation"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ActivatingDocument,DispFileName,"@ieframe.dll,-10321"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\AppGPFault,,"Program Error"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\AppGPFault,DispFileName,"@mmres.dll,-5825"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\BlockedPopup,,"Blocked Pop-up Window"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\BlockedPopup,DispFileName,"@ieframe.dll,-10325"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\CCSelect,,Select
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\CCSelect,DispFileName,"@ieframe.dll,-10323"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ChangeTheme,,"Change Theme"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ChangeTheme,DispFileName,"@mmres.dll,-5860"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Close,,"Close Program"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Close,DispFileName,"@mmres.dll,-5826"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\CriticalBatteryAlarm,,"Critical Battery Alarm"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\CriticalBatteryAlarm,DispFileName,"@mmres.dll,-5827"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceConnect,,"Device Connect"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceConnect,DispFileName,"@mmres.dll,-5828"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceDisconnect,,"Device Disconnect"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceDisconnect,DispFileName,"@mmres.dll,-5829"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceFail,,"Device Failed to Connect"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DeviceFail,DispFileName,"@mmres.dll,-5830"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DisNumbersSound,,"Disambiguation Numbers"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\DisNumbersSound,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5566"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\EmptyRecycleBin,,"Empty Recycle Bin"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\EmptyRecycleBin,DispFileName,"@mmres.dll,-5831"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\FaxBeep,,"New Fax Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\FaxBeep,DispFileName,"@mmres.dll,-5858"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\FeedDiscovered,,"Feed Discovered"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\FeedDiscovered,DispFileName,"@ieframe.dll,-17315"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubOffSound,,Off
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubOffSound,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5563"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubOnSound,,On
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubOnSound,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5562"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubSleepSound,,Sleep
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\HubSleepSound,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5564"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\LowBatteryAlarm,,"Low Battery Alarm"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\LowBatteryAlarm,DispFileName,"@mmres.dll,-5832"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MailBeep,,"Desktop Mail Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MailBeep,DispFileName,"@mmres.dll,-5837"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Maximize,,Maximize
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Maximize,DispFileName,"@mmres.dll,-5833"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MenuCommand,,"Menu Command"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MenuCommand,DispFileName,"@mmres.dll,-5834"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MenuPopup,,"Menu Pop-up"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MenuPopup,DispFileName,"@mmres.dll,-5835"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MessageNudge,,"Message Nudge"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MessageNudge,DispFileName,"@mmres.dll,-5866"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Minimize,,Minimize
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Minimize,DispFileName,"@mmres.dll,-5836"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MisrecoSound,,Misrecognition
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\EventLabels\MisrecoSound,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5561"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MoveMenuItem,,"Move Menu Item"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\MoveMenuItem,DispFileName,"@ieframe.dll,-10322"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Navigating,,"Start Navigation"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Navigating,DispFileName,"@ieframe.dll,-10320"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Default,,Notification
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Default,DispFileName,"@mmres.dll,-5865"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.IM,,"Instant Message Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.IM,DispFileName,"@mmres.dll,-5863"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm,,"Alarm 1"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm,DispFileName,"@mmres.dll,-5888"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm10,,"Alarm 10"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm10,DispFileName,"@mmres.dll,-5897"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm10,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm2,,"Alarm 2"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm2,DispFileName,"@mmres.dll,-5889"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm2,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm3,,"Alarm 3"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm3,DispFileName,"@mmres.dll,-5890"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm3,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm4,,"Alarm 4"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm4,DispFileName,"@mmres.dll,-5891"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm4,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm5,,"Alarm 5"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm5,DispFileName,"@mmres.dll,-5892"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm5,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm6,,"Alarm 6"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm6,DispFileName,"@mmres.dll,-5893"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm6,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm7,,"Alarm 7"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm7,DispFileName,"@mmres.dll,-5894"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm7,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm8,,"Alarm 8"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm8,DispFileName,"@mmres.dll,-5895"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm8,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm9,,"Alarm 9"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm9,DispFileName,"@mmres.dll,-5896"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Alarm9,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call,,"Incoming Call Notification 1"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call,DispFileName,"@mmres.dll,-5872"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call10,,"Incoming Call Notification 10"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call10,DispFileName,"@mmres.dll,-5881"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call10,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call2,,"Incoming Call Notification 2"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call2,DispFileName,"@mmres.dll,-5873"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call2,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call3,,"Incoming Call Notification 3"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call3,DispFileName,"@mmres.dll,-5874"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call3,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call4,,"Incoming Call Notification 4"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call4,DispFileName,"@mmres.dll,-5875"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call4,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call5,,"Incoming Call Notification 5"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call5,DispFileName,"@mmres.dll,-5876"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call5,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call6,,"Incoming Call Notification 6"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call6,DispFileName,"@mmres.dll,-5877"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call6,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call7,,"Incoming Call Notification 7"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call7,DispFileName,"@mmres.dll,-5878"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call7,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call8,,"Incoming Call Notification 8"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call8,DispFileName,"@mmres.dll,-5879"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call8,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call9,,"Incoming Call Notification 9"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call9,DispFileName,"@mmres.dll,-5880"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\Notification.Looping.Call9,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Mail,,"New Mail Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Mail,DispFileName,"@mmres.dll,-5861"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Proximity,,"NFP Completion"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Proximity,DispFileName,"@mmres.dll,-5868"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Reminder,,"Calendar Reminder"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.Reminder,DispFileName,"@mmres.dll,-5864"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.SMS,,"New Text Message Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Notification.SMS,DispFileName,"@mmres.dll,-5862"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Open,,"Open Program"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\Open,DispFileName,"@mmres.dll,-5839"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\PanelSound,,"Disambiguation Panel"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\PanelSound,DispFileName,"@X:\Windows\System32\speech\speechux\sapi.cpl,-5565"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\PrintComplete,,"Print Complete"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\PrintComplete,DispFileName,"@mmres.dll,-5840"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ProximityConnection,,"NFP Connection"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ProximityConnection,DispFileName,"@mmres.dll,-5867"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\RestoreDown,,"Restore Down"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\RestoreDown,DispFileName,"@mmres.dll,-5841"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\RestoreUp,,"Restore Up"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\RestoreUp,DispFileName,"@mmres.dll,-5842"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SecurityBand,,"Information Bar"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SecurityBand,DispFileName,"@ieframe.dll,-10326"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ShowBand,,"Show Toolbar Band"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\ShowBand,DispFileName,"@ieframe.dll,-10324"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemAsterisk,,Asterisk
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemAsterisk,DispFileName,"@mmres.dll,-5843"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemExclamation,,Exclamation
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemExclamation,DispFileName,"@mmres.dll,-5845"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemExit,,"Exit Windows"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemExit,DispFileName,"@mmres.dll,-5846"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\SystemExit,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemHand,,"Critical Stop"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemHand,DispFileName,"@mmres.dll,-5847"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemNotification,,"System Notification"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemNotification,DispFileName,"@mmres.dll,-5848"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemQuestion,,Question
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\SystemQuestion,DispFileName,"@mmres.dll,-5849"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsLogoff,,"Windows Logoff"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsLogoff,DispFileName,"@mmres.dll,-5852"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\WindowsLogoff,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsLogon,,"Windows Logon"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsLogon,DispFileName,"@mmres.dll,-5853"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\WindowsLogon,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsUAC,,"Windows User Account Control"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsUAC,DispFileName,"@mmres.dll,-5859"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsUnlock,,"Windows Unlock"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\EventLabels\WindowsUnlock,DispFileName,"@mmres.dll,-5869"
+RegWrite,HKLM,0x4,Tmp_Default\AppEvents\EventLabels\WindowsUnlock,ExcludeFromCPL,1
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes,,.Default
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default,,Windows
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default,DispFileName,"@mmres.dll,-5856"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\.Default\.current,,"X:\windows\media\Windows Background.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\.Default\.Default,,"X:\windows\media\Windows Background.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\.Default\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\AppGPFault\.current,,"X:\windows\media\Windows Error.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\AppGPFault\.Default,,"X:\windows\media\Windows Error.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\AppGPFault\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\CriticalBatteryAlarm\.current,,"X:\windows\media\Windows Battery Critical.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\CriticalBatteryAlarm\.Default,,"X:\windows\media\Windows Battery Critical.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\CriticalBatteryAlarm\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceConnect\.current,,"X:\windows\media\Windows Hardware Insert.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceConnect\.Default,,"X:\windows\media\Windows Hardware Insert.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceConnect\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceDisconnect\.current,,"X:\windows\media\Windows Hardware Remove.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceDisconnect\.Default,,"X:\windows\media\Windows Hardware Remove.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceDisconnect\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceFail\.current,,"X:\windows\media\Windows Hardware Fail.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceFail\.Default,,"X:\windows\media\Windows Hardware Fail.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\DeviceFail\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\FaxBeep\.current,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\FaxBeep\.Default,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\FaxBeep\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\LowBatteryAlarm\.current,,"X:\windows\media\Windows Battery Low.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\LowBatteryAlarm\.Default,,"X:\windows\media\Windows Battery Low.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\LowBatteryAlarm\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MailBeep\.current,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MailBeep\.Default,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MailBeep\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Maximize\.current,,"X:\windows\media\Windows Minimize.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Maximize\.Default,,"X:\windows\media\Windows Minimize.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Maximize\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MenuCommand\.current,,"X:\windows\media\Windows Menu Command.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MenuCommand\.Default,,"X:\windows\media\Windows Menu Command.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MenuCommand\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MessageNudge\.current,,"X:\windows\media\Windows Message Nudge.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MessageNudge\.Default,,"X:\windows\media\Windows Message Nudge.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\MessageNudge\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Minimize\.current,,"X:\windows\media\Windows Minimize.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Minimize\.Default,,"X:\windows\media\Windows Minimize.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Minimize\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Default\.current,,"X:\windows\media\Windows Notify System Generic.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Default\.Default,,"X:\windows\media\Windows Notify System Generic.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Default\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.IM\.current,,"X:\windows\media\Windows Notify Messaging.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.IM\.Default,,"X:\windows\media\Windows Notify Messaging.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.IM\.Modified,,
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm\.Default,,#$pSystemRoot#$p\media\Alarm01.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm10\.Default,,#$pSystemRoot#$p\media\Alarm10.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm2\.Default,,#$pSystemRoot#$p\media\Alarm02.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm3\.Default,,#$pSystemRoot#$p\media\Alarm03.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm4\.Default,,#$pSystemRoot#$p\media\Alarm04.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm5\.Default,,#$pSystemRoot#$p\media\Alarm05.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm6\.Default,,#$pSystemRoot#$p\media\Alarm06.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm7\.Default,,#$pSystemRoot#$p\media\Alarm07.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm8\.Default,,#$pSystemRoot#$p\media\Alarm08.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Alarm9\.Default,,#$pSystemRoot#$p\media\Alarm09.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call\.Default,,#$pSystemRoot#$p\media\Ring01.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call10\.Default,,#$pSystemRoot#$p\media\Ring10.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call2\.Default,,#$pSystemRoot#$p\media\Ring02.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call3\.Default,,#$pSystemRoot#$p\media\Ring03.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call4\.Default,,#$pSystemRoot#$p\media\Ring04.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call5\.Default,,#$pSystemRoot#$p\media\Ring05.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call6\.Default,,#$pSystemRoot#$p\media\Ring06.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call7\.Default,,#$pSystemRoot#$p\media\Ring07.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call8\.Default,,#$pSystemRoot#$p\media\Ring08.wav
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Looping.Call9\.Default,,#$pSystemRoot#$p\media\Ring09.wav
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Mail\.current,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Mail\.Default,,"X:\windows\media\Windows Notify Email.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Mail\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Proximity\.current,,"X:\windows\media\Windows Proximity Notification.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Proximity\.Default,,"X:\windows\media\Windows Proximity Notification.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Proximity\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Reminder\.current,,"X:\windows\media\Windows Notify Calendar.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Reminder\.Default,,"X:\windows\media\Windows Notify Calendar.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.Reminder\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.SMS\.current,,"X:\windows\media\Windows Notify Messaging.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.SMS\.Default,,"X:\windows\media\Windows Notify Messaging.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\Notification.SMS\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\PrintComplete\.current,,"X:\windows\media\Windows Print complete.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\PrintComplete\.Default,,"X:\windows\media\Windows Print complete.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\PrintComplete\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\ProximityConnection\.current,,"X:\windows\media\Windows Proximity Connection.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\ProximityConnection\.Default,,"X:\windows\media\Windows Proximity Connection.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\ProximityConnection\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreDown\.current,,"X:\windows\media\Windows Restore.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreDown\.Default,,"X:\windows\media\Windows Restore.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreDown\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreUp\.current,,"X:\windows\media\Windows Restore.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreUp\.Default,,"X:\windows\media\Windows Restore.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\RestoreUp\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.current,,"X:\windows\media\Windows Background.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Default,,"X:\windows\media\Windows Background.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemExclamation\.current,,"X:\windows\media\Windows Exclamation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Default,,"X:\windows\media\Windows Exclamation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Modified,,
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemExit\.Default,,"#$pSystemRoot#$p\media\Windows Shutdown.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemHand\.current,,"X:\windows\media\Windows Critical Stop.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemHand\.Default,,"X:\windows\media\Windows Critical Stop.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemHand\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemNotification\.current,,"X:\windows\media\Windows Notify System Generic.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemNotification\.Default,,"X:\windows\media\Windows Notify System Generic.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemNotification\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemQuestion\.current,,"X:\windows\media\Windows Notify.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemQuestion\.Default,,"X:\windows\media\Windows Notify.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\SystemQuestion\.Modified,,
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsLogoff\.Default,,"#$pSystemRoot#$p\media\Windows Logoff Sound.wav"
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsLogon\.Default,,"#$pSystemRoot#$p\media\Windows Logon.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsUAC\.current,,"X:\windows\media\Windows User Account Control.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsUAC\.Default,,"X:\windows\media\Windows User Account Control.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsUAC\.Modified,,
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\.Default\WindowsUnlock\.Default,,"#$pSystemRoot#$p\media\Windows Unlock.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer,,"File Explorer"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer,DispFileName,"@mmres.dll,-5854"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\BlockedPopup\.current,,"X:\windows\media\Windows Pop-up Blocked.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\BlockedPopup\.default,,"X:\windows\media\Windows Pop-up Blocked.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\BlockedPopup\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\EmptyRecycleBin\.current,,"X:\windows\media\Windows Recycle.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\EmptyRecycleBin\.Default,,"X:\windows\media\Windows Recycle.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\Explorer\EmptyRecycleBin\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr,,"Speech Recognition"
+RegWrite,HKLM,0x2,Tmp_Default\AppEvents\Schemes\Apps\sapisvr,DispFileName,"@#$pSystemRoot#$p\System32\speech\speechux\sapi.cpl,-5555"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\DisNumbersSound\.current,,"X:\windows\media\Speech Disambiguation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\DisNumbersSound\.default,,"X:\windows\media\Speech Disambiguation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\DisNumbersSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOffSound\.current,,"X:\windows\media\Speech Off.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOffSound\.default,,"X:\windows\media\Speech Off.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOffSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOnSound\.current,,"X:\windows\media\Speech On.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOnSound\.default,,"X:\windows\media\Speech On.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubOnSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubSleepSound\.current,,"X:\windows\media\Speech Sleep.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubSleepSound\.default,,"X:\windows\media\Speech Sleep.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\HubSleepSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\MisrecoSound\.current,,"X:\windows\media\Speech Misrecognition.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\MisrecoSound\.default,,"X:\windows\media\Speech Misrecognition.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\MisrecoSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\PanelSound\.current,,"X:\windows\media\Speech Disambiguation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\PanelSound\.default,,"X:\windows\media\Speech Disambiguation.wav"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Apps\sapisvr\PanelSound\.Modified,,
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Names\.Default,,"Windows Default"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Names\.Modified,,"Windows Default (modified)"
+RegWrite,HKLM,0x1,Tmp_Default\AppEvents\Schemes\Names\.None,,"@mmres.dll,-801"

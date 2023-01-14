@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      name="Microsoft-Windows-AppX-AllUserStore"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      language="neutral"
+      />
+  <migration
+    replacementSettingsVersionRange="1"
+    settingsVersion="2">
+    <!-- rules specifying what files and registry entries to collect -->
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <!-- include everything in the EOL list -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\EndOfLife\* [*]</pattern>
+            <!-- all packages that survived upgrade will live to see the next OS if they weren't taken care of in this one -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Upgrade\* [*]</pattern>
+            <!-- anything on the staged list will still be in the staged list in the next OS -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Staged\* [*]</pattern>
+            <!-- anything on the downlevel installed list will still be in the downlevel installed list in the next OS -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\DownlevelInstalled\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <!-- by default exclude every key in the all user store and all subkeys and data beneath there -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\* [*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

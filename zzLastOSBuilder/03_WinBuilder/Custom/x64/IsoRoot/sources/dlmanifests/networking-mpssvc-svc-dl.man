@@ -1,0 +1,93 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="erany, davidab, emanp"
+    buildFilter=""
+    company="Microsoft"
+    copyright="Microsoft"
+    creationTimeStamp="2003-07-10T17:00:03.6164753-07:00"
+    description="$(resourceString.description0)"
+    displayName="$(resourceString.displayName0)"
+    lastUpdateTimeStamp="2004-09-04T01:33:06.8999450-07:00"
+    manifestVersion="1.0"
+    owners="spptdev"
+    supportInformation="wafhot"
+    testers="sppttest"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      language="neutral"
+      name="Networking-MPSSVC-Svc-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <machineSpecific>
+      <migXml xmlns="">
+        <plugin
+            classId="{2f593f80-46a4-4da9-aad8-83a71d1f4333}"
+            file="Networking-MPSSVC-Svc\IcfUpgd.dll"
+            />
+        <rules context="system">
+          <rules>
+            <include>
+              <objectSet>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\* [*]</pattern>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\* [*]</pattern>
+              </objectSet>
+            </include>
+          </rules>
+          <rules>
+            <detects>
+              <detect>
+                <condition>MigXmlHelper.IsOSEarlierThan("NT", "5.1")</condition>
+              </detect>
+            </detects>
+            <exclude>
+              <objectSet>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\* [EnableFirewall]</pattern>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\* [EnableFirewall]</pattern>
+              </objectSet>
+            </exclude>
+          </rules>
+          <rules>
+            <detects>
+              <detect>
+                <condition>MigXmlHelper.DoesOSMatch("NT", "5.2.*")</condition>
+              </detect>
+            </detects>
+            <addObjects>
+              <conditions>
+                <condition>MigXmlHelper.DoesStringContentEqual('Registry','HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile[EnableFirewall]','0x00000000')</condition>
+              </conditions>
+              <object>
+                <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile[EnableFirewall]</location>
+                <attributes>Dword</attributes>
+                <bytes>00000000</bytes>
+              </object>
+            </addObjects>
+            <addObjects>
+              <conditions>
+                <condition negation="Yes">MigXmlHelper.DoesStringContentEqual('Registry','HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfileStandardProfile[EnableFirewall]','0x00000000')</condition>
+              </conditions>
+              <object>
+                <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile[EnableFirewall]</location>
+                <attributes>Dword</attributes>
+                <bytes>01000000</bytes>
+              </object>
+            </addObjects>
+            <include>
+              <objectSet>
+                <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile\* [*]</pattern>
+              </objectSet>
+            </include>
+          </rules>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

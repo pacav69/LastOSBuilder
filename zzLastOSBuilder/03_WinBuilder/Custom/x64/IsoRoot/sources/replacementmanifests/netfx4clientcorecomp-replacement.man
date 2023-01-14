@@ -1,0 +1,163 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    description=".NET Framework component"
+    displayName=".NET Framework NETFX4CLIENTCoreComp-Replacement"
+    manifestVersion="1.0"
+    supportInformation=""
+    >
+  <assemblyIdentity
+      name="NETFX4CLIENTCoreComp"
+      version="0.0.0.0"
+      processorArchitecture="*"
+      language="neutral"
+      />
+  <migration
+      replacementSettingsVersionRange="0-2"
+      settingsVersion="3"
+      alwaysProcess="yes"  
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319 [aspnet.config]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319 [aspnet.config]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config\* [*]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config\* [*]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config\Browsers\* [*]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config\Browsers\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET\4.0.30319.0 [MaxConcurrentRequestsPerCPU]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET\4.0.30319.0 [EnableExtensionlessUrls]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET\4.0.30319.0 [FCNMode]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET\2.0.50727.0 [MaxConcurrentRequestsPerCPU]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET\2.0.50727.0 [FCNMode]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET [SessionStateLockedItemPollInterval]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET [VerificationCompatibility]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET [StopBinFiltering]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ASP.NET [UseWorkStation]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state [Start]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state [DelayedAutostart]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters [AllowRemoteConnection]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters [Port]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v4.$\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.$\AssemblyFoldersEx\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\NGenService\Roots\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\NGenService\Roots\* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\.NETFramework\Policy\Standards\v1.0.0 [v1.1.4322]</pattern>
+              <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\.NETFramework\Policy\Standards\v1.0.0 [v1.1.4322]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\.NETFramework\Policy\v1.1 [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\.NETFramework\Policy\v1.1 [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Microsoft\NET Framework Setup\NDP\v1.1.4322\* [*]</pattern>
+              <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\NET Framework Setup\NDP\v1.1.4322\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\StrongName\Verification\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\AppContext\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v2.0.50727 [SchUseStrongCrypto]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v2.0.50727 [SystemDefaultTlsVersions]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 [SchUseStrongCrypto]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 [SystemDefaultTlsVersions]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\AppContext\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727 [SchUseStrongCrypto]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727 [SystemDefaultTlsVersions]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319 [SchUseStrongCrypto]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319 [SystemDefaultTlsVersions]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v1.*\* [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Accessibility\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\cscompmgd\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\CustomMarshalers\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\IEExecRemote\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\IEHost\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\IIEHost\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\ISymWrapper\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.Ink\1.7.2600.2180__31bf3856ad364e35 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.Ink.JournalReader\1.7.2600.2180__31bf3856ad364e35 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.Ink.resources\1.7.2600.2180_en-US_31bf3856ad364e35 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.JScript\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.VisualBasic\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.VisualBasic.Vsa\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.VisualC\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.Vsa\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft.Vsa.Vb.CodeDOMProcessor\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Microsoft_VsaVb\7.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\mscorcfg\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\Regcode\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Configuration.Install\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Data\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Data.OracleClient\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Design\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.DirectoryServices\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Drawing\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Drawing.Design\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.EnterpriseServices\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Management\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Messaging\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Runtime.Remoting\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Runtime.Serialization.Formatters.Soap\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Security\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.ServiceProcess\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Web\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Web.Mobile\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Web.RegularExpressions\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Web.Services\1.0.5000.0__b03f5f7f11d50a3a [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Windows.Forms\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\GAC\System.Xml\1.0.5000.0__b77a5c561934e089 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\CustomMarshalers\1.0.5000.0__b03f5f7f11d50a3a_093b7584 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\CustomMarshalers\1.0.5000.0__b03f5f7f11d50a3a_c77ee46a [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\mscorlib\1.0.5000.0__b77a5c561934e089_310584e3 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\mscorlib\1.0.5000.0__b77a5c561934e089_bec1f279 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System\1.0.5000.0__b77a5c561934e089_3912c863 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System\1.0.5000.0__b77a5c561934e089_7b528279 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Design\1.0.5000.0__b03f5f7f11d50a3a_4cdfa83d [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Design\1.0.5000.0__b03f5f7f11d50a3a_bfcf7e30 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Drawing\1.0.5000.0__b03f5f7f11d50a3a_03151aa6 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Drawing\1.0.5000.0__b03f5f7f11d50a3a_4724d910 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Drawing.Design\1.0.5000.0__b03f5f7f11d50a3a_4791dfe0 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Drawing.Design\1.0.5000.0__b03f5f7f11d50a3a_834842e5 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Windows.Forms\1.0.5000.0__b77a5c561934e089_09245973 [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Windows.Forms\1.0.5000.0__b77a5c561934e089_823f532e [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Xml\1.0.5000.0__b77a5c561934e089_66bd544a [*]</pattern>
+              <pattern type="File">%windir%\assembly\NativeImages1_v1.1.4322\System.Xml\1.0.5000.0__b77a5c561934e089_7bbddbd2 [*]</pattern>
+            </objectSet>
+          </include>
+          <exclude>
+            <objectSet>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [legacy.web_hightrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [legacy.web_lowtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [legacy.web_mediumtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [legacy.web_minimaltrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [machine.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [machine.config.comments]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web.config.comments]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web_hightrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web_lowtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web_mediumtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework\v4.0.30319\Config [web_minimaltrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [legacy.web_hightrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [legacy.web_lowtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [legacy.web_mediumtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [legacy.web_minimaltrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [machine.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [machine.config.comments]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web.config.comments]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web_hightrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web_lowtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web_mediumtrust.config.default]</pattern>
+              <pattern type="File">%windir%\Microsoft.NET\Framework64\v4.0.30319\Config [web_minimaltrust.config.default]</pattern>
+            </objectSet>
+          </exclude>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

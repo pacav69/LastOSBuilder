@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="masarun"
+    buildFilter=""
+    company="MPD"
+    copyright=""
+    creationTimeStamp="2005-08-05T09:11:13.9731782Z"
+    description="$(resourceString.description1)"
+    displayName="$(resourceString.displayName0)"
+    lastUpdateTimeStamp="2005-08-05T09:13:55.3804612Z"
+    manifestVersion="1.0"
+    owners="masarun"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-IME-Traditional-Chinese-Migration-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration>
+    <migXml xmlns="">
+      <!-- Check as this is only valid for down-level OS < than Windows Vista -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="User">
+        <!-- Common Down-Level Settings to collect on Source Machine -->
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\software\microsoft\windows\currentversion\mstcicj\* [*]</pattern>
+            <pattern type="Registry">HKCU\software\microsoft\windows\currentversion\mstciph\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

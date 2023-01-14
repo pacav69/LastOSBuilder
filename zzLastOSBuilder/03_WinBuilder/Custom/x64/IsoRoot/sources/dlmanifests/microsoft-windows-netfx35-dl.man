@@ -1,0 +1,137 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+
+<!-- Downlevel manifest for component Microsoft-Windows-NETFX35LinqComp --><assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-NetFx35-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="NetFx35"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5 [Install]")</condition>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\v3.5 [Install]")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <environment>
+          <variable name="NetFx35Install">
+            <text>%windir%\Microsoft.NET\Framework\v3.5</text>
+          </variable>
+          <variable name="NetFx35Install64">
+            <text>%windir%\Microsoft.NET\Framework64\v3.5</text>
+          </variable>
+        </environment>
+        <include>
+          <objectSet>
+            <pattern type="File">%NetFx35Install% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [vbc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [vbc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.WinFx.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [SqlServer.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.WinFx.targets]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\MSBuild\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\MSBuild\* [*]</pattern>
+          </objectSet>
+        </include>
+        <merge script="MigXmlHelper.SourcePriority()">
+          <objectSet>
+            <pattern type="File">%NetFx35Install% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [vbc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [vbc.exe.config]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\MSBuild\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\MSBuild\* [*]</pattern>
+          </objectSet>
+        </merge>
+        <merge script="MigXmlHelper.DestinationPriority()">
+          <objectSet>
+            <pattern type="File">%NetFx35Install% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.WinFx.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [SqlServer.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.WinFx.targets]</pattern>
+          </objectSet>
+        </merge>
+        <!-- We prevent the ACLs from being migrated -->
+        <excludeAttributes attributes="Security">
+          <objectSet>
+            <pattern type="File">%NetFx35Install% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [vbc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInProcess32.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [AddInUtil.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [csc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [msbuild.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install64% [vbc.exe.config]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.WinFx.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [Microsoft.CompactFramework.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install% [SqlServer.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.Common.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.CSharp.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.VisualBasic.targets]</pattern>
+            <pattern type="File">%NetFx35Install64% [Microsoft.WinFx.targets]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\MSBuild\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Wow6432Node\Microsoft\MSBuild\* [*]</pattern>
+          </objectSet>
+        </excludeAttributes>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

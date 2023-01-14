@@ -1,0 +1,83 @@
+[Main]
+Title=Check Target Sys Files
+Type=XPEPlugin
+Description=Check Plugin or Project for Missing Mui Files and SystemResources Mun Files#$x - Based on Target System32, SysWOW64 Files and Resources#$x - Compared to the List of Mui and Mun Files Included in Windows 10 Source
+Author=ChriSR
+Date=2019.03.20
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=10
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%TempFolder%=%Gtemp%\CheckSysFiles
+%ProcessFile%=%ProjectDir%\Features\CheckSysFiles.script
+
+[Interface]
+Text_TextLabel1="Check for Missing Mui Files and SystemResources Mun Files",1,1,6,14,344,18,8,Bold
+CheckMui_CheckBox="Check Mui Files",1,3,6,36,104,18,True
+CheckMun_CheckBox="Check SystemResources Mun Files",1,3,110,36,200,18,True
+CheckFrom_Bevel=CheckFrom_Bevel,1,12,6,62,310,24
+CheckFrom_TextLabel="Check From:",1,1,12,68,82,18,8,Bold
+Project_RadioButton="Current Target Folder",1,11,102,65,135,20,True,"__Check from the Current Target Folder"
+Plugin_RadioButton=Plugin,1,11,242,65,65,20,False,"__Check from Plugin. The Target Folder will be Deleted Before Running the Selected Script"
+Plugin_TextLabel="Plugin to Process:",1,1,6,98,108,18,8,Bold
+Plugin_FileBox=,1,13,6,113,388,20,file
+Button_Launch_Program=Launch,1,8,6,149,150,36,process,Launch.bmp,False,"__Click Here To Launch Program"
+OpenCheckSysFiles_Button=,0,8,376,158,24,24,OpenCheckSysFiles,opendir.bmp,True,"__Open Check Sys Files Folder"
+Action_TextLabel="Action at the End:",1,1,176,162,96,18,8,Normal
+Action_ScrollBox=Display,1,4,272,159,100,21,Display,ExtractListFiles
+Text_TextLabel4="(*) Noted that the Target Folder will be Deleted if Plugin Selected",1,1,6,202,388,18,8,Bold
+
+[Launch_PreCheck]
+If,Not,ExistFile,%GSource%\sources\install.wim,EchoExtended,"install.wim image was Not Found in the Windows 10 Source Folder.#$x#$xSelect the Root of the Windows 10 Source Folder.",Warn,,Message,,Exit
+If,%CheckMui_CheckBox%%CheckMun_CheckBox%,Equal,FalseFalse,EchoExtended,"No Check Mui Files and(or) Check Mun Files Selected",Warn,,MessageError,,Exit
+If,%CheckMui_CheckBox%%CheckMun_CheckBox%,Equal,FalseTrue,Begin
+  If,Not,%SourceBuild%,Bigger,18300,EchoExtended,"Windows %SourceVersion%.#$x#$xCheck Mun Files is Only Available for Windows 10 19H1, 20H1,...",Warn,,MessageError,,Exit
+End
+//-
+If,%Plugin_RadioButton%,Equal,True,Begin
+  If,Not,ExistFile,%Plugin_FileBox%,EchoExtended,"Script: %Plugin_FileBox%#$x#$xNot Found",Warn,,MessageError,,Exit
+  If,Not,ExistSection,%Plugin_FileBox%,Process,EchoExtended,"%Plugin_FileBox%#$x#$x[Process] Section Not Found",Warn,,MessageError,,Exit
+End
+
+[process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%ProcessFile%,Exit,"%ProcessFile% Process File Not Found"
+//-
+Run,%ScriptFile%,Launch_PreCheck
+//-
+If,%Plugin_RadioButton%,Equal,True,Begin
+  Exec,%ProcessFile%,CheckSysFiles,%Plugin_FileBox%,%CheckMui_CheckBox%,%CheckMun_CheckBox%,%Action_ScrollBox%
+End
+Else,Begin
+  Exec,%ProcessFile%,CheckSysFiles,Project,%CheckMui_CheckBox%,%CheckMun_CheckBox%,%Action_ScrollBox%
+End
+
+[OpenCheckSysFiles]
+OpenDir,%TempFolder%
+
+[AuthorEncoded]
+Checkmark.ico=1549,2066
+Logo=Checkmark.ico
+
+[EncodedFile-AuthorEncoded-Checkmark.ico]
+lines=0
+0=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
+
+[InterfaceEncoded]
+Launch.bmp=913,1218
+opendir.bmp=571,762
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+

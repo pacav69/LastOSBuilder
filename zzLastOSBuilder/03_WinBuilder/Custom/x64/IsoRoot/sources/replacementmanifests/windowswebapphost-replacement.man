@@ -1,0 +1,35 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      name="Microsoft-Windows-Web-App-Host"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      language="neutral"
+      />
+  <migration
+    replacementSettingsVersionRange="0"
+    settingsVersion="0"
+    alwaysProcess="Yes">
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AppHost [EnableWebContentEvaluation]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost [EnableWebContentEvaluation]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

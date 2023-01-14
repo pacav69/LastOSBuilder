@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+
+<!-- Down Level Manifest For Component WCF-HTTP-Activation --><assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="wdong"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2006-07-27T12:29:38.8364502Z"
+    description="Windows Communication Foundation HTTP Activation Downlevel"
+    displayName="Windows Communication Foundation HTTP Activation Downlevel"
+    lastUpdateTimeStamp="2006-07-27T12:29:38.8364502Z"
+    manifestVersion="1.0"
+    owners=""
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="WCF-HTTP-Activation-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!-- Declare for which Longhorn equivalent OC this manifest corresponds too -->
+    <registerSDF name="WCF-HTTP-Activation"/>
+    <migXml xmlns="">
+      <!-- On a down-level system, we detect the presence of WWW by -->
+      <!-- looking for the W3SVC service.  We base this on the      -->
+      <!-- registry key for the service declaration.                -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\System\CurrentControlSet\Services\W3SVC [ImagePath]")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0\Setup\Windows Communication Foundation [InstallSuccess]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

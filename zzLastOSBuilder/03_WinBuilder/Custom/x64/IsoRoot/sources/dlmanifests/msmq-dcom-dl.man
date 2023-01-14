@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="SanjibS"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2006-06-16T16:37:03.6090709-07:00"
+    description="Downleve manifest for MSMQ DCOM Proxy component"
+    displayName="Downleve manifest for MSMQ DCOM Proxy component"
+    lastUpdateTimeStamp="2006-06-12T23:01:42.1450255-08:00"
+    manifestVersion="1.0"
+    owners="MikeDice;AnandRaj"
+    supportInformation=""
+    testers="AshishW"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-msmq-DCOM-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <registerSDF name="MSMQ-DCOMProxy"/>
+    <migXml xmlns="">
+      <detects>
+        <!-- Platform detection -->
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+        </detect>
+        <!-- Detect presence of the MSMQ Type Libraries -->
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File", "%windir%\system32\mqoa10.tlb");</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File", "%windir%\system32\mqoa20.tlb");</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

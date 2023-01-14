@@ -1,0 +1,43 @@
+[WTR]
+Name="Microsoft FTP Service for IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpsvc.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftphost.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpctrlps.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpextps.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpres.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpconfigext.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpext.tlb]"
+"%SystemDrive%\Windows\System32\inetsrv\ [FTPSVC.MOF]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpsvc.man]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftp_readme.HTM]"
+"%SystemDrive%\Windows\System32\inetsrv\ [ftpsvc.chm]"
+"%SystemDrive%\Windows\System32\inetsrv\en-US\ [ftpsvc.mfl]"
+"%SystemDrive%\Windows\System32\inetsrv\en-US\ [ftpres.dll.mui]"
+"%SystemDrive%\Windows\System32\inetsrv\config\schema\ [ftp_schema.xml]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [FTPSVC.MOF]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [ftpsvc.man]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [ftp_readme.HTM]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [ftpsvc.chm]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\config\schema\ [ftp_schema.xml]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\en-US\ [ftpsvc.mfl]"
+
+
+[System.Gac]
+"[Microsoft.Web.FtpServer,*]"
+"[Microsoft.Web.Management.Ftp,*]"
+"[Microsoft.Web.Management.FtpClient,*]"  
+
+
+
+[System.Registry]
+"HKLM\System\CurrentControlSet\Services\EventLog\System\FTPSVC\* [*]"
+"HKLM\System\CurrentControlSet\Services\ftpsvc\Parameters\* [*]"
+
+[ProductID]
+"{15ABFD45-B97E-483D-A6C9-28AA751A1C01}"
+

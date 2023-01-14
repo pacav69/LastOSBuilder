@@ -1,0 +1,24 @@
+[WTR]
+Name="Microsoft WebDAV Extension For IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav_simple_prop.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav.chm]"
+"%SystemDrive%\Windows\System32\inetsrv\ [WebDAV_ReadMe.htm]"
+"%SystemDrive%\Windows\System32\inetsrv\config\schema\ [WEBDAV_schema.xml]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [webdav.dll]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [webdav_simple_prop.dll]"
+
+[System.Gac]
+"[Microsoft.Web.Management.WebDAV,*]"
+"[Microsoft.Web.Management.WebDAVClient,*]"
+
+[System.Registry]
+
+[ProductID]
+"{C4C36B6D-0400-4160-B9A1-7F0E44F626ED}"
+

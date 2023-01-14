@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      name="Microsoft-Windows-Desktop_Technologies-Text_Input_Services-IME-EAShared-Migration"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      language="neutral"
+      />
+  <migration
+      scope="Upgrade,Data,MigWiz,USMT"
+      settingsVersion="0"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.3"
+      >
+    <migXml xmlns="">
+      <supportedComponents>
+        <supportedComponent>
+          <supportedComponentIdentity
+              buildFilter=""
+              buildType="$(build.buildType)"
+              language="neutral"
+              name="Microsoft-Windows-Desktop_Technologies-Text_Input_Services-IME-EAShared-Migration"
+              processorArchitecture="$(build.processorArchitecture)"
+              publicKeyToken="$(Build.WindowsPublicKeyToken)"
+              settingsVersionRange="0"
+              type=""
+              versionScope="nonSxS"
+              />
+        </supportedComponent>
+      </supportedComponents>
+      <!-- Gather the registry keys that need to be migrated -->
+      <rules context="System">
+        <include>
+          <objectSet>
+            <!-- keep whole InputMethod -->
+            <pattern type="Registry">HKLM\Software\Microsoft\InputMethod\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <!-- Remove Jpn -->
+            <pattern type="Registry">HKLM\Software\Microsoft\InputMethod\Jpn [*]</pattern>
+            <!-- Remove Kor -->
+            <pattern type="Registry">HKLM\Software\Microsoft\InputMethod\Kor [*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

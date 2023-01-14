@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-TerminalServices-SessionDirectory-Server"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+    <migration
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      replacementVersionRange="6.1-6.2"
+      >
+    <machineSpecific>
+     <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>  
+            <!--
+                Following is the upgrade sequence and the actions we take in each phase:                     
+
+                - Gather phase: For this phase, we author gather rule to tell setup/upgrade process to
+                  preserve old database.
+
+                - Move old OS to Windows.old - We do not play any role here.
+
+                - Clean install - this will install CB role and our AI code will get executed. At  this 
+                  time, there is no RDCMS database present (note: clean install). So, AI goes ahead and
+                  creates a new RDCMS database. If it is clean install, this is what we want. However, if 
+                  it is upgrade, we want older database. We deal with this situation in next steps. 
+
+                - Machine-Specific Apply - This will apply machine-specific rules. We tell setup/upgrade
+                  process to copy old database to rdcbDb.PreUpgrade and execute migration plugin. Our 
+                  migration plugin gets executed here, where we detach the RDCMS database, copy the contents
+                  of rdcbDb.PreUpgrade to rdcbDb and attach database again. We do this in "machine-specific", 
+                  apply phase because then we do not have to stop/start services.
+
+                - Reboot - See why we did all above in Machine-specific apply phase? 
+ 
+                - Non-machine-specific Apply and OOBE - We do not play any role here.
+            -->
+   
+            <!--  Here we author the "Gather" rule. -->
+            <!--  This tells setup/upgrade process that we want to preserve these files. -->  
+            <!--  Checked the documentation, there does not seem to be any way to preserve directory. -->  
+            <pattern type="File">%windir%\rdcbDb[Rdcms.mdf]</pattern> 
+            <pattern type="File">%windir%\rdcbDb[Rdcms_log.ldf]</pattern> 
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\Session Broker\ClusterAccounts\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [DBConnString]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [DBSecondaryConnString]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters\Secrets\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [PingMode]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [TraceOutputMode]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [NumberFailedPingsBeforePurge]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [TimeBetweenPings]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [TimeServerSilentBeforePing]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [WorkingDirectory]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tssdis\Parameters [RecoverWhenStart]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+     </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

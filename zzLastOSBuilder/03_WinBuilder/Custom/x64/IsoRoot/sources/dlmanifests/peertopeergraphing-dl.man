@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="brianl"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-07-15T15:02:25.7867884-07:00"
+    description="p2p graphing downlevel manifest"
+    displayName="p2p graphing downlevel manifest"
+    lastUpdateTimeStamp="2004-05-25T17:10:19.2168218-07:00"
+    manifestVersion="1.0"
+    owners="brianl"
+    supportInformation=""
+    testers="kevincao"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-PeerToPeerGraphing-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration xmlns="">
+    <migXml>
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%SystemRoot%\PeerNet\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

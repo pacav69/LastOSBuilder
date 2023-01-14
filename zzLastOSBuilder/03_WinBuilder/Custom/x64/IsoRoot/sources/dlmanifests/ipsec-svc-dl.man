@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="IanCar, BohrHe"
+    buildFilter=""
+    company="Microsoft"
+    copyright="Microsoft"
+    creationTimeStamp="2003-08-05T10:09:21.1986565-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2004-06-19T22:16:51.5001339+00:00"
+    manifestVersion="1.0"
+    owners="spptdev"
+    supportInformation="wafhot"
+    testers="sppttest"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      language="neutral"
+      name="Microsoft-Windows-Network-Security-Domain-Clients-Svc-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="system">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\IPSec\Policy\Local\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\IPSec\ICFv4\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent\Oakley\* [StrongCRLCheck]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent\Oakley\* [IKEFlags]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\IPSEC\* [SAIdleTime]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\IPSEC\* [NoDefaultExempt]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\IPSEC\* [AssumeUDPEncapsulationContextOnSendRule]</pattern>
+          </objectSet>
+        </include>
+        <excludeAttributes attributes="Security">
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\IPSec\*</pattern>
+          </objectSet>
+        </excludeAttributes>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

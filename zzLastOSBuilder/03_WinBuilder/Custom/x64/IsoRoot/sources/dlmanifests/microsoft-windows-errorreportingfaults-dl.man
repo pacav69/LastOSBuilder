@@ -1,0 +1,24 @@
+<assembly manifestVersion="1.0" description="" displayName="" company="Microsoft" copyright="Microsoft" supportInformation="" creationTimeStamp="2004-04-04T18:21:41.4684914-07:00" lastUpdateTimeStamp="2005-04-14T03:02:06.6003799Z" authors="haseebq" owners="haseebq" testers="" buildFilter="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:asm.v3">
+  <assemblyIdentity
+    name="Microsoft-Windows-ErrorReportingFaults-DL"
+    version="0.0.0.0" processorArchitecture="*"
+    language="neutral"
+  />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "5.2.*")</condition>
+            <condition>MigXmlHelper.IsOSLaterThan("NT", "5.1.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\CrashControl [DumpFile]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

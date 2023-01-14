@@ -1,0 +1,28 @@
+[WTR]
+Name="Microsoft Windows PowerShell snap-in for IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [AppHostNavigators.dll]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [IIsConsole.psc1]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [iisprovider.format.ps1xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [iisprovider.types.ps1xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [Microsoft.IIS.Powershell.Provider.dll-Help.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [NavigationTypes.namespace.xml]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [Readme.htm]"
+"%SystemDrive%\Program Files\IIS\PowerShellSnapin\ [XPath.dll]"
+
+
+[System.Gac]
+"[Microsoft.IIS.PowerShell.Framework,*]"
+"[Microsoft.IIS.Powershell.Provider,*]"
+
+
+[System.Registry]
+"HKLM\Software\Microsoft\PowerShell\1\PowerShellSnapIns\webAdministration\* [*]"
+
+[ProductID]
+"{3C557BC2-9FC4-4293-9E36-F6F5079E3E0C}"
+

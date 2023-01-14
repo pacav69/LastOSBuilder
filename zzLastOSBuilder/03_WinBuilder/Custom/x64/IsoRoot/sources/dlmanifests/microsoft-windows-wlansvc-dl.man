@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="v-mnazio"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2005-06-09T23:02:48.7167353Z"
+    description="Wlansvc Downlevel Manifest"
+    displayName="Wlansvc Downlevel Manifest"
+    lastUpdateTimeStamp="2005-08-08T22:56:10.0057435Z"
+    manifestVersion="1.0"
+    owners="v-mnazio"
+    supportInformation="http://support.microsoft.com"
+    testers=""
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-WlanSvc-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration scope="Upgrade,MigWiz,USMT">
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WZCSVC\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\Wireless\GPTWirelessPolicy\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Policies\Microsoft\Windows\Wireless\Policy\Cache\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Network_and_Internet\Networking_Connections</migrationDisplayID>
+  </migration>
+</assembly>

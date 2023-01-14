@@ -1,0 +1,43 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-ParentalControlsSettings"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration 
+      replacementSettingsVersionRange="0-9999"
+      settingsVersion="2"
+      >
+    <migXml xmlns="">
+      <plugin
+          classId="{0B6EC5B8-039F-4B11-8C2B-B8FD0F83462A}"
+          file="wpc\WpcMigration.Downlevel.dll"
+          offlineApply="Yes"
+          />
+    </migXml>
+    <supportedComponents>
+      <supportedComponent>
+        <supportedComponentIdentity
+            buildType="$(build.buildType)"
+            language="neutral"
+            name="Microsoft-Windows-ParentalControlsSettings"
+            processorArchitecture="$(build.arch)"
+            publicKeyToken="$(Build.WindowsPublicKeyToken)"
+            settingsVersionRange="0-1"
+            type=""
+            versionScope="nonSxS"
+            />
+      </supportedComponent>
+    </supportedComponents>
+  </migration>
+</assembly>
+
+

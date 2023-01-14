@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity name="Microsoft-Windows-Virtualization-Vmswitch-Migration-Replacement"
+                    version="0.0.0.0"
+                    processorArchitecture="*"
+                    language="*"/>
+  <!--
+    To ensure that the correct plugin bits are loaded during the "gather"
+    phases of an in-place upgrade, the following attributes must be updated
+    whenever a fix is made to the "gather" code in VmSwitchMigrationPlugin.dll:
+
+    /assembly/migration/@settingsVersion
+    
+      This attribute should be incremented by one.  Any new value must be
+      mirrored in manifest located here:
+      
+    onecore\vm\dv\net\migration\manifests\plugin\Microsoft-Windows-Virtualization-Vmswitch-Migration.man
+        
+    /assembly/migration/@replacementSettingsVersionRange 
+    
+      This attribute should be set to "0-(@settingsVersion-1)".  For
+      example, if @settingsVersion is incremented to "4",
+      @replacementSettingsVersionRange should be "0-3".
+  -->
+  <migration
+      scope="Upgrade"
+      settingsVersion="1"
+      replacementSettingsVersionRange="0"
+      alwaysProcess="yes"
+      >
+    <!-- This is used during in-place upgrade -->
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\system\currentcontrolset\services\vmsmp")</condition>
+        </detect>
+      </detects>
+      <plugin
+        classId="{3847B669-8830-4373-A943-D990963766A5}"
+        file="microsoft-windows-virtualization-vmswitch\VmSwitchMigrationPlugin.dll"
+        offlineApply="yes"
+        />
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\system\currentcontrolset\services\vmsmp\parameters\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

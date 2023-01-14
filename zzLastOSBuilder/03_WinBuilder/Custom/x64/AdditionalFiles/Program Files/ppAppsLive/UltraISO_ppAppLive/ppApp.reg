@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\EasyBoot Systems\UltraISO\5.0]
+"UserName"="ru-board"
+"Registration"="d9c4a7c9dbf3dad0a5b6d0cea485daa1"
+"Language"="1033"
+"SoundEffect"="0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\EasyBoot Systems\UltraISO\5.0]
+"Install"="1"

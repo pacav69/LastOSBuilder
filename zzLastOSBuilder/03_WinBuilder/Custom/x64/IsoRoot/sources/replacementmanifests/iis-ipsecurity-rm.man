@@ -1,0 +1,25 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-IIS-IPSecurity"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+
+  <migration replacementSettingsVersionRange="0" 
+     settingsVersion="0"
+     alwaysProcess="yes">
+      <registerSDF name="IIS-IPSecurity"/>
+      <migXml xmlns="">
+      <!-- On a Vista /LHS down-level system, we detect the presence of OOB -->
+      <!-- Dynamic IP Restriction by looking for the WTR file installed by  -->
+      <!-- the OOB MSI                                                      -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist( "File", "%windir%\migration\WTR [DynamicIpRestrictions.inf]" )</condition>
+        </detect>
+      </detects>
+      </migXml>
+  </migration>
+</assembly>

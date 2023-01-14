@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Microsoft-Windows-SMB1-Replacement"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      >
+    <registerSDF name="SMB1Protocol"/>
+    <registerSDF name="SMB1Protocol-Client"/>
+    <registerSDF name="SMB1Protocol-Server"/>
+    <migXml xmlns="">
+     <detects>
+        <!-- Multiple <detect> are AND, multiple <condition> are OR: -->
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "10.0.16220")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File", "%windir%\system32\drivers [srv.sys]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

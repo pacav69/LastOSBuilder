@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="cagatayk"
+    buildFilter=""
+    company="MS"
+    copyright=""
+    creationTimeStamp="2006-05-25T21:14:37.8714436Z"
+    description=""
+    displayName=""
+    lastUpdateTimeStamp="2006-05-25T01:56:13.2144305Z"
+    manifestVersion="1.0"
+    owners="cagatayk"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-Rights-Management-Services-Server-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration xmlns="">
+    <!--Declare for which Longhorn equivalent OC this manifest corresponds too -->
+    <registerSDF name="RightsManagementServices"/>
+    <migXml>
+      <!--This detects part will ensure RMS to be installed on LH if installed on win2k3 -->
+      <detects>
+        <detect>
+          <!--This manifest will apply to machines that has RMS on 64bit machines -->
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0")</condition>
+        </detect>
+        <detect>
+          <!--This manifest will apply only  to machines that has  windows 2003 -->
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <detects>
+          <detect>
+            <!--This manifest will apply to machines that has RMS on 64bit machines -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0\Version")</condition>
+          </detect>
+        </detects>
+        <addObjects>
+          <object>
+            <location type="Registry">HKLM\SOFTWARE\Microsoft\DRMS [ConfigStatus]</location>
+            <attributes>Dword</attributes>
+            <bytes>00000000</bytes>
+          </object>
+        </addObjects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\DRMS [ConfigStatus]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0 [Path]</pattern>
+          </objectSet>
+        </exclude>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0 [EnrollmentURL]</pattern>
+          </objectSet>
+        </exclude>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0 [Uddiprovider]</pattern>
+          </objectSet>
+        </exclude>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\wow6432node\Microsoft\DRMS\1.0\Version\* [*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

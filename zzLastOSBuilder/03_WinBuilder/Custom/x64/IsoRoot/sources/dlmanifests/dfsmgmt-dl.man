@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+
+<!-- *************** Down Level Manifest For Upgrade from R2 to LH ********************** --><assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="arunl"
+    buildFilter=""
+    company="Microsoft Corporation"
+    copyright="Microsoft Corporation"
+    creationTimeStamp="2006-02-15T20:46:17.0709288Z"
+    description="$(resourceString.description1)"
+    displayName="$(resourceString.displayName1)"
+    lastUpdateTimeStamp="2006-02-15T19:13:31.5450725Z"
+    manifestVersion="1.0"
+    owners="bofdev"
+    supportInformation="bofdev"
+    testers="botest"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="DfsMgmt-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!-- for which Longhorn equivalent OC this manifest corresponds to  -->
+    <registerSDF name="DfsMgmt"/>
+    <migXml xmlns="">
+      <detects>
+        <!-- Ruleset for migrating Windows 2003 and R2 -->
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT", "5.2.*")</condition>
+        </detect>
+        <!-- Detect presence of Longhorn down-level equiv feature -->
+        <detect>
+          <condition>MigXmlHelper.DoesStringContentContain("Registry", "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OC Manager\Subcomponents [dfsfrsui]", "1")</condition>
+        </detect>
+      </detects>
+      <rules context="user">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\DFS Management\* [*]</pattern>
+          </objectSet>
+        </include>
+        <!-- We don't expect any merge conflicts -->
+      </rules>
+    </migXml>
+    <!-- No pc-to-pc migration. -->
+  </migration>
+</assembly>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Downlevel manifest for enabling OC NetFX3 -->
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" manifestVersion="1.0" description=".NET Framework 3.0 Downlevel" displayName=".NET Framework 3.0 Downlevel" company="Microsoft" copyright="" supportInformation="" creationTimeStamp="2007-11-14T12:05:23.8364502Z" lastUpdateTimeStamp="2007-11-14T12:05:23.8364502Z" authors="dglick" owners="" testers="" buildFilter="" xmlns="urn:schemas-microsoft-com:asm.v3">
+  <assemblyIdentity name="NetFX3-DL" version="0.0.0.0" processorArchitecture="*" language="*" type="" publicKeyToken="$(Build.WindowsPublicKeyToken)" buildType="$(build.buildType)" versionScope="nonSxS" buildFilter=""/>
+  <migration>
+    <registerSDF name="NetFx3"></registerSDF>
+
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.0\Setup [InstallSuccess]")</condition>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\v3.0\Setup [InstallSuccess]")</condition>
+        </detect>
+
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

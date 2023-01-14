@@ -1,0 +1,132 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-WICAMigrationAv"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2-6.3.9420"
+      settingsVersion="0"
+      alwaysProcess="yes"
+      scope="Upgrade"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsTemp\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetupTemp\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNamesTemp\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\MigrationShims\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityTemp\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAvTemp\*[*]</pattern>
+              <pattern type="File">%windir%\AppCompat\Appraiser\[APPRAISER_TelemetryBaseline_UNV.bin]</pattern>
+              <pattern type="File">%windir%\AppCompat\Appraiser\[APPRAISER_TelemetryBaseline_RS1.bin]</pattern>
+              <pattern type="File">%windir%\AppCompat\Appraiser\[APPRAISER_TelemetryBaseline_TH2.bin]</pattern>
+              <pattern type="File">%windir%\AppCompat\Appraiser\[APPRAISER_TelemetryBaseline_TH1.bin]</pattern>
+            </objectSet>
+          </include>
+          <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPaths&apos;)">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsTemp\*[*]</pattern>
+            </objectSet>
+          </locationModify>
+          <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetupTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetup&apos;)">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetupTemp\*[*]</pattern>
+            </objectSet>
+          </locationModify>
+          <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNamesTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNames&apos;)">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNamesTemp\*[*]</pattern>
+            </objectSet>
+          </locationModify>
+          <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibility&apos;)">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityTemp\*[*]</pattern>
+            </objectSet>
+          </locationModify>
+          <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAvTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAv&apos;)">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAvTemp\*[*]</pattern>
+            </objectSet>
+          </locationModify>
+          <merge script="MigXmlHelper.SourcePriority()">
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPaths\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetup\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNames\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\MigrationShims\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibility\*[*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAv\*[*]</pattern>
+            </objectSet>
+          </merge>
+        </rules>
+      </migXml>
+    </machineSpecific>
+    <supportedComponents>
+      <supportedComponent>
+        <supportedComponentIdentity
+            language="neutral"
+            name="Microsoft-Windows-WICAMigrationAv"
+            processorArchitecture="*"
+            publicKeyToken="$(build.WindowsPublicKeyToken)"
+            settingsVersionRange="0"
+            />
+        <machineSpecific>
+          <migXml xmlns="">
+            <rules context="System">
+              <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPaths&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsTemp\*[*]</pattern>
+                </objectSet>
+              </locationModify>
+              <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetupTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetup&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetupTemp\*[*]</pattern>
+                </objectSet>
+              </locationModify>
+              <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNamesTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNames&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNamesTemp\*[*]</pattern>
+                </objectSet>
+              </locationModify>
+              <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibility&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityTemp\*[*]</pattern>
+                </objectSet>
+              </locationModify>
+              <locationModify script="MigXmlHelper.RelativeMove(&apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAvTemp&apos;, &apos;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAv&apos;)">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAvTemp\*[*]</pattern>
+                </objectSet>
+              </locationModify>
+              <merge script="MigXmlHelper.SourcePriority()">
+                <objectSet>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPaths\*[*]</pattern>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvPathsExpiredSetup\*[*]</pattern>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\WicaAvDisplayNames\*[*]</pattern>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\MigrationShims\*[*]</pattern>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibility\*[*]</pattern>
+                  <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\UpgradeCompatibilityAv\*[*]</pattern>
+                </objectSet>
+              </merge>
+            </rules>
+          </migXml>
+        </machineSpecific>
+      </supportedComponent>
+    </supportedComponents>
+  </migration>
+</assembly>

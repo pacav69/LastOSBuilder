@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
+  <Identity
+    Name="Windows.MiracastView"
+    Publisher="CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    Version="6.3.0.0"
+    ResourceId="neutral" />
+  <Properties>
+    <DisplayName>ms-resource:DisplayName</DisplayName>
+    <Description>ms-resource:Description</Description>
+    <Logo>assets\logo.png</Logo>
+    <PublisherDisplayName>ms-resource:PublisherDisplayName</PublisherDisplayName>
+    <uap:SupportedUsers>multiple</uap:SupportedUsers>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-us"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="Microsoft.Windows.MiracastView" Executable="MiracastView.exe" EntryPoint="AppObject.EntryPoint">
+      <uap:VisualElements DisplayName="ms-resource:DisplayName" Description="ms-resource:Description"
+                      AppListEntry="none"
+                      Square150x150Logo="Logo.png" Square44x44Logo="SmallLogo.png"
+                      BackgroundColor="#F2F2F2">
+        <uap:SplashScreen Image="SplashScreen.png" BackgroundColor="#F2F2F2" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+</Package>

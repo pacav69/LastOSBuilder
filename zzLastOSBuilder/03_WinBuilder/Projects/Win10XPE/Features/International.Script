@@ -1,0 +1,103 @@
+[Main]
+Title=International
+Type=XPEPlugin
+Description=International setting Keyboard - Format - TimeZone
+Author=ChriSR
+Date=2019.04.01
+Version=002
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%DismExe%=%GTools%\%Architecture%\DISM\dism.exe
+%DismLog%=%GTarget_Win%\Logs\DISM\dism.log
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,ExistFile,%ProjectDir%\Core.script,AddInterface,%ProjectDir%\Core.script,InterfaceMain,""
+//--
+StrFormat,PATH,%DismLog%,%DismLogPath%
+If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
+If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
+StrFormat,PATH,%DismExe%,%DismExePath%
+//--
+Run,%ScriptFile%,International
+
+[International]
+Echo,"Set Keyboard, Format and Timezone..."
+//Message,"Keyboard: %Keyboard_ScrollBox%#$xFormat: %Format_ScrollBox%#$xTimeZone: %TimeZone_ScrollBox%"
+//-
+// Format Input Locale (Keyboard)
+StrFormat,POS,%Keyboard_ScrollBox%,|,%Pos%
+If,%Pos%,Equal,0,Set,%InputLocale%,%Keyboard_ScrollBox%
+Else,StrFormat,LTRIM,%Keyboard_ScrollBox%,%Pos%,%InputLocale%
+StrFormat,CTRIM,%InputLocale%," ",%InputLocale%
+// Format User Locale (Format). It could also be for System Locale (Location) but it cannot be set for Unicode-only languages
+StrFormat,POS,%Format_ScrollBox%,|,%Pos%
+If,%Pos%,Equal,0,Set,%UserLocale%,%Format_ScrollBox%
+Else,StrFormat,LTRIM,%Format_ScrollBox%,%Pos%,%UserLocale%
+StrFormat,CTRIM,%UserLocale%," ",%UserLocale%
+// Format TimeZone
+StrFormat,POS,%TimeZone_ScrollBox%,),%Pos%
+StrFormat,LTRIM,%TimeZone_ScrollBox%,%Pos%,%TimeZone%
+StrFormat,CTRIM,%TimeZone%," ",%TimeZone%
+//-
+// Get Hots OS international information by using dism /online /Get-Intl
+Set,%Get-Intl%,False
+If,%InputLocale%,Equal,HostOS,Set,%Get-Intl%,True
+If,%UserLocale%,Equal,HostOS,Set,%Get-Intl%,True
+If,%TimeZone%,Equal,HostOS,Set,%Get-Intl%,True
+If,%Get-Intl%,Equal,True,begin
+  ShellExecute,Hide,cmd.exe,"/D /C Echo Get international information. Be patient...&Dism.exe /online /Get-Intl /English > #$q%Gtemp%\Get-Intl.ini#$q",%DismExePath%
+  If,ExistFile,%Gtemp%\Get-Intl.ini,Begin
+    TXTAddLine,%Gtemp%\Get-Intl.ini,[International],Prepend
+    TXTReplace,%Gtemp%\Get-Intl.ini," : ",=
+    If,%InputLocale%,Equal,HostOS,Begin
+      IniRead,%Gtemp%\Get-Intl.ini,International,"Active keyboard(s)",%InputLocale%
+      StrFormat,Replace,%InputLocale%,", ",;,%InputLocale%
+    End
+    // if user local is not defined, use LocaleName from HKCU\Control Panel\International
+    If,%UserLocale%,Equal,HostOS,IniRead,%Gtemp%\Get-Intl.ini,International,"User locale for default user",%UserLocale%
+    If,%UserLocale%-,Equal,-,RegRead,HKCU,"Control Panel\International",LocaleName,%UserLocale%
+    If,%TimeZone%,Equal,HostOS,IniRead,%Gtemp%\Get-Intl.ini,International,"Default time zone",%TimeZone%
+  End
+  // In case of trouble, Get-Intl.ini does not exist, IniRead error
+  If,%InputLocale%,Equal,HostOS,Set,%InputLocale%,Default
+  If,%UserLocale%,Equal,HostOS,Set,%UserLocale%,Default
+  If,%TimeZone%,Equal,HostOS,Set,%TimeZone%,Default
+  If,%InputLocale%-,Equal,-,Set,%InputLocale%,Default
+  If,%UserLocale%-,Equal,-,Set,%UserLocale%,Default
+  If,%TimeZone%-,Equal,-,Set,%TimeZone%,Default
+End
+//-
+// Set international parameters
+Set,%Set_Intl_Parm%,""
+If,Not,%InputLocale%,Equal,Default,Begin
+  // Add en-US keyboard as 2nd keyboard
+  StrFormat,Pos,%InputLocale%,en-US,%Pos%
+  If,%Pos%,Equal,0,StrFormat,Pos,%InputLocale%,0409:00000409,%Pos%
+  If,%Pos%,Equal,0,Set,%InputLocale%,%InputLocale%;en-US
+  Set,%Set_Intl_Parm%,/Set-InputLocale:%InputLocale%
+End
+If,Not,%UserLocale%,Equal,Default,Set,%Set_Intl_Parm%,"%Set_Intl_Parm% /Set-UserLocale:%UserLocale%"
+If,Not,%TimeZone%,Equal,Default,Set,%Set_Intl_Parm%,"%Set_Intl_Parm% /Set-TimeZone:#$q%TimeZone%#$q"
+//-
+// Set Keyboard, Format and Timezone with dism
+If,Not,%Set_Intl_Parm%-,Equal,-,Begin
+  If,ExistFile,%DismExe%,Begin
+    StrFormat,Replace,%Set_Intl_Parm%,e:,"e: ",%Set_Intl_Parm_Echo%
+    StrFormat,Replace,%Set_Intl_Parm_Echo%,/Set-,"&Echo ",%Set_Intl_Parm_Echo%
+    System,FileRedirect,OFF
+    ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Set Keyboard, Format and Timezone. Be patient...&Echo.%Set_Intl_Parm_Echo%&Dism.exe /image:#$q%GTarget%#$q %Set_Intl_Parm% /LogPath:#$q%DismLog%#$q",%DismExePath%
+    System,FileRedirect,ON
+  End
+End
+//-
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegWrite,HKLM,0x0,"Tmp_Default\Control Panel\International\User Profile"
+RegHiveUnLoad,Tmp_Default

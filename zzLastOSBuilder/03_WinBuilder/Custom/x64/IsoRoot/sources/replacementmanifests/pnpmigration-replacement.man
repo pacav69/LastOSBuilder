@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+    <assemblyIdentity
+        name="Microsoft-Windows-PnpMigration"
+        processorArchitecture="*"
+        version="0.0.0.0"
+        language="neutral"
+        />
+    <migration
+        replacementVersionRange="6.1-65535.65535"
+        replacementSettingsVersionRange="0"
+        settingsVersion="0"
+        alwaysProcess="yes"
+        >
+        <machineSpecific>
+            <migXml xmlns="">
+                <plugin
+                    classId="{ff9c714f-b864-4f43-ae39-ec07d7385abe}"
+                    file="Microsoft-Windows-PnpMigration\pnpmig.dll"
+                    offlineApply="yes"
+                    />
+            </migXml>
+        </machineSpecific>
+    </migration>
+</assembly>

@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Client-License-Platform-Service-Migration"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration 
+      scope="Upgrade,Data"
+      settingsVersion="10"
+      replacementSettingsVersionRange="0-9"
+      alwaysProcess="yes"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <plugin
+            classId="{6014E67F-2537-48F9-951D-D29D720523E1}"
+            file="Microsoft-Client-License-Platform-Service-Migration\ClipMigPlugin.dll"
+            />
+        <environment>
+          <variable name="ClipDataFolderV1">
+            <text>%windir%\ServiceProfiles\LocalService\AppData\Local\Microsoft\ClipSVC</text>
+          </variable>
+          <variable name="ClipDataFolderV2">
+            <text>%ALLUSERSPROFILE%\Microsoft\Windows\ClipSvc</text>
+          </variable>
+        </environment>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <!-- Migrate the ClipSp registry keys -->
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\{7746D80F-97E0-4E26-9543-26B41FC22F79}\* [*]</pattern>
+              <!-- Migrate the registry key for processing the downlevel BIOS product keys -->
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\ClipSVC\Parameters [ProcessBiosKey]</pattern>
+              <!-- Migrate the registry value that indicates the last product key that was read from the BIOS -->
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\ClipSVC\Parameters [LastBiosKey]</pattern>
+              <!-- Migrate the subsciption list -->
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\ClipSVC\Parameters [SubscriptionList]</pattern>
+              <!-- Migrate the disable subsciption list -->
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\ClipSVC\Parameters [DisableSubscription]</pattern>
+              <!-- Migrate the source's token store from V1 location-->
+              <pattern type="File">%ClipDataFolderV1% [tokens.dat]</pattern>
+              <!-- Migrate the source's token store from V2 location-->
+              <pattern type="File">%ClipDataFolderV2% [tokens.dat]</pattern>
+              <!-- Migrate the archived licenses, used in PBR-->
+              <pattern type="File">%ClipDataFolderV2%\Archive\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

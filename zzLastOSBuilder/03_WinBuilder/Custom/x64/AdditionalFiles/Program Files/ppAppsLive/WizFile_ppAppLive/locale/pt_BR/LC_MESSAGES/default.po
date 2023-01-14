@@ -1,0 +1,469 @@
+# WizFile
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WizFile 3.16\n"
+"POT-Creation-Date: 2018-03-13 13:19\n"
+"PO-Revision-Date: 2018-06-18 06:43-0300\n"
+"Last-Translator: Dominic Dumée <webmaster@antibody-software.com>\n"
+"Language-Team: Master System PC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+#: SelectLanguage.pas:56 supportercode.pas:280 WizFileMain.pas:4230
+msgid "OK"
+msgstr "OK"
+
+#: SelectLanguage.pas:57 supportercode.pas:281 WizFileMain.pas:4231
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: SelectLanguage.pas:58 SelectLanguage.pas:59 WizFileMain.pas:4140
+msgid "Language"
+msgstr "Idioma"
+
+#: supportercode.pas:165
+msgid "Invalid Key - Please try again."
+msgstr "Chave inválida - tente novamente."
+
+#: supportercode.pas:166
+msgid "It is recommended that you copy and paste your supporter code."
+msgstr "Recomenda-se que copiar e colar"
+
+#: supportercode.pas:167
+msgid "Only use digits 0 to 9 and letters A to F."
+msgstr "Use apenas os dígitos de 0 a 9 e as letras A a F."
+
+#: supportercode.pas:252 WizFileMain.pas:4105
+msgid "Thank you for your support!"
+msgstr "Obrigado pelo seu apoio!"
+
+#: supportercode.pas:253
+msgid "WizFile will now restart."
+msgstr "O WizFile reiniciará agora."
+
+#: supportercode.pas:282 WizFileMain.pas:4226
+msgid "Enter Supporter Code"
+msgstr "Digite o Código de Compra"
+
+#: supportercode.pas:283
+msgid "Supporter Code"
+msgstr "Código de Compra"
+
+#. warning dialog title
+#: uVistaTaskDialog.pas:228
+msgid "Warning"
+msgstr "Atenção"
+
+#. confirmation dialog title
+#: uVistaTaskDialog.pas:233
+msgid "Confirmation"
+msgstr "Confirmação"
+
+#. error dialog title
+#: uVistaTaskDialog.pas:238 WizFileMain.pas:1996
+msgid "Error"
+msgstr "Erro"
+
+#. information dialog title
+#: uVistaTaskDialog.pas:243
+msgid "Information"
+msgstr "Informação"
+
+#: WizFileMain.pas:994
+msgid "Scanning..."
+msgstr "Verificando..."
+
+#: WizFileMain.pas:994
+msgid "Folders"
+msgstr "Pastas"
+
+#: WizFileMain.pas:994 WizFileMain.pas:4172
+msgid "Files"
+msgstr "Arquivos"
+
+#: WizFileMain.pas:1064
+msgid "GB"
+msgstr "GB"
+
+#: WizFileMain.pas:1067
+msgid "MB"
+msgstr "MB"
+
+#: WizFileMain.pas:1070
+msgid "KB"
+msgstr "KB"
+
+#: WizFileMain.pas:1075
+msgid "Bytes"
+msgstr "Bytes"
+
+#: WizFileMain.pas:1136
+msgid "Selected Files"
+msgstr "Selecionar Arquivos"
+
+#: WizFileMain.pas:1136 WizFileMain.pas:3398
+msgid "Total Size"
+msgstr "Tamanho total"
+
+#: WizFileMain.pas:1212 WizFileMain.pas:1337 WizFileMain.pas:1584
+msgid "You are about to open"
+msgstr "Você está prestes a abrir"
+
+#: WizFileMain.pas:1213
+msgid "Command Prompt windows - are you sure?"
+msgstr "Prompt de comando - você tem certeza?"
+
+#: WizFileMain.pas:1338
+msgid "Explorer windows - are you sure?"
+msgstr "Windows Explorer - você tem certeza?"
+
+#: WizFileMain.pas:1585
+msgid "files - are you sure?"
+msgstr "arquivos - você tem certeza?"
+
+#. FileName := FDir;
+#: WizFileMain.pas:1706 WizFileMain.pas:1721
+msgid "Select Folder"
+msgstr "Selecionar Pasta"
+
+#. YMMV
+#: WizFileMain.pas:1708
+msgid "Select"
+msgstr "Selecionado"
+
+#. we have an update!
+#: WizFileMain.pas:2310
+msgid "An update is available"
+msgstr "Uma atualização está disponível"
+
+#: WizFileMain.pas:2311
+msgid "Click on the \"View Update\" button to learn more."
+msgstr "Clique no botão \"Visualizar Atualização\" para saber mais."
+
+#. if tag set then display error if any
+#: WizFileMain.pas:2318
+msgid "No update found."
+msgstr "Você está usando a versão mais recente."
+
+#. if tag set then display error if any
+#: WizFileMain.pas:2330
+msgid "Error checking for updates:"
+msgstr "Erro ao verificar atualizações:"
+
+#: WizFileMain.pas:2716
+msgid "64 bit"
+msgstr "64 bit"
+
+#: WizFileMain.pas:2718
+msgid "32 bit"
+msgstr "32 bit"
+
+#: WizFileMain.pas:3192
+msgid "Loading file list..."
+msgstr "Carregando lista de arquivos..."
+
+#. if TotFilesNum <> 0 then
+#: WizFileMain.pas:3397
+msgid "files"
+msgstr "arquivos"
+
+#: WizFileMain.pas:4121
+msgid "File"
+msgstr "Arquivo"
+
+#: WizFileMain.pas:4122
+msgid "Options"
+msgstr "Opções"
+
+#: WizFileMain.pas:4123 WizFileMain.pas:4151
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: WizFileMain.pas:4124
+msgid "New Instance"
+msgstr "Nova Janela"
+
+#: WizFileMain.pas:4125
+msgid "Explore Folder"
+msgstr "Explorar pasta"
+
+#: WizFileMain.pas:4126
+msgid "Command Prompt Here"
+msgstr "Prompt de comando aqui"
+
+#: WizFileMain.pas:4127
+msgid "Copy Path"
+msgstr "Copiar Caminho"
+
+#: WizFileMain.pas:4128
+msgid "Delete (to Recycle Bin)"
+msgstr "Excluir (para Lixeira)"
+
+#: WizFileMain.pas:4129
+msgid "Delete (No undelete possible)"
+msgstr "Excluir (Não será possível recuperar)"
+
+#: WizFileMain.pas:4130
+msgid "Exit"
+msgstr "Sair"
+
+#: WizFileMain.pas:4132
+msgid "Display Dynamic values"
+msgstr "Exibir valores dinâmicos"
+
+#: WizFileMain.pas:4133
+msgid "Display Byte values"
+msgstr "Exibir valores em Byte"
+
+#: WizFileMain.pas:4134
+msgid "Display KB values"
+msgstr "Exibir valores em KB"
+
+#: WizFileMain.pas:4135
+msgid "Display MB values"
+msgstr "Exibir valores em MB"
+
+#: WizFileMain.pas:4136
+msgid "Display GB values"
+msgstr "Exibir valores em GB"
+
+#: WizFileMain.pas:4146
+msgid "View Update"
+msgstr "Ver Atualização"
+
+#: WizFileMain.pas:4147
+msgid "Dismiss"
+msgstr "Dispensar"
+
+#: WizFileMain.pas:4148
+msgid "Check for updates"
+msgstr "Verificar Atualização"
+
+#: WizFileMain.pas:4149
+msgid "Check for updates now"
+msgstr "Verificar Atualização agora"
+
+#: WizFileMain.pas:4152
+msgid "Cancel Scan"
+msgstr "Cancelar"
+
+#: WizFileMain.pas:4175
+msgid "Clear"
+msgstr "Limpar"
+
+#: WizFileMain.pas:4176
+msgid "Match file name only"
+msgstr "Nome exato do arquivo"
+
+#: WizFileMain.pas:4177
+msgid "(Fast)"
+msgstr "(Rápido)"
+
+#: WizFileMain.pas:4178
+msgid "Match entire path"
+msgstr "Coincidir com o local"
+
+#: WizFileMain.pas:4179
+msgid "(Warning: can be slow!)"
+msgstr "(Aviso: pode ser lento!)"
+
+#: WizFileMain.pas:4180
+msgid "Max files to display:"
+msgstr "Exibir ao máximo:"
+
+#: WizFileMain.pas:4182
+msgid "(Selecting ALL can be very slow!)"
+msgstr "(Selecionar Todos pode ser muito lento!)"
+
+#: WizFileMain.pas:4184
+msgid "ALL"
+msgstr "TODOS"
+
+#: WizFileMain.pas:4189
+msgid "File Name"
+msgstr "Nome do Arquivo"
+
+#: WizFileMain.pas:4190
+msgid "Path"
+msgstr "Caminho"
+
+#: WizFileMain.pas:4191
+msgid "Size"
+msgstr "Tamanho"
+
+#: WizFileMain.pas:4192
+msgid "Allocated"
+msgstr "Alocado"
+
+#: WizFileMain.pas:4193
+msgid "Modified"
+msgstr "Modificado"
+
+#: WizFileMain.pas:4194
+msgid "Attributes"
+msgstr "Atributos"
+
+#: WizFileMain.pas:4196
+msgid "About"
+msgstr "Sobre"
+
+#: WizFileMain.pas:4199
+msgid "If you use WizFile commercially or you'd just like to support the freeware community then please make a donation by clicking on the Donate button at the top right of the screen. Thank you! :)"
+msgstr "Se você usa o WizFile comercialmente ou simplesmente gostaria de ajudar a comunidade freeware, então faça uma doação clicando no botão Doar no canto superior direito da tela. Obrigado! :)"
+
+#: WizFileMain.pas:4201
+msgid "What is WizFile?"
+msgstr "O que é o WizFile?"
+
+#: WizFileMain.pas:4202
+msgid "WizFile is a very fast file search utility that can find files on your hard drive almost instantly."
+msgstr "WizFile é um utilitário de pesquisa de arquivos muito rápido que pode encontrar arquivos no seu disco rígido quase que instantaneamente."
+
+#: WizFileMain.pas:4203
+msgid "The entire file system can be quickly sorted by name, size or date."
+msgstr "Todo o sistema de arquivos pode ser rapidamente classificado por nome, tamanho ou data."
+
+#: WizFileMain.pas:4207
+msgid "What makes WizFile so fast?"
+msgstr "O que torna o WizFile tão rápido?"
+
+#: WizFileMain.pas:4209
+msgid "When scanning NTFS formatted hard drives (most modern hard drives use this format), WizFile reads the hard drive's Master File Table (MFT) directly from the disk."
+msgstr "Ao digitalizar discos rígidos formatados em NTFS (a maioria dos discos rígidos modernos usam esse formato), o WizFile lê a Tabela de arquivos mestre (MFT) do disco rígido diretamente do disco."
+
+#: WizFileMain.pas:4210
+msgid "The MFT is a special hidden file used by the NTFS file system to keep track of all files and folders on a hard drive. Scanning for files this way completely bypasses the operating system (Windows) and provides a huge performance boost."
+msgstr "O MFT é um arquivo oculto especial usado pelo sistema de arquivos NTFS para acompanhar todos os arquivos e pastas em um disco rígido. A digitalização de arquivos dessa forma ignora completamente o sistema operacional (Windows) e fornece um enorme aumento de desempenho."
+
+#: WizFileMain.pas:4212
+msgid "WizFile currently only supports NTFS formatted hard drives."
+msgstr "O WizFile atualmente suporta apenas discos rígidos formatados em NTFS."
+
+#: WizFileMain.pas:4214
+msgid "Please visit the Antibody Software website for more great software, such as:"
+msgstr "Visite o site Software Antibody para obter um software excelente, como:"
+
+#: WizFileMain.pas:4215 WizFileMain.pas:4219
+msgid "(click for more information)"
+msgstr "(click para mais informações)"
+
+#: WizFileMain.pas:4216
+msgid "A powerful yet easy to use web gallery downloading tool. It supports most of the popular image hosting sites (such as flickr, facebook, Google image search, imgur, deviantart etc.)."
+msgstr "Uma poderosa e fácil ferramenta de usar,para download da galeria da web. Ele suporta a maioria dos populares sites de hospedagem de imagens (como flickr, facebook, pesquisa de imagens do Google, imgur, deviantart etc.)."
+
+#: WizFileMain.pas:4217
+msgid "It doesn't require any complicated setup or project files - it just works."
+msgstr "Não requer qualquer configuração complicada ou arquivos de projeto - apenas funcional."
+
+#: WizFileMain.pas:4220
+msgid "A keyboard enhancement utility that makes it easy to type accented and other special Unicode characters on a standard US/UK keyboard using easy to remember keyboard shortcuts."
+msgstr "Um utilitário de aprimoramento de teclado que facilita o tipo de caracteres acentuados e outros caracteres Unicode especiais em um teclado US/UK padrão, usando atalhos de teclado fáceis de lembrar."
+
+#: WizFileMain.pas:4221
+msgid "For example, to type an à (a with grave accent), you press Ctrl+` then press a. These shortcuts work from any Windows application."
+msgstr "Por exemplo, para digitar um (com acento grave), você pressiona Ctrl + `, então pressione a. Esses atalhos funcionam a partir de qualquer aplicativo do Windows."
+
+#. btnDonate.Hint := _( 'Help support WizFile development by making a donation' );
+#: WizFileMain.pas:4224
+msgid "Help support WizFile development by making a donation"
+msgstr "Ajude a apoiar o desenvolvimento do WizFile fazendo uma doação"
+
+#: WizFileMain.pas:4225
+msgid "(You can hide the Donate button by making a donation)"
+msgstr "(Você pode ocultar o botão Donate fazendo uma doação)"
+
+#: WizFileMain.pas:4228 WizFileMain.pas:4229
+msgid "Select Drives"
+msgstr "Selecionar Drivers"
+
+msgid "Scan"
+msgstr "Verificar"
+
+#: WizFileMain.pas:4543
+msgid "Rescan Drives"
+msgstr "Verificar Novamente"
+
+#: WizFileMain.pas:4578
+msgid "No matching files"
+msgstr "Arquivo não encontrado"
+
+msgid "Start with Windows"
+msgstr "Iniciar com Windows"
+
+#: WizFileMain.pas:4836
+msgid "Rename"
+msgstr "Renomear"
+
+#: WizFileMain.pas:4837
+msgid "Monitor file system for changes"
+msgstr "Monitorar mudanças nos arquivos do sistema"
+
+#: WizFileMain.pas:4838
+msgid "Minimize to tray when closed"
+msgstr "Minimizar para barra de tarefas quando fechado"
+
+msgid "Add Folder"
+msgstr "Adicionar Pasta"
+
+msgid "Auto scan USB drives when connected"
+msgstr "Verificar dispositivos USB"
+
+msgid "Remove Folder"
+msgstr "Remover pasta"
+
+#: "<drive/folder>" is included within
+msgid "is included within"
+msgstr "está incluso com"
+
+msgid "They cannot both be selected."
+msgstr "Não pode selecionar ambos."
+
+msgid "Filters"
+msgstr "Filtros"
+
+msgid "Filter Name"
+msgstr "Filtrar Nome"
+
+msgid "Filter"
+msgstr "Filtro"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Reset"
+msgstr "Redefinir"
+
+msgid "Audio"
+msgstr "Áudio"
+
+msgid "Video"
+msgstr "Vídeo"
+
+msgid "Image"
+msgstr "Imagem"
+
+msgid "Compressed"
+msgstr "Compactado"
+
+msgid "Document"
+msgstr "Documento"
+
+msgid "Executable"
+msgstr "Executável"
+
+msgid "Monitor folder size"
+msgstr "Tamanho da pasta"
+
+msgid "Clear search when minimized"
+msgstr "Limpar pesquisa quando minimizado"

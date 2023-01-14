@@ -1,0 +1,136 @@
+[Main]
+Title=PowerShell Core
+Type=XPEPlugin
+Description=PowerShell Core is a cross-platform (Windows, Linux, and macOS) automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data.
+Author=KYHI
+Date=2020.12.05
+Credits=TheOven.org Forum
+Contact=
+Version=006
+Level=5
+Download_Level=2
+Selected=False
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Plugin Created 2018.07.27
+History005=KYHI - Use Download & ProgramVersion *TextBox - 2020.07.15
+
+[Interface]
+Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
+TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
+StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
+Image_Software=pwsh4848.ico,1,5,145,35,48,48
+Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
+HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://github.com/PowerShell/PowerShell
+ProgramVer_TextLabel="Program Version:",1,1,440,4,85,18,8,Normal
+ProgramVer_TextBox=,1,0,440,20,85,21,7.3.1,"__Program Version To Download"
+
+[Info]
+// 6.2.3 6.2.4 7.0.0 7.0.1 7.0.2
+
+[Variables]
+%ProgramTitle%=PowerShell Core
+%ProgramExe%=pwsh.exe
+%ProgramExex64%=pwsh.exe
+%ProgramFolder%=PowerShell Core
+%ProgramFolderx64%=PowerShell Core_x64
+%SetupFile%=PowerShell-%ProgramVer_TextBox%-win-x86.zip
+%SetupFilex64%=PowerShell-%ProgramVer_TextBox%-win-x64.zip
+%SetupURL%=https://github.com/PowerShell/PowerShell/releases/download/v%ProgramVer_TextBox%/PowerShell-%ProgramVer_TextBox%-win-x86.zip
+%SetupURLx64%=https://github.com/PowerShell/PowerShell/releases/download/v%ProgramVer_TextBox%/PowerShell-%ProgramVer_TextBox%-win-x64.zip
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+Run,%ScriptFile%,Extract
+//--
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+DirCopy,%GTemp%\%ProgramFolder%,%Target_Prog%
+//--
+Run,%ScriptFile%,Add_Shortcuts
+//--
+//ExtractSectionFiles,%ScriptFile%,AddFiles
+//If,%Architecture%,Equal,x64,ExtractSectionFiles,%ScriptFile%,AddFiles6432
+//--
+//Run,%ScriptFile%,Add_Registry
+//--
+Run,%ScriptFile%,Add_Associations
+
+[AddFiles]
+\Windows\System32\xxx.dll
+\Windows\System32\??-??\xxx.dll.mui
+
+[AddFiles6432]
+\Windows\SysWOW64\xxx.dll
+\Windows\SysWOW64\??-??\xxx.dll.mui
+
+[Add_Registry]
+Echo,"Writing %ScriptTitle% Registry Settings..."
+
+[Add_Associations]
+Associate,ps1
+
+[Add_Shortcuts]
+If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
+
+[Extract]
+If,Not,ExistFile,%ProgCache%\%ProgramFolder%\%SetupFile%,Run,%ScriptFile%,Update_Container
+//--
+Echo,"Extracting %ScriptTitle% Setup File..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProgCache%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%#$q"
+
+[PluginSetx64]
+Set,%ProgramExe%,%ProgramExex64%
+Set,%ProgramFolder%,%ProgramFolderx64%
+Set,%SetupFile%,%SetupFilex64%
+Set,%SetupURL%,%SetupURLx64%
+
+[Launch_Program]
+If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Run,%ScriptFile%,Extract
+Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%
+//OpenDir,%GTemp%\%ProgramFolder%
+
+[Update_Container]
+Echo,"The Container Files Is Being Updated... Please Wait.."
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Download,%ProgCache%\%ProgramFolder%\%SetupFile%,%SetupURL%,NoExitOnError
+If,Not,ExistFile,%ProgCache%\%ProgramFolder%\%SetupFile%,EchoExtended,"Error: %SetupFile% has not been downloaded.",Warn,,Message,5,Exit
+
+[AuthorEncoded]
+pwsh4848.ico=2265,3020
+Logo=pwsh4848.ico
+
+[EncodedFile-AuthorEncoded-pwsh4848.ico]
+lines=0
+0=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
+
+[InterfaceEncoded]
+pwsh4848.ico=2265,3020
+Launch.bmp=913,1218
+
+[EncodedFile-InterfaceEncoded-pwsh4848.ico]
+lines=0
+0=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
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]
+

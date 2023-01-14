@@ -1,0 +1,21 @@
+[Main]
+Title=Accessibility
+Type=XPEPlugin
+Description=Ease of Access, Magnify, OnScreenKeybord in addition to narrator
+Author=ChriSR
+Date=2019.03.16
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles
+
+[AddFiles]
+If,ExistFile,%ScriptDir%\Accessibility_AddFiles.txt,ExtractListFiles,%ScriptDir%\Accessibility_AddFiles.txt

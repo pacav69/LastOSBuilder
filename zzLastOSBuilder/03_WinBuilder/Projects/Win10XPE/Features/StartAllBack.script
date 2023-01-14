@@ -1,0 +1,197 @@
+[Main]
+Title=StartAllBack
+Type=XPEPlugin
+Description=StartAllBack modifies the Start menu, taskbar, file explorer and others of Windows 11 to look like Windows 7, 10
+Author=Cretino
+Date=2022.12.17
+Credits=
+Contact=
+Version=002
+Level=0
+Download_Level=0
+Selected=None
+Mandatory=None
+NoWarning=False
+History001=Cretino - Initial Plugin Created - 2022.12.08
+History002=ChrisR - Include in build 2022.12.17
+
+[Variables]
+%StartAllBackBuild%=3.5.6
+%ProgramFolder%=startallback
+%SetupFile%=StartAllBack_%StartAllBackBuild%_setup.exe
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%ScriptDir%\%SetupFile%,EchoExtended,"%SetupFile% should be in the original package",Warn,,Message,,Halt
+RunFromRAM
+//--
+Run,%ScriptFile%,Add_StartAllBack
+ExtractSectionFiles,%ScriptFile%,StartALLBack_AddFiles
+//--
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,Reg_StartAllBack
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Software
+  RegHiveunLoad,Tmp_Default
+End
+
+[Add_StartAllBack]
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+DirMake,%Target_Prog%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\%SetupFile%#$q -y -o#$q%Target_Prog%\%ProgramFolder%#$q"
+FileDeleteQ,%Target_Prog%\%ProgramFolder%\StartAllBackA64.dll
+FileDeleteQ,%Target_Prog%\%ProgramFolder%\StartAllBackLoaderA64.dll
+FileDeleteQ,%Target_Prog%\%ProgramFolder%\UpdateCheck.EXE
+
+[StartALLBack_AddFiles]
+\Windows\System32\authui.dll
+\Windows\System32\nrtapi.dll
+\Windows\System32\shdocvw.dll
+\Windows\System32\shutdownux.dll
+\windows\system32\sud.dll
+\windows\system32\van.dll
+\Windows\System32\Vault.dll
+\Windows\System32\??-??\authui.dll.mui
+\Windows\System32\??-??\shdocvw.dll.mui
+\Windows\System32\??-??\ShutdownUX.dll.mui
+\Windows\System32\??-??\sud.dll.mui
+\Windows\System32\??-??\VAN.dll.mui
+\Windows\System32\??-??\Vault.dll.mui
+\Windows\SystemResources\authui.dll.mun
+\Windows\SystemResources\sud.dll.mun
+\Windows\SystemResources\VAN.dll.mun
+\Windows\SystemResources\Vault.dll.mun
+
+[Reg_StartAllBack]
+Echo,"Writing %ScriptTitle% Registry Settings..."
+//--
+RegWrite,HKLM,0x1,Tmp_Software\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9},,"StartIsBack Menu Pin"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\AppUserModelId\StartIsBack.UpdateToast,CustomActivator,{da3306b1-2554-420b-8d0e-6bd29bb4d8ed}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\AppUserModelId\StartIsBack.UpdateToast,DisplayName,StartAllBack
+RegWrite,HKLM,0x1,Tmp_Software\Classes\AppUserModelId\StartIsBack.UpdateToast,IconBackgroundColor,0
+RegWrite,HKLM,0x4,Tmp_Software\Classes\AppUserModelId\StartIsBack.UpdateToast,ShowInSettings,0
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da96}\TreatAs,,{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da97}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{117E3954-5034-453A-A18B-7B79493646E6}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackLoaderX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{117E3954-5034-453A-A18B-7B79493646E6}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b},,"StartIsBack All Programs Folder"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{865e5e76-ad83-4dca-a109-50dc2113ce9b}\ShellFolder,Attributes,672137216
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA},,"Settings Pages"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BA}\ShellFolder,Attributes,-1610612736
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB},,"God Mode"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{99E2B362-3E4E-4255-9B29-41A7F40777BB}\ShellFolder,Attributes,-1610612736
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9},ImplementsVerbs,startpin;startunpin
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9}\InprocServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9}\InprocServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da97}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da97}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F},,"All Apps"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{AD1405D2-30CF-4877-8468-1EE1C52C759F}\ShellFolder,Attributes,-1610612736
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{da3306b1-2554-420b-8d0e-6bd29bb4d8ed}\LocalServer32,,"#$qX:\Program Files\StartAllBack\UpdateCheck.exe#$q"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}\InProcServer32,,"X:\Program Files\StartAllBack\StartAllBackX64.dll"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}\InProcServer32,ThreadingModel,Apartment
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},,StartAllBack
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},System.Software.TasksFileUrl,Internal
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},System.ControlPanel.EnableInSafeMode,3
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},System.ApplicationName,StartIsBack.Config
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},System.ControlPanel.Category,1
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F}\DefaultIcon,,"X:\Program Files\StartAllBack\StartAllBackCfg.exe,0"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F}\Shell\Open\Command,,"X:\Program Files\StartAllBack\StartAllBackCfg.exe"
+RegWrite,HKLM,0x4,Tmp_Software\Classes\CLSID\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F}\ShellFolder,Attributes,0
+RegWrite,HKLM,0x1,Tmp_Software\Classes\Drive\shellex\FolderExtensions\{117E3954-5034-453A-A18B-7B79493646E6},,StartAllBack
+RegWrite,HKLM,0x4,Tmp_Software\Classes\Drive\shellex\FolderExtensions\{117E3954-5034-453A-A18B-7B79493646E6},DriveMask,255
+RegWrite,HKLM,0x1,Tmp_Software\Classes\MSILink\shellex\ContextMenuHandlers\{a2a9545d-a0c2-42b4-9708-a0b2badd77c9},,"Start Menu Pin"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\sib-activate,"URL Protocol",
+RegWrite,HKLM,0x1,Tmp_Software\Classes\sib-activate\shell\open\command,,"#$qX:\Program Files\StartAllBack\StartAllBackCfg.exe#$q /activate #$p1"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\sib-reactivate,"URL Protocol",
+RegWrite,HKLM,0x1,Tmp_Software\Classes\sib-reactivate\shell\open\command,,"#$qX:\Program Files\StartAllBack\StartAllBackCfg.exe#$q /reactivate #$p1"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.AppsFolder\Shell\ChangeIcon,MuiVerb,"@shell32.dll,-34608"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.AppsFolder\Shell\ChangeIcon\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.AppsFolder\Shell\Delete,MuiVerb,"@shell32.dll,-33553"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.AppsFolder\Shell\Delete,Position,Bottom
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.AppsFolder\Shell\Delete\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication,,Open
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\CopyPath,Extended,
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\CopyPath,Position,Bottom
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\CopyPath,MuiVerb,"@shell32.dll,-30329"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\CopyPath\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Delete,,"Uninstall Modern App"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Delete,MuiVerb,"@appwiz.cpl,-173"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Delete,Position,Bottom
+RegWrite,HKLM,0x4,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Delete,SeparatorBefore,1
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Delete\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\OpenFolder,Extended,
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\OpenFolder,MuiVerb,"@shell32.dll,-32960"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\OpenFolder\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Properties,,"Modern App Settings"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Properties,MuiVerb,"@shell32.dll,-16534"
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Properties,Position,Bottom
+RegWrite,HKLM,0x4,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Properties,SeparatorBefore,1
+RegWrite,HKLM,0x1,Tmp_Software\Classes\StartIsBack.ImmersiveApplication\Shell\Properties\Command,DelegateExecute,{E5C31EC8-C5E6-4E07-957E-944DB4AAD85E}
+RegWrite,HKLM,0x1,"Tmp_Software\Microsoft\Windows\CurrentVersion\App Paths\StartIsBackCfg.exe",,"X:\Program Files\StartAllBack\StartAllBackCfg.exe"
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{FCEA18FF-BC55-4E63-94D7-1B2EFBFE706F},,"Start menu"
+RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9},,"StartIsBack volatile"
+RegWrite,HKLM,0x1,"Tmp_Software\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\StartIsBackCfg.exe",,"X:\Program Files\StartAllBack\StartAllBackCfg.exe"
+RegWrite,HKLM,0x0,Tmp_Software\StartIsBack\License
+//---
+RegWrite,HKLM,0x1,Tmp_Default\Software\Classes\CLSID\{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da96}\TreatAs,,{ab0b37ec-56f6-4a0e-a8fd-7a8bf7c2da97}
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowStatusBar,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,TaskbarAl,0
+// Remove space after StartMenu
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,TaskbarMn,0
+//---
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9},,"StartIsBack volatile"
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,AutoUpdates,0
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,AlterStyle,"Windows 7.msstyles"
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,TaskbarStyle,"Windows 7.msstyles"
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,CurrentVersion,%StartAllBackBuild%
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,WinBuild,%SourceBuild%
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,WinLangID,1036
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,ModernIconsColorized,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,SettingsVersion,5
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,WelcomeShown,3
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,FrameStyle,2
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,""
+//RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,"X:\Program Files\StartAllBack\Orbs\Windows 7.orb"
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,SysTrayStyle,2
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,BottomDetails,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_NotifyNewApps,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowNetPlaces,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMetroAppsFolder,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_RightPaneIcons,2
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowUser,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowMyDocs,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowMyPics,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowMyMusic,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowVideos,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowDownloads,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowSkyDrive,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,StartMenuFavorites,2
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowRecentDocs,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowNetPlaces,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowNetConn,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowMyComputer,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowControlPanel,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowPCSettings,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_AdminToolsRoot,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowPrinters,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowSetProgramAccessAndDefaults,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowTerminal,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowCommandPrompt,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack,Start_ShowRun,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack\Cache,OrbWidth.96,54
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack\Cache,OrbHeight.96,54
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack\Cache,IdealHeight.9,196614
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack\Cache,IdealWidth.9,"Panneau de configuration"
+RegWrite,HKLM,0x4,Tmp_Default\Software\StartIsBack\Cache,IdealHeight.6,0
+RegWrite,HKLM,0x0,Tmp_Default\Software\StartIsBack\Recolor

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0">
+  <assemblyIdentity
+      name="Microsoft-Windows-DeviceAccess"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      language="neutral"/>
+  <migration
+      replacementSettingsVersionRange="0-2"
+      settingsVersion="2">
+    <migXml xmlns="">
+      <rules context="system">
+        <include>
+          <objectSet>
+            <!-- OEM customization to enable region-specific access policies -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess [ActivePolicyCode]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="user">
+        <include>
+          <objectSet>
+            <!-- Consent stores -->
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\* [*]</pattern>
+          </objectSet>
+        </include>
+        <excludeAttributes attributes="Security">
+          <objectSet>
+            <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\*</pattern>
+          </objectSet>
+        </excludeAttributes>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

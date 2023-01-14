@@ -1,0 +1,42 @@
+[Main]
+Title=ImDisk
+Type=XPEPlugin
+Description=ImDisk Virtual Disk Driver
+Author=ChrisR
+Date=2019.01.22
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+Run,%ScriptFile%,AddFiles_ImDisk
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_System,%RegSystem%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,ImDisk_Reg
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveunLoad,Tmp_Software
+  RegHiveunLoad,Tmp_System
+  RegHiveUnLoad,Tmp_Default
+End
+Run,%ScriptFile%,Enable_In_Pecmdini
+
+[AddFiles_ImDisk]
+If,ExistFile,%ScriptDir%\ImDisk_%Architecture%.7z,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ScriptDir%\ImDisk_%Architecture%.7z#$q -y -o#$q%GTarget%#$q"
+
+[ImDisk_Reg]
+If,ExistFile,%ScriptDir%\ImDisk_Reg.txt,RegImportFile,%ScriptDir%\ImDisk_Reg.txt
+RegWrite,HKLM,0x2,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,BroadcastEnvChange,"hiderun.exe /w BroadcastEnvChange.exe /broadcast"
+
+[Enable_In_Pecmdini]
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//EXEC @!%WinDir%\System32\StartImDIsk.exe","EXEC @!%WinDir%\System32\StartImDIsk.exe"
+TXTReplace,%GTarget_Sys%\pecmd.ini,"//LINK #$pPrograms#$p\System Tools\ImDisk","LINK #$pPrograms#$p\System Tools\ImDisk"
+

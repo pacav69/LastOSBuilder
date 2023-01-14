@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Denies apps to access diagnostic information
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2297E4E2-5DBE-466D-A12B-0F8286F0D9CA}] 
+"Value"="Deny" 

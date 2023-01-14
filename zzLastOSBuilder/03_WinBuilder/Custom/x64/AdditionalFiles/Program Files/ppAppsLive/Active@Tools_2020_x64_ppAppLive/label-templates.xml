@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<label-templates>
+    <header seed="12">
+        <default/>
+    </header>
+    <template title="Avery 5160" id="2" readonly="true" units="2">
+        <page width="8.5" orient="0" height="11" index="2"/>
+        <margin bottom="0.5" left="0.19" right="0.19" top="0.5"/>
+        <spacing hor="0.1" ver="0"/>
+        <grid cols="3" single="false" rows="10"/>
+    </template>
+    <template title="Avery 5163" id="3" readonly="true" units="2">
+        <page width="8.5" orient="0" height="11" index="2"/>
+        <margin bottom="0.5" left="0.19" right="0.19" top="0.5"/>
+        <spacing hor="0.2" ver="0"/>
+        <grid cols="2" single="false" rows="5"/>
+    </template>
+    <template title="Avery 5167" id="4" readonly="true" units="2">
+        <page width="8.5" orient="0" height="11" index="2"/>
+        <margin bottom="0.5" left="0.3" right="0.3" top="0.5"/>
+        <spacing hor="0.3" ver="0"/>
+        <grid cols="4" single="false" rows="20"/>
+    </template>
+    <template title="Avery 05444" id="5" readonly="true" units="0">
+        <page width="112" orient="0" height="152" index="30"/>
+        <margin bottom="16" left="0" right="0" top="16"/>
+        <spacing hor="0" ver="19"/>
+        <grid cols="1" single="false" rows="2"/>
+    </template>
+    <template title="Avery 5217" id="6" readonly="true" units="0">
+        <page width="112" orient="0" height="152" index="30"/>
+        <margin bottom="19" left="6.5" right="6.5" top="19"/>
+        <spacing hor="0" ver="0"/>
+        <grid cols="1" single="false" rows="4"/>
+    </template>
+    <template title="Avery 02222" id="7" readonly="true" units="0">
+        <page width="112" orient="0" height="152" index="30"/>
+        <margin bottom="0" left="12.5" right="12.5" top="0"/>
+        <spacing hor="2" ver="0"/>
+        <grid cols="1" single="false" rows="3"/>
+    </template>
+    <template title="DK-1209" id="10" readonly="true" units="0">
+        <page width="62" orient="1" height="29" index="30"/>
+        <margin bottom="2" left="5" right="5" top="2"/>
+        <spacing hor="2" ver="1.5"/>
+        <grid cols="3" single="true" rows="10"/>
+    </template>
+    <template title="DK-1202" id="11" readonly="true" units="0">
+        <page width="100" orient="1" height="62" index="30"/>
+        <margin bottom="6" left="10" right="10" top="6"/>
+        <spacing hor="2" ver="1.5"/>
+        <grid cols="3" single="true" rows="10"/>
+    </template>
+	    <template title="DK-2205" id="1" readonly="true" units="0">
+        <page width="95" orient="1" height="62" index="30"/>
+        <margin bottom="5" left="10" right="10" top="5"/>
+        <spacing hor="5.08" ver="0"/>
+        <grid cols="2" single="true" rows="7"/>
+    </template>
+</label-templates>

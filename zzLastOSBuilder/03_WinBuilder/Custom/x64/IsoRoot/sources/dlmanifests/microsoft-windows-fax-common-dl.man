@@ -1,0 +1,105 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="anoopc"
+    buildFilter=""
+    company="MS"
+    copyright=""
+    creationTimeStamp="2004-10-07T01:01:33.6028792-07:00"
+    description=""
+    displayName=""
+    lastUpdateTimeStamp="2004-10-11T17:43:48.5230435-07:00"
+    manifestVersion="1.0"
+    owners="anoopc"
+    supportInformation=""
+    testers="nareshc"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-Fax-Common-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      xmlns=""
+      scope="Upgrade,MigWiz,USMT"
+      >
+    <migXml>
+      <!-- Common settings for XP, WS03 & windows 2000 ;-->
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.0.*")</condition>
+            <!-- w2k   -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <!-- xp     -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+            <!-- w2k3 -->
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Address]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [BillingCode]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Company]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Department]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [FaxNumber]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [FullName]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [HomePhone]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Mailbox]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Office]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [OfficePhone]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [Title]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <!--Note that we are not migrating any FSPs or Routing Extensions -->
+      <!-- rules common settings for XP, WS03 & windows 2000 ;-->
+      <rules context="System">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.0.*")</condition>
+            <!-- w2k   -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <!-- xp     -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+            <!-- w2k3 -->
+          </detect>
+        </detects>
+      </rules>
+      <!-- Rules specific to xp/ws03 -->
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <!-- xp    -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+            <!-- w2k3 -->
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [DeviceToMonitor]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [MonitorOnReceive]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [MonitorOnSend]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [NotifyIncomingCompletion]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [NotifyOutgoingCompletion]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [NotifyProgress]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [SoundOnError]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [SoundOnReceive]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [SoundOnRing]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [SoundOnSent]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <!-- end of rules for xp/ws03 -->
+    </migXml>
+    <migrationDisplayID>Communications_and_Sync\Fax</migrationDisplayID>
+  </migration>
+</assembly>

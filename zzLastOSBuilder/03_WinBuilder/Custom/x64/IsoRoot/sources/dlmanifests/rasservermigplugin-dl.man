@@ -1,0 +1,346 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    owners="aknanda"
+    supportInformation=""
+    testers="arpang"
+    >
+  <assemblyIdentity
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-RasServer-DL"
+      processorArchitecture="*"
+      publicKeyToken="31bf3856ad364e35"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration scope="Upgrade,SvrMig">
+    <!-- Corresponding OC name -->
+    <registerSDF name="RasServerAll"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [ConfigurationFlags]")</condition>
+        </detect>
+        <detect>
+          <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry","HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [ConfigurationFlags]", "0x00000000")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [EnableNetbtBcastFwd]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\Nbf [EnableIn]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\Nbf [AllowNetworkAccess]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [LoggingFlags]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [RouterType]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [ServerFlags]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [Stamp]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [UsersConfigured]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters [ServiceDllUnloadOnStop]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [AddressSize]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [ViewsSupported]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [MaxChangeNotifyRegistrations]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [MaxOpaqueInfoPointers]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [MaxNextHopsInRoute]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RoutingTableManager\Instance 00000\AddressFamily 00002 [MaxHandlesReturnedInEnum]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\AccountLockout [MaxDenials]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\AccountLockout [ResetTime (mins)]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\RouterManagers\Ip [GlobalInfo]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [FailureActions]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [AllowClientIpAddresses]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [AllowNetworkAccess]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [EnableIn]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [IpAddress]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [IpMask]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [UseDhcpAddressing]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [EnableRoute]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\Ip [NetworkAdapterGUID]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Parameters\AppleTalk [EnableIn]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [Library]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [Open]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [Close]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [Collect]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [WbemAdapFileSignature]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [WbemAdapFileTime]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [WbemAdapFileSize]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Performance [WbemAdapStatus]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Telephony [KmddspDebugLevel]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Telephony [ndptspDebugLevel]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [MaxConfigure]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [MaxFailure]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [MaxReject]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [MaxTerminate]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [Multilink]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [NegotiateTime]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP [RestartTimer]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Authentication\Providers [ActiveProvider]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Accounting [AccountSessionIdStart]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Accounting\Providers [ActiveProvider]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters\Quarantine [Enabled]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters\Quarantine [AutoRefreshEnabled]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters\Quarantine [AutoRefreshTimeout]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters\Quarantine [WorkItemTimeout]</pattern>
+          </objectSet>
+        </include>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters\IP\StaticAddressPool\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [ConfigurationFlags]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [OpenIPSnap]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [OpenMPRSnap]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [RouterPSK]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess [Start]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters [IcConfigured]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan [Start]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasAuto [Start]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\ras\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Router EAP\* [*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Authentication\* [*]</pattern>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Accounting\* [*]</pattern>
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\RemoteAccess\Interfaces\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\NdpTsp\* [*]</pattern>
+          </objectSet>
+        </include>
+        <!--  Dont migrate DisplayName in Acct\Auth   -->
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Authentication\Providers\{1AA7F83F-C7F5-11D0-A376-00C04FC9DA04} [DisplayName]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Authentication\Providers\{1AA7F841-C7F5-11D0-A376-00C04FC9DA04} [DisplayName]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Accounting\Providers\{1AA7F840-C7F5-11D0-A376-00C04FC9DA04} [DisplayName]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RemoteAccess\Accounting\Providers\{1AA7F846-C7F5-11D0-A376-00C04FC9DA04} [DisplayName]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+      <plugin
+          classId="{D26AA4A5-92AD-48DB-8D59-95EF0DCE6939}"
+          file="Microsoft-Windows-RasServer-MigPlugin\RasMigPlugin.dll"
+          />
+      <!-- Migrate All EAP methods other than MD5 method -->
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\4\[*]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\25 [RolesSupported]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

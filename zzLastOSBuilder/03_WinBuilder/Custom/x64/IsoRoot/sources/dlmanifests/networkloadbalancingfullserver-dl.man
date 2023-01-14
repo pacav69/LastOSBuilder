@@ -1,0 +1,68 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="sidsen"
+    buildFilter=""
+    company="Microsoft Corporation"
+    copyright=""
+    creationTimeStamp="2003-10-21T22:44:51.1167278-07:00"
+    description="This is a down-level manifest for component NetworkLoadBalancingFullServer."
+    displayName="NLB down-level manifest"
+    lastUpdateTimeStamp="2005-05-27T18:07:29.3587657-07:00"
+    manifestVersion="1.0"
+    owners="wlbsdevs"
+    supportInformation=""
+    testers="wlbstest"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-NetworkLoadBalancingFullServer-DL"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <!-- Declare for which Longhorn equivalent OC this manifest corresponds too -->
+    <registerSDF name="NetworkLoadBalancingFullServer"/>
+    <!-- Duplicate the detects section as it must appear outside the machineSpecific tag for downlevel detect (this is a design limitation) -->
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SYSTEM\CurrentControlSet\Services\WLBS\Enum [Count]")</condition>
+        </detect>
+        <detect>
+          <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry","HKLM\SYSTEM\CurrentControlSet\Services\WLBS\Enum [Count]", "0")</condition>
+        </detect>
+        <!-- Check as this is only valid for down-level OS < Windows Vista -->
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0")</condition>
+        </detect>
+      </detects>
+    </migXml>
+    <machineSpecific>
+      <migXml xmlns="">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\SYSTEM\CurrentControlSet\Services\WLBS\Enum [Count]")</condition>
+          </detect>
+          <detect>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry","HKLM\SYSTEM\CurrentControlSet\Services\WLBS\Enum [Count]", "0")</condition>
+          </detect>
+          <!-- Check as this is only valid for down-level OS < Windows Vista -->
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0")</condition>
+          </detect>
+        </detects>
+        <plugin
+            classId="{376b9f2d-3ce1-442d-af84-bd77bfff79a6}"
+            file="Microsoft-Windows-NetworkLoadBalancing-Core\NlbMigPlugin.dll"
+            />
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

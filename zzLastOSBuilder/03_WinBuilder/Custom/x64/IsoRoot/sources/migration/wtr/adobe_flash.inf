@@ -1,0 +1,21 @@
+[WTR]
+Name="Adobe Flash for Windows"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%windir%\System32\Macromed\Flash\* [*.ocx]"
+"%windir%\System32\Macromed\Flash\* [*activex*]"
+"%windir%\SysWow64\Macromed\Flash\* [*.ocx]"
+"%windir%\SysWow64\Macromed\Flash\* [*activex*]"
+
+[System.Registry]
+"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Adobe Flash Player ActiveX\* [*]"
+"HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Adobe Flash Player ActiveX\* [*]"
+"HKLM\SOFTWARE\Macromedia\FlashPlayerActiveX\* [*]"
+"HKLM\SOFTWARE\Wow6432Node\Macromedia\FlashPlayerActiveX\* [*]"
+"HKLM\SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{FAB3E735-69C7-453B-A446-B6823C6DF1C9} [*]"
+"HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{FAB3E735-69C7-453B-A446-B6823C6DF1C9} [*]"
+"HKLM\SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{FAF199D2-BFA7-4394-A4DE-044A08E59B32} [*]"
+"HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{FAF199D2-BFA7-4394-A4DE-044A08E59B32} [*]"

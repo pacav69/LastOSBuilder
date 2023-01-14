@@ -1,0 +1,46 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-TaskScheduler-Service"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      scope="Upgrade"
+      settingsVersion="0"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2.*"
+      alwaysProcess="yes"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%windir%\System32\Tasks\* [*]</pattern>
+            <pattern type="File">%windir%\System32\Logfiles\SCM\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule [HashingCompleted]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Aliases\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Configuration\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Handlers\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\* [*]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\CredWom\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="File">%windir%\System32\Tasks\Microsoft\Windows\Customer Experience Improvement Program\Server [ServerRoleCollector]</pattern>
+            <pattern type="File">%windir%\System32\Tasks\Microsoft\Windows\Customer Experience Improvement Program\Server [ServerRoleUsageCollector]</pattern>
+            <pattern type="File">%windir%\System32\Logfiles\SCM\* [scm*]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

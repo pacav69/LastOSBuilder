@@ -1,0 +1,96 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="anoopc"
+    buildFilter=""
+    company="MS"
+    copyright=""
+    creationTimeStamp="2004-10-07T01:01:33.6028792-07:00"
+    description=""
+    displayName=""
+    lastUpdateTimeStamp="2004-10-11T17:43:48.5230435-07:00"
+    manifestVersion="1.0"
+    owners="anoopc"
+    supportInformation=""
+    testers="nareshc"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-Fax-Client-Applications-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      xmlns=""
+      buildFilter="not build.isWow"
+      scope="Upgrade,MigWiz,USMT"
+      >
+    <migXml>
+      <!-- Common settings for XP, WS03 & windows 2000 ;-->
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.0.*")</condition>
+            <!-- w2k -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <!-- xp   -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+            <!-- w2k3 -->
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\InboxView\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\IncomingView\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\OutboxView\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\SentItemsView\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\MainFrame\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <!-- These are the rules specific to upgrade from 2k-->
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.0.*")</condition>
+            <!-- w2k -->
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\UserInfo [NextCoverPageTip]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <!-- end of rules for upgrade from 2k -->
+      <!-- rules specific to xp/ws03 -->
+      <rules context="User">
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+            <!-- xp     -->
+            <condition>MigXmlHelper.DoesOSMatch("NT","5.2.*")</condition>
+            <!-- w2k3 -->
+          </detect>
+        </detects>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\Confirm [ItemDeletion]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Fax\fxsclnt\Archive [MessagesPerCall]</pattern>
+            <!-- Note that if XP machine customized location for personal cover pages -->
+            <!-- those cover page files will not be migrated. Customization of personal -->
+            <!-- cover pages is not supported/exposed/documented -->
+            <pattern type="File">%CSIDL_PERSONAL%\Fax\Personal CoverPages\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Communications_and_Sync\Fax</migrationDisplayID>
+  </migration>
+</assembly>

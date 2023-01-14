@@ -1,0 +1,50 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="anoopc"
+    buildFilter=""
+    company="MS"
+    copyright=""
+    creationTimeStamp="2006-01-03T01:01:33.6028792-07:00"
+    description=""
+    displayName=""
+    lastUpdateTimeStamp="2006-01-03T17:43:48.5230435-07:00"
+    manifestVersion="1.0"
+    owners="anoopc"
+    supportInformation=""
+    testers="nareshc"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="*"
+      name="Microsoft-Windows-Fax-Server-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      xmlns=""
+      scope="Upgrade,MigWiz,USMT"
+      >
+    <!-- Declare for which Longhorn equivalent OC this manifest corresponds too -->
+    <registerSDF name="FaxServiceRole"/>
+    <registerSDF name="FaxServiceConfigRole"/>
+    <migXml>
+      <!-- First Check if fxsclnt.exe is present in the downlevel. If not, then bail out. 
+      Generally people check for the presence of registry keys to see if an Optional Component is 
+      present in the downlevel. But I felt this is not the right approach for us, since we do
+      not remove the registry keys cleanly when fax is uninstalled. But fxsclnt.exe is sure to be
+      absent even in such cases. -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("File", "%systemroot%\system32\[fxsclnt.exe]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+    <migrationDisplayID>Communications_and_Sync\Fax</migrationDisplayID>
+  </migration>
+</assembly>

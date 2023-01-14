@@ -1,0 +1,101 @@
+;;;
+;;; ProtectIt
+;;;
+;;;
+;;; Copyright (c) 2017, TeraByte, Inc.
+;;;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "SecurityEnhancer"                        ;This is determined by the work this filter driver does
+ClassGuid   = {d02bc3da-0c8e-4945-9bd5-f1883c226c8c}    ;This value is determined by the Class
+Provider    = %ProviderString%
+DriverVer   = 12/21/2017,1.0.0.1
+CatalogFile.NTx86 = x86\ProtectIt.cat
+CatalogFile.NTAMD64 = x64\ProtectIt.cat
+
+
+[DestinationDirs]
+DefaultDestDir          = 12
+MiniFilter.DriverFiles  = 12            ;%windir%\system32\drivers
+
+;;
+;; Default install sections
+;;
+
+[DefaultInstall]
+OptionDesc          = %ServiceDescription%
+CopyFiles           = MiniFilter.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %ServiceName%,,MiniFilter.Service
+
+;;
+;; Default uninstall sections
+;;
+
+[DefaultUninstall]
+DelFiles   = MiniFilter.DriverFiles
+
+[DefaultUninstall.Services]
+DelService = %ServiceName%,0x200      ;Ensure service is stopped before deleting
+
+;
+; Services Section
+;
+
+[MiniFilter.Service]
+DisplayName      = %ServiceName%
+Description      = %ServiceDescription%
+ServiceBinary    = %12%\%DriverName%.sys        ;%windir%\system32\drivers\
+Dependencies     = "FltMgr"
+ServiceType      = 2                            ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 1                            ;SERVICE_SYSTEM_START
+ErrorControl     = 1                            ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg           = MiniFilter.AddRegistry
+
+;
+; Registry Modifications
+;
+
+[MiniFilter.AddRegistry]
+HKR,,"DebugFlags",0x00010001 ,0x0
+HKR,,"SupportedFeatures",0x00010001,0x3
+HKR,"Instances","DefaultInstance",0x00000000,%DefaultInstance%
+HKR,"Instances\"%Instance1.Name%,"Altitude",0x00000000,%Instance1.Altitude%
+HKR,"Instances\"%Instance1.Name%,"Flags",0x00010001,%Instance1.Flags%
+
+;
+; Copy Files
+;
+
+[MiniFilter.DriverFiles]
+%DriverName%.sys
+
+[SourceDisksFiles.x86]
+ProtectIt.sys = 1,\x86,
+
+[SourceDisksFiles.ntamd64]
+ProtectIt.sys = 1,\x64,
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+;;
+;; String Section
+;;
+
+[Strings]
+ProviderString          = "TeraByte, Inc."
+ServiceDescription      = "ProtectIt Mini-Filter Driver"
+ServiceName             = "ProtectIt"
+DriverName              = "ProtectIt"
+DiskId1                 = "ProtectIt Device Installation Disk"
+
+;Instances specific information.
+DefaultInstance         = "ProtectIt Instance"
+Instance1.Name          = "ProtectIt Instance"
+Instance1.Altitude      = "82373"
+Instance1.Flags         = 0x0              ; Allow all attachments

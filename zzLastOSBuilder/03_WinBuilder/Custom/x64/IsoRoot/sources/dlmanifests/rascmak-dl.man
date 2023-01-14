@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="rampras;dinesha"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-06-11T05:09:16.8593750+05:30"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2005-02-11T05:05:59.4118803+05:30"
+    manifestVersion="1.0"
+    owners="rampras;dinesha"
+    supportInformation=""
+    testers="praveens;giris"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-RasCMAK-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration>
+    <registerSDF name="RasCMAK"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry","HKLM\Software\Microsoft\Connection Manager Administration Kit")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="File">%CSIDL_PROGRAM_FILES%\CMAK\Profiles\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

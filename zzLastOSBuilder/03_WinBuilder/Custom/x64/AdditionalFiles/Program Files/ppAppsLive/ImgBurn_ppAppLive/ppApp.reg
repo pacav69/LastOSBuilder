@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\ImgBurn]
+"EVENTS_CheckForProgramUpdate"=dword:00000000
+"GRAPHDATA_DefaultViewer"=dword:00000000
+"InstallDirectory"="%ppApps%\\ImgBurn"
+"VersionMajor"=dword:00000002
+"VersionMinor"=dword:00000005
+"VersionRevision"=dword:00000008
+"VersionBuild"=dword:00000000
+"MainWindow"=hex:00,00,00,49,00,00,00,48
+"LogWindow"=hex:00,00,00,49,00,00,02,1a,00,00,02,a9,00,00,00,de
+"LogWindowOpen"=dword:00000001
+"LogWindowSnapped"=dword:00000001
+"LogWindowState"=dword:00000000
+"DropWindowOpen"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ImgBurn\Capabilities]
+"ApplicationDescription"="A lightweight burning application that everyone should have in their toolkit!"
+"ApplicationName"="ImgBurn"

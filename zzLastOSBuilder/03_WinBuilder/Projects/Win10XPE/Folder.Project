@@ -1,0 +1,15 @@
+[Main]
+Title=Win10XPE
+Type=XPEPlugin
+Description=Build Win10XPE by using an Original Windows 10 ISO x86 or x64...#$xThe build is based on the Winre.wim recovery environment.
+Author=ChrisR
+Date=2018.01.30
+Version=001
+Selected=True
+Download_Level=0
+Contact=
+
+
+[Links]
+Projects\MyPlugins\*.*
+Projects\MoPlugins\*.*

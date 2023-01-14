@@ -1,0 +1,168 @@
+Quicksys RegDefrag 2.9 (08/03/2010)
+--------------------------------------------
+- Improved 64-bit performance.
+- Improved debug engine.
+- GUI improvements.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.8 (02/18/2010)
+--------------------------------------------
+- Improved defragmenter engine.
+- Improved update checker.
+- Improved installer.
+- "Language not found" bug fixed.
+- Added new language: Bulgarian.
+- Memory usage optimizations.
+- GUI improvements.
+
+
+Quicksys RegDefrag 2.7 (11/14/2009)
+--------------------------------------------
+- Fixed freeze when loading analysis registry. (Windows XP/Vista/Seven)
+- Improved installer.
+- GUI improvements.
+- Minor bugs fixed.
+
+Quicksys RegDefrag 2.6 (10/07/2009)
+--------------------------------------------
+- Fixed freeze when loading analysis information. (Windows XP/Vista)
+- Improved installer.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.5 (10/01/2009)
+--------------------------------------------
+- Fixed freeze when loading analysis information.
+- Fixed a bug showing the message - "is not a valid integer number"
+- Improved installer.
+- Update languages: Chinese(Traditional)
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.4 (09/03/2009)
+--------------------------------------------
+- Improved Windows detection.
+- Added support for Windows 7 (32 bits and 64 bits).
+- Added new language: Turkish.
+- Updated languages: Chinese (Simplified), Chinese(Traditional), Russian, Ukrainian, Arabic, Italian and Japanese.
+- GUI improvements.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.3 (02/08/2009)
+--------------------------------------------
+- Added new languages: Slovenian, Ukrainian and Arabic.
+- Updated languages: Hungarian and Japanese.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.2 (05/01/2009)
+--------------------------------------------
+- Improved registry files detection.
+- Improved update checker.
+- Improved keyboard shortcuts.
+- Improved sorting of column at Registry Information.
+- Removed dynamic-link libraries (DLLs).
+- Fixed bug in restore point name.
+- Added new languages: Chinese (Simplified), Chinese (Traditional), Japanese and Korean.
+- Updated languages: Czech, Russian and Italian.
+- Memory usage optimizations.
+- Minor GUI improvements.
+- Minor bugs fixed.
+- Minor performance improvements.
+
+
+Quicksys RegDefrag 2.1 (10/13/2008)
+--------------------------------------------
+- Improved Unicode characters support.
+- Improved Windows Service Pack detection at Registry Information.
+- Addew new parameter (-REMOVETEMP) to remove older temp files.
+- Fixed memory leak at -REMOVEBACKUPS parameter.
+- Fixed memory leak at new version check.
+- Added new languages: Greek and Croatian.
+- Updated languages: French and Italian.
+- GUI improvements.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 2.0 (08/11/2008)
+--------------------------------------------
+- Improved new algorithm to defrag registry.
+- Improved HTML report with defrag information.
+- Improved alert about necessary free space to defrag registry.
+- Improved ascending sorting of column at Registry Information.
+- Improved new multi-language system with separate language files.
+- Improved perfomance in Windows x64.
+- Fixed text in Defrag Analysis. Example: changed "/REGISTRY/MACHINE" to "HKEY_LOCAL_MACHINE".
+- Fixed bug in backups. The backups files are stored at default registry folder.
+- Added new option to remove backups at Uninstall.
+- Memory usage optimizations.
+- Added new languages: Italian and Spanish.
+- GUI improvements.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 1.5 (07/04/2008)
+--------------------------------------------
+- Fixed bug in font ANSI charset.
+- Fixed bug in column order at Registry Information.
+- Added new language: Dutch
+- Updated languages: Polish and Czech.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 1.4 (06/24/2008)
+--------------------------------------------
+- Improved Portable version.
+- Fixed bug in temporary defrag files.
+- Fixed bug in My Computer Context Menu.
+- Added new languages: Russian, Czech and Polish.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 1.3 (06/02/2008)
+--------------------------------------------
+- Improved Windows 64-bits support. 
+- Improved table with information about hives in "Defrag Analysis".
+- Fixed memory dump in "Defrag Analysis".
+- Fixed bug when closing "Get Registry Information" window.
+- Added new languages: Português-Portugal, Français, Deutsch and Magyar.
+- Minor bugs fixed.
+- GUI improvements.
+
+
+Quicksys RegDefrag 1.2 (05/19/2008)
+--------------------------------------------
+- New layout.
+- Improved multi-language support. 
+- Added command line functions.
+- Added registry files path and size in Registry Information.
+- Added feedback with name and number of registry file in Defrag Analysis.
+- Added Stop button in Defrag Analysis.
+- Added option to check updates manually.
+- Added option to create registry backup.
+- Added option to create Restore Point in supported systems.
+- Removed option to startup with Windows.
+- Removed support for running on Windows NT. Quicksys RegDefrag now runs on 2000/2003/2008/XP and Vista.
+- Icon improvements.
+- Minor bugs fixed.
+
+
+Quicksys RegDefrag 1.1 (05/10/2008)
+--------------------------------------------
+- Added fragments graphic. 
+- Windows Vista is supported. 
+- Improved speed in defrag analysis. 
+- GUI improvements. 
+--------------------------------------------
+
+
+Quicksys RegDefrag 1.0 BETA(04/22/2008)
+--------------------------------------------
+- Only for beta testers. 
+- Windows Server 2003 is supported. 
+--------------------------------------------
+
+For more informations: 
+http://www.regdefrag.com

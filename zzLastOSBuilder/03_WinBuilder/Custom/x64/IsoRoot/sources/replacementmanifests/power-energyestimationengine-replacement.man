@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Power-EnergyEstimationEngine"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="Yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="1"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [EnergyEstimationEnabled]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\CPU\EfficiencyClass\$ [PowerEnvelope]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayBacklightPowerFloor]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayBacklightPowerGradient]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayBacklightPowerQDenominator]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayBacklightPowerQNumerator]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayPanelPowerAreaFactor]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayPanelPowerDpiFactor]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayPanelPowerFloor]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Display [DisplayPanelPowerVsyncDelta]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [FlushPowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [LargeRandomReadPowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [LargeRandomWritePowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [LargeSequentialReadPowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [LargeSequentialWritePowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [SmallRandomReadPowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [SmallRandomWritePowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [SmallSequentialReadPowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [SmallSequentialWritePowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$ [IdleStatesNumber]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$\IdleState\$ [IdleExitEnergyMicroJoules]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$\IdleState\$ [IdleExitLatencyMs]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$\IdleState\$ [IdlePowerMw]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\Storage\$\IdleState\$ [IdleTimeLengthMs]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\StandbyActivationEnergy [DripsPowerFloorMilliWatts]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\StandbyActivationEnergy [NonDripsPenaltyMilliWatts]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\StandbyActivationEnergy [Policy]</pattern>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\EnergyEstimation\StandbyActivationEnergy [ScreenOnMaxPercentage]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WlanSvc\PowerProfiles\$ [PowerTail]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WlanSvc\PowerProfiles\$ [PowerTxRx]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WlanSvc\PowerProfiles\$ [TailDuration]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WlanSvc\PowerProfiles\$ [PowerIdle]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WwanSvc\PowerProfiles\$ [PowerTail]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WwanSvc\PowerProfiles\$ [PowerTxRx]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WwanSvc\PowerProfiles\$ [TailDuration]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\WwanSvc\PowerProfiles\$ [PowerIdle]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SRUM\Telemetry [LongtermTimerInMinutes]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SRUM\Telemetry [BatteryDrainMinRate]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SRUM\Telemetry [BatteryDrainMinE3UploadBI]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SRUM\Telemetry [BatteryDrainMaxE3UploadRank]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SRUM\Telemetry [UploadAcRecords]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Allows apps access to my name, picture, and other account info
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{7D7E8402-7C54-4821-A34E-AEEFD62DED93}] 
+"Value"="Allows" 

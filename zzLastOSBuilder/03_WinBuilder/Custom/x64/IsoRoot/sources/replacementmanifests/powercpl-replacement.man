@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-powercpl"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <configuration
+      xmlns:asmv3="urn:schemas-microsoft-com:asm.v3"
+      xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State"
+      >
+    <configurationSchema>
+      <xsd:schema
+          xmlns="Microsoft-Windows-powercpl"
+          targetNamespace="Microsoft-Windows-powercpl"
+          >
+        <xsd:element
+            name="ContextMenuTree"
+            type="xsd:string"
+            wcm:handler="regtree(&apos;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Applets\SysTray\BattMeter\ContextMenu&apos;)"
+            wcm:migrate="yes"
+            wcm:scope="allUsers"
+            wcm:subScope="machineIndependent"
+            />
+        <xsd:element
+            default="381b4222-f694-41f0-9685-ff5bb260df2e"
+            name="PreferredPlan"
+            type="xsd:string"
+            wcm:dataOnly="true"
+            wcm:description="PreferredPlan enables you to specify a plan for the computer&apos;s power settings. You can specify the power plan by using a Globally Unique Identifier (GUID) for an existing power plan. The specified power plan determines the default values for power-management settings, including the following settings:"
+            wcm:displayName="Preferred Power Scheme"
+            wcm:handler="regkey(&apos;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{025A5937-A6BE-4686-A844-36FE4BEC8B6D}&apos;)"
+            wcm:legacyName="PreferredPlan"
+            wcm:migrate="yes"
+            wcm:passes="generalize specialize"
+            wcm:scope="allUsers"
+            wcm:visible="true"
+            />
+      </xsd:schema>
+    </configurationSchema>
+  </configuration>
+  <migration
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2.*"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

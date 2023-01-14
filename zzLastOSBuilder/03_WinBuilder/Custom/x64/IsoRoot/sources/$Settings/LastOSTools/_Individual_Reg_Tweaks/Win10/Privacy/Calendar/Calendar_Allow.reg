@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Allows apps to access my calendar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{D89823BA-7180-4B81-B50C-7E471E6121A3}] 
+"Value"="Allow" 

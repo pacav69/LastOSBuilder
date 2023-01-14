@@ -1,0 +1,19 @@
+Git
+https://git-scm.com/downloads
+
+
+
+
+scripts
+
+dependencies
+winbuilder
+https://github.com/ChrisRfr/Win10XPE
+https://github.com/ChrisRfr/Win10XPE/releases/latest
+
+tools
+
+
+git clone  https://github.com/pacav69/LastOSBuilder
+
+    git clone https://github.com/pacav69/lastosbuilder-updates 

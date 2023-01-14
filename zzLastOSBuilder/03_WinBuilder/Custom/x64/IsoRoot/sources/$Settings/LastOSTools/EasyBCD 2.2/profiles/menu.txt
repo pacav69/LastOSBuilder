@@ -1,0 +1,9 @@
+#default 0
+#timeout 0
+#fallback 1
+#title find /NST/menu.lst
+find --set-root --ignore-floppies /NST/menu.lst
+configfile /NST/menu.lst
+#title commandline
+pause EasyBCD cannot find the NeoGrub configuration file. Press any key to enter the NeoGrub commandline interface, or type 'quit' to go back to the BCD or 'reboot' to restart your PC. ^G
+commandline

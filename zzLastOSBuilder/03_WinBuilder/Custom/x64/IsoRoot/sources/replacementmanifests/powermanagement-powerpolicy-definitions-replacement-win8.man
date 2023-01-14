@@ -1,0 +1,283 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Power-Policy-Definitions"
+      processorArchitecture="*"
+      version="0.0.0.2"
+      />
+  <!-- version 2 = Win8 -->
+  <migration
+      replacementSettingsVersionRange="2"
+      settingsVersion="2"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\SecurityDescriptors\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HibernateEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [CustomizeDuringSetup]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power [AwayModeEnabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <!-- -->
+        <!-- Migrate the HiberFileSizePercent policy, only if the default (80) is not set. -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]", "0x00000050")</condition>
+          </conditions>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, Balanced DC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, Balanced AC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\381b4222-f694-41f0-9685-ff5bb260df2e\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, Power Saver DC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, Power Saver AC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <!-- Fall back to backend defaults if no front end value exists -->
+          <conditions>
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\a1841308-3541-4fab-bc81-f71556f20b4a\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, High Performance DC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [DCSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [DCSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [DCSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [DCSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <!-- -->
+        <!-- Migrate CS battery saver settings to hibernate timeout, High Performance AC -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+        <rules context="System">
+          <conditions>
+            <!-- Fall back to backend defaults if no front end value exists -->
+            <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\7398e821-3937-4469-b07b-33eb785aaca1 [ACSettingIndex]")</condition>
+            <!-- Check CS battery saver action is set to hibernate -->
+            <condition>MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\c10ce532-2eb1-4b3c-b3fe-374623cdcf07 [ACSettingIndex]", "0x00000001")</condition>
+            <!-- Check CS battery saver trip point exists and is non-zero -->
+            <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]")</condition>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\e73a048d-bf27-4f12-9731-8b2076e8891f\1e133d45-a325-48da-8769-14ae6dc1170b [ACSettingIndex]", "0x00000000")</condition>
+          </conditions>
+          <addObjects>
+            <object>
+              <location type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\Default\PowerSchemes\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364 [ACSettingIndex]</location>
+              <attributes>DWORD</attributes>
+              <bytes>80510100</bytes>
+            </object>
+          </addObjects>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

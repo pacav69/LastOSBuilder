@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<!-- Special migration logic for the LmCompatibilityLevel setting -->
+<assembly>
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-Security-NTLM-LMC"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration>
+    <migXml xmlns="">
+      <!-- Check as this is only valid for down-level OS < than Windows Vista ? -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+        <detect>
+          <condition negation=”yes”>MigXmlHelper.DoesStringContentEqual("Registry"," HKLM\SYSTEM\CurrentControlSet\Control\Lsa [LmCompatibilityLevel]", "2")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Lsa [LmCompatibilityLevel]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

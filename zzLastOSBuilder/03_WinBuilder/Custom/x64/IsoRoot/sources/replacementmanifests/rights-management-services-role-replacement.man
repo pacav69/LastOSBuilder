@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="Rights-Management-Services-Role-RM"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+ <migration replacementSettingsVersionRange="0"
+       settingsVersion="0"
+       alwaysProcess="yes">
+    <registerSDF name="RightsManagementServices-Role"/>
+    <migXml>
+      <detects>
+        <detect>
+        <!-- Install RightsManagementServicesRole component if it is installed AND the OS is Windows Server 2008 R2 or below. -->
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\DRMS")</condition>
+        </detect>
+        <detect>
+          <!-- Detection of OS version to be Windows Server 2008 R2 or lower. IsOSEarlierThan returns TRUE if the OS version matches. -->
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.2")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

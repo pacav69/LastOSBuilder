@@ -1,0 +1,5 @@
+\Windows\System32\osk.exe
+\Windows\System32\OskSupport.dll
+\Windows\System32\utilman.exe
+\Windows\System32\WindowsCodecsExt.dll
+\Windows\cursors\aero_arrow.cur

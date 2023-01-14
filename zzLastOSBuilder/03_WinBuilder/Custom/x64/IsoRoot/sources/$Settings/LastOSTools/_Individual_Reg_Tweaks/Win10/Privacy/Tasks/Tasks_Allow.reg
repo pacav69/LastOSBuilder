@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Allows apps (such as Mail and Calendar) access to my tasks
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E390DF20-07DF-446D-B962-F5C953062741}] 
+"Value"="Allow" 

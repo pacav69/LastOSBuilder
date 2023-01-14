@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Sxs"
+      processorArchitecture="*"
+      publicKeyToken="$(build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      />
+  <migration 
+      replacementVersionRange="6.0-6.2.8000"
+      replacementSettingsVersionRange="0"
+      settingsVersion="0">
+    <machineSpecific>
+      <migXml xmlns="">
+        <plugin
+            classId="{d2caca93-9eef-4c24-9790-61cdefd255d4}"
+            file="microsoft-windows-sxs\SxsMigPlugin.dll"
+            />
+      </migXml>
+    </machineSpecific>
+    <supportedComponents>
+      <supportedComponent>
+        <supportedComponentIdentity
+            language="neutral"
+            name="Microsoft-Windows-Sxs"
+            processorArchitecture="*"
+            publicKeyToken="$(build.WindowsPublicKeyToken)"
+            settingsVersionRange="0"
+            />
+      </supportedComponent>
+    </supportedComponents>
+  </migration>
+</assembly>

@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-AppX-Deployment-Server"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      replacementSettingsVersionRange="1-3"
+      settingsVersion="3"
+      >
+    <!-- rules specifying what files and registry entries to collect -->
+    <migXml xmlns="">
+      <plugin
+          classId="{AE27C1A6-25F2-45FD-9A28-081B81F29E0A}"
+          critical="Yes"
+          file="Microsoft-Windows-AppX-Deployment-Server\AppxUpgradeMigrationPlugin.dll"
+          offlineGather="Yes"
+          offlineApply="Yes"
+          />
+      <rules context="System">
+        <!--Note: StateRepository database preservation rules are in the base\ntsetup\migration\scripts\offline.xml so it can be migrated before booting the new image-->
+        <include>
+          <objectSet>
+            <!-- single instance store -->
+            <pattern type="File">%ProgramFiles%\WindowsApps\*[*]</pattern>
+            <!-- backup manifests -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\AppRepository [*.xml]</pattern>
+            <!-- Event Message Files -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\PackagedEventProviders\*[*]</pattern>
+            <!-- OEM DISM-installed apps -->
+            <pattern type="File">%windir%\InfusedApps\*[*]</pattern>
+            <!-- migrate group policies for app deployment -->
+            <pattern type="Registry">HKLM\Software\Policies\Microsoft\Windows\Appx [*]</pattern>
+            <!-- migrate sideload settings for app deployment -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AppModelUnlock [*]</pattern>
+            <!-- migrate known package volumes -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Appx\PackageVolumes\* [*]</pattern>
+            <!-- migrate purge list -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Appx\PurgeList\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Appx\PurgeList\* [*]</pattern>
+            <!-- migrate staging info for packages in paused state -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\AppModel\StagingInfo\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <!-- downlevel staterepository should not be migrated -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\AppRepository\Downlevel\*[*]</pattern>
+            <!-- System Volume Flags value should not be migrated. The legacy value is inaccurate. Always write fresh value in image -->
+            <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\Appx\PackageVolumes\1 [flags]</pattern>
+          </objectSet>
+        </exclude>
+        <locationModify script="MigXmlHelper.RelativeMove(&apos;%ProgramFiles%\WindowsApps&apos;,&apos;%ProgramFiles%\WindowsApps\Deleted&apos;)">
+          <objectSet>
+            <!-- Move %ProgramFiles%\WindowsApps\Deleted to %ProgramFiles%\WindowsApps\Deleted\Deleted so if any packages are still in 
+                  the Deleted folder of the downlevel OS, they will be brought to uplevel OS and deleted later. This is to prevent any 
+                  packages from getting to Windows.old folder. -->
+            <pattern type="File">%ProgramFiles%\WindowsApps\Deleted\* [*]</pattern>
+            <!-- Move %ProgramFiles%\WindowsApps\SharedLimitedTime (containing old packages for rolling back last OS upgrade) to 
+                  %ProgramFiles%\WindowsApps\Deleted\SharedLimitedTime. We only support rolling back the latest OS upgrade. So
+                  these files, which are for rolling back to N-2 OS, can be removed. -->
+            <pattern type="File">%ProgramFiles%\WindowsApps\SharedLimitedTime\* [*]</pattern>
+          </objectSet>
+        </locationModify>
+        <merge script="MigXmlHelper.DestinationPriority()">
+          <objectSet>
+            <!-- backup manifests -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\AppRepository [*.xml]</pattern>
+          </objectSet>
+        </merge>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

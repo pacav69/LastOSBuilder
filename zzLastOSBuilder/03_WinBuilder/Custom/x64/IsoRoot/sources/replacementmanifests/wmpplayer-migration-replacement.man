@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-MediaPlayer-Core"
+      processorArchitecture="*"
+      publicKeyToken=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      replacementVersionRange="6.2.*"
+      scope="Upgrade"
+      settingsVersion="0"
+      >
+    <migXml xmlns="">
+      <!-- Define an environment variable to hold the sync playlist path -->
+      <environment context="User">
+        <variable name="SyncPlaylistsPath">
+          <script>MigXmlHelper.GetStringContent("Registry", "HKCU\Software\Microsoft\MediaPlayer\Preferences [ObfuscatedSyncPlaylistsPath]")</script>
+        </variable>
+      </environment>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\Software\Microsoft\MediaPlayer\Preferences\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Policies\Microsoft\WindowsMediaPlayer\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Microsoft\MediaPlayer\MediaPlugins\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\MediaPlayer\Preferences\* [*]</pattern>
+            <pattern type="Registry">HKLM\Software\Wow6432Node\Microsoft\MediaPlayer\MediaPlugins\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="User">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Software\Microsoft\MediaPlayer\Preferences\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\MediaPlayer\Settings\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\MediaPlayer\PrivateServices\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\MediaPlayer\MediaPlugins\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Wow6432Node\Microsoft\MediaPlayer\Preferences\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Wow6432Node\Microsoft\MediaPlayer\Settings\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Wow6432Node\Microsoft\MediaPlayer\PrivateServices\* [*]</pattern>
+            <pattern type="Registry">HKCU\Software\Wow6432Node\Microsoft\MediaPlayer\MediaPlugins\* [*]</pattern>
+            <pattern type="File">%SyncPlaylistsPath%\* [*]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

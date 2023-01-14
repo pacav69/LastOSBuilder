@@ -1,0 +1,47 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="asetia"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-06-11T06:10:20.2812500+05:30"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2005-03-24T11:48:32.2583542+05:30"
+    manifestVersion="1.0"
+    owners="dhcpidev"
+    supportInformation=""
+    testers="vamshika"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="release"
+      language="neutral"
+      name="Microsoft-Windows-DHCP-Client-DL"
+      processorArchitecture="*"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      type=""
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration xmlns:auto-ns1="urn:schemas-microsoft-com:asm.v3">
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\* 
+                     [EnableDhcp]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

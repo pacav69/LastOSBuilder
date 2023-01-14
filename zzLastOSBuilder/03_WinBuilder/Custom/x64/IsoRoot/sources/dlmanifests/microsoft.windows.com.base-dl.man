@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="johnfran"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2006-02-15T20:15:23.9993750-07:00"
+    description="Downlevel manifest for migration of OLE ComBase Keys"
+    displayName="Downlevel manifest for OLE"
+    estimatedSize=""
+    lastUpdateTimeStamp="2006-02-15T20:15:23.9993750-07:00"
+    manifestVersion="1.0"
+    owners="johnfran"
+    supportInformation=""
+    testers="stb"
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-COM-Base-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration scope="Upgrade,MigWiz,USMT">
+    <migXml xmlns="">
+      <!-- Check as this manifest is only valid for down level OS < Windows Vista -->
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.0.0.0")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <conditions>
+          <condition>MigXmlHelper.IsMigrationScope("Upgrade")</condition>
+        </conditions>
+        <include>
+          <objectSet>
+            <!-- migrate regkeys -->
+            <pattern type="Registry">HKLM\Software\Microsoft\OLE\* [*]</pattern>
+          </objectSet>
+        </include>
+        <exclude>
+          <objectSet>
+            <pattern type="File">%systemroot%\system32 [olecnv32.dll]</pattern>
+          </objectSet>
+        </exclude>
+      </rules>
+    </migXml>
+    <migrationDisplayID>Additional_Options\Windows_Core_Settings</migrationDisplayID>
+  </migration>
+</assembly>

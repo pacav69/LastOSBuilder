@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Denies your apps automatic sharing and syncing with wireless devices that don't explicitly pair with your PC, tablet, or phone (such as XBox One, TVs, projectors)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled] 
+"Value"="Deny" 

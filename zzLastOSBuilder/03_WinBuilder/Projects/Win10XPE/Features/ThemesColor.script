@@ -1,0 +1,186 @@
+[Main]
+Title=Themes Color
+Type=XPEPlugin
+Description=Themes Color
+Author=ChriSR
+Date=2018.11.03
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+AddInterface,%ProjectDir%\Core.script,InterfaceOption,""
+//-
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveLoad,Tmp_Software,%RegSoftware%
+  RegHiveLoad,Tmp_Default,%RegDefault%
+End
+Run,%ScriptFile%,ThemeColors
+If,Not,#1,Equal,HiveLoaded,Begin
+  RegHiveUnLoad,Tmp_Default
+  RegHiveUnLoad,Tmp_Software
+End
+
+[ThemeColors]
+RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\DWM,ColorizationGlassAttribute,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\DWM,ColorPrevalence,0
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,Composition,1
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,ColorPrevalence,0
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,EnableTransparency,1
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\DWM,ColorPrevalence,0
+//
+If,%Colors_ScrollBox%,Equal,1,Begin
+  //IniWrite,%GTarget_Win%\Resources\Themes\aero.theme,VisualStyles,AutoColorization,1
+  RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,1
+  RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\DWM,ColorPrevalence,1
+  RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,ColorPrevalence,1
+  RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\DWM,ColorPrevalence,1
+End
+// Custom Windows Title Bars and Taskbar color section
+If,%Colors_ScrollBox%,Bigger,1,Run,%ScriptFile%,CustomColors
+
+[CustomColors]
+RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,0
+//-
+Set,%SystemProtectedUserDataRegKey%,"Microsoft\Windows\CurrentVersion\SystemProtectedUserData\S-1-5-21-1391200042-3413667948-2666945708-500\AnyoneRead\Colors"
+RegWrite,HKLM,0x4,Tmp_Software\%SystemProtectedUserDataRegKey%,StartColor,0
+RegWrite,HKLM,0x4,Tmp_Software\%SystemProtectedUserDataRegKey%,AccentColor,0
+//-
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationGlassAttribute,0
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,EnableAeroPeek,1
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,AccentColor,47615
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorPrevalence,1
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationColorBalance,89
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationAfterglowBalance,10
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationBlurBalance,1
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,EnableWindowColorization,1
+//-
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,ColorPrevalence,1
+RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\DWM,ColorPrevalence,1
+//-
+// Win10 color accent palette Col 1, Line 1 Yellow
+If,%Colors_ScrollBox%,Equal,2,Begin
+  Set,%AccentColor%,47615
+  Set,%Colorization%,-989873920
+  Set,%AccentPalette%,"ff,e8,a8,00,ff,e0,8c,00,ff,d3,5c,00,ff,b9,00,00,ba,89,00,00,80,5e,00,00,4d,38,00,00,00,b2,94,00"
+  Set,%StartColorMenu%,-16741958
+  Set,%AccentColorMenu%,-16729601
+End
+// Win10 color accent palette Col 1, Line 3
+If,%Colors_ScrollBox%,Equal,3,Begin
+  Set,%AccentColor%,812023
+  Set,%Colorization%,-990420212
+  Set,%AccentPalette%,"fd,86,5f,00,fc,75,51,00,f8,63,42,00,f7,63,0c,00,d0,41,22,00,9c,31,1a,00,79,27,14,00,00,99,bc,00"
+  Set,%StartColorMenu%,-14532144
+  Set,%AccentColorMenu%,-15965193
+End
+// Win10 color accent palette Col 1, Line 6
+If,%Colors_ScrollBox%,Equal,4,Begin
+  Set,%AccentColor%,5269999
+  Set,%Colorization%,-990942896
+  Set,%AccentPalette%,"ff,c9,bf,00,ff,b7,ab,00,fa,94,82,00,ef,69,50,00,9e,44,34,00,66,2c,22,00,33,12,0c,00,74,4d,a9,00"
+  Set,%StartColorMenu%,-13351778
+  Set,%AccentColorMenu%,-11507217
+End
+// Win10 color accent palette Col 2, Line 2
+If,%Colors_ScrollBox%,Equal,5,Begin
+  Set,%AccentColor%,2298344
+  Set,%Colorization%,-991424221
+  Set,%AccentPalette%,"ff,bd,c2,00,ff,99,a1,00,f0,59,65,00,e8,11,23,00,99,00,0d,00,6e,00,09,00,47,00,06,00,69,79,7e,00"
+  Set,%StartColorMenu%,-15925095
+  Set,%AccentColorMenu%,-14478872
+End
+// Win10 color accent palette Col 3, Line 7
+If,%Colors_ScrollBox%,Equal,6,Begin
+  Set,%AccentColor%,12732081
+  Set,%Colorization%,-995014974
+  Set,%AccentPalette%,"f6,c0,ff,00,e5,9d,f0,00,cc,7b,d9,00,b1,46,c2,00,7d,31,89,00,51,20,59,00,38,16,3d,00,ff,8c,00,00"
+  Set,%StartColorMenu%,-7786115
+  Set,%AccentColorMenu%,-4045135
+End
+// Win10 color accent palette Col 2, Line 8
+If,%Colors_ScrollBox%,Equal,7,Begin
+  Set,%AccentColor%,8978586
+  Set,%Colorization%,-996540279
+  Set,%AccentPalette%,"fd,8d,f1,00,f2,66,e3,00,cb,3d,bb,00,9a,00,89,00,70,00,63,00,50,00,47,00,33,00,2d,00,00,cc,6a,00"
+  Set,%StartColorMenu%,-10289040
+  Set,%AccentColorMenu%,-7798630
+End
+// Win10 color accent palette Col 3, Line 1
+If,%Colors_ScrollBox%,Equal,8,Begin
+  Set,%AccentColor%,14120960
+  Set,%Colorization%,-1006602025
+  Set,%AccentPalette%,"a6,d8,ff,00,76,b9,ed,00,42,9c,e3,00,00,78,d7,00,00,5a,9e,00,00,42,75,00,00,26,42,00,f7,63,0c,00"
+  Set,%StartColorMenu%,-6399488
+  Set,%AccentColorMenu%,-2656256
+End
+// Win10 color accent palette Col 3, Line 2
+If,%Colors_ScrollBox%,Equal,9,Begin
+  Set,%AccentColor%,11625216
+  Set,%Colorization%,-1006607439
+  Set,%AccentPalette%,"86,ca,ff,00,5f,b2,f2,00,1e,91,ea,00,00,63,b1,00,00,42,75,00,00,2d,4f,00,00,20,38,00,00,cc,6a,00"
+  Set,%StartColorMenu%,-9092608
+  Set,%AccentColorMenu%,-5152000
+End
+// Win10 color accent palette Col 4, Line 4
+If,%Colors_ScrollBox%,Equal,10,Begin
+  Set,%AccentColor%,8880899
+  Set,%Colorization%,-1006402681
+  Set,%AccentPalette%,"b3,f4,f5,00,80,d6,d9,00,37,a9,ad,00,03,83,87,00,00,56,59,00,00,39,3b,00,00,26,26,00,ef,69,50,00"
+  Set,%StartColorMenu%,-10922496
+  Set,%AccentColorMenu%,-7896317
+End
+// Win10 color accent palette Col 4, Line 7
+If,%Colors_ScrollBox%,Equal,11,Begin
+  Set,%AccentColor%,6999040
+  Set,%Colorization%,-1006580630
+  Set,%AccentPalette%,"c1,f7,dd,00,a6,f7,d0,00,68,e3,a8,00,00,cc,6a,00,00,87,46,00,00,52,2a,00,00,2b,16,00,e3,00,8c,00"
+  Set,%StartColorMenu%,-12155136
+  Set,%AccentColorMenu%,-9778176
+End
+// Win10 color accent palette Col 5, Line 8
+If,%Colors_ScrollBox%,Equal,12,Begin
+  Set,%AccentColor%,1080336
+  Set,%Colorization%,-1005552624
+  Set,%AccentPalette%,"90,d6,90,00,61,ba,61,00,3d,9c,3d,00,10,7c,10,00,0c,5c,0c,00,09,42,09,00,02,26,02,00,4c,4a,48,00"
+  Set,%StartColorMenu%,-15967220
+  Set,%AccentColorMenu%,-15696880
+End
+// Win10 color accent palette Col 5, Line 5
+If,%Colors_ScrollBox%,Equal,13,Begin
+  Set,%AccentColor%,7568470
+  Set,%Colorization%,-1000965005
+  Set,%AccentPalette%,"a4,e1,d2,00,8b,bf,b2,00,76,a2,97,00,56,7c,73,00,3a,54,4e,00,29,3a,36,00,1c,2b,28,00,c3,00,52,00"
+  Set,%StartColorMenu%,-11643846
+  Set,%AccentColorMenu%,-9208746
+End
+// Win10 color accent palette Col 5, Line 2
+If,%Colors_ScrollBox%,Equal,14,Begin
+  Set,%AccentColor%,5790301
+  Set,%Colorization%,-1000514984
+  Set,%AccentPalette%,"c5,bf,b9,00,a3,9e,9a,00,87,83,80,00,5d,5a,58,00,3e,3c,3b,00,2b,2a,29,00,1f,1e,1d,00,ff,43,43,00"
+  Set,%StartColorMenu%,-12895170
+  Set,%AccentColorMenu%,-10986915
+End
+// Win10 color accent palette Col 6, Line 7
+If,%Colors_ScrollBox%,Equal,15,Begin
+  Set,%AccentColor%,4552068
+  Set,%Colorization%,-997952187
+  Set,%AccentPalette%,"de,c7,7d,00,c3,af,6e,00,a9,97,5f,00,84,75,45,00,63,56,2c,00,4d,42,1f,00,3b,32,17,00,ef,69,50,00"
+  Set,%StartColorMenu%,-13871517
+  Set,%AccentColorMenu%,-12225148
+End
+//-
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,AccentColor,%AccentColor%
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationColor,%Colorization%
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\DWM,ColorizationAfterglow,%Colorization%
+RegWrite,HKLM,0x3,Tmp_Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent,AccentPalette,%AccentPalette%
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent,StartColorMenu,%StartColorMenu%
+RegWrite,HKLM,0x4,Tmp_Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Accent,AccentColorMenu,%AccentColorMenu%

@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Denies apps the use of your camera hardware (Connect, Edge, Skype, etc.).
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E5323777-F976-4f5b-9B55-B94699C46E44}] 
+"Value"="Deny" 

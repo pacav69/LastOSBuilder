@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="henryr,guruk"
+    buildFilter=""
+    company="Microsoft"
+    copyright=""
+    creationTimeStamp="2003-06-09T16:32:10.3541700-07:00"
+    description="$(resourceString.description)"
+    displayName="$(resourceString.displayName)"
+    lastUpdateTimeStamp="2004-08-20T01:03:02.6093088-07:00"
+    manifestVersion="1.0"
+    owners="henryr"
+    supportInformation=""
+    testers="jonwhee"
+    >
+  <assemblyIdentity
+      buildFilter=""
+      buildType="$(build.buildType)"
+      language="neutral"
+      name="Microsoft-Windows-UPnPDeviceHost-Server-DL"
+      processorArchitecture="*"
+      product="$(build.product)"
+      publicKeyToken="$(Build.WindowsPublicKeyToken)"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.DoesOSMatch("NT","5.1.*")</condition>
+        </detect>
+      </detects>
+      <rules context="System">
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host [File Size Limit]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host\Devices [DeviceLifeTime]</pattern>
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host\Devices [MaxHttpSize]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </migXml>
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="File">%windir%\ServiceProfiles\LocalService\AppData\Roaming\Microsoft\UPnP Device Host\Description Documents\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host\Description\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host\Devices\* [*]</pattern>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\UPnP Device Host\Providers\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\UPnPHost [Start]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

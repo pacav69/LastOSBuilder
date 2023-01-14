@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" manifestVersion="1.0">
+  <assemblyIdentity name="Microsoft-Windows-TwinUI" version="0.0.0.0" processorArchitecture="*" language="neutral" />
+  <!-- Rules for pulling settings from any earlier settings version into the current version (10). -->
+  <!-- The entries here *completely override* the rules defined in the downlevel copy of twinui.man. -->
+  <!-- This should essentially be the subset of settings from the current migration rules that existed in one of these prior releases. -->
+  <!-- settingsVersion 9 and 10 corresponds to removing two sharing toast IconUri's that were added previously in "RS5" -->
+  <!-- settingsVersion 8 corresponds to allowing migration of BitLocker and WIP notification settings in "RS2" -->
+  <!-- settingsVersion 7 corresponds to no longer removing LogonUI\Notifications\BackgroundCapability in "RS2" -->
+  <!-- settingsVersion 6 corresponds to removing LogonUI\Notifications\BackgroundCapability in "RS1" -->
+  <!-- settingsVersion 5 corresponds to the introduction of Pen Button Customization in "RS1" -->
+  <!-- settingsVersion 4 corresponds to "RS1" -->
+  <!-- settingsVersion 3 corresponds to "Threshold 2" -->
+  <migration scope="Upgrade" settingsVersion="10" replacementSettingsVersionRange="1-9">
+    <machineSpecific>
+        <migXml xmlns="">
+          <rules context="User">
+            <conditions>
+              <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\DoubleClickBelowLock [Override]")</condition>
+            </conditions>
+            <addObjects>
+              <object>
+                <location type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\DoubleClickBelowLock [Override]</location>
+                <attributes>dword</attributes>
+                <bytes>00000000</bytes>
+              </object>
+            </addObjects>
+          </rules>
+          <rules context="User">
+            <conditions>
+              <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\LongPressBelowLock [Override]")</condition>
+            </conditions>
+            <addObjects>
+              <object>
+                <location type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\LongPressBelowLock [Override]</location>
+                <attributes>dword</attributes>
+                <bytes>00000000</bytes>
+              </object>
+            </addObjects>
+          </rules>
+          <rules context="User">
+            <conditions>
+              <condition negation="Yes">MigXmlHelper.DoesObjectExist("Registry", "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\SingleClickBelowLock [Override]")</condition>
+            </conditions>
+            <addObjects>
+              <object>
+                <location type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\SingleClickBelowLock [Override]</location>
+                <attributes>dword</attributes>
+                <bytes>00000000</bytes>
+              </object>
+            </addObjects>
+          </rules>
+          <rules context="User">
+            <include>
+              <objectSet>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Notifications\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AppContract\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\SharingMRU\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\Switcher\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\* [*]</pattern>
+                <!-- Tiles settings flyout-->
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced [StartMenuAdminTools]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications [MobileBroadbandCap]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications [MobileBroadbandNextResetDate]</pattern>
+                <!-- Edgy corners / WinX -->
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\EdgeUi [DisableTLCorner]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\EdgeUi [DisableTRCorner]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced [DontUserPowerShellOnWinX]</pattern>
+                <pattern type="File">%CSIDL_LOCAL_APPDATA%\Microsoft\Windows\WinX\* [*]</pattern>
+                <!-- Persistent virtual desktop state -->
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VirtualDesktops\* [*]</pattern>
+                <!-- Tablet mode settings -->
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell [ConvertibleSlateModePromptPreference]</pattern>
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell [SignInMode]</pattern>
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell [TabletMode]</pattern>
+                <!-- Persistent Continuum state -->
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Continuum [AvailabilityToastCount]</pattern>
+                <!-- Desktop positioner persistence -->
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ApplicationFrame\* [*]</pattern>
+                <!-- Pen click user customization -->
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\* [*]</pattern>
+                <!-- Pen workspace -->
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\* [*]</pattern>
+                <!-- Sticky note data migration -->
+                <pattern type="File">%CSIDL_APPDATA%\Microsoft\Sticky Notes\* [*]</pattern>
+              </objectSet>
+            </include>
+            <merge script="MigXmlHelper.SourcePriority()">
+              <objectSet>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Notifications\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ClickNote\UserCustomization\* [*]</pattern>
+                <pattern type="Registry">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AppContract\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\SharingMRU\* [*]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell\Switcher\* [*]</pattern>
+                <pattern type="File">%CSIDL_LOCAL_APPDATA%\Microsoft\Windows\WinX\* [*]</pattern>
+                <pattern type="File">%CSIDL_APPDATA%\Microsoft\Sticky Notes\* [*]</pattern>
+              </objectSet>
+            </merge>
+          </rules>
+          <rules context="System">
+            <include>
+              <objectSet>
+                <!-- Tablet mode settings -->
+                <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell [ConvertibleSlateModePromptPreference]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell [SignInMode]</pattern>
+                <!-- Notification Sender settings -->
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\* [*]</pattern>
+                <!-- Pen click OEM Customization -->
+                <pattern type="Registry">HKLM\Software\Microsoft\Windows\CurrentVersion\ClickNote\* [*]</pattern>
+              </objectSet>
+            </include>
+            <exclude>
+              <objectSet>
+                <!-- Remove bad icon URIs present in older builds -->
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.System.NearShareExperienceReceive [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.System.ShareExperience [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.AutoPlay [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.ParentalControls [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.BdeUnlock [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.Compat [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.Devices [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.Explorer [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.NfpAppAcquire [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.NfpAppLaunch [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.NfpDevicePairing [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.NfpReceiveContent [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.RasToastNotifier [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.Share [IconUri]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.Hello\* [*]</pattern>
+
+                <!-- Remove registry keys that flagged certain apps' notifications as non-customizable by the user, so they can be customized now in later versions of the os -->
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel [ShowInSettings]</pattern>
+
+                <!-- Remove bad Display strings and custom activators present in older builds -->
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.BitLockerPolicyRefresh [*]</pattern>
+                <pattern type="Registry">HKLM\SOFTWARE\Classes\AppUserModelId\Windows.SystemToast.EnterpriseDataProtection [*]</pattern>
+
+              </objectSet>
+            </exclude>
+          </rules>
+        </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

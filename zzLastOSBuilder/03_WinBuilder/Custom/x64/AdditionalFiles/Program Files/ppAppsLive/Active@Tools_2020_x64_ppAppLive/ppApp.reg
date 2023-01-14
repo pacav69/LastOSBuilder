@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\LSoft Technologies\Active Disk Image]
+"AskCreateBootDisk"=dword:00000000
+"CheckUpdatesOnStart"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\LSoft Technologies\Active Disk Image 9.0]
+"AskCreateBootDisk"=dword:00000000
+"CheckUpdatesOnStart"=dword:00000000

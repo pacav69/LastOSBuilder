@@ -1,0 +1,40 @@
+[Main]
+Title=SupportLog
+Type=XPEPlugin
+Description=SupportLog
+Author=ChriSR
+Date=2019.04.01
+Version=001
+Selected=None
+Mandatory=None
+NoWarning=False
+Level=0
+Download_Level=0
+Credits=
+Contact=
+
+[Variables]
+%ProgramFolder%=SupportLog
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+StrFormat,DATE,%CurrentDateYYMD%,yyyymmdd
+StrFormat,DATE,%CurrentDateHN%,hhnn
+ShellExecute,Hide,cmd.exe,"/D /C Exit #$pTIME:~6,2#$p"
+Set,%CurrentDateS%,%ExitCode%
+Set,%CurrentDate%,%CurrentDateYYMD%_%CurrentDateHN%%CurrentDateS%
+//-
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+System,SAVELOG,%GTemp%\%ProgramFolder%\SupportLog_%ProjectName%.html
+//-
+Filecopy,%ProjectDir%\script.project,%GTemp%\%ProgramFolder%
+If,ExistFile,%GTarget_Win%\Logs\DISM\dism.log,Filecopy,%GTarget_Win%\Logs\DISM\dism.log,%GTemp%\%ProgramFolder%
+//-
+Echo,"%ScriptTitle% Create Target folder Files List..."
+ShellExecute,Hide,cmd.exe,"/D /C Dir /A:-D /B /S #$q%GTarget%\*.*#$q > TargetlistFiles.txt",%GTemp%\%ProgramFolder%
+TXTReplace,%GTemp%\%ProgramFolder%\TargetlistFiles.txt,%GTarget%,""
+//-
+Echo,"Pack SupportLog_%ProjectName%_%CurrentDate%.7z at the Project Base Directory..."
+ShellExecute,Hide,%GTools%\7z.exe,"a -y -m0=lzma2 -mx=9 -aoa -t7z #$q%BaseDir%\SupportLog_%ProjectName%_%CurrentDate%.7z#$q #$q%GTemp%\%ProgramFolder%\*#$q"
+If,ExistFile,%BaseDir%\SupportLog_%ProjectName%_%CurrentDate%.7z,Message,"SupportLog_%ProjectName%_%CurrentDate%.7z#$x#$x  IS READY at the Project Base Directory.",Information,3

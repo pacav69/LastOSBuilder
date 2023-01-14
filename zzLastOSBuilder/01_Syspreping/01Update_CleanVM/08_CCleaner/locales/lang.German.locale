@@ -1,0 +1,83 @@
+//* translated and corrected by: Siggi
+//* email: mario_siegmann@web.de
+
+Trimmed winapp2.ini in:|Entfernt unnötige Einträge in der winapp2.ini:
+Trim winapp2.ini|winapp2.ini säubern
+Trim definition file to improve performance|Definitionsdatei zur Leistungssteigerung säubern
+Use alternative download URL|Alternative Download-URL nutzen
+Removes the custom cleaning rules provided by CCleaner|Entfernt die benutzerdefinierten Reinigungsregeln, unterstützt durch CCleaner
+Uses an alternative method of downloading. Useful if the normal method doesn't work.|Nutzt eine alternative Methode zum Herunterladen. Nützlich, wenn die normale Methode nicht funktioniert.
+Completed analysis of winapp2.ini.|winapp2.ini Analyse abgeschlossen
+winapp2.ini file could not be located in the current working directory (|winapp2.ini Datei konnte nicht im aktuellen Arbeitsverzeichnis gefunden werden (
+Use Alternate Downloader|Alternativen Downloader nutzen
+Your changes will take effect when CCEnhancer is restarted.|Diese Änderungen funktionieren erst nachdem CCEnhancer neu gestartet wurde.
+Remove Item|Eintrag entfernen
+Options|Optionen
+Portable Locations|Tragbare Speicherorte
+Please select the directory containing portable CCleaner.|Bitte wählen Sie das Verzeichnis mit dem tragbaren CCleaner.
+Debug winapp2.ini entries|winapp2.ini Einträge analysieren
+Add Portable Location|Tragbaren Speicherort hinzufügen
+Advanced|Erweitert
+Custom Entries|Benutzerdefinierte Einträge
+The following entries will be added to CCleaner after each definition update.|Die folgenden Einträge werden nach jedem Definitionsupdate zu CCleaner hinzu gefügt.
+File|Datei
+Help|Hilfe
+Proxy Server:|Proxy Server:
+Port:|Port:
+Exit|Schließen
+User Name:|Nutzername:
+Password:|Passwort:
+Save and Close|Speichern und Schließen
+Version|Version
+Save Log|Log speichern
+Refresh|Aktualisieren
+Close|Schließen
+Settings|Einstellungen
+Documentation|Dokumentation
+About|Über
+Check For Update|Auf Updates prüfen
+Functions|Funktionen
+Proxy Settings|Proxy Einstellungen
+Visit Website|Webseite öffnen
+Save to:|Speichern unter:
+Save To:|Speichern unter:
+File Size:|Dateigröße:
+File size:|Dateigröße:
+Download Speed:|Downloadgeschwindigkeit:
+Download speed:|Downloadgeschwindigkeit:
+Language:|Sprache:
+Online Documentation|Online Dokumentation
+Saved Path|Speicherpfad
+Speed|Geschwindigkeit
+Speed:|Geschwindigkeit:
+Speed: Calculating...|Geschwindigkeit: berechnen...
+Rules Last Updated:|Letztes Regel Update:
+Would you like to save|Möchten Sie speichern
+so CCEnhancer can find it next time?|so, dass CCleaner es nächstes Mal finden kann?
+Rules Last Updated:|Regeln zuletzt upgedatet:
+Download Latest|Regeln aktualisieren
+Automatically download and install the latest definitions to increase the cleaning capabilities of CCleaner by adding hundreds of extra programs.|Automatisch neue Definitionen runterladen und installieren um die Reinungseigenschaften von CCleaner durch hinzufügen hunderter Programme zu verbessern.
+Buy Me Cake :)|Kauf mir einen Kuchen :)
+Update On Windows startup|Beim Windows-Start aktualisieren
+Update On Windows Startup|Beim Windows-Start aktualisieren
+Run CCleaner silently on completion|CCleaner im Anschluss starten
+Run CCleaner Silently On Completion|CCleaner im Anschluss starten
+Delete Custom Rules|Standardregeln wiederherstellen
+Install For Portable CCleaner|Für portable Version installieren
+Cancelled|Abgebrochen
+Download has been cancelled.|Download wurde abgebrochen.
+Successfully downloaded|Download erfolgreich
+Would you like to run CCleaner now?|Möchten Sie CCleaner nun starten?
+Update completed|Update abgeschlossen
+The rules have not been downloaded yet.|Die Regeln wurden noch nicht gedownloadet.
+The custom rules were successfully removed.|Die Regeln wurden erfolgreich zurückgesetzt.
+It looks like the rules aren't installed or you don't have permission to delete the file. You can manually remove the custom rules by deleting the following file:|Scheinbar wurden die Regeln nicht installiert oder Sie haben nicht die erforderlichen Rechte um die datei zu löschen. Sie können die Regeln manuell zurücksetzten, indem Sie folgende Datei löschen:
+Could not make a connection to The Web Atom server or the Upload Central server. Please see our online help for assistance.|Konnte nicht mit dem Web Atom Server oder dem Upload Central Server verbinden. Für weitere Hilfe lesen Sie bitte unsere Online-Hilfe.
+This error can be caused by incorrect proxy settings or a security product conflict.|Dieser Fehler kann durch falsche Proxy-Einstellungen oder ein Problem mit Antivirus-Programm/Firewall hervorgerufen werden..
+An error was encountered.|Es ist ein Fehler aufgetreten.
+An error occurred while downloading file. Possible causes:|Beim Download ist ein Fehler aufgetreten. Möglicher Grund:
+1) File doesn't exist|1) Datei existiert nicht
+2) Remote server error|2) Fehler durch Remote-Server
+error|Fehler
+CCleaner.exe could not be found in the directory you selected.|CCleaner.exe konnte unter dem angegebenen Pfad nicht gefunden werden.
+Use proxy server to download definitions?|Proxy Server zum Download der Regeln nutzen?

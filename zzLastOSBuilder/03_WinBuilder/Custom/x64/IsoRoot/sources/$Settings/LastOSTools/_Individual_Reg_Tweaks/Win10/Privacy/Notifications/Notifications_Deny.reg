@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; Denies apps access to my notifications
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{52079E78-A92B-413F-B213-E8FE35712E72}] 
+"Value"="Deny" 

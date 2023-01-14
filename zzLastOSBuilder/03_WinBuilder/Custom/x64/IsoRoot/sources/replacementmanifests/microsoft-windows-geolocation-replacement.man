@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Geolocation-Framework"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0-1"
+      settingsVersion="2"
+      >
+    <migXml xmlns="">
+      <rules context="System">
+        <conditions>
+          <!-- rules for the pre-Win10 systems -->
+          <condition>MigXmlHelper.IsOSEarlierThan("NT","6.3")</condition>
+        </conditions>
+        <include>
+          <objectSet>
+            <!-- Gather pre-Threshold master switch reg key -->
+            <pattern type="Registry">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}  [SensorPermissionState]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+      <rules context="System">
+        <conditions>
+          <!-- rules for the Win10+ systems -->
+          <condition>MigXmlHelper.IsOSLaterThan("NT","10.0")</condition>
+        </conditions>
+        <include>
+          <objectSet>
+            <!-- Gather service reg key -->
+            <pattern type="Registry">HKLM\System\CurrentControlSet\Services\lfsvc\Migrated\* [*]</pattern>
+            <!-- Gather the geofence store -->
+            <pattern type="File">%ProgramData%\Microsoft\Windows\LfSvc\Geofence\* [*]</pattern>
+          </objectSet>
+        </include>
+        <rules>
+          <include>
+            <objectSet>
+              <!-- Gather master switch key -->
+              <pattern type="Registry">HKLM\System\CurrentControlSet\Services\lfsvc\Service\Configuration [Status]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </rules>
+    </migXml>
+  </migration>
+</assembly>

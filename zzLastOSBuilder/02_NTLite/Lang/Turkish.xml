@@ -1,0 +1,2337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NTLiteTranslation version="1.8.0.6736" display="[Turkish]" code="tr-tr" rtl="false">
+  <Translator>
+    <Name>By SALiH DRD</Name>
+    <EMail>salihdurdu_1907@hotmail.com (isteğe bağlı)</EMail>
+  </Translator>
+  <Components>
+    <System>
+      <S0001>Sistem yerel ayarı</S0001>
+      <S0013>Hareket Merkezi</S0013>
+      <S0014>Eylem Merkezi, dikkat etmeniz gereken güvenlik ve bakım ayarları hakkında önemli iletileri listeler.</S0014>
+      <S0042>Farklı boyutlarda ve arabirimlerde birden fazla disk almanıza ve bunları birlikte gruplandırmanıza izin verir, böylece işletim sistemi bunları büyük bir disk olarak görür.</S0042>
+      <S0046>Uygulama uyumluluğu</S0046>
+      <S0047>Uygulama Kimlik Hizmeti</S0047>
+      <S0048>Uygulama Başlatıcı</S0048>
+      <S0050>Uygulamalar, WIF'i güvenlik belirteci hizmetlerinden çıkarılan jetonları işlemek ve web uygulamasında veya web hizmetinde kimlik temelli kararlar vermek için kullanabilir.</S0050>
+      <S0065>Kitaplıklarda bulunan dosyaların revizyonlarını otomatik olarak yedekler.</S0065>
+      <S0069>Otomatik oynatma</S0069>
+      <S0070>AutoPlay, dijital kameranızdaki müzik CD'leri veya resimler gibi farklı dijital ortam türleri için otomatik olarak kullanılacak programı seçmenizi sağlar.</S0070>
+      <S0080>Bazı Windows paket veritabanı dosyalarının yedekleri. Bu, tüm WinSxS mağazası değil, yalnızca bazı paketlerin fazladan kopyaları, bunları kaldırarak herhangi bir şeyi kırmamalı.</S0080>
+      <S0095>Bitlocker sürücü şifreleme</S0095>
+      <S0097>Blok Düzeyinde Yedekleme Hizmeti Motoru</S0097>
+      <S0102>Önyükleme Yöneticisi</S0102>
+      <S0113>Önbellek ve geçici dosyalar</S0113>
+      <S0115>Uygulamaların daha hızlı başlaması için önbelleğe alma mekanizması.</S0115>
+      <S0124>Kart alanı</S0124>
+      <S0182>Uygulamalar, hizmetler ve cihazlar için işbirliğini ve çevrimdışı erişimi sağlayan kapsamlı senkronizasyon platformu.</S0182>
+      <S0196>Gönder - Posta veya Masaüstü dosyalarındaki içerik menüsü seçenekleri.</S0196>
+      <S0223>Kimlik Yöneticisi</S0223>
+      <S0249>Masaüstü Çini</S0249>
+      <S0250>Masaüstü Pencere Yöneticisi (DWM)</S0250>
+      <S0260>Bir uygulamanın kimliğini belirler ve doğrular. Bu hizmeti kaldırmak, AppLocker’ın zorlanmasını engelleyecektir.</S0260>
+      <S0262>Cihaz Kategorisi bilgileri ve kaynakları</S0262>
+      <S0263>Cihaz Deneyimi</S0263>
+      <S0266>Teşhis ve Sorun Giderme</S0266>
+      <S0267>İletişim Filtresi</S0267>
+      <S0276>Disk Birleştiricisi</S0276>
+      <S0277>Disk hatası teşhisi</S0277>
+      <S0311>Kolay Aktarım</S0311>
+      <S0314>Edition yapılandırma dosyası (EI.cfg)</S0314>
+      <S0317>Gömülü Kilit Yöneticisi</S0317>
+      <S0327>Farklı zamanlarda çalışan uygulamaların, geçici olarak çevrimdışı olabilecek heterojen ağlar ve sistemler arasında iletişim kurmasını sağlar. IIS için gerekli.</S0327>
+      <S0331>Alternatif kimlik bilgileri altında başlangıç ​​işlemlerini etkinleştirir. Diğer şeylerin yanı sıra Blizzard Battle.net güncellemeleri için gerekli.</S0331>
+      <S0333>Windows'un grafik kullanıcı arabirimini oluşturmak için donanım hızlandırmasının kullanılmasını sağlar.</S0333>
+      <S0337>Depolama cihazları için grup ilkesini zorunlu kılar.</S0337>
+      <S0339>Gelişmiş Depolama</S0339>
+      <S0340>Gelişmiş Depolama aygıtları, depolama aygıtının donanım düzeyinde kimlik doğrulama gibi işlevler sağlamak için IEEE 1667 protokolünü destekleyen aygıtlardır..</S0340>
+      <S0363>Olay günlüğü</S0363>
+      <S0405>Dosya Geçmişi</S0405>
+      <S0412>Ana dizinin dışında bulunan bu dizindeki dosyalar (Sources\SxS), normal olarak kontrol panelinden yüklenmeyen kurulumdan sonra .NET3.5 gibi özellikleri yüklemek için kullanılabilir. Bunu zaten özelliklerde etkinleştirdiyseniz, bunu kaldırmak güvenlidir. Açıkça gerektiren özellikleri etkinleştirirken her zaman orijinal resim dizinini kullanabilirsiniz..</S0412>
+      <S0433>Programcılara hemen hemen her veri deposuna erişebilecek uygulamalar geliştirmeye yönelik tekdüze ve kapsamlı bir yöntem sunan, birbiriyle ilişkili Microsoft teknolojilerinin çerçevesi. Bileşenleri şunlardır: ActiveX Veri Nesneleri (ADO), OLE DB ve Açık Veritabanı Bağlantısı (ODBC).</S0433>
+      <S0439>Gadgets</S0439>
+      <S0447>Hareket Filtresi</S0447>
+      <S0448>Bir program yürütülebilir özellikleri, eski Windows sürüm modunda çalıştırmak için işlevsellik ve program başına ' yüksek DPI ölçekleme ' değiştirmek için Uyumluluk sekmesini Içerir.</S0448>
+      <S0452>Grup Ilkesi Istemcisi</S0452>
+      <S0453>Depolama hizmeti</S0453>
+      <S0461>Dosyalarınızı ve ayarlarınızı yeni bir BILGISAYARA taşımanıza yardımcı olur.</S0461>
+      <S0471>Hyper-V Konuk</S0471>
+      <S0481>' Sources ei. cfg ', ile kaldırıldı ve son görüntü birden fazla sürümü vardır, Kullanıcı ISO önyükleme üzerinde Windows Edition seçmeniz istenir. ' Windows Microsoft yazılım lisans koşullarını bulamıyor ' hatasını görürseniz, bu dosyayı orijinal ISO 'dan geri dönün ve yeniden deneyin.</S0481>
+      <S0482>Emin değilseniz, kaldırmayın.</S0482>
+      <S0518>Mobility Center Içerir.</S0518>
+      <S0525>Tanılama ve sorun giderme Windows bileşenleri için altyapı.</S0525>
+      <S0550>Internet Bilgi Sunucusu (IIS)</S0550>
+      <S0562>Kullanıcıların klavyeden girmesini engellemek istediğiniz tuş bileşimlerini yapılandırmanıza olanak tanır.</S0562>
+      <S0576>Klavye filtresi</S0576>
+      <S0577>Klavye filtresi Uygulama dolgu</S0577>
+      <S0610>Yerel Güvenlik Ilkesi Düzenleyicisi</S0610>
+      <S0612>Konum bildirimleri</S0612>
+      <S0627>Yedekleme ve diğer amaçlar için kullanılan birim gölge kopyalarını yönetir ve uygular.</S0627>
+      <S0629>Bildirim yedekleme (WinSxS\Backup)</S0629>
+      <S0631>El Ile Özellik deposu</S0631>
+      <S0632>El Ile kurulum</S0632>
+      <S0641>Bellek Tanılama</S0641>
+      <S0644>Metro başlangıç sayfası dinamik masaüstü kiremit. Kaldırılırsa, Metro başlangıç sayfasında bir masaüstü kısayolu olmayacak.</S0644>
+      <S0647>Microsoft veri erişim bileşenleri (MDAC)</S0647>
+      <S0650>Microsoft Ileti sırası (MSMQ)</S0650>
+      <S0651>Microsoft Sync Framework</S0651>
+      <S0662>MobilePC</S0662>
+      <S0689>Disk yönetimi için gerekli - hacim işlevselliğini Küçült.</S0689>
+      <S0690>.NET Framework 2,0 ve 3,5 kullanan diğer şeyler arasında Media Center için gerekli.</S0690>
+      <S0693>Sistem geri yükleme, Windows Update, oturum açma ve zamanlanmış güncelleştirme bazı uygulamalar başlangıç için gerekli.</S0693>
+      <S0694>BIOS türü (UEFİ olmayan) OS önyükleme için gerekli.</S0694>
+      <S0695>UEFİ tipi OS önyükleme için gerekli.</S0695>
+      <S0700>.NET derleme önbelleği</S0700>
+      <S0701>.NET Framework </S0701>
+      <S0702>.NET Framework 2.0, 3.0 and 3.5</S0702>
+      <S0703>.NET Framework Core</S0703>
+      <S0704>.NET 4.x Kurulum önbelleği</S0704>
+      <S0712>Ağ projeksiyonu</S0712>
+      <S0719>NFS yönetimsel araçları</S0719>
+      <S0729>NTVDM 16-bit alt sistemi</S0729>
+      <S0730>X86 sistemlerinde 16 bit DOS ve 16 bit Windows uygulamaları için destek sağlayan NTVDM alt sistemi.</S0730>
+      <S0772>Ebeveyn kontrolleri</S0772>
+      <S0786>Performans Izleyicisi</S0786>
+      <S0812>PowerShell</S0812>
+      <S0813>Önceden derlenmiş .NET kitaplıkları. Bu kaldırma, boşta kurulumdan sonra yeniden oluşturulmasına neden olur. Yükleme medyasında alan kaydeder.</S0813>
+      <S0818>Çoğaltma, denetim ve müşteri teslimi için Windows yüklemesini hazırlar.</S0818>
+      <S0851>VHD veya ISO dosyalarını bağlama olanağı sağlar.</S0851>
+      <S0852>Dosyalar, e-posta ve diğer içerikler için daha hızlı arama sonuçları için içerik dizin oluşturma ve özellik önbelleğe alma sağlar.</S0852>
+      <S0888>Güvenilirlik Çözümleme Hizmetleri</S0888>
+      <S0923>Denetim Masası için kaynaklar - aygıtlar ve yazıcılar, bu kaldırılırsa simgeler eksik olacaktır. USB tepsisi güvenli-bağlantı kesme düğmesi için de gerekli.</S0923>
+      <S0958>Ikincil oturum açma</S0958>
+      <S0959>secpol. msc - bir çalışma grubu veya ev grubu içinde bir ana bilgisayarda güvenlik ayarlarını (ilkeleri) denetlemek veya yapılandırmak için kullanılabilir</S0959>
+      <S0961>Güvenlik Merkezi</S0961>
+      <S0962>Belirli bir uygulama için yönetimsel erişime izin vermenizi isteyen BIR güvenlik özelliğidir. Uygulama bilgi hizmeti Içerir.</S0962>
+      <S0987>Posta ve masaüstüne gönder</S0987>
+      <S0988>Sensör</S0988>
+      <S0994>Hizmet yığını</S0994>
+      <S1000>Kurulum dosyaları .NET 4.x. Eğer kaldırmayı planlamıyorsanız .NET 4.x, safe to remove.</S1000>
+      <S1005>Paylaşılan koruma noktası (SPP)</S1005>
+      <S1016>Yan gösteri</S1016>
+      <S1033>Windows önyükleme ve başlangıç seçeneklerinin bazılarını yapılandırmak için küçük BIR yardımcı program.</S1033>
+      <S1074>Depolama alanları</S1074>
+      <S1075>UNIX tabanlı uygulamalar için alt sistem</S1075>
+      <S1076>UNIX tabanlı uygulamalar için alt sistem (SUA), Windows işletim sistemi çalıştıran bir bilgisayarda özel UNIX tabanlı uygulamaları ve komut dosyalarını derlemek ve çalıştırmak için kaynak uyumluluğu alt sistemidir.</S1076>
+      <S1077>Superfetch</S1077>
+      <S1079>Destek dizini</S1079>
+      <S1080>Görüntü kökündeki ' destek ' dizini, geçiş sihirbazını içerir. Bu son yüklü ürün, sadece yükleme dosyaları etkilemez.</S1080>
+      <S1081>Sürücü şifrelemesi desteği.</S1081>
+      <S1083>Kullanıcıların PC 'ye bağlı aygıtları nasıl keşfetmelerine ve kullandığından emin olmak için satıcı ek özellikler desteği.</S1083>
+      <S1097>Sistem Yapılandırma Aracı (MSConfig)</S1097>
+      <S1098>Sistem bilgi aracı (MSInfo32)</S1098>
+      <S1099>Sistem Hazırlama Aracı (Sysprep)</S1099>
+      <S1100>Sistem geri yükleme</S1100>
+      <S1105>Görev Zamanlayıcı</S1105>
+      <S1128>Autorun. inf, Setup. exe ve bu görüntü ile önceden yüklenmiş Windows yükseltme gibi olmayan önyükleme Kurulum başlatma için kullanılan işlevleri kaldırır.</S1128>
+      <S1156>Tost bildirim filtresi</S1156>
+      <S1159>Yerel ve uzak bilgisayarlarda NFS hizmetlerini yönetmek için Araçlar.</S1159>
+      <S1198>Birleştirilmiş yazma Filtresi</S1198>
+      <S1221>USB filtresi</S1221>
+      <S1224>Bu hedef Web sitelerini barındırma için kullanılır.</S1224>
+      <S1228>Kullanıcı hesabı denetimi (UAC)</S1228>
+      <S1238>Çeşitli geçici, önbellek ve günlük dosyaları, güvenli kaldırmak için.</S1238>
+      <S1248>Sanal sabit disk (VHD) desteği</S1248>
+      <S1249>Virtual PC lisansı (eski)</S1249>
+      <S1255>Birim gölge kopyası</S1255>
+      <S1275>Windows her zaman yükseltme</S1275>
+      <S1276>Windows yedekleme</S1276>
+      <S1279>Windows İletişim Vakfı (WCF) 3</S1279>
+      <S1280>Windows İletişim Vakfı (WCF) 4</S1280>
+      <S1284>Windows Defender</S1284>
+      <S1285>Windows Embedded özellikleri</S1285>
+      <S1286>Windows şifreleme sağlayıcısı ana bilgisayar hizmeti</S1286>
+      <S1287>Windows şifreleme sağlayıcısı konak hizmet brokerleri şifreleme ile ilgili işlevleri 3. taraf şifreleme sağlayıcıları değerlendirmek ve EAS Avusturya uygulamak gerekir süreçleris.</S1287>
+      <S1290>Windows Yardım içeriği</S1290>
+      <S1291>Windows kimlik Vakfı (WIF)</S1291>
+      <S1299>Windows Yönetim Araçları</S1299>
+      <S1305>Windows Sunum Vakfı</S1305>
+      <S1307>Windows Kurtarma</S1307>
+      <S1309>Windows arama</S1309>
+      <S1313>Windows Kenar çubuğu</S1313>
+      <S1318>Windows Güncelleştirme</S1318>
+      <S1319>Bir bilgisayarın Microsoft veya WSUS sunucusundan Windows güncelleştirmelerini almanızı, yeni diller eklemesini ve güncelleştirme paketini yüklemesini sağlars (MSU files).</S1319>
+      <S1339>Zip &amp; Cab folder</S1339>
+      <S1431>Disk kotası</S1431>
+      <S1432>Yöneticinin, bir kullanıcının bir sürücüde veya bölüme depolayabilir bilgi miktarını ayarlammasını sağlar.</S1432>
+      <S1437>Aygıt kilitleme (gömülü deneyim)</S1437>
+      <S1438>Özel oturum açma, klavye filtresi, kabuk başlatıcısı, markalı olmayan önyükleme ve birleştirilmiş yazma Filtresi Içerir.</S1438>
+      <S1439>Steps kaydedici</S1439>
+      <S1440>Bir bilgisayarda bir kullanıcı tarafından gerçekleştirilen eylemleri kaydetmek için kullanılan bir sorun giderme ve yardım aracıdır. Kayıt olduktan sonra, bilgiler, sorun giderme alanında yardımcı olan kişi veya gruba gönderilebilir.</S1440>
+      <S1441>Ekran arka planlarını kilitle</S1441>
+      <S1445>Görev Zamanlayıcı veri görüntüsü için gerekli.</S1445>
+      <S1452>Depolama ayarları ve harici depolama genişletme için hizmet sağlayan sağlar. Örneğin, ayarlar-sistem-depolama.</S1452>
+      <S1455>Windows Gitmek İçin</S1455>
+      <S1456>USB flash sürücüler ve harici sabit disk sürücüleri gibi USB yığın depolama aygıtlarında, tamamen yönetilebilir bir kurumsal Windows ortamına taşınabilir pencereler hazırlar.</S1456>
+      <S1465>Gömülü mod</S1465>
+      <S1466>Özel bir Windows 10 IoT Core işlevsellik modu.</S1466>
+      <S1467>Teslimat Optimizasyonu</S1467>
+      <S1468>İçerik dağıtım optimizasyonu görevlerini gerçekleştirir. Microsoft'tan güncellemeleri ve uygulamaları indirmenin yanı sıra, Windows zaten bunları içeren diğer bilgisayarlardan güncellemeler ve uygulamalar alacak.</S1468>
+      <S1479>İzleme için Performans CMD Araçları</S1479>
+      <S1480>Logman.exe, relog.exe, typeperf.exe, tracerpt.exe ve diskperf.exe'yi içerir.</S1480>
+      <S1481>Sertifika Araçları</S1481>
+      <S1482>CertUtil, Sertifika İsteği (certreq.exe) ve Sertifika Kayıt araçlarını içerir.</S1482>
+      <S1483>Windows Kurulumu ve Dağıtımı</S1483>
+      <S1484>Yeniden yüklemeye, OOBE ve sysprep bu Windows yüklemek için gerekli.</S1484>
+      <S1485>Yazı Tipi Önbelleği Hizmeti</S1485>
+      <S1486>Yaygın olarak kullanılan font verilerini önbelleğe alarak uygulamaların performansını optimize eder. Bunu devre dışı bırakmak veya kaldırmak, uygulama performansını düşürür.</S1486>
+      <S1487>Windows Yönetim Araçları Araçları</S1487>
+      <S1488>Wbemtest.exe ve WmiMgmt.msc içerir.</S1488>
+      <S1489>Hak Yönetimi desteği</S1489>
+      <S1490>Kuruluşların hem içeride hem de dışarıda bilgilerini koruyarak, hem dinlenme hem de hareket halindeki belgeleri koruyarak.</S1490>
+      <S1497>Bu yalnızca yerleşik araçları içerir; Gadgets desteğini kaldırmak için Kenar Çubuğu'nu da kaldırın.</S1497>
+      <S1509>Windows Güncelleştirme Hizmeti</S1509>
+      <S1510>Windows Güncelleştirme için temel hizmet. Bu servisin güncellemeleri yüklemek için tek başına yeterli olmadığını unutmayın..</S1510>
+      <S1511>Windows Etkinleştirme için gerekli (slmgr.vbs), bu Windows yüklemesi etkinleştirilmeden önce kaldırmayın.</S1511>
+      <S1554>Olay görüntüleyicisi</S1554>
+      <S1555>Etkinlik Toplayıcısı</S1555>
+      <S1556>WS-Management protokolünü destekleyen uzak kaynaklardan gelen etkinliklere kalıcı abonelikleri yönetir. Servis, yerel bir Etkinlik Günlüğünde iletilen etkinlikleri depolar.</S1556>
+      <S1557>Görev Zamanlayıcısı ve Olay Görüntüleyicisi gibi MMC uzantıları için gerekli.</S1557>
+      <S1590>Önceki yükleme (Windows.old)</S1590>
+      <S1591>Bu sürücüye önceki Windows yüklemesinin yedeği. Silmeden önce ihtiyacınız olan bazı dosyalar varsa, içeriği, özellikle Kullanıcılar dizinini gözden geçirin.</S1591>
+      <S1644>Shell Arama</S1644>
+      <S1645>Dosya Gezgini, Grup İlkesi Düzenleyicisi ve Outlook'ta temel arama desteği.</S1645>
+      <S1656>Windows Sembolik Hata Ayıklama Motoru</S1656>
+      <S1657>DbgEng.dll kullanıcı modunda ve çekirdek modunda hata ayıklama hedeflerini incelemek ve işlemek için bir arabirim sağlar. Hata ayıklama veya genel kilitlenme dökümü desteğini yapmanız gerekip gerekmediğini koru.</S1657>
+      <S1658>Hizmetin Depolama Kalitesi (Storage QoS)</S1658>
+      <S1659>Ağ QoS'sine benzer, ancak sanal makine depolama performansı ile ilgili olarak, aynı dosya sunucusu kümesini kullanan birden fazla sanal makine arasındaki depolama kaynağı adaletini otomatik olarak iyileştirir ve normalleştirilmiş IOP'ların birimlerinde yapılandırılacak ilke tabanlı ve maksimum performans hedeflerinin yapılandırılmasına olanak tanır.</S1659>
+      <S1660>Uzaktan Yordam Çağrısı (RPC) Konum Belirleyicisi</S1660>
+      <S1661>Bu hizmet herhangi bir işlev sunmuyor ve geriye dönük uygulama uyumluluğu için mevcut.</S1661>
+      <S1668>Windows Push Bildirimleri Hizmeti (WNS)</S1668>
+      <S1669>Bu özelliği kullanarak Windows sistem bildirimleri veya herhangi bir üçüncü taraf aracı için destek, bu tür bildirimleri popping up devre dışı bırakır.</S1669>
+      <S1670>Windows Bileşen Deposu (WinSxS)</S1670>
+      <S1671>Windows güncelleştirmeyi, özelliği ve yeni dil yapılandırmasını tamamen devre dışı bırakın.</S1671>
+      <S1672>Windows Bileşen Veritabanı</S1672>
+      <S1673>Son oturumdan kaldır, bu kaldırıldıktan sonra ilerideki oturumlarda daha fazla kaldırma mümkün değildir.</S1673>
+      <S1674>PXE tipi kurulum önyüklemesi için gerekli olan, görüntü yüklemesini ağ sunucusundan önyükleme.</S1674>
+      <S1675>Shell Donanım Algılama</S1675>
+      <S1676>Otomatik Kullan özellikli donanım olayları için bildirim sağlar.</S1676>
+      <S1690>UI Şerit</S1690>
+      <S1691>Dosya Gezgini'nde ve varsayılan Windows Şerit API'sini kullanan başka bir uygulamada bir şerit araç çubuğu.</S1691>
+      <S1703>Uygulama Sanallaştırma (App-V)</S1703>
+      <S1704>Uygulamaları, bu bilgisayarlara doğrudan yüklemeye gerek kalmadan son kullanıcı bilgisayarlarına sunmak için kullanılır ve bunları bağımsız bir sanal ortamda çalıştırır.</S1704>
+      <S1708>Kullanıcı Deneyimi Sanallaştırması (UE-V)</S1708>
+      <S1709>Sanallaştırılmış Office'in kolaylaştırılmış dağıtımı ve Windows kimlik bilgileri dolaşımına destek için destek ekler.</S1709>
+      <S1710>Linux için Windows Alt Sistemi</S1710>
+      <S1711>Windows'da yerel kullanıcı modu Linux kabuklarını ve araçlarını çalıştırmak için hizmet ve ortam sağlar.</S1711>
+      <S1725>Containers</S1725>
+      <S1726>Windows Server Kapsayıcılar ve kaynaklarını oluşturmak ve yönetmek için hizmet ve araçlar sağlar. Bir kap, bir uygulamanın sistemin geri kalanını etkilemeden ve uygulamayı etkileyen sistem olmadan çalışabileceği yalıtılmış bir yerdir..</S1726>
+      <S1809>Windows Resim Kaynağı</S1809>
+      <S1810>SysWOW64 (32 bit) uygulamaları için Windows simgeleri. Bunu kaldırdığınızda, 32-bit uygulamaların dosya ve klasörlerinin göz atma penceresinde hiçbir simge bulunmadığı görülür.</S1810>
+      <S1811>Depolama Katmanları Yönetimi</S1811>
+      <S1812>Sistemdeki tüm katmanlı depolama alanlarında depolama katmanlarındaki verilerin yerleşimini optimize eder.</S1812>
+      <S1816>Yardım dosyası desteği (CHM)</S1816>
+      <S1817>CHM dosyalarını açma yeteneği sağlar.</S1817>
+      <S1818>Legacy sembolik bağlar</S1818>
+      <S1819>Uyumluluk nedeniyle orada bulunan 'Belgeler ve Ayarlar' gibi hedefe ait tüm dizin sembolik bağlarını kaldırır. Bu, dağıtımda yeniden oluşturuluyor, bu yüzden çoğunlukla yalnızca Canlı bileşen.</S1819>
+      <S1866>Windows için Etkinlik İzleme (ETW)</S1866>
+      <S1867>Bir uygulamayı ayıklamak veya kapasite ve performans analizi yapmak için olayları kullanma.</S1867>
+      <S1870>Cihaz İlişkilendirme Hizmeti</S1870>
+      <S1871>Sistem ve kablolu veya kablosuz cihazlar arasında eşleşmeyi etkinleştirir.</S1871>
+      <S1880>Tarayıcı penceresi çerçevesi</S1880>
+      <S1881>Bazı uygulamalar tarafından içeriklerini görüntülemek için kullanılan WEB benzeri uygulama penceresi desteği.</S1881>
+      <S1882>Performans sayaçları</S1882>
+      <S1883>Sayaçlar, işletim sisteminin veya bir uygulamanın, hizmetin veya sürücünün ne kadar iyi performans gösterdiğiyle ilgili bilgi sağlamak için kullanılır. Windows 10'da Görev Yöneticisi'nde GPU kullanımı bulunur.</S1883>
+      <S1884>Performans Günlükleri ve Uyarıları</S1884>
+      <S1885>Önceden yapılandırılmış program parametrelerine göre yerel veya uzak bilgisayarlardaki performans verilerini toplar, ardından verileri bir günlüğe yazar veya bir uyarı tetikler.</S1885>
+      <S1886>Etkileşimli Servis Algılama</S1886>
+      <S1887>Etkileşimli servisler için kullanıcı girişinin kullanıcı bildirimini etkinleştirir; bu, görüntülendiğinde etkileşimli servisler tarafından oluşturulan iletişim kutularına erişim sağlar.</S1887>
+      <S1892>Sağlayıcılar</S1892>
+      <S1893>İşletim sistemi, aygıtlar, uygulamalar ve hizmetler hakkındaki yönetim bilgilerine erişmek için ortak bir arabirim ve nesne modeli sağlar. Bu bileşen kaldırılırsa, çoğu Windows tabanlı yazılım düzgün çalışmayabilir.</S1893>
+      <S1897>Hizmet</S1897>
+      <S1898>Core</S1898>
+      <S1914>Ağ tepsi simgesi menü açılır penceresini sol tıklayın.</S1914>
+      <S1920>Cihaz Akışı</S1920>
+      <S1921>Aygıt Bulma ve Bağlama. Ayarlar içerir - 'Bluetooth &amp; diğer cihazların sayfası.</S1921>
+      <S1924>Kullanıcı Verileri Erişimi</S1924>
+      <S1925>İletişim bilgileri, takvimler, mesajlar ve diğer içerik dahil olmak üzere yapılandırılmış kullanıcı verilerine uygulama erişimi sağlar.</S1925>
+      <S1926>Kullanıcı Veri Depolama</S1926>
+      <S1927>İletişim bilgileri, takvimler, mesajlar ve diğer içerikler de dahil olmak üzere yapılandırılmış kullanıcı verilerinin saklanmasını sağlar.</S1927>
+      <S1928>İletişim Verileri</S1928>
+      <S1929>Hızlı iletişim araması için indeksler iletişim verileri.</S1929>
+      <S1962>Resim şifre</S1962>
+      <S1963>Sık kullanılan bir fotoğraf kullanarak Windows'da oturum açın.</S1963>
+      <S1980>İzole kullanıcı modu (IUM)</S1980>
+      <S1981>UEFI, yalnızca kod bütünlüğünü sağlayarak sanallaştırma tabanlı güvenlik tarafından korunan belleğin bir parçasıdır. Kimlik Bilgisi Koruması etkinleştirildiğinde, Yerel Güvenlik Yetkilisi Alt Sistem Hizmeti (lsass.exe), kötü amaçlı yazılımlardan verilerin korunmasına yardımcı olmak için bir Yalıtılmış kullanıcı modu işleminde (LsaIso.exe) hassas kod çalıştırır.</S1981>
+      <S1982>Güvenlikli Ana Bilgisayar</S1982>
+      <S1983>Cihazın uzak onay kullanarak Korumalı Sanal Makine oluşturup çalıştırmasını sağlar.</S1983>
+      <S1984>Windows güncellemelerini ve özelliklerini, canlı yükleme ve görüntüleri yapılandırmak için kullanılan DISM'yi içerir. NTLite entegrasyonları ve özellik yapılandırması için gerekli.</S1984>
+      <S1985>Sistem Dosyası Denetimi (SFC)</S1985>
+      <S1986>Windows'ta yerleşik olan ve istek üzerine sistem dosyası bozulmalarını kontrol eden yardımcı program.</S1986>
+      <S2439>Gerçek WIM görüntüsüne harici ISO bileşenleri.</S2439>
+      <S2448>Grafik performans izleme servisi</S2448>
+      <S2449>Bu, Görev Yöneticisi GPU performans bilgisini kaldırmaz.</S2449>
+      <S2452>Kurtarma Aracısı</S2452>
+      <S2453>UEFI Shift+Yeniden başlatma sorun giderme seçenekleri ve çift önyükleme menüleri için minimum kurtarma desteği.</S2453>
+      <S2456>MMC için genişletilmiş görünüm, örn. soldaki Services. msc açıklamaları.</S2456>
+      <S2457>Windows NAT Sürücüsü</S2457>
+      <S2458>Ağ adresi çevirisi (NAT), tek bir ortak IP adresiyle tek bir arabirim aracılığıyla ortak Internet bağlantısı paylaşmanıza olanak sağlar.</S2458>
+      <S2459>Zararlı yazılımlara karşı tarama arayüzü</S2459>
+      <S2460>Yalnızca VMWare (sanal) makineler için gerekli, Eğer kaldırılmışsa dosya sistemi hatası neden olabilir program ve MMC pencereleri açma ister.</S2460>
+      <S2466>API</S2466>
+      <S2467>API (Uygulama programlama arayüzü), ana işlevselliğe bağlı olarak uygulamalar için kütüphaneler içerir, bu genellikle bu uygulamalar başlangıç için yeterli tutulması.</S2467>
+      <S2472>Şifreleme dosya sistemi (EFS)</S2472>
+      <S2473>Şifrelenmiş dosyaları NTFS dosya sistemi birimlerinde depolamak için kullanılan çekirdek dosya şifreleme teknolojisini sağlar. Bu hizmet kaldırılırsa veya devre dışı bırakılırsa, uygulamalar bu yöntemi kullanarak şifrelenmiş dosyalara erişemiyor olacaktır.</S2473>
+      <S2474>Sistem Koruması</S2474>
+      <S2475>Cihazı ve sistemi önyükleme seviyesi kötü amaçlı yazılımlara karşı korur. TPM kullanarak bütünlük ölçümü verilerini mühürleme ve yönetim sistemleri tarafından uzaktan analiz için kullanılabilir tutar.</S2475>
+      <S2494>Bu kaldırıldıktan sonra Windows güncellemek Için, aynı hazır ayar, tam ISO ve güncellemeler ile konak Yenileme Sihirbazı 'nı kullanın.</S2494>
+      <S2539>Uygulamalardan URL işleme</S2539>
+      <S2562>USB UCSI sürücüsü</S2562>
+      <S2563>USB Tip-C Konnektör Sistemi Yazılım Arabirimi (UCSI).</S2563>
+      <S2564>Yolsuzluk Doğrulayıcı</S2564>
+      <S2565>NTFS sürücüsü tarafından bulunan olası bozulmaları doğrular.</S2565>
+      <S2566>Zaman Yolculuğu Hata Ayıklayıcısı (TTD)</S2566>
+      <S2567>Prosesinizin çalışmasını yürütmenizi sağlayan bir araç, daha sonra hem ileriye hem de geriye doğru oynatın.</S2567>
+      <S2568>Dosya İptal Yöneticisi</S2568>
+      <S2569>COM+ (Bileşen Hizmetleri)</S2569>
+      <S2570>Windows için kurumsal çapta, görev açısından kritik, dağıtılmış uygulamalar geliştirmek için kullanılır. Uygulama iş parçacığı havuzu oluşturma, nesne havuzu oluşturma ve tam zamanında nesne aktivasyonu için bir çerçeve sağlar.</S2570>
+      <S2571>Dağıtılmış İşlem Koordinatörü (DTC)</S2571>
+      <S2572>Veritabanları, ileti sıraları ve dosya sistemleri gibi birden çok kaynak yöneticisini kapsayan işlemleri koordine eder.</S2572>
+      <S2573>COM+ Olay sistemi</S2573>
+      <S2574>Bileşen Nesne Modeli (COM) bileşenlerini abone olmak için olayların otomatik dağıtılmasını sağlayan Sistem Olay Bildirim Hizmeti'ni (SENS) destekler.</S2574>
+      <S2575>Sistem Olay Bildirim Hizmeti (SENS)</S2575>
+      <S2576>Sistem olaylarını izler ve bu olayların COM + Olay Sistemine aboneleri bildirir.</S2576>
+      <S2577>COM+ Sistem Uygulaması</S2577>
+      <S2578>Bileşen Nesne Modeli'nin yapılandırmasını ve izlemesini yönetir (COM)+-temel bileşenler.</S2578>
+      <S2585>Cihaz muhafızı</S2585>
+      <S2586>Güvenilmeyen kodun bir Windows sisteminde çalışmasını önlemek ve ortadan kaldırmak için birlikte çalışmak üzere tasarlanmış bir dizi özellik kullanır. Temelde Sanallaştırma Tabanlı Güvenlik ve UEFI SecureBoot kullanıyor.</S2586>
+      <S2600>Kurtarma Sıfırlama desteği</S2600>
+      <S2606>Windows Kullanıcı Arabirimi (TWINUI)</S2606>
+      <S2607>32 bit uygulamadaki diğer UI/kabuk iletişimleri arasında kısayolların açılması için destek, e.g. 32 bit uygulamadaki bir web bağlantısını tıklatarak ve varsayılan web tarayıcısında açarak.</S2607>
+      <S2608>Erişim Kontrol Listesi (ACL) UI</S2608>
+      <S2609>Dosya Sistemi, Active Directory ve Kayıt Defteri vb. Gibi çeşitli kaynak yöneticileri tarafından kullanılan genel UI bileşeni. to display security of their objects.</S2609>
+      <S2616>Toplu Güncelleme önbelleği</S2616>
+      <S2617>Windows Update şube hazırlık düzeylerini değiştirmek için gerekirse, toplu güncelleştirme dosyalarını depolayın.</S2617>
+      <S2621>PIN oturum açma desteği</S2621>
+      <S2622>Windows Performans Kaydedici</S2622>
+      <S2623>Daha sonra Windows Performance Analyzer'ı kullanarak analiz edebileceğiniz sistem olaylarını kaydeder.</S2623>
+    </System>
+    <Accessories>
+      <S0010>Erişilebilirlik araçları</S0010>
+      <S0011>Erişilebilirlik Sihirbazı ve araçları, sisteminizi vizyon, işitme ve hareketlilik gereksinimlerinizi karşılayacak şekilde yapılandırmak için kullanılabilir. Erişim Kolaylığı Merkezi, büyüteç ve ekran okuyucusu Içerir.</S0011>
+      <S0012>Aksesuar</S0012>
+      <S0132>Karakter haritası</S0132>
+      <S0191>Tüm Aero imleçler Içerir. Kaldırılırsa, varsayılan olarak geri düzeni (None).</S0191>
+      <S0192>Mimari, karakter, manzara, Doğa ve sahneler temaları Içerir.</S0192>
+      <S0193>Erişim kolaylığı temaları, yüksek kontrast varyasyonları Içerir.</S0193>
+      <S0310>Erişim kolaylığı temaları</S0310>
+      <S0514>Içerir</S0514>
+      <S0586>Legacy bileşenler</S0586>
+      <S0655>Çeşitli komut satırı yardımcı programları</S0655>
+      <S0675>Fare Işaretçileri</S0675>
+      <S0758>Diğer Temalar</S0758>
+      <S0768>Paint</S0768>
+      <S0836>Özel Karakter Düzenleyicisi</S0836>
+      <S0857>Kendi yazı tipi karakterlerinizi oluşturmak için bir yol sağlar.</S0857>
+      <S0954>Ekran koruyucular</S0954>
+      <S1018>Basit resim çizim ve düzenleme aracı.</S1018>
+      <S1236>Yazı tiplerinde bulunan tüm karakterleri görüntüleyen yardımcı program.</S1236>
+      <S1323>Wordpad</S1323>
+      <S1606>Ekran klavyesi</S1606>
+      <S1932>Paint 3D</S1932>
+      <S1960>Uzamsal ses (3D ses)</S1960>
+      <S1961>Ses oynatma aygıtı efektleri, kulaklıklar için Windows Sonic ve Dolby Atmos içerir.</S1961>
+      <S2493>Erişim Kolaylığı</S2493>
+      <S2583>Mobil Planlar</S2583>
+    </Accessories>
+    <Network>
+      <S0017>Active Directory Basit Dizin Hizmetleri (AD LDS)</S0017>
+      <S0018>ActiveX uyumluluk bayrakları (Kill Bitleri)</S0018>
+      <S0019>ActiveX Yükleyicisi hizmeti</S0019>
+      <S0029>Internet Explorer için Adobe Flash</S0029>
+      <S0036>Yöneticilerin, sunucularında saklanan verilerin miktarını ve türünü anlamalarını, denetlemenizi ve yönetmesini sağlar. Yöneticiler, dosya sunucusu Kaynak Yöneticisi 'ni kullanarak klasör ve birimlere kotaları yerleştirebilir, dosyaları etkin şekilde ekrana verebilir ve kapsamlı depolama raporları oluşturabilir.</S0036>
+      <S0037>Veri ağ üzerinden gönderilen veri miktarını en aza indirmek için sıkıştırma tekniklerini kullanarak uzak bir kaynak ile eşitlenmesine Izin verir.</S0037>
+      <S0039>RDP bağlantıları için yazıcılar/sürücülerin/bağlantı noktalarının yeniden yönlendirmesi sağlar.</S0039>
+      <S0040>Kullanıcının, şirketin veri merkezinde bulunan Kullanıcı klasöründen kendi aygıtına veri eşitlenmesini sağlar. Active Directory Federasyon Hizmetleri (ADFS) Içerir.</S0040>
+      <S0041>Bilgisayarınızı bir ağ sunucusuyla dosya eşitlemeye ayarlarsa, son eşitleme etkinliğinin sonuçlarını denetlemenize olanak verir.</S0041>
+      <S0049>Uygulama katmanı ağ geçidi hizmeti</S0049>
+      <S0066>Internet erişimi varsa, mobil bilgisayarları VPN üzerinden intranet 'e otomatik olarak bağlar.</S0066>
+      <S0071>AxInstSV-ActiveX denetimlerinin bir kuruluş ortamında yüklenmesini destekler.</S0071>
+      <S0072>Arka plan Akıllı Aktarım Hizmeti (BITS)</S0072>
+      <S0096>Güvenli olmayan veya kötü amaçlı ActiveX denetimlerinin kara listesi, Internet Explorer ve Microsoft Office 'in daha güvenli kalmasını sağlar.</S0096>
+      <S0107>Şube Önbelleği Istemcisi</S0107>
+      <S0108>Evrak Çantası</S0108>
+      <S0116>Bağlantı Yöneticisi profilleri oluşturmak ve bunları kullanıcılarınıza dağıtmak için kullanılabilir. Kullanıcının çevirmeli ağ sunucusunun telefon numarasını veya VPN sunucusunun IP adresini bilmeli.</S0116>
+      <S0136>Checkpoint, F5, Juniper ve SonicWALL Dahili VPN desteği.</S0136>
+      <S0165>Ağ için yapılandırma bilgilerini toplar ve depolar ve bu bilgiler değiştirildiğinde programları bildirir.</S0165>
+      <S0184>Iş Istasyonu hizmeti (bilgisayar tarayıcısı)</S0184>
+      <S0243>Uzak konumlarda bulunan sunuculardan içeriğe erişen şube çalışanları için WAN bağlantısı kullanımını azaltmak ve uygulama yanıtlama hızını artırmak üzere tasarlanmıştır. Şube Office istemci bilgisayarları, WAN bağlantısı üzerindeki trafiği azaltmak için yerel olarak tutulan bir veri önbelleği kullanır.</S0243>
+      <S0265>DHCP Istemcisi</S0265>
+      <S0268>Doğrudan erişim bağlantısı</S0268>
+      <S0283>Dağıtılmış bağlantı Izleme Istemcisi</S0283>
+      <S0284>DNS Istemcisi</S0284>
+      <S0329>BT yöneticilerinin kurumsal kaynaklara daha hassas kontrol olanağı sunmasını sağlar. Bir Kullanıcı aygıtını kaydederse, cihazda bazı yönetim parametrelerini zorlarken bazı erişim verebilir.</S0329>
+      <S0330>Uzak kullanıcıların bu bilgisayardaki kayıt defteri ayarlarını değiştirmesini sağlar.</S0330>
+      <S0332>Yerel bilgisayar için ağ yapılandırma ayarlarının alınmasını ve değiştirilmesini sağlar. IPV6, DirectAccess ve Windows 7 KB2750841, diğer şeyler arasında gerekli.</S0332>
+      <S0335>Makinenin MultiPoint Manager ve Dashboard uygulamaları tarafından izlenmesi ve yönetilmesini sağlar.</S0335>
+      <S0409>Dosya sunucusu Kaynak Yöneticisi</S0409>
+      <S0410>Dosya paylaşımı desteği</S0410>
+      <S0430>Daha önce Active Directory uygulama modu (ADAM) olarak bilinen, etki alanları ve ormanlar ve orman boyunca tek bir şemanın gereksinimlerini gidermeden Dizin destekli uygulamalar için dizin hizmetleri sağlar.</S0430>
+      <S0465>HomeGroup</S0465>
+      <S0477>Bilgisayarın bağlı olduğu ağları tanımlar, bu ağların özelliklerini toplar ve depolar ve bu özellikler değiştiğinde uygulamalara bildirir.</S0477>
+      <S0504>Uzaktan Yönetim için WS-Management protokolünü uygular.</S0504>
+      <S0515>Ağ aygıtlarındaki etkinliği izleyen ve ağ konsolu iş istasyonuna rapor eden aracıları Içerir.</S0515>
+      <S0542>Skype, Office 365 aboneliği ile kullanılabilecek entegre oturum açma desteği; Microsoft mağazalarından Oyunlar, müzik ve filmler satın alın; OneDrive ve eşitleme ayarı. Kaldırıldığında, alternatif olarak komutu ile kullanıcılar ekleyebilirsiniz: 'Control Userpasswords2'</S0542>
+      <S0546>Internet kimlik doğrulama hizmeti (IAS)</S0546>
+      <S0547>Internet bağlantısı paylaşımı (ICS)</S0547>
+      <S0548>Internet Explorer HTML Görüntüleyicisi</S0548>
+      <S0549>Internet Explorer</S0549>
+      <S0552>Internet Iletişim kuralı Yardımcısı (IP Helper)</S0552>
+      <S0620>Seçili ağ dosyalarınızın eşitlenmesini sağlar. Çalışma alanı ağına bağlanmak için dizüstü bilgisayar kullanırsanız bu yararlıdır.</S0620>
+      <S0628>Bu bilgisayardan Internet 'e veya diğer uzak ağlara çevirmeli ve sanal özel ağ (VPN) bağlantılarını yönetir. Bir donanım ağ geçidi veya yönlendirici kullanırsanız, bu hizmet Bu bağlantı için gerekli değildir.</S0628>
+      <S0645>Microsoft Hesabı</S0645>
+      <S0680>MultiPoint Bağlayıcısı</S0680>
+      <S0687>Bu makineye RDP bağlamak için gerekli.</S0687>
+      <S0688>RDP üzerinden diğer makinelere bağlanmak için gerekli.</S0688>
+      <S0697>Birçok üçüncü taraf güvenlik duvarı uygulamaları ve Windows 10 kurulum tarafından kullanılan Güvenlik Duvarı hizmeti için çekirdek bileşeni.</S0697>
+      <S0706>Ağ ve Paylaşım Merkezi</S0706>
+      <S0707>Ağ Bağlantı Aracısı</S0707>
+      <S0709>Ağ Listesi Hizmeti</S0709>
+      <S0711>Ağ Konumu Tanıma</S0711>
+      <S0734>Bir arkadaş veya teknik destek kişi gibi güvendiğiniz biri için bilgisayarınıza bağlanıp size bir çözüm üzerinden yürümek için uygun bir yol sunar.</S0734>
+      <S0735>Yerel alan ve geniş alan ağı ortamlarında işletmeler için yönlendirme hizmetleri sunar.</S0735>
+      <S0736>Çevrimdışı Dosyalar</S0736>
+      <S0740>OneDrive</S0740>
+      <S0783>Eş Ağ</S0783>
+      <S0854>Internet bağlantısı paylaşımı için üçüncü taraf protokol eklentileri için destek sağlar.</S0854>
+      <S0861>RAS bağlantı Yöneticisi Yönetim Seti (CMAK)</S0861>
+      <S0890>Uzaktan erişim bağlantı Yöneticisi</S0890>
+      <S0891>Uzaktan erişim hizmeti Istemci araçları</S0891>
+      <S0892>Uzaktan Yardım</S0892>
+      <S0893>Uzak Masaüstü Istemcisi</S0893>
+      <S0894>Uzak Masaüstü Sunucusu</S0894>
+      <S0895>Uzak Masaüstü Hizmetleri bağlantı noktası yeniden yönlendiricisi</S0895>
+      <S0896>Uzak Diferansiyel Sıkıştırma (RDC)</S0896>
+      <S0897>Uzak Kayıt Defteri</S0897>
+      <S0905>Çeşitli WAN miniports 'ı kaldırır.</S0905>
+      <S0931>Yönlendirme ve uzaktan erişim hizmeti</S0931>
+      <S0932>Yönlendirme ve uzaktan erişim desteği</S0932>
+      <S0990>Çeşitli ağ cihazlarının kaynakları paylaşmasına ve doğrudan birbirleriyle iletişim kurmasına olanak sağlayan Sunucusız ağ teknolojisi.</S0990>
+      <S1017>Basit Ağ Yönetimi Protokolü (SNMP)</S1017>
+      <S1019>Basit TCP/IP Hizmetleri</S1019>
+      <S1020>Basit TCP/IP Hizmetleri aşağıdaki TCP/IP hizmetlerini destekler: karakter Oluşturucusu, gündüz, atma, Echo ve günün alıntı. Basit TCP/IP Hizmetleri geriye dönük uyumluluk için sağlanır ve gerekli olmadıkça yüklenmemelidir.</S1020>
+      <S1035>SMB v2</S1035>
+      <S1037>SMB Sunucu Ortak</S1037>
+      <S1039>SMB v1</S1039>
+      <S1090>İstemci kontrollü aygıtların ve hizmetlerin uygulanmasını ve Web Hizmetleri (DPWS) için aygıtlar profiline uyan aygıt konaklarını destekler. Visual Studio uzaktan hata ayıklayıcı için gerekli ve diğer şeyler arasında tarama yönetimi.</S1090>
+      <S1093>Eşitleme Merkezi</S1093>
+      <S1094>Ağ üzerinden zaman eşitler.</S1094>
+      <S1115>Telnet Istemcisi</S1115>
+      <S1116>Telnet Sunucusu</S1116>
+      <S1125>TFTP istemcisi</S1125>
+      <S1146>Bu hizmet, Ethernet arabirimlerinde IEEE 802.1 X kimlik doğrulamasını gerçekleştirmeden sorumludur.</S1146>
+      <S1147>Bu hizmet, ağları otomatik olarak yapılandırarak mobil geniş bant (GSM ve CDMA) veri kartı/gömülü modül bağdaştırıcıları ve bağlantıları yönetir.</S1147>
+      <S1153>Bu kaldırıldı ile ağ bağlantılarına erişmek Için, Win8+ Başlat menüsü alanına sağ tıklayın, aksi takdirde ncpa. cpl veya ' Explorer Kabuk kısayolu oluşturun:::{7007ACC7-3202-11D1-AAD2-00805FC1270E}'.</S1153>
+      <S1161>Boşta kalan ağ bant genişliğini kullanarak dosyaları arka planda aktarır.</S1161>
+      <S1256>VPN eklentileri</S1256>
+      <S1268>Web 'de Dağıtılmış Yazma ve sürüm oluşturma (WebDAV)</S1268>
+      <S1269>Web Hizmetleri aygıtları API (WSDAPI)</S1269>
+      <S1271>Web Istemcisi</S1271>
+      <S1289>Windows Güvenlik Duvarı</S1289>
+      <S1298>Windows Mail</S1298>
+      <S1308>Windows Uzaktan Yönetimi (WS-Management)</S1308>
+      <S1310>Merkezi Kullanıcı kimlik doğrulaması, yetkilendirme ve hesap oluşturma sağlayan Windows Server bileşeni.</S1310>
+      <S1317>Windows Saati</S1317>
+      <S1321>Wired Otomatik yapılandırma</S1321>
+      <S1325>Work Klasörler Istemcisi</S1325>
+      <S1328>Workplace Katılın</S1328>
+      <S1329>SMB protokolünü kullanarak uzak sunuculara istemci ağ bağlantıları oluşturur ve tutar.</S1329>
+      <S1330>WWAN Otomatik Yapılandırma</S1330>
+      <S1334>Bilgisayarlar aynı ağda olmasa bile, dosyaları iki farklı bilgisayar arasında senkronize tutmak için evrak çantası 'nı kullanabilirsiniz.</S1334>
+      <S1346>Sanal PC</S1346>
+      <S1347>Tek bir bilgisayarda, her biri kendi işletim sistemiyle bir veya daha fazla sanal makine çalıştırmanızı sağlar. Bu, bir fiziksel bilgisayarda farklı işletim sistemlerini kullanma esnekliği sağlar.</S1347>
+      <S1384>OneDrive (daha önce SkyDrive), kullanıcıların dosyaları eşitlemenize ve daha sonra bir Web tarayıcısından veya mobil cihazdan erişmelerine olanak sağlayan bir bulut depolaması, dosya barındırma hizmetidir.</S1384>
+      <S1390>SMB Witness Istemci API</S1390>
+      <S1391>Kullanılan SMBv3 sürekli dosya paylaşımları geliştirmek ve daha hızlı bir istemci yerine çalışma sağlar.</S1391>
+      <S1422>Windows Mail Communications DLL</S1422>
+      <S1423>MHT dosya formatı desteği için gerekli.</S1423>
+      <S1442>Windows Güvenlik Duvarı hizmeti</S1442>
+      <S1443>Güvenlik Duvarı Kullanıcı ARABIRIMINI kaldırır ve işlevselliği devre dışı bırakır.</S1443>
+      <S1469>AllJoyn Yönlendirici Hizmeti</S1469>
+      <S1470>AllJoyn açık kaynak, yakınlık tabanlı bağlantı ve hizmet çerçevesidir. Çeşitli cihazların bir ara sunucuya ihtiyaç duymadan doğrudan birbirleriyle iletişim kurabilmesi, bağlanması ve iletişmesine olanak tanıyan birlikte çalışabilirlik sağlar.</S1470>
+      <S1471>Bağlı Cihaz Platformu Hizmeti (CDPSvc)</S1471>
+      <S1472>Bu hizmet, bağlı cihazlar ve evrensel cam senaryoları için kullanılır.</S1472>
+      <S1475>Ağ arka plan aktarımı</S1475>
+      <S1476>Arka planda ağ verilerini hazırlık ve karşıdan yüklemek için Windows çalışma zamanı uygulamaları tarafından kullanılır.</S1476>
+      <S1491>Ağ Erişim Koruması (NAP)</S1491>
+      <S1492>Özel ağlara korunan erişim için bir platform sağlayan işletim sistemi bileşenleri kümesi.</S1492>
+      <S1493>Exchange ActiveSync (EAS)</S1493>
+      <S1494>Microsoft Exchange Server gibi bir ileti sunucusundan e-posta, kişi, takvim, görev ve notların eşitlenmesi için tasarlanmış BIR iletişim protokolü.</S1494>
+      <S1495>IPSec Ilke Aracısı</S1495>
+      <S1496>Internet Protokolü güvenliği (IPSec), IP güvenlik Ilkeleri aracılığıyla ağ kimlik doğrulamasını destekler. IPSec ilkeleri etkinleştirilmiş ağlar için ve Windows Güvenlik Duvarı 'nın uzaktan yönetimi için gerekli.</S1496>
+      <S1507>Cüzdan Servisi</S1507>
+      <S1508>Cüzdan uygulaması için gerekli backend, Microsoft Windows ödeme sistemi.</S1508>
+      <S1581>Ağ Haritası</S1581>
+      <S1608>Terminal Hizmetleri USB yeniden yönlendiricisi</S1608>
+      <S1610>Yakındaki Insanlar</S1610>
+      <S1662>Ağ bağdaştırıcısı Multiplexor Protokolü</S1662>
+      <S1663>Yük Dengeleme ve yük devretme (LBFO) olarak da bilinen Windows yerleşik NIC Gruplama protokolü, bir bilgisayardaki birden çok ağ bağdaştırıcısına bant genişliği toplama ve trafik yerine çalışma için bir takıma yerleştirilmesine izin verir.</S1663>
+      <S1664>Servis paketi Zamanlayıcı kalitesi (QoS)</S1664>
+      <S1665>Ağ bant genişliğini ölçerek, değişen ağ koşullarını algılayarak (bant genişliğinin tıkanıklığı veya kullanılabilirliği gibi) bir iş yükünü veya uygulamanın hizmet gereksinimlerini karşılayabilir ve ağ trafiğini öncelikleyerek veya azaltmanıza olanak sağlar.</S1665>
+      <S1666>Bağlantı Katmanı Topolojisi Bulma Protokolü (LLTD)</S1666>
+      <S1667>Uygulamaların veri bağlantısı katmanındaki aygıtları hızla keşfetmesini sağlar ve ağa bağlı her şeyin merkezi, grafik görünümünü sağlar.</S1667>
+      <S1697>NDIS Kullanıcı modu I/O sürücüsü</S1697>
+      <S1698>ReadFile ve WriteFile kullanarak Ethernet çerçevelerini göndermeyi ve almayı destekler.</S1698>
+      <S1699>SMS yönlendirici hizmeti</S1699>
+      <S1700>İletileri uygun istemcilere yönelik kurallara göre yönlendirir.</S1700>
+      <S1701>Mesajlaşma hizmeti</S1701>
+      <S1702>Hizmet destek metin mesajlaşma ve ilgili işlevsellik.</S1702>
+      <S1707>Radyo yönetimi ve uçak modu hizmeti</S1707>
+      <S1714>.NET Framework Kurulum sonrası yükleme</S1714>
+      <S1715>Windows Güncelleştirme hizmeti karşıdan yükleme</S1715>
+      <S1717>UzaktanFX</S1717>
+      <S1718>Uzak Masaüstü protokolünün görsel deneyimini geliştirir. Hyper-V bağlantılarında da kullanılabilir.</S1718>
+      <S1738>SMB doğrudan (RDMA)</S1738>
+      <S1739>SMB 3. x dosya paylaşım protokolü için uzaktan doğrudan bellek erişimi (RDMA) desteği. Ağ üzerinden daha düşük gecikme, daha hızlı dosya aktarımı sağlayan RDMA destekleyen bir ağ bağdaştırıcısı gerektirir.</S1739>
+      <S1740>Veri merkezi köprüleme (DCB)</S1740>
+      <S1741>Internet küçük bilgisayar sistemi arabirimi, Converged Ethernet üzerinden RDMA ve Ethernet üzerinden Fiber Kanal gibi veri merkezi ortamlarında kullanılmak üzere Ethernet yerel ağ ağları için geliştirmeler kümesi.</S1741>
+      <S1763>USB 3G Modem</S1763>
+      <S1814>Windows Bağlantı Yöneticisi</S1814>
+      <S1815>PC 'de Şu anda kullanılabilen ağ bağlantısı seçeneklerine göre otomatik bağlantı/bağlantı kesme kararları verir ve grup Ilkesi ayarlarına göre ağ bağlantısının yönetimini sağlar.</S1815>
+      <S1872>Genişletilebilir kimlik doğrulama protokolü (EAP)</S1872>
+      <S1873>MS/RAS CHAP, PPP EAP dahil 802.1 x kablolu ve kablosuz, VPN ve ağ erişim koruması (NAP) gibi senaryolarda ağ kimlik doğrulaması sağlar. Bu bileşeni kaldırırsanız, Windows 'a EAP kimlik doğrulaması gerektiren ağlara erişmesini engellenir.</S1873>
+      <S1876>Ağ bağlı aygıtlar otomatik kurulum</S1876>
+      <S1877>Bu hizmetin devre dışı bırakılması veya kaldırılması, Windows 'ın nitelikli ağ bağlı aygıtları otomatik olarak keşfetmesini ve yüklenmesini engeller. Kullanıcılar hala el ile ağ bağlı aygıtları Kullanıcı arabirimi aracılığıyla bir BILGISAYARA ekleyebilirsiniz.</S1877>
+      <S1878>Active Directory</S1878>
+      <S1879>Windows ağ etki alanı desteği.</S1879>
+      <S1930>Wi-Fi Direct Services Bağlantı Yöneticisi hizmeti</S1930>
+      <S1931>Kablosuz ekran ve docking dahil olmak üzere kablosuz hizmetlere bağlantıları yönetir.</S1931>
+      <S1945>Edge HTML Görüntüleyicisi</S1945>
+      <S1946>En az gerekli Windows Kur HTML oluşturma altyapısı.</S1946>
+      <S1996>Ödemeler ve NFC/SE Yöneticisi</S1996>
+      <S1997>Ödemeleri ve yakın alan Iletişimi (NFC) tabanlı güvenli elemanları yönetir.</S1997>
+      <S2409>Internet Explorer sertifika iptal doğrulaması için gerekli.</S2409>
+      <S2412>TCP/IP NetBIOS Yardımcısı</S2412>
+      <S2413>Ağ üzerindeki istemciler için TCP/IP protokolü ve NetBIOS ad çözümlemesi üzerinden NetBIOS desteği sağlar, bu nedenle kullanıcıların ağda dosya, yazdırma ve oturum açmanıza olanak tanır. Bağlantı noktası 445 üzerinde ' NetbiosSmb ' bağlama, dosya paylaşım protokolü yeni türünü Içerir.</S2413>
+      <S2414>TCP taşıma üzerinden NetBIOS</S2414>
+      <S2415>Dosya paylaşım protokolü eski türü, bağlama ' NetBT_Tcpip ' bağlantı noktaları 137-139.</S2415>
+      <S2418>Ek diller</S2418>
+      <S2419>Bunlar, yalnızca ' SyncRes. dll. mui ' dosyasında bulunan ek system32 dil dizinleri.</S2419>
+      <S2435>Yerel profil Yardımcısı hizmeti</S2435>
+      <S2436>Bu hizmet, abone kimlik modülleri için profil yönetimi sağlar.</S2436>
+      <S2454>NET oturum açma</S2454>
+      <S2455>Kullanıcıların ve hizmetlerin kimlik doğrulamasını yapmak için bu bilgisayar ile etki alanı denetleyicisi arasında güvenli bir kanal tutar.</S2455>
+      <S2476>AçıkSSH</S2476>
+      <S2477>Açık kaynak SSL altyapısı.</S2477>
+      <S2538>Uzak Masaüstü Hizmetleri ActiveX Istemcisi</S2538>
+      <S2542>Istemci</S2542>
+      <S2543>Sunucu</S2543>
+      <S2544>Bu bilgisayar için ağ üzerinden dosya, yazdırma ve adlandırılmış kanal paylaşımını destekler.</S2544>
+      <S2579>WiFi Senkronizasyon Sağlayıcısı</S2579>
+      <S2604>Bağlı Cihazlar Platformu Kullanıcı Hizmeti</S2604>
+    </Network>
+    <HardwareSupport>
+      <S0030>AGP</S0030>
+      <S0100>Bluetooth</S0100>
+      <S0170>GPIO, bilgisayar anakartlarına bağlı veya akıllı telefonlar gibi mobil cihazlarda gömülü olan çevre aygıtları ile iletişim kurmak için kullanılır. Düğmeler, DockMode ve laptop/Slate göstergesi için ortak sürücü.</S0170>
+      <S0328>Desteklenen yönlendiricilerde otomatik bağlantı noktası açılmasını etkinleştirir.</S0328>
+      <S0334>Bir Ethernet ağ bağdaştırıcısı aracılığıyla bir ana bilgisayarı dış Iscsı tabanlı depolama dizisine bağlamanız sağlar.</S0334>
+      <S0400>Fax</S0400>
+      <S0423>Disket</S0423>
+      <S0444>Genel amaçlı I/O (GPIO)</S0444>
+      <S0458>Donanım desteği</S0458>
+      <S0524>Kızılötesi cihazlar</S0524>
+      <S0551>Internet Yazdırma Istemcisi</S0551>
+      <S0557>iSCSI Başlatıcısı</S0557>
+      <S0648>Microsoft 'un Wi-Fi Korumalı Kurulum (WPS) protokolünün uygulanması.</S0648>
+      <S0664>Modem</S0664>
+      <S0692>Bazı webcam için gerekli.</S0692>
+      <S0806>Taşınabilir cihazlar (WPD/MTP)</S0806>
+      <S0835>Baskı</S0835>
+      <S0855>Yerel bilgisayardaki telefon aygıtlarını ve LAN aracılığıyla da hizmeti çalıştıran sunucularda denetleyen programlar için telefon API (TAPI) desteği sağlar.</S0855>
+      <S0856>Kablosuz Yerel ağ (WLAN) yapılandırmak, keşfetmek, bağlanmak ve bağlantıyı kesmek için gereken mantığı sağlar. WLAN Otomatik Yapılandırma hizmeti Içerir.</S0856>
+      <S0951>Tarayıcı</S0951>
+      <S1004>Paylaşılan modem ayarları (mdmgl*.inf)</S1004>
+      <S1034>Akıllı kart</S1034>
+      <S1070>Still Image sınıf yükleyici</S1070>
+      <S1082>Aygıtlardan görüntü alma desteği.</S1082>
+      <S1114>Telefon</S1114>
+      <S1170>Güvenilen Platform Modülü (TPM)</S1170>
+      <S1219>UPNP aygıt ana bilgisayarı</S1219>
+      <S1226>Bilgisayarınızdaki TPM güvenlik donanımını yönetmek için kullanılır.</S1226>
+      <S1237>Medya Aktarım Protokolü (MTP), cep telefonları, dijital kameralar ve taşınabilir medya yürütücüler gibi geniş bir yelpazede taşınabilir aygıtları destekleyen bir sürücü teknolojisidir. USB depolama desteğini kaldırmaz.</S1237>
+      <S1250>Sanal akıllı kart</S1250>
+      <S1282>Windows Şimdi Bağlan (WCN)</S1282>
+      <S1292>Windows görüntü edinme (WIA)</S1292>
+      <S1322>WLAN</S1322>
+      <S1331>XPS yazıcı ve Hizmetleri</S1331>
+      <S1403>PDF 'ye Yazdır</S1403>
+      <S1418>Ağ keşfi</S1418>
+      <S1419>Işlev bulma hizmetleri Içerir. Bu FD sağlayıcıları, basit hizmetler bulma Protokolü (SSDP) ve Web Hizmetleri bulma (WS-D) protokolü için ağ bulma hizmetleri temin eder.</S1419>
+      <S1460>Hizmet noktası (POS)</S1460>
+      <S1461>Barkod tarayıcıları ve manyetik kart okuyucuları gibi POS çevresel aygıtları için destek.</S1461>
+      <S1582>Uzaktan erişim otomatik bağlantı Yöneticisi</S1582>
+      <S1820>Bir program uzak DNS veya NetBIOS adı veya adresine başvurduğunda uzak ağa bağlantı oluşturur.</S1820>
+      <S1894>Sanal özel ağ (VPN) desteği</S1894>
+      <S1895>Opsiyonel Özellikler</S1895>
+      <S1896>Denetim Masası 'nda olduğu gibi yerleşik Windows özelliklerinin yapılandırmasını sağlar-Windows özelliklerini açma veya kapatma ve isteğe bağlı yardımcı Özellikler.</S1896>
+      <S1953>Oyun çevre birimleri (Xbox GIP)</S1953>
+      <S1998>Telefon Servisi</S1998>
+      <S1999>Aygıtta telefon durumunu yönetir.</S1999>
+      <S2411>Batarya</S2411>
+      <S2429>Taşınabilir aygıt numaralayıcı hizmeti</S2429>
+      <S2430>Çıkarılabilir yığın depolama aygıtları için Grup ilkesini zorlar. Çıkarılabilir yığın depolama aygıtlarını kullanarak içeriği aktarmak ve eşitlemek için Windows Media Player ve resim alma Sihirbazı gibi uygulamaları etkinleştirir.</S2430>
+      <S2441>Microsoft GS Wavetable SW Synth (MIDI)</S2441>
+      <S2442>MIDI synth ses, genellikle profesyonel ses karıştırma araçları kullanılan destek.</S2442>
+      <S2478>Iş akışı hizmetini Yazdır</S2478>
+      <S2479>Yazdırma iş akışı API 'sini kullanarak UWP uygulamaları için gerekli.</S2479>
+    </HardwareSupport>
+    <Metro>
+      <S0053>Uygulama</S0053>
+      <S0109>Windows Mağazası uygulamalarının Internet 'ten bildirim almasını sağlayan broker bağlantıları.</S0109>
+      <S0110>Tarayıcı seçimi arka uç</S0110>
+      <S0406>Dosya Yöneticisi (OneDrive ve fotoğraflar)</S0406>
+      <S0517>Ayarlar uygulamasını Içerir. Kurulum ve Başlat menüsü için gerekli olduğu gibi Windows 10 ' da çıkarılabilir değil. Ayarlar olmadan bir ürün anahtarı girmek istiyorsanız, cmd. exe ' den ' slui. exe 3 ' yazın veya sistem özelliklerine gidin.</S0517>
+      <S0643>Core metro hizmetleri</S0643>
+      <S0646>Microsoft kamera arka ucu</S0646>
+      <S0858>Yakınlık</S0858>
+      <S0997>Eşitleme Ayarı</S0997>
+      <S1089>Yakın aralıkta olan aygıtlar arasındaki bağlantıları destekler.</S1089>
+      <S1095>Windows PC 'leriniz ve aygıtlarınız arasında birçok ayarı eşitler. Bu farklı makineler arasında hareket ve tutarlı bir deneyim korumak kolaylaştırır.</S1095>
+      <S1270>Webcam Deneyimi</S1270>
+      <S1304>Windows PDF dosya Görüntüleyicisi.</S1304>
+      <S1306>Windows Okuyucu (PDF)</S1306>
+      <S1335>BILGISAYARINIZDA kullanmak istediğiniz Web tarayıcısını seçmek ve yüklemek için tarayıcı seçimi güncelleştirmesini kullanabilirsiniz.</S1335>
+      <S1405>Perakende Demo Içeriği</S1405>
+      <S1406>Demo profili, Windows aygıtlarını reklamını yapmak ve göstermek için perakende mağazaları için yararlıdır.</S1406>
+      <S1417>Sistem Uygulamaları</S1417>
+      <S1446>Appx Dağıtım Hizmeti</S1446>
+      <S1447>Windows Haritaları</S1447>
+      <S1463>İstemci Lisans Hizmeti (ClipSVC)</S1463>
+      <S1464>Microsoft Mağazası için altyapı desteği sağlar. Bu hizmet isteğe bağlı olarak başlatılır ve Windows Mağazası kullanılarak satın alınan devre dışı bırakılmış uygulamalar düzgün davranmaz.</S1464>
+      <S1694>Eşitleme ana bilgisayarı</S1694>
+      <S1695>Bu hizmet posta, kişiler, takvim ve diğer çeşitli kullanıcı verilerini eşitler.</S1695>
+      <S1696>Bunu kaldırırsanız, bu verileri kullanan uygulamalar düzgün çalışmayabilir.</S1696>
+      <S1868>Uygulama Hazırlığı</S1868>
+      <S1869>Bir Kullanıcı bu BILGISAYARA ilk kez oturum açtığında ve yeni uygulamalar eklerken uygulamalara hazır hale gelir.</S1869>
+      <S1874>Dev sorgu arka plan keşif Broker</S1874>
+      <S1875>Uygulamaların arka plan görevi olan aygıtları bulmasını sağlar</S1875>
+      <S1891>Windows dışı uygulamalar push bildirimleri API</S1891>
+      <S1916>Windows Karışık Gerçeklik</S1916>
+      <S1917>Microsoft HoloLens gibi artırılmış gerçeklik kulaklıkları ile kullanılır.</S1917>
+      <S1922>Windows PDF Altyapısı</S1922>
+      <S1923>Reader ve Edge 'de PDF 'Leri görüntülemek için kullanılır.</S1923>
+      <S1954>Cortana yardımcısı, tepsi/Başlat menüsü arama ve ayarlar arama işlevlerini kaldırır.</S1954>
+      <S2404>Yetenek erişimi</S2404>
+      <S2405>UWP uygulamalarının uygulama yeteneklerine erişimini yönetmek ve bir uygulamanın belirli uygulama özelliklerine erişimini kontrol etmek için olanaklar sağlar.</S2405>
+      <S2431>Veri paylaşım hizmeti</S2431>
+      <S2432>Uygulamalar arasında veri brokerleştirme sağlar.</S2432>
+      <S2450>Tarayıcı brokerleri</S2450>
+      <S2451>Tarayıcılar için proxy, gözatma içeriğine uygulama erişimini etkinleştirme ve güvenliği sağlama.</S2451>
+      <S2545>Harita Denetimi</S2545>
+      <S2581>Uygulamalar &amp; Özellikler</S2581>
+      <S2584>Windows Mağazası</S2584>
+    </Metro>
+    <Localization>
+      <S0054>Arabic</S0054>
+      <S0088>Basque</S0088>
+      <S0091>Bengali (Bangladesh)</S0091>
+      <S0092>Bengali (India)</S0092>
+      <S0112>Bulgarian</S0112>
+      <S0126>Catalan</S0126>
+      <S0140>Chinese</S0140>
+      <S0173>Tam dil desteği kaldırma. Bu dilde okumak veya yazmak istiyorsanız kaldırmayın.</S0173>
+      <S0225>Croatian</S0225>
+      <S0231>Czech</S0231>
+      <S0232>Danish</S0232>
+      <S0304>Dutch</S0304>
+      <S0338>English</S0338>
+      <S0362>Estonian</S0362>
+      <S0419>Finnish</S0419>
+      <S0437>French</S0437>
+      <S0440>Galician</S0440>
+      <S0446>German</S0446>
+      <S0450>Greek</S0450>
+      <S0454>Gujarati</S0454>
+      <S0459>Hebrew</S0459>
+      <S0463>Hindi</S0463>
+      <S0469>Hungarian</S0469>
+      <S0473>Icelandic</S0473>
+      <S0521>Indonesian</S0521>
+      <S0528>Giriş Yöntemi Düzenleyicisi (IME)</S0528>
+      <S0563>Italian</S0563>
+      <S0564>Japanese</S0564>
+      <S0571>Kannada</S0571>
+      <S0578>Keyboard layouts</S0578>
+      <S0579>Korean</S0579>
+      <S0581>Language</S0581>
+      <S0582>Language Pack</S0582>
+      <S0583>Languages</S0583>
+      <S0585>Latvian</S0585>
+      <S0587>Legacy Dil Desteği</S0587>
+      <S0595>Lithuanian</S0595>
+      <S0623>Malay (Brunei)</S0623>
+      <S0624>Malay (Malaysia)</S0624>
+      <S0625>Malayalam</S0625>
+      <S0634>Marathi</S0634>
+      <S0682>Natural Language</S0682>
+      <S0691>Bazı Doğu Asya dilleri için karmaşık karakter desteği.</S0691>
+      <S0724>Norwegian</S0724>
+      <S0805>Polish</S0805>
+      <S0807>Portuguese (Brazilian)</S0807>
+      <S0808>Portuguese</S0808>
+      <S0860>Punjabi</S0860>
+      <S0930>Romanian</S0930>
+      <S0935>Russian</S0935>
+      <S0989>Serbian</S0989>
+      <S1031>Slovak</S1031>
+      <S1032>Slovenian</S1032>
+      <S1048>Spanish</S1048>
+      <S1091>Swedish</S1091>
+      <S1101>Tablo Driven metin hizmeti tanımlamak ve kendi metin giriş Işlemcisi (Ipucu) özelleştirmek için kullanılabilir.</S1101>
+      <S1102>Tablo metin hizmeti</S1102>
+      <S1104>Tamil</S1104>
+      <S1117>Telugu</S1117>
+      <S1126>Thai</S1126>
+      <S1172>Turkish</S1172>
+      <S1187>Ukrainian</S1187>
+      <S1220>Urdu</S1220>
+      <S1223>Konuşma ve arama ek işlevleri için kullanılır. Bu konuşma ve daha doğal bir sözdizimi desteği, neredeyse başka bir kişi adresleme gibi arama uzanır.</S1223>
+      <S1243>Vietnamese</S1243>
+      <S1388>Pseudo-locale</S1388>
+      <S1389>Uygulamaların lokalizasyonu test etmek için kullanılır.</S1389>
+      <S1473>Dil Paketi Kurulumu</S1473>
+      <S1474>Dil paketlerini yükleme ve kaldırma desteği.</S1474>
+      <S1532>Basitleştirilmiş Çince</S1532>
+      <S1533>Geleneksel Çince</S1533>
+      <S1549>Denetim Masası değiştirmek için gerekli dil girişi/klavye.</S1549>
+      <S1558>French (Canadian)</S1558>
+      <S1595>Yazı Tipi</S1595>
+      <S1596>Dikkatle Denetim Masası 'nda bireysel fontları gözden geçirin - yazı tipleri kaldırmadan önce, bazı tam görüntü yeniden yüklenebilir.</S1596>
+      <S1597>Yerelleştirme</S1597>
+      <S1602>Dil Paneli</S1602>
+      <S1603>Kaldırılırsa, hiçbir UI seçenekleri (Denetim Masası - diller) klavye veya dil yükledikten sonra değiştirmek için, sadece kayıt defterini doğrudan düzenleyerek.</S1603>
+      <S1604>Statik yazı tipi önbelleği</S1604>
+      <S2000>Giriş Hizmeti</S2000>
+      <S2401>Metin otomatik tamamla ve işleme çerçevesi. PC ayarları, Cortana, kenar, Başlat menüsü arama gibi herhangi bir UWP app metin yazarak kaldırıldığında, Metro UI üzerinden WIFI SSID çalışmıyor. Hesap makinesi yazarak etkilenmez.</S2401>
+      <S2402>Yazım Denetimi</S2402>
+      <S2403>UWP uygulamaları ve Metro UI metin otomatik düzeltme desteği Içerir.</S2403>
+      <S2537>Giriş Işlemciler</S2537>
+      <S2601>Kaldırılırsa, Hacim Mikserinde gösterilecek olan boxy karakterlerine neden olur.</S2601>
+      <S2610>Metin Hizmetleri Çerçevesi</S2610>
+      <S2611>Gelişmiş giriş ve modern (UWP) uygulama yazma desteği.</S2611>
+    </Localization>
+    <Media>
+      <S0056>Otomatik döndürme Yöneticisi</S0056>
+      <S0085>Basic Windows yerleşik DirectShow DVD film oynatma desteği.</S0085>
+      <S0086>Temel Windows dahili MPEG-2 (H. 222/H. 262) içerik desteği. Yerleşik olan video oynatıcı için gerekli değildir.</S0086>
+      <S0087>Windows ipuçları ve öğreticiler yeni başlayanlar için.</S0087>
+      <S0305>DVD Maker</S0305>
+      <S0306>DVD Play</S0306>
+      <S0420>Ilk oturum açma animasyonu</S0420>
+      <S0441>Oyun Gezgini</S0441>
+      <S0442>Oyunlar</S0442>
+      <S0485>Görüntü renk yönetimi (ICM)</S0485>
+      <S0516>DLNA ve Miracast desteği, diğer ses ve video döküm ve bu cihazdan Içerir.</S0516>
+      <S0519>Örnek videolar, müzik, resim ve zil sesleri Içerir.</S0519>
+      <S0545>Intel Indeo codec bileşenleri</S0545>
+      <S0622>Oyunlarınızı erişim, oyun ve yönetme kolaylığı sağlar.</S0622>
+      <S0635>Market Temaları</S0635>
+      <S0637>Medya Merkezi</S0637>
+      <S0638>Medya Vakfı</S0638>
+      <S0639>Medya Görüntüleyici</S0639>
+      <S0649>Microsoft Media Foundation, Windows 'da dijital medyayı kullanmak için uygulamaların ve bileşenlerin geliştirilmesini sağlar. Diğer şeylerin yanı sıra, Internet Explorer Media playback için gerekli.</S0649>
+      <S0676>MPEG-2 Splitter</S0676>
+      <S0678>Multimedia</S0678>
+      <S0679>Multiplayer Oyunlar</S0679>
+      <S0696>Dokunmatik ekran desteği için gerekli.</S0696>
+      <S0787>Fotoğraf codec</S0787>
+      <S0788>Fotoğraf Görüntüleyici</S0788>
+      <S0816>Premium Oyunlar</S0816>
+      <S0853>Video verilerini işlemek bir uygulama etkinleştirmek işlevleri sağlar. Webcam, Reaper, FSViewer ve diğer birçok ses/video ilgili araçlar için gerekli.</S0853>
+      <S0936>Örnek medya</S0936>
+      <S1003>Medya kontrol panelini paylaşma</S1003>
+      <S1040>Snipping Aracı</S1040>
+      <S1041>Ses Kaydedici</S1041>
+      <S1042>Ses Temaları</S1042>
+      <S1043>Sesler (varsayılan)</S1043>
+      <S1051>Konuşma tanıma</S1051>
+      <S1052>Konuşma TTS</S1052>
+      <S1069>Yapışkan Notlar</S1069>
+      <S1103>Tablet PC</S1103>
+      <S1124>Metin tahmini</S1124>
+      <S1132>İlk oturum açışında Windows yüklendikten sonra bilgilendirici animasyon.</S1132>
+      <S1133>Piyasa özelleştirilmiş Temalar belirli bir bölge için özeldir ve duvar kağıtları, ses düzenleri ve Aero cam renkleri içerir.</S1133>
+      <S1174>TV Tuner codec ve destek</S1174>
+      <S1225>Explorer resim dosyaları küçük ve Metro Fayans kullanılır.</S1225>
+      <S1239>Çeşitli Windows Tema kabuk sesler.</S1239>
+      <S1241>Video DVD oluşturma Sihirbazı.</S1241>
+      <S1242>Windows Için video (VFW)</S1242>
+      <S1258>Duvar kağıdı (varsayılan)</S1258>
+      <S1259>Duvar kağıtları (Temalar)</S1259>
+      <S1272>Ipuçları (Başlayın)</S1272>
+      <S1278>Windows renk yönetimi bileşeni, oldukça kapsamlı renk düzeltmesi uygulamak için diğer programlar tarafından kullanılır. Diğer şeyler arasında fotoğraf görüntüleyici ve Photoshop, Gimp ve diğerleri gibi birçok resim görüntüleme ve düzenleme yazılımı için gerekli.</S1278>
+      <S1300>Windows Media Center güncelleştirmesi</S1300>
+      <S1301>Windows Media codec bileşeni</S1301>
+      <S1302>Windows Media Player</S1302>
+      <S1303>Medya Akışı</S1303>
+      <S1312>Windows Shell Sesleri.</S1312>
+      <S1314>Windows sistem değerlendirme aracı (WinSAT)</S1314>
+      <S1315>Windows TIFF IFilter (OCR)</S1315>
+      <S1316>Windows TIFF IFilter, TIFF görüntülerini işler ve sonra arama dizinini oluşturmak için arayan kişiye tanınan metni sağlar. Dizin oluşturma hizmeti (masaüstü arama için), Microsoft Office SharePoint Server 2007 veya sonraki sürümleri, Microsoft SQL Server 2008 ve Microsoft SQL Server 2005 tarafından kullanılabilir.</S1316>
+      <S1353>Windows Media Hizmetleri uzak sunucu yönetim araçları</S1353>
+      <S1354>Windows Media sunucunuzu yönetmenize olanak sağlar.</S1354>
+      <S1365>WMP ağ paylaşımı hizmeti</S1365>
+      <S1366>Windows disk görüntü yazma aracı</S1366>
+      <S1367>Yerleşik Explorer ISO yazma ve Windows Media Player RIP/Burn özelliği. Diğer, üçüncü taraf programlar için ISO yanma yeteneğini kaldırmaz.</S1367>
+      <S1407>Xbox Uygulaması</S1407>
+      <S1408>Oyun çubuğu, oyun modu ve oyun yayını DVR Içerir.</S1408>
+      <S1409>PlayReady</S1409>
+      <S1410>Microsoft PlayReady, müzik ve videolar gibi dijital içeriğin yetkisiz kullanımını veya kopyalanmasını engelleyen bir teknoloji kümesidir ve içerik sağlayıcılarının içeriği Internet üzerinden güvenli bir şekilde dağıtmasını sağlar.</S1410>
+      <S1457>Indeo 4,5 ve 5,1 Içerir.</S1457>
+      <S1458>Video sıkıştırma Yöneticisi (VCM) codec bileşenleri</S1458>
+      <S1459>Indeo 3,2 ve Cinepak codec 'leri Içerir.</S1459>
+      <S1462>Temel Windows performans benchmark Aracı, performans bilgileri ve araçları altında Denetim Masası 'nda kullanılabilir.</S1462>
+      <S1477>Ekran Anahtarı</S1477>
+      <S1478>Ekran cihazları arasında hızlı geçiş için küçük bir araç.</S1478>
+      <S1560>Bu bileşen kullanılmamaktadır ve bilinen güvenlik açıkları içerir.</S1560>
+      <S1579>Gelişmiş video Oluşturucusu (EVR)</S1579>
+      <S1580>GPU video çıkışını daha iyi kullanımı için medya yürütücüleri 'nde kullanılır.</S1580>
+      <S1607>Windows Günlüğü</S1607>
+      <S1705>Kamera Çerçeve Sunucusu</S1705>
+      <S1706>Birden çok istemcinin kamera aygıtlarından video çerçevelerine erişmesini sağlar.</S1706>
+      <S1987>DirectX WARP JIT hizmeti</S1987>
+      <S1988>ACG etkin ile çalışırken Windows Gelişmiş Rasterleştirme platformu (WARP) için işlem hizmeti dışında bir JIT sağlar. Sanal gerçeklik için yararlıdır.</S1988>
+      <S2554>İnsan Arabirimi Aygıtı Hizmeti</S2554>
+      <S2555>Klavyeler, uzaktan kumandalar ve diğer multimedya cihazlarında sıcak düğmelerin kullanımını etkinleştirir ve sürdürür.</S2555>
+      <S2556>Ekran Geliştirme Hizmeti</S2556>
+      <S2557>Parlaklık kontrolü gibi ekran geliştirmeyi yönetmek için bir servis. İçerir 'Gece ışığı'.</S2557>
+      <S2612>Politika Hizmetini Görüntüle</S2612>
+      <S2613>Yerel ve uzak ekranların bağlantısını ve yapılandırmasını yönetir.</S2613>
+      <S2618>Masaüstü resim indiricisi</S2618>
+      <S2619>Resim indirmek için eklentiyi kişiselleştir.</S2619>
+    </Media>
+    <Title>
+      <S0099>Mavi kilitli bileşenler lisans gerektirir.</S0099>
+      <S0180>Bileşen</S0180>
+      <S0738>Doğru kaldırma korumak için dosyaları girin. Girişler bir dosya yolu olarak, örneğin: System32\expand.exe Expand. exe X:\Windows\System32 dizininde tutmak için bitiş olarak değerlendirilir. Program dosyaları veya hedef üzerinde başka bir dizin için aynı çalışır. Joker karakter (*) desteklenir.</S0738>
+      <S0976>Makine desteği (donanım listeleri) dahil olmak üzere hangi işlevsellikleri korumak için seçin.</S0976>
+      <S1194>Kaldırma bileşenleri Işaretini kaldırın. Kaldırma kalıcı, bir bileşeni geri yüklemek için bir yenileme (Win10), yeniden yükleme veya yedekleme kurtarma gerektirir.</S1194>
+      <S1260>Bileşen kaldırılması ile devam etmeden önce, lütfen bu dikkatle okuyun.</S1260>
+      <S1261>Windows bileşenlerini kaldırma geri dönülemez bir işlemdir ve öngörülemeyen sonuçlara neden olabilir.</S1261>
+      <S1262>Görüntü (çevrimdışı) değişikliği durumunda, düzenlenmiş görüntüyü gerçek bir makineye dağıtmadan önce sanal bir ortamda sınamanız gerekir.</S1262>
+      <S1263>Canlı (çevrimiçi) modifikasyon durumunda, herhangi bir değişiklik uygulamadan önce bir yedeğin hazır olması gerekir.</S1263>
+      <S1264>Windows paketi yüklemesi 'nin yapısı nedeniyle-bileşenleri kaldırırsanız, bazı güncelleştirmeler (düzeltme, dil paketi vb.) ve özellikler daha sonra yüklenmeyebilir.</S1264>
+      <S1265>Güncelleştirmeler mevcut olmak üzere güncelleştirilmiş dosyaları bekler. Kısmi paket kaldırma (pakette bir bileşeni kaldırma) nedeniyle özellikle daha büyük toplu güncelleştirmeler veya dil paketleri güncelleştirilmesi gereken ne bulmak mümkün olmayacaktır ve böylece yükleme başarısız bir duruma çalıştırabilirsiniz.</S1265>
+      <S1266>Bileşenleri Windows 'dan kaldırırsanız, herhangi bir noktada yeniden yüklemeye hazır olmanız gerekir, çünkü başarısız bir güncelleştirme yüklemek veya bazı bileşenleri geri döndürmek için.</S1266>
+      <S1281>Windows bileşeni kaldırma uyarısı</S1281>
+      <S1541>Windows 10 ' da, tutulan bileşenleri yeniden yükleme yapmadan konak Yenileme Sihirbazı 'nı kullanarak yeniden yapılandırmak mümkündür.</S1541>
+      <S1959>Bu tür hazır ayar ve güncelleştirme bileşimini bildirdiğinizden emin olun.</S1959>
+      <S2546>Daha eksiksiz bir kaldırma modunu tetiklemek için, aynı oturumda Windows Update'i de kaldırın.</S2546>
+    </Title>
+    <ReportingAndTelemetry>
+      <S0128>CEIP (SQM)</S0128>
+      <S0449>İstemci uygulamalarına herhangi bir biyometrik donanım veya örneğe doğrudan erişim kazanmaksızın biyometrik verileri yakalama, karşılaştırma, işleme ve saklama yeteneği verir.</S0449>
+      <S0526>Kilitlenme dökümlerini yakalamak ve bunları Microsoft 'a geri bildirmek için altyapı.</S0526>
+      <S0575>Çekirdek Hata Ayıklama</S0575>
+      <S1113>Telemetri veri toplama ve Windows geliştirmek için Microsoft 'a raporlama.</S1113>
+      <S1148>Bu hizmetler sistemin geçerli konumunu izler ve coğrafi çitleri yönetir (ilişkili olaylara sahip bir coğrafi konum).</S1148>
+      <S1197>Birleşik telemetri Istemcisi (Asimov)</S1197>
+      <S1277>Windows Biyometrik Hizmeti</S1277>
+      <S1283>Windows Müşteri Deneyimi Geliştirme Programı (CEIP), Microsoft müşterilerinin programları nasıl kullantıkları ve karşılaştığınız sorunlardan bazıları hakkında bilgi toplar. Microsoft bu bilgileri, müşterilerin en sık kullandığı ürünleri ve özellikleri geliştirmek ve sorunları çözmeye yardımcı olmak için kullanır. Programa katılım gönüllü ve son sonuçlar daha iyi Microsoft müşterilerinin ihtiyaçlarını karşılamak için yazılım geliştirmeleri.</S1283>
+      <S1288>Windows Hata Bildirimi</S1288>
+      <S1297>Konum Hizmeti</S1297>
+      <S1401>Wi-Fi ağ yöneticisi (Wi-Fi Sense)</S1401>
+      <S1402>Wi-Fi parolanızı Outlook, Skype veya Facebook kişilerinizle otomatik olarak paylaşma, arkadaşlar arasında sorunsuz Wi-Fi ağ kullanımını etkinleştirme olanağı sağlar.</S1402>
+      <S1444>Uzaktan Iletişim ve Gizlilik</S1444>
+      <S1453>Sunucu tarafından başlatılan Iyileştirme Istemcisi</S1453>
+      <S1454>Çevrimiçi olarak algılar ve makinede yüklü olan Windows ve Microsoft yazılımının otomatik olarak güncellenmesi için hayati önem taşıyan sistem bileşenlerini giderir.</S1454>
+      <S1551>Veri kullanım hizmeti</S1551>
+      <S1552>Ağ veri kullanımı, veri sınırı, arka plan verilerini, tarifeli ağları kısıtlayın. Ayarlar-ağ veri kullanımı Içerir.</S1552>
+      <S1646>Aygıt Yönetimi</S1646>
+      <S1647>Kurumsal ve kişisel cihazların kurumsal düzeydeki yönetimini sağlayan aygıt yönetimi yetenekleri sağlar.</S1647>
+      <S1648>Mobil Aygıt Yönetimi (MDM)</S1648>
+      <S1649>PC 'Ler, dizüstü bilgisayarlar, tabletler ve telefonlar için mobil cihaz yönetimi yetenekleri sağlar.</S1649>
+      <S1650>WAP Push Ileti yönlendirme hizmeti (dmwappushsvc)</S1650>
+      <S1651>Gelen itme iletisinin türünü belirlemekten ve iletiyi eşleşen istemci uygulamasına geçirerek, itme içeriğini göstermek için sorumlu.</S1651>
+      <S1652>Windows Sağlama</S1652>
+      <S1653>Hazırlama paketleri, kurumsal kullanım için bir veya daha fazla aygıt hazırlama yeteneğine sahiptir. Bu yürütülebilir paketler, hem ofis hem de kişisel kullanım cihazlarında kuralları etkinleştirmeye imkan tanıyan kuralların dağıtımında kolaylığı sağlar.</S1653>
+      <S1654>Kullanıcı aygıtı kaydı</S1654>
+      <S1655>Etki alanına katılma için gerekli.</S1655>
+      <S1688>Microsoft Passport</S1688>
+      <S1689>Kullanıcının ilişkili kimlik sağlayıcıları için kimlik doğrulaması için kullanılan şifreleme anahtarları için işlem yalıtımı sağlar.</S1689>
+      <S1712>Paylaşılan PC modu</S1712>
+      <S1713>Kuruluştaki touchdown Spaces ve Retail 'de geçici müşteri kullanımı gibi paylaşılan kullanım senaryoları için Windows 'ı En Iyi duruma getirir.</S1713>
+      <S1719>NDIS paket yakalama (NDISCAP)</S1719>
+      <S1720>Windows ağ Izleyicisi (NetMon) tarafından okunamıyor, böylece ağ trafiğini yakalar.</S1720>
+      <S1735>Akıllı Ekran</S1735>
+      <S1736>Kimlik avı ve kötü amaçlı yazılım filtresi, bir kullanıcı tarafından erişilen URL 'Leri, bilinen tehditleri içeren Web sitelerinin kara listesine karşı tarayarak saldırılarına karşı korunmasına yardımcı olmak için tasarlanmıştır.</S1736>
+      <S1803>IKE ve AuthIP IPSec anahtarlama modülleri</S1803>
+      <S1804>Internet Protokolü güvenliği (IPSEC) tarafından gerekli kimlik doğrulama ve anahtar değişimi özellikleri için hizmet.</S1804>
+      <S1805>KMS Bağlantı Aracısı</S1805>
+      <S1806>Toplu lisanslama, Windows ve Office için KMS aktivasyonu için gerekli.</S1806>
+      <S1807>Windows Insider Hub</S1807>
+      <S1808>Windows Insider Programı katılımcı geribildirim ve şube değişikliği için çeşitli araçlar.</S1808>
+      <S1915>Uygulamalar ve Özellikler alanından uygulamaları nereden alabileceğiniz seçin. Varsayılan, 'her yerden uygulamalara Izin ver'.</S1915>
+      <S1955>Deneyim geliştirme programı (NVIDIA Driver) Izin ver</S1955>
+      <S1957>Aygıt yönetimi kayıt hizmeti</S1957>
+      <S1958>Aygıt yönetimi için aygıt kayıt etkinliklerini gerçekleştirir.</S1958>
+      <S1966>Doğal kimlik doğrulama</S1966>
+      <S1967>Sensör girişine ve diğer güven faktörlerine bağlı olarak sürtünme içermeyen kimlik doğrulamasını etkinleştirir. Desteklenen özellikler aygıt kilidini, dinamik kilit ve Dynamo MDM politikaları.</S1967>
+      <S1989>WaaS değerlendirmesi</S1989>
+      <S1990>Bir aygıtın Windows güncelleştirmeleri ve desteği hakkında bilgi sağlar.</S1990>
+      <S1991>Hizmet olarak Windows (WaaS)</S1991>
+      <S1992>Atanmış Erişim</S1992>
+      <S1993>Yönetici, varolan bir kullanıcı hesabını seçtiğiniz yalnızca bir yüklenmiş Windows uygulamasını kullanmak üzere sınırlamak için atanmış erişimi kullanabilir. Bu, ticaret şovlarında restoran menüleri veya ekranlar gibi tek fonksiyonlu cihazlar kurmak için yararlı olabilir.</S1993>
+      <S1994>Enterprise veri koruması (EDP/WIP)</S1994>
+      <S1995>'Windows bilgi koruması' olarak da bilinen, kuruluş tarafından tanımlanan ilkeleri zorlayarak bir kuruluşa ait verileri korur.</S1995>
+      <S2416>Evrensel bildirim platformu (UNP)</S2416>
+      <S2417>Yükseltme ve gizlilik deneyimi (UPX), Windows yükseltmeleri üzerinde Popup olabilir gizlilik soruları kümesi için kullanılır. Bu kaldırıldıktan sonra, sistemdeki mevcut gizlilik ayarları Windows yükseltmelerinde otomatik olarak geçirilecektir.</S2417>
+      <S2433>Ağ veri kullanımı Izleme sürücüsü</S2433>
+      <S2434>Ağ veri kullanımı izleme işlevselliği sağlar, Ayrıca Görev Yöneticisi-Işlemler sekmesinin altındaki ağ kullanım değerlerini de sağlar.</S2434>
+      <S2443>MMGA MAPI</S2443>
+      <S2444>Microsoft mesajlaşma uygulama programlama arabirimi (MAPI) MMGA istemci ve sunucu için.</S2444>
+      <S2445>Hedeflenen Içerik hizmeti</S2445>
+      <S2446>Hedefli reklamlar destek, bireysel ilgi alanlarına donatılmış.</S2446>
+      <S2447>Yüz Tanıma</S2447>
+      <S2470>Görev Görünümü</S2470>
+      <S2471>Görev Switcher ve sanal masaüstü sistemi.</S2471>
+      <S2516>Uzak Masaüstü Lisansı</S2516>
+      <S2517>Uzak Masaüstü Lisansı için gerekli lisans ilkelerini ve telemetri Içerir.</S2517>
+      <S2558>Pano Kullanıcı Servisi</S2558>
+      <S2559>Bu kullanıcı hizmeti Pano senaryoları için kullanılır.</S2559>
+      <S2560>Web Hesap Yöneticisi</S2560>
+      <S2561>Bu hizmet, uygulamalara ve hizmetlere tek oturum açma sağlamak için Web Hesap Yöneticisi tarafından kullanılır.</S2561>
+      <S2582>Yapıştır ve Git</S2582>
+      <S2605>Sorun Raporları ve Çözümleri Kontrol Paneli Desteği</S2605>
+      <S2620>Paket İzleyicisi (PktMon)</S2620>
+    </ReportingAndTelemetry>
+    <Toolbar>
+      <S0162>Tümünü Daralt</S0162>
+      <S0171>Uyumluluk</S0171>
+      <S0172>Işlevsellik korumaları</S0172>
+      <S0177>Bileşen işlevselliği</S0177>
+      <S0375>Tümünü Genişlet</S0375>
+      <S0395>Ekstra seçenekler</S0395>
+      <S0413>Filtre</S0413>
+      <S0415>Sonraki Bul</S0415>
+      <S0416>Sonraki bulunan öğeye odaklan</S0416>
+      <S0618>Makine desteği (donanım listeleri)</S0618>
+      <S0849>Korumalı dosya desenleri</S0849>
+      <S0917>Sıfırla</S0917>
+      <S0919>Tüm bileşenleri geri işaretli olarak ayarlayın, kaldırılamaz.</S0919>
+      <S0957>Arama Kutusu</S0957>
+      <S1195>Tümünü Kaldır</S1195>
+      <S1601>Varsayılan yazı tipleri</S1601>
+    </Toolbar>
+    <List>
+      <S0176>Bileşen</S0176>
+      <S0394>Ek Bilgi</S0394>
+      <S0728>Notlar</S0728>
+      <S1021>Boyut</S1021>
+      <S1583>İçin gerekli:</S1583>
+      <S1594>Windows Önyükleme</S1594>
+      <S1609>Temel işlevsellik</S1609>
+      <S1785>Windows Etkinleştirme</S1785>
+    </List>
+    <Drivers>
+      <S0234>Tarih</S0234>
+      <S0293>Sürücü Ihracat</S0293>
+      <S0294>Dışa aktarılan sürücü</S0294>
+      <S0297>Sürücü kaldırma</S0297>
+      <S0520>Bireysel cihazlar [Gelişmiş]</S0520>
+      <S0698>WIM montaj ve depolama sürücüleri için gerekli.</S0698>
+      <S0869>Sürücü dosyalarını okuma bilgileri</S0869>
+      <S0870>Sürücü bilgisi okuma</S0870>
+      <S0969>Sürücüleri dışa aktarabileceğiniz bir dizin seçin</S0969>
+      <S1138>Bu bileşenler, belirli bir donanım türü için bir sürücü bile yükleyebilecek donanım sınıflarını ve genel desteği içerir.</S1138>
+      <S1201>Aygıtı Kaldırma</S1201>
+      <S1620>Verilebilir</S1620>
+    </Drivers>
+    <Other>
+      <S0291>Yapılı</S0291>
+      <S0344>Dosya yolu ucunu gir</S0344>
+      <S0356>Hata</S0356>
+      <S0378>Açık kaldırma desteklenmiyor</S0378>
+      <S0421>Fix Explorer yeniden adlandırma</S0421>
+      <S0470>Hyper-V</S0470>
+      <S0472>Hyper-V host</S0472>
+      <S0513>Gizli aygıtları Ekle</S0513>
+      <S0613>Uyumluluk tarafından kilitli</S0613>
+      <S0850>Koruma, seçili donanım listelerinden gizli ve takılı olmayan aygıtları içerir.</S0850>
+      <S0872>Yeniden Başlat</S0872>
+      <S0874>Şimdi Yeniden Başlat?</S0874>
+      <S0875>Alt bileşenleri yeniden kontrol edin?</S0875>
+      <S0876>Önerilen</S0876>
+      <S0886>Bağlıdır:</S0886>
+      <S0899>Kaldır</S0899>
+      <S0908>Kaldırılıyor</S0908>
+      <S0911>Düzeltme yordamını yeniden adlandır başarıyla tamamlandı.</S0911>
+      <S0912>Fix yordamını yeniden adlandır başarısız oldu, lütfen%temp%\NTLite.log dosyasına bağlı olarak rapor ver.</S0912>
+      <S0963>Canlı Kurulum düzenleme sırasında bir hata oluştu gibi görünüyor, yedekleme hazır durumda bu makine boot edemez daha fazla.</S0963>
+      <S1160>Dokunmatik ekran cihazları</S1160>
+      <S1357>Yalnızca canlı modda çıkarılabilir.</S1357>
+      <S1398>StartMenu ve Metro uygulamaları için gerekli.</S1398>
+      <S1450>Windows 10 Networking için gerekli.</S1450>
+      <S1451>Kutu dışı deneyim (OOBE)</S1451>
+      <S1767>Video Oynatma</S1767>
+    </Other>
+  </Components>
+  <General>
+    <UI>
+      <S0002>İptal</S0002>
+      <S0003>Tamam</S0003>
+      <S0098>Mavi</S0098>
+      <S0138>Güncelleştirmeleri günlük olarak denetle</S0138>
+      <S0212>Dosya Kopyala</S0212>
+      <S0233>Karanlık</S0233>
+      <S0435>Boş alan</S0435>
+      <S0602>Ön ayarı otomatik olarak yükle</S0602>
+      <S0760>Üzerine</S0760>
+      <S0761>Varolan dosyanın üzerine mi?</S0761>
+      <S0973>Geçici bir dizin seçin</S0973>
+      <S1009>Bilgi çubuğunu göster</S1009>
+      <S1118>Geçici dizin</S1118>
+      <S1119>Geçici dizin yok, varsayılan olarak geçiş yapma.</S1119>
+      <S1120>Geçici dizin yazılabilir değil.</S1120>
+      <S1121>Geçici dizin bir bölümün alt dizini olmalıdır.</S1121>
+      <S1122>Geçici dizin yerel bir NTFS bölümünde bulunmalıdır.</S1122>
+      <S1123>Geçici dizin bölümünün yeterli boş alanı yok.</S1123>
+      <S1139>Bağlama noktalarını ve geçici görüntü dosyalarını Içerir.</S1139>
+      <S1157>Araç ayarları</S1157>
+      <S1254>Görsel stil</S1254>
+      <S1355>Işık</S1355>
+      <S1382>Sıfır (ayıklamak) dizini</S1382>
+      <S1383>Paket ve diğer dosya ayıkmaları için geçici konum. Bunu en hızlı diskinize ayarlamak tümleştirmeleri hızlandırmaya yardımcı olabilir.</S1383>
+      <S1501>Başlat</S1501>
+      <S1502>Yapılandırma</S1502>
+      <S1503>Entegre</S1503>
+      <S1504>Otomatik</S1504>
+      <S1505>Bitir</S1505>
+      <S1624>Seçilen yolun tüm dosyaları ve dizinleri kullanım sırasında silinir!</S1624>
+      <S1632>Yakın</S1632>
+      <S1677>Yükle</S1677>
+      <S1756>Kopyala</S1756>
+      <S1764>Görüntü dosyalarını doğrula</S1764>
+      <S1765>Kötü bir disk veya hatalı bir ağ bağlantısı nedeniyle dosya bozulması algılar, ancak ekstra I/O işlemleri ve ekstra Hash denetimleri nedeniyle görüntü işleme zaman ekler.</S1765>
+      <S1766>Bu ayardaki değişiklik yalnızca yeni takılı görüntüler için geçerlidir.</S1766>
+      <S2410>Tümünü atla</S2410>
+      <S2420>Çevirici</S2420>
+      <S2440>Paralel olarak başka bir örnek başlatmak?</S2440>
+      <S2461>Maksimum örnek sayısı ulaştı.</S2461>
+      <S2498>Ekleme</S2498>
+      <S2521>Silmek</S2521>
+      <S2522>Trim</S2522>
+      <S2523>Indirilen güncelleştirmeler önbelleği</S2523>
+      <S2524>Kullanılmayan güncelleştirmeleri önbellekten silin, geçerli listelerden herhangi biri bulunamadı</S2524>
+    </UI>
+    <Other>
+      <S0005>Iptal edilen işleme.</S0005>
+      <S0007>Iptal</S0007>
+      <S0120>Geçici dizin bilgisi alınamıyor.</S0120>
+      <S0135>Güncelleştirmeleri denetleme</S0135>
+      <S0159>Geçerli oturumu Kapat?</S0159>
+      <S0160>Bu programı kapatmak mı?</S0160>
+      <S0178>Bileşen kaldırma</S0178>
+      <S0214>Lütfen CTRL+C ile panoya kopyalayın ve e-posta support@ntlite.com için yapıştırın</S0214>
+      <S0218>Mevcut olmayan geçici dizin oluşturmak?</S0218>
+      <S0256>Algılandı ' Tüm NTFS birimlerinin sıkıştırmasına izin vermeyin ' ilkesi veya bu makinede devre dışı bırakılmış NTFS sıkıştırması. Böyle bir makinede bir görüntü montaj OS tarafından desteklenmiyor. Devam etmek için bu ilkeyi veya bir ayarı devre dışı bırakmanız ve makineyi ilk kez yeniden başlatmanız gerekir.</S0256>
+      <S0258>Daha önce bu kaynaktan işleme iptal algılandı. Devlet bilinmiyor ve bu kaynak daha fazla kullanmak değil, bunun yerine kaldırmak, bilinen bir çalışma görüntüsü veya yedek ile değiştirmek ve yeniden, durumu geri yüklemek için hazır kullanarak en iyi olacaktır.</S0258>
+      <S0259>Algılanan desteklenmeyen Windows sürümü.</S0259>
+      <S0295>Sürücü entegrasyonu</S0295>
+      <S0398>Geçici dizin oluşturulamadı.</S0398>
+      <S0402>Özellik kurulumu</S0402>
+      <S0418>Tümleştirme listesine paket ekleme tamamlandı.</S0418>
+      <S0522>Bilgi</S0522>
+      <S0523>Bilgi</S0523>
+      <S0597>Canlı kurulum Düzenle</S0597>
+      <S0599>Canlı (çevrimiçi) yapılandırma yalnızca lisanslı sürüm içindir. Uygulama devre dışı bırakılacaktır.</S0599>
+      <S0672>Monte edilmiş görüntüler monte edilecektir.</S0672>
+      <S0725>Yeterli disk alanı yok.</S0725>
+      <S0744>Sadece ücretsiz lisans mevcuttur.</S0744>
+      <S0763>Paket entegrasyonu</S0763>
+      <S0790>Lütfen tüm görüntü içeriğini yazılabilir bir konuma kopyalayın.</S0790>
+      <S0792>Lütfen bu aracın 64-bit sürümünü yükleyin.</S0792>
+      <S0794>Lütfen herhangi bir sorunu bildir.</S0794>
+      <S0803>Dil değişikliklerinin etkili olması için bu aracın yeniden başlatılması gerekiyor.</S0803>
+      <S0829>Hazır ayar yükü</S0829>
+      <S0832>İlgili sürücü tümleştirme günlüğünü açmak için Tamam 'a basın. Dosyanın sonuna yakın (zararsız) reg Hive hatalarını boşaltmadan önce okuyun.</S0832>
+      <S0833>Bu programın önceki örneği zaten çalışıyor.</S0833>
+      <S0868>Veri okuma</S0868>
+      <S0873>Tüm değişikliklerin etkili olması için yeniden başlatma gereklidir.</S0873>
+      <S0949>Genel ayarları kaydetme başarısız oldu.</S0949>
+      <S1134>Kaynak artık bilinmeyen bir durumda ve kullanılmak üzere önerilmez.</S1134>
+      <S1144>Bu program tamamen istemci Windows destekler 7, 8,0, 8,1 ve 10 (daha fazla bilgi için Özellikler sayfası online bakın), perakende, hacim ve OEM; görüntü veya zaten yüklü (C:\Windows) bir biçimde.
+Bileşenler ve özellik yapılandırması hariç olmak üzere sunucu sürümleri için kısmi destek.
+Checked/Debug ve Embedded Editions, ne Vista veya XP desteklemiyor.</S1144>
+      <S1155>Başka bir resim seçmek Için, geçerli kaldırma veya araç çubuğundan yeni oturum Seç.</S1155>
+      <S1190>Katılımsız yapılandırma</S1190>
+      <S1215>Güncelleştirme tümleştirme</S1215>
+      <S1222>Daha fazla seçenek için soldaki sayfa gezintisini kullan.</S1222>
+      <S1227>Kullanıcı iptal edildi</S1227>
+      <S1550>32-bit ana bilgisayarda 64-bit program çalıştırılamıyor</S1550>
+      <S1605>Araç beklenmedik şekilde çöktü, rahatsızlık için üzgünüm.
+Lütfen analiz için support@ntlite.com aşağıdaki dosyaları gönderin:</S1605>
+      <S1761>Genellikle silinir gibi Scratch Directory Windows geçici dizin ve bu araç farklı olmalıdır.</S1761>
+    </Other>
+    <Menu>
+      <S0008>Hakkında</S0008>
+      <S0009>Program bilgilerini, sürüm numarasını ve telif hakkını görüntüleme</S0009>
+      <S0137>Güncelleştirmeleri denetle</S0137>
+      <S0139>Bu aracın mevcut daha yeni bir sürümü olup olmadığını denetleyin</S0139>
+      <S0373>Çıkış</S0373>
+      <S0374>Uygulamadan çıkın; belgeleri kaydetmeyi ister</S0374>
+      <S0404>Dosya</S0404>
+      <S0619>Ana menü</S0619>
+      <S0880>Kayıt yaptır</S0880>
+      <S0881>Lisansınızı yönetin ve yükseltin, tüm özellikleri etkinleştirin</S0881>
+      <S0998>Ayarlar</S0998>
+      <S0999>Uygulama ayarları</S0999>
+      <S1158>Araç çubuğu</S1158>
+      <S1176>Twitter 'da bizi ziyaret edin @NTLite</S1176>
+      <S1627>Lisansı yönet</S1627>
+      <S1642>Web sitesi</S1642>
+      <S1643>Email</S1643>
+      <S2547>Sert bağlantılar</S2547>
+    </Menu>
+    <CommandLine>
+      <S2587>Komut satırı parametreleri</S2587>
+      <S2588>Görüntü yükleyin ve ön ayarı uygulayın</S2588>
+      <S2589>Görüntü kaynağı yolu</S2589>
+      <S2590>WIM/ESD veya görüntü klasörü yolu (Değişiklikler doğrudan uygulanır)</S2590>
+      <S2591>Resim basım indeksi</S2591>
+      <S2592>Ön ayar dizinindeki ön ayarın adı veya doğrudan önayarlı dosya yolu</S2592>
+      <S2593>ISO hedef yolu</S2593>
+      <S2594>Ortaya çıkan ISO görüntüsünün kaydedileceği yer</S2594>
+      <S2595>Örnek</S2595>
+      <S2596>Resim bulunamıyor</S2596>
+      <S2598>İşlemden sonra çıkış</S2598>
+      <S2599>Devre dışı bırakmak için 0 veya bu işlevselliği etkinleştirmek için 1 yazın</S2599>
+    </CommandLine>
+  </General>
+  <Source>
+    <Images>
+      <S0004>İptal işlemi iptal eder.</S0004>
+      <S0058>Otomatik olarak düzeltin ve yeniden deneyin?</S0058>
+      <S0093>64-bit</S0093>
+      <S0094>32-bit</S0094>
+      <S0103>Önyükleme kesimi okuma hatası, özgün 'önyükleme'veya' EFI' dizini bulunduğundan emin olun.</S0103>
+      <S0104>Önyükleme/Kurulum</S0104>
+      <S0123>Takılı görüntü değiştirilemiyor.</S0123>
+      <S0143>ISO dosya hedefini seç</S0143>
+      <S0144>Görüntünün kaydedileceği yeri seçin</S0144>
+      <S0145>Üzerine yazmak için Evet 'i veya hedef görüntüye eklemek için Hayır 'ı seçin.</S0145>
+      <S0149>Montaj dizini Temizleme</S0149>
+      <S0183>Sıkıştırma çok fazla kaynak gerektirir</S0183>
+      <S0202>Görüntüyü ESD biçimine dönüştürmek?</S0202>
+      <S0203>Görüntüyü standart WIM biçimine dönüştürme?</S0203>
+      <S0213>Resim dosyalarını önce yazılabilir bir konuma kopyalama.</S0213>
+      <S0215>Sürümü düzeltme</S0215>
+      <S0228>Geçerli görüntü dönüşümden sonra değiştirilir, bu operasyondan önce el ile yedekleme.</S0228>
+      <S0241>Geçici dosyaları silme</S0241>
+      <S0254>Aynı Bağlama yolu ancak farklı WIM ile başka bir takılı görüntü algılandı.</S0254>
+      <S0255>Aynı WIM ve Dizin ancak farklı mountpath ile başka bir takılı görüntü algılandı.</S0255>
+      <S0257>Mount dizini içinde kullanımda algılanan dosya.</S0257>
+      <S0272>Değişiklikleri atma</S0272>
+      <S0287>Bu arta kalan görüntüyü monte edilmiş görüntüler listesinden kaldırmak istiyor musunuz?</S0287>
+      <S0346>Bölümü siz girin:</S0346>
+      <S0359>ESD (elektronik yazılım Indirme) görüntü formatı gerçekler</S0359>
+      <S0380>Explore Dizin</S0380>
+      <S0381>Explore bağlama dizini</S0381>
+      <S0384>Tümünü Dışa Aktar</S0384>
+      <S0390>İhracat</S0390>
+      <S0407>Hedef dosya başka bir program tarafından açık, muhtemelen monte.</S0407>
+      <S0422>Bayrak</S0422>
+      <S0432>Uygulama kökünde Oscdimg bulundu ve kullanma.</S0432>
+      <S0462>Yüksek sıkıştırma, salt okunur</S0462>
+      <S0468>Ana bilgisayar Windows şu anda bileşen yapılandırma modunda gibi görünüyor.</S0468>
+      <S0479>Önce görüntüden bazı paketler kaldırılmışsa, lütfen özgün bir görüntü kullanarak oturumu yeniden başlatın.</S0479>
+      <S0480>Sorun beklenmeyen ve kalıcı ise, resmi web sitesinden bir güncelleme için el ile kontrol edin ve yeni sürümü ile yeniden deneyin veya e-posta bize ulaşın.</S0480>
+      <S0483>Eğer bekleyen değişiklikler varsa, görüntü kaldırıldı ve ISO yapmadan önce kaydedilmiş emin olun, aksi takdirde devam.</S0483>
+      <S0486>Görüntü verme</S0486>
+      <S0487>Görüntü verme işlemi başarısız oldu. Muhtemelen şifreli ESD görüntü. Bu durumda, lütfen bu şifrelenmiş ESD 'nin ISO biçimine dönüştürülmesi için ' ESD şifresini ' arayın ve kullanın. Ya da tam Decrypter olmadan kutunun dışında desteklenen resmi medya Indirme Aracı (şifrelenmemiş ESD) sürümü, alın.</S0487>
+      <S0488>Görüntü Geçmişi</S0488>
+      <S0489>Görüntü başka bir uygulama tarafından açık.</S0489>
+      <S0490>Görüntü salt okunur.</S0490>
+      <S0491>Görüntü birleştirme</S0491>
+      <S0492>Görüntü yükü</S0492>
+      <S0493>Görüntü kullanılamaz olabilir ve düzenleme yeniden başlatıldıktan sonra taze yeniden başlatılması gerekir.</S0493>
+      <S0494>Görüntü montajı</S0494>
+      <S0495>Görüntü kaydet</S0495>
+      <S0496>Görüntü bölme</S0496>
+      <S0497>Görüntü bölme gerekli değil, boyutu zaten parça boyutu daha küçüktür</S0497>
+      <S0498>Görüntü kaldırma</S0498>
+      <S0499>Herhangi bir değişiklik kaydetmeden görüntü kaldırma</S0499>
+      <S0503>Görüntü</S0503>
+      <S0553>Geçersiz</S0553>
+      <S0556>Geçersiz Windows görüntü yolu</S0556>
+      <S0558>ISO görüntü</S0558>
+      <S0559>ISO görüntü tüm dizin oluşturulur</S0559>
+      <S0560>ISO etiketi</S0560>
+      <S0596>Canlı Yükleme</S0596>
+      <S0598>Canlı Yükleme yükü</S0598>
+      <S0604>Yüklü</S0604>
+      <S0621>Kayıt defteri kovanları başka bir araç tarafından açık olmadığından emin olun ve sonra yeniden deneyin.</S0621>
+      <S0652>Bu görüntü için minimum işlevsel bölünmüş parça boyutu</S0652>
+      <S0653>Windows 7 için minimum önerilen bölünmüş parça boyutu bir Windows kurulum sınırlaması nedeniyle 200MB.
+Bu görüntü yükleme ' genişleyen Windows dosyaları ' sonra çok uzun süre sıkışmış alır, WIM geri dönüştürmek ve daha büyük bir bölme parçası boyutu deneyin.</S0653>
+      <S0654>Minimum bölme boyutu uyarısı</S0654>
+      <S0659>Eksik beklenen sistem kullanıcı kayıt defteri.</S0659>
+      <S0660>Bozuk Mount girişi, bu oldukça kaldırmak için tavsiye edilir veya herhangi bir görüntü montaj hataları alabilirsiniz.</S0660>
+      <S0669>Monte Görüntü</S0669>
+      <S0670>Monte Edilmiş</S0670>
+      <S0671>Monte Edilmiş Görüntüler</S0671>
+      <S0673>Montaj Görüntüsü</S0673>
+      <S0674>Bağlama Yolu</S0674>
+      <S0723>Hiçbiri</S0723>
+      <S0727>Not: Onun şu anda yüklü görüntü değil, bu araç ile herhangi bir değişiklik uygulamak için, önce görüntüyü yüklemek gerekir.</S0727>
+      <S0750>İşletim Sistemi</S0750>
+      <S0751>Işletim Sistemleri</S0751>
+      <S0791>Lütfen silin ve çalışma görüntüsü ile değiştirin.</S0791>
+      <S0793>Lütfen yeniden başlatın ve yeniden deneyin.</S0793>
+      <S0797>Lütfen kaynaklar serbest bırakıldığında yeniden deneyin veya makineyi iptal edin ve yeniden başlatın.</S0797>
+      <S0799>Lütfen Windows kurulum dosyalarını bir Windows Kur DVD 'sinden, ISO veya USB Stick 'ten yazılabilir bir dizine kopyalayın ve yerine bu konumu ekleyin.
+Bir ISO içeriğini almak Için, ya Mount ve dosyaları kopyalamak için bir dosya yöneticisi kullanmak, ya da 7-Zip ile ayıklamak.</S0799>
+      <S0800>Lütfen Windows Kurulum DVD 'sinden, ISO veya USB içeriğine, kaynaklar alt dizinine Install. wim veya Boot. wim adlı bir WıM görüntüsü seçin.</S0800>
+      <S0801>Lütfen yeniden denemeden önce bu resim dosyasından takılı (mavi durum simgesi) sürümlerini kaldırın.</S0801>
+      <S0802>Lütfen her iki görüntüyü kaldırın ve işlemi yeniden başlatın.</S0802>
+      <S0822>ISO Görüntüsü için dosya hazırlama.</S0822>
+      <S0863>Salt okunur. Görüntüyü düzenlemek Için, geri WIM 'ye dönüştürülmesi gerekir</S0863>
+      <S0865>Kayıt Defterini Oku.</S0865>
+      <S0877>Kullanılabilir olduğunda Yenile</S0877>
+      <S0885>Kayıt defteri kaldırma</S0885>
+      <S0898>Bu Windows sürümündeki kaldırma desteklenmiyor.</S0898>
+      <S0914>Görüntü Yeniden Açma</S0914>
+      <S0915>Kaynak Görüntüyü Değiştir</S0915>
+      <S0924>Yeniden</S0924>
+      <S0925>Yeniden deneme sayısı</S0925>
+      <S0940>Varolan değişiklikleri görüntüye Kaydet</S0940>
+      <S0948>Görüntüye yapılan değişiklikleri kaydet</S0948>
+      <S0950>ISO Görüntüsünü Kaydet</S0950>
+      <S0968>Windows yükleme dosyalarını içeren bir dizin seçin</S0968>
+      <S0977>Bir Windows yansıma dosyası seçin</S0977>
+      <S0982>ISO dosyasının oluşturulacağı seçili dizin takılı görüntüler içerir.</S0982>
+      <S0984>Seçili kaynak zaten listede</S0984>
+      <S0996>Boyutunu ayarlamak istiyor musunuz</S0996>
+      <S1046>Kaynak listesi</S1046>
+      <S1049>Yayılmış, bölünmüş</S1049>
+      <S1054>Split Image, Windows 8 ve daha yenisi üzerinde Microsoft tarafından resmi olarak desteklenmemektedir.
+Ancak parça boyutu yeterince büyük ise işe bilinmektedir.
+Windows 8 ve daha yenisi için en az önerilen bölünmüş parça boyutu son kaynak görüntü boyutunun yarısını oluşturmaktadır.
+Bu görüntü yüklemesi, geçerli bir sağlanan olsa bile, bir ürün anahtarı veya Windows lisansı soran önyükleme sıkışmış alır WIM geri dönüştürmek ve daha büyük bir bölme parçası boyutu deneyin.</S1054>
+      <S1055>Görüntü parçasını Böl</S1055>
+      <S1057>Seçilen WIM görüntüsünü birden fazla SWM parçaya bölme?</S1057>
+      <S1059>Splitting</S1059>
+      <S1061>Standart, düzenlenebilir</S1061>
+      <S1073>Görüntüye veri depolamadan önce durdu. Hazır olduğunda görüntüyü kaynak sayfadan el ile kaldırın.</S1073>
+      <S1087>Yalnızca Windows 8 veya daha yeni kurulum için desteklenir</S1087>
+      <S1130>Görüntü bozuk.</S1130>
+      <S1131>Görüntü bozuk olabilir.</S1131>
+      <S1140>Bu görüntü desteklenmiyor.</S1140>
+      <S1145>Bu program ISO işlemleri için Windows ıMAPı 2 kullanır, IŞLETIM SISTEMININ çalışan bir IMAPI bileşeni olduğundan emin olun. Alternatif olarak, Oscdimg. exe dosyasını kökte (NTLite. exe ' nin yanında) kopyalayın ve bunun yerine kullanılacaktır.</S1145>
+      <S1154>Bu araç ile herhangi bir değişiklik uygulamak Için, yerine soldaki Uygula sayfasını kullanın.</S1154>
+      <S1171>Önce kaldırma deneyin.</S1171>
+      <S1179>ISO Görüntüsü için bir etiket yazın:</S1179>
+      <S1204>Görüntüyü Kaldır</S1204>
+      <S1205>Kayıt Defteri Kaldırılamadı.</S1205>
+      <S1207>Görüntüyü boşaltma, değişiklikleri atma</S1207>
+      <S1208>güvensiz</S1208>
+      <S1210>Desteklenmeyen görüntü mimarisi.</S1210>
+      <S1211>Desteklenmeyen kaldırma</S1211>
+      <S1257>Geçerli sistem eylemi (CCA 40 Retries) bekliyor.</S1257>
+      <S1267>Uyarı</S1267>
+      <S1273>Bir Mount dizinini açarken, görüntüyü kaydederken herhangi bir dosya veya dizini açık tutmamaya dikkat edin veya görüntü bozulur.</S1273>
+      <S1340>Seçili kaynak yalıtılmış bir görüntüdür, böylece ISO işlevselliği oluşturmak devre dışı bırakılacaktır.
+Tam işlevsellik Için tüm Windows Kurulum DVD 'sini, ISO veya USB içeriğini kopyalamanız ve bunun yerine görüntüyü bu dizinden yeniden yüklemeniz gerekir.</S1340>
+      <S1341>İzole</S1341>
+      <S1351>Görüntü değiştirildi, liste yenilenmiştir, lütfen yeniden deneyin.</S1351>
+      <S1542>Seçilen kaynak bir canlı, zaten yüklü Windows. Katılımsız, post-Setup sayfası, kayıt defteri sayfası entegre, sürücüleri eklemek ve ISO işlevlerini oluşturmak devre dışı bırakılacaktır, onlar sadece yükleme görüntüleri için olduğu gibi.</S1542>
+      <S1621>Ayrıca bu, sınırlı sayıda bağlantı içeren bir ağ paylaşımında bulunan bir görüntü olması ve paralel bağlantı dışında çalıştırılabilmektedir.</S1621>
+      <S1760>Görüntü işlemi durduruldu, bir hata oluştu.</S1760>
+      <S1774>Uyumsuz</S1774>
+      <S1776>Dosya şu anda meşgul veya erişim engellendi. Bazen virüsten koruma arka plan şu anda aynı dosyayı tarama nedeniyle, yeniden denemeden değer olabilir.
+İptal edilirse, operasyon çok önemli ve işlemi iptal ederse, araç sizi uyaracaktır.</S1776>
+      <S1813>Seçili görüntü sürümünü siler misin?</S1813>
+      <S1974>Kaydedileceği yeri seçin, yeni bir görüntü dosyası olarak veya varolan bir dosyaya katıl</S1974>
+    </Images>
+    <Toolbar>
+      <S0020>Ekle</S0020>
+      <S0023>Görüntü dosyası (WIM, ESD, SWM)</S0023>
+      <S0024>Listeye Windows yansıması ekleme</S0024>
+      <S0155>Klon</S0155>
+      <S0158>Seçili hazır ayarın kopyasını yapma</S0158>
+      <S0201>Dönüştür</S0201>
+      <S0205>Seçili görüntüyü bir WıM, ESD veya SWM biçimine Dönüştür.</S0205>
+      <S0206>ESD 'ye Dönüştür</S0206>
+      <S0207>Seçilen görüntüyü Windows 8 veya daha yeni kurulumunda desteklenen yüksek sıkıştırma ESD biçimine dönüştürün.</S0207>
+      <S0208>SWM (Split Image) dönüştürün</S0208>
+      <S0209>Seçili görüntüyü yayılmış, SWM biçimine Dönüştür; görüntü bölme olarak da bilinir. Örneğin FAT32 tek dosya 4GB kısıtlamasını atlamak için kullanılır veya birden çok medya üzerinde görüntü yayılma.</S0209>
+      <S0210>WIM 'ye Dönüştür</S0210>
+      <S0211>Seçili görüntüyü montaj ve düzenleme için hazır olan standart bir WıM biçimine Dönüştür.</S0211>
+      <S0220>ISO Oluştur</S0220>
+      <S0221>Seçili Windows yansıma dizininden ISO yansıması oluşturun. Zaten yüklü bir Windows (Live Install) bir ISO oluşturulamıyor.</S0221>
+      <S0238>Sil</S0238>
+      <S0240>Seçili hazır ayarı sil</S0240>
+      <S0383>İhracat</S0383>
+      <S0391>Seçilen ön ayarı bir dosyaya Dışa Aktar</S0391>
+      <S0427>Unut</S0427>
+      <S0428>Seçili öğeyi görüntü geçmişi listesinden kaldır</S0428>
+      <S0484>Görüntü</S0484>
+      <S0501>Görüntü dizini</S0501>
+      <S0502>Listeye Windows görüntü dizini ekleme</S0502>
+      <S0505>Alma</S0505>
+      <S0512>Harici ön ayarı listeye alma</S0512>
+      <S0600>Yükle</S0600>
+      <S0605>Gerekirse monte edin ve seçili kaynağı düzenlemek için yükleyin</S0605>
+      <S0607>Kaydedilmiş oturum değişikliklerini yükle</S0607>
+      <S0715>Yeni</S0715>
+      <S0716>Tüm geçerli ayarları kaynak varsayılanlarına Sıfırla</S0716>
+      <S0717>Yeni Oturum</S0717>
+      <S0718>Yeni oturumu başlatın, varolan bağlar açmadan başka bir kaynak yüklemeye hazır.</S0718>
+      <S0824>Hazır</S0824>
+      <S0878>Listeleri Yenile</S0878>
+      <S0879>Görüntü ve hazır ayar listelerini Yenile</S0879>
+      <S0910>Adlandırmak</S0910>
+      <S0913>Seçilen ön ayarı yeniden adlandır</S0913>
+      <S0937>Kaydet</S0937>
+      <S0938>Farklı Kaydet...</S0938>
+      <S0943>Geçerli bekleyen değişiklikleri bir hazır ayara kaydet</S0943>
+      <S0947>Seçili hazır ayar üzerinden geçerli bekleyen değişiklikleri Kaydet</S0947>
+      <S1203>Kaldır</S1203>
+      <S1206>Görüntüleri değişiklikleri kaydetmek için bir seçenek ile, seçili kaynağı kaldırın ve kaldırın</S1206>
+      <S1420>Yeniden Sıkıştırmak</S1420>
+      <S1622>Çok uzun dosya yolu algılandı, yükleme dosyalarını kısaltılmış dizin yoluna taşıyın ve bu adımı yeniden deneyin.</S1622>
+      <S1623>Atlanan Dosyalar.</S1623>
+      <S2597>Görüntü dönüşüm hedefi</S2597>
+    </Toolbar>
+    <Presets>
+      <S0057>Otomatik kaydedilmiş oturum</S0057>
+      <S0142>Dışa aktarılan hazır ayar dosyası hedefini seçme</S0142>
+      <S0156>Klonlama hazır ayarı</S0156>
+      <S0157>Seçili hazır ayarı Klonla</S0157>
+      <S0174>Tamamlandı</S0174>
+      <S0175>Birden çok hazır yükleme tamamlandı.</S0175>
+      <S0239>Seçili hazır ayarları sil?</S0239>
+      <S0251>Hedef adı</S0251>
+      <S0252>Hedef hazır ayar adı</S0252>
+      <S0313>Düzenle XML</S0313>
+      <S0506>Alınan</S0506>
+      <S0511>Hazır ayarı al</S0511>
+      <S0555>Geçersiz hazır ayar dosyası</S0555>
+      <S0584>Son değişiklik</S0584>
+      <S0603>Hazır ayarı yükle</S0603>
+      <S0661>Eksik hazır ayar</S0661>
+      <S0756>Orijinal ad</S0756>
+      <S0825>Hazır ayar klonu</S0825>
+      <S0826>Silinmiş hazır ayar</S0826>
+      <S0827>Hazır ayar verme.</S0827>
+      <S0828>Dışa aktarılan hazır ayar</S0828>
+      <S0830>Hazır ayar adı</S0830>
+      <S0831>Önayarları</S0831>
+      <S0867>Okuma XML</S0867>
+      <S0918>Bekleyen değişiklikleri görüntü varsayılanlarına sıfırla?</S0918>
+      <S0941>Kaydet (üzerine yaz)</S0941>
+      <S0942>Ayarları Kaydet</S0942>
+      <S0972>Alınacak hazır ayar dosyalarını seçin</S0972>
+      <S1180>Geçerli görüntü ayarlarını kaydetmek için yeni veya varolan bir hazır ayar için ad yazın.</S1180>
+      <S1181>Hazır ayar için yeni bir ad yazın</S1181>
+      <S1343>filtrelemek için buraya yazın</S1343>
+    </Presets>
+    <Title>
+      <S0601>Aşağıdaki varolan kaynağı yükleyin veya yukarıdaki araç çubuğunu kullanarak listeye yeni bir tane ekleyin.</S0601>
+      <S1044>Kaynak</S1044>
+      <S1045>Kaynak bir Windows DVD, USB veya ISO içeriği yazılabilir bir dizine kopyalanır olabilir.</S1045>
+    </Title>
+    <Wizards>
+      <S1742>Host Yenileme</S1742>
+      <S1743>Bu sihirbaz, varolan dosyaları, ayarları veya 3. taraf uygulamalarını kaybetmeden geçerli ana bilgisayar yüklemesini (C:\Windows) güncelleştirmenize veya yükseltmeden yardımcı olur.</S1743>
+      <S1744>Bu yöntem özellikle için yararlıdır:
+ - bir Lite kurulumuna toplu güncelleştirmeler yükleme
+ - önceden yapılandırılmış bir Windows yansımasına yükseltme
+ - varolan bileşen yapılandırmasını değiştirme
+ - genel olarak kurtarma</S1744>
+      <S1745>Bunun yerine Host Yenileme Sihirbazı 'nı aç?</S1745>
+      <S1746>Tabanı, düzenlenmemiş, tam Windows 10 görüntüsünü seçin:</S1746>
+      <S1747>Filter list by Host sürümü ve mimariye göre filtre listesi edition and architecture</S1747>
+      <S1748>Düzenleme sırasında geçici bir konuma kopyala</S1748>
+      <S1749>Bir hazır ayar seçin:</S1749>
+      <S1750>Yüklemeden önce manuel ayarlamalar için sor</S1750>
+      <S1751>Hazır olduğunuzda uygulama sayfasından manuel devamı bekleniyor.</S1751>
+      <S1752>Güncellemeler sayfasında en yeni toplu güncelleştirmeleri eklemeniz önerilir.</S1752>
+      <S1753>Setup.exe yükseltme modunda çalıştırın ve Yenile başlatmak</S1753>
+      <S1754>Bu sihirbaz, Setup.exe ve ISO içerik dosyalarının geri kalanı ile birlikte bir görüntü gerektirir.</S1754>
+      <S1755>Windows Kur yenileme başlatılırken bir hata oluştu, ancak el ile çalıştırmayı yeniden deneyebilirsiniz.</S1755>
+      <S1757>Sihirbaz</S1757>
+      <S1758>Güncelleştirmeleri Yükle</S1758>
+      <S1759>Zaten indirilen güncelleştirmeleri hızlı bir şekilde yüklemenizi sağlar.</S1759>
+      <S2497>Araçlar</S2497>
+    </Wizards>
+    <Tasks>
+      <S1772>İşlem sırasında otomatikleştirmek için hangi görüntü görevlerini seçin. Şu anda yüklü görüntü ve bekleyen değişiklikleri başvuru.</S1772>
+      <S1773>Bu sayfadaki görüntü görevlerini yüklenen görüntü varsayılanlarına Sıfırla, bekleyen değişikliklerin geri kalanını tutma</S1773>
+      <S1775>Resim görevleri</S1775>
+      <S1791>Sonraki resim sürümüne devam etmek için OK tuşuna basın.</S1791>
+      <S1792>Resim görevleri seçin</S1792>
+      <S1793>Toplam bekleyen görevlere genel bakış</S1793>
+      <S1794>Kaydetme modu</S1794>
+      <S1795>Görüntüyü Kaydet</S1795>
+      <S1796>Görüntüyü kaydedin ve sürümleri kırpın</S1796>
+      <S1797>Görüntü dosyası yapısını optimize edin</S1797>
+      <S1798>Temel olmayan sürümleri Kaldır</S1798>
+      <S1799>Görüntü formatı</S1799>
+      <S1800>Görüntü işlemi sırası (bekleyen görevleri diğer sürümlere yeniden Uygula)</S1800>
+      <S1801>Yedekleme günlüğü ve önceden ayarlı değil</S1801>
+      <S1802>Görüntüye yapılan değişiklikleri kaydet</S1802>
+    </Tasks>
+  </Source>
+  <Updates>
+    <Other>
+      <S0006>İptal Etmek</S0006>
+      <S0111>Yapı tarihi</S0111>
+      <S0118>İptal</S0118>
+      <S0119>DISM bulunamıyor. Bu oturum için etkilenen seçenekleri devre dışı bırakma.</S0119>
+      <S0161>Kapanma DISM</S0161>
+      <S0179>Bileşen deposu bozuk, lütfen orijinal görüntüyü kopyalayın ve yeniden başlatın.</S0179>
+      <S0197>Devam</S0197>
+      <S0226>Önemli dosyalar zaten başka bir işlem tarafından kullanılıyor.</S0226>
+      <S0227>Önemli paket algılanmadı, lütfen rapor ile oturum bağlı.</S0227>
+      <S0372>Varolan paketler</S0372>
+      <S0396>Ayıkla</S0396>
+      <S0531>Yükleme Beklemede</S0531>
+      <S0533>Yüklü</S0533>
+      <S0540>Entegre</S0540>
+      <S0541>Entegre bir kez çalıştır</S0541>
+      <S0606>Yükleme...</S0606>
+      <S0642>İletiler</S0642>
+      <S0657>Eksik önemli dosyalar.</S0657>
+      <S0668>Mount dizini kullanımda gibi görünüyor. Bu araç, makinenizde tüm DISM oturumları kapatmak için devam etmeden önce devam eden başka bir DISM işlemi olmadığından emin olun.
+Ne açık tutmak biliyorsanız, kapatma sonra Iptal tuşuna basın.</S0668>
+      <S0720>Hayır</S0720>
+      <S0739>Bir veya birkaç üst özellikleri devre dışı bırakılır, böylece Özellik etkinleştirilemez.</S0739>
+      <S0747>Dosya konumunu aç</S0747>
+      <S0749>Web makalesini aç</S0749>
+      <S0752>İşlem desteklenmiyor.</S0752>
+      <S0753>İşlem eksik dosyaları gerektirir.</S0753>
+      <S0764>Paket bu görüntüye uygulanamaz.</S0764>
+      <S0767>Paket</S0767>
+      <S0782>Yolu</S0782>
+      <S0784>Bekleyen kayıt defteri işlemi algılandı.</S0784>
+      <S0796>Lütfen yeniden başlatın ve yeniden deneyin.</S0796>
+      <S0798>Lütfen başka bir resim seçin veya önce makineyi yeniden başlatmayı deneyin.</S0798>
+      <S0864>Read package data</S0864>
+      <S0871>Paket tarama</S0871>
+      <S0887>Yayın türü</S0887>
+      <S0967>Güncelleştirmeleri veya dil paketlerini içeren bir dizin seçin</S0967>
+      <S0974>Eklemek için güncelleştirme veya dil paketi dosyalarını seçin</S0974>
+      <S1029>Geçerli işlem atlanıyor.</S1029>
+      <S1047>SP1 ön koşul</S1047>
+      <S1060>Aşamalı</S1060>
+      <S1078>Değiştirilen</S1078>
+      <S1129>Görüntü çevrimdışı hizmet hatası tarafından zarar görmüş ve daha fazla hizmet izni verilmez.</S1129>
+      <S1135>Belirtilen görüntü devam etmek için gereken önemli dosyaları içeren değil veya bazı dosyalar kullanımda.</S1135>
+      <S1136>Belirtilen görüntü geçerli bir durumda değil.</S1136>
+      <S1162>Okunamayan veya desteklenmeyen dosya</S1162>
+      <S1165>Varolan öğe</S1165>
+      <S1167>Varolmayan dosya yolu</S1167>
+      <S1199>Kaldırma beklemede</S1199>
+      <S1200>Kaldırıldı</S1200>
+      <S1213>Güncelleştirme</S1213>
+      <S1240>Sürüm</S1240>
+      <S1332>Evet</S1332>
+      <S1356>Yanlış mimari</S1356>
+      <S1370>Eksik Önkoşullar</S1370>
+      <S1371>Önerilmez</S1371>
+      <S1372>Yükleme son aşaması yavaşlatır ve aslında gerekli bir güncelleme değil, kontrol online KB makale.</S1372>
+      <S1396>Etkinleştirmeyi önler .NET Framework v3.5 özelliği, bu entegre ile önce veya birlikte etkinleştirdiğinizden emin olun.</S1396>
+      <S1397>Önyükleme yükleyicisi olarak Windows kullanılırsa, yeniden başlatma döngüsüne neden olabilir. Bu güncelleştirmeyi yüklediğinizde Windows önyükleme yükleyicisi 'ni doğrudan etkinleştirmek için BIOS ayarlarını değiştirdiğinizden emin olun.</S1397>
+      <S1544>Çalışırken sorunlara neden olabilir .NET Framework v4.6 uygulama.</S1544>
+      <S1573>Microsoft, RDP 8.1 için yükseltme ve RDP 8.0 güncelleştirmeleri uygulama önerir.</S1573>
+      <S1574>Bu güncelleştirme yalnızca belirli Windows 10 sürümü içindir</S1574>
+      <S1584>Bulunmayan</S1584>
+      <S1585>Çözme</S1585>
+      <S1586>Çözülmüş</S1586>
+      <S1587>Hazırlama</S1587>
+      <S1588>Kısmen Yüklü</S1588>
+      <S1589>Kalıcı</S1589>
+      <S1592>Windows 7 ' den tümleşik görüntü bozulabilir. Bu güncelleştirmeyi Windows 8,1 veya 10 ' dan ana bilgisayar olarak tümleştirmeniz önerilir.</S1592>
+      <S1593>Bu bir Windows sınırlaması, NTLite hata değil.</S1593>
+      <S1618>Aşağıdakileri kontrol edin:
+- Windows kullanarak Windows 7 entegre etmek için bir ana bilgisayar 10 toplu güncelleştirmeleri, kullanmak Windows 8,1 veya 10 yerine (bir sanal makine olabilir)
+- Güncellemeler sayfa çözümlemesi yararlı ipuçları içerebilir
+- Bu görüntü için herhangi bir hizmet yığını güncelleştirmesi var mı
+- Windows 10 RTM (10240) görüntüsünde Windows 10 1511 (10586) güncelleştirmeleri gibi yanlış Windows sürümü için güncelleştirmeleri tümleştirme
+- Bu tümleştirme oturumundan önce bu yansımayı bileşenleri kaldırıldı</S1618>
+      <S1625>Güncelleştirmeler yer tutucu önce kurulum sonrası için bağımlılık eklemek emin olun veya kurulum sonlandırma sırasında takılıp olabilir.</S1625>
+      <S1626>Veya</S1626>
+      <S1762>Açık Web indir</S1762>
+      <S1956>Bekleyen dosya işlemleri algılandı, OS bu durumda iken bileşenleri kaldırmak için tavsiye edilmez.
+Özellik yapılandırması, boşta Windows Self-Cleanup veya güncelleştirme bu tetikleyebilir.
+Yeniden başlatma işleminden sonra yeniden deneyin.
+
+Bazen bu bekleyen Windows dosya değişikliklerini (Win8+) işlemek için güncelleştirme Temizleme veya yükseltilmiş komut satırından aşağıdaki komutu içeren disk temizleme 'yi (cleanmgr. exe, Win7) çalıştırmak için gereklidir:
+DISM online /Cleanup-Image /StartComponentCleanup /ResetBase</S1956>
+    </Other>
+    <Title>
+      <S0022>Güncelleştirme veya dil paketleri listesine ekleyin. Kırmızı işaretli paketler Için, analiz.</S0022>
+      <S1217>Güncelleştirme</S1217>
+    </Title>
+    <Toolbar>
+      <S0424>Paketleri içeren dizin</S0424>
+      <S0765>Paket dosyaları</S0765>
+      <S0766>Tümleştirme sırasına paket ekleme</S0766>
+      <S0907>Seçili öğeleri tümleştirme sırasından kaldır</S0907>
+      <S0978>Tümünü Seç</S0978>
+      <S1216>Güncelleştirme Sırası</S1216>
+      <S1368>Analiz</S1368>
+      <S1369>Eksik güncelleştirme ön koşulları veya en iyi uygulamalar gibi, listede mevcut güncellemelerle ilgili olarak önerilen tüm adımları gösterir. Yalnızca ilgili (kırmızı renkli) güncelleştirme algılanırsa etkinleştirilir.</S1369>
+      <S1617>Hiçbiri seçin</S1617>
+      <S2495>Uyumlu</S2495>
+      <S2496>Tam</S2496>
+    </Toolbar>
+    <Downloader>
+      <S2499>Doğrulandı</S2499>
+      <S2500>Eksik</S2500>
+      <S2501>Indir</S2501>
+      <S2502>Güncellemeleri Indir</S2502>
+      <S2503>Indiriyor</S2503>
+      <S2504>Güncelleştirmeleri önbellek dizinine Indirin</S2504>
+      <S2505>Seçili Windows sürümü için en son güncelleştirmeleri alın.
+Güncelleştirmeler yalnızca diğer görevlerle tam otomasyon için tümleştirme sırasında önce veya kuyruğa alınmış olarak yüklenebilir.</S2505>
+      <S2506>En son çevrimiçi güncellemeler</S2506>
+      <S2507>Enqueue</S2507>
+      <S2508>Enqueue etkinleştirilmesi için, ilk olarak kaynak sayfaya bir hedef görüntü yükleyin.</S2508>
+      <S2509>Tümleştirme sırasına ekleyin ve yalnızca eksik güncelleştirmeleri sırayla karşıdan yükleyin.</S2509>
+      <S2510>Ilk kaynak sayfadan tüm görüntüleri kaldırın.</S2510>
+      <S2511>İndirilen güncelleştirmeler önbelleği için bir dizin seçin</S2511>
+      <S2512>Bağlanma</S2512>
+      <S2513>Ana bilgisayar</S2513>
+      <S2514>Seçili</S2514>
+      <S2515>Son kontrol</S2515>
+      <S2518>Doğrulamak</S2518>
+      <S2519>Doğrulama</S2519>
+      <S2520>Bir güncelleştirme listesi seçin</S2520>
+      <S2525>Bu ileti tam lisanslı olduğunda varolmayan.</S2525>
+      <S2526>Indirilen</S2526>
+      <S2527>İptal etmek istediğinizden emin misiniz?</S2527>
+      <S2528>Dış</S2528>
+      <S2529>Çevrimiçi güncelleştirme listesinde bulunan indirilen dosyaların bütünlüğünü doğrulayın.</S2529>
+    </Downloader>
+  </Updates>
+  <Licensing>
+    <Other>
+      <S0015>Lisansı etkinleştirme...</S0015>
+      <S0121>Herhangi bir disk bilgisi okunamıyor.</S0121>
+      <S0122>Herhangi bir ağ bağdaştırıcısı bilgisi okunamıyor.</S0122>
+      <S0133>Lütfen aşağıdakileri denetleyin ve yeniden deneyin:
+ - BILGISAYARINIZIN saat ve tarih doğru olması gerekir
+ - Güvenlik Duvarı 'nın bağlantıyı engellemediğinden emin olun</S0133>
+      <S0134>Güvenlik duvarı ayarları da dahil olmak üzere internet bağlantınızı kontrol edin ve tekrar deneyin.</S0134>
+      <S0341>Tam sürüm tadını çıkarın!</S0341>
+      <S0357>Sunucu yanıtı hatası.</S0357>
+      <S0426>Yeniden aktivasyon Için lütfen lisans satın aldığınız e-postadaki e-posta ile bizimle iletişime geçin veya satın almayı kanıtlamak için sipariş bilgilerini ekleyin.</S0426>
+      <S0436>Ücretsiz sürüm belirli özellik ve kullanım sınırlamaları vardır.</S0436>
+      <S0537>Yetersiz donanım bilgisi</S0537>
+      <S0554>Geçersiz Lisans kodu.</S0554>
+      <S0590>Lisans etkinleştirme başarısız oldu.</S0590>
+      <S0591>Lisans etkinleştirme çalışmaz.</S0591>
+      <S0592>Lisans kodu</S0592>
+      <S0593>Lisans başarıyla çevrimiçi etkinleştirmeler harcamadan restore.</S0593>
+      <S0741>Çevrimiçi aktivasyonlar harcanan.</S0741>
+      <S0748>Yükleyici indirme bağlantısını içeren bir tarayıcıda Web sayfasını açın?</S0748>
+      <S0789>Lütfen License. dat dosyasını vererek etkinleştirmeyi YEDEKLEYIN. Isteğe bağlı olarak, genel araç ayarları ve lisans kodu içeren Settings. xml dosyasını da yedekleyin. Her Iki dosya da bu uygulamanın yükleme dizininde bulunabilir.</S0789>
+      <S0795>Lütfen beklenmedik bir şekilde bildirin.</S0795>
+      <S0841>Değişikliklerin etkinleşmesi için program kendisini yeniden başlatacak.</S0841>
+      <S0889>daha fazla çevrimiçi etkinleştirmeler kullanılabilir, sonra e-posta sadece aktivasyon etkili olduğu.</S0889>
+      <S0991>Hizmet bağlantısı hatası</S0991>
+      <S0992>Hizmet bağlantısı zaman aşımı.</S0992>
+      <S1127>NTLite desteği ve daha fazla ürün geliştirme ve geliştirmeleri için katkıda bulunmak için teşekkür ederiz.</S1127>
+      <S1214>Güncelleme uygun</S1214>
+      <S1333>Zaten en son sürüme sahipsiniz.</S1333>
+      <S1336>Lisansınızı başarıyla etkinleştirdiniz.</S1336>
+      <S1426>Bu anahtarla çevrimiçi olarak yeniden etkinleştirilsin mi?</S1426>
+      <S1427>Bu işlem bir çevrimiçi aktivasyon geçirecek.</S1427>
+      <S1428>Mevcut aktivasyonu kaldırılsın mı?</S1428>
+      <S1543>Bu kod, "Sipariş onayınız" e-postasındadır.:
+Your license name is: Name
+Your license code is: [COPY THIS]</S1543>
+      <S1635>Lütfen yükseltme kodunu girin veya bu pencereyi kapatın.</S1635>
+      <S1636>Çevrimdışı lisans geri yükleme işlemi başarısız oldu, kodunuzu tekrar kontrol edin veya çevrimiçi yeniden etkinleştirin.</S1636>
+      <S1640>Dosya kopyalanırken hata oluştu</S1640>
+      <S1641>Dosya başarıyla kopyalandı.</S1641>
+      <S2437>Bu lisans devre dışı. Muhtemelen yenilenmiş bir kodla değiştirildi, eğer bulamıyorsanız lütfen destekle iletişime geçin.</S2437>
+      <S2438>En son sürümü ntlite.com'dan çalıştırdığınızdan emin olun.</S2438>
+      <S2602>Yeni bir yenileme kodu kullanmaya çalışıyorsanız, önceki lisansın/yenilemenin etkin durumda olduğundan emin olun.</S2602>
+    </Other>
+    <UI>
+      <S0146>Lisansınızı seçin.</S0146>
+      <S0345>Lisans kodunuzu girin</S0345>
+      <S0434>Ücretsiz (sınırlı, ticari olmayan)</S0434>
+      <S0589>Lisans</S0589>
+      <S0594>Lisanslı</S0594>
+      <S0667>Daha fazla bilgi</S0667>
+      <S1212>Lisans etkinleştirilinceye kadar, premium özellikler kullanılamayacak.</S1212>
+      <S1218>Yükselt</S1218>
+      <S1253>Siteyi ziyaret et</S1253>
+      <S1338>Lisansınız çevrimiçi aktivasyon gerektirir, anahtarınızı kontrol edin ve başlamak için Tamam'a basın.</S1338>
+      <S1392>Ev (tek kişilik, ticari olmayan)</S1392>
+      <S1393>Profesyonel (tek kişilik, ticari)</S1393>
+      <S1394>İş (tek kişilik, ticari)</S1394>
+      <S1395>Kurumsal (çok koltuklu, ticari)</S1395>
+      <S1430>Lisansınız zaten aktif.</S1430>
+      <S1611>Şifremi unuttum</S1611>
+      <S1612>Fatura, unutulmuş kod veya ödeme sorularını alın, bunun yerine NTLite desteği ile iletişime geçin.</S1612>
+      <S1613>İletişim desteği</S1613>
+      <S1614>E-posta support@ntlite.com</S1614>
+      <S1615>Alış/Yükseltme</S1615>
+      <S1616>Uzak/Çevrimdışı etkinleştirme</S1616>
+      <S1628>Yeni abonelik özellikleri</S1628>
+      <S1629>Lisansın yenilenmesi gerekiyor, aktivasyonları harcamayacak, devam etmek için Tamam'a basın.</S1629>
+      <S1630>Yeni premium özellikler aboneliğinin süresi doldu, bu pencereyi kapatarak aracı normal şekilde kullanmaya devam edebilir veya bu tarihten sonra daha yeni özellikler almak için mağazada yenileyebilirsiniz.
+Lisansınız, abonelik bitiş tarihi kilitlendikten sonra eklenen premium özelliklerle her zaman olduğu gibi çalışır.</S1630>
+      <S1631>Lisans yenilenene kadar, 1.2 sürümünden ve daha yeni sürümlerden eklenen premium özellikler kilitlenir.</S1631>
+      <S1633>Mevcut lisans</S1633>
+      <S1634>Destek</S1634>
+      <S1637>Önceden kaydedilmiş bir lisans dosyasını seçin (ör. Lisans.dat)</S1637>
+      <S1638>Lisansın yedekleneceği yeri seçin</S1638>
+      <S1639>Lisans dosyası içe aktarıldı, lütfen doğru lisans kodunu girin ve Tamam'a basın.</S1639>
+      <S1716>Yeni desteklenen Windows sürümü algılandı. Mevcut premium özelliklerin sürekli olarak uyarlanması gerekiyor, böylece her yeni Windows sürüm desteği tarihli.</S1716>
+    </UI>
+  </Licensing>
+  <Unattended>
+    <Other>
+      <S0016>Aktif</S0016>
+      <S0028>Yöneticiler</S0028>
+      <S0061>Bu kullanıcıyı otomatik olarak oturum aç</S0061>
+      <S0063>Otomatik giriş</S0063>
+      <S0190>Şifreyi Onayla</S0190>
+      <S0217>Yaratmak</S0217>
+      <S0219>Ayrım yarat</S0219>
+      <S0224>Kimlik</S0224>
+      <S0229>Özel</S0229>
+      <S0230>Özel grup</S0230>
+      <S0273>Disk</S0273>
+      <S0274>Disk Yapılandırması</S0274>
+      <S0278>Disk ID</S0278>
+      <S0281>Görünen ad</S0281>
+      <S0285>Biçimlendirme</S0285>
+      <S0288>Alan</S0288>
+      <S0289>Alan adı</S0289>
+      <S0292>Sürücü harfi</S0292>
+      <S0319>Bu hesabı kullanarak yerleşik Yöneticisi etkinleştir</S0319>
+      <S0342>Özel grup girin</S0342>
+      <S0343>Etki alanı adını girin</S0343>
+      <S0347>Bölüm etiketini girin</S0347>
+      <S0348>Parolayı girin</S0348>
+      <S0350>Kullanıcı açıklamasını girin</S0350>
+      <S0351>Kullanıcı görünen adını girin</S0351>
+      <S0353>Kullanıcı adı girin</S0353>
+      <S0354>Çalışma grubu adını girin</S0354>
+      <S0392>Genişletmek</S0392>
+      <S0429>Biçim</S0429>
+      <S0451>Grup</S0451>
+      <S0475>ID</S0475>
+      <S0476>Kimlik</S0476>
+      <S0532>Bu bölüme yükle</S0532>
+      <S0567>Etki alanına katıl</S0567>
+      <S0568>Çalışma grubuna katıl</S0568>
+      <S0580>Etiket</S0580>
+      <S0588>Mektup</S0588>
+      <S0608>Yerel hesap</S0608>
+      <S0609>Yerel hesaplar</S0609>
+      <S0615>Oturum açma sayısı</S0615>
+      <S0617>Makine parolası</S0617>
+      <S0636>Maksimum (genişletme)</S0636>
+      <S0665>Değiştirmek</S0665>
+      <S0666>Bölümü Değiştir</S0666>
+      <S0681>Adı</S0681>
+      <S0755>Sipariş</S0755>
+      <S0775>Bölüm</S0775>
+      <S0776>Bölüm ID</S0776>
+      <S0777>Bölüm ID veya zaten yapılandırılmış bir sürücü harfi.</S0777>
+      <S0778>Bölüm değişikli</S0778>
+      <S0779>Bölüm</S0779>
+      <S0780>Parola</S0780>
+      <S0781>Parolalar eşit değildir</S0781>
+      <S0815>Premium Özellik</S0815>
+      <S0862>Parolayı yeniden girin</S0862>
+      <S1001>Kurulum seçenekleri</S1001>
+      <S1024>Yerel hesap kurulumunu atla</S1024>
+      <S1025>Çevrimiçi hesap kurulumunu atla</S1025>
+      <S1152>Zaman aşımı süresi [dakika 5-60]</S1152>
+      <S1188>İmzasız</S1188>
+      <S1209>Güvenli olmayan birleşim</S1209>
+      <S1229>Kullanıcı hesapları</S1229>
+      <S1230>Kullanıcı zaten var</S1230>
+      <S1234>Kullanıcı adı</S1234>
+      <S1274>Yerel hesap Sihirbazı Atlanırken, oturum açabilmek için en az bir yerel hesap eklediğinizden veya etki alanının bir parçası olduğunuzdan emin olun.</S1274>
+      <S1320>Diski sil</S1320>
+      <S1326>Çalışma grubu</S1326>
+      <S1327>Çalışma grubu adı</S1327>
+      <S1385>Birincil</S1385>
+      <S1386>Genişletilmiş</S1386>
+      <S1387>Mantıksal</S1387>
+      <S1522>Kurtarma</S1522>
+      <S1525>Tür boyutu megabayt cinsinden.</S1525>
+      <S1526>0 bölüm oluşturma atlamak için.</S1526>
+      <S1527>Bu sistem bölümü, Windows yüklü olacak.</S1527>
+      <S1528>Genişletme kullanıyorsanız, kurtarma bölümü bu bir önce taşınmalıdır.</S1528>
+      <S1529>Kurtarma görüntüsü</S1529>
+      <S1530>WinRE araçları</S1530>
+      <S1531>Etiket, NTFS için 32 karakter ve FAT32 bölümleri için 11 karakter ile sınırlıdır.</S1531>
+      <S1534>Bölüm etiketleri, katılımsız sayfa ana içeriğinde, 'disk yapılandırması' altında değiştirilebilir.</S1534>
+      <S1535>Aynı disk KIMLIĞINI kullanarak varolan yapılandırma algılandı, önce katılımsız sayfadan kaldırın ana içerik ve yeniden deneyin.</S1535>
+      <S1536>Isteğe bağlı olarak, bölümler tek başına yerine veya bu sihirbazdan sonra 'Bölüm Sihirbazı'nı kullanarak Kur olabilir.</S1536>
+      <S1678>Windows 'A hoş geldiniz 'e atla</S1678>
+      <S1679>Bu eski seçeneği etkinleştirilmişse, Kullanıcı Windows Kur 'u başarıyla tamamlamak için gerekli olan değerler için istenmez.</S1679>
+      <S1947>Karşılama Merkezi 'Ni atla</S1947>
+      <S1948>Bu görüntüyü kullanan bir makine Windows Kur sırasında çevrimiçi ise, bu seçenek işlemin sonunda otomatik güncelleştirmeyi atlayabilir.</S1948>
+      <S2488>SkipMachineOOBE ve SkipUserOOBE eski seçenekleri kullanmak için önerilmez. Bunun yerine, Windows Kur sırasında seçimleri otomatikleştirmek için, katılımsız sayfadaki tek ayrı listelenen ayarları kullanın.</S2488>
+    </Other>
+    <Toolbar>
+      <S0025>Yerel hesap ekle</S0025>
+      <S0026>Katılımsız ayarlara yerel kullanıcı hesabı ekleme.</S0026>
+      <S0059>Otomatik doldurma</S0059>
+      <S0060>Kullanılabilir girişleri ana makine verileriyle birlikte ayarlayın ve üzerine yazın.</S0060>
+      <S0187>Bireysel bölüm</S0187>
+      <S0188>Windows dağıtımı sırasında otomatik olarak tek disk bölümlerini Kur.</S0188>
+      <S0237>Varsayılan</S0237>
+      <S0318>Etkinleştir</S0318>
+      <S0569>Ağa katıl</S0569>
+      <S0570>Ağ etki alanına veya çalışma grubuna otomatik olarak katılma</S0570>
+      <S0708>Ağ birleşim</S0708>
+      <S0732>OEM kurulumu tamamlandı</S0732>
+      <S0733>Windows 8 ve daha yeni bir OEM ürün anahtarı kullanırken, SetupComplete. cmd normal olarak yürütülmez. Kur sonunda yürütülecek katılımsız RunSynchronous komutlarında SetupComplete. cmd ' i dahil etmek için bu seçeneği etkinleştirin.</S0733>
+      <S0754>Seçenekler</S0754>
+      <S0906>Seçili yerel hesabı, ağ birleşim veya disk bölümü kurulumunu katılımsız ayarlardan kaldır.</S0906>
+      <S1192>Katılımsız mod</S1192>
+      <S1349>Resim yüklemek için Kopyala</S1349>
+      <S1350>Yanıt dosyasını doğrudan son görüntü konumuna (%WINDIR%\Panther\unattend.xml) kopyalayın. Yalnızca bir görüntüyü doğrudan Windows Kur olmadan bir bölüme dağıtırsanız kullanın.</S1350>
+      <S1376>Bu sayfada ayarlanmış olanlar ile varolan katılımsız ayarların üzerine yaz.</S1376>
+      <S1381>Seçili görüntüde geçerli katılımsız ayarları bırakın.</S1381>
+      <S1448>Önyükleme yansımasına Kopyala</S1448>
+      <S1449>Yanıt dosyasını doğrudan Kurulum önyükleme yansımasına kopyalayın. Başka türlü katılımsız ayarları önyüklemede uygulamadığınız makineler yardımcı olabilir.</S1449>
+      <S1523>Disk şablonu</S1523>
+      <S1524>Önerilen BIOS ve UEFI hazır ayarlara sahip disk bölümü düzenini kolayca Kur.</S1524>
+      <S1537>Diski Yapılandır</S1537>
+      <S1538>Seçili KIMLIĞE sahip disk bu görüntüyü önyükleyerek tamamen silinir.</S1538>
+      <S1539>Sistem bölümü zaten var.</S1539>
+      <S1540>Çakışan bölüm kurulumunu katılımsız sayfa ' disk yapılandırması ' dan kaldırın ve yeniden deneyin.</S1540>
+      <S1562>Çift mimari</S1562>
+      <S1563>64-bit görüntü kullanıyorsanız, bu da 32-bit Otomasyon girişleri kaydeder ve tersi. Bu, birden çok mimarisi, All-In-One görüntüleri, aksi takdirde gerekli olmayan oluştururken yararlıdır.</S1563>
+      <S1564>Dosya başına birden fazla görüntü varsa otomatik görüntü seçimini ve disk bölümlemesini devre dışı bırakır.</S1564>
+      <S2614>Herşey</S2614>
+    </Toolbar>
+    <List>
+      <S0043>Her zaman</S0043>
+      <S0064>Otomatik koruma devre dışı</S0064>
+      <S0185>Bilgisayar adı</S0185>
+      <S0186>Bilgisayar adı boşluk veya özel karakterler içeremez ve 15 karakterden sınırlıdır. Herhangi bir Kullanıcı adı ile aynı olamaz. Isteğe bağlı olarak yalnızca '*' (tırnak işaretleri olmadan) ' kayıtlı sahibi ' girişi (en ilk 8 karakter kullanılacaktır) girilen bir önek kullanabilirsiniz otomatik oluşturulan rasgele bilgisayar adı kullanın.</S0186>
+      <S0290>Mevcut olmayan cihazları Temizleme</S0290>
+      <S0309>Dinamik güncelleştirme</S0309>
+      <S0320>Dinamik güncelleştirmeyi etkinleştir</S0320>
+      <S0349>Bu görüntünün kurulum sırasında kullanılması için bir ürün anahtarı girin, örneğin: AAAAA-BBBBB-CCCCC-DDDDD-EEEEE</S0349>
+      <S0399>false</S0399>
+      <S0445>Genelleme</S0445>
+      <S0460>Özelleştirilmiş yardım</S0460>
+      <S0464>Home</S0464>
+      <S0527>Giriş yerel ayarı</S0527>
+      <S0529>Yalnızca güncelleştirmeleri yükle</S0529>
+      <S0572>Tüm PnP aygıtlarını yüklü tut</S0572>
+      <S0614>Logo</S0614>
+      <S0633>Üretici</S0633>
+      <S0663>Model</S0663>
+      <S0710>Ağ konumu</S0710>
+      <S0713>Never</S0713>
+      <S0731>OEM bilgi</S0731>
+      <S0737>Üzerinde hata</S0737>
+      <S0746>OOBE (son yükleme seçenekleri)</S0746>
+      <S0757>Diğer</S0757>
+      <S0759>Kutu dışı deneyim</S0759>
+      <S0804>PnP Sysprep</S0804>
+      <S0839>Ürün anahtarı</S0839>
+      <S0848>BILGISAYARINIZI koruyun</S0848>
+      <S0859>Kamu</S0859>
+      <S0882>Kayıtlı organizasyon</S0882>
+      <S0883>Kayıtlı sahibi</S0883>
+      <S0916>Rapor yükleme istatistikleri</S0916>
+      <S0986>Raporu Microsoft 'a gönder</S0986>
+      <S1002>Kurulum kullanıcı ARABIRIMI dili</S1002>
+      <S1007>Shell seçenekleri</S1007>
+      <S1022>Otomatik etkinleştirmeyi atla</S1022>
+      <S1023>EULA sayfasını atla</S1023>
+      <S1026>Kablosuz kurulumu atla</S1026>
+      <S1050>Uzmanlaşmak</S1050>
+      <S1084>Destek saatleri</S1084>
+      <S1085>Destek telefonu</S1085>
+      <S1086>Destek URL</S1086>
+      <S1151>Time zone</S1151>
+      <S1169>true</S1169>
+      <S1178>Kurulum sırasında BIOS otomatik olarak OEM anahtarı okumak Için, kelimenin tam anlamıyla '[KEY]' (tırnak işaretleri olmadan) girin.</S1178>
+      <S1184>Kullanıcı ARABIRIMI dili</S1184>
+      <S1231>Windows lisansı için Kullanıcı deneyimi</S1231>
+      <S1232>Kullanıcı yerel ayarı</S1232>
+      <S1233>Kullanıcı ayarları</S1233>
+      <S1296>Windows yerelleştirme</S1296>
+      <S1311>Windows kurulum seçenekleri</S1311>
+      <S1324>Çalışan</S1324>
+      <S1506>Karşılama ekranı ürün anahtarı istemini atlamak için, tam yüklenmiş sürüm için uygun bir anahtar kullanın, aksi takdirde boş bırakın veya kurulum sonunda başarısız olabilir. Genel BIR BIOS komutu '[anahtar]' burada desteklenmiyor, bunun için kurulum ürün anahtarını kullanın, bu boş bırakarak.</S1506>
+      <S1721>Compact</S1721>
+      <S1722>Windows sıkıştırma etkinleştirilmiş olarak yüklenmesi gerektiğini belirtir. Bu, yükleme işleminin daha uzun sürmesine neden olabilir. Windows PE 'nin önceki bir sürümünü kullanıyorsanız, Windows 10 ADK 'den Windows kaplama filtresi sürücüsü (Wofadk. sys) Windows PE yansımasına dahil edilmelidir.</S1722>
+      <S1727>Profili Kopyala</S1727>
+      <S1728>Sysprep Genelleştirme el ile yürütülürken Şu anda oturum açan kullanıcı profilinin tüm yeni kullanıcılara uygulandığı belirtir. Needs Boot.wim - 'Windows PE' (flag 9) baskı tutulur.</S1728>
+      <S1729>Kurulum</S1729>
+      <S1730>Etkinleştirme</S1730>
+      <S1731>Kurulum ve etkinleştirme için bir ürün anahtarı girmek için iki yer olduğunu unutmayın.</S1731>
+      <S1732>Onları kolayca bulmak için üst kısmında filtre kullanın.</S1732>
+      <S1734>Hedef</S1734>
+      <S1951>Skip 'hızlı git' sayfası (gizlilik seçenekleri)</S1951>
+      <S1952>Etkinse, gizlilik seçenekleri sayfası görüntülenmez. Bu durumda sol yapılandırma sayfalarında gizlilik tercihlerinizi ayarlamak için emin olun.</S1952>
+      <S1977>Reseal</S1977>
+      <S1978>Modu</S1978>
+      <S1979>Bu seçeneği, doğrudan denetim moduna başlatma, temel görüntüyü Kur ve yakalama yöneticileri için kullanışlı olarak kullanabilirsiniz.</S1979>
+      <S2552>Windows kurulumu sırasında bilgisayar ismini değiştirmeyi etkinleştirmek için '[İstemi]' yazın veya seçin.</S2552>
+      <S2553>Bilgisayar adını girin</S2553>
+    </List>
+    <Title>
+      <S0814>Windows kurulum seçimlerini önceden yapılandırma, tam otomatik yükleme yapma. Bu sayfayı sol üst araç çubuğu seçeneğiyle etkinleştirin.</S0814>
+      <S1189>Katılımsız</S1189>
+    </Title>
+  </Unattended>
+  <Drivers>
+    <Title>
+      <S0021>Listeye sürücü ekleme ve donanım gereksinimlerini gözden geçirme.</S0021>
+      <S0300>Sürücüler</S0300>
+    </Title>
+    <Toolbar>
+      <S0264>Seçilen aygıt listesi. </S0264>
+      <S0298>Sürücüleri içeren dizin</S0298>
+      <S0299>Bir dizinden tümleştirme sırasına tüm sürücüleri bulma ve ekleme</S0299>
+      <S0303>Sürücü dosyaları</S0303>
+      <S0364>Kullanılmayan dışlama</S0364>
+      <S0365>Seçili aygıt listesi için uygun sürücüleri algılamak, geri kalanı tümleştirme kuyruğundan kaldırma. </S0365>
+      <S0386>İhracat sürücü (ler)</S0386>
+      <S0387>Seçili üçüncü taraf sürücüleri zaten bir ana bilgisayarda yüklü veya görüntü entegre Export. </S0387>
+      <S0388>HW listesini ver</S0388>
+      <S0389>Lisanslı sürüm sürücüsü sayfası donanım checlist 'e alınabilir herhangi bir makineden konak donanım aygıtı listesini verme</S0389>
+      <S0467>Host makine</S0467>
+      <S0507>İthalat host</S0507>
+      <S0508>Ana makinenin yüklü üçüncü taraf sürücülerini listeye ekleme. </S0508>
+      <S0509>HW listesini al</S0509>
+      <S0510>Aygıt listesini al. </S0510>
+      <S0616>Makine</S0616>
+      <S0903>Seçili sürücüyü tümleştirme sırasından kaldırma</S0903>
+      <S1013>Gizli cihazları göster</S1013>
+      <S1014>Donanım denetim listesindeki gizli ve takılı olmayan aygıtları gösterme. </S1014>
+    </Toolbar>
+    <Other>
+      <S0296>Sürücü sırası</S0296>
+      <S0301>Sıraya eklenen sürücüler</S0301>
+      <S0302>Kuyruktan kaldırılan sürücüler</S0302>
+      <S0431>Bulundu</S0431>
+      <S0455>Donanım denetim listesi</S0455>
+      <S0456>Donanım listesi</S0456>
+      <S0457>Verilen donanım listesi.</S0457>
+      <S0466>Host Alınan</S0466>
+      <S0656>Eksik</S0656>
+      <S0726>Bulunamadı</S0726>
+      <S0773>Kısmi</S0773>
+      <S0964>Tüm sürücüleri sıraya almak için bir sürücü dizini seçin</S0964>
+      <S0965>Kuyruğa eklenecek sürücü INF dosyalarını seçme</S0965>
+      <S0970>Donanım listesi verme hedef dosyasını seçin</S0970>
+      <S0971>Alınacak donanım listesi dosyalarını seçin</S0971>
+    </Other>
+  </Drivers>
+  <Tweaks>
+    <List>
+      <S0027>Yerleşik yönetici hesabı için yönetici onayı modu</S0027>
+      <S0034>IRDP 'nin varsayılan ağ geçidi adreslerini algılamasını ve yapılandırmasına Izin ver.</S0034>
+      <S0035>UIAccess uygulamalarının güvenli masaüstü kullanmadan yükseltme isteme Izin ver</S0035>
+      <S0038>Yükseltilmiş uygulamaların eşlenen ağ sürücülerine erişmesine Izin verir. Güvenlik endişeleri için 'EnableLinkedConnections' üzerinde okuyun.</S0038>
+      <S0044>Her zaman birleştirin</S0044>
+      <S0045>Her zaman görev çubuğunda tüm simgeleri ve bildirimleri göster</S0045>
+      <S0055>BSOD kazasında Auto-Reboot</S0055>
+      <S0062>Otomatik</S0062>
+      <S0067>Yükseltme isteklerini otomatik olarak Reddet</S0067>
+      <S0081>Balon ipuçları - Explorer ve Masaüstü</S0081>
+      <S0082>Balon ipuçları - Klasör içeriği bilgi</S0082>
+      <S0083>Balon ipuçları - Bildirim alanı</S0083>
+      <S0084>Balon ipuçları - Başlat düğmesi</S0084>
+      <S0089>Yönetici onay modunda Yöneticiler için yükseltme istemi davranışı</S0089>
+      <S0090>Standart kullanıcılar için yükseltme istemi davranışını</S0090>
+      <S0101>Önyükleme</S0101>
+      <S0105>Masaüstüne önyükleme (başlangıç sayfası atla)</S0105>
+      <S0114>Önbellek minik resimleri</S0114>
+      <S0127>CD yazma özellikleri</S0127>
+      <S0154>Çıkışta son açılan belgelerin geçmişini temizle</S0154>
+      <S0166>Görev çubuğu dolduğunda Birleştir</S0166>
+      <S0169>Ortak denetim ve pencere animasyonları</S0169>
+      <S0195>Windows hizmeti başlangıç değerlerini Içerir.</S0195>
+      <S0198>Kontrol paneli - klasik görünüm</S0198>
+      <S0199>Kontrol paneli - küçük simgeler</S0199>
+      <S0200>Windows 'un kilitlenme olayında neler yaptığını denetler.</S0200>
+      <S0216>Kilitlenme kontrolü</S0216>
+      <S0235>Ölü Ağ Geçidi algılaması</S0235>
+      <S0236>Ölü Ağ Geçidi algılaması, düzgün çalışmıyor ve bilgisayarı yeni bir varsayılan ağ geçidine geçiş yapan ağ geçitleri tanımlayan bir TCP özelliğidir.</S0236>
+      <S0244>Masaüstü simgesi - Kontrol Paneli</S0244>
+      <S0245>Masaüstü simgesi - Bilgisayarım</S0245>
+      <S0246>Masaüstü simgesi - Ağ</S0246>
+      <S0247>Masaüstü simgesi - Geri Dönüşüm Kutusu</S0247>
+      <S0248>Masaüstü simgesi - Kullanıcı Dosyaları</S0248>
+      <S0253>Uygulama yüklemeleri Algıla ve yükseltme istemi</S0253>
+      <S0261>Sistemin IP çok noktaya yayını desteklediği ve Internet Grup Yönetimi protokolüne katılacağı ölçüde belirler.</S0261>
+      <S0270>Devre dışı</S0270>
+      <S0279>Küçük resimler yerine simgeler görüntüleme</S0279>
+      <S0280>Ağ klasörlerinde küçük resimler yerine simgeler görüntüleme</S0280>
+      <S0282>Tepsi öğelerini görüntüleme</S0282>
+      <S0307>Dinamik DNS PTR kaynak kayıtları</S0307>
+      <S0308>Dinamik DNS güncelleştirmeleri</S0308>
+      <S0315>Yalnızca imzalanmış yükseltme</S0315>
+      <S0316>Sormadan yükselt</S0316>
+      <S0321>Bağlantılı bağlantıları etkinleştirme</S0321>
+      <S0322>Yalnızca DHCP yönlendirici keşfi gerçekleştirme seçeneğini gönderirse etkinleştirin</S0322>
+      <S0323>Bu DNS istemcisi tarafından PTR (işaretçi) kayıtlarının DNS dinamik güncelleştirme kaydını etkinleştir veya devre dışı bırak, diğer adıyla ters arama. PTR kayıtları bir IP adresini bilgisayar adıyla ilişkilendirir.</S0323>
+      <S0324>Bu bilgisayardaki tüm adaptörler için DNS güncelleştirme kaydını etkinleştirin veya devre dışı bırakın. 'Bu bağlantının adreslerini DNS'de kaydettirin' her ağ arabiriminin TCP/IP gelişmiş özelliklerinin onay kutusu burada devre dışı bırakılırsa hiçbir etkisi olmayacaktır.</S0324>
+      <S0325>Tüm yöneticileri (EnableLUA) UAC filtre etkinleştir</S0325>
+      <S0326>Etkin</S0326>
+      <S0382>Explorer</S0382>
+      <S0414>Filtre yerleşik yönetici</S0414>
+      <S0474>ICMP yeniden yönlendirme</S0474>
+      <S0478>Devre dışı bırakılırsa, Windows Mağazası tepsisi simgesinin boş olmasını sağlar.</S0478>
+      <S0535>Yükleyici algılama</S0535>
+      <S0573>Son açılan belgelerin geçmişini koru</S0573>
+      <S0630>El ile</S0630>
+      <S0677>Çok noktaya yayın IGMP düzeyi</S0677>
+      <S0683>Gezinti bölmesi - otomatik olarak geçerli klasöre Genişlet</S0683>
+      <S0684>Gezinti bölmesi - tüm klasörleri göster</S0684>
+      <S0685>Gezinti Bölmesi - sık kullanılanları göster</S0685>
+      <S0686>Gezinti Bölmesi - kitaplıkları göster</S0686>
+      <S0705>Ağ</S0705>
+      <S0714>Asla birleştirmek</S0714>
+      <S0721>Çok noktaya yayın desteği yok</S0721>
+      <S0742>Yalnızca imzalanmış ve doğrulanmış yürütülebilir dosyaları yükselt</S0742>
+      <S0743>Yalnızca güvenli konumlarda yüklü olan UIAccess uygulamalarını yükseltin</S0743>
+      <S0745>Yalnızca IP çok noktaya yayın paketlerini gönder</S0745>
+      <S0785>Yönlendirici keşfi gerçekleştirme</S0785>
+      <S0840>Program Uyumluluk Yardımcısı</S0840>
+      <S0843>Onay Istemi</S0843>
+      <S0844>Windows dışı ikililer için onay Istemi</S0844>
+      <S0845>Güvenli masaüstünde onay Istemi</S0845>
+      <S0846>Kimlik bilgileri Istemi</S0846>
+      <S0847>Güvenli masaüstünde kimlik bilgilerini sor</S0847>
+      <S0934>Yönetici onay modunda tüm yöneticileri çalıştırma.</S0934>
+      <S0960>Güvenli Masaüstü istemi</S0960>
+      <S0985>IP çok noktaya yayın paketlerini gönderme ve alma (IGMP 'ye katılma)</S0985>
+      <S0993>Hizmetleri</S0993>
+      <S1008>Saati göster</S1008>
+      <S1010>Haritayı göster/ağ sürücüsünü kes seçeneği</S1010>
+      <S1011>Yeni ağlarda ağ konumu sihirbazını göster</S1011>
+      <S1012>Bildirim alanını gösterme veya tümüyle devre dışı bırakma.</S1012>
+      <S1015>Oturum açma olmadan kapatma</S1015>
+      <S1064>Başlat Menüsü - Belgeler menüsü</S1064>
+      <S1065>Başlat menüsü - Kullanım izleme</S1065>
+      <S1092>Yükseltme istendiğinde güvenli masaüstüne geçin</S1092>
+      <S1096>Sistem</S1096>
+      <S1106>Görev çubuğu - düğme gruplama</S1106>
+      <S1107>Görev çubuğu bildirimleri</S1107>
+      <S1108>Görev çubuğu - tüm monitörlerde göster</S1108>
+      <S1109>Görev çubuğu - mağaza uygulamalarını göster</S1109>
+      <S1110>Vazife - küçük simgeler</S1110>
+      <S1112>TCP/IP</S1112>
+      <S1137>Windows Installer eski dosyaların önbelleği için kullanabileceğiniz disk alanı en fazla yüzdesi değerdir. İlke zaten kaydedilmiş dosyaları etkilemez.</S1137>
+      <S1143>Bu parametre, Windows 'ın yönlendirme tablosunu, farklı bir rota boyunca alıcı için doğrudan datagramları yönlendiren Internet Denetim Iletisi Protokolü (ICMP) iletilerine yanıt olarak değiştirir olup olmadığını denetler.</S1143>
+      <S1149>Bu ayar, görev çubuğundaki sistem tepsisinde saati göstermenizi veya gizlemenizi sağlar.</S1149>
+      <S1173>Explorer 'ın Burn to diske açar veya kapatır, optik sürücü özelliklerini biçimlendirebilir ve otomatik olarak çıkarır.</S1173>
+      <S1182>UAC Yönetici istemi</S1182>
+      <S1183>UAC Kullanıcı istemi</S1183>
+      <S1185>UIAccess güvenli konumu gerekli</S1185>
+      <S1186>UIAccess geçiş</S1186>
+      <S1244>Görünüm - boş sürücüleri göster</S1244>
+      <S1245>Görünüm - bilinen dosya türleri için uzantıları göster</S1245>
+      <S1246>Görünüm - gizli dosyaları, klasörleri ve sürücüleri göster</S1246>
+      <S1247>Görünüm - korumalı işletim sistemi dosyalarını göster</S1247>
+      <S1251>Dosya ve kayıt defteri yazma hatalarını Kullanıcı başına konumlarda sanallaştırın. Devre dışı bırakılırsa, korunan konumlara veri yazma uygulamaları başarısız olur.</S1251>
+      <S1252>Sanallaştırmak, yazma hatalarını yeniden yönlendirme</S1252>
+      <S1293>Windows Yükleme</S1293>
+      <S1294>Windows Yükleme Düzeltme Eki önbelleği boyutu</S1294>
+      <S1342>Değeri Sıfırla</S1342>
+      <S1358>Windows Günçelleştirme (önemli güncelleştirmeler)</S1358>
+      <S1359>Güncelleştirmeleri otomatik olarak yükleme</S1359>
+      <S1360>Güncellemeleri karşıdan yükleyin ama bunları yüklemek isteyip istemediğinizi seçeyim</S1360>
+      <S1361>Güncellemeleri kontrol edin ama bunları indirip kurmamı isteyip istemediğinizi seçmeme izin verin</S1361>
+      <S1362>Güncelleştirmeleri asla denetleme</S1362>
+      <S1363>Önerilen güncelleştirmeleri ekle</S1363>
+      <S1364>Kullanıcıların (Yöneticiler olmayan) güncelleştirmeleri yüklemelerine Izin ver</S1364>
+      <S1377>Adobe Type Manager yazı tipi sürücüsü (ATMFD)</S1377>
+      <S1378>ATMFD önlemek için devre dışı bırakın. DLL ayrıcalık yükselmesi güvenlik açığı. Daha fazla bilgi için bkz: Güvenlik Bülteni MS15-077.</S1378>
+      <S1411>Sistem günlüğüne bir olay yazma</S1411>
+      <S1412>Hata ayıklama bilgileri yazma</S1412>
+      <S1413>Küçük bellek dökümü (256 KB)</S1413>
+      <S1414>Çekirdek bellek dökümü</S1414>
+      <S1415>Tam bellek dökümü</S1415>
+      <S1416>Otomatik bellek dökümü</S1416>
+      <S1512>Izin verilen</S1512>
+      <S1513>Kullanıcılar Microsoft hesapları ekleyemezsiniz</S1513>
+      <S1514>Kullanıcılar Microsoft hesaplarıyla eklenemez veya oturum açamaz</S1514>
+      <S1518>Disk belleği dosyası (pagefile)</S1518>
+      <S1519>Genellikle önerilmez pagefile, devre dışı bırakmak Için sürücü '-' (tırnak işaretleri olmadan) ayarlayın. Tam otomatik ayarlar Için, sürücüyü '? ' olarak ayarlayın. (tırnak işaretleri olmadan), bu durumda boyutları yoksayılır. Sürücüye özgü otomatik boyut Için harf ve her iki boyut ayarlayın 0.</S1519>
+      <S1520>Hazırda bekleme boyutu (RAM %)</S1520>
+      <S1521>RAM ile ilgili olarak hibernate. sys dosyasının boyutunu ayarlayın. 75% RAM boyutu varsayılan değerdir, 75-100% önerilir, 50% en az. Kurulum%75 anlamına gelir önce 0, devre dışı değil; Hazırda bekleme özelliğini devre dışı bırakmak için Kurulum sonrası sayfa ekleme şablonu 'nu kullanma.</S1521>
+      <S1545>Sürücü</S1545>
+      <S1546>Başlangıç boyutu</S1546>
+      <S1547>Maksimum boyut</S1547>
+      <S1680>Sponsorlu uygulamaların otomatik kurulumu (tüketici deneyimi)</S1680>
+      <S1681>Bu teşvik uygulama devre dışı bırakır (gibi Candy Crush, Facebook ve benzeri) öneriler ve yeni kullanıcılar için otomatik kurulum.</S1681>
+      <S1682>Otomatik etkinleştirme</S1682>
+      <S1683>Windows otomatik etkinleştirme özelliğini denetlemek için bunu kullanın. Devre dışı bırakılırsa, sistem özelliklerine gidip el ile etkinleştirmeniz gerekir.</S1683>
+      <S1684>Aygıt sürücülerini ve simgeleri Internet üzerinden otomatik olarak güncelleştir</S1684>
+      <S1685>Aygıt sürücülerini Güncelleştir</S1685>
+      <S1686>Bunun çalışmaması için otomatik sürücü güncelleştirme devre dışı bırakılmalıdır.</S1686>
+      <S1687>Yalnızca yüklü değilse</S1687>
+      <S1723>Masaüstü</S1723>
+      <S1724>Özgeçmişinde, oturum açma ekranını görüntüle</S1724>
+      <S1733>Güç Kontrolü</S1733>
+      <S1737>Görev görünümü düğmesini göster</S1737>
+      <S1768>Yalnızca en son CLR (.NET sürümü) kullan</S1768>
+      <S1769>Gücü .NET uygulamalar sistem üzerinde en son yüklü çerçeve kullanmak, gereksiz önceki sürümlerini yüklemek için yapma, gibi 2.0 or 3.5.</S1769>
+      <S1770>Windows Photo Viewer 'ı geri yükleme</S1770>
+      <S1771>Fotoğraflar uygulaması yerine resimleri açmak için yerel Windows Photo Viewer 'ı kullanın.</S1771>
+      <S1778>Deneme Izni ver</S1778>
+      <S1779>Microsoft 'ın Kullanıcı tercihlerini veya aygıt davranışını incelemek için ürün ile denemenin düzeyini belirler.</S1779>
+      <S1780>Bu ayar Win10 1607 desteklenmiyor olarak belgelenmiştir.</S1780>
+      <S1781>Telemetri 'ye Izin ver</S1781>
+      <S1782>En düşük ayar, güvenlik düzeyi (0), Win10 Pro ve Home üzerinde desteklenmiyor olarak belgelenmiştir, temel eşittir.</S1782>
+      <S1783>Konuma Izin ver</S1783>
+      <S1784>Konum hizmetine uygulama erişimine izin verilip verilmeyeceğini, ayrıca hizmetin kendisini devre dışı bırakmayacağını belirtir: config-Services - 'Geolocation hizmeti'ne git'</S1784>
+      <S1786>Güvenlik</S1786>
+      <S1787>Temel</S1787>
+      <S1788>Gelişmiş</S1788>
+      <S1789>Tam</S1789>
+      <S1790>Bu ayar, temel bileşen kaldırılırsa, burada bütünlüğü için önemli değildir.</S1790>
+      <S1821>Enterprise ve Education sürümleri için varsayılan</S1821>
+      <S1822>Pro ve Home sürümleri için varsayılan</S1822>
+      <S1823>Kötü amaçlı yazılımları temizleme aracı güncelleştirmelerini dahil etme</S1823>
+      <S1824>Konuşma modellerinin otomatik güncellenmesi</S1824>
+      <S1825>Kök sertifika güven listesinin otomatik güncelleştirmesi</S1825>
+      <S1826>Giriş verilerinizi Microsoft 'a göndererek konuşmanızı, yazmayı ve mürekkep girişini Kişiselleştir</S1826>
+      <S1827>Uygulamaların uygulamalar arasındaki deneyimler için Kullanıcı reklam KIMLIĞI kullanmasını Izin ver</S1827>
+      <S1828>Windows Mağazası uygulamalarının kullanan Web içeriğini (URL 'Leri) denetlemek için SmartScreen Filtresini açma</S1828>
+      <S1829>Web içeriğini Edge 'de denetlemek için SmartScreen çevrimiçi hizmetlerini kullan</S1829>
+      <S1830>Gelecekte yazmayı ve yazmayı geliştirmemize yardımcı olmak için nasıl yazabilirim hakkında Microsoft bilgi gönderin</S1830>
+      <S1831>Web sitelerinin Kullanıcı dili listesine erişerek yerel olarak ilgili içeriği sağlamalıdır</S1831>
+      <S1832>Kamera</S1832>
+      <S1833>Mikrofon</S1833>
+      <S1834>Kullanıcı hesabı bilgileri</S1834>
+      <S1835>Kişiler</S1835>
+      <S1836>Takvim</S1836>
+      <S1837>Çağrı geçmişi</S1837>
+      <S1839>İletiler (metin veya MMS)</S1839>
+      <S1840>Kontrol radyoları</S1840>
+      <S1841>Açıkça eşleştirilmemiş kablosuz cihazlarla bilgileri paylaşma ve senkronize etme</S1841>
+      <S1843>Bildirim</S1843>
+      <S1844>Telefon</S1844>
+      <S1845>Hareket verisi</S1845>
+      <S1846>Pedometre</S1846>
+      <S1847>Diğer sensörler</S1847>
+      <S1848>Windows ve Cortana 'nın sizi daha iyi anlamasına izin vermek için yazılı metin topla</S1848>
+      <S1849>Windows ve Cortana 'nın sizi daha iyi anlamasına izin vermek için yazılı metin (mürekkep) toplayın</S1849>
+      <S1850>Windows ve Cortana 'nın sizi daha iyi anlamasına izin vermek için kişileri topla</S1850>
+      <S1851>Kullanıcıların diğer aygıtlarda uygulamaları açmalarına Izin ver ve bu aygıtta deneyimlere devam et</S1851>
+      <S1852>Kullanıcının diğer cihazlarındaki uygulamaların uygulamaları açmak için Bluetooth kullanmasını ve bu cihazda deneyimlere devam etmesini Izin ver</S1852>
+      <S1853>Önerilen açık hotspot 'larla otomatik olarak bağlanma.</S1853>
+      <S1854>Ücretli ağ hizmetlerinin kullanılabilir olup olmadığını görmek için otomatik olarak etkin noktalara bağlanma.</S1854>
+      <S1855>Skype 'a (yüklüyse), adres defterinize arkadaşlarınızla bağlanmanızı ve cep telefonunu doğrulamanız için Izin verin</S1855>
+      <S1856>Kötü amaçlı uygulamalara karşı korunmasına yardımcı olmak için SmartScreen çevrimiçi hizmetleri 'Ni kullanma</S1856>
+      <S1857>Internet Explorer 'da Web içeriğini denetlemek için SmartScreen çevrimiçi hizmetleri 'Ni kullanma</S1857>
+      <S1858>Okuma geliştirmek, tarama hızlandırmak için sayfa tahmini kullanın. Gözatma verileriniz Microsoft 'a gönderilecektir.</S1858>
+      <S1859>Uygulama envanterini topla</S1859>
+      <S1860>Windows Güncelleştirme ve WSUS, bulut hizmeti ile Peering olmadan</S1860>
+      <S1861>Bulut hizmeti ile yalnızca yerel ağda yer alma</S1861>
+      <S1862>Bulut hizmeti ile yalnızca Grup içinde (Active Directory tabanlı)</S1862>
+      <S1863>Bulut hizmeti ile LAN ve Internet üzerinde yer alma</S1863>
+      <S1864>Windows Güncelleştirme ve WSUS, bakan veya bulut hizmeti olmadan</S1864>
+      <S1865>Tam olarak atlayın, bunun yerine BITS hizmetini kullanın</S1865>
+      <S1888>Gizlilik</S1888>
+      <S1889>Eşitleme sağlayıcısı bildirimlerini göster</S1889>
+      <S1890>Yaptığınız şeyler veya OneDrive reklamları gibi deneyebilebilirsiniz yeni özellikler hakkında hızlı bilgi sağlar.</S1890>
+      <S1899>Başlangıç ve arama sonuçlarını geliştirmek için Windows izleme uygulaması lansmanları yapalım</S1899>
+      <S1901>Tanılama bilgileri</S1901>
+      <S1902>Uygulamaların arka planda çalışmasını Izin ver</S1902>
+      <S1903>Cihazımı bul</S1903>
+      <S1904>Windows kilit ekranı Spotlight</S1904>
+      <S1905>Kilit ekranınızda eğlenceli gerçekler, ipuçları, hileler ve daha fazlasını alın</S1905>
+      <S1906>Önceden yüklenmiş uygulamalar</S1906>
+      <S1907>Minecraft gibi promosyon fayans, Candy Crush, Flipboard vb.</S1907>
+      <S1908>Önerilen uygulamaları otomatik olarak yükle</S1908>
+      <S1909>Bazen önerileri başlangıç olarak göster</S1909>
+      <S1910>Önceden yüklenmiş OEM uygulamaları</S1910>
+      <S1911>Güncellemelerin ardından Windows Karşılama deneyimini göster</S1911>
+      <S1912>Windows kullandığınızda ipuçları, püf noktaları ve öneriler alın</S1912>
+      <S1913>Daha hızlı seçmek için bir değerin ilk harfini çift tıklatın veya tuşuna basın.</S1913>
+      <S1918>Komut Istemini Windows PowerShell ile Değiştir Başlat düğmesi sağ tıklatma menüsü</S1918>
+      <S1919>Bağlanmak için HotSpot 2,0 online kayıt kullanın</S1919>
+      <S1933>Hızlı erişim 'de sık kullanılan klasörleri göster</S1933>
+      <S1934>Hızlı erişim 'de son kullanılan dosyaları göster</S1934>
+      <S1935>Dosya Gezgini 'ni açık</S1935>
+      <S1936>Bu PC</S1936>
+      <S1937>Hızlı erişim</S1937>
+      <S1938>Klasör birleştirme çakışmalarını gizle</S1938>
+      <S1939>Paylaşım Sihirbazı 'Nı kullanma</S1939>
+      <S1940>Başlangıç veya görev çubuğundaki atlama listelerinde son açılan öğeleri göster</S1940>
+      <S1941>Microsoft, tanı verilerinizi kullanarak ilgili ipuçları ve öneriler ile daha özel deneyimler sunalım</S1941>
+      <S1942>Bu, Windows ve onu destekleyen uygulamalarda ilgili tüm ayarları etkileyen bir ilkedir.</S1942>
+      <S1943>Windows güncelleştirmeleri içeren sürücüleri Ekle</S1943>
+      <S1944>Prompt 'Windows Update yolu üzerinde' mesajı</S1944>
+      <S1964>DISM ResetBase işlevselliği</S1964>
+      <S1965>DıSM 's/ResetBase functinality tam olarak kullanmak için bu seçeneği etkinleştirmeniz gerekir. Windows 10 üzerinde varsayılan olarak devre dışıdır, yalnızca true Base Reset yerine Delta sıkıştırma yapar.</S1965>
+      <S1968>Gelişmiş Korumalı Modu Etkinleştir</S1968>
+      <S1969>Gelişmiş Korumalı mod için 64-bit işlemlerini etkinleştir</S1969>
+      <S1970>Shell Klasör</S1970>
+      <S1971>DNS çoklu bağlantılı ad çözümlemesi</S1971>
+      <S1972>Devre dışı bırakıldığında, bağlı ağlarda DNS isteği sızıntıları nedeniyle DNS çözümlemesi zaman aşımı ve daha fazla gizlilik konusunda yardımcı olabilir.</S1972>
+      <S1973>DNS paralel ad çözümlemesi</S1973>
+      <S2407>Ekstra hizmetler</S2407>
+      <S2408>Temel olarak bileşenlerle kaldırılan Boot kritik ve sürücü hizmetlerini Içerir.</S2408>
+      <S2421>Dosya kopyası iletişim kutusunda her zaman daha fazla ayrıntı göster</S2421>
+      <S2422>Sürükleyici bağlam menüsü</S2422>
+      <S2423>Uygulamalar için karanlık tema</S2423>
+      <S2424>Başlangıç, görev çubuğu ve Eylem Merkezi 'nde vurgu rengini göster</S2424>
+      <S2425>Etkin başlık çubuklarında vurgu rengini gösterme</S2425>
+      <S2426>Vurgu rengi</S2426>
+      <S2427>Etkin olmayan başlık çubuklarında vurgu rengi</S2427>
+      <S2428>Siyah olarak ayarlandığında, varsayılan olarak şeffaf olarak ayarlarken etkin vurgu rengini kullanır, pencere rengini kullanır.</S2428>
+      <S2462>Kilit ekranını görüntüleme</S2462>
+      <S2463>Oturum açma ekranında Son Kullanıcı adını görüntüleme</S2463>
+      <S2464>Klasik oturum açma kullan</S2464>
+      <S2465>Klasik oturum açma ekranı, kullanıcıların sisteme erişmek için bir oturum açma adı ve parolası el ile girmesini gerektirir. Varsayılan olarak, Windows Kullanıcı adlarını seçim için görüntüler.</S2465>
+      <S2480>Uygulamaların erişmesine Izin ver</S2480>
+      <S2481>Randevu</S2481>
+      <S2482>Dosya Sistemi</S2482>
+      <S2483>Belgeler Kütüphanesi</S2483>
+      <S2484>Resimler Kütüphanesi</S2484>
+      <S2485>Videolar Kütüphanesi</S2485>
+      <S2486>Windows 'un bu BILGISAYARDAN faaliyetlerimi toplamasına Izin ver ('Timeline')</S2486>
+      <S2487>Ayarlar uygulamasında Önerilen içeriği göster</S2487>
+      <S2489>Güncelleme veya yeniden başlatma işleminden sonra Uygulamalarım 'ı yeniden açma</S2489>
+      <S2490>Etkinse, bir aygıt otomatik olarak oturum açılır, oturumu geri yükler ve son etkileşimli kullanıcıyı güncelleştirme veya yeniden başlattıktan sonra kilitlenir.</S2490>
+      <S2491>Tam ekran en iyi duruma getirme</S2491>
+      <S2492>Etkinse, daha iyi oyun ve uygulama performansına yol açabilir.</S2492>
+      <S2530>Yönetimsel paylaşımlara uzaktan erişim</S2530>
+      <S2531>Dizin bağlamı menülerinde komut Istemi</S2531>
+      <S2532>Görev çubuğundaki kişileri göster</S2532>
+      <S2533>Edge masaüstü kısayolu oluştur</S2533>
+      <S2534>Defender hesap koruma uyarı bir MS hesabı kullanmak için</S2534>
+      <S2535>Geri Dönüşüm Kutusu</S2535>
+      <S2536>Silme onayı iletişim kutusunu görüntüle</S2536>
+      <S2540>Aygıtları değiştirirken etkinlik önerileri</S2540>
+      <S2541>Oturum açmış cihazlar geçmişimi kullanma</S2541>
+      <S2580>Pano Geçmişi</S2580>
+      <S2615>Yazma öngörüleri</S2615>
+    </List>
+    <Title>
+      <S0611>Yerel Makine</S0611>
+      <S1175>Tweaks</S1175>
+      <S1235>Kullanıcı</S1235>
+      <S1498>Hizmet ayarlarını değiştirin. Önemli hizmetleri devre dışı bırakmamaya dikkat edin.</S1498>
+      <S1499>Tüm kullanıcılar için çeşitli Windows ayarlarını değiştirme.</S1499>
+    </Title>
+    <Toolbar>
+      <S0922>Geçerli sekme ayarlarını kaynak değerlerine ayarlama.</S0922>
+      <S0953>Kapsam</S0953>
+    </Toolbar>
+  </Tweaks>
+  <Apply>
+    <List>
+      <S0031>Tüm değişiklikler, varolan ana bilgisayar kurulumuna doğrudan kaydedilir</S0031>
+      <S0033>Tüm diğer takılı kardeş görüntüleri kaydedilen değişiklikleri ile monte edilecektir</S0033>
+      <S0074>Kaynak üzerinde yedekleme günlüğü ve hazır ayar</S0074>
+      <S0076>Kaynak yedekleme günlüğü</S0076>
+      <S0079>Kaynak üzerinde yedekleme hazır ayarı</S0079>
+      <S0106>Her Iki temel önyükleme yöneticisi kaldırma (PCAT ve EFI), bu görüntü unbootable yapar sıraya.</S0106>
+      <S0117>Tüm işleme durdur. Şimdiye kadar yapılan değişiklikleri geri almaz.</S0117>
+      <S0129>Değiştir</S0129>
+      <S0130>Değiştir ve Çalıştır</S0130>
+      <S0147>Bekleyen işlemleri temizle</S0147>
+      <S0181>Bileşenler daha önce kaldırılmışsa, varsayılan dosyalar eksik olduğundan güncelleştirmeler başarısız olabilir.</S0181>
+      <S0189>Özellikleri Yapılandır</S0189>
+      <S0269>Devre dışı bırak</S0269>
+      <S0275>Katılımsız disk yapılandırması mevcut, bölümleri otomatik olarak bu görüntüyü önyükleme üzerinde yapılandırılmış</S0275>
+      <S0286>Bunu gelecekte gösterme</S0286>
+      <S0371>Varolan katılımsız yanıt dosyası silinecektir</S0371>
+      <S0379>Açıkça SetupComplete. cmd Yürüt</S0379>
+      <S0425>Bir UEFI görüntüsü Için, GPT diski, zorunlu 100MB EFI 'i ilk bölüm olarak ekleyin ve herhangi bir bölümü etkin olarak işaretlemeyin</S0425>
+      <S0500>Görüntü bilinmeyen durumda bırakılacaktır, daha sonra tekrar kullanmadan önce herhangi bir değişiklik atmak için tavsiye edilir.</S0500>
+      <S0530>Paketleri yükle</S0530>
+      <S0538>Sürücüleri tümleştirin</S0538>
+      <S0539>Paketleri tümleştirin</S0539>
+      <S0574>Sadece tutun</S0574>
+      <S0722>Bekleyen değişiklikler yok, yukarıdaki araç çubuğunu veya bazı seçenekleri değiştirmek için soldaki gezinme menüsünü kullanın</S0722>
+      <S0811>Kurulum sonrası görevler</S0811>
+      <S0817>Veri hazırlama</S0817>
+      <S0837>Kendi riskine devam et.</S0837>
+      <S0842>İlerleme</S0842>
+      <S0866>Güncelleştirilmiş verileri oku</S0866>
+      <S0900>Bileşenleri kaldır</S0900>
+      <S0901>Kaldırılan dosyalar</S0901>
+      <S0902>Hiçbir dosya kaldırılmadı</S0902>
+      <S0933>Çalıştır</S0933>
+      <S0945>Değişiklikleri kaydedin ve görüntüyü kaldırın</S0945>
+      <S0983>Isteğe bağlı olarak sürücüler sayfasının sağ tarafındaki aygıt kontrol listesini gözden geçirin</S0983>
+      <S1056>Birden fazla parçaya bölünmüş görüntü, Eğer daha büyük</S1056>
+      <S1071>Görüntüyü kaydetmeden önce durdur</S1071>
+      <S1072>Süreci durdurmak?</S1072>
+      <S1111>Görev</S1111>
+      <S1141>Bu bir canlı (çevrimiçi) ana makine düzenleme oturumdur. Bir şey yanlış giderse durumda bir yedek hazır olması tavsiye edilir.</S1141>
+      <S1150>Bu kaynak daha önce işlem sırasında iptal edildi ve kararsız durumda olabilir</S1150>
+      <S1191>Katılımsız yanıt dosyası hedefi</S1191>
+      <S1193>Katılımsız kurulum</S1193>
+      <S1337>İşlem seçildikten sonra Durdur, böylece görüntü kaydedilecek değişiklikler için kaynak sayfadan el ile kaldırılmalıdır</S1337>
+      <S1373>Önerilen adımlar için güncelleştirmeler sayfasındaki Güncelleştirme tümleştirme çözümleme iletilerini gözden geçirin</S1373>
+      <S1399>En az bir metro uygulaması, Windows 10 Başlat menüsü düzgün yüklenirse tutulması gerekir.</S1399>
+      <S1400>Lütfen bileşenler sayfasına gidin ve bunlardan birini saklayın.</S1400>
+      <S1429>Son yükleme boyutu</S1429>
+      <S1559>Sunucu Active Directory 'de bu kullanıcının ' etki alanına bir bilgisayar birleştirmek ' için izin verdiğinizden emin olun ve bir bilgisayar adı belirtmeniz gerekir. Bilgisayar adı da rasgele oluşturulabilir, bilgisayar adı seçeneği açıklama daha fazla bilgi.</S1559>
+      <S1572>Kayıt defteri tümleştirilmesi</S1572>
+      <S1598>En az bir klavye düzenini yazabileceğiniz şekilde tutulması gerekir.</S1598>
+      <S1599>Windows metin gösterebilmek için en az bir yazı tipi tutulması gerekir.</S1599>
+      <S1600>Windows 'ın içeriği gösterebilmek için en az bir dilin tutulması gerekir.</S1600>
+      <S1777>Sürücüleri yükle</S1777>
+      <S1976>Korumalar devre dışı bırakılırsa, bir sorun korumaları etkinleştirilmiş olduğu sürece destek olmayacaktır.</S1976>
+      <S2406>İntegrasyonlar veya özellik yapılandırmasını kullanmak için, çekirdek hizmet yığını bileşeni kaldırılmalıdır.</S2406>
+      <S2468>Herhangi bir sorun varsa, güncelleştirmek için ana bilgisayar yenileme Sihirbazı 'nı kullanın.</S2468>
+      <S2469>Görüntü yaparken, güncelleştirme tümleştirmesi sonrası veya sırasında bileşenleri kaldırın. Her zaman yeni güncellemeler entegre zaman taze başlamak için tavsiye edilir.</S2469>
+      <S2548>Dosyalar</S2548>
+      <S2549>Komple dosyalar</S2549>
+      <S2550>Benzersiz dosyalar</S2550>
+      <S2551>ISO dosyaları</S2551>
+      <S2603>Mevcut ISO imge dosyasının üzerine yazılacak</S2603>
+    </List>
+    <Title>
+      <S0051>Uygula</S0051>
+      <S0929>Görüntü görevlerini yapılandırın, bekleyen değişiklikleri gözden geçirin ve hazır durumdayken araç çubuğundaki Işlem düğmesini kullanın.</S0929>
+    </Title>
+    <Other>
+      <S0052>Uygulama</S0052>
+      <S0148>Temizleme</S0148>
+      <S0150>Boş dizinleri temizleme</S0150>
+      <S0151>Kalan girişleri temizleme</S0151>
+      <S0271>Devre dışı bırakma</S0271>
+      <S0336>Etkinleştirme</S0336>
+      <S0358>Hatalar ve uyarılar</S0358>
+      <S0397>Ayıklanması</S0397>
+      <S0438>Işlevsellik koruması</S0438>
+      <S0536>Yükleme</S0536>
+      <S0543>Entegre</S0543>
+      <S0544>Önyükleme görüntü bölümünü tümleştirme</S0544>
+      <S0762>Paket</S0762>
+      <S0819>Veri hazırlama</S0819>
+      <S0821>Özellik yapılandırmasını hazırlama</S0821>
+      <S0823>Entegrasyonu hazırlama</S0823>
+      <S0834>Önceki paket entegrasyonu bu görüntüye daha fazla entegrasyon kilitlendi.</S0834>
+      <S0838>İşleme</S0838>
+      <S0909>Eski dosyaları kaldırma</S0909>
+      <S0928>Sürücü önbelleği dosyalarını yeniden kullanma</S0928>
+      <S0952>Eski dosyalar için tarama</S0952>
+      <S1027>Atlanır</S1027>
+      <S1030>Kayma akışı hizmet paketi</S1030>
+      <S1142>Bu paket yeni bir hizmet yığını veya Windows 'un daha yeni bir sürümünü gerektirir.</S1142>
+      <S1433>Windows Defender algılandı, çok daha hızlı bir işleme için devre dışı bırakmak için tavsiye edilir.</S1433>
+      <S1435>Otomatik olarak Windows Defender devre dışı bırakamazsınız, kendi ayarlarında gerçek zamanlı koruma el ile devre dışı bırakın lütfen.</S1435>
+      <S1436>Windows Defender ayarlarını açmak için Evet 'e basın.</S1436>
+    </Other>
+    <Toolbar>
+      <S0073>Yedekleme günlüğü</S0073>
+      <S0075>Sonraki hata ayıklama amacıyla geçerli oturum günlüğünü kaynağa kopyalayın.</S0075>
+      <S0077>Yedekleme hazır ayarı</S0077>
+      <S0078>Gelecekte yeniden kullanmak veya hata ayıklama amacıyla şu anda otomatik olarak kaydedilmiş hazır ayarı kaynağa kopyalayın.</S0078>
+      <S0152>Temiz Güncelleme Yedekleme</S0152>
+      <S0153>Yalnızca son sürümleri tutarak eski güncelleştirilmiş yedekleme dosyalarını kaldırın. Varolan tüm hizmet paketleri ve güncelleştirmeleri bu işlemden sonra kaldırılamaz. Bu, gelecekteki hizmet paketlerinin veya güncelleştirmelerin yüklemesini engellemez. </S0153>
+      <S0222>Görüntü kaydedildikten sonra, otomatik olarak ISO görüntüsünü oluşturun. Bu seçeneğin denetlenmesiyle kuyruğa alınmış parametreler istenir.</S0222>
+      <S0360>ESD sıkıştırma</S0360>
+      <S0361>Yalnızca Windows 8 kurulumu ve daha yenisi üzerinde desteklenen ESD biçimini kullanarak görüntüyü sıkıştırın. Elde edilen görüntü daha küçük olacak, ancak düzenleme için WIM 'ye geri dönüştürülmesi gerekir.</S0361>
+      <S0385>Görüntüyü yeniden oluşturmak, potansiyel olarak boyutunu azaltarak. Bunu yaparak, seçili olan sürüm üst görüntü dosyasındaki tek giriş olarak kalacaktır.</S0385>
+      <S0809>Görüntü sonrası işleme</S0809>
+      <S0926>Sürücü önbelleğini yeniden kullanma</S0926>
+      <S0927>Önbellekteki aynı sürücü dosyaları ve dağıtılmış (örn. System32) arasında NTFS bağlantılarını kullanarak etkili Windows boyutunu azaltın. Yüklü sürücülerle canlı dağıtımlarda kullanıldığında çoğu alan kaydedilmiş. </S0927>
+      <S0944>Değişiklikleri Kaydet ve bağlantısını kesmek</S0944>
+      <S0946>Değişiklikleri kaydedin ve şu anda yüklenen görüntü ve onun kardeşlerini çöz.</S0946>
+      <S0955>Seal özellikleri</S0955>
+      <S0956>Kaldırmak Windows 7 özellikleri eski güncelleştirmeleri, boyutunu azaltarak çok daha fazla. Windows Özellikleri (CPanel-&gt; Programlar-&gt; Özellikler) devletler bu işlemden sonra değiştirilemez, bu nedenle bu seçeneği kullanırken son özellikleri sayfa durumları Kur emin olun. </S0956>
+      <S1053>Bölme</S1053>
+      <S1058>Seçili WıM görüntüsünü birden çok SWM bölümlerine Böl. Örneğin FAT32 tek dosya 4GB sınırlama atlamak için kullanılan veya birden çok medya boyunca görüntü yayılma.</S1058>
+      <S1062>Işlem</S1062>
+      <S1066>Bekleyen değişikliklerin tümünü uygulamadan başla.</S1066>
+    </Toolbar>
+  </Apply>
+  <PostSetup>
+    <Other>
+      <S0032>Tüm dosyalar</S0032>
+      <S0125>Herhangi bir yürütme kendilerini yüklemek sessiz montajcılar ile dikkatli.</S0125>
+      <S0366>Yürütmek</S0366>
+      <S0367>Executing</S0367>
+      <S0369>Varolan</S0369>
+      <S0534>Yükleyici</S0534>
+      <S0771>Parametre</S0771>
+      <S0884>Kayıt defteri</S0884>
+      <S0966>Eklenecek dosyaları seçin</S0966>
+      <S0995>Ayarla</S0995>
+      <S1068>Durum</S1068>
+      <S1088>Desteklenen türler</S1088>
+      <S1168>Varolan olmayan komutu kaldırmaya çalıştı</S1168>
+      <S1177>Türü</S1177>
+      <S1202>Bilinmeyen</S1202>
+      <S1344>Toplu iş</S1344>
+      <S1345>Pasif</S1345>
+      <S1352>olarak kullanın</S1352>
+      <S1424>Olası ertelenmiş güncelleştirmeler için yer tutucu satırı</S1424>
+      <S1425>Uygun konuma taşıyın. En son olarak veya OEM etkinleştirme veya zorla reboot gibi herhangi bir çakışan idam önce.</S1425>
+      <S1561>Script</S1561>
+    </Other>
+    <Toolbar>
+      <S0167>Komut</S0167>
+      <S0168>Yükledikten sonra yürütme için bir komut satırı yönergesi ekleme</S0168>
+      <S0368>Yürütme sırası</S0368>
+      <S0411>Windows Kur sonra yürütme için parametreler, SFX Archive, PowerShell komut dosyası veya bir REG dosyası ile tek dosya uygulama yükleyicisi ekleme</S0411>
+      <S0769>Parametre bilgisi</S0769>
+      <S0770>Kullanılabilir parametrelerin listesini görmek için seçili yükleyicinin yardım anahtarını deneyin</S0770>
+      <S0904>Seçili satırı Kaldır</S0904>
+      <S0921>Kaynak durumunu Sıfırla. Yeni kaldırır ve varolan girdileri döndürür.</S0921>
+      <S1374>Yukarı taşı</S1374>
+      <S1375>Aşağı taşı</S1375>
+      <S1515>Hazırda bekletme özelliğini devre dışı bırak Hibernate)</S1515>
+      <S1517>Kullanıcı parolası sona erme devre dışı bırakma</S1517>
+      <S1548>Şablon</S1548>
+      <S1975>VMware araçlarını yükleyin</S1975>
+    </Toolbar>
+    <Title>
+      <S0626>Komutlar ve uygulama yüklemelerinin Kurulum sonrası yürütülmesini yönetin. Onlar kurulum sonunda, sadece bir kez sistem kullanıcı olarak idam olsun.</S0626>
+      <S0810>Kurulum sonrası</S0810>
+    </Title>
+  </PostSetup>
+  <Features>
+    <List>
+      <S0242>Açıklama</S0242>
+      <S0401>Özelliği</S0401>
+      <S1067>Durum</S1067>
+    </List>
+    <Title>
+      <S0403>Özellik</S0403>
+      <S0975>Hangi özelliklerin etkinleştirileceği seçin. Bu sayfa kontrol paneli ile aynı şeyi yapar-' Windows özelliklerini aç veya Kapat ' yapar.</S0975>
+    </Title>
+    <Toolbar>
+      <S0443>Genel</S0443>
+      <S0920>Özellik durumlarını kaynak varsayılanlarına ayarlama</S0920>
+    </Toolbar>
+  </Features>
+  <Registry>
+    <Title>
+      <S1565>Kayıt defteri dosyalarını entegre edin ve doğrudan görüntüde kovanları düzenleyin. HKCU tüm kullanıcılar için geçerlidir.</S1565>
+    </Title>
+    <Toolbar>
+      <S1566>REG dosyalarını listeye ekle</S1566>
+      <S1569>Düzenle</S1569>
+      <S1570>REG dosya veya geçici yükleme kayıt defteri kovanını Regedit içinde Düzenle.</S1570>
+      <S1575>Kayıt defteri kovanlarını görüntüden düzenlemek, yuvayı ana kayıt defterinize geçici olarak yükleyerek mümkün hale gelmiştir:</S1575>
+      <S1576>Emin değilseniz, el ile hiçbir şey düzenleme.</S1576>
+      <S1577>Ana makine kayıt defterini etkilemez, tüm düzenleme Hive anahtarı ve içeriğini tutmak.</S1577>
+      <S1578>Aracı ile devam etmeden önce regedit kapatmak emin olun.</S1578>
+    </Toolbar>
+    <List>
+      <S1567>Kayıt defteri sırası</S1567>
+      <S1568>Kovan</S1568>
+      <S1571>Kullanıcı</S1571>
+    </List>
+    <Other>
+      <S1619>Bu REG dosyasından, muhtemelen anahtar izinleri nedeniyle bazı anahtarlar uygulanamadı. Bunun yerine Post-Setup sayfasını deneyin.</S1619>
+    </Other>
+  </Registry>
+</NTLiteTranslation>

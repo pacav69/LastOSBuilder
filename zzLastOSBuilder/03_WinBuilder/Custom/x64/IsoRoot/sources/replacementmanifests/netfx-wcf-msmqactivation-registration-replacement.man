@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly>
+  <assemblyIdentity
+      name="NetFx-WCF-MsmqActivation-Registration-RM"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      versionScope="nonSxS"
+      />
+  <migration
+      alwaysProcess="yes"
+      replacementSettingsVersionRange="0"
+      settingsVersion="0"
+      replacementVersionRange="6.1"
+      >
+    <registerSDF name="WCF-MSMQ-Activation45"/>
+    <migXml xmlns="">
+      <detects>
+        <detect>
+          <condition>MigXmlHelper.IsOSEarlierThan("NT", "6.2")</condition>
+        </detect>
+        <detect>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\CDF\v4.0 [NonHttpActivationInstalled]")</condition>
+          <condition>MigXmlHelper.DoesObjectExist("Registry", "HKLM\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\CDF\v4.0 [NonHttpActivationInstalled]")</condition>
+        </detect>
+      </detects>
+    </migXml>
+  </migration>
+</assembly>

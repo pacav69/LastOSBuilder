@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    manifestVersion="1.0"
+    >
+  <assemblyIdentity
+      language="neutral"
+      name="Microsoft-Windows-Power-Policy-Definitions"
+      processorArchitecture="*"
+      version="0.0.0.1"
+      />
+  <!-- version 1 = Win7 -->
+  <migration
+      replacementSettingsVersionRange="1"
+      settingsVersion="1"
+      >
+    <machineSpecific>
+      <migXml xmlns="">
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\User\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\SecurityDescriptors\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride\* [*]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HibernateEnabled]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [CustomizeDuringSetup]</pattern>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power [AwayModeEnabled]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+        <!-- -->
+        <!-- Migrate the HiberFileSizePercent policy, only if the default (80) is not set. -->
+        <!-- -->
+        <rules context="System">
+          <conditions>
+            <condition negation="Yes">MigXmlHelper.DoesStringContentEqual("Registry", "HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]", "0x00000050")</condition>
+          </conditions>
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Power [HiberFileSizePercent]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

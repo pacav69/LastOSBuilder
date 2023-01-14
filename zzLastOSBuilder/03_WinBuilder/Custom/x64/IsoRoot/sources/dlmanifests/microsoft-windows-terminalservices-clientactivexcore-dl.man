@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<assembly
+    xmlns="urn:schemas-microsoft-com:asm.v3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    authors="klondon"
+    buildFilter=""
+    company="Msft"
+    copyright=""
+    description="Microsoft-Windows-TerminalServices-ClientActiveXCore migration from downlevel OS"
+    displayName="Microsoft-Windows-TerminalServices-ClientActiveXCore settings"
+    estimatedSize=""
+    manifestVersion="1.0"
+    owners="klondon"
+    supportInformation=""
+    testers=""
+    >
+  <assemblyIdentity
+      language="*"
+      name="Microsoft-Windows-TerminalServices-ClientActiveXCore-DL"
+      processorArchitecture="*"
+      version="0.0.0.0"
+      />
+  <migration xmlns="">
+    <machineSpecific>
+      <migXml>
+        <detects>
+          <detect>
+            <condition>MigXmlHelper.IsOSEarlierThan("NT","6.0.0.0")</condition>
+          </detect>
+        </detects>
+        <rules context="System">
+          <include>
+            <objectSet>
+              <pattern type="Registry">HKLM\SOFTWARE\Microsoft\MSLicensing\* [*]</pattern>
+            </objectSet>
+          </include>
+        </rules>
+      </migXml>
+    </machineSpecific>
+  </migration>
+</assembly>

@@ -1,0 +1,10 @@
+[SetupS]
+Title={Game Name Here}
+BuildType=ppGame
+App-File Version=v9.17.3.25.0
+App-File Style=2 (INI)
+AppPath=%ppGames%\{GameNameHere}
+StartMenuSourcePath={Game Name Here}
+Flags=KeepAll
+[{Game Name Here}.lnk]
+Target={GameEXE}

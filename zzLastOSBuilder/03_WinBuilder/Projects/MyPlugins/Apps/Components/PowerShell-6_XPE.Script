@@ -1,0 +1,100 @@
+[Main]
+Title=PowerShell Core-6
+Type=XPEPlugin
+Description=(v6.2.3) PowerShell-6 is a new edition of PowerShell that is cross-platform (Windows, macOS, and Linux), open-source, and built for heterogeneous environments and the hybrid cloud
+Author=KYHI
+Date=2019.08.24
+Credits=
+Contact=
+Version=003
+Level=5
+Download_Level=2
+Selected=False
+Mandatory=False
+NoWarning=False
+History001=KYHI Initial XPE Plugin Created 2018.07.27
+History003=KYHI - 2019.03.29
+
+[Interface]
+Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
+StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
+TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,"System Tools","__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From RAM",1,4,145,6,104,21,"Run From USB","Run From RAM"
+Image_Software=pwsh4848.jpg,1,5,145,34,48,48
+Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
+HomePage_WebLabel="PowerShell-6 Home Page",1,10,338,6,200,18,https://github.com/PowerShell/PowerShell/releases
+
+[Variables]
+%ProgramTitle%=PowerShell-6
+%ProgramExe%=pwsh.exe
+%ProgramFolder%=PowerShell-6
+%SetupFile%=PowerShell-6_x86.zip
+%SetupFilex64%=PowerShell-6_x64.zip
+%FileContainer%=%ScriptDir%\PowerShell-6_XPE_File.Script
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%FileContainer%,Exit,"%FileContainer% Container File Not Found"
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+Run,%ScriptFile%,Extract
+//--
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+DirCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%,%Target_Prog%
+//--
+Run,%ScriptFile%,Add_Shortcuts
+
+[Add_Shortcuts]
+If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
+
+[Extract]
+Set,%SetupContainerSize%,""
+IniRead,%FileContainer%,Folder,%SetupFile%,%SetupContainerSize%
+If,%SetupContainerSize%-,Equal,-,Run,%ScriptFile%,Update_Container
+//--
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+If,Not,ExistDir,%GTemp%\%ProgramFolder%,DirMake,%GTemp%\%ProgramFolder%
+ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+
+[PluginSetx64]
+//Set,%ProgramFolder%,%ProgramFolder%_x64
+Set,%SetupFile%,%SetupFilex64%
+
+[Launch_Program]
+If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Run,%ScriptFile%,Extract
+OpenDir,%GTemp%\%ProgramFolder%\%ProgramFolder%
+//Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%\%ProgramFolder%
+
+[Update_Container]
+Exec,%FileContainer%,Process
+
+[AuthorEncoded]
+Logo=pwsh4848.ico
+pwsh4848.ico=1391,1855
+
+[EncodedFile-AuthorEncoded-pwsh4848.ico]
+lines=0
+0=eJztmX9olVUYx89a5Q/MtSRBSBNhIUh5EaUIaUoZaFCtv6L94SCn0aSrDcMZ6SUnyjY2RwtdQhe9xTJpK7XN1tqUtbFIuYSiqRtXL/1w261NbbCFeXq/771nnPfcc95z7t291B/vkWcv9773fc/nec5znuc5j4TkWP98PmL9XUg+KyBkLiFksSXWV6SExL/HCBQQb3jDG97wRgZHNRkO1pAY/T+JxRSpIoM+HfsuEnkQv39nZh0tnbNGK7vv7bbfz3+388nl9IcQyaiEVjbYOpjY3+ZfVGTEv/eeS0n89a88lnF+SMOcMHRYZeA/Ef9sv5b9zfzXbPY9uecc3x8sXpQV/sQaBEz8f/uMRlf2D4vfooc3VtDaecdp4L5TjnufbJ6XFf7m4o0Wf6xFx2/tkxL4tYq942AzZWOoP0LrXyilm+Y+N3m/dd8sx7yXOorob5f7tNLZWErPHLhfyd9ZuQT2HzHg94k+zYs4xv+6RY/uKKdl81fb9/k5z59cmvR7t9HV+IzrGuyfMUBN4hD03Jy3Qcofi96Qzv1jy6e0et3jTtu3F6bE39e0zpX/0OKvwF+i468hQ12qGLq78A06PnJXOn8sepGe3LeC9gZzJucc+zNsxI7f8c/J5FjRNvhQ0MD+gfemNUv5y2dV0g/y/qDRrr+lHBNjN21f7myY7vAjrIVKcN9kD7dXPG3FvOGwAf8qxHa3mF9FovREVUhpzwsdQfpN7YKMxqCextn23Mizeh+K2TFetD3L6Tumh+zval4sp2Ojt5X+1F7/rNYvUpEDC05jDV7W8w+Htz5QIbW9qJvfyte/XuxT+tP3obcd/jQVaXp+j2keq2M2Fm0vyw+I+7/8FFD605WeLzLiT8dLX6WILzp+MY/xtocuIj8fM+9MjCj9qa12De0+lJs2/5m6+TaDjn8v+X0hy2PwI76e3fTQS0n81WuX0O6P4lxnj+bRWze6XP3p2/0z09YBeSyVWg6x1M13mGx/4inHPG7+hPiU7joElx2x4t/QFj1/rAW1HO87utoO68DP5eZPJyrz0+KP5zGTWm5oC+pL3nd0/JCPX3fu04He9VL+dGMS8pjJeQY+Jp7lTPjLHllNv6uPsyG3yux//dz7U4pDYMEe1emQDj8E50gV+/BAcMpxNJVajud327+8IKfJ8nIm2CGJPFZn4EMBcQ1k8VNkj57vT2I3qTFNpdW/1qiWQ60h8svyl459sP9nOy/IWL7cmW+fO3F25uXzbQ9P7iNRTPMY66nwgniqWoNwa08SO/TxJ3oa2BdMsM9NfBF5RXauNu1JYJ1EHWTng96m9mSfsfYAzjwmnDrZWrDSXhPGn0pPAvW+mw7ZZueF9ZjQkzCt5dDn4fMwE+S3YxWHk9hxrtexowbHXkKdi7iGOdjZCJ/xbpxjxXMI86m2d33GPQm8E2d62TrIzpLBsuqkOfE8eLBuMlswbib8XHhG1AM6xJ8z70nIdLjaMuFg/7pk0LYpch1jUfVmYXOVjdka4T5bGzF/xvXU5zHUS6wngXfyTEeWjto63Iz8Q9vW39b2k2F72FPVo1HGZqsWZvZg8Q/6pNuTYLW1zBdkfoG5UmWWCezIdACDaS2n6klA2LtEyXTs4fcSzlXolZvksYQOEVVf6L8SrIVpTwX7HDpk4/9YpiIm/u8Nb3jDG9kc8eol9WvAfpi9JPF5l+ZaSMhpt+ujhFwzueYRMup2nUbIuMk1l5A7btccQu5qrpwJ4p9TtOO/CXOpb3ic4ykoL84wsTCx0MtMzmcYBSMN7FOF0Mqs2OUnxiuWMjABAM8yBqMvDkjHAQAAAAIAAAAoAAAAIwUAAAAAAAABAAAAAAAAAAAAAAA
+
+[InterfaceEncoded]
+Launch.bmp=913,1218
+pwsh4848.jpg=2219,2959
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-pwsh4848.jpg]
+lines=0
+0=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
+

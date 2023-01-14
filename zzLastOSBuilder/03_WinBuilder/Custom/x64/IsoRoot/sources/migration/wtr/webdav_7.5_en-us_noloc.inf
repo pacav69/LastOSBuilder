@@ -1,0 +1,29 @@
+[WTR]
+Name="WebDAV 7.5 For IIS 7.0"
+
+[WTR.W8]
+NotifyUser="No"
+
+[System.File]
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav_simple_prop.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav_simple_lock.dll]"
+"%SystemDrive%\Windows\System32\inetsrv\ [webdav.chm]"
+"%SystemDrive%\Windows\System32\inetsrv\ [WebDAV_ReadMe.htm]"
+"%SystemDrive%\Windows\System32\inetsrv\config\schema\ [WEBDAV_schema.xml]"
+"%SystemDrive%\Windows\Migration\WTR\ [MSIISWebDAV75.inf]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [webdav.dll]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [webdav_simple_prop.dll]"
+"%SystemDrive%\Windows\SysWow64\inetsrv\ [webdav_simple_lock.dll]"
+
+[System.Gac]
+"[Microsoft.Web.Management.WebDAV,*]"
+"[Microsoft.Web.Management.WebDAVClient,*]"
+
+[System.Registry]
+"HKLM\SOFTWARE\Microsoft\IIS Extensions\WebDAV\* [*]"
+
+[ProductID]
+"{E59555E2-6572-4BA5-90A9-3D2327739979}"
+
+
