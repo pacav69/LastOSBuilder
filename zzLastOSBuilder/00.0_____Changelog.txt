@@ -1,3 +1,7 @@
+0.0.1 ************************
+Initial release
+
+0.0.2 ************************
 Updated WinBuiler Win10XPE Version 2022-12-18
 
 XPEplugins updated:
@@ -21,5 +25,7 @@ Mega Optional Application Download Updated 10.08.2022
 
 
 Ref: https://theoven.org/viewtopic.php?f=14&t=163
+
+0.0.3 ************************
 
 
