@@ -29,7 +29,7 @@ Minimum
 ### Windows 11 ISO
 <!-- Windows 11 logo -->
 
-<Element:img src="https://cldup.com/CNvdnmCQtv.png" alt="Win11 logo" style="height: 100px; width:120px;"/>
+<img src="https://cldup.com/CNvdnmCQtv.png" alt="Win11 logo" style="height: 100px; width:120px;"/>
 
 [Download Windows 11 ISO here](https://www.microsoft.com/en-au/software-download/windows11/)
 
