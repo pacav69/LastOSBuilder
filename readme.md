@@ -117,6 +117,5 @@ LastOS Builder Documentation
 
 See file "00.0_____Changelog.txt" for any changes.
 
-
 >>>>>>> c07b0bee4e259904afa5fe026bf8cb7fd1ec4bc7
 
