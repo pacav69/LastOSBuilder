@@ -33,7 +33,7 @@ Minimum
 
 [Download Windows 11 ISO here](https://www.microsoft.com/en-au/software-download/windows11/)
 
-[Download other windows here](https://www.microsoft.com/en-au/software-download)
+[Download other windows ISO here](https://www.microsoft.com/en-au/software-download)
 
 ## Usage
 
