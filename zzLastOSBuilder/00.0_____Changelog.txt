@@ -28,9 +28,17 @@ Ref: https://theoven.org/viewtopic.php?f=14&t=163
 
 0.0.3 ************************
 added zzmenu.cmd file
-added file check in 00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
-added file check in 00.1_Extract_Source_ISO.cmd
+added file check in
+    00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
+added file check in 
+    00.1_Extract_Source_ISO.cmd
 
 0.0.4 ************************
+
+updated zzmenu.cmd file
+renamed file to 00.01_Cleanout_LastOS_Builder.cmd
+
+0.0.5 ************************
+
 
 
