@@ -1,5 +1,5 @@
 @echo off
-set "scriptver=1.0"
+set "scriptver=0.0.3"
 title %~nx0  v%scriptver%
 
 
@@ -63,14 +63,36 @@ rem exit
 
 rem echo "I am here because you typed N"
 echo exiting program
-rem pause
+@REM pause
 exit /B
 
 :run
-rem pause
+echo here at run
+@REM pause
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
 
+REM finds file    
+IF EXIST "00_Source\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist & goto DONE
+) 
+@REM echo nope
+@REM pause
+
+@REM pause
+:runcode
+@REM echo runcode
+@REM pause
+if exists "%CP%\00_Source"
 rem Rename first found 00_Source\*.ISO to use as Windows Original source ISO
 cd /D "%CP%\00_Source"
-for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%CP%\00_Source\%%x" "%MountISO%" & goto DONE
+for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%CP%\00_Source\%%x" "%MountISO%" & goto END
 
-:DONE
+:DONE 
+set ERRORLEVEL=1
+@REM echo DONE
+@REM pause
+:END

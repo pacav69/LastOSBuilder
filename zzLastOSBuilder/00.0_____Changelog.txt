@@ -27,5 +27,10 @@ Mega Optional Application Download Updated 10.08.2022
 Ref: https://theoven.org/viewtopic.php?f=14&t=163
 
 0.0.3 ************************
+added zzmenu.cmd file
+added file check in 00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
+added file check in 00.1_Extract_Source_ISO.cmd
+
+0.0.4 ************************
 
 
