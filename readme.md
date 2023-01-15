@@ -4,9 +4,14 @@
 
 [Website ](http://www.lastos.org)
 
-## Version 0.0.4
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
-### Lastos builder updates
+
+## LastOSBuilder Version 0.0.4
+
+
+
+**LastOSBuilder updates**
 
 [found here](https://github.com/pacav69/lastosbuilder-updates)
 
@@ -62,6 +67,16 @@ If all is fine you should see this
 ## Documentation WIP (work In Progress)
 
 LastOS Builder Documentation
+
+## Contributing
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+
+
+LastOSBuilder is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into LastOSBuilder itself.
+
+Following the guidelines in the
+[Contributing document](https://github.com/pacav69/LastOSBuilder/blob/main/Contributing.md)
 
 ## Tools Used
 
