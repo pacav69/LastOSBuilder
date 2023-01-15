@@ -4,7 +4,7 @@
 
 [Website ](http://www.lastos.org)
 
-## Version 0.0.3
+## Version 0.0.4
 
 ### Lastos builder updates
 
