@@ -149,7 +149,7 @@ echo.
 rem check for updates
 echo check to see if git application is installed
 echo check for builder updates? (get git status from repo)
-echo eg to download run:	git clone %BuilderRepo%
+echo eg to download run:	git pull %BuilderRepo%
 echo use BuilderVersion.txt to compare installed and repo version
 echo if different download update
 echo you are upto update or update files.
