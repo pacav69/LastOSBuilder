@@ -12,7 +12,7 @@
 ## introduction
 
 This builder allows the user to customise Windows 10 and Windows 11 and make
- adjustment such as wallpaper, applications and drivers to create a bootable ISO ready for deployment,\.
+ adjustments such as wallpaper, applications and drivers to create a bootable ISO ready for deployment.
 
 This builder is based on Last20Builder found [here](http://forum.lastos.org/index.php?threads/last20-ltsc-x64-2020-02.1866/)
 
