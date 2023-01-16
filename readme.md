@@ -85,6 +85,10 @@ CMD Command Line information used in scripts [found here](https://ss64.com/nt/)
 
 WinBuilder - [Win10XPE Homepage](https://theoven.org/viewforum.php?f=14)
 
+<img src="https://visualstudio.microsoft.com/wp-content/uploads/2019/09/vs-code-responsive-01-1.png" alt="Visual Studio Code logo" style="height: 50px; width:60px;"/>
+
+Visual Studio Code Editor - [found here](https://visualstudio.microsoft.com/) 
+
 ### Changes
 
 See file "00.0_____Changelog.txt" for any changes.
