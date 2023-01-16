@@ -85,6 +85,7 @@ rem System Set Variables:
 rem CNP = Check Name Path
 for %%f in ("c:\Program Files\Git") do set CNP=%%~sf
 rem CFN = Check File Name
+rem change CFN to name of file to check 
 set CFN=%CNP%\git-cmd.exe
 set VMP=%CP%\%VMPath%
 set ToolsPath=%CP%\Tools
@@ -100,7 +101,7 @@ setlocal enableextensions
 rem if not defined CFN goto :eof
 if not exist "%CFN%" goto :NotExistCFN
 rem *******   
-rem check version of VirtualBox
+rem check version of CFN = Check File Name
 
 set "vers="
 rem set version of file found to variable vers
@@ -147,7 +148,7 @@ echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
 echo.
 rem check for updates
-echo check to see if git application is installed
+rem echo check to see if git application is installed
 echo check for builder updates? (get git status from repo)
 echo eg to download run:	git pull %BuilderRepo%
 echo use BuilderVersion.txt to compare installed and repo version
