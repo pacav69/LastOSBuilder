@@ -39,6 +39,8 @@ updated zzmenu.cmd file
 renamed file to 00.01_Cleanout_LastOS_Builder.cmd
 
 0.0.5 ************************
+updated links in readme.md
 
+0.0.6 ************************
 
 

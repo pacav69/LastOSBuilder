@@ -91,4 +91,4 @@ Visual Studio Code Editor - [found here](https://visualstudio.microsoft.com/)
 
 ### Changes
 
-See file Changelog.txt for any changes.  [Changelog document](https://github.com/pacav69/LastOSBuilder/blob/main/zzLastOSBuilder/00.0_____Changelog.txt)
+See file Changelog.txt for any changes.  [View Changelog document](https://github.com/pacav69/LastOSBuilder/blob/main/zzLastOSBuilder/00.0_____Changelog.txt)
