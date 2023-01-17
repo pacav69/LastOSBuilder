@@ -31,9 +31,9 @@ echo .                                               .
 echo .  1) About                                     .
 echo .  2) Rename First ISO                          .
 echo .  3) Extract Source ISO                        .
-echo .  4) Extract Source ISO                        .
-echo .  5) Extract Source ISO                        .
-echo .  6) Extract Source ISO                        .
+echo .  4) hello                        .
+echo .  5) About                        .
+echo .  6) Rename_First_ISO                        .
 echo .  7) Extract Source ISO                        .
 echo .  8) Extract Source ISO                        .
 echo .  9) Extract Source ISO                        .
@@ -93,7 +93,17 @@ GOTO MENU_START
 @REM =================================
 :OPTION4
 cls
-call 00.1_Extract_Source_ISO.cmd
+
+@REM rem This first for routine will give the current path without a trailing \
+@REM %~d0
+@REM cd "%~dp0"
+@REM cd %~dps0
+@REM for %%f in ("%CD%") do set CP=%%~sf
+
+@REM rem User Set Variables:
+@REM @REM set /p ProjectName=<%CP%\Settings\ProjectName.txt
+@REM echo %CP%
+call %CP%\scripts\hello.cmd
 pause
 echo finished
 timeout 2 > NUL
@@ -101,7 +111,7 @@ GOTO MENU_START
 @REM =================================
 :OPTION5
 cls
-call 00.1_Extract_Source_ISO.cmd
+call  %CP%\scripts\00.0___About_.cmd
 pause
 echo finished
 timeout 2 > NUL
@@ -109,7 +119,7 @@ GOTO MENU_START
 @REM =================================
 :OPTION6
 cls
-call 00.1_Extract_Source_ISO.cmd
+call  %CP%\scripts\00.0__Rename_First_ISO_To_Windows_Original_ISO
 pause
 echo finished
 timeout 2 > NUL
