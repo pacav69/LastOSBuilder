@@ -13,9 +13,11 @@ rem This first for routine will give the current path without a trailing \
 cd "%~dp0"
 cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
+rem CPS= CP Scripts
+set "CPS=%CP%\scripts"
 
 rem User Set Variables:
-set /p BuilderVersion=<%CP%\Settings\BuilderVersion.txt
+set /p BuilderVersion= %CPS%\Settings\BuilderVersion.txt
 
 rem color 02 green char on black background
 color 02 
@@ -99,11 +101,12 @@ cls
 @REM cd "%~dp0"
 @REM cd %~dps0
 @REM for %%f in ("%CD%") do set CP=%%~sf
-
+@REM rem CPS= CP Scripts
+@REM set "CPS=%CP%\scripts"
 @REM rem User Set Variables:
 @REM @REM set /p ProjectName=<%CP%\Settings\ProjectName.txt
 @REM echo %CP%
-call %CP%\scripts\hello.cmd
+call %CPS%\hello.cmd
 pause
 echo finished
 timeout 2 > NUL
@@ -111,7 +114,7 @@ GOTO MENU_START
 @REM =================================
 :OPTION5
 cls
-call  %CP%\scripts\00.0___About_.cmd
+call  %CPS%\00.0___About_.cmd
 pause
 echo finished
 timeout 2 > NUL
@@ -119,7 +122,7 @@ GOTO MENU_START
 @REM =================================
 :OPTION6
 cls
-call  %CP%\scripts\00.0__Rename_First_ISO_To_Windows_Original_ISO
+call   %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO
 pause
 echo finished
 timeout 2 > NUL
