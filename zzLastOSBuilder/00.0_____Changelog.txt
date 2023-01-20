@@ -42,5 +42,10 @@ renamed file to 00.01_Cleanout_LastOS_Builder.cmd
 updated links in readme.md
 
 0.0.6 ************************
+added in issue template under .github directory
+added in discussion into github
+added in docs directory
+
+0.0.7 ************************
 
 
