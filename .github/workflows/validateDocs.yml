@@ -1,0 +1,54 @@
+name: Doc Validation
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: LastOSBuilder
+
+      - name: Checkout Website
+        uses: actions/checkout@v3
+        with:
+          repository: LastOSBuilder/LastOSBuilder.github.io
+          ref: '8ee5cacc91b6e017b5e4236940d9f385c1563598'
+          path: LastOSBuilder.github.io
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+        working-directory: LastOSBuilder.github.io
+
+      - name: Purge existing html files
+        run: rm -rf en
+        working-directory: LastOSBuilder.github.io
+
+      # The current navbar embeds a link to integration.md which no longer exists
+      - name: Ignore navbar
+        run: echo "" > templates/navbar.html
+        working-directory: LastOSBuilder.github.io
+
+      - name: Generate Core Pages
+        run: node scripts/generatePages.js
+        working-directory: LastOSBuilder.github.io
+
+      - name: Generate Docs Pages
+        run: node scripts/generateDocs.js ../LastOSBuilder/docs
+        working-directory: LastOSBuilder.github.io
+
+      - name: Check Links
+        run: LastOSBuilder_VALIDATE_LINKS_ONLY_DOCS=1 node scripts/validateLinks.js
+        working-directory: LastOSBuilder.github.io
