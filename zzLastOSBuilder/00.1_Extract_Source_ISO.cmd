@@ -1,5 +1,6 @@
 @echo off
-title %~nx0
+set "scriptver=0.0.3"
+title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \
 %~d0
@@ -33,11 +34,34 @@ set ToolsPath=%CP%\Tools
 echo *** Project %ProjectName% ***
 echo All Folders Are Short Folder Names:
 echo.
+rem added script version
+echo   Script version: v%scriptver%
 echo     Current (CP): %CP%
 echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
 echo.
 rem pause
+:run
+echo here at run
+@REM pause
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
+
+REM finds file    
+IF EXIST "00_Source\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist & goto DONE
+) 
+@REM echo nope
+@REM pause
+
+@REM pause
+:runcode
+@REM echo runcode
+@REM pause
+
 
 rem Extract Source ISO to Set 00_Source ISO Build Paths
 md "%CP%\%WindowsOriginalPath%"
@@ -51,3 +75,4 @@ echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\00_Source\%MountISO%" -
 Rem Copy SysprepISO to NTLiteISO
 md "%CP%\%NTLiteISOPath%"
 xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
+:DONE

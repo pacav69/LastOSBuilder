@@ -9,6 +9,9 @@ cd "%~dp0"
 cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
 
+echo User Set Variables:
+echo %CD%
+pause
 rem User Set Variables:
 set /p BuilderVersion=<%CP%\Settings\BuilderVersion.txt
 set /p BuilderRepo=<%CP%\Settings\BuilderRepo.txt
