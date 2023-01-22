@@ -1,5 +1,5 @@
 
-# Ascii graphics generated using: https://patorjk.com/software/taag/#p=display&f=Doh&t=LastOSBuilder
+# Ascii graphics generated using: https://patorjk.com/software/taag/#p=display&h=1&f=Digital&t=LastOSBuilder
 
 +-++-++-++-++-++-++-++-++-++-++-++-++-+
 |L||a||s||t||O||S||B||u||i||l||d||e||r|
