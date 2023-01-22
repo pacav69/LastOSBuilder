@@ -1,6 +1,9 @@
-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |L|a|s|t|O|S|B|u|i|l|d|e|r|
- +-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+# Ascii graphics generated using: https://patorjk.com/software/taag/#p=display&f=Doh&t=LastOSBuilder
+
++-++-++-++-++-++-++-++-++-++-++-++-++-+
+|L||a||s||t||O||S||B||u||i||l||d||e||r|
++-++-++-++-++-++-++-++-++-++-++-++-++-+
 
 ~~~~~~~~~~ Step 1.Preperation for Last20 Build
 * Make sure to use an original untouched Microsoft ISO to base your build on, this will make the LivePE's stable, SysPrep's smaller and less debugging issues.
