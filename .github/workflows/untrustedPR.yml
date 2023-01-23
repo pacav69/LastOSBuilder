@@ -35,7 +35,7 @@ jobs:
           unset LASTOSBUILDER_ROOT
           
           LastOSBuilder
-LastOSBuilder
+          # LastOSBuilder
 
           git diff --name-status --merge-base HEAD^ HEAD --diff-filter=MAR -- '*portfile.cmake' | sed 's/[MAR]\t*//' | while read filename; do grep -q -E '(LastOSBuilder_apply_patches|LastOSBuilder_copy_tool_dependencies|LastOSBuilder_build_msbuild|LastOSBuilder_extract_source_archive_ex|LastOSBuilder_install_cmake|LastOSBuilder_build_cmake|LastOSBuilder_configure_cmake|LastOSBuilder_fixup_cmake_targets)' "$filename" && echo " - \`$filename\`" || true; done > .github-pr.deprecated-cmake
           git diff --name-status --merge-base HEAD^ HEAD --diff-filter=MAR -- '*LastOSBuilder.json' | sed 's/[MAR]\t*//' > .github-pr.changed-manifest-files
