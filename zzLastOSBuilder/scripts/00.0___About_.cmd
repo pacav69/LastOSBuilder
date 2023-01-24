@@ -1,6 +1,6 @@
 @echo off
 rem Win11 script
-set "scriptver=0.0.1"
+set "scriptver=0.0.2"
 title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \
@@ -150,9 +150,14 @@ echo     Current (CP): %CP%
 echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
 echo.
+
+@REM things to do
 rem check for updates
 rem echo check to see if git application is installed
 echo check for builder updates? (get git status from repo)
+goto :choice1
+
+:returnchoice1
 echo eg to download run:	git pull %BuilderRepo%
 echo use BuilderVersion.txt to compare installed and repo version
 echo if different download update
@@ -173,3 +178,76 @@ rem %ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\00_Source\%MountISO%" -o"%
 rem Rem Copy SysprepISO to NTLiteISO
 rem md "%CP%\%NTLiteISOPath%"
 rem xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
+
+::-------------------------------------------------------------------------------------------
+:choice1
+rem this checks 
+@REM :choice
+@REM set /P c=Do you want to check for updates [Y/N]?
+@REM if /I "%c%" EQU "Y" goto :somewhere
+@REM if /I "%c%" EQU "N" goto :somewhere_else
+@REM goto :choice
+
+@echo off
+rem https://ss64.com/nt/choice.html
+CHOICE /C YX /M "Select [Y] Check for updates  or [X] eXit"
+IF %ERRORLEVEL% EQU 2 goto selectionexit
+IF %ERRORLEVEL% EQU 1 goto selection1 
+
+
+:selection1
+
+echo "I am here because you typed Y"
+git status >builderstatus.txt
+type builderstatus.txt
+pause
+goto :returnchoice1
+pause
+exit
+
+:selectionexit
+
+echo "I am here because you typed X"
+pause
+exit
+# ====================
+
+:somewhere
+
+rem echo "I am here because you typed Y"
+echo checking for updates
+rem pause
+goto :run
+rem exit
+
+:somewhere_else
+
+rem echo "I am here because you typed N"
+echo exiting program
+@REM pause
+exit /B
+
+:run
+echo here at run
+git status >builderstatus.txt
+type builderstatus.txt
+pause
+goto :returnchoice1
+
+@REM pause
+@REM  check that ISO file exists before proceeding
+@REM set "testfile=*.iso"
+@REM @REM set "testfile=*.txt"
+
+@REM REM finds file    
+@REM IF EXIST "00_Source\%testfile%" (
+@REM   ECHO file %testfile% exists & goto runcode
+@REM ) ELSE (
+@REM   ECHO file %testfile% does not exist & goto DONE
+@REM ) 
+@REM echo nope
+@REM pause
+
+@REM pause
+:runcode
+::-------------------------------------------------------------------------------------------
