@@ -39,6 +39,10 @@ set VBM=%VBP%\VBoxManage.exe
 set VMP=%CP%\%VMPath%
 set ToolsPath=%CP%\Tools
 
+rem fetch date time
+goto :datetime
+:datetimereturn
+
 REM ********************************************
 rem added in VirtualBox file check to ensure that 
 rem VirtualBox exists before proceeding
@@ -55,7 +59,7 @@ FOR /F "tokens=2 delims==" %%a in ('
         wmic datafile where name^="%VBM:\=\\%" get Version /value 
     ') do set "vers=%%a"
     
-set "light="
+
 set "minver=7.0.0.0"
 rem echo(%VBM%=%vers%
 rem current version installed = 7.0.2.4219
@@ -161,9 +165,9 @@ goto :choice1
 echo eg to download run:	git pull %BuilderRepo%
 echo use BuilderVersion.txt to compare installed and repo version
 echo if different download update
-echo you are upto update or update files.
+echo you are up to date or update files.
 echo update cmd files and Settings\BuilderVersion.txt
-echo display chaangesinformation 
+echo display changesinformation 
 pause
 
 rem Extract Source ISO to Set 00_Source ISO Build Paths
@@ -209,7 +213,8 @@ exit
 
 echo "I am here because you typed X"
 pause
-exit
+goto runcode
+rem exit
 # ====================
 
 :somewhere
@@ -249,5 +254,26 @@ goto :returnchoice1
 @REM pause
 
 @REM pause
-:runcode
+
+:datetime
+@echo off
+rem sub routine to setup date and time to vars mydate mytime
+For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
+For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
+echo the date time is %mydate%_%mytime%
+pause
+goto datetimereturn
+
+:runcode 
 ::-------------------------------------------------------------------------------------------
+rem :datetime
+@REM If you want the date independently of the region day/month order, you can use "WMIC os GET LocalDateTime" as a source, since it's in ISO order:
+
+@echo off
+for /F "usebackq tokens=1,2 delims==" %%i in (`wmic os get LocalDateTime /VALUE 2^>NUL`) do if '.%%i.'=='.LocalDateTime.' set ldt=%%j
+set ldt=%ldt:~0,4%-%ldt:~4,2%-%ldt:~6,2% %ldt:~8,2%:%ldt:~10,2%:%ldt:~12,6%
+echo Local date is [%ldt%]
+pause 
+
+rem goto datetimereturn
+exit /B

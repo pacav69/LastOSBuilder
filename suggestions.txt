@@ -1,0 +1,6 @@
+
+
+Add in winPE
+zoom capabilities using command key + '+' to zoom in, command key + '-' to zoom out
+mousepad drivers Add
+change screen resolution to 1024 x 768 or somthing similar
