@@ -1,3 +1,5 @@
+Rem References
+
 rem https://www.computerhope.com/issues/ch001674.htm
 rem https://ss64.com/nt/choice.html
 rem https://ss64.com/nt/call.html
@@ -5,7 +7,7 @@ rem https://ss64.com/nt/call.html
 @echo off
 cls
 rem Win11 script
-set "scriptver=0.0.4"
+set scriptver=0.0.7
 title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \
@@ -14,10 +16,21 @@ cd "%~dp0"
 cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
 rem CPS= CP Scripts
-set "CPS=%CP%\scripts"
+set CPS=%CP%\scripts
 
+@REM set /p "setvars=%CPS%\setvars.cmd"
+@REM %CPS%\scripts\setvars.cmd
+rem setvars= Set variables for all scripts to run
+rem call the "setvars.cmd" file in the Scripts directory
+call %CPS%\setvars.cmd
+echo.
+@REM echo setvars = %setvars%
+echo my project name is %ProjectName%
+pause
+cls
 rem User Set Variables:
-set /p BuilderVersion= %CPS%\Settings\BuilderVersion.txt
+@REM echo.
+@REM ECHO Builder Version is v%BuilderVersion%
 
 rem color 02 green char on black background
 color 02 
@@ -43,7 +56,7 @@ echo .  U) Cleanup Utilities Menu                    .
 echo .  x) EXIT                                      .
 echo .                                               .
 echo +===============================================+
-set /p MENU_OPTION="OPTION: "
+set /P MENU_OPTION="OPTION: "
 
 IF %MENU_OPTION%==1 GOTO OPTION1
 IF %MENU_OPTION%==2 GOTO OPTION2

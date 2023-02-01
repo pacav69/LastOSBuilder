@@ -1,6 +1,6 @@
 @echo off
 rem Win11 script
-set "scriptver=0.0.2"
+set scriptver=0.0.7
 title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \
@@ -8,29 +8,14 @@ rem This first for routine will give the current path without a trailing \
 cd "%~dp0"
 cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
+rem CPS= CP Scripts
+set CPS=%CP%\scripts
 
-echo User Set Variables:
-echo %CD%
+rem call the "setvars.cmd" file in the Scripts directory
+call %CPS%\setvars.cmd
+echo.
+echo my project name is %ProjectName%
 pause
-rem User Set Variables:
-set /p BuilderVersion=<%CP%\Settings\BuilderVersion.txt
-set /p BuilderRepo=<%CP%\Settings\BuilderRepo.txt
-
-set /p ProjectName=<%CP%\Settings\ProjectName.txt
-set /p Arch=<%CP%\Settings\Arch.txt
-set /p WinVersion=<%CP%\Settings\WinVersion.txt
-set /p VMName=<%CP%\Settings\VMName.txt
-set /p VMPath=<%CP%\Settings\VMPath.txt
-set /p MountISO=<%CP%\Settings\MountISO.txt
-set /p VHDSize=<%CP%\Settings\VHDSize.txt
-set /p VirtMem=<%CP%\Settings\VirtMem.txt
-set /p VHDFile=<%CP%\Settings\VHDFile.txt
-set /p VirtDrive=<%CP%\Settings\VirtDrive.txt
-set /p WIMName=<%CP%\Settings\WIMName.txt
-set /p ESDName=<%CP%\Settings\ESDName.txt
-set /p WindowsOriginalPath=<%CP%\Settings\WindowsOriginalPath.txt
-set /p SysPrepISOPath=<%CP%\Settings\SysPrepISOPath.txt
-set /p NTLiteISOPath=<%CP%\Settings\NTLiteISOPath.txt
 
 rem ******* n VirtualBox file check
 rem System Set Variables:
@@ -38,10 +23,6 @@ for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
 set VBM=%VBP%\VBoxManage.exe
 set VMP=%CP%\%VMPath%
 set ToolsPath=%CP%\Tools
-
-rem fetch date time
-goto :datetime
-:datetimereturn
 
 REM ********************************************
 rem added in VirtualBox file check to ensure that 
@@ -154,20 +135,15 @@ echo     Current (CP): %CP%
 echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
 echo.
-
-@REM things to do
 rem check for updates
 rem echo check to see if git application is installed
 echo check for builder updates? (get git status from repo)
-goto :choice1
-
-:returnchoice1
 echo eg to download run:	git pull %BuilderRepo%
 echo use BuilderVersion.txt to compare installed and repo version
 echo if different download update
-echo you are up to date or update files.
+echo you are upto update or update files.
 echo update cmd files and Settings\BuilderVersion.txt
-echo display changesinformation 
+echo display chaangesinformation 
 pause
 
 rem Extract Source ISO to Set 00_Source ISO Build Paths
@@ -182,98 +158,3 @@ rem %ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\00_Source\%MountISO%" -o"%
 rem Rem Copy SysprepISO to NTLiteISO
 rem md "%CP%\%NTLiteISOPath%"
 rem xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
-
-::-------------------------------------------------------------------------------------------
-:choice1
-rem this checks 
-@REM :choice
-@REM set /P c=Do you want to check for updates [Y/N]?
-@REM if /I "%c%" EQU "Y" goto :somewhere
-@REM if /I "%c%" EQU "N" goto :somewhere_else
-@REM goto :choice
-
-@echo off
-rem https://ss64.com/nt/choice.html
-CHOICE /C YX /M "Select [Y] Check for updates  or [X] eXit"
-IF %ERRORLEVEL% EQU 2 goto selectionexit
-IF %ERRORLEVEL% EQU 1 goto selection1 
-
-
-:selection1
-
-echo "I am here because you typed Y"
-git status >builderstatus.txt
-type builderstatus.txt
-pause
-goto :returnchoice1
-pause
-exit
-
-:selectionexit
-
-echo "I am here because you typed X"
-pause
-goto runcode
-rem exit
-# ====================
-
-:somewhere
-
-rem echo "I am here because you typed Y"
-echo checking for updates
-rem pause
-goto :run
-rem exit
-
-:somewhere_else
-
-rem echo "I am here because you typed N"
-echo exiting program
-@REM pause
-exit /B
-
-:run
-echo here at run
-git status >builderstatus.txt
-type builderstatus.txt
-pause
-goto :returnchoice1
-
-@REM pause
-@REM  check that ISO file exists before proceeding
-@REM set "testfile=*.iso"
-@REM @REM set "testfile=*.txt"
-
-@REM REM finds file    
-@REM IF EXIST "00_Source\%testfile%" (
-@REM   ECHO file %testfile% exists & goto runcode
-@REM ) ELSE (
-@REM   ECHO file %testfile% does not exist & goto DONE
-@REM ) 
-@REM echo nope
-@REM pause
-
-@REM pause
-
-:datetime
-@echo off
-rem sub routine to setup date and time to vars mydate mytime
-For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
-For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
-echo the date time is %mydate%_%mytime%
-pause
-goto datetimereturn
-
-:runcode 
-::-------------------------------------------------------------------------------------------
-rem :datetime
-@REM If you want the date independently of the region day/month order, you can use "WMIC os GET LocalDateTime" as a source, since it's in ISO order:
-
-@echo off
-for /F "usebackq tokens=1,2 delims==" %%i in (`wmic os get LocalDateTime /VALUE 2^>NUL`) do if '.%%i.'=='.LocalDateTime.' set ldt=%%j
-set ldt=%ldt:~0,4%-%ldt:~4,2%-%ldt:~6,2% %ldt:~8,2%:%ldt:~10,2%:%ldt:~12,6%
-echo Local date is [%ldt%]
-pause 
-
-rem goto datetimereturn
-exit /B
