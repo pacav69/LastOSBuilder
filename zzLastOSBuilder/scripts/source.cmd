@@ -877,7 +877,7 @@ echo.   LastOS ToolKit - Download Windows 11 from Microsoft
 echo.===============================================================================
 echo.
 
-call downloadWin11.cmd
+call %MCT%\win 11 22H2 MediaCreationTool.bat
 
 
 
@@ -909,7 +909,7 @@ echo.   LastOS ToolKit - Download Windows from Microsoft
 echo.===============================================================================
 echo.
 
-call downloadWin.cmd
+call %MCT%\MediaCreationTool.bat
 
 
 
