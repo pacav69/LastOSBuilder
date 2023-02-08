@@ -29,6 +29,27 @@ set /p BuilderVersion=<%CP%\Settings\BuilderVersion.txt
 @REM set /p BuilderVersion= %CPS%\Settings\BuilderVersion.txt
 
 
+
+reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "ScreenBufferSize" /t REG_DWORD /d "0x23290050" /f >nul
+reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "WindowSize" /t REG_DWORD /d "0x190050" /f >nul
+
+setlocal EnableExtensions EnableDelayedExpansion
+
+:: Setting Toolkit environment path variables
+set "Bin=%CP%Bin"
+set "Custom=%CP%Custom"
+set "Drivers=%CP%Drivers"
+set "DVD=%CP%DVD"
+set "ISO=%CP%ISO"
+set "Logs=%CP%Logs"
+set "Mount=%CP%Mount"
+set "Packs=%CP%Packs"
+set "ROOT=%CP%"
+set "Temp=%CP%Temp"
+set "Updates=%CP%Updates"
+set "WHD=%CP%WHD"
+
+
 rem System Set Variables:
 for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
 set VBM=%VBP%\VBoxManage.exe

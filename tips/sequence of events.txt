@@ -1,0 +1,9 @@
+rem sequence of events
+for TPM tweak reg add 
+select Source
+mount boot wim
+mount install wim
+apply tpm tweak
+commit changes
+unmount Source
+create bootable ISO

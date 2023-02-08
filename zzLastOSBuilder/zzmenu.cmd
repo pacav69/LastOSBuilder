@@ -34,21 +34,70 @@ rem User Set Variables:
 
 rem color 02 green char on black background
 color 02 
-set INPUT=false
-set "MENU_OPTION="
-set "OPTION1_INPUT=" 
-set "OPTION2_INPUT="
+
+
+::-------------------------------------------------------------------------------------------
+:: LastOS Toolkit - Main Menu
+::-------------------------------------------------------------------------------------------
+:MainMenu
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Main Menu
+echo.                           v%BuilderVersion%                             .
+echo.===============================================================================
+echo.
+echo.                             [A]   About
+echo.
+echo.                             [1]   Source
+echo.
+echo.                             [2]   Integrate
+echo.
+echo.                             [3]   Remove
+echo.
+echo.                             [4]   Customize
+echo.
+echo.                             [5]   Apply
+echo.
+echo.                             [6]   Target
+echo.
+echo.                             [7]   Tools
+echo.
+echo.
+echo.                             [X]   Quit
+echo.
+echo.===============================================================================
+echo.
+choice /C:A1234567X /N /M "Enter Your Choice : "
+@REM if errorlevel 10 goto :Quit
+if errorlevel 9 goto :Quit
+if errorlevel 8 goto :ToolsMenu
+if errorlevel 7 goto :TargetMenu
+if errorlevel 6 goto :ApplyMenu
+if errorlevel 5 goto :CustomizeMenu
+if errorlevel 4 goto :RemoveMenu
+if errorlevel 3 goto :IntegrateMenu
+if errorlevel 2 goto :SourceMenu
+if errorlevel 1 goto :about
+::-------------------------------------------------------------------------------------------
+
+
+
+@REM set INPUT=false
+@REM set "MENU_OPTION="
+@REM set "OPTION1_INPUT=" 
+@REM set "OPTION2_INPUT="
 echo +===============================================+
-echo . LastOS Builder - USER MENU                    .
+echo . LastOS Builder - USER Main MENU               .
 echo . v%BuilderVersion%                             .
 echo +===============================================+
 echo .                                               .
 echo .  1) About                                     .
 echo .  2) Rename First ISO                          .
 echo .  3) Extract Source ISO                        .
-echo .  4) hello                        .
-echo .  5) About                        .
-echo .  6) Rename_First_ISO                        .
+echo .  4) hello                                     .
+echo .  5) About                                     .
+echo .  6) Rename_First_ISO                          .
 echo .  7) Extract Source ISO                        .
 echo .  8) Extract Source ISO                        .
 echo .  9) Extract Source ISO                        .
@@ -71,15 +120,27 @@ IF %MENU_OPTION%==U GOTO OPTIONU
 IF %MENU_OPTION%==x GOTO OPTION99
 IF %INPUT%==false GOTO DEFAULT
 @REM =================================
-:OPTION1
-@REM set INPUT=true
-@REM set /p OPTION1_INPUT="HOST: "
-@REM ping %OPTION1_INPUT%
+:about
 cls
 call 00.0___About_.cmd
 rem timeout 2 > NUL
-GOTO MENU_START
+GOTO MainMenu
 @REM =================================
+:SourceMenu
+cls
+call source.cmd
+rem timeout 2 > NUL
+GOTO MainMenu
+@REM =================================
+
+
+
+
+
+
+
+
+
 :OPTION2
 @REM set INPUT=true
 @REM set /p OPTION2_INPUT="MESSAGE: "
@@ -244,7 +305,7 @@ timeout 2 > NUL
 GOTO MENU_START
 
 @REM =================================
-:OPTION99
+:Quit
 set INPUT=true
 echo Bye
 timeout 2 > NUL

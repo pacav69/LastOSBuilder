@@ -51,5 +51,5 @@ created setvars.cmd file containg common variables used in settings
 modified zzmenu.cmd file for using setvars.cmd
 modified about.cmd file for using setvars.cmd
 added batcheckcode
-
+0.0.8 ************************
 
