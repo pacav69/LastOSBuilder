@@ -951,4 +951,4 @@ goto :MainMenu
 
 
 :MainMenu
-exit
+@REM exit
