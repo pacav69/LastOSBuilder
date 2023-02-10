@@ -28,8 +28,8 @@ set /p SysPrepISOPath=<%CPS%\Settings\SysPrepISOPath.txt
 set /p NTLiteISOPath=<%CPS%\Settings\NTLiteISOPath.txt
 set /p BuilderVersion=<%CPS%\Settings\BuilderVersion.txt
 
-echo BuilderVersion = %BuilderVersion%
-pause 
+@REM echo BuilderVersion = %BuilderVersion%
+@REM pause 
 
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "ScreenBufferSize" /t REG_DWORD /d "0x23290050" /f >nul
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "WindowSize" /t REG_DWORD /d "0x190050" /f >nul
@@ -68,7 +68,7 @@ echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
 echo MCTool = %MCTool%
 echo.
-pause
+@REM pause
 rem this checks if user wants to use the %MountISO% filename
 @REM :choice
 @REM set /P c=Are you sure you want to continue with using %MountISO% filename[Y/N]?

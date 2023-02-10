@@ -10,7 +10,7 @@ rem Win11 script
 set scriptver=0.0.9
 title %~nx0  v%scriptver%
 @REM set debug on to check files on / off
-set debug=on
+set debug=off
 rem This first for routine will give the current path without a trailing \
 %~d0
 cd "%~dp0"
@@ -21,10 +21,9 @@ set CPS=%CP%\scripts
 echo cp = %CP%
 @REM pause
 
-@REM set /p "setvars=%CPS%\setvars.cmd"
-@REM %CPS%\scripts\setvars.cmd
-rem setvars= Set variables for all scripts to run
-rem call the "setvars.cmd" file in the Scripts directory
+
+@REM  setvars= Set variables for all scripts to run
+@REM  call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
 @REM echo setvars = %setvars%
@@ -172,15 +171,23 @@ cls
 @REM pause
 call %CPS%\00.0___About_.cmd
 rem timeout 2 > NUL
-GOTO MainMenu
+GOTO MENU_START
 @REM =================================
 :SourceMenu
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\source.cmd
+call %CPS%\SourceMenu.cmd
 rem timeout 2 > NUL
-GOTO MainMenu
+GOTO MENU_START
+@REM =================================
+:IntegrateMenu
+cls
+@REM echo errorlevel = %errorlevel%
+@REM pause
+call %CPS%\IntegrateMenu.cmd
+rem timeout 2 > NUL
+GOTO MENU_START
 @REM =================================
 
 
