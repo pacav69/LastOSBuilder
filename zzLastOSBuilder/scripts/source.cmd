@@ -1,23 +1,23 @@
 rem source.cmd
 @echo off
 rem Win11 script
-set scriptver=0.0.8
+set scriptver=0.0.9
 title %~nx0  v%scriptver%
 
-rem This first for routine will give the current path without a trailing \
-@REM %~d0
-@REM cd "%~dp0"
-@REM cd %~dps0
-@REM for %%f in ("%CD%") do set CP=%%~sf
-@REM rem CPS= CP Scripts
-@REM set CPS=%CP%\scripts
+rem call the "setvars.cmd" file in the Scripts directory
+call %CPS%\setvars.cmd
+echo.
+echo my project name is %ProjectName%
+@REM pause
+
+
 echo cps = %CPS%
 echo cp = %CP%
 @REM echo MCTool = %MCTool%
 set "MCTool=%CP%\MCT"
 echo MCTool = %MCTool%
 
-pause
+@REM pause
 
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Select Source Menu
@@ -884,7 +884,7 @@ echo.===========================================================================
 echo.
 echo MCTool = %MCTool%
 pause
-@REM call %MCTool%\MediaCreationToolwin11.bat
+call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------

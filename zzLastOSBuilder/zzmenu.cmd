@@ -7,7 +7,7 @@ rem https://ss64.com/nt/call.html
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.7
+set scriptver=0.0.9
 title %~nx0  v%scriptver%
 @REM set debug on to check files on / off
 set debug=on
@@ -66,7 +66,7 @@ echo MCTool = %MCTool%
 echo ISO = %ISO%
 echo. ########################################
 pause
-endif
+
 ) 
 ELSE 
 (goto startcode)
@@ -133,42 +133,42 @@ if errorlevel 1 goto :about
 @REM set "MENU_OPTION="
 @REM set "OPTION1_INPUT=" 
 @REM set "OPTION2_INPUT="
-echo +===============================================+
-echo . LastOS Builder - USER Main MENU               .
-echo . v%BuilderVersion%                             .
-echo +===============================================+
-echo .                                               .
-echo .  1) About                                     .
-echo .  2) Rename First ISO                          .
-echo .  3) Extract Source ISO                        .
-echo .  4) hello                                     .
-echo .  5) About                                     .
-echo .  6) Rename_First_ISO                          .
-echo .  7) Extract Source ISO                        .
-echo .  8) Extract Source ISO                        .
-echo .  9) Extract Source ISO                        .
-echo .  U) Cleanup Utilities Menu                    .
-echo .  x) EXIT                                      .
-echo .                                               .
-echo +===============================================+
-set /P MENU_OPTION="OPTION: "
+@REM echo +===============================================+
+@REM echo . LastOS Builder - USER Main MENU               .
+@REM echo . v%BuilderVersion%                             .
+@REM echo +===============================================+
+@REM echo .                                               .
+@REM echo .  1) About                                     .
+@REM echo .  2) Rename First ISO                          .
+@REM echo .  3) Extract Source ISO                        .
+@REM echo .  4) hello                                     .
+@REM echo .  5) About                                     .
+@REM echo .  6) Rename_First_ISO                          .
+@REM echo .  7) Extract Source ISO                        .
+@REM echo .  8) Extract Source ISO                        .
+@REM echo .  9) Extract Source ISO                        .
+@REM echo .  U) Cleanup Utilities Menu                    .
+@REM echo .  x) EXIT                                      .
+@REM echo .                                               .
+@REM echo +===============================================+
+@REM set /P MENU_OPTION="OPTION: "
 
-IF %MENU_OPTION%==1 GOTO OPTION1
-IF %MENU_OPTION%==2 GOTO OPTION2
-IF %MENU_OPTION%==3 GOTO OPTION3
-IF %MENU_OPTION%==4 GOTO OPTION4
-IF %MENU_OPTION%==5 GOTO OPTION5
-IF %MENU_OPTION%==6 GOTO OPTION6
-IF %MENU_OPTION%==7 GOTO OPTION7
-IF %MENU_OPTION%==8 GOTO OPTION8
-IF %MENU_OPTION%==9 GOTO OPTION9
-IF %MENU_OPTION%==U GOTO OPTIONU
-IF %MENU_OPTION%==x GOTO OPTION99
-IF %INPUT%==false GOTO DEFAULT
+@REM IF %MENU_OPTION%==1 GOTO OPTION1
+@REM IF %MENU_OPTION%==2 GOTO OPTION2
+@REM IF %MENU_OPTION%==3 GOTO OPTION3
+@REM IF %MENU_OPTION%==4 GOTO OPTION4
+@REM IF %MENU_OPTION%==5 GOTO OPTION5
+@REM IF %MENU_OPTION%==6 GOTO OPTION6
+@REM IF %MENU_OPTION%==7 GOTO OPTION7
+@REM IF %MENU_OPTION%==8 GOTO OPTION8
+@REM IF %MENU_OPTION%==9 GOTO OPTION9
+@REM IF %MENU_OPTION%==U GOTO OPTIONU
+@REM IF %MENU_OPTION%==x GOTO OPTION99
+@REM IF %INPUT%==false GOTO DEFAULT
 @REM =================================
 :about
 cls
-echo errorlevel = %errorlevel%
+@REM echo errorlevel = %errorlevel%
 @REM pause
 call %CPS%\00.0___About_.cmd
 rem timeout 2 > NUL
@@ -176,8 +176,8 @@ GOTO MainMenu
 @REM =================================
 :SourceMenu
 cls
-echo errorlevel = %errorlevel%
-pause
+@REM echo errorlevel = %errorlevel%
+@REM pause
 call %CPS%\source.cmd
 rem timeout 2 > NUL
 GOTO MainMenu

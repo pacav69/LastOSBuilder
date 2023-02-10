@@ -1,5 +1,5 @@
 @echo off
-set scriptver=0.0.7
+set scriptver=0.0.9
 title %~nx0  v%scriptver%
 
 
@@ -9,26 +9,27 @@ rem This first for routine will give the current path without a trailing \
 @REM cd %~dps0
 @REM for %%f in ("%CD%") do set CP=%%~sf
 
+@REM CPS = root\scripts\
 rem User Set Variables:
-set /p ProjectName=<%CP%\Settings\ProjectName.txt
-set /p Arch=<%CP%\Settings\Arch.txt
-set /p WinVersion=<%CP%\Settings\WinVersion.txt
-set /p VMName=<%CP%\Settings\VMName.txt
-set /p VMPath=<%CP%\Settings\VMPath.txt
-set /p MountISO=<%CP%\Settings\MountISO.txt
-set /p VHDSize=<%CP%\Settings\VHDSize.txt
-set /p VirtMem=<%CP%\Settings\VirtMem.txt
-set /p VHDFile=<%CP%\Settings\VHDFile.txt
-set /p VirtDrive=<%CP%\Settings\VirtDrive.txt
-set /p WIMName=<%CP%\Settings\WIMName.txt
-set /p ESDName=<%CP%\Settings\ESDName.txt
-set /p WindowsOriginalPath=<%CP%\Settings\WindowsOriginalPath.txt
-set /p SysPrepISOPath=<%CP%\Settings\SysPrepISOPath.txt
-set /p NTLiteISOPath=<%CP%\Settings\NTLiteISOPath.txt
-set /p BuilderVersion=<%CP%\Settings\BuilderVersion.txt
-@REM set /p BuilderVersion= %CPS%\Settings\BuilderVersion.txt
+set /p ProjectName=<%CPS%\Settings\ProjectName.txt
+set /p Arch=<%CPS%\Settings\Arch.txt
+set /p WinVersion=<%CPS%\Settings\WinVersion.txt
+set /p VMName=<%CPS%\Settings\VMName.txt
+set /p VMPath=<%CPS%\Settings\VMPath.txt
+set /p MountISO=<%CPS%\Settings\MountISO.txt
+set /p VHDSize=<%CPS%\Settings\VHDSize.txt
+set /p VirtMem=<%CPS%\Settings\VirtMem.txt
+set /p VHDFile=<%CPS%\Settings\VHDFile.txt
+set /p VirtDrive=<%CPS%\Settings\VirtDrive.txt
+set /p WIMName=<%CPS%\Settings\WIMName.txt
+set /p ESDName=<%CPS%\Settings\ESDName.txt
+set /p WindowsOriginalPath=<%CPS%\Settings\WindowsOriginalPath.txt
+set /p SysPrepISOPath=<%CPS%\Settings\SysPrepISOPath.txt
+set /p NTLiteISOPath=<%CPS%\Settings\NTLiteISOPath.txt
+set /p BuilderVersion=<%CPS%\Settings\BuilderVersion.txt
 
-
+echo BuilderVersion = %BuilderVersion%
+pause 
 
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "ScreenBufferSize" /t REG_DWORD /d "0x23290050" /f >nul
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "WindowSize" /t REG_DWORD /d "0x190050" /f >nul
