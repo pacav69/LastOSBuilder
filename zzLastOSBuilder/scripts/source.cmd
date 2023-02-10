@@ -5,13 +5,19 @@ set scriptver=0.0.8
 title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \
-%~d0
-cd "%~dp0"
-cd %~dps0
-for %%f in ("%CD%") do set CP=%%~sf
-rem CPS= CP Scripts
-set CPS=%CP%\scripts
+@REM %~d0
+@REM cd "%~dp0"
+@REM cd %~dps0
+@REM for %%f in ("%CD%") do set CP=%%~sf
+@REM rem CPS= CP Scripts
+@REM set CPS=%CP%\scripts
+echo cps = %CPS%
+echo cp = %CP%
+@REM echo MCTool = %MCTool%
+set "MCTool=%CP%\MCT"
+echo MCTool = %MCTool%
 
+pause
 
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Select Source Menu
@@ -57,9 +63,9 @@ echo.  [5]   Extract Source from Store ESD Image
 echo.
 echo.  [6]   Extract Source from MCT or Custom ESD Image
 echo.
-echo.  [7]   Download Windows 11 Source from Microsoft
+echo.  [7]   Download Windows 11 ISO from Microsoft
 echo.
-echo.  [8]   Download Windows Source from Microsoft
+echo.  [8]   Download Windows ISO from Microsoft
 echo.
 echo.
 echo.
@@ -869,21 +875,33 @@ goto :MainMenu
 
 :Downloadwin11
 
-setlocal
+rem setlocal
 
 cls
 echo.===============================================================================
 echo.   LastOS ToolKit - Download Windows 11 from Microsoft
 echo.===============================================================================
 echo.
+echo MCTool = %MCTool%
+pause
+@REM call %MCTool%\MediaCreationToolwin11.bat
+echo.-------------------------------------------------------------------------------
+echo.####Finished Downloading Windows 11 from Microsoft###############
+echo.-------------------------------------------------------------------------------
 
-call %MCT%\win 11 22H2 MediaCreationTool.bat
+echo.-------------------------------------------------------------------------------
+echo.####Copying Windows 11 to %ISO% ###############
+echo.-------------------------------------------------------------------------------
+call %MCTool%\copywin11.cmd
+
+pause 
+
 
 
 
 
 echo.-------------------------------------------------------------------------------
-echo.####Finished Downloading Windows 11 from Microsoft###############
+echo.####Finished Downloading and copying Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 
 :Stop
@@ -892,7 +910,7 @@ echo.===========================================================================
 echo.
 pause
 
-endlocal
+@REM endlocal
 
 :: Returning to Main Menu
 goto :MainMenu
@@ -901,7 +919,7 @@ goto :MainMenu
 
 :DownloadMS
 
-setlocal
+@REM setlocal
 
 cls
 echo.===============================================================================
@@ -909,7 +927,7 @@ echo.   LastOS ToolKit - Download Windows from Microsoft
 echo.===============================================================================
 echo.
 
-call %MCT%\MediaCreationTool.bat
+call %MCTool%\MediaCreationTool.bat
 
 
 
@@ -924,7 +942,7 @@ echo.===========================================================================
 echo.
 pause
 
-endlocal
+@REM endlocal
 
 :: Returning to Main Menu
 goto :MainMenu

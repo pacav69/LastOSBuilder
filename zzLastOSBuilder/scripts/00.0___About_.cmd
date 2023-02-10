@@ -1,6 +1,6 @@
 @echo off
 rem Win11 script
-set scriptver=0.0.7
+set scriptver=0.0.8
 title %~nx0  v%scriptver%
 
 rem This first for routine will give the current path without a trailing \

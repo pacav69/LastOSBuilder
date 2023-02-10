@@ -9,7 +9,8 @@ cls
 rem Win11 script
 set scriptver=0.0.7
 title %~nx0  v%scriptver%
-
+@REM set debug on to check files on / off
+set debug=on
 rem This first for routine will give the current path without a trailing \
 %~d0
 cd "%~dp0"
@@ -17,6 +18,8 @@ cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
 rem CPS= CP Scripts
 set CPS=%CP%\scripts
+echo cp = %CP%
+@REM pause
 
 @REM set /p "setvars=%CPS%\setvars.cmd"
 @REM %CPS%\scripts\setvars.cmd
@@ -25,8 +28,51 @@ rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
 @REM echo setvars = %setvars%
+set "MCTool=%CP%\MCT"
+set "ISO=%CP%\ISO"
+@REM References 
+@REM https://ss64.com/nt/if.html
+@REM String syntax
+@REM    IF [/I] [NOT] item1==item2 command
+@REM    IF [/I] [NOT] "item1" == "item2" command
+@REM    IF [/I] item1 compare-op item2 command
+@REM    IF [/I] item1 compare-op item2 (command) ELSE (command)
+@REM key
+@REM    item        A text string or environment variable, for more complex
+@REM                comparisons, a variable can be modified using
+@REM                either Substring or Search syntax.
+@REM    command     The command to perform.
+@REM    filename    A file to test or a wildcard pattern.
+@REM    NOT         Perform the command if the condition is false. 
+@REM    ==          Perform the command if the two strings are equal. 
+
+@REM    /I          Do a case Insensitive string comparison.
+@REM compare-op  can be one of
+@REM                 EQU : Equal
+@REM                 NEQ : Not equal
+@REM                 LSS : Less than <
+@REM                 LEQ : Less than or Equal <=
+@REM                 GTR : Greater than >
+@REM                 GEQ : Greater than or equal >=
+@REM                 This 3 digit syntax is necessary because the > and <
+@REM                 symbols are recognised as redirection operators
+
+
+IF /I %debug% == on (
+
+echo. ########################################
 echo my project name is %ProjectName%
+echo MCTool = %MCTool%
+echo ISO = %ISO%
+echo. ########################################
 pause
+endif
+) 
+ELSE 
+(goto startcode)
+
+
+:startcode
 cls
 rem User Set Variables:
 @REM echo.
@@ -122,13 +168,17 @@ IF %INPUT%==false GOTO DEFAULT
 @REM =================================
 :about
 cls
-call 00.0___About_.cmd
+echo errorlevel = %errorlevel%
+@REM pause
+call %CPS%\00.0___About_.cmd
 rem timeout 2 > NUL
 GOTO MainMenu
 @REM =================================
 :SourceMenu
 cls
-call source.cmd
+echo errorlevel = %errorlevel%
+pause
+call %CPS%\source.cmd
 rem timeout 2 > NUL
 GOTO MainMenu
 @REM =================================

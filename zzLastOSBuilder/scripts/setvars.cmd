@@ -4,10 +4,10 @@ title %~nx0  v%scriptver%
 
 
 rem This first for routine will give the current path without a trailing \
-%~d0
-cd "%~dp0"
-cd %~dps0
-for %%f in ("%CD%") do set CP=%%~sf
+@REM %~d0
+@REM cd "%~dp0"
+@REM cd %~dps0
+@REM for %%f in ("%CD%") do set CP=%%~sf
 
 rem User Set Variables:
 set /p ProjectName=<%CP%\Settings\ProjectName.txt
@@ -42,7 +42,7 @@ set "Drivers=%CP%Drivers"
 set "DVD=%CP%DVD"
 set "ISO=%CP%ISO"
 set "Logs=%CP%Logs"
-set "MCT=%CP%MCT"
+set "MCTool=%CP%\MCT"
 set "Mount=%CP%Mount"
 set "Packs=%CP%Packs"
 set "ROOT=%CP%"
@@ -65,8 +65,9 @@ echo   Script version: v%scriptver%
 echo     Current (CP): %CP%
 echo VirtualBox (VBP): %VBP%
 echo    Virtual Drive: %VirtDrive%
+echo MCTool = %MCTool%
 echo.
-
+pause
 rem this checks if user wants to use the %MountISO% filename
 @REM :choice
 @REM set /P c=Are you sure you want to continue with using %MountISO% filename[Y/N]?
