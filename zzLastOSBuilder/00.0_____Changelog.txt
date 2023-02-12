@@ -51,5 +51,17 @@ created setvars.cmd file containg common variables used in settings
 modified zzmenu.cmd file for using setvars.cmd
 modified about.cmd file for using setvars.cmd
 added batcheckcode
-0.0.8 ************************
 
+0.0.8 ************************
+small changes to directory
+
+0.0.9 ************************
+added MediaCreationTool (MCT)
+
+0.0.10 ************************
+added MCT win11 script 
+
+0.0.11 ************************
+added links to MCT to README.MD 
+
+0.0.12 ************************
