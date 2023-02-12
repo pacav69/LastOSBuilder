@@ -87,7 +87,12 @@ WinBuilder - [Win10XPE Homepage](https://theoven.org/viewforum.php?f=14)
 
 <img src="https://visualstudio.microsoft.com/wp-content/uploads/2019/09/vs-code-responsive-01-1.png" alt="Visual Studio Code logo" style="height: 50px; width:60px;"/>
 
-Visual Studio Code Editor - [found here](https://visualstudio.microsoft.com/) 
+Visual Studio Code Editor - [found here](https://visualstudio.microsoft.com/)
+
+MediaCreationTool(MCT) wrapper script [found here on gist](https://gist.github.com/AveYo/c74dc774a8fb81a332b5d65613187b15) or [here on github](https://github.com/AveYo/MediaCreationTool.bat)
+22H22 modification [here](https://github.com/AveYo/MediaCreationTool.bat/pull/230/files)
+
+[read article](https://winaero.com/mediacreationtool-batch-file-can-now-create-windows-11-iso-without-tpm-checks/)
 
 ### Changes
 
