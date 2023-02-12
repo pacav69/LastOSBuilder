@@ -2,6 +2,7 @@
 set "scriptver=0.0.3"
 title %~nx0  v%scriptver%
 
+
 rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
@@ -32,7 +33,6 @@ echo my project name is %ProjectName%
 @REM set /p SysPrepISOPath=<%CP%\Settings\SysPrepISOPath.txt
 @REM set /p NTLiteISOPath=<%CP%\Settings\NTLiteISOPath.txt
 
-
 @REM rem System Set Variables:
 @REM for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
 @REM set VBM=%VBP%\VBoxManage.exe
@@ -48,30 +48,7 @@ echo my project name is %ProjectName%
 @REM echo VirtualBox (VBP): %VBP%
 @REM echo    Virtual Drive: %VirtDrive%
 @REM echo.
-
-rem this checks if user wants to use the %MountISO% filename
-:choice
-set /P c=Are you sure you want to continue with using %MountISO% filename[Y/N]?
-if /I "%c%" EQU "Y" goto :somewhere
-if /I "%c%" EQU "N" goto :somewhere_else
-goto :choice
-
-
-:somewhere
-
-rem echo "I am here because you typed Y"
-echo you are now using %MountISO% filename
 rem pause
-goto :run
-rem exit
-
-:somewhere_else
-
-rem echo "I am here because you typed N"
-echo exiting program
-@REM pause
-exit /B
-
 :run
 echo here at run
 @REM pause
@@ -92,13 +69,18 @@ IF EXIST "%ISO%\%testfile%" (
 :runcode
 @REM echo runcode
 @REM pause
-if exists "%CP%\%ISO%"
-rem Rename first found %ISO%\*.ISO to use as Windows Original source ISO
-cd /D "%CP%\%ISO%"
-for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%CP%\%ISO%\%%x" "%MountISO%" & goto END
 
-:DONE 
-set ERRORLEVEL=1
-@REM echo DONE
-@REM pause
-:END
+
+rem Extract Source ISO to Set %ISO% ISO Build Paths
+md "%CP%\%WindowsOriginalPath%"
+echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+
+md "%CP%\%SysPrepISOPath%"
+echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
+%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
+
+Rem Copy SysprepISO to NTLiteISO
+md "%CP%\%NTLiteISOPath%"
+xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
+:DONE

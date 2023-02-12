@@ -883,7 +883,7 @@ echo.   LastOS ToolKit - Download Windows 11 from Microsoft
 echo.===============================================================================
 echo.
 echo MCTool = %MCTool%
-pause
+@REM pause
 call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
@@ -892,16 +892,25 @@ echo.---------------------------------------------------------------------------
 echo.-------------------------------------------------------------------------------
 echo.####Copying Windows 11 to %ISO% ###############
 echo.-------------------------------------------------------------------------------
-call %MCTool%\copywin11.cmd
 
-pause 
+call %CPS%\copywin11.cmd
 
+call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
+echo.-------------------------------------------------------------------------------
+echo.####Extracting Windows 11 to %WindowsOriginalPath% ###############
+echo.-------------------------------------------------------------------------------
 
+call %CPS%\00.1_Extract_Source_ISO
 
+echo.-------------------------------------------------------------------------------
+echo.####Finished #Extracting Windows 11 ###############
+echo.-------------------------------------------------------------------------------
+
+@REM pause 
 
 
 echo.-------------------------------------------------------------------------------
-echo.####Finished Downloading and copying Windows 11 from Microsoft###############
+echo.####Finished Downloading and Processing Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 
 :Stop
