@@ -6,8 +6,12 @@ title %~nx0  v%scriptver%
 rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
+echo Extract source
 echo my project name is %ProjectName%
-@REM pause
+set "WHD=%CP%WHD"
+set "ToolsPath=%CP%\02_NTLite\Tools"
+echo ToolsPath = %ToolsPath%
+pause
 
 
 @REM rem This first for routine will give the current path without a trailing \
@@ -69,16 +73,21 @@ IF EXIST "%ISO%\%testfile%" (
 :runcode
 @REM echo runcode
 @REM pause
+echo cp = %CP%
+echo iso = %ISO%
+echo ToolsPath = %ToolsPath%
+echo WindowsOriginalPath = %WindowsOriginalPath%
+pause
 
 
 rem Extract Source ISO to Set %ISO% ISO Build Paths
 md "%CP%\%WindowsOriginalPath%"
-echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
-%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+echo "%ToolsPath%\7-Zip\x64\7z.exe" -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
 
 md "%CP%\%SysPrepISOPath%"
-echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
-%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
+echo "%ToolsPath%\7-Zip\x64\7z.exe" -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
+%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
 
 Rem Copy SysprepISO to NTLiteISO
 md "%CP%\%NTLiteISOPath%"

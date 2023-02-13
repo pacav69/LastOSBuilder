@@ -884,7 +884,7 @@ echo.===========================================================================
 echo.
 echo MCTool = %MCTool%
 @REM pause
-call %MCTool%\MediaCreationToolwin11.bat
+@REM call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
@@ -893,7 +893,7 @@ echo.---------------------------------------------------------------------------
 echo.####Copying Windows 11 to %ISO% ###############
 echo.-------------------------------------------------------------------------------
 
-call %CPS%\copywin11.cmd
+@REM call %CPS%\copywin11.cmd
 
 call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
 echo.-------------------------------------------------------------------------------

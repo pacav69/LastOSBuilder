@@ -7,7 +7,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
 
-## LastOSBuilder Version 0.0.11
+## LastOSBuilder Version 0.0.12
 
 
 
@@ -91,9 +91,17 @@ Visual Studio Code Editor - [found here](https://visualstudio.microsoft.com/)
 
 MediaCreationTool(MCT) wrapper script [found here on gist](https://gist.github.com/AveYo/c74dc774a8fb81a332b5d65613187b15) or [here on github](https://github.com/AveYo/MediaCreationTool.bat)
 22H22 modification [here](https://github.com/AveYo/MediaCreationTool.bat/pull/230/files)
+[forked github](https://github.com/pacav69/MediaCreationTool.bat)
 
 [read article](https://winaero.com/mediacreationtool-batch-file-can-now-create-windows-11-iso-without-tpm-checks/)
 
 ### Changes
 
 See file Changelog.txt for any changes.  [View Changelog document](https://github.com/pacav69/LastOSBuilder/blob/main/zzLastOSBuilder/00.0_____Changelog.txt)
+
+## Support
+
+<img src="https://vangogh.teespring.com/v3/image/SugZ-DRGZXUTuSzfrFtaOU3TAUQ/800/800.jpg" width="100px"  height="100px">
+
+[Help support by buying some merchandise](https://cavtronics-3.creator-spring.com/)
+

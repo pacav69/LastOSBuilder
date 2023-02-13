@@ -7,7 +7,7 @@ rem https://ss64.com/nt/call.html
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.9
+set scriptver=0.0.12
 title %~nx0  v%scriptver%
 @REM set debug on to check files on / off
 set debug=off

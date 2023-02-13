@@ -50,13 +50,14 @@ set "ROOT=%CP%"
 set "Temp=%CP%Temp"
 set "Updates=%CP%Updates"
 set "WHD=%CP%WHD"
+set "ToolsPath=%CP%\02_NTLite\Tools"
 
 
 rem System Set Variables:
 for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
 set VBM=%VBP%\VBoxManage.exe
 set VMP=%CP%\%VMPath%
-set ToolsPath=%CP%\Tools
+@REM set ToolsPath=%CP%\Tools
 
 echo *** Project %ProjectName% ***
 echo All Folders Are Short Folder Names:

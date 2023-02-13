@@ -61,7 +61,7 @@ goto :choice
 
 rem echo "I am here because you typed Y"
 echo you are now using %MountISO% filename
-rem pause
+@REM pause
 goto :run
 rem exit
 
@@ -74,12 +74,15 @@ exit /B
 
 :run
 echo here at run
+echo CP = %CP%
+echo ISO = %ISO%
 @REM pause
+
 @REM  check that ISO file exists before proceeding
 set "testfile=*.iso"
 @REM set "testfile=*.txt"
 
-REM finds file    
+REM find file    
 IF EXIST "%ISO%\%testfile%" (
   ECHO file %testfile% exists & goto runcode
 ) ELSE (
@@ -91,14 +94,20 @@ IF EXIST "%ISO%\%testfile%" (
 @REM pause
 :runcode
 @REM echo runcode
+echo ISO = %ISO%
 @REM pause
-if exists "%CP%\%ISO%"
+@REM if exists %ISO%
 rem Rename first found %ISO%\*.ISO to use as Windows Original source ISO
-cd /D "%CP%\%ISO%"
-for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%CP%\%ISO%\%%x" "%MountISO%" & goto END
+cd /D "%ISO%"
+@REM pause 
+for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%ISO%\%%x" "%MountISO%" & goto END
+
+@REM cho end of the road
+@REM pause
 
 :DONE 
 set ERRORLEVEL=1
 @REM echo DONE
 @REM pause
 :END
+@REM pause
