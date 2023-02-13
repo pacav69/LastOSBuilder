@@ -49,12 +49,18 @@ echo my project name is %ProjectName%
 @REM echo    Virtual Drive: %VirtDrive%
 @REM echo.
 
-rem this checks if user wants to use the %MountISO% filename
-:choice
-set /P c=Are you sure you want to continue with using %MountISO% filename[Y/N]?
-if /I "%c%" EQU "Y" goto :somewhere
-if /I "%c%" EQU "N" goto :somewhere_else
-goto :choice
+@REM :choice
+echo.
+choice /C:YN /N /M "Are you sure you want to continue with using %MountISO% filename ? ['Y'es/'N'o] : "
+if errorlevel 2 goto :somewhere_else
+if errorlevel 1 goto :somewhere
+
+@REM rem this checks if user wants to use the %MountISO% filename
+@REM :choice
+@REM set /P c=Are you sure you want to continue using %MountISO% filename[Y/N]?
+@REM if /I "%c%" EQU "Y" goto :somewhere
+@REM if /I "%c%" EQU "N" goto :somewhere_else
+@REM goto :choice
 
 
 :somewhere
