@@ -4,6 +4,11 @@ __pycache__/
 *$py.class
 *.iso
 builderstatus.txt
+zzLastOSBuilder\00_Source\01Windows_Original
+zzLastOSBuilder\00_Source\02Windows_Sysprep
+zzLastOSBuilder\00_Source\03Windows_NTLite
+
+
 
 # C extensions
 *.so

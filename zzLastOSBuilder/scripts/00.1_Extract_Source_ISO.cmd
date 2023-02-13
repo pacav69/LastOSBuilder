@@ -81,15 +81,40 @@ pause
 
 
 rem Extract Source ISO to Set %ISO% ISO Build Paths
+@REM if directory exist skip make directory (MD)
+@REM if Not exist"%CP%\%WindowsOriginalPath%" (
+@REM md "%CP%\%WindowsOriginalPath%"
+@REM )
+@REM else
+@REM (goto winorgpath)
+
+@REM cd /D "%ISO%"
+@REM pause
+
+@REM rem Extract Source ISO to Set 00_Source ISO Build Paths
+@REM md "%CP%\%WindowsOriginalPath%"
+@REM echo "%ToolsPath%\7-Zip_x64\7z.exe" -mtc -aoa x -y "%CP%\00_Source\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+@REM %ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%CP%\00_Source\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+
+
+
+:winorgpath
 md "%CP%\%WindowsOriginalPath%"
-echo "%ToolsPath%\7-Zip\x64\7z.exe" -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
-%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+
+echo "%ToolsPath%\7-Zip\x64\7z.exe" -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%" 
+%ToolsPath%\7-Zip\x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%WindowsOriginalPath%"
+
+pause
 
 md "%CP%\%SysPrepISOPath%"
+@REM cd /D "%ISO%"
+
 echo "%ToolsPath%\7-Zip\x64\7z.exe" -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
-%ToolsPath%\7-Zip_x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
+%ToolsPath%\7-Zip\x64\7z.exe -mtc -aoa x -y "%ISO%\%MountISO%" -o"%CP%\%SysPrepISOPath%" -xr!*.wim
 
 Rem Copy SysprepISO to NTLiteISO
 md "%CP%\%NTLiteISOPath%"
+@REM cd /D "%ISO%"
+
 xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
 :DONE
