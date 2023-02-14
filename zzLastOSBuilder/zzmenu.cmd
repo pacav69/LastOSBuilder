@@ -10,7 +10,14 @@ rem Win11 script
 set scriptver=0.0.12
 title %~nx0  v%scriptver%
 @REM set debug on to check files on / off
-set debug=off
+set debug=0
+
+
+@REM debug
+If %debug% NEQ 0 (
+pause 
+)
+
 rem This first for routine will give the current path without a trailing \
 %~d0
 cd "%~dp0"

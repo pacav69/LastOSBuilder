@@ -4,6 +4,24 @@ rem Win11 script
 set scriptver=0.0.9
 title %~nx0  v%scriptver%
 
+set Debug=1
+
+@REM IF /I %debug% == 1 (
+
+@REM echo. ########################################
+@REM echo my project name is %ProjectName%
+@REM echo MCTool = %MCTool%
+@REM echo ISO = %ISO%
+@REM echo. ########################################
+@REM pause
+
+@REM ) 
+@REM ELSE 
+@REM (goto startcode)
+
+
+@REM :startcode
+
 rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
@@ -882,12 +900,24 @@ echo.===========================================================================
 echo.   LastOS ToolKit - Download Windows 11 from Microsoft
 echo.===============================================================================
 echo.
-echo MCTool = %MCTool%
-@REM pause
+
+@REM debug
+
 @REM call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
+
+@REM goto startcode1)
+@REM ) 
+@REM ELSE 
+@REM (
+@REM 	echo. ########################################
+@REM 	echo call %MCTool%\MediaCreationToolwin11.bat
+@REM 	echo. ########################################
+@REM 	goto startcode2)
+
+@REM debug
 
 echo.-------------------------------------------------------------------------------
 echo.####Copying Windows 11 to %ISO% ###############
@@ -895,19 +925,24 @@ echo.---------------------------------------------------------------------------
 
 @REM call %CPS%\copywin11.cmd
 
-call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
-echo.-------------------------------------------------------------------------------
-echo.####Extracting Windows 11 to %WindowsOriginalPath% ###############
-echo.-------------------------------------------------------------------------------
+@REM debug
 
+call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
+
+@REM debug
+	echo.-------------------------------------------------------------------------------
+echo.####Extracting Windows 11 to %WindowsOriginalPath% ###############
+echo.----------------------------------------------------------------------------------
+	
 call %CPS%\00.1_Extract_Source_ISO
 
 echo.-------------------------------------------------------------------------------
 echo.####Finished #Extracting Windows 11 ###############
 echo.-------------------------------------------------------------------------------
 
-@REM pause 
-
+If %debug% NEQ 0 (
+pause 
+)
 
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading and Processing Windows 11 from Microsoft###############
@@ -916,7 +951,17 @@ echo.---------------------------------------------------------------------------
 :Stop
 echo.
 echo.===============================================================================
+If %debug% NEQ 0 (
 echo.
+echo.-------------------------------------------------------------------------------
+echo.####about to cleanup Source sub-directories ###############
+echo.-------------------------------------------------------------------------------
+pause
+
+call  %CPS%\00.01_Cleanout_LastOS_Builder.cmd
+)
+
+
 pause
 
 @REM endlocal
