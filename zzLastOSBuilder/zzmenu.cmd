@@ -201,6 +201,29 @@ rem timeout 2 > NUL
 
 GOTO MENU_START
 @REM =================================
+REM =================================
+:RemoveMenu
+cls
+@REM echo errorlevel = %errorlevel%
+@REM pause
+call %CPS%\RemoveMenu.cmd
+rem timeout 2 > NUL
+GOTO MENU_START
+@REM =================================
+
+
+@REM =================================
+:CustomizeMenu
+cls
+@REM echo errorlevel = %errorlevel%
+@REM pause
+call %CPS%\CustomizeMenu.cmd
+rem timeout 2 > NUL
+GOTO MENU_START
+@REM =================================
+
+
+
 
 @REM =================================
 :HelpMenu
