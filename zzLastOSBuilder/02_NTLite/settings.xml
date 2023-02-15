@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GeneralOptions xmlns="urn:schemas-nliteos-com:pn.v1">
-	<LicenseKey>6lqCGWcQojxmO8qSGmy3n1fRgbnrySq2lh0f1AhI52Rx25vcAEbrPjxl5oBmCXJG</LicenseKey>
+	<LicenseKey>0CniAM9jysaqP5DnmdFim8Dx6gYEDgtmHZYKTTkI/z7MOen5ddxq9Gr4hgyZdHnB</LicenseKey>
 	<CustomScratch>false</CustomScratch>
-	<UpdatesDir>F:\zzSysPrep\04NTLite_ppApp\x64\Updates</UpdatesDir>
+	<UpdatesDir>D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\02_NTLite\Updates</UpdatesDir>
 	<CheckUpdate>false</CheckUpdate>
 	<DisableDefender>false</DisableDefender>
 	<DisableProtections>false</DisableProtections>
@@ -48,7 +48,7 @@
 		<AddUpdate></AddUpdate>
 		<AddRegistry></AddRegistry>
 		<SaveISO></SaveISO>
-		<AddImage>M:\zzzzLast20_Builder\00_Source\03Windows-NTLite</AddImage>
+		<AddImage>NTLiteISOPath</AddImage>
 		<SaveImage></SaveImage>
 		<ExportPreset>F:\zzSysPrep</ExportPreset>
 		<ImportPreset>F:\zzSysPrep</ImportPreset>
@@ -59,7 +59,7 @@
 		<ImportHwlist></ImportHwlist>
 	</RecentPaths>
 	<Images>
-		<Image expanded="true">M:\zzzzLast20_Builder\00_Source\03Windows-NTLite\Sources\install.wim</Image>
-		<Image expanded="true">M:\zzzzLast20_Builder\00_Source\03Windows-NTLite\Sources\boot.wim</Image>
+		<Image expanded="true">NTLiteISOPath\Sources\install.wim</Image>
+		<Image expanded="false">NTLiteISOPath\Sources\boot.wim</Image>
 	</Images>
 </GeneralOptions>

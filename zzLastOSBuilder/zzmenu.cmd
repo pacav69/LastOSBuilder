@@ -9,6 +9,7 @@ cls
 rem Win11 script
 set scriptver=0.0.12
 title %~nx0  v%scriptver%
+@REM ######### DEBUG ###################
 @REM set debug on to check files on / off
 set debug=0
 
@@ -64,7 +65,7 @@ set "ISO=%CP%\ISO"
 @REM                 symbols are recognised as redirection operators
 
 
-IF /I %debug% == on (
+IF /I %debug% GTR 0  (
 
 echo. ########################################
 echo my project name is %ProjectName%
@@ -92,6 +93,7 @@ color 02
 :: LastOS Toolkit - Main Menu
 ::-------------------------------------------------------------------------------------------
 :MainMenu
+set errorlevel = 0
 
 cls
 echo.===============================================================================
@@ -115,14 +117,16 @@ echo.                             [6]   Target
 echo.
 echo.                             [7]   Tools
 echo.
+echo.                             [H]   Help
+echo.
 echo.
 echo.                             [X]   Quit
 echo.
 echo.===============================================================================
 echo.
-choice /C:A1234567X /N /M "Enter Your Choice : "
-@REM if errorlevel 10 goto :Quit
-if errorlevel 9 goto :Quit
+choice /C:A1234567HX /N /M "Enter Your Choice : "
+if errorlevel 10 goto :Quit
+if errorlevel 9 goto :HelpMenu
 if errorlevel 8 goto :ToolsMenu
 if errorlevel 7 goto :TargetMenu
 if errorlevel 6 goto :ApplyMenu
@@ -193,6 +197,17 @@ cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
 call %CPS%\IntegrateMenu.cmd
+rem timeout 2 > NUL
+
+GOTO MENU_START
+@REM =================================
+
+@REM =================================
+:HelpMenu
+cls
+@REM echo errorlevel = %errorlevel%
+@REM pause
+call %CPS%\HelpMenu.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
