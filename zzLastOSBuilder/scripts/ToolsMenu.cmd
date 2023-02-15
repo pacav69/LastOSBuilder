@@ -77,3 +77,12 @@ if errorlevel 3 goto :IntegrateMenuHelp
 if errorlevel 2 goto :SourceMenuHelp
 if errorlevel 1 goto :aboutHelp
 ::-------------------------------------------------------------------------------------------
+
+
+
+@REM =================================
+:Quit
+echo Bye
+timeout 2 > NUL
+@REM exit /b
+@REM =================================

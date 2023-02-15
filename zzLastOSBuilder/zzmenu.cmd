@@ -86,8 +86,8 @@ rem User Set Variables:
 @REM ECHO Builder Version is v%BuilderVersion%
 
 rem color 02 green char on black background
-color 02 
-
+@REM color 02 
+color 1F
 
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Main Menu

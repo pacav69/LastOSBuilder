@@ -260,4 +260,11 @@ timeout 2 > NUL
 GOTO HelpMenu
 
 @REM =================================
+
+@REM =================================
 :Quit
+echo Bye
+timeout 2 > NUL
+@REM exit /b
+@REM =================================
+

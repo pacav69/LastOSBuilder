@@ -1005,4 +1005,10 @@ goto :MainMenu
 
 
 :MainMenu
-@REM exit
+
+@REM =================================
+:Quit
+echo Bye
+timeout 2 > NUL
+@REM exit /b
+@REM =================================

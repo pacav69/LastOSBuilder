@@ -38,8 +38,8 @@ echo my project name is %ProjectName%
 
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Help Menu
-echo.                           v%BuilderVersion%                             .
+echo.                           LastOS ToolKit Builder - Help Menu ****
+echo.                           v%BuilderVersion%                             
 echo.===============================================================================
 echo.
 echo.                             [A]   About
@@ -259,4 +259,11 @@ timeout 2 > NUL
 GOTO HelpMenu
 
 @REM =================================
+
+@REM =================================
 :Quit
+echo Bye
+timeout 2 > NUL
+@REM exit /b
+@REM =================================
+
