@@ -4,7 +4,7 @@ rem Win11 script
 set scriptver=0.0.9
 title %~nx0  v%scriptver%
 
-set Debug=1
+set Debug=0
 
 @REM IF /I %debug% == 1 (
 
@@ -903,7 +903,7 @@ echo.
 
 @REM debug
 
-@REM call %MCTool%\MediaCreationToolwin11.bat
+call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
@@ -923,7 +923,7 @@ echo.---------------------------------------------------------------------------
 echo.####Copying Windows 11 to %ISO% ###############
 echo.-------------------------------------------------------------------------------
 
-@REM call %CPS%\copywin11.cmd
+call %CPS%\copywin11.cmd
 
 @REM debug
 
