@@ -44,7 +44,7 @@ echo.===========================================================================
 echo.
 echo.                             [A]   About
 echo.
-echo.                             [1]   Source
+echo.                             [1]   Source Cleanup
 echo.
 echo.                             [2]   Integrate
 echo.
@@ -74,8 +74,51 @@ if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
 if errorlevel 4 goto :RemoveMenuHelp
 if errorlevel 3 goto :IntegrateMenuHelp
-if errorlevel 2 goto :SourceMenuHelp
+if errorlevel 2 goto :SourceMenuCleanup
 if errorlevel 1 goto :aboutHelp
+::-------------------------------------------------------------------------------------------
+
+:SourceMenuCleanup
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Source Cleanup
+echo.                           v%BuilderVersion%                             .
+echo.===============================================================================
+ echo.
+echo.
+echo.-------------------------------------------------------------------------------
+echo.####about to cleanup Source sub-directories ###############
+echo.-------------------------------------------------------------------------------
+
+echo.
+choice /C:YN /N /M "Are you sure you want to continue with cleanup of Source sub-directories ? ['Y'es/'N'o] : "
+if errorlevel 2 goto :somewhere_else
+if errorlevel 1 goto :somewhere
+
+:somewhere
+rem echo "I am here because you typed Y"
+call  %CPS%\cleanoutsources.cmd
+@REM pause
+goto :run
+
+:somewhere_else
+rem echo "I am here because you typed N"
+echo 
+  echo.===============================================================================
+echo.
+echo. aborting cleanup of Source sub-directories 
+echo.
+  echo.===============================================================================
+pause
+:run
+  echo. 
+  echo.
+  echo.
+  echo.
+  echo.===============================================================================
+
+  pause
+  goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 

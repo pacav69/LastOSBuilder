@@ -3,11 +3,14 @@ Rem References
 rem https://www.computerhope.com/issues/ch001674.htm
 rem https://ss64.com/nt/choice.html
 rem https://ss64.com/nt/call.html
+
+@REM Menu start
+@REM #############################
 :MENU_START
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.12
+set scriptver=0.0.15
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on / off

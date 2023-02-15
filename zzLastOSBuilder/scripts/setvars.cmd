@@ -1,5 +1,5 @@
 @echo off
-set scriptver=0.0.9
+set scriptver=0.0.15
 title %~nx0  v%scriptver%
 
 
@@ -53,69 +53,47 @@ set "WHD=%CP%WHD"
 set "ToolsPath=%CP%\02_NTLite\Tools"
 
 
-rem System Set Variables:
-for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
-set VBM=%VBP%\VBoxManage.exe
-set VMP=%CP%\%VMPath%
-@REM set ToolsPath=%CP%\Tools
+@REM rem System Set Variables:
+@REM for %%f in ("C:\Program Files\Oracle\VirtualBox") do set VBP=%%~sf
+@REM set VBM=%VBP%\VBoxManage.exe
+@REM set VMP=%CP%\%VMPath%
+@REM @REM set ToolsPath=%CP%\Tools
 
-echo *** Project %ProjectName% ***
-echo All Folders Are Short Folder Names:
-echo.
-rem added script version
-echo   Script version: v%scriptver%
-echo     Current (CP): %CP%
-echo VirtualBox (VBP): %VBP%
-echo    Virtual Drive: %VirtDrive%
-echo MCTool = %MCTool%
-echo.
-@REM pause
-rem this checks if user wants to use the %MountISO% filename
-@REM :choice
-@REM set /P c=Are you sure you want to continue with using %MountISO% filename[Y/N]?
-@REM if /I "%c%" EQU "Y" goto :somewhere
-@REM if /I "%c%" EQU "N" goto :somewhere_else
-@REM goto :choice
+@REM echo *** Project %ProjectName% ***
+@REM echo All Folders Are Short Folder Names:
+@REM echo.
+@REM rem added script version
+@REM echo   Script version: v%scriptver%
+@REM echo     Current (CP): %CP%
+@REM echo VirtualBox (VBP): %VBP%
+@REM echo    Virtual Drive: %VirtDrive%
+@REM echo MCTool = %MCTool%
+@REM echo.
+@REM @REM pause
 
 
-:somewhere
+@REM :run
+@REM echo here at run
+@REM @REM pause
+@REM @REM  check that ISO file exists before proceeding
+@REM set "testfile=*.iso"
+@REM @REM set "testfile=*.txt"
 
-rem echo "I am here because you typed Y"
-echo you are now using %MountISO% filename
-rem pause
-goto :run
-rem exit
+@REM REM finds file    
+@REM IF EXIST "00_Source\%testfile%" (
+@REM   ECHO file %testfile% exists & goto runcode
+@REM ) ELSE (
+@REM   ECHO file %testfile% does not exist & goto DONE
+@REM ) 
+@REM @REM echo nope
+@REM @REM pause
 
-:somewhere_else
-
-rem echo "I am here because you typed N"
-echo exiting program
-@REM pause
-exit /B
-
-:run
-echo here at run
-@REM pause
-@REM  check that ISO file exists before proceeding
-set "testfile=*.iso"
-@REM set "testfile=*.txt"
-
-REM finds file    
-IF EXIST "00_Source\%testfile%" (
-  ECHO file %testfile% exists & goto runcode
-) ELSE (
-  ECHO file %testfile% does not exist & goto DONE
-) 
-@REM echo nope
-@REM pause
-
-@REM pause
-:runcode
+@REM @REM pause
+@REM :runcode
 @REM echo runcode
 
 
 :DONE 
-set ERRORLEVEL=1
 @REM echo DONE
 @REM pause
 :END
