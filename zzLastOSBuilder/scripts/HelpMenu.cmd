@@ -105,9 +105,10 @@ echo.                           LastOS ToolKit Builder - Help SourceMenu
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
-  echo describes the SourceMenu
-  echo. 
-  echo.
+  echo description of SourceMenu
+  echo. Select source of ISO, Boot.wim, install.wim or ESD 
+  echo. to allow addition or removal of software and drivers
+  echo. such as specific computer drivers.
   echo.
   echo.
   echo.===============================================================================

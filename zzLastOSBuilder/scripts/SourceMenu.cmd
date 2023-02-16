@@ -56,7 +56,7 @@ if "%IsSourceSelected%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	pause
-	goto :MainMenu
+	goto :Quit
 )
 
 :: Checking whether Image Registry is loaded
@@ -66,7 +66,7 @@ if "%IsImageRegistryLoaded%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	pause
-	goto :MainMenu
+	goto :Quit
 )
 
 echo.  [1]   Select Source from ^<DVD^> Folder
@@ -93,7 +93,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:12345678X /N /M "Enter Your Choice : "
-if errorlevel 9 goto :MainMenu
+if errorlevel 9 goto :Quit
 if errorlevel 8 goto :DownloadMS
 if errorlevel 7 goto :Downloadwin11
 if errorlevel 6 goto :ExtractSourceESD
@@ -170,7 +170,7 @@ if /i "%ImageIndexNo%" equ "A" (
 
 if /i "%ImageIndexNo%" equ "Q" (
    set ImageIndexNo=
-   goto :MainMenu
+   goto :Quit
 )
 
 :: Setting the default Image Index No
@@ -343,7 +343,7 @@ echo.===========================================================================
 echo.
 pause
 
-goto :MainMenu
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -426,8 +426,8 @@ set DriveLetter=
 
 endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -515,8 +515,8 @@ set ISOFileName=
 
 endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -602,8 +602,8 @@ set IMGFileName=
 
 endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -675,7 +675,7 @@ if %ImageCount% gtr 4 (
     	)
 	)
 
-	if /i "%ImageIndexNo%" equ "Q" goto :MainMenu
+	if /i "%ImageIndexNo%" equ "Q" goto :Quit
 )
 echo.
 echo.-------------------------------------------------------------------------------
@@ -777,8 +777,8 @@ set ImageBuild=
 
 endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -853,7 +853,7 @@ if /i "%ImageIndexNo%" equ "A" (
     )
 )
 
-if /i "%ImageIndexNo%" equ "Q" goto :MainMenu
+if /i "%ImageIndexNo%" equ "Q" goto :Quit
 
 echo.
 echo.-------------------------------------------------------------------------------
@@ -886,8 +886,8 @@ pause
 
 endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 
@@ -966,8 +966,8 @@ pause
 
 @REM endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 
@@ -998,8 +998,8 @@ pause
 
 @REM endlocal
 
-:: Returning to Main Menu
-goto :MainMenu
+:: Returning to Quit
+goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 
