@@ -45,6 +45,8 @@ Minimum
 
 [Download other windows ISO here](https://www.microsoft.com/en-au/software-download)
 
+Use the MediaCreationTool (MCT) inside the LastOS Builder.
+
 ## Usage
 
 ## Clone
