@@ -13,14 +13,14 @@ rem Win11 script
 set scriptver=0.0.15
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
-@REM set debug on to check files on / off
+@REM set debug on to check files on >0 / off =0
 set debug=0
 
 
 @REM debug
-If %debug% NEQ 0 (
-pause 
-)
+@REM If %debug% NEQ 0 (
+@REM pause 
+@REM )
 
 rem This first for routine will give the current path without a trailing \
 %~d0
@@ -30,6 +30,7 @@ for %%f in ("%CD%") do set CP=%%~sf
 rem CPS= CP Scripts
 set CPS=%CP%\scripts
 echo cp = %CP%
+
 @REM pause
 
 
@@ -40,6 +41,21 @@ echo.
 @REM echo setvars = %setvars%
 set "MCTool=%CP%\MCT"
 set "ISO=%CP%\ISO"
+
+call :mylocalvars
+
+@REM debug
+
+If %debug% NEQ 0 (
+
+echo. HostArchitecture zzmenu    = %HostArchitecture%
+echo. HostBuild = %HostBuild%
+echo. Bin = %Bin%
+
+pause 
+)
+
+
 @REM References 
 @REM https://ss64.com/nt/if.html
 @REM String syntax
@@ -74,6 +90,7 @@ echo. ########################################
 echo my project name is %ProjectName%
 echo MCTool = %MCTool%
 echo ISO = %ISO%
+echo, Arch = %Arch%
 echo. ########################################
 pause
 
@@ -90,8 +107,51 @@ rem User Set Variables:
 
 rem color 02 green char on black background
 @REM color 02 
+rem color 1F white char on light blue background
 color 1F
 
+::-------------------------------------------------------------------------------------------
+:: LastOS Toolkit - Startup function
+::-------------------------------------------------------------------------------------------
+cls
+
+echo.
+echo.Performing Toolkit pre-cleanup operation, please wait...
+call :Cleanup >nul
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit - StartUp
+echo.===============================================================================
+echo.
+echo.Reading Host OS Information...
+echo.
+echo.%HostOSName% %HostDisplayVersion% - v%HostVersion%.%HostBuild%.%HostServicePackBuild% %HostArchitecture% %HostLanguage%
+
+:: Setting DOS character codepage
+if "%HostLanguage%" equ "en-GB" chcp 437 >nul
+if "%HostLanguage%" equ "en-US" chcp 437 >nul
+if "%HostLanguage%" equ "zh-CN" chcp 936 >nul
+
+@REM echo.
+@REM echo.Setting Toolkit and WADK tools environment path variables...
+@REM echo.
+@REM echo.DISM.exe           =  %DISM%
+@REM call :CreateFolder "%DismScratch%"
+@REM set "DISM=%DISM% %DismFormat%"
+@REM echo.Imagex.exe         =  %Imagex%
+@REM echo.Oscdimg.exe        =  %Oscdimg%
+@REM echo.Dvdburn.exe        =  %Dvdburn%
+@REM echo.7zip.exe           =  %Zip%
+@REM echo.Dism++CUI.exe      =  %W10EsdDecrypter%
+@REM echo.EsdDecrypt.exe     =  %W81EsdDecrypter%
+@REM echo.ToolKitHelper.exe  =  %ToolKitHelper%
+@REM echo.ResourceHacker.exe =  %ResourceHacker%
+@REM echo.WimlibImagex.exe   =  %WimlibImagex%
+echo.
+echo. HostArchitecture   = %HostArchitecture%
+echo.===============================================================================
+echo.
+pause
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Main Menu
 ::-------------------------------------------------------------------------------------------
@@ -241,3 +301,51 @@ exit /b
 @REM =================================
 
 ENDLOCAL
+
+:mylocalvars
+if exist "%WinDir%\SysWOW64" (set "HostArchitecture=x64") else (set "HostArchitecture=x86")
+
+for /f "tokens=3 delims= " %%i in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "CurrentBuild" ^| find "REG_SZ"') do (set HostBuild=%%i)
+for /f "tokens=3 delims= " %%j in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /f "ReleaseId" ^| find "REG_SZ"') do (set /A HostReleaseVersion=%%j & if "%%j" lss "2004" set /A HostDisplayVersion=%%j)
+if "%HostDisplayVersion%" equ "" for /f "tokens=3 delims= " %%k in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "DisplayVersion" ^| find "REG_SZ"') do (set "HostDisplayVersion=^(%HostReleaseVersion% %%k^)")
+for /f "tokens=3 delims= " %%l in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "EditionID" ^| find "REG_SZ"') do (set HostEdition=%%l)
+for /f "tokens=3 delims= " %%m in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "InstallationType" ^| find "REG_SZ"') do (set HostInstallationType=%%m)
+for /f "tokens=6 delims= " %%o in ('DISM /Online /English /Get-Intl ^| findstr /i /C:"Default system UI language"') do (set HostLanguage=%%o)
+for /f "tokens=7 delims=[]. " %%r in ('ver 2^>nul') do (set /A HostServicePackBuild=%%r)
+for /f "tokens=4-5 delims=[]. " %%s in ('ver 2^>nul') do (set "HostVersion=%%s.%%t" & set "HostOSName=Windows %%s %HostEdition% %HostInstallationType%" & if "%HostBuild%" equ "7601" set "HostOSName=!HostOSName:6=7! SP1" & if "%HostBuild%" equ "9600" set "HostOSName=!HostOSName:6=8!.1" & if "%HostBuild%" geq "21996" set "HostOSName=!HostOSName:10=11!")
+
+:: Setting WADK tools environment path variables
+set "Bin=%CP%\Bin"
+
+:: Setting Toolkit's control flag variables
+set "IsSourceSelected=No"
+set "IsBootImageSelected=No"
+set "IsRecoveryImageSelected=No"
+set "IsDialogsEnabled=Yes"
+set "IsLogsEnabled=Yes"
+set "IsImageRegistryLoaded=No"
+set "IsW7SP1CRUSelected=No"
+
+set "PreActTokens=%Custom%\ActivationTokens"
+set "CustomFiles=%Custom%\Files"
+set "CustomFonts=%Custom%\Fonts"
+set "CustomRecoveryImage=%Custom%\RecoveryImage"
+set "CustomRegistry=%Custom%\Registry"
+set "CustomTerminalServer=%Custom%\TerminalServer"
+set "CustomUxTheme=%Custom%\UxTheme"
+
+
+:: Setting Source OS variables
+set SelectedSourceOS=
+set OSID=
+set "BootWim=%DVD%\sources\boot.wim"
+set "InstallWim=%DVD%\sources\install.wim"
+set "InstallEsd=%DVD%\sources\install.esd"
+set "WinReWim=Windows\System32\Recovery\winre.wim"
+set "BootMount=%Mount%\Boot"
+set "InstallMount=%Mount%\Install"
+set "WinReMount=%Mount%\WinRE"
+
+
+
+goto :eof
