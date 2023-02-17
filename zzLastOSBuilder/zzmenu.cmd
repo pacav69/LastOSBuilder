@@ -303,6 +303,12 @@ exit /b
 ENDLOCAL
 
 :mylocalvars
+
+set "DVD=%CP%\%WindowsOriginalPath%"
+
+
+
+
 if exist "%WinDir%\SysWOW64" (set "HostArchitecture=x64") else (set "HostArchitecture=x86")
 
 for /f "tokens=3 delims= " %%i in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "CurrentBuild" ^| find "REG_SZ"') do (set HostBuild=%%i)

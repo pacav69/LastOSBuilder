@@ -115,12 +115,15 @@ echo.===========================================================================
 echo.               LastOS ToolKit - Select Source from ^<DVD^> folder
 echo.===============================================================================
 echo.
+echo.
+echo. BootWim = %BootWim%
+pause
 
 :: Checking whether Windows Source Boot Image exist
 if not exist "%BootWim%" (
-	echo.Can't find Windows Setup "Boot.wim" Image in ^<DVD\Sources^> folder...
+	echo.Can't find Windows Setup "Boot.wim" Image in ^<%DVD%\Sources^> folder...
 	echo.
-	echo.Please copy Windows Setup "Boot.wim" Image to ^<DVD\Sources^> folder...
+	echo.Please copy Windows Setup "Boot.wim" Image to ^<%DVD%\Sources^> folder...
 	goto :Stop
 )
 
