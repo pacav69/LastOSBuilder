@@ -1,8 +1,8 @@
-Rem References
+@REM  References
 
-rem https://www.computerhope.com/issues/ch001674.htm
-rem https://ss64.com/nt/choice.html
-rem https://ss64.com/nt/call.html
+@REM  https://www.computerhope.com/issues/ch001674.htm
+@REM  https://ss64.com/nt/choice.html
+@REM  https://ss64.com/nt/call.html
 
 @REM Menu start
 @REM #############################
@@ -10,7 +10,7 @@ rem https://ss64.com/nt/call.html
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.15
+set scriptver=0.0.17
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on >0 / off =0
@@ -356,3 +356,30 @@ set "WinReMount=%Mount%\WinRE"
 
 
 goto :eof
+
+
+
+::-------------------------------------------------------------------------------------------
+:: Function to delete a folder(s)
+:: Input Parameters [ %~1 : Foldername ]
+::-------------------------------------------------------------------------------------------
+:RemoveFolder
+
+if exist "%~1" rd /q /s "%~1" >nul
+
+goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+::-------------------------------------------------------------------------------------------
+:: Function to Create a Folder
+:: Input Parameters [ %~1 : Foldername ]
+::-------------------------------------------------------------------------------------------
+:CreateFolder
+
+if not exist "%~1" md "%~1" >nul
+
+goto :eof
+
+::-------------------------------------------------------------------------------------------
+

@@ -1,5 +1,5 @@
 @echo off
-set scriptver=0.0.16
+set scriptver=0.0.17
 title %~nx0  v%scriptver%
 
 
