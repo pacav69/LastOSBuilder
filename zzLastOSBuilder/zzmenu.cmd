@@ -117,7 +117,8 @@ cls
 
 echo.
 echo.Performing Toolkit pre-cleanup operation, please wait...
-call :Cleanup >nul
+@REM call :Cleanup >nul
+@REM call %CPS%\CleanUp.cmd >nul
 cls
 echo.===============================================================================
 echo.                           LastOS ToolKit - StartUp
