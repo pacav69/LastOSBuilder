@@ -19,7 +19,7 @@ set debug=0
 
 @REM debug
 @REM If %debug% NEQ 0 (
-@REM pause 
+@REM pause
 @REM )
 
 rem This first for routine will give the current path without a trailing \
@@ -52,11 +52,11 @@ echo. HostArchitecture zzmenu    = %HostArchitecture%
 echo. HostBuild = %HostBuild%
 echo. Bin = %Bin%
 
-pause 
+pause
 )
 
 
-@REM References 
+@REM References
 @REM https://ss64.com/nt/if.html
 @REM String syntax
 @REM    IF [/I] [NOT] item1==item2 command
@@ -69,8 +69,8 @@ pause
 @REM                either Substring or Search syntax.
 @REM    command     The command to perform.
 @REM    filename    A file to test or a wildcard pattern.
-@REM    NOT         Perform the command if the condition is false. 
-@REM    ==          Perform the command if the two strings are equal. 
+@REM    NOT         Perform the command if the condition is false.
+@REM    ==          Perform the command if the two strings are equal.
 
 @REM    /I          Do a case Insensitive string comparison.
 @REM compare-op  can be one of
@@ -94,8 +94,8 @@ echo, Arch = %Arch%
 echo. ########################################
 pause
 
-) 
-ELSE 
+)
+ELSE
 (goto startcode)
 
 
@@ -106,7 +106,7 @@ rem User Set Variables:
 @REM ECHO Builder Version is v%BuilderVersion%
 
 rem color 02 green char on black background
-@REM color 02 
+@REM color 02
 rem color 1F white char on light blue background
 color 1F
 
@@ -118,6 +118,7 @@ cls
 echo.
 echo.Performing Toolkit pre-cleanup operation, please wait...
 @REM call :Cleanup >nul
+
 @REM call %CPS%\CleanUp.cmd >nul
 cls
 echo.===============================================================================
