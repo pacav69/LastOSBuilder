@@ -984,7 +984,8 @@ echo.---------------------------------------------------------------------------
 echo.####Now Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 set "downWin11=yes"
-start /wait "Win11 download" CMD /c call %MCTool%\MediaCreationToolwin11.bat  >nul 2>nul
+start /wait "Win11 download"  call %MCTool%\MediaCreationToolwin11.bat
+@REM >nul 2>nul CMD /c
 
 @REM call %MCTool%\MediaCreationToolwin11.bat
 if "%downwin1W%" equ "yes"(
