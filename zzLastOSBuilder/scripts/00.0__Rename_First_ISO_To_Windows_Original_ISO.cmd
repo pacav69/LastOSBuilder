@@ -88,12 +88,12 @@ echo ISO = %ISO%
 set "testfile=*.iso"
 @REM set "testfile=*.txt"
 
-REM find file    
+REM find file
 IF EXIST "%ISO%\%testfile%" (
   ECHO file %testfile% exists & goto runcode
 ) ELSE (
   ECHO file %testfile% does not exist & goto DONE
-) 
+)
 @REM echo nope
 @REM pause
 
@@ -105,14 +105,14 @@ echo ISO = %ISO%
 @REM if exists %ISO%
 rem Rename first found %ISO%\*.ISO to use as Windows Original source ISO
 cd /D "%ISO%"
-@REM pause 
+@REM pause
 for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%ISO%\%%x" "%MountISO%" & goto END
 
 @REM cho end of the road
 @REM pause
 
-:DONE 
-set ERRORLEVEL=1
+:DONE
+@REM set ERRORLEVEL=1
 @REM echo DONE
 @REM pause
 :END

@@ -15,8 +15,8 @@ set Debug=0
 @REM echo. ########################################
 @REM pause
 
-@REM ) 
-@REM ELSE 
+@REM )
+@REM ELSE
 @REM (goto startcode)
 
 
@@ -26,7 +26,7 @@ rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
 echo my project name is %ProjectName%
-@REM pause
+pause
 
 
 echo cps = %CPS%
@@ -45,7 +45,7 @@ echo MCTool = %MCTool%
 cls
 echo.===============================================================================
 echo.                         LastOS ToolKit Builder - Source Menu
-echo.                           v%BuilderVersion% 
+echo.                           v%BuilderVersion%
 echo.===============================================================================
 echo.
 
@@ -116,6 +116,7 @@ echo.               LastOS ToolKit - Select Source from ^<DVD^> folder
 echo.===============================================================================
 echo.
 echo.
+@REM  debug
 echo. BootWim = %BootWim%
 pause
 
@@ -202,7 +203,7 @@ if "%ImageVersion:~0,-6%" equ "11.0" (
    set "OSID=11"
 )
 
-:: Setting Package Service Pack Build, Version and Service Pack Build 
+:: Setting Package Service Pack Build, Version and Service Pack Build
 if "%SelectedSourceOS%" equ "w7" set "PackageServicePackBuild=17514"
 if "%SelectedSourceOS%" equ "w81" set "PackageServicePackBuild=16384"
 
@@ -381,7 +382,7 @@ echo.####Getting DVD Drive Options##############################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting DVD Drive Letter
-set /p DriveLetter=Enter DVD Drive Letter : 
+set /p DriveLetter=Enter DVD Drive Letter :
 
 :: Setting DVD Drive Letter
 set "DriveLetter=%DriveLetter%:"
@@ -474,7 +475,7 @@ echo.####Getting DVD ISO Image Options##########################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting DVD ISO Image file Name
-set /p ISOFileName=Enter the ISO Image filename without .iso : 
+set /p ISOFileName=Enter the ISO Image filename without .iso :
 
 :: Setting DVD ISO Image file Name
 set "ISOFileName=%ISOFileName%.iso"
@@ -562,7 +563,7 @@ echo.####Getting OEM IMG Image Options##########################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting OEM IMG file Name
-set /p IMGFileName=Enter the OEM IMG filename without .img : 
+set /p IMGFileName=Enter the OEM IMG filename without .img :
 
 :: Setting OEM IMG file Name
 set "IMGFileName=%IMGFileName%.img"
@@ -659,7 +660,7 @@ if %ImageCount% equ 4 set ImageIndexNo=4
 
 if %ImageCount% gtr 4 (
 	:: Getting Image Index Number to Service
-	set /p ImageIndexNo=Enter the Image Index # [Range : 4,...%ImageCount%, 'A'll, 'Q'uit] : 
+	set /p ImageIndexNo=Enter the Image Index # [Range : 4,...%ImageCount%, 'A'll, 'Q'uit] :
 
 	:: Checking for Image Index Validation
 	if not defined ImageIndexNo (
@@ -837,8 +838,8 @@ echo.
 call :GetImageCount "%InstallEsd%"
 
 if %ImageCount% equ 1 (
-	set /p ImageIndexNo=Enter the ESD Image Index # ['Q'uit] : 
-) else set /p ImageIndexNo=Enter the ESD Image Index # [Range : 1,2,...%ImageCount%, 'A'll, 'Q'uit] : 
+	set /p ImageIndexNo=Enter the ESD Image Index # ['Q'uit] :
+) else set /p ImageIndexNo=Enter the ESD Image Index # [Range : 1,2,...%ImageCount%, 'A'll, 'Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -851,7 +852,7 @@ if not defined ImageIndexNo (
 
 if /i "%ImageIndexNo%" equ "A" (
 	set "ImageIndexNo=1"
-    for /l %%i in (2, 1, %ImageCount%) do (
+    for /l %%i in (2, 1, %ImageCount%) do (MCT
         set "ImageIndexNo=!ImageIndexNo!,%%i"
     )
 )
@@ -905,6 +906,52 @@ echo.===========================================================================
 echo.
 
 @REM debug
+@REM  check if win 11 exists
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
+echo MCTool = %MCTool%
+echo testfile = %testfile%
+pause
+REM find file
+IF EXIST "%MCTool%\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist & goto DONE
+)
+@REM echo nope
+pause
+
+@REM pause
+:runcode
+echo.
+choice /C:YN /N /M "ISO file found in %MCTool% are you sure you want to continue? ['Y'es/'N'o] : "
+if errorlevel 2 goto :somewhere_else
+if errorlevel 1 goto :somewhere
+
+:somewhere
+echo somewhere
+pause
+goto :DONE
+
+@REM echo runcode
+@REM echo MCTool = %MCTool%
+@REM pause
+@REM @REM if exists %ISO%
+@REM rem Rename first found %ISO%\*.ISO to use as Windows Original source ISO
+@REM cd /D "%ISO%"
+@REM @REM pause
+@REM for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%ISO%\%%x" "%MountISO%" & goto END
+
+@REM cho end of the road
+@REM pause
+
+@REM file exists then exit
+:somewhere_else
+goto :eof
+
+@REM win11 not in mctool directory
+:DONE
 
 call %MCTool%\MediaCreationToolwin11.bat
 echo.-------------------------------------------------------------------------------
@@ -912,8 +959,8 @@ echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 
 @REM goto startcode1)
-@REM ) 
-@REM ELSE 
+@REM )
+@REM ELSE
 @REM (
 @REM 	echo. ########################################
 @REM 	echo call %MCTool%\MediaCreationToolwin11.bat
@@ -936,7 +983,7 @@ call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
 	echo.-------------------------------------------------------------------------------
 echo.####Extracting Windows 11 to %WindowsOriginalPath% ###############
 echo.----------------------------------------------------------------------------------
-	
+
 call %CPS%\00.1_Extract_Source_ISO
 
 echo.-------------------------------------------------------------------------------
@@ -944,7 +991,7 @@ echo.####Finished #Extracting Windows 11 ###############
 echo.-------------------------------------------------------------------------------
 
 If %debug% NEQ 0 (
-pause 
+pause
 )
 
 echo.-------------------------------------------------------------------------------

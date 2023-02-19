@@ -163,7 +163,7 @@ set errorlevel = 0
 cls
 echo.===============================================================================
 echo.                           LastOS ToolKit Builder - Main Menu
-echo.                           v%BuilderVersion%                             .
+echo.                           v%BuilderVersion%
 echo.===============================================================================
 echo.
 echo.                             [A]   About
