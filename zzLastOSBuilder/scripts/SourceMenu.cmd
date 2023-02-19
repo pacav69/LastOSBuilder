@@ -24,16 +24,19 @@ set Debug=0
 
 rem call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
+IF /I %debug% == 1 (
 echo.
 echo my project name is %ProjectName%
 pause
+)
 
-
+IF /I %debug% == 1 (
 echo cps = %CPS%
 echo cp = %CP%
+)
 @REM echo MCTool = %MCTool%
 set "MCTool=%CP%\MCT"
-echo MCTool = %MCTool%
+@REM echo MCTool = %MCTool%
 
 @REM pause
 
@@ -117,8 +120,10 @@ echo.===========================================================================
 echo.
 echo.
 @REM  debug
+IF /I %debug% == 1 (
 echo. BootWim = %BootWim%
 pause
+)
 
 :: Checking whether Windows Source Boot Image exist
 if not exist "%BootWim%" (
@@ -912,15 +917,17 @@ set "testfile=*.iso"
 @REM set "testfile=*.txt"
 echo MCTool = %MCTool%
 echo testfile = %testfile%
-pause
+@REM pause
 REM find file
+@REM IF /I %debug% == 1 (
 IF EXIST "%MCTool%\%testfile%" (
   ECHO file %testfile% exists & goto runcode
 ) ELSE (
-  ECHO file %testfile% does not exist & goto DONE
+  ECHO file %testfile% does not exist & goto :DONE
 )
 @REM echo nope
-pause
+@REM pause
+@REM )
 
 @REM pause
 :runcode
@@ -930,8 +937,10 @@ if errorlevel 2 goto :somewhere_else
 if errorlevel 1 goto :somewhere
 
 :somewhere
+IF /I %debug% == 1 (
 echo somewhere
 pause
+)
 goto :DONE
 
 @REM echo runcode
@@ -950,10 +959,41 @@ goto :DONE
 :somewhere_else
 goto :eof
 
-@REM win11 not in mctool directory
+
 :DONE
 
-call %MCTool%\MediaCreationToolwin11.bat
+@REM  ref https://ss64.com/nt/start.html
+
+@REM  set "IsSourceSelected=No"
+
+@REM if "%IsSourceSelected%" equ "Yes" (
+@REM 	echo.Source OS has already been selected...
+@REM 	echo.
+@REM 	echo.===============================================================================
+@REM 	echo.
+@REM 	pause
+@REM 	goto :MainMenu
+@REM )
+@REM Echo Starting
+@REM  ref https://ss64.com/nt/start.html
+@REM START /wait "demo" CMD /c demoscript.cmd
+@REM Echo Done
+@REM start the MediaCreationToolwin11
+cls
+echo.-------------------------------------------------------------------------------
+echo.####Now Downloading Windows 11 from Microsoft###############
+echo.-------------------------------------------------------------------------------
+set "downWin11=yes"
+start /wait "Win11 download" CMD /c call %MCTool%\MediaCreationToolwin11.bat  >nul 2>nul
+
+@REM call %MCTool%\MediaCreationToolwin11.bat
+if "%downwin1W%" equ "yes"(
+echo.-------------------------------------------------------------------------------
+echo.####Busy Downloading Windows 11 from Microsoft###############
+echo.-------------------------------------------------------------------------------
+pause
+set "downWin11=no"
+)
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------

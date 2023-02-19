@@ -11,7 +11,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
 
-## LastOSBuilder Version 0.0.17
+## LastOSBuilder Version 0.0.197
 
 
 
@@ -54,7 +54,7 @@ Use the MediaCreationTool (MCT) inside the LastOS Builder.
 To clone create a subdirectory and use the following command from the command prompt:
 
         git clone  https://github.com/pacav69/LastOSBuilder
- 
+
 this will copy the files to your computer into the created subdirectory.
 
 ## Builder Updates
