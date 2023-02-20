@@ -984,17 +984,26 @@ echo.---------------------------------------------------------------------------
 echo.####Now Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 set "downWin11=yes"
-start /wait "Win11 download"  call %MCTool%\MediaCreationToolwin11.bat
-@REM >nul 2>nul CMD /c
+start /wait "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11.bat
+@REM >nul 2>nul CMD /c /B
+@REM  cmd /d /x /c
+@REM  /T:02
+@REM EXIT /b 1
+@REM if %errorlevel% equ 1 (
+@REM echo. exiting
+@REM pause
 
-@REM call %MCTool%\MediaCreationToolwin11.bat
-if "%downwin1W%" equ "yes"(
-echo.-------------------------------------------------------------------------------
-echo.####Busy Downloading Windows 11 from Microsoft###############
-echo.-------------------------------------------------------------------------------
+@REM )
+echo Finished
 pause
-set "downWin11=no"
-)
+@REM call %MCTool%\MediaCreationToolwin11.bat
+@REM if "%downwin1W%" equ "yes"(
+@REM echo.-------------------------------------------------------------------------------
+@REM echo.####Busy Downloading Windows 11 from Microsoft###############
+@REM echo.-------------------------------------------------------------------------------
+@REM pause
+@REM set "downWin11=no"
+@REM )
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
