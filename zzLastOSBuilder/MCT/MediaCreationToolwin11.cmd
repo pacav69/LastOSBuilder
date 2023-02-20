@@ -34,7 +34,7 @@ rem set KEY=NPPR9-FWDCX-D2C8J-H872K-2YT43
 rem set /a NO_UPDATE=1
 
 ::# uncomment to not add EI.cfg PID.txt auto.cmd $ISO$ dir content - or rename script:  "def MediaCreationTool.bat"
-::# this will create a default, untouched MCT media 
+::# this will create a default, untouched MCT media
 rem set /a DEF=1
 
 ::# comment to not use recommended windows setup options that give the least amount of issues when doing upgrades
@@ -285,7 +285,7 @@ mkdir "%WORK%" >nul 2>nul & attrib -R -S -H "%WORK%" >nul 2>nul & robocopy "%~dp
 if "%~nx0" neq "%nx0%" copy /y "%WORK%\%~nx0" "%WORK%\%nx0%" >nul & del /f /q "%WORK%\%~nx0" >nul
 if not defined set start "MCT" cmd /d /x /c set "ROOT=%ROOT%" ^& call "%WORK%\%nx0%" %* set& exit /b
 ::# self-echo top 1-20 lines of script
-prompt $G & (<"%~f0" (set /p _=&for /l %%s in (1,1,20) do set _=& set /p _=& call echo;%%_%%)) 
+prompt $G & (<"%~f0" (set /p _=&for /l %%s in (1,1,20) do set _=& set /p _=& call echo;%%_%%))
 ::# lean xp+ color macros by AveYo:  %<%:af " hello "%>>%  &  %<%:cf " w\"or\"ld "%>%   for single \ / " use .%|%\  .%|%/  \"%|%\"
 for /f "delims=:" %%s in ('echo;prompt $h$s$h:^|cmd /d') do set "|=%%s"&set ">>=\..\c nul&set /p s=%%s%%s%%s%%s%%s%%s%%s<nul&popd"
 set "<=pushd "%appdata%"&2>nul findstr /c:\ /a" &set ">=%>>%&echo;" &set "|=%|:~0,1%" &set /p s=\<nul>"%appdata%\c"
@@ -415,7 +415,7 @@ if not defined KEY (del /f /q PID.txt 2>nul) else (echo;[PID]& echo;Value=%KEY%&
 if not defined KEY if %VER% geq 22000 (echo;[Channel]& echo;_Default)>EI.cfg
 
 ::# generate auto.cmd for upgrading without prompts - also copied to media so it can be re-run on demand
-::# keep files and apps from Ultimate / PosReady / Embedded / LTSC / Enterprise Eval 
+::# keep files and apps from Ultimate / PosReady / Embedded / LTSC / Enterprise Eval
 set "0=%~f0"& powershell -nop -c "iex ([io.file]::ReadAllText($env:0) -split '[:]generate_auto_cmd')[1];"
 
 ::# generate AutoUnattend.xml for enabling offline local account on 11 Home editions
@@ -511,8 +511,8 @@ EXIT
        $u = $a.TargetUsbDrive; if ($null -ne $u -and $u -gt 0) {$USB = [char][Convert]::ToInt32($u, 16) + ":"; $ready = $true}
      }}}} ; if ($mct.HasExited) {break :mct}; sleep -m 1000
    }
- 
-   if ($mct.HasExited) {break :mct} # earlier detect of setup ui exit 
+
+   if ($mct.HasExited) {break :mct} # earlier detect of setup ui exit
    if ('Auto Upgrade' -ne $env:PRESET -and $null -eq $USB) {write-host -fore Gray "Prepare", $ISO}
    if ('Auto Upgrade' -ne $env:PRESET -and $null -ne $USB) {write-host -fore Gray "Prepare", $USB}
    if ('Auto Upgrade' -eq $env:PRESET) {write-host -fore Gray "Prepare", $DIR}
@@ -520,7 +520,7 @@ EXIT
    $label = $label -replace '_clientconsumer','' -replace '_clientbusiness','' -replace 'fre_','_' -replace '.esd',''
    write-host -fore Gray "FromESD", $label; sleep 10; powershell -win $env:hide -nop -c ";"
    if ($mct.HasExited) {break :mct} # earlier detect of setup ui exit
-   
+
   #:: watch setup files progress from the sideline (MCT has authoring control)
    write-host -fore Yellow "Started ESD download"; Watcher $mct "*.esd" $WD all >$null; if ($mct.HasExited) {break :mct}
    write-host -fore Yellow "Started media create"; Watcher $mct "*.wim"  $WS all >$null; if ($mct.HasExited) {break :mct}
@@ -606,7 +606,7 @@ EXIT
    powershell -win 0 -nop -c ";"; ShowWindow (get-process -Id $PID).MainWindowHandle 1
    pushd -lit "$env:WORK"; cmd /d /x /c "pushd c:\ & rmdir /s /q ""$DIR"" >nul 2>nul & del /f /q ""$WS\*.*"" >nul 2>nul"
    write-host " ERROR! " -fore Red -nonew; write-host "setup terminated unexpectedly`r`n"; sleep 7; return
- } 
+ }
 
 #:: back to classic 0-byte skip 11 upgrade checks as it still works in release - and people keep nagging about Server label
  if ($env:VER -ge 22000) {
@@ -624,7 +624,7 @@ EXIT
    rmdir "$WD\MOUNT" -re -force -ea 0; mkdir "$WD\MOUNT" -force -ea 0 >$null; $winsetup = "$WD\MOUNT\sources\winsetup.dll"
    dism.exe /mount-wim /wimfile:"$DIR\sources\boot.wim" /index:2 /mountdir:"$WD\MOUNT"; write-host
    if (-not (test-path "$DIR\AutoUnattend.xml")) {
-     $f5 = "$env:WORK\MCT\AutoUnattend.xml" 
+     $f5 = "$env:WORK\MCT\AutoUnattend.xml"
      if (test-path $f5) {write-host importing file: $f5; copy -path $f5 -dest "$WD\MOUNT" -force >$null}
    }
    try { takeown.exe /f $winsetup /a >$null; icacls.exe $winsetup /grant *S-1-5-32-544:f; attrib -R -S $winsetup
@@ -653,7 +653,7 @@ EXIT
    cmd /d /x /c "pushd c:\ & rmdir /s /q ""$DIR"" >nul 2>nul & del /f /q ""$WS\*.*"" >nul 2>nul"
  }
 
- write-host -fore Green "`r`n DONE "; write-host Press any key to exit . . .; sleep 7; return 
+ write-host -fore Green "`r`n DONE "; write-host Press any key to exit . . .; sleep 7; return
 #:: done #:Assisted_MCT
 
 ::--------------------------------------------------------------------------------------------------------------------------------
@@ -670,8 +670,8 @@ pushd "%dir%sources" || (echo "%dir%sources" not found! script should be run fro
 ::# start sources\setup if under winpe (when booted from media) [Shift] + [F10]: c:\auto or d:\auto or e:\auto etc.
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\WinPE">nul 2>nul && (
  for %%s in (sCPU sRAM sSecureBoot sStorage sTPM) do reg add HKLM\SYSTEM\Setup\LabConfig /f /v Bypas%%sCheck /d 1 /t reg_dword
- start "WinPE" sources\setup.exe & exit /b 
-) 
+ start "WinPE" sources\setup.exe & exit /b
+)
 
 ::# init variables
 setlocal EnableDelayedExpansion
@@ -685,7 +685,7 @@ fltmc >nul || (set _="%~f0" %*& powershell -nop -c start -verb runas cmd \"/d /x
 set "NT=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 for %%v in (CompositionEditionID EditionID ProductName) do (
  call :reg_query "%NT%" %%v_undo %%v
- if defined %%v reg delete "%NT%" /v %%v_undo /f & for %%A in (32 64) do reg add "%NT%" /v %%v /d "!%%v!" /f /reg:%%A 
+ if defined %%v reg delete "%NT%" /v %%v_undo /f & for %%A in (32 64) do reg add "%NT%" /v %%v /d "!%%v!" /f /reg:%%A
 ) >nul 2>nul
 
 ::# get current version
@@ -694,7 +694,7 @@ for /f "tokens=2-3 delims=[." %%i in ('ver') do for %%s in (%%i) do set /a Versi
 
 ::# WIM_INFO w_5=wim_5th b_5=build_5th p_5=patch_5th a_5=arch_5th l_5=lang_5th e_5=edi_5th d_5=desc_5th i_5=edi_5th i_Core=index
 set "0=%~f0"& set wim=& set ext=.esd& if exist install.wim (set ext=.wim) else if exist install.swm set ext=.swm
-set snippet=powershell -nop -c iex ([io.file]::ReadAllText($env:0)-split'#[:]wim_info[:]')[1]; WIM_INFO install%ext% 0 0  
+set snippet=powershell -nop -c iex ([io.file]::ReadAllText($env:0)-split'#[:]wim_info[:]')[1]; WIM_INFO install%ext% 0 0
 set w_count=0& for /f "tokens=1-7 delims=," %%i in ('"%snippet%"') do (set w_%%i=%%i,%%j,%%k,%%l,%%m,%%n,%%o& set /a w_count+=1
 set b_%%i=%%j& set p_%%i=%%k& set a_%%i=%%l& set l_%%i=%%m& set e_%%i=%%n& set d_%%i=%%o& set i_%%n=%%i& set i_%%i=%%n)
 
@@ -740,19 +740,19 @@ for %%e in (Education ProfessionalEducation ProfessionalWorkstation Professional
   if /i %%eN equ %eID% set "eID=ProfessionalN" & if defined i_%%eN  set "eID=%%eN"
   if /i %%e  equ %eID% set "eID=Professional"  & if defined i_%%e   set "eID=%%e"
 )
-set index=& set lst=Professional& for /l %%i in (1,1,%w_count%) do if /i !i_%%i! equ !eID! set "index=%%i" & set "eID=!i_%%i!" 
+set index=& set lst=Professional& for /l %%i in (1,1,%w_count%) do if /i !i_%%i! equ !eID! set "index=%%i" & set "eID=!i_%%i!"
 if not defined index set index=1& set eID=!i_1!& if defined i_%lst% set "index=!i_%lst%!" & set "eID=%lst%"& set "comp=Enterprise"
 set Build=!b_%index%!& set OPTIONS=%OPTIONS% /ImageIndex %index%& if defined changed if not defined reg set "reg=!eID!"
 echo;Current edition: %EditionID% & echo;Regedit edition: %reg% & echo;Index: %index%  Image: %eID%
 timeout /t 10
 
 ::# disable upgrade blocks
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f /v DisableWUfBSafeguards /d 1 /t reg_dword >nul 2>nul  
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f /v DisableWUfBSafeguards /d 1 /t reg_dword >nul 2>nul
 
-::# prevent usage of MCT for intermediary upgrade in Dynamic Update (causing 7 to 19H1 instead of 7 to 21H2 for example) 
+::# prevent usage of MCT for intermediary upgrade in Dynamic Update (causing 7 to 19H1 instead of 7 to 21H2 for example)
 if "%Build%" gtr "15063" (set OPTIONS=%OPTIONS% /UpdateMedia Decline)
 
-::# skip windows 11 upgrade checks: add launch option trick if old-style 0-byte file trick is not on the media  
+::# skip windows 11 upgrade checks: add launch option trick if old-style 0-byte file trick is not on the media
 if "%Build%" lss "22000" set /a SKIP_11_SETUP_CHECKS=0
 reg add HKLM\SYSTEM\Setup\MoSetup /f /v AllowUpgradesWithUnsupportedTPMorCPU /d 1 /t reg_dword >nul 2>nul &rem ::# TPM 1.2+ only
 if "%SKIP_11_SETUP_CHECKS%" equ "1" cd.>appraiserres.dll 2>nul & rem ::# writable media only
@@ -769,7 +769,7 @@ EXIT /b
 :rename EditionID
 set "NT=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 for %%v in (CompositionEditionID EditionID ProductName) do reg add "%NT%" /v %%v_undo /d "!%%v!" /f >nul 2>nul
-for %%A in (32 64) do ( 
+for %%A in (32 64) do (
  reg add "%NT%" /v CompositionEditionID /d "%comp%" /f /reg:%%A
  reg add "%NT%" /v EditionID /d "%~1" /f /reg:%%A
  reg add "%NT%" /v ProductName /d "%~1" /f /reg:%%A
@@ -787,20 +787,20 @@ function WIM_INFO ($file = 'install.esd', $index = 0, $out = 0) { :info while ($
   $steps = [int]([uint64]([IO.FileInfo]$file).Length / $block - 1); $enc = [Text.Encoding]::GetEncoding(28591); $delim = @()
   foreach ($d in '/INSTALLATIONTYPE','/WIM') {$delim += $enc.GetString([Text.Encoding]::Unicode.GetBytes([char]60+ $d +[char]62))}
   $f = new-object IO.FileStream ($file, 3, 1, 1); $p = 0; $p = $f.Seek(0, 2)
-  for ($o = 1; $o -le $steps; $o++) { 
+  for ($o = 1; $o -le $steps; $o++) {
     $p = $f.Seek(-$block, 1); $r = $f.Read($bytes, 0, $block); if ($r -ne $block) {write-host invalid block $r; break}
-    $u = [Text.Encoding]::GetEncoding(28591).GetString($bytes); $t = $u.LastIndexOf($delim[0], [StringComparison]::Ordinal) 
+    $u = [Text.Encoding]::GetEncoding(28591).GetString($bytes); $t = $u.LastIndexOf($delim[0], [StringComparison]::Ordinal)
     if ($t -lt 0) { $p = $f.Seek(-$block, 1)} else { [void]$f.Seek(($t -$block), 1)
       for ($o = 1; $o -le $block; $o++) { [void]$f.Seek(-2, 1); if ($f.ReadByte() -eq 0xfe) {$begin = $f.Position; break} }
       $limit = $f.Length - $begin; if ($limit -lt $block) {$x = $limit} else {$x = $block}
-      $bytes = new-object 'Byte[]' ($x); $r = $f.Read($bytes, 0, $x) 
+      $bytes = new-object 'Byte[]' ($x); $r = $f.Read($bytes, 0, $x)
       $u = [Text.Encoding]::GetEncoding(28591).GetString($bytes); $t = $u.IndexOf($delim[1], [StringComparison]::Ordinal)
       if ($t -ge 0) {[void]$f.Seek(($t + 12 -$x), 1); $final = $f.Position} ; break } }
   if ($begin -gt 0 -and $final -gt $begin) {
     $x = $final - $begin; [void]$f.Seek(-$x, 1); $bytes = new-object 'Byte[]' ($x); $r = $f.Read($bytes, 0, $x)
     if ($r -ne $x) {$f.Dispose(); break} else {[xml]$xml = [Text.Encoding]::Unicode.GetString($bytes); $f.Dispose()}
   } else {$f.Dispose()} ; break :info }
-  if ($out -eq 1) {[console]::OutputEncoding=[Text.Encoding]::UTF8; $xml.Save([Console]::Out); ''; return} 
+  if ($out -eq 1) {[console]::OutputEncoding=[Text.Encoding]::UTF8; $xml.Save([Console]::Out); ''; return}
   if ($out -eq 3) {try{$xml.Save(($file-replace'esd$','xml'))}catch{}; return}; if ($out -eq 4) {return $xml}
   $txt = ''; foreach ($i in $xml.WIM.IMAGE) {if ($index -gt 0 -and $($i.INDEX) -ne $index) {continue}; [int]$a='1'+$i.WINDOWS.ARCH
   $txt+= $i.INDEX+','+$i.WINDOWS.VERSION.BUILD+','+$i.WINDOWS.VERSION.SPBUILD+','+$(@{10='x86';15='arm';19='x64';112='arm64'}[$a])
@@ -819,7 +819,7 @@ function WIM_INFO ($file = 'install.esd', $index = 0, $out = 0) { :info while ($
     <UserData><ProductKey><Key>AAAAA-VVVVV-EEEEE-YYYYY-OOOOO</Key><WillShowUI>OnError</WillShowUI></ProductKey></UserData>
     <ComplianceCheck><DisplayReport>Never</DisplayReport></ComplianceCheck><Diagnostics><OptIn>false</OptIn></Diagnostics>
     <DynamicUpdate><Enable>true</Enable><WillShowUI>Never</WillShowUI></DynamicUpdate><EnableNetwork>true</EnableNetwork>
-  </component></settings>  
+  </component></settings>
   <settings pass="specialize"><component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" language="neutral"
    xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
@@ -837,13 +837,13 @@ function WIM_INFO ($file = 'install.esd', $index = 0, $out = 0) { :info while ($
       </RunSynchronousCommand>
     </RunSynchronous>
   </component></settings>
-  <settings pass="oobeSystem"><component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" language="neutral" 
+  <settings pass="oobeSystem"><component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" language="neutral"
    xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
     <OOBE>
       <HideLocalAccountScreen>false</HideLocalAccountScreen><HideOnlineAccountScreens>false</HideOnlineAccountScreens>
       <HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE><ProtectYourPC>3</ProtectYourPC>
-    </OOBE>  
+    </OOBE>
     <FirstLogonCommands>
       <!-- hide unsupported nag on desktop - originally shared by awuctl @ MDL -->
       <SynchronousCommand wcm:action="add"><Order>1</Order>

@@ -22,7 +22,7 @@ set Debug=0
 
 @REM :startcode
 
-rem call the "setvars.cmd" file in the Scripts directory
+@REM  call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 IF /I %debug% == 1 (
 echo.
@@ -957,7 +957,8 @@ goto :DONE
 
 @REM file exists then exit
 :somewhere_else
-goto :eof
+exit /B
+@REM goto :eof
 
 
 :DONE
@@ -984,8 +985,11 @@ echo.---------------------------------------------------------------------------
 echo.####Now Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 set "downWin11=yes"
-start /wait "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11.bat
-@REM >nul 2>nul CMD /c /B
+@REM start /wait  "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11.bat
+@REM call %MCTool%\MediaCreationToolwin11.bat
+start /wait  "Win11 download"CMD  /B  %MCTool%\MediaCreationToolwin11.cmd && ECHO The download succeeded && COLOR 00
+@REM && pause
+@REM >nul 2>nul CMD /c /B exit /b 1  /MAX
 @REM  cmd /d /x /c
 @REM  /T:02
 @REM EXIT /b 1
@@ -994,6 +998,18 @@ start /wait "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11
 @REM pause
 
 @REM )
+@REM check errorlevel
+echo  ERRORLEVEL =  %ERRORLEVEL%
+echo errorcode = %errorcode%
+if %ERRORLEVEL% neq 0 (
+	echo. ########################################
+	echo aborted download
+	echo. ########################################
+	pause
+goto :Quit
+
+)
+
 echo Finished
 pause
 @REM call %MCTool%\MediaCreationToolwin11.bat
