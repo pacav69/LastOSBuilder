@@ -4,7 +4,7 @@ set "MCTool=%CP%\MCT"
 
 @REM  ################# Powershell
 @REM START /wait  "wd11" cmd /c %MCTool%\MediaCreationToolwin11.cmd
-START /wait  "mswd" cmd /c %MCTool%\MediaCreationTool.bat
+START /wait  "mswd" cmd /c %MCTool%\MediaCreationToolwin22h2.cmd
 @REM MediaCreationTool.bat
 
 TIMEOUT /T 10

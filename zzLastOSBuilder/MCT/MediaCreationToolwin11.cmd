@@ -162,6 +162,10 @@ set "CAB=https://download.microsoft.com/download/e/6/c/e6c6ef82-8b05-4c0f-9852-d
 set "EXE=https://download.microsoft.com/download/9/e/a/9eac306f-d134-4609-9c58-35d1638c2363/MediaCreationTool22H2.exe"
 goto process ::# refreshed 19041 base with integrated 22H2 enablement package - current
 
+@REM download mediacreationtool22h2 from here
+@REM https://www.microsoft.com/en-gb/software-download/windows10
+@REM https://download.microsoft.com/download/9/e/a/9eac306f-d134-4609-9c58-35d1638c2363/MediaCreationTool22H2.exe
+
 :choice-13
 set "VER=19044" & set "VID=21H2" & set "CB=19044.1288.211006-0501.21h2_release_svc_refresh" & set "CT=2021/11/" & set "CC=1.4.1"
 set "CAB=https://download.microsoft.com/download/3/9/6/396ae429-afb2-49da-81d8-c16c6782d082/products_Win10_20211115.cab"
