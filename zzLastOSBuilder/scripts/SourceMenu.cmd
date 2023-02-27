@@ -1026,58 +1026,39 @@ IF EXIST "%MCTool%\%testfile%" (
 @REM create error level 1
 color 00
 echo ERRORLEVEL = %ERRORLEVEL%
+
 set "downWin11=No"
 echo no download
+
+
  TIMEOUT /T 10
+goto :finished
 
 :runcode
 
+set "downWin11=Yes"
+
+goto :finished
 @REM :quit
 
-@REM if downWin11 no (goto :quit)
 
-@REM check errorlevel
-echo  ERRORLEVEL =  %ERRORLEVEL%
-echo errorcode = %errorcode%
-if %ERRORLEVEL% neq 0 (
-	echo. ########################################
-	echo aborted download
-	echo. ########################################
-	set "downWin11=no"
-	pause
-goto :Quit
 
-)
 
+:finished
 echo Finished
-pause
-@REM call %MCTool%\MediaCreationToolwin11.bat
-@REM if "%downWin11%" equ "yes"(
-@REM echo.-------------------------------------------------------------------------------
-@REM echo.####Busy Downloading Windows 11 from Microsoft###############
-@REM echo.-------------------------------------------------------------------------------
 @REM pause
-@REM set "downWin11=no"
-@REM )
+
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
 
-@REM goto startcode1)
-@REM )
-@REM ELSE
-@REM (
-@REM 	echo. ########################################
-@REM 	echo call %MCTool%\MediaCreationToolwin11.bat
-@REM 	echo. ########################################
-@REM 	goto startcode2)
 
 @REM debug
 
 
 :: Checking whether Source ISO is found
 if "%downWin11%" equ "No" (
-	echo.Source ISO not found...
+	echo. Source ISO not found...
 	echo.
 	echo.===============================================================================
 	echo.

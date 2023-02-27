@@ -74,3 +74,5 @@ added extract iso finction from ISO to Source
 added check if media downloading
 added check if media cmd is running
 updated source.cmd check if iso has been downloaded be continuing
+
+0.0.22 ************************
