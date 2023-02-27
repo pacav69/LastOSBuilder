@@ -10,7 +10,7 @@
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.18
+set scriptver=0.0.21
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on >0 / off =0
