@@ -149,11 +149,11 @@ if "%HostLanguage%" equ "zh-CN" chcp 936 >nul
 @REM echo.ToolKitHelper.exe  =  %ToolKitHelper%
 @REM echo.ResourceHacker.exe =  %ResourceHacker%
 @REM echo.WimlibImagex.exe   =  %WimlibImagex%
-echo.
-echo. HostArchitecture   = %HostArchitecture%
-echo.===============================================================================
-echo.
-pause
+@REM echo.
+@REM echo. HostArchitecture   = %HostArchitecture%
+@REM echo.===============================================================================
+@REM echo.
+@REM pause
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Main Menu
 ::-------------------------------------------------------------------------------------------

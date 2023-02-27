@@ -44,7 +44,7 @@ set "MCTool=%CP%\MCT"
 :: LastOS Toolkit - Select Source Menu
 ::-------------------------------------------------------------------------------------------
 :SourceMenu
-
+set "downWin11=No"
 cls
 echo.===============================================================================
 echo.                         LastOS ToolKit Builder - Source Menu
@@ -980,24 +980,62 @@ exit /B
 @REM START /wait "demo" CMD /c demoscript.cmd
 @REM Echo Done
 @REM start the MediaCreationToolwin11
+
 cls
 echo.-------------------------------------------------------------------------------
 echo.####Now Downloading Windows 11 from Microsoft###############
 echo.-------------------------------------------------------------------------------
-set "downWin11=yes"
+@REM set "downWin11=yes"
 @REM start /wait  "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11.bat
 @REM call %MCTool%\MediaCreationToolwin11.bat
-start /wait  "Win11 download"CMD  /B  %MCTool%\MediaCreationToolwin11.cmd && ECHO The download succeeded && COLOR 00
-@REM && pause
-@REM >nul 2>nul CMD /c /B exit /b 1  /MAX
-@REM  cmd /d /x /c
-@REM  /T:02
-@REM EXIT /b 1
-@REM if %errorlevel% equ 1 (
-@REM echo. exiting
-@REM pause
 
+@REM START /wait  "wd11" cmd /c %MCTool%\MediaCreationToolwin11.cmd
+
+call %CPS%\win11down.cmd
+
+
+@REM check if iso exists
+call :checkiso
+
+@REM pause
+goto :quit
+
+:checkiso
+@REM debug
+@REM  check if win 11 exists
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
+echo MCTool = %MCTool%
+echo testfile = %testfile%
+@REM pause
+REM find file
+@REM IF /I %debug% == 1 (
+IF EXIST "%MCTool%\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist &  TIMEOUT /T 5 & goto :DONE
+)
+@REM echo nope
+@REM pause
 @REM )
+
+@REM pause
+:DONE
+
+@REM create error level 1
+color 00
+echo ERRORLEVEL = %ERRORLEVEL%
+set "downWin11=No"
+echo no download
+ TIMEOUT /T 10
+
+:runcode
+
+@REM :quit
+
+@REM if downWin11 no (goto :quit)
+
 @REM check errorlevel
 echo  ERRORLEVEL =  %ERRORLEVEL%
 echo errorcode = %errorcode%
@@ -1005,6 +1043,7 @@ if %ERRORLEVEL% neq 0 (
 	echo. ########################################
 	echo aborted download
 	echo. ########################################
+	set "downWin11=no"
 	pause
 goto :Quit
 
@@ -1013,7 +1052,7 @@ goto :Quit
 echo Finished
 pause
 @REM call %MCTool%\MediaCreationToolwin11.bat
-@REM if "%downwin1W%" equ "yes"(
+@REM if "%downWin11%" equ "yes"(
 @REM echo.-------------------------------------------------------------------------------
 @REM echo.####Busy Downloading Windows 11 from Microsoft###############
 @REM echo.-------------------------------------------------------------------------------
@@ -1034,6 +1073,17 @@ echo.---------------------------------------------------------------------------
 @REM 	goto startcode2)
 
 @REM debug
+
+
+:: Checking whether Source ISO is found
+if "%downWin11%" equ "No" (
+	echo.Source ISO not found...
+	echo.
+	echo.===============================================================================
+	echo.
+	pause
+	goto :MainMenu
+)
 
 echo.-------------------------------------------------------------------------------
 echo.####Copying Windows 11 to %ISO% ###############
