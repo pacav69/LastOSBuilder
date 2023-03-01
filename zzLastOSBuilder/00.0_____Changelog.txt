@@ -76,3 +76,6 @@ added check if media cmd is running
 updated source.cmd check if iso has been downloaded be continuing
 
 0.0.22 ************************
+added bin directory and tools
+
+0.0.23 ************************
