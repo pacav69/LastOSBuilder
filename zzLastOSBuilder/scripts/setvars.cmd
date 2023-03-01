@@ -29,7 +29,7 @@ set /p NTLiteISOPath=<%CPS%\Settings\NTLiteISOPath.txt
 set /p BuilderVersion=<%CPS%\Settings\BuilderVersion.txt
 
 @REM echo BuilderVersion = %BuilderVersion%
-@REM pause 
+@REM pause
 
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "ScreenBufferSize" /t REG_DWORD /d "0x23290050" /f >nul
 reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "WindowSize" /t REG_DWORD /d "0x190050" /f >nul
@@ -37,7 +37,9 @@ reg add "HKCU\Console\%%SystemRoot%%_system32_cmd.exe" /v "WindowSize" /t REG_DW
 setlocal EnableExtensions EnableDelayedExpansion
 
 :: Setting Toolkit environment path variables
-set "Bin=%CP%Bin"
+@REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\03_WinBuilder\Projects\Tools
+@REM set "Bin=%CP%03_WinBuilder\Projects\Tools"
+set "Bin=%CP%\Bin"
 set "Custom=%CP%Custom"
 set "Drivers=%CP%Drivers"
 @REM set "DVD=%CP%DVD"
@@ -192,10 +194,13 @@ set "W7ESU=%Bin%\Patches\W7ESU"
 set "W10CUFix=%Bin%\Patches\W10CUFix"
 set "WMCGActTokens=%Bin%\Patches\WMCGActTokens.tpk"
 set "PSFExtractor=%Bin%\PSFExtractor.exe"
+@REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\03_WinBuilder\Projects\Tools
 set "Zip=%Bin%\%HostArchitecture%\7z.exe"
+
 @REM debug
 @REM echo. HostArchitecture setvars  = %HostArchitecture%
-@REM echo. HostBuild = %HostBuild%
+@REM @REM echo. HostBuild = %HostBuild%
+@REM echo zip = %zip%
 @REM pause
 
 
@@ -206,12 +211,12 @@ set "Zip=%Bin%\%HostArchitecture%\7z.exe"
 @REM set "testfile=*.iso"
 @REM @REM set "testfile=*.txt"
 
-@REM REM finds file    
+@REM REM finds file
 @REM IF EXIST "00_Source\%testfile%" (
 @REM   ECHO file %testfile% exists & goto runcode
 @REM ) ELSE (
 @REM   ECHO file %testfile% does not exist & goto DONE
-@REM ) 
+@REM )
 @REM @REM echo nope
 @REM @REM pause
 
@@ -220,7 +225,7 @@ set "Zip=%Bin%\%HostArchitecture%\7z.exe"
 @REM echo runcode
 
 
-:DONE 
+:DONE
 @REM echo DONE
 @REM pause
 :END
