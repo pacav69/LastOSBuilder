@@ -1,8 +1,7 @@
-@REM  win11down
-rem w11down.cmd
+@REM  w11down.cmd
 @echo off
 rem Win11 script
-set scriptver=0.0.99
+set scriptver=0.0.23
 title %~nx0  v%scriptver%
 
 set Debug=0
