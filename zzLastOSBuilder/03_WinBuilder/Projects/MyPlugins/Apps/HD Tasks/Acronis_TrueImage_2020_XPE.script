@@ -9,7 +9,7 @@ Contact=
 Version=003
 Level=5
 Download_Level=1
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=KYHI Initial XPE Plugin Created 2019.06.12
@@ -89,8 +89,8 @@ If,Not,ExistFile,%ProvideFiles%\Files\A43.exe,Set,%SourceExist%,No
 If,Not,ExistFile,%ProvideFiles%\Files32\%ProgramExe%,Set,%SourceExist%,No
 If,Not,ExistFile,%ProvideFiles%\Files64\%ProgramExe%,Set,%SourceExist%,No
 If,%SourceExist%,Equal,No,Begin
-  If,Not,ExistFile,%ProvideFiles%\WinPE.zip,EchoExtended,"%ProgramTitle% Files or WinPE.zip not found in %ProvideFiles%!",Warn,,MessageError,,Exit
-  Else,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\WinPE.zip#$q -y -o#$q%ProvideFiles%#$q"
+If,Not,ExistFile,%ProvideFiles%\WinPE.zip,EchoExtended,"%ProgramTitle% Files or WinPE.zip not found in %ProvideFiles%!",Warn,,MessageError,,Exit
+Else,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\WinPE.zip#$q -y -o#$q%ProvideFiles%#$q"
 End
 
 [CopyProgramFiles]
@@ -146,9 +146,9 @@ FileCopy,%ProvideFiles%\%Source_FilesArch%\Drivers\volume_tracker.sys,%GTarget_S
 FileCopy,%ProvideFiles%\%Source_FilesArch%\Drivers\volume_tracker_driver_api.dll,%GTarget_Sys%
 //--
 If,%Source_FilesArch%,Equal,Files64,Begin
-  FileCopy,%ProvideFiles%\Files\auto_reactivate64.bin,%Target_Prog%\%ProgramFolder%
-  FileCopy,%ProvideFiles%\Files\bootwiz64.efi,%Target_Prog%\%ProgramFolder%
-  FileCopy,%ProvideFiles%\Files\Drivers\snapapint64.dll,%GTarget_Sys%
+FileCopy,%ProvideFiles%\Files\auto_reactivate64.bin,%Target_Prog%\%ProgramFolder%
+FileCopy,%ProvideFiles%\Files\bootwiz64.efi,%Target_Prog%\%ProgramFolder%
+FileCopy,%ProvideFiles%\Files\Drivers\snapapint64.dll,%GTarget_Sys%
 End
 
 [AddFiles]
@@ -296,41 +296,41 @@ Else,Set,%wow64Node%,Wow6432Node\
 // Get Acronis TrueImage installed version
 Set,%TI_installedVersion%,0
 If,ExistRegKey,HKLM,Software\%wow64Node%Acronis\TrueImageHome\Settings,MainExePath,Begin
-  RegRead,HKLM,Software\%wow64Node%Acronis\TrueImageHome\Settings,MainExePath,%reg_key_exe%
-  Retrieve,FILEVERSION,%reg_key_exe%,%TI_installedVersion%
+RegRead,HKLM,Software\%wow64Node%Acronis\TrueImageHome\Settings,MainExePath,%reg_key_exe%
+Retrieve,FILEVERSION,%reg_key_exe%,%TI_installedVersion%
 End
 // Import Acronis TrueImage serialnr
 If,ExistRegKey,HKLM,Software\%wow64Node%Acronis\TrueImage,standard,Begin
-  Set,%temp_reg_key%,""
-  RegRead,HKLM,Software\%wow64Node%Acronis\TrueImage,standard,%temp_reg_key%
-  If,Not,%temp_reg_key%-,Equal,-,Begin
-    If,#1,Equal,Import_Button,Begin
-      Set,%answer%,No
-      //If,Question,"Acronis True Image Version %TI_installedVersion% Registry Key:#$x#$x%temp_reg_key%#$x#$xThe existing key in Plugin will be overwritten#$c continue ?",10,True,Set,%answer%,Yes
-      If,Question,"Acronis True Image Version %TI_installedVersion% Registry Key:#$x#$x#$q%temp_reg_key%#$q#$x#$xThe existing key in Plugin will be overwritten#$c continue ?",Set,%answer%,Yes
-      If,%answer%,Equal,Yes,Begin
-        Set,%SNrTI_TextBox%,%temp_reg_key%,Permanent
-        System,REFRESHINTERFACE
-      End
-    End
-    Else,Begin
-      Set,%SNrTI_TextBox%,%temp_reg_key%,Permanent
-      System,REFRESHINTERFACE
-    End
-  End
-  Else,Begin
-    If,#1,Equal,Import_Button,Message,"No %ProgramTitle% Registry Key Found!",Error
-  End
+Set,%temp_reg_key%,""
+RegRead,HKLM,Software\%wow64Node%Acronis\TrueImage,standard,%temp_reg_key%
+If,Not,%temp_reg_key%-,Equal,-,Begin
+If,#1,Equal,Import_Button,Begin
+Set,%answer%,No
+//If,Question,"Acronis True Image Version %TI_installedVersion% Registry Key:#$x#$x%temp_reg_key%#$x#$xThe existing key in Plugin will be overwritten#$c continue ?",10,True,Set,%answer%,Yes
+If,Question,"Acronis True Image Version %TI_installedVersion% Registry Key:#$x#$x#$q%temp_reg_key%#$q#$x#$xThe existing key in Plugin will be overwritten#$c continue ?",Set,%answer%,Yes
+If,%answer%,Equal,Yes,Begin
+Set,%SNrTI_TextBox%,%temp_reg_key%,Permanent
+System,REFRESHINTERFACE
+End
 End
 Else,Begin
-  If,#1,Equal,Import_Button,Message,"No %ProgramTitle% Registry Key Found!",Error
+Set,%SNrTI_TextBox%,%temp_reg_key%,Permanent
+System,REFRESHINTERFACE
+End
+End
+Else,Begin
+If,#1,Equal,Import_Button,Message,"No %ProgramTitle% Registry Key Found!",Error
+End
+End
+Else,Begin
+If,#1,Equal,Import_Button,Message,"No %ProgramTitle% Registry Key Found!",Error
 End
 
 [WriteSettingsProfile]
 Set,%serial%,%SNrTI_TextBox%
 If,%serial%-,Equal,-,Begin
-  Run,%ScriptFile%,Import_Serialnr
-  Set,%serial%,%SNrTI_TextBox%
+Run,%ScriptFile%,Import_Serialnr
+Set,%serial%,%SNrTI_TextBox%
 End
 If,%serial%-,Equal,-,EchoExtended,"No %ProgramTitle% Registry Key or Serial Number Found!",Warn,,MessageError,4
 //-
@@ -344,8 +344,8 @@ OpenDir,%ProvideFiles%
 [Download]
 If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
 If,Not,ExistFile,%ProvideFiles%\%SetupFile%,Begin
-  Echo,"Downloading ATI Installer 595MB.. Please Wait..."
-  Download,%ProvideFiles%\%SetupFile%,%SetupURL%
+Echo,"Downloading ATI Installer 595MB.. Please Wait..."
+Download,%ProvideFiles%\%SetupFile%,%SetupURL%
 End
 Echo,"Extracting WinPE from ATI Installer.. Please Wait..."
 If,Not,ExistDir,%GTemp%\AcronisTemp,DirMake,%GTemp%\AcronisTemp

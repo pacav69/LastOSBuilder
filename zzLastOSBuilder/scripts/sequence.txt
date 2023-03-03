@@ -1,0 +1,20 @@
+sequence
+
+source
+
+rename to mountiso
+copy to iso directory
+extract to WindowsOriginalPath in sources
+
+
+
+dvd iso copy
+extract iso
+
+delete dvd with admin privlidges
+
+
+
+use winbuilder
+
+use virtualbox

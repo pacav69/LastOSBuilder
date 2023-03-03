@@ -81,3 +81,4 @@ added bin directory and tools
 0.0.23 ************************
 updated 00.1_Extract_Source_ISO.cmd
 updated w11down.cmd
+0.0.24 ************************

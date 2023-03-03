@@ -9,7 +9,7 @@ Contact=
 Version=003
 Level=5
 Download_Level=2
-Selected=False
+Selected=True
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Plugin using JFX's UXpatch and Cretino's Annihilator Theme. Created 2019.02.05
@@ -41,8 +41,8 @@ RunFromRAM
 Run,%ScriptFile%,UxPatch
 //--
 If,%ChooseAero_RadioGroup%,Equal,2,Begin
-  If,ExistFile,%CustomThemeFolder%\aero.msstyles,FileCopy,%CustomThemeFolder%\aero.msstyles,%GTarget_Win%\resources\themes\aero\aero.msstyles,NoWarn
-  Else,Set,%ChooseAero_RadioGroup%,0
+If,ExistFile,%CustomThemeFolder%\aero.msstyles,FileCopy,%CustomThemeFolder%\aero.msstyles,%GTarget_Win%\resources\themes\aero\aero.msstyles,NoWarn
+Else,Set,%ChooseAero_RadioGroup%,0
 End
 //--
 If,%ChooseAero_RadioGroup%,Equal,0,Run,%ScriptFile%,Nocturnal
@@ -68,17 +68,17 @@ ExtractFile,%FileContainer%,Annihilator,user-200.png,"%GTarget%\ProgramData\Micr
 Run,%ScriptFile%,Win10DarkTheme
 //-
 If,ExistDir,%Target_Prog%\StartIsBack\Orbs,Begin
-  ExtractFile,%FileContainer%,Annihilator,Annihilator.bmp,%Target_Prog%\StartIsBack\Orbs
-  RegHiveLoad,Tmp_Default,%RegDefault%
-  RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,"X:\Program Files\StartIsBack\Orbs\Annihilator.bmp"
-  RegHiveUnLoad,Tmp_Default
+ExtractFile,%FileContainer%,Annihilator,Annihilator.bmp,%Target_Prog%\StartIsBack\Orbs
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegWrite,HKLM,0x1,Tmp_Default\Software\StartIsBack,OrbBitmap,"X:\Program Files\StartIsBack\Orbs\Annihilator.bmp"
+RegHiveUnLoad,Tmp_Default
 End
 
 [Win10DarkTheme]
 If,%SourceBuild%,Bigger,17700,Begin
-  RegHiveLoad,Tmp_Default,%RegDefault%
-  RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
-  RegHiveUnLoad,Tmp_Default
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize,AppsUseLightTheme,0
+RegHiveUnLoad,Tmp_Default
 End
 
 [AuthorEncoded]
