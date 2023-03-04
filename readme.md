@@ -1,19 +1,15 @@
 # LastOS Builder
 
-![<Element: Lastos logo>](<https://cldup.com/E21ACrr4ZJ.png?raw="true" width="100px"  height="100px">)
+![<Element: Lastos logo>](<<https://cldup.com/E21ACrr4ZJ.png?raw="true"> width="100px"  height="100px">)
 
-[Website ](http://www.lastos.org)
+[Website](http://www.lastos.org)
 
 <a href="https://www.buymeacoffee.com/cavtronics" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
  <a href="https://www.buymeacoffee.com/cavtronics" title="Donate to my libraries using BuyMeACoffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-orange.svg?logo=buy-me-a-coffee&logoColor=FFDD00" style="height: 20px !important;width: 200px !important;" ></a>
 
-
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 
-
 ## LastOSBuilder Version 0.0.23
-
-
 
 **LastOSBuilder updates**
 
@@ -69,7 +65,6 @@ If all is fine you should see this
 
         Already up to date.
 
-
 ## Documentation WIP (work In Progress)
 
 LastOS Builder Documentation
@@ -77,7 +72,6 @@ LastOS Builder Documentation
 ## Contributing
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
-
 
 LastOSBuilder is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into LastOSBuilder itself.
 
@@ -88,8 +82,8 @@ Following the guidelines in the
 
 CMD Command Line information used in scripts [found here](https://ss64.com/nt/)
 
-
 WinBuilder - [Win10XPE Homepage](https://theoven.org/viewforum.php?f=14)
+Winbuilder github [Win10XPE source](https://github.com/ChrisRfr/Win10XPE)
 
 <img src="https://visualstudio.microsoft.com/wp-content/uploads/2019/09/vs-code-responsive-01-1.png" alt="Visual Studio Code logo" style="height: 50px; width:60px;"/>
 
@@ -110,4 +104,3 @@ See file Changelog.txt for any changes.  [View Changelog document](https://githu
 <img src="https://vangogh.teespring.com/v3/image/SugZ-DRGZXUTuSzfrFtaOU3TAUQ/800/800.jpg" width="100px"  height="100px">
 
 [Help support by buying some merchandise](https://cavtronics-3.creator-spring.com/)
-

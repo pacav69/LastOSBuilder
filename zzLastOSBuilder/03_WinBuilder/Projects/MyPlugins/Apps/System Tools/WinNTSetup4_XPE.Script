@@ -9,7 +9,7 @@ Contact=
 Version=001
 Level=5
 Download_Level=2
-Selected=True
+Selected=False
 Mandatory=False
 NoWarning=False
 History001=ChrisR Initial XPE Packed Plugin Created 2019.12.16
@@ -73,8 +73,8 @@ If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
 [CheckExtract]
 If,Not,ExistFile,%ProvideFiles%\%ProgramExe%,Run,%ScriptFile%,Extract
 Else,Begin
-  Retrieve,FileVersion,%ProvideFiles%\%ProgramExe%,%ProvideFilesVersion%
-  If,Not,%ProgramVersion%,Equal,%ProvideFilesVersion%,Run,%ScriptFile%,Extract
+Retrieve,FileVersion,%ProvideFiles%\%ProgramExe%,%ProvideFilesVersion%
+If,Not,%ProgramVersion%,Equal,%ProvideFilesVersion%,Run,%ScriptFile%,Extract
 End
 
 [Extract]
