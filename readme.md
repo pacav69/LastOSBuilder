@@ -11,7 +11,7 @@
 
 ## LastOSBuilder Version 0.0.23
 
-**LastOSBuilder updates**
+### LastOSBuilder updates
 
 [found here](https://github.com/pacav69/lastosbuilder-updates)
 
