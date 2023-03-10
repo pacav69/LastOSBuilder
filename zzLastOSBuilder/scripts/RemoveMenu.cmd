@@ -6,9 +6,9 @@ rem Win11 script
 set scriptver=0.0.14
 title %~nx0  v%scriptver%
 
-set Debug=1
+set Debug=0
 
-@REM IF /I %debug% GTR 1 (
+@REM If %debug% NEQ 0 (
 
 @REM echo. ########################################
 @REM echo my project name is %ProjectName%
@@ -17,8 +17,8 @@ set Debug=1
 @REM echo. ########################################
 @REM pause
 
-@REM ) 
-@REM ELSE 
+@REM )
+@REM ELSE
 @REM (goto startcode)
 
 
@@ -32,7 +32,7 @@ echo my project name is %ProjectName%
 
 
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - RemoveMenu 
+:: LastOS Toolkit - RemoveMenu
 ::-------------------------------------------------------------------------------------------
 :HelpMenu
 
@@ -83,7 +83,7 @@ if errorlevel 1 goto :aboutHelp
  :aboutHelp
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Help About 
+echo.                           LastOS ToolKit Builder - Help About
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
@@ -101,12 +101,12 @@ echo.===========================================================================
 :SourceMenuHelp
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Help SourceMenu 
+echo.                           LastOS ToolKit Builder - Help SourceMenu
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the SourceMenu
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -120,12 +120,12 @@ echo.===========================================================================
 :IntegrateMenuHelp
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Help IntegrateMenu 
+echo.                           LastOS ToolKit Builder - Help IntegrateMenu
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the IntegrateMenu
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -145,7 +145,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the RemoveMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -155,7 +155,7 @@ echo.===========================================================================
   goto :exitHelpMenu
 ::-------------------------------------------------------------------------------------------
 
-  
+
 :CustomizeMenuHelp
 cls
 echo.===============================================================================
@@ -164,7 +164,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the CustomizeMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -174,7 +174,7 @@ echo.===========================================================================
   goto :exitHelpMenu
 ::-------------------------------------------------------------------------------------------
 
- 
+
 :ApplyMenuHelp
 cls
 echo.===============================================================================
@@ -183,7 +183,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the ApplyMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -202,7 +202,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the TargetMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -212,7 +212,7 @@ echo.===========================================================================
   goto :exitHelpMenu
 ::----------------------------------------------------------------------------------------
 
- 
+
 :ToolsMenuHelp
 cls
 echo.===============================================================================
@@ -221,7 +221,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the ToolsMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -232,7 +232,7 @@ echo.===========================================================================
 ::-------------------------------------------------------------------------------------------
 
 
- 
+
 :HelpMenuHelp
 cls
 echo.===============================================================================
@@ -241,7 +241,7 @@ echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
   echo describes the HelpMenuHelp
-  echo. 
+  echo.
   echo.
   echo.
   echo.

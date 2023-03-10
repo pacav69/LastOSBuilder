@@ -4,9 +4,9 @@ rem Win11 script
 set scriptver=0.0.24
 title %~nx0  v%scriptver%
 
-set Debug=1
+set Debug=0
 
-@REM IF /I %debug% == 1 (
+@REM If %debug% NEQ 0 (
 
 @REM echo. ########################################
 @REM echo my project name is %ProjectName%
@@ -31,7 +31,7 @@ set "InstallWim=%DVD%\sources\install.wim"
 set "W10EsdDecrypter=%Bin%\Dism++CUI.exe /ESDFile"
 set "Temp=%CP%\Temp"
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo.
 echo my project name is %ProjectName%
 echo HostArchitecture = %HostArchitecture%
@@ -44,7 +44,7 @@ echo Temp = %Temp%
 pause
 )
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo cps = %CPS%
 echo cp = %CP%
 )
@@ -134,7 +134,7 @@ echo.===========================================================================
 echo.
 echo.
 @REM  debug
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo. BootWim = %BootWim%
 pause
 )
@@ -948,7 +948,7 @@ echo MCTool = %MCTool%
 echo testfile = %testfile%
 @REM pause
 REM find file
-@REM IF /I %debug% == 1 (
+@REM If %debug% NEQ 0 (
 IF EXIST "%MCTool%\%testfile%" (
   ECHO file %testfile% exists & goto runcode
 ) ELSE (
@@ -1039,7 +1039,7 @@ echo MCTool = %MCTool%
 echo testfile = %testfile%
 @REM pause
 REM find file
-@REM IF /I %debug% == 1 (
+@REM If %debug% NEQ 0 (
 IF EXIST "%MCTool%\%testfile%" (
   ECHO file %testfile% exists & goto runcode
 ) ELSE (

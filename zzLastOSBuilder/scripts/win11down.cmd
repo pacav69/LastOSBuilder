@@ -10,14 +10,14 @@ set Debug=0
 @REM  call the "setvars.cmd" file in the Scripts directory
 @REM call %CPS%\setvars.cmd
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo.
 echo my project name is %ProjectName%
 pause
 )
 color 0A
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo cps = %CPS%
 echo cp = %CP%
 )
@@ -76,7 +76,7 @@ for /F "tokens=2" %%K in ('
 echo no check cmd running
 TIMEOUT /T 5
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 TIMEOUT /T 5
 
 pause
@@ -101,7 +101,7 @@ pause
 @REM echo testfile = %testfile%
 @REM @REM pause
 @REM REM find file
-@REM @REM IF /I %debug% == 1 (
+@REM @REM If %debug% NEQ 0 (
 @REM IF EXIST "%MCTool%\%testfile%" (
 @REM   ECHO file %testfile% exists & goto runcode
 @REM ) ELSE (

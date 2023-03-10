@@ -6,7 +6,7 @@ rem Win11 script
 set scriptver=0.0.15
 title %~nx0  v%scriptver%
 
-set Debug=0
+set debug=0
 
 
 @REM  call the "setvars.cmd" file in the Scripts directory

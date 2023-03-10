@@ -6,9 +6,9 @@ rem Win11 script
 set scriptver=0.0.15
 title %~nx0  v%scriptver%
 
-set Debug=1
+set Debug=0
 
-@REM IF /I %debug% GTR 1 (
+@REM If %debug% NEQ 0 (
 
 @REM echo. ########################################
 @REM echo my project name is %ProjectName%
@@ -17,8 +17,8 @@ set Debug=1
 @REM echo. ########################################
 @REM pause
 
-@REM ) 
-@REM ELSE 
+@REM )
+@REM ELSE
 @REM (goto startcode)
 
 
@@ -32,7 +32,7 @@ echo my project name is %ProjectName%
 
 
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - IntegrateMenu 
+:: LastOS Toolkit - IntegrateMenu
 ::-------------------------------------------------------------------------------------------
 :HelpMenu
 

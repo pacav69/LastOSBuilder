@@ -13,7 +13,7 @@ echo Extract source
 set "WHD=%CP%WHD"
 set "ToolsPath=%CP%\02_NTLite\Tools"
 
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo.
 echo my project name is %ProjectName%
 echo ToolsPath = %ToolsPath%
@@ -34,7 +34,7 @@ IF EXIST "%ISO%\%testfile%" (
 :runcode
 @REM echo runcode
 @REM pause
-IF /I %debug% == 1 (
+If %debug% NEQ 0 (
 echo cp = %CP%
 echo iso = %ISO%
 echo ToolsPath = %ToolsPath%
