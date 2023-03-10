@@ -6,33 +6,32 @@ rem Win11 script
 set scriptver=0.0.15
 title %~nx0  v%scriptver%
 
-set Debug=1
+set Debug=0
 
-@REM IF /I %debug% GTR 1 (
-
-@REM echo. ########################################
-@REM echo my project name is %ProjectName%
-@REM echo MCTool = %MCTool%
-@REM echo ISO = %ISO%
-@REM echo. ########################################
-@REM pause
-
-@REM ) 
-@REM ELSE 
-@REM (goto startcode)
-
-
-@REM :startcode
 
 @REM  call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
+
+set "DVDDir=%CP%\DVD"
+
+IF  %debug% NEQ 0 (
+@REM cls
+echo. ########################################
 echo my project name is %ProjectName%
+echo MCTool = %MCTool%
+echo ISO = %ISO%
+echo DVDDir = %DVDDir%
+echo DVD = %DVD%
+echo. ########################################
+pause
+)
+
 @REM pause
 
 
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - ToolsMenu 
+:: LastOS Toolkit - ToolsMenu
 ::-------------------------------------------------------------------------------------------
 :HelpMenu
 
@@ -65,7 +64,7 @@ echo.                             [X]   Quit
 echo.
 echo.===============================================================================
 echo.
-choice /C:A1234567HX /N /M "Enter Your Choice for help: "
+choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :HelpMenuHelp
 if errorlevel 8 goto :ToolsMenuHelp
@@ -87,7 +86,7 @@ echo.===========================================================================
  echo.
 echo.
 echo.-------------------------------------------------------------------------------
-echo.####about to cleanup Source sub-directories ###############
+echo.####about to cleanup Source sub-directories and DVD ###############
 echo.-------------------------------------------------------------------------------
 
 echo.
@@ -98,20 +97,24 @@ if errorlevel 1 goto :somewhere
 :somewhere
 rem echo "I am here because you typed Y"
 call  %CPS%\cleanoutsources.cmd
+call :RemoveFolder "%DVDDir%"
+@REM echo create DVDdir
 @REM pause
-goto :run
+call :CreateFolder "%DVDDir%"
+pause
+goto :Quit
 
 :somewhere_else
 rem echo "I am here because you typed N"
-echo 
+echo
   echo.===============================================================================
 echo.
-echo. aborting cleanup of Source sub-directories 
+echo. aborting cleanup of Source sub-directories
 echo.
   echo.===============================================================================
 pause
 :run
-  echo. 
+  echo.
   echo.
   echo.
   echo.
@@ -121,6 +124,39 @@ pause
   goto :Quit
 ::-------------------------------------------------------------------------------------------
 
+
+
+::-------------------------------------------------------------------------------------------
+:: Function to delete a folder(s)
+:: Input Parameters [ %~1 : Foldername ]
+::-------------------------------------------------------------------------------------------
+:RemoveFolder
+
+if exist "%~1" rd /q /s "%~1" >nul
+
+goto :eof
+
+::-------------------------------------------------------------------------------------------
+:: Function to Create a Folder
+:: Input Parameters [ %~1 : Foldername ]
+::-------------------------------------------------------------------------------------------
+:CreateFolder
+
+if not exist "%~1" md "%~1" >nul
+
+goto :eof
+::-------------------------------------------------------------------------------------------
+
+::-------------------------------------------------------------------------------------------
+:: Function to delete a file(s)
+:: Input Parameters [ %~1 : Filename ]
+::-------------------------------------------------------------------------------------------
+:RemoveFile
+
+if exist "%~1" del /f /q "%~1" >nul
+
+goto :eof
+::-------------------------------------------------------------------------------------------
 
 
 @REM =================================

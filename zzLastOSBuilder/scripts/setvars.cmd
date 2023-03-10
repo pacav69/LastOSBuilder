@@ -1,5 +1,5 @@
 @echo off
-set scriptver=0.0.17
+set scriptver=0.0.24
 title %~nx0  v%scriptver%
 
 
@@ -42,7 +42,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 set "Bin=%CP%\Bin"
 set "Custom=%CP%Custom"
 set "Drivers=%CP%Drivers"
-@REM set "DVD=%CP%DVD"
+set "DVDDir=%CP%\DVD"
 set "DVD=%CP%\00_source"
 set "ISO=%CP%ISO"
 set "Logs=%CP%Logs"

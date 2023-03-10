@@ -1,7 +1,7 @@
 rem source.cmd
 @echo off
 rem Win11 script
-set scriptver=0.0.9
+set scriptver=0.0.24
 title %~nx0  v%scriptver%
 
 set Debug=1
