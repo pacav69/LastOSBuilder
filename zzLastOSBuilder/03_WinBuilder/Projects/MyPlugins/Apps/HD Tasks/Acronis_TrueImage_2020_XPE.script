@@ -16,6 +16,12 @@ History001=KYHI Initial XPE Plugin Created 2019.06.12
 History003=KYHI - Support Update - 2019.11.30
 
 [Interface]
+=//-
+Import_Bevel=Import_Bevel,1,12,4,137,437,90
+Import_Button="  Import Registry Serial Number from Installed Acronis TrueImage",1,8,10,142,425,25,Import_Button,Registry.bmp,True,"__Import the Registry Serial Number from Installed Acronis TrueImage, here"
+SNrTI_TextLabel="or Copy Paste the Registry Serial Number From:",1,1,12,170,420,18,8,Bold
+SNrTI_TextLabel2="HKEY_LOCAL_MACHINE\SOFTWARE\[WOW6432Node\]Acronis\TrueImage\Standard",1,1,12,186,420,18,8,Normal
+SNrTI_TextBox=,1,0,10,201,425,21,
 Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,126
 Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
 StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
@@ -33,11 +39,6 @@ pBevel3=pBevel3,1,12,140,6,139,126
 ProvideFile_Opendir_Button="You Can Place ATI Installer or WinPE.zip File Here",1,8,285,76,275,25,ProvideFiles_OpenDir_P_B,opendir.bmp,False,_ProvideFiles_OpenDir_P_B_,False,"__Click Here To Add Your Own Acronis WinPE.zip File:"
 DL_TextLabel="WinPE.zip Is Automatically Extracted From The Installer.",1,1,285,56,275,27,8,Normal
 //-
-Import_Bevel=Import_Bevel,1,12,4,137,437,90
-Import_Button="  Import Registry Serial Number from Installed Acronis TrueImage",1,8,10,142,425,25,Import_Button,Registry.bmp,True,"__Import the Registry Serial Number from Installed Acronis TrueImage, here"
-SNrTI_TextLabel="or Copy Paste the Registry Serial Number From:",1,1,12,170,420,18,8,Bold
-SNrTI_TextLabel2="HKEY_LOCAL_MACHINE\SOFTWARE\[WOW6432Node\]Acronis\TrueImage\Standard",1,1,12,186,420,18,8,Normal
-SNrTI_TextBox=,1,0,10,201,425,21,
 
 [Variables]
 %ProgramTitle%=Acronis TrueImage 2020
