@@ -1,7 +1,7 @@
 [Main]
 Title=HWinfo
 Type=XPEPlugin
-Description=(v7.34) HWinfo Comprehensive Hardware Analysis, Monitoring and Reporting
+Description=(v7.40) HWinfo Comprehensive Hardware Analysis, Monitoring and Reporting
 Author=ChrisR
 Date=2021.10.27
 Credits=
@@ -28,7 +28,7 @@ Image_Software=HWinfo.jpg,1,5,145,34,250,225
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.hwinfo.com/Download
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,7.34,"__Program Version To Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,7.40,"__Program Version To Download and Update Plugin"
 History_WebLabel="Version History",1,10,450,50,72,18,https://www.hwinfo.com/version-history
 
 [Variables]

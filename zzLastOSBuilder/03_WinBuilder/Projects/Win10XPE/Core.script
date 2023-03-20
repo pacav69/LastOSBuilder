@@ -275,8 +275,8 @@ Visible,%PENMOptions2_TextLabel%,#1,Permanent
 
 [IE11_Info]
 If,%IE11_CheckBox%,Equal,True,Begin
-  //If,%Architecture%_%WoW64_CheckBox%,Equal,x64_False,Message,"Internet Explorer 11 x64 Run in Hybrid-Mode. It needs WoW64 basic",Information
-  If,%Admin_CheckBox%,Equal,False,Message,"To Download with Internet Explorer 11, you need to Enable Switch to Admin",Information
+//If,%Architecture%_%WoW64_CheckBox%,Equal,x64_False,Message,"Internet Explorer 11 x64 Run in Hybrid-Mode. It needs WoW64 basic",Information
+If,%Admin_CheckBox%,Equal,False,Message,"To Download with Internet Explorer 11, you need to Enable Switch to Admin",Information
 End
 
 [Check_Image_Exist]
@@ -288,17 +288,17 @@ StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
 If,#9,Equal,sr-Latn-CS,Set,%sr-Latn%,Yes
 If,#9,Equal,sr-Latn-RS,Set,%sr-Latn%,Yes
 If,%sr-Latn%,Equal,Yes,Begin
-  EchoExtended,"Win10XPE does not support sr-Latn-CS and sr-Latn-RS languages.",Warn,,Message,,Halt
-  //If,ExistFile,%ProjectDir%\Features\Explorer_AddFiles.txt,TXTReplace,%ProjectDir%\Features\Explorer_AddFiles.txt,\??-??\,\*\
-  Loop,BREAK
+EchoExtended,"Win10XPE does not support sr-Latn-CS and sr-Latn-RS languages.",Warn,,Message,,Halt
+//If,ExistFile,%ProjectDir%\Features\Explorer_AddFiles.txt,TXTReplace,%ProjectDir%\Features\Explorer_AddFiles.txt,\??-??\,\*\
+Loop,BREAK
 End
 
 [CheckInput]
 If,%WinXShell_RadioButton%,Equal,True,Begin
-  If,%Admin_CheckBox%,Equal,True,EchoExtended,"Do Not Use Switch to Admin with WinXShell.",Warn,,Message,,Halt
-  If,%IE11_CheckBox%,Equal,True,EchoExtended,"Do Not Use IE11 with WinXShell.",Warn,,Message,,Halt
-  If,%DotNET_CheckBox%,Equal,True,EchoExtended,"Do Not Use DotNET with WinXShell.",Warn,,Message,,Halt
-  If,%FullSoftware_CheckBox%,Equal,True,EchoExtended,"WinXShell is Designed to be Light, it is not intended for using the Full Software hive.",Warn,,Message,,Halt
+If,%Admin_CheckBox%,Equal,True,EchoExtended,"Do Not Use Switch to Admin with WinXShell.",Warn,,Message,,Halt
+If,%IE11_CheckBox%,Equal,True,EchoExtended,"Do Not Use IE11 with WinXShell.",Warn,,Message,,Halt
+If,%DotNET_CheckBox%,Equal,True,EchoExtended,"Do Not Use DotNET with WinXShell.",Warn,,Message,,Halt
+If,%FullSoftware_CheckBox%,Equal,True,EchoExtended,"WinXShell is Designed to be Light, it is not intended for using the Full Software hive.",Warn,,Message,,Halt
 End
 
 [SaveConfig]
@@ -306,21 +306,21 @@ If,%Explorer_RadioButton%,Equal,True,Set,%Shell%,Explorer,Permanent
 Else,Set,%Shell%,WinXShell,Permanent
 //-
 If,%TargetArch_CheckBox%,Equal,True,Begin
-  Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
-  Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
+Set,%GTarget%,%BaseDir%\Target_%Architecture%,Permanent
+Set,%GISO%,%BaseDir%\ISO_%Architecture%,Permanent
 End
 Else,Begin
-  Set,%GTarget%,%BaseDir%\Target,Permanent
-  Set,%GISO%,%BaseDir%\ISO,Permanent
+Set,%GTarget%,%BaseDir%\Target,Permanent
+Set,%GISO%,%BaseDir%\ISO,Permanent
 End
 //-
 If,%AllInRam_CheckBox%,Equal,True,Begin
-  Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
-  Set,%PE_Programs%,"X:\Program Files",Permanent
+Set,%Target_Prog%,"%GTarget%\Program Files",Permanent
+Set,%PE_Programs%,"X:\Program Files",Permanent
 End
 Else,Begin
-  Set,%Target_Prog%,%GISO%\Programs,Permanent
-  Set,%PE_Programs%,Y:\Programs,Permanent
+Set,%Target_Prog%,%GISO%\Programs,Permanent
+Set,%PE_Programs%,Y:\Programs,Permanent
 End
 // Full Software Hive
 Set,%FullSoftware%,%FullSoftware_CheckBox%,Permanent
@@ -386,16 +386,16 @@ Else,EchoExtended,"Error: Wimlib extract Winre.wim image file from install.wim r
 If,Not,%SourceBuild%,Smaller,19041,Run,%ScriptFile%,Check_Winre_Version
 //-
 If,ExistFile,%XPECache%\HiveCache.ini,Begin
-  IniRead,%XPECache%\HiveCache.ini,Cache,FullSoftware,%FullSoftwareIni%
-  If,%FullSoftwareIni%,Equal,True,Begin
-    If,ExistFile,%XPECache%\FullSOFTWARE,FileCopy,%XPECache%\FullSOFTWARE,%GTemp%\Install.hives\SOFTWARE
-  End
+IniRead,%XPECache%\HiveCache.ini,Cache,FullSoftware,%FullSoftwareIni%
+If,%FullSoftwareIni%,Equal,True,Begin
+If,ExistFile,%XPECache%\FullSOFTWARE,FileCopy,%XPECache%\FullSOFTWARE,%GTemp%\Install.hives\SOFTWARE
+End
 End
 If,Not,ExistFile,%GTemp%\Install.hives\SOFTWARE,Begin
-  Echo,"Extract Software hive from install.wim"
-  ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SOFTWARE --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
-  If,%ExitCode%,Equal,0,Echo,"Wimlib extract Software hive from install.wim return: %ExitCode%"
-  Else,EchoExtended,"Error: Wimlib extract Software hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
+Echo,"Extract Software hive from install.wim"
+ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GSource%\sources\install.wim#$q %Image% \Windows\System32\config\SOFTWARE --dest-dir=#$q%GTemp%\Install.hives#$q --no-globs --no-acls"
+If,%ExitCode%,Equal,0,Echo,"Wimlib extract Software hive from install.wim return: %ExitCode%"
+Else,EchoExtended,"Error: Wimlib extract Software hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
 End
 //-
 Echo,"Extract System & Drivers hive from install.wim"
@@ -404,23 +404,23 @@ If,%ExitCode%,Equal,0,Echo,"Wimlib extract System & Drivers hive from install.wi
 Else,EchoExtended,"Error: Wimlib extract System & Drivers hive from install.wim return: %ExitCode%",Warn,,MessageError,,Halt
 //-
 If,%Buildtype_RadioButton%,Equal,0,Begin
-  Run,%ScriptFile%,ExtractWimFiles
-  If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
+Run,%ScriptFile%,ExtractWimFiles
+If,ExistFile,%GTarget_Sys%\WallpaperHost.exe,FileDeleteQ,%GTarget_Sys%\WallpaperHost.exe
 End
 Else,Begin
-  Run,%ScriptFile%,PrepareSmallWim
-  If,%Buildtype_RadioButton%,Equal,1,Run,%ScriptFile%,ExtractWimFiles
-  If,%Buildtype_RadioButton%,Equal,2,Begin
-    If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
-      Echo,"\Project\CoreListFiles.txt does not exist! continue with the Lightened Winre.wim",Warn
-      Run,%ScriptFile%,ExtractWimFiles
-    End
-    Else,Run,%ScriptFile%,ExtractWimListFiles
-  End
+Run,%ScriptFile%,PrepareSmallWim
+If,%Buildtype_RadioButton%,Equal,1,Run,%ScriptFile%,ExtractWimFiles
+If,%Buildtype_RadioButton%,Equal,2,Begin
+If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
+Echo,"\Project\CoreListFiles.txt does not exist! continue with the Lightened Winre.wim",Warn
+Run,%ScriptFile%,ExtractWimFiles
+End
+Else,Run,%ScriptFile%,ExtractWimListFiles
+End
 End
 If,%FullSoftware%,Equal,True,Begin
-  FileDeleteQ,%GTarget_Sys%\config\SOFTWARE
-  Filecopy,%GTemp%\Install.hives\SOFTWARE,%GTarget_Sys%\config
+FileDeleteQ,%GTarget_Sys%\config\SOFTWARE
+Filecopy,%GTemp%\Install.hives\SOFTWARE,%GTarget_Sys%\config
 End
 // Additional folder for pins
 If,Not,ExistDir,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu",DirMake,"%Gtarget%\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu"
@@ -434,26 +434,26 @@ Exec,%ProjectDir%\Features\Config.Script,Process
 Run,%ScriptFile%,AddProjectFiles
 If,%Custom_CheckBox%,Equal,True,Run,%ScriptFile%,AddCustomFiles
 If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-  If,ExistFile,%GTarget_Sys%\pecmd.ini,FileDeleteQ,%GTarget_Sys%\pecmd.ini
-  Filecopy,%GCustom%\Pecmdini\pecmd.ini,%GTarget_Sys%
+If,ExistFile,%GTarget_Sys%\pecmd.ini,FileDeleteQ,%GTarget_Sys%\pecmd.ini
+Filecopy,%GCustom%\Pecmdini\pecmd.ini,%GTarget_Sys%
 End
 If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-  If,ExistFile,%GTarget_Sys%\PecmdAdmin.ini,FileDeleteQ,%GTarget_Sys%\PecmdAdmin.ini
-  Filecopy,%GCustom%\Pecmdini\PecmdAdmin.ini,%GTarget_Sys%
+If,ExistFile,%GTarget_Sys%\PecmdAdmin.ini,FileDeleteQ,%GTarget_Sys%\PecmdAdmin.ini
+Filecopy,%GCustom%\Pecmdini\PecmdAdmin.ini,%GTarget_Sys%
 End
 If,ExistFile,%GCustom%\Wallpaper\img0.jpg,Begin
-  If,Not,ExistDir,%GTarget_Win%\Web\Wallpaper\Windows,DirMake,%GTarget_Win%\Web\Wallpaper\Windows
-  Filecopy,%GCustom%\Wallpaper\img0.jpg,%GTarget_Win%\Web\Wallpaper\Windows,NoWarn
+If,Not,ExistDir,%GTarget_Win%\Web\Wallpaper\Windows,DirMake,%GTarget_Win%\Web\Wallpaper\Windows
+Filecopy,%GCustom%\Wallpaper\img0.jpg,%GTarget_Win%\Web\Wallpaper\Windows,NoWarn
 End
 If,ExistFile,%GCustom%\UserAccountPicture\user-200.png,Begin
-  If,Not,ExistDir,"%GTarget%\ProgramData\Microsoft\User Account Pictures",DirMake,"%GTarget%\ProgramData\Microsoft\User Account Pictures"
-  Filecopy,%GCustom%\UserAccountPicture\user-200.png,"%GTarget%\ProgramData\Microsoft\User Account Pictures",NoWarn
+If,Not,ExistDir,"%GTarget%\ProgramData\Microsoft\User Account Pictures",DirMake,"%GTarget%\ProgramData\Microsoft\User Account Pictures"
+Filecopy,%GCustom%\UserAccountPicture\user-200.png,"%GTarget%\ProgramData\Microsoft\User Account Pictures",NoWarn
 End
 If,%Audio_CheckBox%,Equal,True,Begin
-  If,ExistFile,%GCustom%\StartupMP3\startup.mp3,Begin
-    If,Not,ExistDir,%GTarget_Win%\media,DirMake,%GTarget_Win%\media
-    Filecopy,%GCustom%\StartupMP3\startup.mp3,%GTarget_Win%\media
-  End
+If,ExistFile,%GCustom%\StartupMP3\startup.mp3,Begin
+If,Not,ExistDir,%GTarget_Win%\media,DirMake,%GTarget_Win%\media
+Filecopy,%GCustom%\StartupMP3\startup.mp3,%GTarget_Win%\media
+End
 End
 //-
 //-----------------------------------------------------------------------------
@@ -470,8 +470,8 @@ If,Not,%AllKeyboard_CheckBox%%AllNls_CheckBox%,Equal,TrueTrue,Exec,%ProjectDir%\
 // Fbwf Cache Size. Limited to 1024 Mb with x86
 If,%Architecture%,Equal,x64,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
 Else,Begin
-  If,%Fbwf_ScrollBox%,Bigger,1024,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,1024
-  Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
+If,%Fbwf_ScrollBox%,Bigger,1024,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,1024
+Else,RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\FBWF,WinPECacheThreshold,%Fbwf_ScrollBox%
 End
 //-
 Set,%WoW64Support%,False,Permanent
@@ -481,16 +481,16 @@ If,%SetupFiles_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SetupFiles.Script
 If,%VCRuntime_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\VCRuntime.Script,Process,HiveLoaded
 //-
 If,%Shell%,Equal,Explorer,Begin
-  Exec,%ProjectDir%\Features\Explorer.Script,Process,HiveLoaded
-  If,%SourceBuild%,Smaller,22000,Exec,%ProjectDir%\Features\StartIsBack.Script,Process,HiveLoaded
-  Else,Exec,%ProjectDir%\Features\StartAllBack.script,Process,HiveLoaded
+Exec,%ProjectDir%\Features\Explorer.Script,Process,HiveLoaded
+If,%SourceBuild%,Smaller,22000,Exec,%ProjectDir%\Features\StartIsBack.Script,Process,HiveLoaded
+Else,Exec,%ProjectDir%\Features\StartAllBack.script,Process,HiveLoaded
 End
 Else,Exec,%ProjectDir%\Features\WinXShell.Script,Process,HiveLoaded
 //-
 If,ExistFile,%ProjectDir%\Features\Ime_%Language%.Script,Exec,%ProjectDir%\Features\Ime_%Language%.Script,Process,HiveLoaded
 //-
 If,%DisplayDrivers_CheckBox%,Equal,True,Begin
-  If,%Shell%,Equal,Explorer,Exec,%ProjectDir%\Features\DisplayDrivers.Script,Process,HiveLoaded
+If,%Shell%,Equal,Explorer,Exec,%ProjectDir%\Features\DisplayDrivers.Script,Process,HiveLoaded
 End
 //-
 If,%Network_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Network.Script,Process,HiveLoaded
@@ -502,15 +502,15 @@ If,%PENMAddPENetwork_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\PENetwork.S
 Else,TXTReplace,%GTarget_Sys%\pecmd.ini,"EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe","//EXEC #$pProgramFiles#$p\PENetwork\PENetwork.exe"
 //-
 If,%Audio_CheckBox%,Equal,True,Begin
-  Exec,%ProjectDir%\Features\Audio.Script,Process,HiveLoaded
-  If,%SoundEvents_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SoundEvents.Script,Process,HiveLoaded
+Exec,%ProjectDir%\Features\Audio.Script,Process,HiveLoaded
+If,%SoundEvents_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\SoundEvents.Script,Process,HiveLoaded
 End
 If,%Msi_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Msi.Script,Process,HiveLoaded
 //-
 If,%Accessibility_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Accessibility.Script,Process,HiveLoaded
 Else,Begin
-  AddVariables,%ProjectDir%\script.project,TargetBasePath
-  If,ExistFile,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk",FileDelete,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk"
+AddVariables,%ProjectDir%\script.project,TargetBasePath
+If,ExistFile,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk",FileDelete,"%TargetAppDataRoaming%\Microsoft\Windows\Start Menu\Programs\Accessibility\Ease of Access Center.lnk"
 End
 //-
 If,%WinApps_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\WinApps.Script,Process,HiveLoaded
@@ -519,10 +519,10 @@ If,%ImDisk_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\ImDisk.Script,Process
 //-
 If,%Admin_CheckBox%,Equal,True,Exec,%ProjectDir%\Features\Admin.Script,Process,HiveLoaded
 If,%IE11_CheckBox%,Equal,True,Begin
-  If,ExistFile,%ProjectDir%\Features\IE11.Script,Exec,%ProjectDir%\Features\IE11.Script,Process,HiveLoaded
+If,ExistFile,%ProjectDir%\Features\IE11.Script,Exec,%ProjectDir%\Features\IE11.Script,Process,HiveLoaded
 End
 If,%DotNET_CheckBox%,Equal,True,Begin
-  If,ExistFile,%ProjectDir%\Features\DotNET.Script,Exec,%ProjectDir%\Features\DotNET.Script,Process,HiveLoaded
+If,ExistFile,%ProjectDir%\Features\DotNET.Script,Exec,%ProjectDir%\Features\DotNET.Script,Process,HiveLoaded
 End
 Exec,%ProjectDir%\Features\CoreOptions.Script,Process,HiveLoaded
 Exec,%ProjectDir%\Features\ThemesColor.Script,Process,HiveLoaded
@@ -553,23 +553,23 @@ Set,%WaikToolOK%,Yes
 If,Not,ExistDir,%GTools%\x86,Set,%WaikToolOK%,No
 If,Not,ExistDir,%GTools%\x64,Set,%WaikToolOK%,No
 If,%WaikToolOK%,Equal,Yes,Begin
-  If,Not,ExistFile,%GTools%\x86\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x64\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x86\DISM\dism.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x64\DISM\dism.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x86\DISM\imagex.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x64\DISM\imagex.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x86\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
-  If,Not,ExistFile,%GTools%\x64\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x86\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x64\BCDBoot\bcdedit.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x86\DISM\dism.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x64\DISM\dism.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x86\DISM\imagex.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x64\DISM\imagex.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x86\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
+If,Not,ExistFile,%GTools%\x64\Oscdimg\oscdimg.exe,Set,%WaikToolOK%,No
 End
 If,%WaikToolOK%,Equal,No,Begin
-  Set,%answer%,No
-  If,Question,"%ProjectName% needs some Windows ADK files (8.50 MB)#$x#$x Download now ?",10,True,Set,%answer%,Yes
-  If,%answer%,Equal,Yes,Begin
-    Run,%ScriptFile%,GetWaikTool
-    Run,%ScriptFile%,CheckWaikTool
-  End
-  Else,Halt,"You did not download the Windows ADK files required for %ProjectName%."
+Set,%answer%,No
+If,Question,"%ProjectName% needs some Windows ADK files (8.50 MB)#$x#$x Download now ?",10,True,Set,%answer%,Yes
+If,%answer%,Equal,Yes,Begin
+Run,%ScriptFile%,GetWaikTool
+Run,%ScriptFile%,CheckWaikTool
+End
+Else,Halt,"You did not download the Windows ADK files required for %ProjectName%."
 End
 
 [GetWaikTool]
@@ -593,23 +593,23 @@ If,%ImageCountVar%,Smaller,1,EchoExtended,"Error: Wim file information missing. 
 
 [Check_Winre_Version]
 If,%SourceVersion%,Bigger,10.0.19041.264,Begin
-  If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
-  ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GTemp%\winre.wim#$q -ini:#$q%GTemp%\WinreInfo.ini#$q"
-  If,Not,ExistFile,%GTemp%\WinreInfo.ini,EchoExtended,"Error: Winre.wim Image information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
-  IniRead,%GTemp%\WinreInfo.ini,1,VERSION,%WinreVersion%
-  If,Not,%WinreVersion%,Equal,%SourceVersion%,Begin
-    Set,%answer%,No
-    If,%SourceBuild%,Equal,19041,Begin
-      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Windows 10 version 2004 - 20H1#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
-      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1"
-      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1",Warn
-    End
-    Else,Begin
-      If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Another Windows 10 Version#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
-      If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version"
-      Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version",Warn
-    End
-  End
+If,Not,ExistDir,%GTemp%,DirMake,%GTemp%
+ShellExecute,Hide,%GTools%\WimInfo.exe,"-wim:#$q%GTemp%\winre.wim#$q -ini:#$q%GTemp%\WinreInfo.ini#$q"
+If,Not,ExistFile,%GTemp%\WinreInfo.ini,EchoExtended,"Error: Winre.wim Image information missing. A problem occurred to Get Image Information.#$x#$xTry using official MS sources.",Warn,,MessageError,,Halt
+IniRead,%GTemp%\WinreInfo.ini,1,VERSION,%WinreVersion%
+If,Not,%WinreVersion%,Equal,%SourceVersion%,Begin
+Set,%answer%,No
+If,%SourceBuild%,Equal,19041,Begin
+If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Windows 10 version 2004 - 20H1#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1"
+Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Windows 10 version 2004 - 20H1",Warn
+End
+Else,Begin
+If,Question,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%)#$x#$xIncompatibilities Are Likely to Occur With Perhaps an Unreliable Result.#$x#$xPreferably Use Another Windows 10 Version#$x#$x Continue Anyway ?",20,False,Set,%answer%,Yes
+If,%answer%,Equal,No,Halt,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version"
+Else,Echo,"Winre.wim Version (%WinreVersion%) Does Not match Install.wim Version (%SourceVersion%). Incompatibilities Are Likely to Occur With Perhaps an Unreliable Result. Preferably Use Another Windows 10 Version",Warn
+End
+End
 End
 
 [ClearMakeFolder]
@@ -628,29 +628,29 @@ DirMake,%GISO%
 [ListFilesEdit]
 If,Not,ExistFile,%ProjectDir%\CoreListFiles.txt,Run,%ScriptFile%,Create_CoreListFiles
 If,ExistFile,%ProjectDir%\CoreListFiles.txt,Begin
-  Echo,"Waiting for changes in CoreListFiles.txt and closing the editor..."
-  System,FileRedirect,OFF
-  ShellExecute,Hide,cmd.exe,"/D /C #$q%ProjectDir%\CoreListFiles.txt#$q"
-  System,FileRedirect,ON
+Echo,"Waiting for changes in CoreListFiles.txt and closing the editor..."
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C #$q%ProjectDir%\CoreListFiles.txt#$q"
+System,FileRedirect,ON
 End
 
 [Create_CoreListFiles]
 Set,%w%,%ProjectDir%\CoreListFiles.txt
 If,Not,ExistFile,%w%,Begin
-  FileCreateBlank,%w%
-  TXTAddLine,%w%,"; Add Win10 Sources Files and Folders with absolute path. Wildcard ? and * accepted.",Append
-  TXTAddLine,%w%,"; See wimlib extract: https://wimlib.net/man1/wimextract.html",Append
-  TXTAddLine,%w%,"; It is here, an addition to the prepared base of 'Full winre.wim with WinSxS lightened'",Append
-  TXTAddLine,%w%,"; Examples:",Append
-  TXTAddLine,%w%,";\sources   (source folder)",Append
-  TXTAddLine,%w%,";\Windows\System32\*base.dll",Append
-  TXTAddLine,%w%,";\Windows\System32\??-??\*base.dll.mui",Append
-  TXTAddLine,%w%,"",Append
-  TXTAddLine,%w%,"\ProgramData",Append
-  TXTAddLine,%w%,"\Program Files",Append
-  TXTAddLine,%w%,"\sources",Append
-  TXTAddLine,%w%,"\Users",Append
-  TXTAddLine,%w%,"\Windows",Append
+FileCreateBlank,%w%
+TXTAddLine,%w%,"; Add Win10 Sources Files and Folders with absolute path. Wildcard ? and * accepted.",Append
+TXTAddLine,%w%,"; See wimlib extract: https://wimlib.net/man1/wimextract.html",Append
+TXTAddLine,%w%,"; It is here, an addition to the prepared base of 'Full winre.wim with WinSxS lightened'",Append
+TXTAddLine,%w%,"; Examples:",Append
+TXTAddLine,%w%,";\sources   (source folder)",Append
+TXTAddLine,%w%,";\Windows\System32\*base.dll",Append
+TXTAddLine,%w%,";\Windows\System32\??-??\*base.dll.mui",Append
+TXTAddLine,%w%,"",Append
+TXTAddLine,%w%,"\ProgramData",Append
+TXTAddLine,%w%,"\Program Files",Append
+TXTAddLine,%w%,"\sources",Append
+TXTAddLine,%w%,"\Users",Append
+TXTAddLine,%w%,"\Windows",Append
 End
 
 [PENMEditor]
@@ -671,33 +671,33 @@ Exec,%ProjectDir%\Features\IE11.Script,Favorites_OpenDir
 [PecmdEdit]
 If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
 If,Not,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-  If,ExistFile,%AdditionalFiles%\Windows\System32\pecmd.ini,Begin
-    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
-    FileCopy,%AdditionalFiles%\Windows\System32\pecmd.ini,%GCustom%\Pecmdini\pecmd.ini
-  End
-  Else,EchoExtended,"pecmd.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\pecmd.ini",Warn,,Message,,Exit
+If,ExistFile,%AdditionalFiles%\Windows\System32\pecmd.ini,Begin
+If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+FileCopy,%AdditionalFiles%\Windows\System32\pecmd.ini,%GCustom%\Pecmdini\pecmd.ini
+End
+Else,EchoExtended,"pecmd.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\pecmd.ini",Warn,,Message,,Exit
 End
 If,ExistFile,%GCustom%\Pecmdini\pecmd.ini,Begin
-  Echo,"Waiting for changes in Pecmd.ini and closing the editor..."
-  System,FileRedirect,OFF
-  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\pecmd.ini#$q"
-  System,FileRedirect,ON
+Echo,"Waiting for changes in Pecmd.ini and closing the editor..."
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\pecmd.ini#$q"
+System,FileRedirect,ON
 End
 
 [PecmdAdminEdit]
 If,%Architecture%-,Equal,-,EchoExtended,"Select the Windows 10 source folder first on Win10XPE main plugin.",Warn,,Message,,Exit
 If,Not,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-  If,ExistFile,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,Begin
-    If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
-    FileCopy,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,%GCustom%\Pecmdini\PecmdAdmin.ini
-  End
-  Else,EchoExtended,"PecmdAdmin.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\PecmdAdmin.ini",Warn,,Message,,Exit
+If,ExistFile,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,Begin
+If,Not,ExistDir,%GCustom%\Pecmdini,DirMake,%GCustom%\Pecmdini
+FileCopy,%AdditionalFiles%\Windows\System32\PecmdAdmin.ini,%GCustom%\Pecmdini\PecmdAdmin.ini
+End
+Else,EchoExtended,"PecmdAdmin.ini should be in the original package in: #$x#$x\Projects\Include\%Architecture%\AdditionalFiles\Windows\System32\PecmdAdmin.ini",Warn,,Message,,Exit
 End
 If,ExistFile,%GCustom%\Pecmdini\PecmdAdmin.ini,Begin
-  Echo,"Waiting for changes in PecmdAdmin.ini and closing the editor..."
-  System,FileRedirect,OFF
-  ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\PecmdAdmin.ini#$q"
-  System,FileRedirect,ON
+Echo,"Waiting for changes in PecmdAdmin.ini and closing the editor..."
+System,FileRedirect,OFF
+ShellExecute,Hide,cmd.exe,"/D /C #$q%GCustom%\Pecmdini\PecmdAdmin.ini#$q"
+System,FileRedirect,ON
 End
 
 [WinPE_StartUp]
@@ -708,11 +708,11 @@ FileCreateBlank,%w%
 TXTAddLine,%w%,[LaunchApps],Append
 TXTAddLine,%w%,wpeinit.exe,Append
 If,ExistFile,%GTarget_Sys%\Pecmd.exe,Begin
-  System,ERROROFF
-  RegWrite,HKLM,0x1,Tmp_System\Setup,CmdLine,"Pecmd.exe Main #$pWindir#$p\system32\Pecmd.ini"
+System,ERROROFF
+RegWrite,HKLM,0x1,Tmp_System\Setup,CmdLine,"Pecmd.exe Main #$pWindir#$p\system32\Pecmd.ini"
 End
 Else,Begin
-  TXTAddLine,%w%,cmd.exe,Append
+TXTAddLine,%w%,cmd.exe,Append
 End
 If,ExistFile,%GTarget_Sys%\autorun.cmd,RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,Autorun,"hiderun.exe /w Autorun.cmd"
 
@@ -741,16 +741,16 @@ Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\Drivers
 
 [HostNetDriversPlay]
 If,ExistRegKey,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,Begin
-  RegRead,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,%HostOS%
-  If,Win%HostOS%%HostOSArch%,Equal,%OS%%Architecture%,Begin
-    Echo,"Export Host Net Drivers..."
-    If,ExistDir,%GCustom%\%Architecture%\HostNetDrivers,DirDeleteQ,%GCustom%\%Architecture%\HostNetDrivers
-    //Set,%PatchInfFile%,""
-    Set,%PatchInfFile%,1
-    ShellExecute,Hide,%GTools%\HostNetDrv.exe,"#$q%GCustom%\%Architecture%\HostNetDrivers#$q %PatchInfFile%"
-    Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\HostNetDrivers
-  End
-  Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Win%HostOS% %HostOSArch% Does Not Match Your Build %OS% %Architecture%",warn
+RegRead,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentMajorVersionNumber,%HostOS%
+If,Win%HostOS%%HostOSArch%,Equal,%OS%%Architecture%,Begin
+Echo,"Export Host Net Drivers..."
+If,ExistDir,%GCustom%\%Architecture%\HostNetDrivers,DirDeleteQ,%GCustom%\%Architecture%\HostNetDrivers
+//Set,%PatchInfFile%,""
+Set,%PatchInfFile%,1
+ShellExecute,Hide,%GTools%\HostNetDrv.exe,"#$q%GCustom%\%Architecture%\HostNetDrivers#$q %PatchInfFile%"
+Run,%ScriptFile%,IntegrateDrivers,%GCustom%\%Architecture%\HostNetDrivers
+End
+Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Win%HostOS% %HostOSArch% Does Not Match Your Build %OS% %Architecture%",warn
 End
 Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Does Not Match Your Build %OS% %Architecture%",warn
 
@@ -758,20 +758,20 @@ Else,Echo,"Exporting Host Network Drivers is Not Possible. The Host Does Not Mat
 Set,%DriverFolder%,#1
 Echo,"Integrate Drivers From #$q%DriverFolder%#$q ..."
 If,ExistDir,%DriverFolder%,Begin
-  Retrieve,FOLDERSIZE,%DriverFolder%,%DriverFolderSize%
-  If,Not,%DriverFolderSize%,Equal,0,Begin
-    StrFormat,PATH,%DismLog%,%DismLogPath%
-    If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
-    If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
-    If,ExistFile,%DismExe%,Begin
-      StrFormat,PATH,%DismExe%,%DismExePath%
-      System,FileRedirect,OFF
-      If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Drivers integration and Pause From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
-      Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Integrate Drivers From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q",%DismExePath%
-      System,FileRedirect,ON
-      ShellExecute,Hide,%Gtools%\HiveUnload.exe,"/HKLM /Target:%GTarget_Sys%\config"
-    End
-  End
+Retrieve,FOLDERSIZE,%DriverFolder%,%DriverFolderSize%
+If,Not,%DriverFolderSize%,Equal,0,Begin
+StrFormat,PATH,%DismLog%,%DismLogPath%
+If,Not,ExistDir,%DismLogPath%,DirMake,%DismLogPath%
+If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
+If,ExistFile,%DismExe%,Begin
+StrFormat,PATH,%DismExe%,%DismExePath%
+System,FileRedirect,OFF
+If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Drivers integration and Pause From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Integrate Drivers From #$q%DriverFolder%#$q. Be patient...&Dism.exe /image:#$q%GTarget%#$q /Add-Driver /Driver:#$q%DriverFolder%#$q /recurse /LogPath:#$q%DismLog%#$q",%DismExePath%
+System,FileRedirect,ON
+ShellExecute,Hide,%Gtools%\HiveUnload.exe,"/HKLM /Target:%GTarget_Sys%\config"
+End
+End
 End
 
 [DriversOpen]
@@ -793,11 +793,11 @@ If,ExistDir,%GCustom%\ExportDrivers\x64,DirDeleteQ,%GCustom%\ExportDrivers\x64
 If,Not,ExistDir,%GCustom%\ExportDrivers\%HostOSArch%,DirMake,%GCustom%\ExportDrivers\%HostOSArch%
 If,%HostOSArch%,Equal,x86,Set,%DismExe%,%GTools%\x86\DISM\dism.exe
 If,ExistFile,%DismExe%,Begin
-  StrFormat,PATH,%DismExe%,%DismExePath%
-  System,FileRedirect,OFF
-  If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Export Host PC Drivers and Pause. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
-  Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Export Host PC Drivers. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q",%DismExePath%
-  System,FileRedirect,ON
+StrFormat,PATH,%DismExe%,%DismExePath%
+System,FileRedirect,OFF
+If,%PauseDrivers_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /K Echo Export Host PC Drivers and Pause. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q&Echo.&Echo Close the window to Continue",%DismExePath%
+Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Export Host PC Drivers. Be patient...&Dism.exe /online /Export-Driver /Destination:#$q%GCustom%\ExportDrivers\%HostOSArch%#$q",%DismExePath%
+System,FileRedirect,ON
 End
 OpenDir,%GCustom%\ExportDrivers\%HostOSArch%
 
@@ -832,8 +832,8 @@ Echo,"Apply Winre.wim in Target Folder. Be patient..."
 ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Apply Winre.wim in Target Folder. Be patient...&Echo.&wimlib-imagex.exe apply #$q%GTemp%\Winre.wim#$q 1 #$q%GTarget%#$q --no-acls",%GTools%
 If,%ExitCode%,Equal,0,Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%"
 Else,Begin
-  Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%",Warn
-  EchoExtended,"Error: Winre.wim image files were not successfully applied in Target Folder.",Warn,,MessageError,,Halt
+Echo,"Wimlib Apply Winre.wim in Target Folder return : %ExitCode%",Warn
+EchoExtended,"Error: Winre.wim image files were not successfully applied in Target Folder.",Warn,,MessageError,,Halt
 End
 
 [ExtractWimListFiles]
@@ -841,8 +841,8 @@ Echo,"Extract Winre.wim in Target Folder using CoreListFiles. Be patient..."
 ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Extract Winre.wim in Target Folder using CoreListFiles. Be patient...&Echo.&wimlib-imagex.exe extract #$q%GTemp%\Winre.wim#$q 1 @#$q%ProjectDir%\CoreListFiles.txt#$q --dest-dir=#$q%GTarget%#$q --no-acls --nullglob",%GTools%
 If,%ExitCode%,Equal,0,Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%"
 Else,Begin
-  Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%",Warn
-  EchoExtended,"Error: Extract Winre.wim using CoreListFiles were not successfully extracted in Target Folder.",Warn,,MessageError,,Halt
+Echo,"Extract Winre.wim in Target Folder using CoreListFiles return : %ExitCode%",Warn
+EchoExtended,"Error: Extract Winre.wim using CoreListFiles were not successfully extracted in Target Folder.",Warn,,MessageError,,Halt
 End
 
 [PrepareSmallSxSFile]
@@ -881,7 +881,7 @@ If,%SetupFiles_CheckBox%,Equal,True,TxtAddline,%w%,"delete '\sources' --force --
 If,%DelSpeech_CheckBox%%Accessibility_CheckBox%,Equal,TrueFalse,TxtAddline,%w%,"delete '\Windows\Speech' --force --recursive",Append
 // Pure 64 bit, without WoW64 support): Program Files (x86) is not required
 If,%DelSysWOW64_CheckBox%,Equal,True,Begin
-  If,%Architecture%%WoW64_CheckBox%,Equal,x64False,TxtAddline,%w%,"delete '\Windows\SysWOW64' --force  --recursive",Append
+If,%Architecture%%WoW64_CheckBox%,Equal,x64False,TxtAddline,%w%,"delete '\Windows\SysWOW64' --force  --recursive",Append
 End
 If,%Architecture%,Equal,x64,TxtAddline,%w%,"delete '\Program Files (x86)' --force  --recursive",Append
 TxtAddline,%w%,"delete '\Windows\WinSxs' --force --recursive",Append
@@ -896,20 +896,20 @@ Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,diagtr
 //-
 // WMI Repository will be rebuilt, refresh at startup
 If,%DelwbemRepository_CheckBox%,Equal,True,Begin
-  TxtAddline,%w%,"delete '\Windows\System32\wbem\AutoRecover' --force --recursive",Append
-  TxtAddline,%w%,"delete '\Windows\System32\wbem\Logs' --force --recursive",Append
-  TxtAddline,%w%,"delete '\Windows\System32\wbem\Repository' --force --recursive",Append
-  TxtAddline,%w%,"delete '\Windows\System32\wbem\tmf' --force --recursive",Append
-  TxtAddline,%w%,"delete '\Windows\System32\wbem\xml' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\wbem\AutoRecover' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\wbem\Logs' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\wbem\Repository' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\wbem\tmf' --force --recursive",Append
+TxtAddline,%w%,"delete '\Windows\System32\wbem\xml' --force --recursive",Append
 End
 //-
 // Edge web plateform
 If,%DelEdgeWebPlateform_CheckBox%,Equal,True,Begin
-  TxtAddline,%w%,"delete '\Windows\System32\edgehtml.dll' --force",Append
-  Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,edgehtml.dll.mui
-  TxtAddline,%w%,"delete '\Windows\SystemResources\edgehtml.dll.mun' --force",Append
-  TxtAddline,%w%,"delete '\Windows\System32\edgeIso.dll' --force",Append
-  TxtAddline,%w%,"delete '\Windows\System32\EdgeManager.dll' --force",Append
+TxtAddline,%w%,"delete '\Windows\System32\edgehtml.dll' --force",Append
+Loop,%ScriptFile%,WimSmallUpdateMuiFile_Loop,1,%NbLang%,\Windows\System32,edgehtml.dll.mui
+TxtAddline,%w%,"delete '\Windows\SystemResources\edgehtml.dll.mun' --force",Append
+TxtAddline,%w%,"delete '\Windows\System32\edgeIso.dll' --force",Append
+TxtAddline,%w%,"delete '\Windows\System32\EdgeManager.dll' --force",Append
 End
 //-
 TxtAddline,%w%,"delete '\Windows\System32\config\Journal' --force --recursive",Append

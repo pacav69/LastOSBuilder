@@ -26,7 +26,7 @@ RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From 
 Image_Software="wiztree treemap.jpg",1,5,145,34,240,134
 Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://antibody-software.com/web/software/software/wiztree-finds-the-files-and-folders-using-the-most-disk-space-on-your-hard-drive/
-ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,4.12,"__Everything Version for Download and Update Plugin"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,4.13,"__Everything Version for Download and Update Plugin"
 Update_Container_Button=U,1,8,540,4,14,14,Update_Container,0,False,"__Update Plugin Program File"
 
 [Variables]
