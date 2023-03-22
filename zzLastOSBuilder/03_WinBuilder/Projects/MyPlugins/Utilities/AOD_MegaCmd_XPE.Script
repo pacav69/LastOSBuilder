@@ -30,8 +30,8 @@ pBevel1=pBevel1,1,12,0,315,485,80
 Button_Launch_Program="  Download Files",1,8,10,325,165,60,Launch_Program,MEGAcmdServer4848.bmp,False,_Launch_Program_,False,"__Click Here To Download The File(s) From MEGA's Server."
 HomePage_WebLabel="MegaCmd User Manual",1,10,200,319,109,18,https://github.com/meganz/MEGAcmd/blob/master/UserGuide.md#exit
 WarnOverwrite="Enable OverWrite Warning Before Extraction",1,3,200,338,251,18,False,"__Allows You To Receive Warning Before Package Extraction OverWrite's Existing Scripts"
-RemoveCache="Remove Downloaded File Cache After Extraction",1,3,200,356,275,18,True
-RemoveTemp="Remove MegaCmd Setup File Upon Completion",1,3,200,374,275,18,True
+RemoveCache="Remove Downloaded File Cache After Extraction",1,3,200,356,275,18,False
+RemoveTemp="Remove MegaCmd Setup File Upon Completion",1,3,200,374,275,18,False
 Download_MegaCmd_Button=U,1,8,425,319,14,14,Download_MegaCmd,0,False,"__Update-Encode MegaCmd Program Files."
 ProvideFile_Opendir_Button=,1,8,450,319,25,25,ProvideFiles_OpenDir_P_B,opendir.bmp,False,"__Click Here To Open The Mega Download Cache Folder."
 Verified_Date="Version: 10.08.2022",1,1,318,321,110,18,8,Normal
@@ -58,7 +58,7 @@ pCheckBox20="Veeam Recovery Environment",1,3,310,110,220,18,False
 pCheckBox21="WBG Windows Recovery",1,3,310,130,220,18,False
 pCheckBox22="Comodo Cleaning Essentials",1,3,310,150,220,18,False
 pCheckBox23="Malwarebytes Anti-Malware v3.6.1",1,3,310,170,220,18,True
-pCheckBox24="Custom Icon Package",1,3,310,190,220,18,False
+pCheckBox24="Custom Icon Package",1,3,310,190,220,18,True
 pCheckBox25="Wise Care 365",1,3,310,210,220,18,False
 pCheckBox26="Tor Browser x64",1,3,310,230,220,18,False
 pCheckBox27="Internet Download Manager",1,3,310,250,220,18,False
@@ -299,10 +299,10 @@ ShellExecuteEX,Hide,%GTemp%\%ProgramFolder%\MegaCmdServer.exe
 ShellExecute,Open,%GTemp%\%ProgramFolder%\MegaClient.exe,"get --ignore-quota-warn %AppURL% #$q%ProvideDir%#$q"
 If,Not,ExistFile,%ProvideFiles%\%AppFile%,EchoExtended,"The %AppFile% Was Not Found or Was Not Downloaded.",Warn,,Message,3
 If,ExistFile,%ProvideFiles%\%AppFile%,Begin
-  If,%WarnOverwrite%,Equal,True,Begin
-    If,QUESTION,"Existing Scripts Will Be OverWritten!!#$xDo You Want To Continue ??",10,False,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -pWin10XPE -y -o#$q%AppLoc%#$q"
-  End
-  If,%WarnOverwrite%,Equal,False,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -pWin10XPE -y -o#$q%AppLoc%#$q"
+If,%WarnOverwrite%,Equal,True,Begin
+If,QUESTION,"Existing Scripts Will Be OverWritten!!#$xDo You Want To Continue ??",10,False,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -pWin10XPE -y -o#$q%AppLoc%#$q"
+End
+If,%WarnOverwrite%,Equal,False,ShellExecute,Hide,%GTools%\7z.exe,"x #$q%ProvideFiles%\%AppFile%#$q -pWin10XPE -y -o#$q%AppLoc%#$q"
 End
 
 [Extract_MegaCmd]

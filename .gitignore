@@ -4,10 +4,11 @@ __pycache__/
 *$py.class
 *.iso
 builderstatus.txt
+zzLastOSBuilder/MCT/11 22H2 Professional x64 en-US.isdo
 zzLastOSBuilder\00_Source\01Windows_Original\*.*
 zzLastOSBuilder\00_Source\02Windows_Sysprep\*.*
 zzLastOSBuilder\00_Source\03Windows_NTLite\*.*
-
+zzLastOSBuilder\03_WinBuilder\Temp\*.*
 
 
 # C extensions
@@ -157,4 +158,198 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-zzLastOSBuilder/MCT/11 22H2 Professional x64 en-US.isdo
+
+
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/chrome.7z
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Chrome_x86.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome.dll.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome.exe.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome_100_percent.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome_200_percent.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome_elf.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome_pwa_launcher.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/chrome_wer.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/d3dcompiler_47.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/default_apps/external_extensions.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/elevation_service.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/eventlog_provider.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Extensions/external_extensions.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/icudtl.dat
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/libEGL.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/libGLESv2.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/af.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/am.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ar.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/bg.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/bn.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ca.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/cs.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/da.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/de.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/el.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/en-GB.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/en-US.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/es-419.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/es.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/et.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/fa.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/fi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/fil.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/fr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/gu.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/he.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/hi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/hr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/hu.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/id.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/it.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ja.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/kn.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ko.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/lt.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/lv.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ml.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/mr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ms.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/nb.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/nl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/pl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/pt-BR.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/pt-PT.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ro.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ru.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/sk.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/sl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/sr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/sv.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/sw.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ta.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/te.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/th.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/tr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/uk.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/ur.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/vi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/zh-CN.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/Locales/zh-TW.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/MEIPreload/manifest.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/MEIPreload/preloaded_data.pb
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/mojo_core.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/nacl64.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/nacl_irt_x86_32.nexe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/nacl_irt_x86_64.nexe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/notification_helper.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/optimization_guide_internal.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/resources.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/v8_context_snapshot.bin
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/Logo.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/LogoBeta.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/LogoCanary.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/LogoDev.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/SmallLogo.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/SmallLogoBeta.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/SmallLogoCanary.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/VisualElements/SmallLogoDev.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/vk_swiftshader.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/vk_swiftshader_icd.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/vulkan-1.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/WidevineCdm/_platform_specific/win_x86/widevinecdm.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/WidevineCdm/_platform_specific/win_x86/widevinecdm.dll.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/WidevineCdm/LICENSE
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/109.0.5414.120/WidevineCdm/manifest.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/chrome.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/chrome.VisualElementsManifest.xml
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/chrome_proxy.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/master_preferences
+zzLastOSBuilder/03_WinBuilder/Temp/MBAM For WinXPE Setup/mb3-setup.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Ghost32.7z
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/DeployAnywhere.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/DPInst/X86/DPINST.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/DriverDBMgr.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/DriverLibraryAPI_EN.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/DriverManager.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/gdisk
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/gdisk32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/ghconfig
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhConfig32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/ghost
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/ghost32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhostCast.chm
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/Ghostexp.chm
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/Ghostexp.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhostExp_EN.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhostImageFile.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhostSrv.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhostSrv_EN.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/ghregedit
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/GhRegEdit32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/omnifs
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/omnifs32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/GHOST.BMP
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/GHOST.OEM
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/ghostoem.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/Ghostoem32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/PQIDeploy.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/PQIDeploy.rtc
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/PQIDplyD.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/PQIDplyD.rtc
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/SAMPLE.BAT
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/span.bmp
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/SRFixMbr.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/RecoveryKit/SRFixMbr.xml
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/V2iDiskLib.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Symantec Ghost/Symantec Ghost/VPartition.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/autorun.inf
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/CopyRights.txt
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/README.txt
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer.exe
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer.ini
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Desktop.exe
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_ar.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_bg.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_cs.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_da.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_de.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_el.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_en.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_es.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_fi.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_fr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_he.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_hr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_hu.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_id.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_it.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_ja.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_ko.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_lt.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_nl.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_no.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_pl.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_pt.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_ro.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_ru.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_sk.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_sr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_sv.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_th.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_tr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_uk.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_vi.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_zhCN.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_Resource_zhTW.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/TeamViewer_StaticRes.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/tv_w32.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/tv_w32.exe
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/tv_x64.dll
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewer Portable/tv_x64.exe
+zzLastOSBuilder/03_WinBuilder/Temp/TeamViewer Portable/TeamViewerPortable.zip
+zzLastOSBuilder/03_WinBuilder/Temp/Template.script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/HD Tasks/TeraByte_Image_for_Windows_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/Network/GoogleChrome_109.0.5414.120_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/HD Tasks/SymantecGhost12_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/File Tasks/UnlockIT_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/Network/TeamViewerPortable_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/Tweaks/CustomIconPack_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MoPlugins/Apps/Security/MBAM3.6.1_Setup_XPE_File.Script

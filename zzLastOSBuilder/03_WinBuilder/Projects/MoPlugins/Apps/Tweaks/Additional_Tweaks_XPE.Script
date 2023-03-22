@@ -1,0 +1,311 @@
+[Main]
+Title=Additional Tweaks
+Type=XPEPlugin
+Author=MaloK
+Description=Misc Additional Tweaks.
+Credits=nexsolution.net
+Version=030
+Download_Level=2
+Level=5
+Selected=True
+Mandatory=False
+NoWarning=True
+Contact=
+Date=2019.08.26
+Depend=
+Disable=
+CertifiedBy=
+Certification=
+HistoryNotes01=Birth
+//--
+
+[Interface]
+=//--
+pBevel1=pBevel1,1,12,0,6,411,468
+pTextLabel1="Additional Tweaks",1,1,7,9,277,34,22,Normal
+pTextBox1=,1,0,232,210,170,21,,"__ Registered Owner Name"
+pTextBox2=,1,0,232,235,170,21,,"__ Registered Organization Name"
+pTextBox3=,1,0,232,290,170,21,30,"__ Border Width"
+pCheckBox1="File Explorer Ribbon Minimized",1,3,5,50,200,18,True
+pCheckBox2="Turn Off Notification Area",1,3,5,70,200,18,True
+pCheckBox3="Always show Icons in Control Panel",1,3,5,90,200,18,True
+pCheckBox4="Hide Recycle Bin Completely",1,3,5,110,200,18,False
+pCheckBox5="Keep NUMLock always on",1,3,5,130,200,18,True
+pCheckBox6="Hide Files Extensions",1,3,5,150,200,18,False
+pCheckBox7="Enable Auto-hide Tray Icons",1,3,5,170,200,18,True
+pCheckBox8="Do Not Confirm Deletion",1,3,5,190,200,18,False
+pCheckBox9="Expand File Operation dialog",1,3,5,210,200,18,False
+pCheckBox10="Show Explorer Status Bar",1,3,5,230,200,18,True
+pCheckBox11="Hide Recycle Bin From Desktop",1,3,5,250,200,18,True
+pCheckBox12="Disable Shake to Minimize",1,3,215,370,200,18,False
+pCheckBox13="Increase Icons Cache",1,3,5,290,200,18,True
+pCheckBox14="Enable Crash On Demand",1,3,215,50,200,18,False
+pCheckBox15="Remove Troubleshoot Compatibility",1,3,215,70,200,18,True
+pCheckBox16="Remove Send to",1,3,215,90,200,18,True
+pCheckBox17="Remove Give Access to",1,3,215,110,200,18,True
+pCheckBox18="Show All Drives",1,3,215,130,200,18,True
+pCheckBox19="Show Version on Desktop",1,3,215,150,200,18,True
+pCheckBox20="Show Seconds on Clock",1,3,215,170,200,18,False
+pCheckBox21="Registration Info",1,3,215,190,200,18,False,_RegInfo_,True
+pCheckBox22="Border Width (0-50)",1,3,215,270,200,18,True,_BorderWidth_,True
+pCheckBox23="Disable Narrator",1,3,5,310,200,18,True
+pCheckBox24="Disable ToolTips",1,3,5,330,200,18,True
+pCheckBox25="Disable Balloons",1,3,5,350,200,18,True
+pCheckBox26="Disable TaskBar Thumbnails",1,3,215,330,200,18,False
+pCheckBox27="Disable Experimentation",1,3,5,270,200,18,True
+pCheckBox28="Disable Dpi Scaling",1,3,5,370,200,18,True
+pCheckBox29="Disable Aero Snap",1,3,215,350,200,18,False,_DisableSnap_,True
+pCheckBox30="Disable Auto Colorization",1,3,5,390,200,18,False
+PCheckBox31="Disable Background Login Screen",1,3,5,410,200,18,True
+pCheckBox32="Disable Dock Moving Windows",1,3,215,390,200,18,True
+pCheckBox33="Disable Drag From Maximize",1,3,215,410,200,18,False
+pCheckBox34="Disable Use web service on open file",1,3,5,430,200,18,True
+pCheckBox35="NTFS Disable Last Acces Update",1,3,215,430,200,18,True
+pCheckBox36="Make Do This for all items the Default",1,3,5,450,200,18,True
+//--
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+//--
+Echo,"Loading Hives..."
+RegHiveLoad,Tmp_Default,%RegDefault%
+RegHiveLoad,Tmp_Software,%RegSoftware%
+RegHiveLoad,Tmp_System,%RegSystem%
+//--
+// Explorer Ribbon
+Echo,"File Explorer Ribbon Minimized=%PCheckBox1%"
+If,%PCheckBox1%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Policies\Microsoft\Windows\Explorer,ExplorerRibbonStartsMinimized,1
+If,%PCheckBox1%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Policies\Microsoft\Windows\Explorer,ExplorerRibbonStartsMinimized,0
+//--
+// Notification Area
+Echo,"Disable Notification Area=%PCheckBox2%"
+If,%PCheckBox2%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Policies\Microsoft\Windows\Explorer,DisableNotificationCenter,1
+If,%PCheckBox2%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Policies\Microsoft\Windows\Explorer,DisableNotificationCenter,0
+//--
+// Icons in Control Panel
+Echo,"Always Show Icons in Control Panel=%PCheckBox3%"
+If,%PCheckBox3%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,ForceClassicControlPanel,1
+If,%PCheckBox3%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,ForceClassicControlPanel,0
+//--
+// Recycle Bin
+Echo,"Show Recycle Bin=%PCheckBox4%"
+If,%PCheckBox4%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\NonEnum,{645FF040-5081-101B-9F08-00AA002F954E},1
+If,%PCheckBox4%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\NonEnum,{645FF040-5081-101B-9F08-00AA002F954E},0
+//--
+// NUMLock
+Echo,"Setting NUMLock On=%PCheckBox5%"
+If,%PCheckBox5%,Equal,True,RegWrite,HKLM,0x1,Tmp_Default\Control Panel\Keyboard,InitialKeyboardIndicators,2
+If,%PCheckBox5%,Equal,False,RegWrite,HKLM,0x1,Tmp_Default\Control Panel\Keyboard,InitialKeyboardIndicators,0
+//--
+// Files Extensions Explorer
+Echo,"Hide Files Extensions Explorer=%PCheckBox6%"
+If,%PCheckBox6%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,HideFileExt,1
+If,%PCheckBox6%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,HideFileExt,0
+//--
+// AutoTray
+Echo,"Enable AutoTray Icons=%PCheckBox7%"
+If,%PCheckBox7%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer,EnableAutoTray,1
+If,%PCheckBox7%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer,EnableAutoTray,0
+//--
+// Confirm Deletion
+Echo,"Do Not Confirm File Deletion=%PCheckBox8%"
+If,%PCheckBox8%,Equal,True,RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer,ShellState,24,00,00,00,37,a8,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,13,00,00,00,00,00,00,00,62,00,00,00
+If,%PCheckBox8%,Equal,True,RegWrite,HKLM,0x3,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer,ShellState,24,00,00,00,33,a8,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,13,00,00,00,00,00,00,00,62,00,00,00
+//--
+// Expand FileCopy dialog
+Echo,"Expand File Operation dialog=%PCheckBox9%"
+If,%PCheckBox9%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager,EnthusiastMode,1
+If,%PCheckBox9%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager,EnthusiastMode,0
+//--
+// Explorer Status Bar
+Echo,"Show Explorer Status Bar=%PCheckBox10%"
+If,%PCheckBox10%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowStatusBar,1
+If,%PCheckBox10%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowStatusBar,0
+//--
+// Recycle Bin Desktop
+Echo,"Hide Recycle Bin Desktop=%PCheckBox11%"
+If,%PCheckBox11%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu,{645FF040-5081-101B-9F08-00AA002F954E},1
+If,%PCheckBox11%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu,{645FF040-5081-101B-9F08-00AA002F954E},0
+If,%PCheckBox11%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel,{645FF040-5081-101B-9F08-00AA002F954E},1
+If,%PCheckBox11%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel,{645FF040-5081-101B-9F08-00AA002F954E},0
+//--
+// Aero Shake
+Echo,"Disable Shake=%PCheckBox12%"
+If,%PCheckBox12%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,DisallowShaking,1
+If,%PCheckBox12%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,DisallowShaking,0
+//--
+// Icons Cache
+Echo,"Increase Icons Cache=%PCheckBox13%"
+If,%PCheckBox13%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer,Max Cached Icons,4096
+If,%PCheckBox13%,Equal,false,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer,Max Cached Icons
+//--
+// Crash On Demand
+Echo,"Enable Crash On Demand=%PCheckBox14%"
+If,%PCheckBox14%,Equal,True,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Services\i8042prt\Parameters,CrashOnCtrlScroll,1
+If,%PCheckBox14%,Equal,false,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Services\i8042prt\Parameters,CrashOnCtrlScroll,0
+If,%PCheckBox14%,Equal,True,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Services\kbdhid\Parameters,CrashOnCtrlScroll,1
+If,%PCheckBox14%,Equal,false,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Services\kbdhid\Parameters,CrashOnCtrlScroll,0
+//--
+// Troubleshoot Compatibility
+Echo,"Remove Troubleshoot Compatibility=%PCheckBox15%"
+If,%PCheckBox15%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Classes\exefile\shellex\ContextMenuHandlers\Compatibility,,{-1d27f844-3a1f-4410-85ac-14651078412d}
+If,%PCheckBox15%,Equal,false,RegWrite,HKLM,0x1,Tmp_Software\Classes\exefile\shellex\ContextMenuHandlers\Compatibility,,{1d27f844-3a1f-4410-85ac-14651078412d}
+If,%PCheckBox15%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Classes\lnkfile\shellex\ContextMenuHandlers\Compatibility,,{-1d27f844-3a1f-4410-85ac-14651078412d}
+If,%PCheckBox15%,Equal,false,RegWrite,HKLM,0x1,Tmp_Software\Classes\lnkfile\shellex\ContextMenuHandlers\Compatibility,,{1d27f844-3a1f-4410-85ac-14651078412d}
+//--
+// Send to Menu
+Echo,"Remove Send to=%PCheckBox16%"
+If,%PCheckBox16%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo,,{-7BA4C740-9E81-11CF-99D3-00AA004AE837}
+If,%PCheckBox16%,Equal,false,RegWrite,HKLM,0x1,Tmp_Software\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo,,{7BA4C740-9E81-11CF-99D3-00AA004AE837}
+//--
+// Give Access to
+Echo,"Remove Give Access to=%PCheckBox17%"
+If,%PCheckBox17%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked,{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6},
+If,%PCheckBox17%,Equal,false,RegDelete,HKLM,Tmp_Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked,{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}
+//--
+// Show All Drives
+Echo,"Show All Drives=%PCheckBox18%"
+If,%PCheckBox18%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,Nodrives,0
+If,%PCheckBox18%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,Nodrives,1
+//--
+// Show Version on Desktop
+Echo,"Show Version on Desktop=%PCheckBox19%"
+If,%PCheckBox19%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Control Panel\Desktop,PaintDesktopVersion,1
+If,%PCheckBox19%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Control Panel\Desktop,PaintDesktopVersion,0
+//--
+// Show Seconds on Clock
+Echo,"Show Seconds on Clock=%PCheckBox20%"
+If,%PCheckBox20%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowSecondsInSystemClock,1
+If,%PCheckBox20%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowSecondsInSystemClock,0
+//--
+// Registered Owner
+Echo,"Change Registered Owner=%PCheckBox21%"
+If,%PCheckBox21%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows NT\CurrentVersion,RegisteredOwner,%pTextBox1%
+If,%PCheckBox21%,Equal,false,RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows NT\CurrentVersion,RegisteredOwner,
+If,%PCheckBox21%,Equal,True,RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows NT\CurrentVersion,RegisteredOrganization,%pTextBox2%
+If,%PCheckBox21%,Equal,false,RegWrite,HKLM,0x1,Tmp_Software\Microsoft\Windows NT\CurrentVersion,RegisteredOrganization,
+//--
+// Border Width
+Echo,"Setting Border Width=%PCheckBox22%"
+If,%PCheckBox22%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Control Panel\Desktop\WindowMetrics,BorderWidth,%PTextBox3%
+If,%PCheckBox22%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Control Panel\Desktop\WindowMetrics,BorderWidth,-15
+//--
+// Narrator
+Echo,"Disable Narrator=%PCheckBox23%"
+If,%PCheckBox23%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Narrator\Noroam,WinEnterLaunchEnabled,0
+If,%PCheckBox23%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Narrator\Noroam,WinEnterLaunchEnabled,1
+//--
+// ToolTips
+Echo,"Disable ToolTips=%PCheckBox24%"
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowInfoTip,0
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x1,Tmp_Default\Software\Stardock\Start8\Start8.ini\Start8,HideTips,1
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,FolderContentsInfoTip,0
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,StartButtonBalloonTip,0
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,StartButtonBalloonTip,0
+If,%PCheckBox24%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,FolderContentsInfoTip,0
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ShowInfoTip,1
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x1,Tmp_Default\Software\Stardock\Start8\Start8.ini\Start8,HideTips,0
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,FolderContentsInfoTip,1
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,StartButtonBalloonTip,1
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,StartButtonBalloonTip,1
+If,%PCheckBox24%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,FolderContentsInfoTip,1
+//--
+// Balloons
+Echo,"Disable Balloons=%PCheckBox25%"
+If,%PCheckBox25%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,EnableBalloonTips,0
+If,%PCheckBox25%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,EnableBalloonTips,1
+//--
+// TaskBar Thumbnails
+Echo,"Disable TaskBar Thumbnails=%PCheckBox26%"
+If,%PCheckBox26%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ExtendedUIHoverTime,30000
+If,%PCheckBox26%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced,ExtendedUIHoverTime,400
+//--
+// Experiment
+Echo,"Disable Experimentation=%PCheckBox27%"
+If,%PCheckBox27%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\PolicyManager\default\System\AllowExperimentation,value,0
+If,%PCheckBox27%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\PolicyManager\default\System\AllowExperimentation,value,1
+//--
+// Dpi Scaling
+Echo,"Disable DPi Scaling=%PCheckBox28%"
+If,%PCheckBox28%,Equal,True,RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",Win8DpiScaling,0
+If,%PCheckBox28%,Equal,false,RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",Win8DpiScaling,1
+//--
+// Aero Snap
+Echo,"Disable Snap=%PCheckBox29%"
+If,%PCheckBox29%,Equal,True,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WindowArrangementActive,0
+If,%PCheckBox29%,Equal,false,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",WindowArrangementActive,1
+//--
+// Auto Colorization
+Echo,"Disable Auto Colorization=%PCheckBox30%"
+If,%PCheckBox30%,Equal,True,RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,0
+If,%PCheckBox30%,Equal,false,RegWrite,HKLM,0x4,"Tmp_Default\Control Panel\Desktop",AutoColorization,1
+//--
+// Login BackGround
+Echo,"Disable Background Login Screen=%PCheckBox31%"
+If,%PCheckBox31%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Policies\Microsoft\Windows\System,DisableLogonBackgroundImage,1
+If,%PCheckBox31%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Policies\Microsoft\Windows\System,DisableLogonBackgroundImage,0
+//--
+// Disable Dock
+Echo,"Disable Dock=%PCheckBox32%"
+If,%PCheckBox32%,Equal,True,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",DockMoving,0
+If,%PCheckBox32%,Equal,false,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",DockMoving,1
+//--
+// Disable Drag
+Echo,"Disable Drag=%PCheckBox33%"
+If,%PCheckBox33%,Equal,True,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",DragFromMaximize,0
+If,%PCheckBox33%,Equal,false,RegWrite,HKLM,0x1,"Tmp_Default\Control Panel\Desktop",DragFromMaximize,1
+//--
+// Disable Use web service on open file
+Echo,"Disable Use web service on open file=%PCheckBox34%"
+If,%PCheckBox34%,Equal,True,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoInternetOpenWith,1
+If,%PCheckBox34%,Equal,false,RegWrite,HKLM,0x4,Tmp_Software\Microsoft\Windows\CurrentVersion\Policies\Explorer,NoInternetOpenWith,0
+//--
+// NTFS Disable Last Acces Update
+Echo,"NTFS Disable Last Acces Update=%PCheckBox35%"
+If,%PCheckBox35%,Equal,True,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Control\FileSystem,NtfsDisableLastAccessUpdate,80000001
+If,%PCheckBox35%,Equal,false,RegWrite,HKLM,0x4,Tmp_System\Controlset001\Control\FileSystem,NtfsDisableLastAccessUpdate,80000002
+//--
+// Make Do This for all items the Default
+Echo,"Make Do This for all items the Default=%PCheckBox36%"
+If,%PCheckBox36%,Equal,True,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager,ConfirmationCheckBoxDoForAll,1
+If,%PCheckBox36%,Equal,false,RegWrite,HKLM,0x4,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager,ConfirmationCheckBoxDoForAll,0
+//--
+Echo,"UnLoading Hives..."
+RegHiveUnLoad,Tmp_Default
+RegHiveUnLoad,Tmp_Software
+RegHiveUnload,Tmp_System
+Echo,"Processing %ScriptTitle% Completed..."
+//--
+
+[RegInfo]
+if,%pCheckBox21%,Equal,False,begin
+set,%pTextBox1%,"",permanent
+set,%pTextBox2%,"",permanent
+System,RefreshInterface
+end
+//--
+
+[BorderWidth]
+if,%pCheckBox22%,Equal,False,begin
+set,%pTextBox3%,"",permanent
+System,RefreshInterface
+end
+//--
+
+[DisableSnap]
+if,%pCheckBox29%,Equal,True,begin
+set,%pCheckBox32%,False,permanent
+set,%pCheckBox33%,False,permanent
+set,%pCheckBox12%,False,permanent
+Visible,%pCheckBox32%,False,permanent
+Visible,%pCheckBox33%,False,permanent
+Visible,%pCheckBox12%,False,permanent
+end
+if,%pCheckBox29%,Equal,False,begin
+Visible,%pCheckBox32%,True,permanent
+Visible,%pCheckBox33%,True,permanent
+Visible,%pCheckBox12%,True,permanent
+end
+System,RefreshInterface
+//--
+
