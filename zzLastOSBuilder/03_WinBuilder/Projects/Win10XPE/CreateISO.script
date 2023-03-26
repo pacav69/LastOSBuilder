@@ -21,7 +21,7 @@ Contact=
 %tmout%=5
 %DisplayMenu%=False
 %Usb7iceExe%=%GTools%\Usb7ice.exe
-%RufusExe%=%GTools%\rufus-3.21p.exe
+%RufusExe%=%GTools%\rufus-3.22p.exe
 %RufusIni%=%GTools%\rufus.ini
 //-
 %RegSoftware%=%GTarget_Sys%\config\SOFTWARE

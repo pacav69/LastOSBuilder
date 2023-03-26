@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+[PinUtil]
+TaskBar0=$Start_Menu\Programs\System Tools\WinXShell\Shutdown.lnk
+TaskBar1=%SystemRoot%\System32\cmd.exe
+TaskBar2=X:\Program Files\WinXShell\Explorer++.exe
+TaskBar3=X:\Program Files\SwiftSearch\SwiftSearch64.exe
+TaskBar4=%SystemRoot%\system32\mspaint.exe
+TaskBar5=%SystemRoot%\system32\SnippingTool.exe
+TaskBar6=%SystemRoot%\system32\Calc.exe
+TaskBar7=X:\Program Files\Acronis\TrueImageHome\TrueImage_starter.exe
+TaskBar8=X:\Program Files\Acronis\CyberProtectHomeOffice\TrueImage_starter.exe
+TaskBar9=X:\Program Files\Mozilla Firefox ESR_x64\Firefox.exe
+StartMenu0="X:\Program Files\WinXShell\WinXShell.exe" -ui -jcfg wxsUI\UI_Shutdown.zip\full.jcfg
+StartMenu1=X:\Program Files\Mozilla Firefox ESR_x64\Firefox.exe
+

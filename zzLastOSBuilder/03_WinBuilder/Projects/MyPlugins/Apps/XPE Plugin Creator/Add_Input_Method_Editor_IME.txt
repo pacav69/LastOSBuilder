@@ -1,0 +1,367 @@
+
+
+
+
+Add Input Method Editor (IME) to Windows PE
+Windows® 7 includes Windows® Preinstallation Environment (Windows PE) version 3.0. An Input Method Editor (IME) lets you type double-byte characters in some languages. For example, you can use an IME to type such characters in Japanese. By default, Windows PE version 3.0 does not include support for an IME. This article describes steps to add this support to Windows PE. To enable IME support in Windows 7, you must install the OEM Preinstallation Kit (OPK) or the Windows Automated Installation Kit (AIK) on the same language version of Windows 7 as the IME that you want to use. For example, for Japanese IME support, you must install the OPK or the AIK on a Japanese version of Windows 7.
+
+Known limitations
+In Windows PE, IME functionality does not work in command prompt windows.
+
+After all IME windows are closed, you must run Ctfmon.exe.
+
+When you use an IME in Windows PE, the Software Keyboard, the IME Configuration User Interface, and Embedded Software Development Process (EUDP) tools are unavailable.
+
+To add IME support
+Paste one of the following scripts to a text file. Then, save the text file by using the name that is provided here.
+
+Use one of the following options:
+
+To add support for a Traditional Chinese IME, paste this script to a new file that is named WinPEIMETC.txt.
+
+echo Preparing IME folder for WinPE.
+setlocal
+
+set WinPEWinDir=<Path to Windows Directory of your WinPE image (for example, C:\winpe_x86\Windows)>
+set IMEBinSrc=%windir%
+
+md %WinPEWinDir%\IME
+md %WinPEWinDir%\IME\IMETC10
+md %WinPEWinDir%\IME\IMETC10\DICTS
+md %WinPEWinDir%\IME\IMETC10\HELP
+md %WinPEWinDir%\System32\IME
+md %WinPEWinDir%\System32\IME\IMETC10
+md %WinPEWinDir%\System32\IME\shared
+
+rem SYSTEM32 folder (Cicero)
+%windir%\system32\xcopy %IMEBinSrc%\System32\CTFMON.EXE %WinPEWinDir%\System32\CTFMON.EXE /y /d
+%windir%\system32\xcopy %IMEBinSrc%\System32\MSUTB.DLL %WinPEWinDir%\System32\MSUTB.DLL /y /d
+%windir%\system32\xcopy %IMEBinSrc%\System32\MsCtfMonitor.DLL %WinPEWinDir%\System32\MsCtfMonitor.DLL /y /d
+%windir%\system32\xcopy %IMEBinSrc%\System32\PINTLGNT.IME %WinPEWinDir%\System32 /y /d
+
+%windir%\system32\xcopy %IMEBinSrc%\IME\IMETC10 %WinPEWinDir%\IME\IMETC10 /s /y /d
+
+rem IMETC10 folder
+%windir%\system32\xcopy %IMEBinSrc%\System32\IME\IMETC10 %WinPEWinDir%\System32\IME\IMETC10 /s /y /d
+
+rem shared folder
+%windir%\system32\xcopy %IMEBinSrc%\System32\IME\shared %WinPEWinDir%\System32\IME\shared /s /y /d
+
+rem Creating some batch files...
+@echo @echo off	> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MSUTB.DLL	 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MsCtfMonitor.DLL	>> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@for %%i in (IMEAPIS.DLL imecfm.dll IMEPADSM.DLL IMETIP.DLL imever.dll MSCAND20.DLL) do @echo REGSVR32 /S %%WinDir%%\System32\IME\shared\%%i >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@for %%i in (ImTCCfg.DLL ImTCCore.dll IMTCTIP.dll imtcui.DLL) do @echo REGSVR32 /S %%WinDir%%\System32\IME\IMETC10\%%i >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@rem @echo REG ADD "HKLM\Software\Microsoft\CTF" /v "StartOnNoTaskEng" /t REG_DWORD /d 1 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}	^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}\LanguageProfile	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}\LanguageProfile\0x00000404   ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}\LanguageProfile\0x00000404\{B2F9C502-1742-11D4-9790-0080C882687E} ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}\LanguageProfile\0x00000404\{B2F9C502-1742-11D4-9790-0080C882687E} /v "Enable" /t REG_DWORD /d 1 ^>  nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder   ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem	^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31} ^>   nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "CLSID" /d "{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}" ^>  nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "Profile" /d "{B2F9C502-1742-11D4-9790-0080C882687E}" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "KeyboardLayout" /t REG_DWORD /d 0 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\Language /v "00000000" /d "00000404" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\HiddenDummyLayouts /v "00000404" /d "00000404" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Default" /d "{531FDEBF-9B4C-4A43-A2AA-960E8FCDC732}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Profile" /d "{B2F9C502-1742-11D4-9790-0080C882687E}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000404\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "KeyboardLayout" /t REG_DWORD /d "04040404" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo start CTFMON.EXE >> %WinPEWinDir%\System32\IME\IMEReg.CMD @if not exist %WinPEWinDir%\System32\startnet.org copy %WinPEWinDir%\System32\startnet.cmd %WinPEWinDir%\System32\startnet.org
+
+@echo @echo off > %WinPEWinDir%\System32\STARTNET.CMD @echo echo Preparing WinPE ...	>> %WinPEWinDir%\System32\STARTNET.CMD @type %WinPEWinDir%\System32\STARTNET.org >> %WinPEWinDir%\System32\STARTNET.CMD
+@echo @echo. >> %WinPEWinDir%\System32\STARTNET.CMD @echo Call %%WinDir%%\System32\IME\IMEReg.CMD	> %WinPEWinDir%\System32\STARTNET.CMD
+
+endlocal
+To add support for a Simplified Chinese IME, paste this script to a new file that is named WinPEIMESC.txt.
+
+echo Preparing IME folder for WinPE.
+setlocal
+
+set WinPEWinDir=<Path to Windows Directory of your WinPE image (for example, C:\winpe_x86\Windows)>
+set IMEBinSrc=%windir%
+
+md %WinPEWinDir%\IME md %WinPEWinDir%\IME\IMESC5
+md %WinPEWinDir%\IME\IMESC5\DICTS md %WinPEWinDir%\IME\IMESC5\HELP
+md %WinPEWinDir%\System32\IME md %WinPEWinDir%\System32\IME\IMESC5
+md %WinPEWinDir%\System32\IME\shared
+
+rem SYSTEM32 folder (Cicero)
+%windir%\system32\xcopy %IMEBinSrc%\System32\CTFMON.EXE %WinPEWinDir%\System32\CTFMON.EXE /y /d %windir%\system32\xcopy %IMEBinSrc%\System32\MSUTB.DLL %WinPEWinDir%\System32\MSUTB.DLL /y /d %windir%\system32\xcopy %IMEBinSrc%\System32\MsCtfMonitor.DLL %WinPEWinDir%\System32\MsCtfMonitor.DLL /y /d
+%windir%\system32\xcopy %IMEBinSrc%\System32\PINTLGNT.IME %WinPEWinDir%\System32 /y /d %windir%\system32\xcopy %IMEBinSrc%\IME\IMESC5 %WinPEWinDir%\IME\IMESC5 /s /y /d
+
+rem IMESC5 folder
+%windir%\system32\xcopy %IMEBinSrc%\System32\IME\IMESC5 %WinPEWinDir%\System32\IME\IMESC5 /s /y /d
+
+rem shared folder
+%windir%\system32\xcopy %IMEBinSrc%\System32\IME\shared %WinPEWinDir%\System32\IME\shared /s /y /d
+
+rem Creating some batch files...
+@echo @echo off	> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MSUTB.DLL   >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MsCtfMonitor.DLL	>> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@for %%i in (IMEAPIS.DLL imecfm.dll IMEPADSM.DLL IMETIP.DLL imever.dll IMJKAPI.DLL MSCAND20.DLL) do @echo REGSVR32 /S %%WinDir%%\System32\IME\shared\%%i >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@for %%i in (ImSCCfg.DLL ImSCCore.dll IMSCTIP.dll imscui.DLL PMIGRATE.dll) do @echo REGSVR32 /S %%WinDir%%\System32\IME\IMESC5\%%i >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@rem @echo REG ADD "HKLM\Software\Microsoft\CTF" /v "StartOnNoTaskEng" /t REG_DWORD /d 1   ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile\0x00000804	^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile\0x00000804\{F3BA9077-6C7E-11D4-97FA-0080C882687E}   ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}\LanguageProfile\0x00000804\{F3BA9077-6C7E-11D4-97FA-0080C882687E} /v "Enable" /t REG_DWORD /d 1 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem	^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31} ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "CLSID" /d "{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "Profile" /d "{F3BA9077-6C7E-11D4-97FA-0080C882687E}"					^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "KeyboardLayout" /t REG_DWORD /d 0 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @rem @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\Language /v "00000000" /d "00000804"	 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD HKCU\Software\Microsoft\CTF\HiddenDummyLayouts /v "00000804" /d "00000804" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Default" /d "{00000000-0000-0000-0000-000000000000}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Profile" /d "{00000000-0000-0000-0000-000000000000}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000804\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "KeyboardLayout" /t REG_DWORD /d "00000804" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo start CTFMON.EXE >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@if not exist %WinPEWinDir%\System32\startnet.org copy %WinPEWinDir%\System32\startnet.cmd %WinPEWinDir%\System32\startnet.org
+
+@echo @echo off   > %WinPEWinDir%\System32\STARTNET.CMD
+@echo echo Preparing WinPE ...	>> %WinPEWinDir%\System32\STARTNET.CMD @type %WinPEWinDir%\System32\STARTNET.org >> %WinPEWinDir%\System32\STARTNET.CMD
+@echo @echo.	 >> %WinPEWinDir%\System32\STARTNET.CMD
+@echo Call %%WinDir%%\System32\IME\IMEReg.CMD	>> %WinPEWinDir%\System32\STARTNET.CMD
+
+endlocal
+To add support for a Japanese IME, paste this script to a new file that is named WinPEIMEJP.txt.
+
+echo Preparing IME folder for WinPE.
+setlocal
+
+set WinPEWinDir=<Path to Windows Directory of your WinPE image (for example, C:\winpe_x86\Windows)>
+set IMEBinSrc=%windir% md %WinPEWinDir%\IME md %WinPEWinDir%\IME\IMEJP10
+md %WinPEWinDir%\IME\IMEJP10\DICTS
+
+md %WinPEWinDir%\System32\IME
+md %WinPEWinDir%\System32\IME\IMEJP10
+md %WinPEWinDir%\System32\IME\shared
+
+rem SYSTEM32 folder (Cicero)
+copy /y %IMEBinSrc%\System32\CTFMON.EXE %WinPEWinDir%\System32\CTFMON.EXE
+copy /y %IMEBinSrc%\System32\MSUTB.DLL %WinPEWinDir%\System32\MSUTB.DLL
+copy /y %IMEBinSrc%\System32\MsCtfMonitor.DLL %WinPEWinDir%\System32\MsCtfMonitor.DLL
+
+rem DICTS folder
+copy /y %IMEBinSrc%\IME\IMEJP10\DICTS\IMJPST.DIC %WinPEWinDir%\IME\IMEJP10\DICTS\IMJPST.DIC
+copy /y %IMEBinSrc%\IME\IMEJP10\DICTS\IMJPGN.GRM %WinPEWinDir%\IME\IMEJP10\DICTS\IMJPGN.GRM
+
+rem SYSTEM32 folder
+copy /y %IMEBinSrc%\System32\IMJP10.IME %WinPEWinDir%\System32\IMJP10.IME copy /y %IMEBinSrc%\System32\IMJP10K.DLL %WinPEWinDir%\System32\IMJP10K.DLL
+
+rem IMEJP10 folder
+copy /y %IMEBinSrc%\System32\IME\IMEJP10\IMJPAPI.DLL %WinPEWinDir%\System32\IME\IMEJP10\IMJPAPI.DLL
+copy /y %IMEBinSrc%\System32\IME\IMEJP10\IMJPTIP.DLL %WinPEWinDir%\System32\IME\IMEJP10\IMJPTIP.DLL
+copy /y %IMEBinSrc%\System32\IME\IMEJP10\IMJPMGR.EXE %WinPEWinDir%\System32\IME\IMEJP10\IMJPMGR.EXE
+
+rem shared folder
+copy /y %IMEBinSrc%\System32\IME\shared\IMEAPIS.DLL %WinPEWinDir%\System32\IME\shared\IMEAPIS.DLL
+copy /y %IMEBinSrc%\System32\IME\shared\IMETIP.DLL %WinPEWinDir%\System32\IME\shared\IMETIP.DLL
+copy /y %IMEBinSrc%\System32\IME\shared\IMJKAPI.DLL %WinPEWinDir%\System32\IME\shared\IMJKAPI.DLL
+copy /y %IMEBinSrc%\System32\IME\shared\MSCAND20.DLL %WinPEWinDir%\System32\IME\shared\MSCAND20.DLL
+
+rem Creating some batch files...
+@echo @echo off > %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REGSVR32 /S %%WinDir%%\System32\MSUTB.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MsCtfMonitor.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IMJP10K.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMETIP.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMEAPIS.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMJKAPI.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\MSCAND20.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\IMEJP10\IMJPTIP.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\IMEJP10\IMJPAPI.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@rem @echo REG ADD "HKLM\Software\Microsoft\CTF" /v "StartOnNoTaskEng" /t REG_DWORD /d 1 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEJP" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEJP\10.0" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEJP\10.0\directories" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEJP\10.0\directories" /v "DictionaryPath" /t REG_EXPAND_SZ /d %%SystemRoot%%\IME\IMEJP10\DICTS ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD "HKLM\Software\Microsoft\IMEJP\10.0\directories" /v "ModulePath" /t REG_EXPAND_SZ /d %%SystemRoot%%\System32\IME\IMEJP10 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{03B5835F-F03C-411B-9CE2-AA23E1171E36} ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{03B5835F-F03C-411B-9CE2-AA23E1171E36}\LanguageProfile ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{03B5835F-F03C-411B-9CE2-AA23E1171E36}\LanguageProfile\0x00000411 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{03B5835F-F03C-411B-9CE2-AA23E1171E36}\LanguageProfile\0x00000411\{A76C93D9-5523-4E90-AAFA-4DB112F9AC76} ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{03B5835F-F03C-411B-9CE2-AA23E1171E36}\LanguageProfile\0x00000411\{A76C93D9-5523-4E90-AAFA-4DB112F9AC76} /v "Enable" /t REG_DWORD /d 1 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31} ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "CLSID" /d "{03B5835F-F03C-411B-9CE2-AA23E1171E36}" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "Profile" /d "{A76C93D9-5523-4E90-AAFA-4DB112F9AC76}" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "KeyboardLayout" /t REG_DWORD /d 0 ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\Language /v "00000000" /d "00000411" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\HiddenDummyLayouts /v "00000411" /d "00000411" ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Default" /d "{03B5835F-F03C-411B-9CE2-AA23E1171E36}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Profile" /d "{A76C93D9-5523-4E90-AAFA-4DB112F9AC76}" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000411\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "KeyboardLayout" /t REG_DWORD /d "04110411" /f ^> nul >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo start CTFMON.EXE >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@if not exist %WinPEWinDir%\System32\startnet.org copy %WinPEWinDir%\System32\startnet.cmd %WinPEWinDir%\System32\startnet.org
+@echo @echo off > %WinPEWinDir%\System32\STARTNET.CMD @echo echo Preparing WinPE ...	 >> %WinPEWinDir%\System32\STARTNET.CMD
+@type %WinPEWinDir%\System32\STARTNET.org		 >> %WinPEWinDir%\System32\STARTNET.CMD
+@echo @echo. >> %WinPEWinDir%\System32\STARTNET.CMD @echo Call %%WinDir%%\System32\IME\IMEReg.CMD	 >> %WinPEWinDir%\System32\STARTNET.CMD
+
+endlocal
+To add support for a Korean IME, paste this script to a new file that is named WinPEIMEKR.txt.
+
+echo Preparing IME folder for WinPE.
+setlocal
+
+set WinPEWinDir=<Path to Windows Directory of your WinPE image (for example, C:\winpe_x86\Windows)>
+set IMEBinSrc=%windir%
+
+md %WinPEWinDir%\IME
+md %WinPEWinDir%\IME\IMEKR8
+md %WinPEWinDir%\IME\IMEKR8\DICTS
+md %WinPEWinDir%\System32\IME
+md %WinPEWinDir%\System32\IME\IMEKR8
+md %WinPEWinDir%\System32\IME\IMEKR8\DICTS
+md %WinPEWinDir%\System32\IME\shared
+
+rem Fonts folder
+copy /y %IMEBinSrc%\Fonts\gulim.ttc %WinPEWinDir%\Fonts\gulim.ttc
+
+rem SYSTEM32 folder (Cicero)
+copy /y %IMEBinSrc%\System32\CTFMON.EXE %WinPEWinDir%\System32\CTFMON.EXE
+copy /y %IMEBinSrc%\System32\MSUTB.DLL %WinPEWinDir%\System32\MSUTB.DLL
+copy /y %IMEBinSrc%\System32\MsCtfMonitor.DLL %WinPEWinDir%\System32\MsCtfMonitor.DLL
+
+rem DICTS folder
+copy /y %IMEBinSrc%\IME\IMEKR8\DICTS\IMKRHJD.LEX %WinPEWinDir%\IME\IMEKR8\DICTS\IMKRHJD.LEX rem SYSTEM32 folder
+copy /y %IMEBinSrc%\System32\IMKR80.IME %WinPEWinDir%\System32\IMKR80.IME
+
+rem IMEKR8 folder
+copy /y %IMEBinSrc%\System32\IME\IMEKR8\IMKRAPI.DLL %WinPEWinDir%\System32\IME\IMEKR8\IMKRAPI.DLL
+copy /y %IMEBinSrc%\System32\IME\IMEKR8\IMKRTIP.DLL %WinPEWinDir%\System32\IME\IMEKR8\IMKRTIP.DLL copy /y %IMEBinSrc%\System32\IME\IMEKR8\DICTS\IMKRHJD.DLL %WinPEWinDir%\System32\IME\IMEKR8\DICTS\IMKRHJD.DLL
+
+rem shared folder
+copy /y %IMEBinSrc%\System32\IME\shared\IMEAPIS.DLL %WinPEWinDir%\System32\IME\shared\IMEAPIS.DLL
+copy /y %IMEBinSrc%\System32\IME\shared\IMETIP.DLL %WinPEWinDir%\System32\IME\shared\IMETIP.DLL
+copy /y %IMEBinSrc%\System32\IME\shared\IMJKAPI.DLL %WinPEWinDir%\System32\IME\shared\IMJKAPI.DLL copy /y %IMEBinSrc%\System32\IME\shared\MSCAND20.DLL %WinPEWinDir%\System32\IME\shared\MSCAND20.DLL
+
+rem Creating some batch files...
+@echo @echo off > %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MSUTB.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\MsCtfMonitor.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMETIP.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMEAPIS.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\IMJKAPI.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\shared\MSCAND20.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\IMEKR8\IMKRTIP.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\IMEKR8\IMKRAPI.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REGSVR32 /S %%WinDir%%\System32\IME\IMEKR8\DICTS\IMKRHJD.DLL >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\CTF" /v "StartOnNoTaskEng" /t REG_DWORD /d 1 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEKR" >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD "HKLM\Software\Microsoft\IMEKR\8.0" >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD "HKLM\Software\Microsoft\IMEKR\8.0" /v "Dictionary" /t REG_EXPAND_SZ /d %%SystemRoot%%\IME\IMEKR8\DICTS\IMKRHJD.LEX >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEKR\8.0\directories" >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEKR\8.0\directories" /v "DictionaryPath" /t REG_EXPAND_SZ /d %%SystemRoot%%\IME\IMEKR8\DICTS >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD "HKLM\Software\Microsoft\IMEKR\8.0\directories" /v "ModulePath" /t REG_EXPAND_SZ /d %%SystemRoot%%\System32\IME\IMEKR8 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F} >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile\0x00000412 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile\0x00000412\{B5FE1F02-D5F2-4445-9C03-C568F23C99A1} >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\TIP\{A028AE76-01B1-46C2-99C4-ACD9858AE02F}\LanguageProfile\0x00000412\{B5FE1F02-D5F2-4445-9C03-C568F23C99A1} /v "Enable" /t REG_DWORD /d 1 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31} >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "CLSID" /d "{A028AE76-01B1-46C2-99C4-ACD9858AE02F}" >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "Profile" /d "{B5FE1F02-D5F2-4445-9C03-C568F23C99A1}" >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\AssemblyItem\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31}\00000000 /v "KeyboardLayout" /t REG_DWORD /d 0 >> %WinPEWinDir%\System32\IME\IMEReg.CMD @echo REG ADD HKCU\Software\Microsoft\CTF\SortOrder\Language /v "00000000" /d "00000412" >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\HiddenDummyLayouts /v "00000412" /d "00000412" >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Default" /d "{A028AE76-01B1-46C2-99C4-ACD9858AE02F}" /f >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "Profile" /d "{B5FE1F02-D5F2-4445-9C03-C568F23C99A1}" /f >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+@echo REG ADD HKCU\Software\Microsoft\CTF\Assemblies\0x00000412\{34745C63-B2F0-4784-8B67-5E12C8701A31} /v "KeyboardLayout" /t REG_DWORD /d "04120412" /f >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@echo start CTFMON.EXE >> %WinPEWinDir%\System32\IME\IMEReg.CMD
+
+@if not exist %WinPEWinDir%\System32\startnet.org copy %WinPEWinDir%\System32\startnet.cmd %WinPEWinDir%\System32\startnet.org
+
+@echo @echo off							 > %WinPEWinDir%\System32\STARTNET.CMD
+@echo echo Preparing WinPE ...				>> %WinPEWinDir%\System32\STARTNET.CMD
+@type %WinPEWinDir%\System32\STARTNET.org	 >> %WinPEWinDir%\System32\STARTNET.CMD
+@echo @echo.								>> %WinPEWinDir%\System32\STARTNET.CMD
+@echo Call %%WinDir%%\System32\IME\IMEReg.CMD >> %WinPEWinDir%\System32\STARTNET.CMD
+
+endlocal
+Open the file that you created in step 1 in a text editor. For example, open the file in Notepad.
+
+Select the following text, and then type C:\winpe_x86\Windows to replace it.
+
+<Path to Windows Directory of your WinPE image (for example, C:\winpe_x86\Windows)>
+Save the file, and then exit Notepad.
+
+Rename the file by using the .cmd file name extension. For example, rename WinPEIMETC.txt as WinPEIMETC.cmd
+
+	Important:
+This step creates a batch file that copies files to the C:\winpe_x86 folder. The batch file also creates a Startnet.cmd file in the C:\winpe_x86\Windows\System32\IME folder.
+
+Install the OPK or the Windows AIK.
+
+Start the Windows PE Tools command prompt by using an account that has administrative credentials.
+
+	Important:
+Make sure that you start a version of Windows PE that has the appropriate language packs installed. For example, for Japanese IME support, the Japanese language packs must be installed. For more information about how to add and configure language packs for Windows PE, see the Winpe.chm file.
+
+Type the following commands. After each line, press ENTER.
+
+	Note:
+If you are using a localized OPK or a localized AIK, you do not have to follow this step. By default, the localized version uses these settings.
+
+copype x86 C:\winpe_x86
+imagex /mountrw C:\winpe_x86\winpe.wim 1 C:\winpe_x86\mount
+Navigate to the following directory:
+
+cd "C:\Program Files\Windows OPK\Tools\x86\Servicing"
+Type one of the following sets of commands, according to the language you want to use. After each line, press ENTER.
+
+Simplified Chinese
+
+DISM.exe /image:C:\winpe_x86\mount /Add-Package /PackagePath:"C:\Program Files\Windows OPK\Tools\PETools\x86\WinPE_FPs\winpe-fontsupport-zh-cn.cab"
+DISM.exe /image:C:\winpe_x86\mount /Set-UILang:zh-cn
+Japanese
+
+DISM.exe /image:C:\winpe_x86\mount /Add-Package /PackagePath:"C:\Program Files\Windows OPK\Tools\PETools\x86\WinPE_FPs\winpe-fontsupport-ja-jp.cab"
+DISM.exe /image:C:\winpe_x86\mount /Set-UILang:ja-jp
+Traditional Chinese
+
+DISM.exe /image:C:\winpe_x86\mount /Add-Package /PackagePath:"C:\Program Files\Windows OPK\Tools\PETools\x86\WinPE_FPs\winpe-fontsupport-zh-tw.cab"
+DISM.exe /image:C:\winpe_x86\mount /Set-UILang:zh-tw
+Korean
+
+DISM.exe /image:C:\winpe_x86\mount /Add-Package /PackagePath:"C:\Program Files\Windows OPK\Tools\PETools\x86\WinPE_FPs\winpe-fontsupport-ko-kr.cab"
+DISM.exe /image:C:\winpe_x86\mount /Set-UILang:ko-kr
+Run the batch file that you created in step 5.
+
+Type the following commands at the Windows PE Tools command prompt. After each line, press ENTER.
+
+imagex /unmount /commit C:\winpe_x86\mount
+imagex /export C:\winpe_x86\winpe.wim 1 C:\winpe_x86\boot.wim
+copy /y C:\winpe_x86\boot.wim C:\winpe_x86\ISO\sources\boot.wim
+oscdimg -n -bC:\winpe_x86\etfsboot.com C:\winpe_x86\ISO C:\WinPE_JPN_IME.iso
+	Note:
+This directory example (JPN) indicates Japanese. Insert the appropriate name for the language you are using.
+
+Exit the Windows PE Tools command prompt.
+
+See Also
+Add a Language Pack to a Windows PE Image
+Click here to send feedback on this topic.
+
+Legal Notices
+
+
+Build Date: 2010-05-26
+English-to-Russian translation
