@@ -1,0 +1,198 @@
+[Main]
+Title=BlankAndSecure
+Type=XPEPlugin
+Description=(v) The BlankAndSecure is a portable tool to securely delete the data. Secure delete files are required to block the recovering of deleted data. Secure deletion is possible with this program, because "Blank And Secure" overwrites the data with zeros
+Author=pc
+Date=2023.03.26
+Credits=TheOven.org Forum
+Contact=
+Version=006
+Level=5
+Download_Level=2
+Selected=True
+Mandatory=False
+NoWarning=False
+History001=pc Initial XPE Packed Application Created 2023.03.26
+History002=User - Auto Updated Container v - 2023.03.26
+History003=User - Auto Updated Container v - 2023.03.26
+History004=User - Auto Updated Container v - 2023.03.26
+History005=User - Auto Updated Container v - 2023.03.26
+History006=User - Auto Updated Container v - 2023.03.26
+
+[Interface]
+Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,False,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
+TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,False,"__Add Pin To Taskbar Shortcut"
+StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
+Image_Software=BlankAndSecure4848.ico,1,5,145,35,48,48
+Button_Launch_Program=Launch,1,8,10,142,119,25,Launch_Program,Launch.bmp,False,"__Click Here To Launch Program"
+Prefer_ProvideFile_CheckBox="Use My Provided File",1,3,10,200,200,18,False,"__Select This Option To Use The Provided File"
+Download_Button=,1,8,10,170,25,25,Download,Web.bmp,False,"__Click Here To Download Program File"
+ProvideFile_Opendir_Button=,1,8,42,170,25,25,ProvideFiles_OpenDir_P_B,opendir.bmp,False,"__Click Here To Open DownLoad Folder:"
+ProvideFile_Delete_Button=,1,8,73,170,25,25,Purge_Cache,trash.bmp,False,"__Click Here To Empty Download Folder Cache"
+Button_Example_Info=,1,8,105,170,25,25,Example_Information,Exclamation.bmp,False,"__Click Here To View Information File"
+HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.softwareok.com/?Download=BlankAndSecure
+Update_Container_Button=Update,1,8,540,4,47,14,Update_Container,0,False,_Update_Container_,False,"__Update-Encode File Container"
+ProgramVer_TextBox="Program Version:",1,0,450,20,82,21,7.3.3.0,"__Program File Version To Download"
+
+[Variables]
+%ProgramTitle%=BlankAndSecure
+%ProgramExe%=BlankAndSecure.exe
+%ProgramExex64%=BlankAndSecure_x64.exe
+%ProgramFolder%=BlankAndSecure
+%ProgramFolderx64%=BlankAndSecure_x64
+%SetupFile%=BlankAndSecure.zip
+%SetupFilex64%=BlankAndSecure_x64.zip
+%SetupURL%=https://www.softwareok.com/Download/BlankAndSecure.zip
+%SetupURLx64%=https://www.softwareok.com/Download/BlankAndSecure_x64.zip
+%ProvideFiles%=%ProgCache%\%ProgramFolder%
+%FileContainer%=%ScriptDir%\BlankAndSecure_XPE_File.Script
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistFile,%FileContainer%,Exit,"%FileContainer% File Container Not Found"
+//If,%Architecture%%WoW64Support%,Equal,x64False,EchoExtended,"You Need To Enable WoW64 Basic To Run %ProgramTitle% In A 64-Bit Build",,,Message,2,Exit
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+//--Used To Enable (TargetAppDataLocal-TargetAppDataRoaming-TargetProgramData) Variables
+//AddVariables,%ProjectDir%\script.project,TargetBasePath
+//--
+Run,%ScriptFile%,Extract
+//--
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+DirCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%,%Target_Prog%
+//--
+Run,%ScriptFile%,Add_Shortcuts
+//--
+// Delete or Comment AddFiles And(Or) AddFiles6432 and Sections If no Dependencies Required
+ExtractSectionFiles,%ScriptFile%,AddFiles
+//If,%Architecture%,Equal,x64,ExtractSectionFiles,%ScriptFile%,AddFiles6432
+//--
+Run,%ScriptFile%,Add_Registry
+//--
+Run,%ScriptFile%,Add_Associations
+
+[AddFilesInfo]
+//- Extract files or folders from Install.wim image. Script Commands are not allowed
+//- Each path must be specified as an absolute path starting from the root.
+//- Wildcard char �?� and �*� are allowed. A comment begins with ;; (semicolon). ;;Example Comment
+//- Use AddFiles6432 for 32Bit Only Apps On x64 Build with WoW64 Basic Enabled in Build Core
+
+[AddFiles]
+\Windows\System32\xxx.dll
+\Windows\System32\??-??\xxx.dll.mui
+
+[AddFiles6432]
+\Windows\SysWOW64\xxx.dll
+\Windows\SysWOW64\??-??\xxx.dll.mui
+
+[Add_Registry]
+Echo,"Writing %ScriptTitle% Registry Settings..."
+//- Add Registry Values <-- Use RegCPE
+
+[Add_Associations]
+//- Associate,Ext <-- Three Letter File Extension
+
+[Add_Shortcuts]
+If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
+
+[Extract]
+Set,%SetupContainerSize%,""
+IniRead,%FileContainer%,Folder,%SetupFile%,%SetupContainerSize%
+If,%SetupContainerSize%-,Equal,-,Run,%ScriptFile%,Update_Container
+//--
+Echo,"Extracting %ScriptTitle% Setup File..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+//--
+If,%Prefer_ProvideFile_CheckBox%,Equal,True,Begin
+If,ExistFile,%ProvideFiles%\%SetupFile%,Begin
+FileCopy,%ProvideFiles%\%SetupFile%,%GTemp%\%ProgramFolder%
+End
+End
+Else,ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
+//--
+//ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -aou -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
+
+[PluginSetx64]
+Set,%ProgramExe%,%ProgramExex64%
+Set,%ProgramFolder%,%ProgramFolderx64%
+Set,%SetupFile%,%SetupFilex64%
+Set,%SetupURL%,%SetupURLx64%
+
+[Launch_Program]
+If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Run,%ScriptFile%,Extract
+OpenDir,%GTemp%\%ProgramFolder%\%ProgramFolder%
+//Start,,%ProgramExe%,,%GTemp%\%ProgramFolder%\%ProgramFolder%
+
+[Update_Container]
+Exec,%FileContainer%,Process
+
+[ProvideFiles_OpenDir_P_B]
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+OpenDir,%ProvideFiles%
+
+[Purge_Cache]
+If,ExistDir,%ProvideFiles%,DirDeleteQ,%ProvideFiles%
+If,Not,ExistFile,%ProvideFiles%\%SetupFile%,Message,"Your Download Folder Has Been Cleared.",Information
+
+[Example_Information]
+//Echo,"Information on Message Box"
+Message,"Example Message...............................",Information
+//ExtractAndRun,%ScriptFile%,Folder,ReadMe.txt
+
+[AuthorEncoded]
+BlankAndSecure4848.ico=499,666
+Logo=BlankAndSecure4848.ico
+
+[EncodedFile-AuthorEncoded-BlankAndSecure4848.ico]
+lines=0
+0=eJztmUFugzAQRQd1wTK7btNNpC5zA1+lN4Hj5Bj0JhyBJQtadxxMaiMcTGwzDOJH8Mko2G/IjGMpABm+rlfA8wfcLgDvAPCJB4bgC/q4UnmBWVVVJaeO+TuXKdXYnPld7CnziCGEkksOat6xdsM/1kycktms51f5+0s69oPfDKXXMK+TP9KRkn3X/AH1Y8ajck+Mn4o/JvdkHge/M56S3Zt/I73qzGHv/AvrZ012U6H8VNym9sQ/aM11JvVzSNWnFPsNjvzWXJG+662tY77yWR+oGZ+JM/+zdZhiH+UrLnsSlzjz+9SJT3x17hc5t9LX3PkfeTDnt3IJ6OMt9DR3fiuHgLrizk+ZA3d+UyH8Q5zy/7gYvXzwB/AT1c/UOAc/LX9/ScO/aM6Iv+sUewnu/FtWI2RXyH+vT32hlfnIM7QOXZVla7qQslaOH6xGDsrP+v3gQrvU92nP9Hi5nkc78vyogTohm8LwXyHrom+SUtgOp7t3SGB6C9nda10Eg7fa8SQsLx9+trxRz83p3yOv0N/QS/TccN3Qf+et88B4nBNzyknMy3bMSwlOTS4tSjWxMLHQy0zOZxgFIwPsU4XQcxmxy7fv0VVnYAIAgcgK1IzugeEBAAAAAgAAADIAAACdAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[InterfaceEncoded]
+BlankAndSecure4848.ico=499,666
+Launch.bmp=913,1218
+Web.bmp=676,902
+opendir.bmp=571,762
+trash.bmp=867,1156
+Exclamation.bmp=452,603
+
+[EncodedFile-InterfaceEncoded-BlankAndSecure4848.ico]
+lines=0
+0=eJztmUFugzAQRQd1wTK7btNNpC5zA1+lN4Hj5Bj0JhyBJQtadxxMaiMcTGwzDOJH8Mko2G/IjGMpABm+rlfA8wfcLgDvAPCJB4bgC/q4UnmBWVVVJaeO+TuXKdXYnPld7CnziCGEkksOat6xdsM/1kycktms51f5+0s69oPfDKXXMK+TP9KRkn3X/AH1Y8ajck+Mn4o/JvdkHge/M56S3Zt/I73qzGHv/AvrZ012U6H8VNym9sQ/aM11JvVzSNWnFPsNjvzWXJG+662tY77yWR+oGZ+JM/+zdZhiH+UrLnsSlzjz+9SJT3x17hc5t9LX3PkfeTDnt3IJ6OMt9DR3fiuHgLrizk+ZA3d+UyH8Q5zy/7gYvXzwB/AT1c/UOAc/LX9/ScO/aM6Iv+sUewnu/FtWI2RXyH+vT32hlfnIM7QOXZVla7qQslaOH6xGDsrP+v3gQrvU92nP9Hi5nkc78vyogTohm8LwXyHrom+SUtgOp7t3SGB6C9nda10Eg7fa8SQsLx9+trxRz83p3yOv0N/QS/TccN3Qf+et88B4nBNzyknMy3bMSwlOTS4tSjWxMLHQy0zOZxgFIwPsU4XQcxmxy7fv0VVnYAIAgcgK1IzugeEBAAAAAgAAADIAAACdAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Web.bmp]
+lines=0
+0=eJxz8jViYQADMyDWAGJhIBYEYkYGCbD4H2YGDPCfXIDQ+/c7EP37eu3P7++vXr3q7OwsDg7ITwgBora2tj179ly9evX79+/oen9//L1P5+9RSyD6d1bn/8Ww//cy/98P3n2neOHcQiA6Nj3l6b6cTRvXHzt27DMYwPX+3mX9/8dDCPfK1umbMnW/XdD8f3fG/5dv/784CkR/X207sbj9aH/Exw8f0Oz9tU0eyPj94ycQdVjrpZSbsUQzh8yL/vSw9/+LdSD0Dajl5bbm/HlxdlTU+3sHF5DRZK0KRC36SutNdBkn8knt0t4W5XBl+iQg+nz3/Psbp6ZZqnVY6FzZvR6IEGH199v/c5qJYjJA1KuiuDnM+EKy/pliw1O1lsdK7IBoT5zV7lC3Deb6GdsF2ovtgQgljl5PyBWWBCKbJtU9xcbXZpveWWN1d63N9Xm2QHS62e1ApseiUDPj3dkNa6SB6P+vN9TR+/9/mQgfEFWU6q1b6PztnMfnB4kfb0c9PQZCV+f7H60O2BRjbXmuuWxDERD9v2qFrHdJnA8QiVxUN9mnu/7Nwv//1v75Oe/L3XggurUu6mR76GF/o5AfW18+uQxEoHg5poaWnmXPa+uc9Tt/9/ipL3fff9r141kGEN3dmHSmM3zC3topFtpwlT/3oucFSvT+/fRW6arTpDMlvY+2/H8R9fpyOhA935t4bFG669UKkIofD4Do53Hd/z+fYcmDf/947XJpfbj9ysGeW0+fANGlmeHLL077/6Diz7WIf8+mAhFK/GIDwMz459dnIMKlAKgXAOZMzMp4nGMPT03SS8otYBgFIxIYsUDoWCbs8jOnKPMxMAEAl+gEiL//L/ABAAAAAgAAACMAAABdAgAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-trash.bmp]
+lines=0
+0=eJxtlNtTEnEUx2umtx5qtKb+hN7MyUxCELxfkBRvjToTXkYTu3i3tJdq8sHeLEfNLBJSQcVLKCy7wCIsKyiwKOEFZyjxkoOvNl7GqRMk4yBnvmdn9/c7n99v95zf2fjMmgvnfBYNfgM8HDwM/Py5677xuzAfdtHvJ/bnxA4PD+fnLQa9ISA9XA2EwW96g81GHR8fB+JPs4gSmSXJr2KxqF8klUjFItHQ4CA8SoaGxCKxuF9ktVhQFXqWXV5edq2ucjOzxmSytjdtly+Fl5WWYyjKyci8euVa5/vOT31997hZjkWHx+MJYmdnTdNT8iePnxoNxNLS0s2IyMmJSSNBdHd1M+gMi8UyZzYX3i9UIciCfSGIJY3klFxeW1OrVCitVuvtqGjZqAxBkK6uLjYrXq/XazQa/gM+qlLZKXswS84qpqcb6uoh3mazxdyJGZONQeSHnp7EhETIFK7FS/il8BUhWUSpbGpsUiEqirLRafSJ8XFgP/b2piQlQ65xHC8vK9eoMSoUC9/yvPkZsHaKYjKY3yYnIauQovTUNIIw6HC8sqJCq1GH3BdDVS9aWxUKBUVRbBZbLpdD1YSfhVxOJlRaq9FWCwS4VhtyXzWGtba0WC3WNZeLHcdSKpWwyBehkJOe7nA4FhcWH1ZWzujws6zJZNLP6JITk2CFdx0dkRERjQ0NpJEo4fOjbkUJhULZ6AgzNhZGHI7vQSyKYktOZ052dg6Pl8vLKS4qys/Ny8nmFeTnFxcW5fJ4MFWQl+daXcEw9WkWjvGGZ10qkQyDpFLQiE/DJ5LCGZUMSeCMDgysrbnMJnOAJUlya2uzuqqKHhMTx2CAWMw4dtx/sZhM/yCdRnskEKyurECDBNj9/X14591db0N9HWSGm8FJT01N8yslBe65nH8jr1+93N7ehsLt7f0O6iMdroM1obhbm5vNTY0MOj0pIT6WRnvb3r65sWG32ZxOp5EwhuxBsJ1fO263G0Ox9fWfkFJoSWiHDY9HrVa73T+8Xu/p4CDWbwcHB2bzHEEYYRfCQEATHR0dnQ3z/Tn+Ah/33RZ4nOMsKUosztBLyi1gGAUjEBSwQGgpZuzyyx1fajMwAQDHowYo0vtiWAEAAAACAAAAJQAAABoDAAAAAAAAAQAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Exclamation.bmp]
+lines=0
+0=eJxz8hViYgADMyDWAGJOIBYEYkYGCQYYOMwHwTDwHwx+/PixZMmSgoKCtLS0wsLClStXAkX+//v3b/Wpx4FrryusOK8y65hF9dTIiKjo6OhTp079X3f5Dc+JHzyX/sORRfHUmJiYM2fO/O95+R9ZAoicJ2zbuHHj79+//9/98d/g0l+oxPm/hpufPHj0+j8c/P3778G3v7s+/d9y8PT+gwcvX732Hxm8fvX++o1nCSnFYeGx2bnZ34GOhHrgzz/5aeeALuI/8sU/Ki0uPubWrVtQuaPv/iAcktMcExm9adNGqFzLY4Scdv+2qIiozs5OqJz77X9wOfEtj0KjwjMzMz9//vz/3a9/wuf/Ivx38Z9fXG5sbOyVK1f+b3/zG83vtgWdUVFRq1at+l957xeanMaUPVFR0U2NTf/Nrv9DkxM+9C4qIr6vt/+/wml0fTLrH+3Yvufr16//d7z67XjjH/95kG7+078cj77feeoh1AMA+kpMA3ic43etSM5JzE0syczP00vKLWAYBSMKCDFB6FJG7PLT0jXWMDABALBlCE/6kIw0AQAAAAIAAAArAAAAdQEAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFolders]
+Folder
+
+[Folder]
+

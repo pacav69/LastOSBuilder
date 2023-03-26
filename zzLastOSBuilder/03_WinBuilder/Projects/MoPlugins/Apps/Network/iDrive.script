@@ -1,0 +1,333 @@
+[Main]
+Title=iDrive Client
+Type=script
+Selected=True
+Level=5
+Author=BryanH
+Version=1
+Description=Installs iDrive
+Date=2021-05-21
+NoWarning=False
+Download_Level=0
+History001=First version released
+
+[Variables]
+%ProgramTitle%=iDrive
+%ProgramEXE%=id_win.exe
+%ProgramFolder%=iDrive
+%ExtractLocation%=%GTemp%\%ProgramFolder%
+%ProvidedFilesDir%=%ProgCache%\%ProgramFolder%
+
+[Interface]
+Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,242,173
+Shortcut_TextLabel=Shortcuts:,1,1,12,10,230,18,12,Bold
+Desktop_CheckBox="Desktop Shortcut",1,3,24,40,122,18,True,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,24,60,122,18,True,"__Add Start Menu Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,24,146,121,21,,"__Start Menu Folder Name"
+pBevel3=pBevel3,1,12,256,2,251,177
+pTextLabel6="Click #$qopen location#$q to open the folder where you should place the install file : IDriveWinSetup.exe.#$x#$xIf you don't have it then it will download automatically during the run.",1,1,263,33,236,93,8,Normal
+pInstallStorageButton="Open Location",1,8,325,135,88,24,Process-OpenStorageDir,_Process-OpenStorageDir,False,_Process-OpenStorageDir_,False
+ScrollBox_RunFromWhere="Run from USB",1,4,191,192,140,21,"Run from USB","Run from RAM"
+pTextLabel7="This requires .NET 4 installed.  If you install this program it will automatically install .NET 4 as well.",1,1,144,231,246,42,8,Normal
+
+[Set_Common_Vars]
+Echo,"Setting Common Values...."
+Set,%TargetDir%,%Target_Prog%\%ProgramFolder%
+set,%MainFileWebAddress%,https://static.idriveonlinebackup.com/downloads/050421/IDriveWinSetup.exe
+set,%MainSourceFile%,IDriveWinSetup.exe
+
+[Process-OpenStorageDir]
+If,%ProvidedFilesDir%,Equal,"",Exit,""
+If,Not,ExistDir,%ProvidedFilesDir%,DirMake,%ProvidedFilesDir%
+System,FILEREDIRECT,OFF
+ShellExecuteEx,Open,explorer.exe,/e#$c#$q%ProvidedFilesDir%#$q
+System,FILEREDIRECT,ON
+
+[Create_Directories]
+Echo,"Making new directories.."
+DirMake,"%ExtractLocation%"
+DirDeleteQ,"%TargetDir%"
+DirDeleteQ,"%GTarget%\ProgramData"
+DirMake,"%TargetDir%"
+DirMake,"%TargetDir%\cmd_dutil"
+DirMake,"%TargetDir%\cmd_sdutil"
+DirMake,"%TargetDir%\cmd_sutil"
+DirMake,"%TargetDir%\cmd_util"
+DirMake,"%TargetDir%\de-DE"
+DirMake,"%TargetDir%\en-US"
+DirMake,"%TargetDir%\es-ES"
+DirMake,"%TargetDir%\fr-FR"
+DirMake,"%TargetDir%\IBCOMMON"
+DirMake,"%TargetDir%\images"
+//DirMake,"%TargetDir%\SyncDB"
+DirMake,"%GTarget%\ProgramData"
+DirMake,"%GTarget%\ProgramData\IBCOMMON"
+
+[GetFileFromWebIfNeeded]
+Echo,"Downloading file if needed....."
+//#1 is the file local
+//#2 is the URL to download
+//#3 is the file description to add to message in log
+if,not,ExistFile,#1,begin
+echo,"Downloading File : #3...."
+Download,#1,#2
+if,not,ExistFile,#1,begin
+echo, "Download failed : #3"
+halt
+end
+end
+else,echo,"#1 exists"
+
+[ExtractFiles]
+echo,"Extracting install files..."
+set,%EXIT_CODE%,0
+ShellExecute,HIDE,cmd.exe,"/c %GTools%\innounp.exe -x -y -d#$q%ExtractLocation%#$q #$q%ProvidedFilesDir%\%MainSourceFile%#$q",,%EXIT_CODE%
+if,not,%EXIT_CODE%,Equal,0,Begin
+Message,"Extraction of Install files failed"
+Halt,"Extraction of Install files failed"
+end
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+Iniread,%ProjectDir%\Script.Project,Features,DotNET,%DotNET%
+If,%DotNET%,Equal,False,Exec,%ProjectDir%\Features\DotNET.script,Process
+//-
+Run,%ScriptFile%,Set_Common_Vars
+Run,%ScriptFile%,Create_Directories
+Run,%ScriptFile%,GetFileFromWebIfNeeded,%ProvidedFilesDir%\%MainSourceFile%,%MainFileWebAddress%,Main Install File
+Run,%ScriptFile%,ExtractFiles
+Run,%ScriptFile%,CopyFileGlobal
+Run,%ScriptFile%,CopyNet4
+if,%Architecture%,Equal,x64,Run,%ScriptFile%,CopyFilex64
+if,%Architecture%,Equal,x86,Run,%ScriptFile%,CopyFilex86
+Run,%ScriptFile%,CreateShortcuts
+Run,%ScriptFile%,RegistryEntries
+
+[CreateShortcuts]
+echo,"Creating shortcuts..."
+if,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
+
+[CopyFileGlobal]
+echo,"Copy File set 1..."
+FileCopy,"%ExtractLocation%\{sys}\asycfilt.dll","%GTarget_Sys%\asycfilt.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\MSVCP60.DLL","%GTarget_Sys%\MSVCP60.DLL",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\itircl.dll","%GTarget_Sys%\itircl.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\itss.dll","%GTarget_Sys%\itss.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\MSVBVM60.DLL","%GTarget_Sys%\MSVBVM60.DLL",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\scrrun.dll","%GTarget_Sys%\scrrun.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\msxml.dll","%GTarget_Sys%\msxml.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\msxml3r.dll","%GTarget_Sys%\msxml3r.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\msxml3a.dll","%GTarget_Sys%\msxml3a.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\msxml3.dll","%GTarget_Sys%\msxml3.dll",PRESERVE,NoWarn
+FileCopy,"%ExtractLocation%\{sys}\psapi.dll","%GTarget_Sys%\psapi.dll",PRESERVE,NoWarn
+//-
+FileCopy,"%ExtractLocation%\{app}\cmd_util\idwutil_600.exe","%TargetDir%\cmd_util\idwutil_600.exe"
+FileCopy,"%ExtractLocation%\{app}\cmd_dutil\cyggcc_s-1,1.dll","%TargetDir%\cmd_dutil\cyggcc_s-1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_dutil\cygpopt-0,1.dll","%TargetDir%\cmd_dutil\cygpopt-0.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_dutil\cygwin1,1.dll","%TargetDir%\cmd_dutil\cygwin1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_dutil\idwutil_600.exe","%TargetDir%\cmd_dutil\idwutil_600.exe"
+FileCopy,"%ExtractLocation%\{app}\images\contextmenu.bmp","%TargetDir%\images\contextmenu.bmp"
+FileCopy,"%ExtractLocation%\{app}\images\desktop.ico","%TargetDir%\images\desktop.ico"
+FileCopy,"%ExtractLocation%\{app}\images\help.ico","%TargetDir%\images\help.ico"
+FileCopy,"%ExtractLocation%\{app}\images\installer.ico","%TargetDir%\images\installer.ico"
+FileCopy,"%ExtractLocation%\{app}\images\uninstall.ico","%TargetDir%\images\uninstall.ico"
+//FileCopy,"%ExtractLocation%\{commonappdata}\IDrive\IBCOMMON\idrive.ini","%GTarget%\ProgramData\IDrive\IBCOMMON\idrive.ini"
+FileCopy,"%ExtractLocation%\{app}\idwstop.exe","%TargetDir%\idwstop.exe"
+FileCopy,"%ExtractLocation%\{app}\id_idle_stat.exe","%TargetDir%\id_idle_stat.exe"
+FileCopy,"%ExtractLocation%\{app}\installidwservice.bat","%TargetDir%\installidwservice.bat"
+FileCopy,"%ExtractLocation%\{app}\uninstallidwservice.bat","%TargetDir%\uninstallidwservice.bat"
+FileCopy,"%ExtractLocation%\{app}\startidwservice,2.bat","%TargetDir%\startidwservice.bat"
+FileCopy,"%ExtractLocation%\{app}\stopidwservice.bat","%TargetDir%\stopidwservice.bat"
+FileCopy,"%ExtractLocation%\{app}\cmd_util\cygwin1,2.dll","%TargetDir%\cmd_util\cygwin1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_util\cygpopt-0,2.dll","%TargetDir%\cmd_util\cygpopt-0.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_util\cyggcc_s-1,2.dll","%TargetDir%\cmd_util\cyggcc_s-1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\cygwin1,2.dll","%TargetDir%\cmd_sutil\cygwin1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\cygpopt-0,2.dll","%TargetDir%\cmd_sutil\cygpopt-0.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\cyggcc_s-1,2.dll","%TargetDir%\cmd_sutil\cyggcc_s-1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\cygiconv-2.dll","%TargetDir%\cmd_sutil\cygiconv-2.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\cygintl-8.dll","%TargetDir%\cmd_sutil\cygintl-8.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\idwutil_600,2.exe","%TargetDir%\cmd_sutil\idwutil_600.exe"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\cygwin1,2.dll","%TargetDir%\cmd_sdutil\cygwin1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\cygpopt-0,2.dll","%TargetDir%\cmd_sdutil\cygpopt-0.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\cyggcc_s-1,2.dll","%TargetDir%\cmd_sdutil\cyggcc_s-1.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\cygiconv-2.dll","%TargetDir%\cmd_sdutil\cygiconv-2.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\cygintl-8.dll","%TargetDir%\cmd_sdutil\cygintl-8.dll"
+FileCopy,"%ExtractLocation%\{app}\cmd_sdutil\idwutil_600,2.exe","%TargetDir%\cmd_sdutil\idwutil_600.exe"
+FileCopy,"%ExtractLocation%\{app}\idrive.html","%TargetDir%\idrive.html"
+FileCopy,"%ExtractLocation%\{app}\libeay32.dll","%TargetDir%\libeay32.dll"
+FileCopy,"%ExtractLocation%\{app}\ssleay32.dll","%TargetDir%\ssleay32.dll"
+FileCopy,"%ExtractLocation%\{app}\rootcert.pem","%TargetDir%\rootcert.pem"
+FileCopy,"%ExtractLocation%\{app}\cmd_util\idevsutil.exe","%TargetDir%\cmd_util\idevsutil.exe"
+FileCopy,"%ExtractLocation%\{app}\cmd_sutil\idevsutil,1.exe","%TargetDir%\cmd_sutil\idevsutil.exe"
+FileCopy,"%ExtractLocation%\{app}\Sync.ico","%TargetDir%\Sync.ico"
+FileCopy,"%ExtractLocation%\{app}\ExchDBBkp,1.dll","%TargetDir%\ExchDBBkp.dll"
+FileCopy,"%ExtractLocation%\{app}\Microsoft.Exchange.WebServices,1.dll","%TargetDir%\Microsoft.Exchange.WebServices.dll"
+FileCopy,"%ExtractLocation%\{app}\Microsoft.Exchange.WebServices.Auth,1.dll","%TargetDir%\Microsoft.Exchange.WebServices.Auth.dll"
+FileCopy,"%ExtractLocation%\{app}\office365lib,1.dll","%TargetDir%\office365lib.dll"
+FileCopy,"%ExtractLocation%\{app}\DotNetZip,1.dll","%TargetDir%\DotNetZip.dll"
+FileCopy,"%ExtractLocation%\{app}\Ionic.Zip,1.dll","%TargetDir%\Ionic.Zip.dll"
+FileCopy,"%ExtractLocation%\{app}\ExchangeAPI.dll","%TargetDir%\ExchangeAPI.dll"
+FileCopy,"%ExtractLocation%\{app}\ExchangeAPI64.dll","%TargetDir%\ExchangeAPI64.dll"
+FileCopy,"%ExtractLocation%\{app}\ExchangeRestore.dll","%TargetDir%\ExchangeRestore.dll"
+FileCopy,"%ExtractLocation%\{app}\ExchangeRestore64.dll","%TargetDir%\ExchangeRestore64.dll"
+FileCopy,"%ExtractLocation%\{app}\Redemption.dll","%TargetDir%\Redemption.dll"
+FileCopy,"%ExtractLocation%\{app}\Interop.CDO,3.dll","%TargetDir%\Interop.CDO.dll"
+FileCopy,"%ExtractLocation%\{app}\Interop.CDOEXM,3.dll","%TargetDir%\Interop.CDOEXM.dll"
+FileCopy,"%ExtractLocation%\{app}\id_exchbkp64.exe","%TargetDir%\id_exchbkp64.exe"
+FileCopy,"%ExtractLocation%\{app}\id_exchbkp2010.exe","%TargetDir%\id_exchbkp2010.exe"
+FileCopy,"%ExtractLocation%\{app}\id_exchbkp2013.exe","%TargetDir%\id_exchbkp2013.exe"
+FileCopy,"%ExtractLocation%\{app}\id_exchbkp.exe","%TargetDir%\id_exchbkp.exe"
+FileCopy,"%ExtractLocation%\{app}\hypervdisk.exe","%TargetDir%\hypervdisk.exe"
+FileCopy,"%ExtractLocation%\{app}\vmdisk.exe","%TargetDir%\vmdisk.exe"
+FileCopy,"%ExtractLocation%\{app}\vmdisk6.5.exe","%TargetDir%\vmdisk6.5.exe"
+FileCopy,"%ExtractLocation%\{app}\office365bkp.exe","%TargetDir%\office365bkp.exe"
+FileCopy,"%ExtractLocation%\{app}\vss_exch.exe","%TargetDir%\vss_exch.exe"
+FileCopy,"%ExtractLocation%\{app}\id_exchbrick.exe","%TargetDir%\id_exchbrick.exe"
+FileCopy,"%ExtractLocation%\{app}\id_sqldblist.exe","%TargetDir%\id_sqldblist.exe"
+FileCopy,"%ExtractLocation%\{app}\idrive_reg.exe","%TargetDir%\idrive_reg.exe"
+FileCopy,"%ExtractLocation%\{app}\adodb.dll","%TargetDir%\adodb.dll"
+FileCopy,"%ExtractLocation%\{app}\adodb.dll.reg","%TargetDir%\adodb.dll.reg"
+FileCopy,"%ExtractLocation%\{app}\Interop.ADODB.dll","%TargetDir%\Interop.ADODB.dll"
+//FileCopy,"%ExtractLocation%\{app}\PermCheck.dat","%TargetDir%\PermCheck.dat"
+//FileCopy,"%ExtractLocation%\{commonappdata}\IDrive\PermCheck.dat","%GTarget%\ProgramData\IDrive\PermCheck.dat"
+FileCopy,"%ExtractLocation%\{app}\en-US\AppResources.resources.dll","%TargetDir%\en-US\AppResources.resources.dll"
+FileCopy,"%ExtractLocation%\{app}\es-ES\AppResources.resources.dll","%TargetDir%\es-ES\AppResources.resources.dll"
+FileCopy,"%ExtractLocation%\{app}\de-DE\AppResources.resources.dll","%TargetDir%\de-DE\AppResources.resources.dll"
+FileCopy,"%ExtractLocation%\{app}\fr-FR\AppResources.resources.dll","%TargetDir%\fr-FR\AppResources.resources.dll"
+
+[CopyNet4]
+echo,"Copy File set 2..."
+FileCopy,"%ExtractLocation%\{app}\IDComponent,2.dll","%TargetDir%\IDComponent.dll"
+FileCopy,"%ExtractLocation%\{app}\TreeCtrl,2.dll","%TargetDir%\TreeCtrl.dll"
+FileCopy,"%ExtractLocation%\{app}\TreeViewControl,2.dll","%TargetDir%\TreeViewControl.dll"
+FileCopy,"%ExtractLocation%\{app}\System.Core,2.dll","%TargetDir%\System.Core.dll"
+FileCopy,"%ExtractLocation%\{app}\Interop.VBA,2.dll","%TargetDir%\Interop.VBA.dll"
+FileCopy,"%ExtractLocation%\{app}\AppResources,2.dll","%TargetDir%\AppResources.dll"
+FileCopy,"%ExtractLocation%\{app}\UserControls,2.dll","%TargetDir%\UserControls.dll"
+FileCopy,"%ExtractLocation%\{app}\AdvanceBackup,2.dll","%TargetDir%\AdvanceBackup.dll"
+FileCopy,"%ExtractLocation%\{app}\SqliteWrapper,2.dll","%TargetDir%\SqliteWrapper.dll"
+FileCopy,"%ExtractLocation%\{app}\Interop.IWshRuntimeLibrary,2.dll","%TargetDir%\Interop.IWshRuntimeLibrary.dll"
+FileCopy,"%ExtractLocation%\{app}\Json,2.dll","%TargetDir%\Json.dll"
+FileCopy,"%ExtractLocation%\{app}\RemoteManagement,2.dll","%TargetDir%\RemoteManagement.dll"
+FileCopy,"%ExtractLocation%\{app}\WinFormAnimation,2.dll","%TargetDir%\WinFormAnimation.dll"
+FileCopy,"%ExtractLocation%\{app}\CircularProgressBar,2.dll","%TargetDir%\CircularProgressBar.dll"
+FileCopy,"%ExtractLocation%\{app}\csharp-aes,2.dll","%TargetDir%\csharp-aes.dll"
+FileCopy,"%ExtractLocation%\{app}\Newtonsoft.Json,2.dll","%TargetDir%\Newtonsoft.Json.dll"
+FileCopy,"%ExtractLocation%\{app}\SuperSocket.ClientEngine,2.dll","%TargetDir%\SuperSocket.ClientEngine.dll"
+FileCopy,"%ExtractLocation%\{app}\WebSocket4Net,2.dll","%TargetDir%\WebSocket4Net.dll"
+FileCopy,"%ExtractLocation%\{app}\id_stop4.exe","%TargetDir%\id_stop4.exe"
+FileCopy,"%ExtractLocation%\{app}\id_win,2.exe","%TargetDir%\id_win.exe"
+FileCopy,"%ExtractLocation%\{app}\NetFrame,2.txt","%TargetDir%\NetFrame.txt"
+FileCopy,"%ExtractLocation%\{app}\id_tray,2.exe","%TargetDir%\id_tray.exe"
+FileCopy,"%ExtractLocation%\{app}\id_service,2.exe","%TargetDir%\id_service.exe"
+FileCopy,"%ExtractLocation%\{app}\id_bglaunch,2.exe","%TargetDir%\id_bglaunch.exe"
+FileCopy,"%ExtractLocation%\{app}\id_mig,2.exe","%TargetDir%\id_mig.exe"
+FileCopy,"%ExtractLocation%\{app}\id_web_read,2.exe","%TargetDir%\id_web_read.exe"
+FileCopy,"%ExtractLocation%\{app}\id_img,2.exe","%TargetDir%\id_img.exe"
+FileCopy,"%ExtractLocation%\{app}\id_win.exe.config","%TargetDir%\id_win.exe.config"
+FileCopy,"%ExtractLocation%\{app}\id_tray.exe.config","%TargetDir%\id_tray.exe.config"
+FileCopy,"%ExtractLocation%\{app}\id_service.exe.config","%TargetDir%\id_service.exe.config"
+FileCopy,"%ExtractLocation%\{app}\id_bglaunch.exe.config","%TargetDir%\id_bglaunch.exe.config"
+FileCopy,"%ExtractLocation%\{app}\mfc100u.dll","%TargetDir%\mfc100u.dll"
+FileCopy,"%ExtractLocation%\{app}\mfcm100u.dll","%TargetDir%\mfcm100u.dll"
+FileCopy,"%ExtractLocation%\{app}\msvcp100.dll","%TargetDir%\msvcp100.dll"
+FileCopy,"%ExtractLocation%\{app}\msvcr100.dll","%TargetDir%\msvcr100.dll"
+FileCopy,"%ExtractLocation%\{app}\Sync,2.dll","%TargetDir%\Sync.dll"
+FileCopy,"%ExtractLocation%\{app}\id_sync,2.exe","%TargetDir%\id_sync.exe"
+FileCopy,"%ExtractLocation%\{app}\OracleLib,2.dll","%TargetDir%\OracleLib.dll"
+FileCopy,"%ExtractLocation%\{app}\HypervBackup.dll","%TargetDir%\HypervBackup.dll"
+FileCopy,"%ExtractLocation%\{app}\VmwareBackup.dll","%TargetDir%\VmwareBackup.dll"
+FileCopy,"%ExtractLocation%\{app}\msvcp140.dll","%TargetDir%\msvcp140.dll"
+FileCopy,"%ExtractLocation%\{app}\vcruntime140.dll","%TargetDir%\vcruntime140.dll"
+FileCopy,"%ExtractLocation%\{app}\NTS.dll","%TargetDir%\NTS.dll"
+FileCopy,"%ExtractLocation%\{app}\Vim2019Service25.dll","%TargetDir%\Vim2019Service25.dll"
+FileCopy,"%ExtractLocation%\{app}\Vim2019Service25.XmlSerializers.dll","%TargetDir%\Vim2019Service25.XmlSerializers.dll"
+FileCopy,"%ExtractLocation%\{app}\id_Sharepoint,4.exe","%TargetDir%\id_Sharepoint.exe"
+FileCopy,"%ExtractLocation%\{app}\ExchDBBkp,3.dll","%TargetDir%\ExchDBBkp.dll"
+FileCopy,"%ExtractLocation%\{app}\Microsoft.Exchange.WebServices,2.dll","%TargetDir%\Microsoft.Exchange.WebServices.dll"
+FileCopy,"%ExtractLocation%\{app}\Microsoft.Exchange.WebServices.Auth,2.dll","%TargetDir%\Microsoft.Exchange.WebServices.Auth.dll"
+FileCopy,"%ExtractLocation%\{app}\office365lib,2.dll","%TargetDir%\office365lib.dll"
+FileCopy,"%ExtractLocation%\{app}\DotNetZip,2.dll","%TargetDir%\DotNetZip.dll"
+FileCopy,"%ExtractLocation%\{app}\ExchDBBkpDll,3.txt","%TargetDir%\ExchDBBkpDll.txt"
+FileCopy,"%ExtractLocation%\{app}\Ionic.Zip,3.dll","%TargetDir%\Ionic.Zip.dll"
+
+[CopyFilex64]
+echo,"Copy File set x64..."
+FileCopy,"%ExtractLocation%\{app}\sqlite3,2.dll","%TargetDir%\sqlite3.dll"
+FileCopy,"%ExtractLocation%\{app}\IDContextMenu,2.dll","%TargetDir%\IDContextMenu.dll"
+FileCopy,"%ExtractLocation%\{app}\id_vssxp,2.exe","%TargetDir%\id_vssxp.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vss2003,2.exe","%TargetDir%\id_vss2003.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vssvista,2.exe","%TargetDir%\id_vssvista.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vsswin8,2.exe","%TargetDir%\id_vsswin8.exe"
+FileCopy,"%ExtractLocation%\{app}\AutoSync64.dll","%TargetDir%\AutoSync64.dll"
+FileCopy,"%ExtractLocation%\{app}\IDSyncIntIcon64.dll","%TargetDir%\IDSyncIntIcon64.dll"
+FileCopy,"%ExtractLocation%\{app}\SQLSrvBackup,2.dll","%TargetDir%\SQLSrvBackup.dll"
+FileCopy,"%ExtractLocation%\{app}\Sqlwrapper,2.dll","%TargetDir%\Sqlwrapper.dll"
+FileCopy,"%ExtractLocation%\{app}\id_systemBkp,3.exe","%TargetDir%\id_systemBkp.exe"
+FileCopy,"%ExtractLocation%\{app}\id_sqlbackup,2.exe","%TargetDir%\id_sqlbackup.exe"
+FileCopy,"%ExtractLocation%\{app}\id_diskimage,2.exe","%TargetDir%\id_diskimage.exe"
+FileCopy,"%ExtractLocation%\{app}\SystemBackUp,2.exe","%TargetDir%\SystemBackUp.exe"
+FileCopy,"%ExtractLocation%\{app}\HyperVBackup,2.exe","%TargetDir%\HyperVBackup.exe"
+
+[CopyFilex86]
+echo,"Copy File set x86..."
+FileCopy,"%ExtractLocation%\{app}\id_sqlbackup,1.exe","%TargetDir%\id_sqlbackup.exe"
+FileCopy,"%ExtractLocation%\{app}\sqlite3,1.dll","%TargetDir%\sqlite3.dll"
+FileCopy,"%ExtractLocation%\{app}\IDContextMenu,1.dll","%TargetDir%\IDContextMenu.dll"
+FileCopy,"%ExtractLocation%\{app}\id_vssxp,1.exe","%TargetDir%\id_vssxp.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vss2003,1.exe","%TargetDir%\id_vss2003.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vssvista,1.exe","%TargetDir%\id_vssvista.exe"
+FileCopy,"%ExtractLocation%\{app}\id_vsswin8,1.exe","%TargetDir%\id_vsswin8.exe"
+FileCopy,"%ExtractLocation%\{app}\IDriveSyncDB.dll","%TargetDir%\IDriveSyncDB.dll"
+FileCopy,"%ExtractLocation%\{app}\IDSyncIntIcon.dll","%TargetDir%\IDSyncIntIcon.dll"
+FileCopy,"%ExtractLocation%\{app}\libsqlitefunctions.so","%TargetDir%\libsqlitefunctions.so"
+FileCopy,"%ExtractLocation%\{app}\SQLSrvBackup,1.dll","%TargetDir%\SQLSrvBackup.dll"
+FileCopy,"%ExtractLocation%\{app}\Sqlwrapper,1.dll","%TargetDir%\Sqlwrapper.dll"
+FileCopy,"%ExtractLocation%\{app}\HyperVBackup,1.exe","%TargetDir%\HyperVBackup.exe"
+FileCopy,"%ExtractLocation%\{app}\id_systemBkp,1.exe","%TargetDir%\id_systemBkp.exe"
+FileCopy,"%ExtractLocation%\{app}\id_diskimage,1.exe","%TargetDir%\id_diskimage.exe"
+FileCopy,"%ExtractLocation%\{app}\SystemBackUp,1.exe","%TargetDir%\SystemBackUp.exe"
+
+[RegistryEntries]
+echo,"Making Registry entries - Default..."
+RegHiveLoad,Tmp_Default,%RegDefault%
+//-  Run startservice.bat file as soon as boot
+RegWrite,HKLM,0x1,Tmp_Default\Software\Microsoft\Windows\CurrentVersion\RunOnce,iDriveService,"hiderun.exe /w %PE_Programs%\%ProgramFolder%\startidwservice.bat"
+RegWrite,HKLM,0x1,Tmp_Default\Software\IDRIVEW,UID,ee8cb6013eee4a77807a8c5658c3e018
+RegHiveUnLoad,Tmp_Default
+//-
+echo,"Making Registry entries - Software..."
+RegHiveLoad,Tmp_Software,%RegSoftware%
+RegWrite,HKLM,0x1,Tmp_Software\IDRIVEW,UID,ee8cb6013eee4a77807a8c5658c3e018
+RegHiveUnLoad,Tmp_Software
+//-
+echo,"Making Registry entries - System..."
+RegHiveLoad,Tmp_System,%RegSystem%
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\EventLog\Application,AutoBackupLogFiles,0
+RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\EventLog\Application\IDriveService,EventMessageFile,X:\Windows\Microsoft.NET\Framework64\v4.0.30319\EventLogMessages.dll
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,Type,16
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,Start,2
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,ErrorControl,1
+RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\IDriveService,ImagePath,"#$qX:\Program Files\iDrive\id_service.exe#$q"
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\IDriveService,DisplayName,IDriveService
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\IDriveService,ObjectName,LocalSystem
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,DelayedAutostart,1
+RegWrite,HKLM,0x3,Tmp_System\ControlSet001\Services\IDriveService,FailureActions,00,00,00,00,00,00,00,00,00,00,00,00,03,00,00,00,14,00,00,00,01,00,00,00,60,ea,00,00,01,00,00,00,60,ea,00,00,01,00,00,00,60,ea,00,00
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\EventLog\Application,AutoBackupLogFiles,0
+RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\EventLog\Application\IDriveService,EventMessageFile,X:\Windows\Microsoft.NET\Framework64\v4.0.30319\EventLogMessages.dll
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,Type,16
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,Start,2
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,ErrorControl,1
+RegWrite,HKLM,0x2,Tmp_System\ControlSet001\Services\IDriveService,ImagePath,"#$qX:\Program Files\iDrive\id_service.exe#$q"
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\IDriveService,DisplayName,IDriveService
+RegWrite,HKLM,0x1,Tmp_System\ControlSet001\Services\IDriveService,ObjectName,LocalSystem
+RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\IDriveService,DelayedAutostart,1
+RegWrite,HKLM,0x3,Tmp_System\ControlSet001\Services\IDriveService,FailureActions,00,00,00,00,00,00,00,00,00,00,00,00,03,00,00,00,14,00,00,00,01,00,00,00,60,ea,00,00,01,00,00,00,60,ea,00,00,01,00,00,00,60,ea,00,00
+RegHiveUnLoad,Tmp_System
+
+[END]
+
