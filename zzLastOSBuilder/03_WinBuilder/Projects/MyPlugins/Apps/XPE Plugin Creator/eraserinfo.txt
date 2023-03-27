@@ -1,0 +1,22 @@
+https://eraser.heidi.ie/download/
+
+Eraser Overview
+A security tool to remove sensitive data from your Windows hard drive
+
+Eraser is a secure data removal tool for Windows. It completely removes sensitive data from your hard drive by overwriting it several times with carefully selected patterns.
+
+Additional Details for Eraser
+Languages
+English
+Intended Audience
+Advanced End Users, System Administrators, End Users/Desktop
+User Interface
+.NET/Mono, Win32 (MS Windows), Command-line
+Programming Language
+C#, C++
+Registered
+2001-10-04
+Last Updated
+2021-10-05
+Categories
+Security

@@ -1,5 +1,8 @@
 
 https://rufus.ie/en/#
+
+https://rufus.ie/downloads/
+
 Download file rufus-3.22p.exe and put in ...\Projects\Tools folder
 
 and in CreateISO.script change Variable to %RufusExe%=%GTools%\rufus-3.22p.exe

@@ -1,0 +1,205 @@
+
+Project Scripts
+
+
+Project Scripts
+The MistyPE project scripts can currently be divided into seven distinct sections -
+
+Core
+Essential
+Programs
+WinFE
+Shell.Then.End
+Boot.Media
+Tools
+The majority of the configurable options are contained in the main project file. The screenshots below display these options (clicking on the HELP button from within the project displays information about what the individual options do) -
+
+
+
+
+Core Scripts
+This section contains two script actually visible to the end user -
+
+Core Files - This script cannot be disabled. Most of the work is carried out in this script, including error checks, file checks, verifying source language/build/processor architecture, and copying and extracting the required files from the selected source (to a cache for later use).
+
+There are a number of options in this script that fall into the category of minor tweaks - these are all enabled by default, however I've added them as options so that it's possible to remove them if required. Click on the HELP button(s) to find out more about each option. Adding them does not have any adverse effects even when the option doesn't work with the source being used. As an example the Browse for Folder option does not work with WinPE 2.*, however it doesn't cause any problems if the registry settings and files are added anyway.
+LaunchBar - a program launcher created by Peter Lerup. "...LaunchBar is a small Windows freeware program that mimics the behavior of the dockable QuickLaunch toolbar that was available in all Windows versions before Windows 7...". Please refer to the LaunchBar website (see here) for more information.
+
+If LaunchBar is enabled, individual program scripts will add entries to the LaunchBar configuration file. Start LaunchBar from the BBLean menu.
+Screenshot of LaunchBar running in MistyPE -
+
+
+
+Essential Scripts
+The following are all what I consider Essential scripts - the majority of which do not require any external programs to be added. These scripts can be enabled or disabled as required, with the exception of the FileManager script which is mandatory -
+
+FileManager - adds an explorer replacement to the build. Either Q-Dir or a43 can be selected. Q-Dir is a quad panel file manager developed by Hrg Nenad - Q-Dir website. If a43 is selected in 64-bit builds, FileManagerPE will actually be used. Bradley G. Miller is the author/developer of both a43 and FileManagerPE. Bradley has kindly consented to a43 being distributed with the project. a43 website
+BCDEdit - BCDEdit is a command-line tool used to create and edit BCD stores - the boot configuration file used in all editions of Windows since the release of Windows Vista. At this time this script only adds some .txt based instructions to the build.
+BootRec - This is included in boot.wim contained in Windows Installation media. It is not however included in the WAIK or ADK versions of boot.wim. BootRec can be used to repair Master Boot Records, Volume Boot Records or BCD stores - or to rebuild a BCD store containing entries obtained from scanning all disks for compatible installations.
+BootSect - tool used to add NTLDR or BOOTMGR code to a Volume Boot Record. This script adds a batch file to the build as the required program is already included. The batch can be executed by right-clicking on a drive in Explorer.
+CMD Here - Start a command prompt from the right-click context menu.
+DiskPart - Command-line tool used to create, delete and resize partitions. DiskPart can also be used to quick format a disk/partition or securely format a disk/partition by overwriting the disk with Zero's. Use with caution. This script will add a menu option for changing the partition alignment of newly created partitions so that legacy versions of Windows (up to XP/2003) can be installed - required on some systems.
+Keyboard Layout - change the keyboard layout in WinPE whilst it's running. Uses wpeutil tool that is already included in the build.
+Network - This will add a batch file + a menu entry to run it. The batch file runs the command "wpeinit InitializeNetwork" - this will Initialize network components and drivers, and set the computer name to a randomly-chosen value. This command is usually executed in startnet.cmd on a standard WinPE. I found that running this command causes an unnecessary delay when WinPE boots and therefore added it as a menu option so that it can be started if required.
+ScreenRes - This will add a menu option for changing the screen resolution. No external programs are used, however a number of xml files are added - this option simply starts a batch file that will run the wpeinit command to change the screen resolution to a value set in the included xml files. A number of screen resolutions are available in the batch file.
+
+Program Scripts
+The following lists all of the program scripts that are included in MistyPE. The majority of these applications are either included in the download or are downloaded from the internet on first run and cached for later use. You will need to provide your own files for use with the aida64, Ammyy Admin, Ghost, PartitionGuru, PTEDIT and WinHex scripts.
+
+The wallpaper, aida64, Ammyy Admin, Ghost, PartitionGuru, PTEDIT and WinHex scripts contain additional options and you will need to edit the file paths as required to include these programs. The remaining scripts can be selected or deselected as required.
+
+Add Custom Batch and run at Start-up - add a custom batch file to the build. Edit the custom batch file via a button embedded in the script.
+Included in download - N/A
+Processor Architecture - N/A
+Add Custom Folders\Files - select a directory and it's contents will be added to the build.
+Included in download - N/A
+Processor Architecture - N/A
+7-Zip (version 16.04) - File archiver. Used to extract contents from .zip/.7z/.iso/.wim files and numerous other file types. Can also create .zip and .7z files. Right click a file in explorer to access menu options for extracting from or creating files. 7-zip website
+Included in download - YES
+Processor Architecture - x86 and x64
+AccessGain (version 1.1) - Used to bypass file system security checks in order to access folders protected by NTFS security permissions or by 3rd-party software. Right click on a drive in the included File Manager to access the options. This is really useful if you can't delete a file/folder due to restricted security permissions.
+Included in download - YES
+Processor Architecture - x86 and x64
+AIDA64 - comprehensive commercial system diagnostic software. AIDA64 website
+Included in download - NO
+Processor Architecture - x86 only
+Ammyy Admin - Remote desktop software. Simple to use and advertised as zero configuration - no port forwarding is required. Ammyy Admin website
+Included in download - NO
+Processor Architecture - x86 only
+CloneDisk - Disk cloning/imaging utility with a host of additional features. CloneDisk website
+Included in download - YES
+Processor Architecture - x86 and x64
+dd (Version 0.5) - Rawwrite dd for Windows by John Newbigin. A Windows port of the popular dd tool that can be used to copy files/disks/partitions or securely overwrite data. dd website
+Included in download - YES
+Processor Architecture - x86 only
+Defraggler (version 2.21) - disk and file defragmentation utility with a GUI. Although this program isn't included in the download the program script will attempt to download it from the developers website. This program will not be installed locally - the required files are extracted using 7-zip during the build process. Defraggler website
+Included in download - NO
+Processor Architecture - x86 and x64
+Disk Management - Disk management console (diskmgmt.msc). Not working in WinPE 2.* (Vista sources). This will add an option to install diskmgmt.msc on demand. Credit to IcemanND on the msfn forum - see here.
+Included in download - N/A
+Processor Architecture - x86 and x64
+DMDE (Version 3.4.2) - "...is a powerful software for data searching, editing, and recovery on disks. It may recover directory structure and files in some complicated cases through the use of special algorithms when other software can't help....DMDE has a number of freeware features such as disk editor, simple partition manager (e.g. allows undelete a partition), a tool to create disk images and clones, RAID constructor, file recovery from the current panel....DMDE supports FAT12/16, FAT32, NTFS, Ext2/3/4..." The Free Edition is included in the download - please refer to the License Agreement - here. DMDE website
+Included in download - YES
+Processor Architecture - x86 only
+DriveImage XML - Partition and Logical Drive backup/imaging utility. DriveImage XML website
+Included in download - NO
+Processor Architecture - x86 only
+Eraser (version 5.8.8.0) - Securely erase files or folders, or free space on drives. Eraser is a secure data removal tool, which allows you to remove sensitive data from your hard drive by overwriting it with carefully selected patterns. Supports various methods to overwrite files including the Gutman (35 passes) and the US Department of Defence methods (DoD version 5220.22-M (7 or 3 passes)). Command-line version included - GUI omitted to save space. Right click on a file, folder or drive in explorer to run an automated batch file (uses US DoD 3 pass erasing). Eraser website
+Included in download - YES
+Processor Architecture - x86 only
+Ghost - disk and partition backup tool. Can be used to backup and restore an operating system - considered by many to set the industry standard. You will need to provide your own copies of ghost32.exe and/or ghost64.exe - copy them to the "/Project/Cache/Programs/Ghost" folder.
+Included in download - NO
+Processor Architecture - x86 and x64
+HWiNFO (Version 5.7.0.0) - system diagnostic tool that can be used to check hardware. HWiNFO website
+Included in download - YES
+Processor Architecture - x86 and x64
+ImDisk (version 2.0.9) - ImDisk is a virtual disk driver for Windows. It can create virtual hard disk, floppy or CD/DVD drives using image files or system memory. Right click on supported image types (e.g. .iso files) to mount them as virtual drives. Can also be used to create disc images of real drives. The menu option in MistyPE will install the driver ready for use. ImDisk website
+Included in download - YES
+Processor Architecture - x86 and x64
+JkDefrag (Version 3.66) - command-line disk and file defragmentation tool. A batch file with several options can be executed from the right-click context menu. JkDefrag website
+Included in download - YES
+Processor Architecture - x86 and x64
+JustManager (Version 0.1 Alpha 54) - file manager with multiple pane and tab support. JustManager website
+Included in download - YES
+Processor Architecture - x86 and x64
+Linux Reader - DiskInternals Linux Reader provides readonly access for Ext2/Ext3/Ext4, HFS and ReiserFS file systems. Although this program isn't included in the download the program script will attempt to download it from the developers website. This program will not be installed locally - the required files are extracted using 7-zip during the build process. Linux Reader website
+Included in download - NO
+Processor Architecture - x86 only
+MWSnap (Version 3.0) - MWSnap is a small yet powerful Windows program for snapping (capturing) images from selected parts of the screen. This version is capable of capturing the whole desktop, a highlighted window, an active menu, or a fixed or free rectangular part of the screen. MWSnap handles 5 popular graphics formats and can be used to view BMP, JPG, TIFF, PNG and GIF formats. MWSnap website
+Included in download - YES
+Processor Architecture - x86 only
+NT Password Editor (version 0.4) - NT Password Editor. This program can be used to edit passwords on a Windows NT based systems (Windows 2000, XP, Vista, 7, 8). Can be used to reset forgotten passwords and allow access to locked user accounts - it can only change or remove passwords for local system accounts. This program can NOT decrypt passwords or change domain and Active Directory passwords. NT Password Edit website
+Included in download - YES
+Processor Architecture - x86 and x64
+Opera - Web Browser. Opera USB Version 12.18 is included in the download. OperaUSB website
+Included in download - YES
+Processor Architecture - x86 and x64
+PartitionGuru - From PartitionGuru site "...PartitionGuru is a partition management and data recovery program. In addition to traditional MBR partition table, it supports GUID partition table on GPT disks also.....Support IDE, SCSI, SATA drive and USB disk, memory card. Supports FAT12 / FAT16 / FAT32 / NTFS / EXT3 file systems...". You will need to install PartitionGuru locally, then set the path to the files in the project script. PartitionGuru website
+Included in download - NO
+Processor Architecture - x86 only
+PTEdit - Partition Editor. Ptedit can be used to quickly and easily edit Partition Tables. E.g. to mark a partition as active, change partition type, view partition bootsector, check partition start and ending sector, etc. Can be used (with a third party boot loader) to boot Windows from a logical volume. This utility is not included in the download. Copy ptedit32.exe to the "/Project/Cache/Programs/PTEdit" folder.
+Included in download - NO
+Processor Architecture - x86 only
+Recuva (version 1.53) - Recuva recovers files deleted from your Windows computer, Recycle Bin, digital camera card, or MP3 player. Can even recover files from a re-formatted partition. Although this program isn't included in the download the program script will attempt to download it from the developers website. This program will not be installed locally - the required files are extracted using 7-zip during the build process. Recuva website
+Included in download - NO
+Processor Architecture - x86 and x64
+Drive Snapshot - partition backup tool. Can be used to backup and restore an operating system. This utility is not included in the download, however the script will automatically attempt to download a time limited trial version. If you have a licensed copy then copy it to the "/Project/Cache/Programs/SnapShot" folder. Drive Snapshot website
+Included in download - NO
+Processor Architecture - x86 and x64
+Sumatra (Version 3.1.2) - .PDF file reader. SumatraPDF website
+Included in download - YES
+Processor Architecture - x86 and x64
+TinyHexer (version 1.7) - Tiny hexer is a hex editor for binary files. It will also allow access and editing of disk sectors.
+Included in download - YES
+Processor Architecture - x86 only
+TrueCrypt - Free open-source disk encryption software. TrueCrypt website
+Included in download - YES
+Processor Architecture - x86 only
+Virtual Keyboard (Free VK) - A free, lightweight, multilingual and finger friendly virtual on-screen keyboard. FreeVK website
+Included in download - YES
+Processor Architecture - x86 only
+Wallpaper -
+Included in download - N/A
+Processor Architecture - N/A
+WinHex - versatile Hex editor. In addition to the common hex editor functions, this software can be used for computer forensics, data recovery, system imaging and restore and disk editing. WinHex website
+Included in download - NO
+Processor Architecture - x86 and x64
+WoFADK - The Windows Overlay File System Filter Driver from the Windows Assessment and Deployment Kit (ADK) - used for WIMBOOT and COMPACTOS. Use GetWaikTools to obtain the driver(s) - see here.
+Included in download - NO
+Processor Architecture - x86 and x64
+
+WinFE
+The WinFE script must be enabled to add the registry entries required to convert WinPE for use as a windows based Forensic Environment (WinFE). A range of options are included in this script so that different combinations of SANPolicy and NoAutoMount settings can be used. These settings can stop any hard disks attached to the system from being auto mounted, however it is possible to mount disks as required from the command-line (via Diskpart). If you require read/write access to disks during the boot process then do not select this script.
+
+The MistyPE/Mini-WinFE projects include the following tools that can be used to easily change disk attributes (Read-Only / Read-Write and OFFLINE / ONLINE) -
+
+WProtect.exe (Write Protect Tool) - developed by Colin Ramsden. This program can also be executed with command-line switches to mark all disks as Read-Only during the boot process. WProtect is not available as a native 64-bit application. It will work in 64-bit builds with SysWoW64 enabled, however the command-line switches do not appear to function in 64-bit environments. Please note that the Write Protect tool is distributed for non-profit use only.
+DiskMgr - developed by Erwan.L. Available in native 32-bit and 64-bit version.
+Either of the above programs can be used to mount a disk so that it can be written to - e.g. to copy an internal disk to an external disk. Care should be taken as it's also possible to remove the readonly flag from internal (evidence) disks - something that is not possible when using Diskpart in WinFE 4.0/5.0 systems.
+
+In addition to the WinFE script, this section also includes the programs listed below, two of which (FTK Imager and X-Ways Forensics) contain additional options - you will need to edit the file paths as required to include these programs.
+
+Forensic Acquisition Utilities (FAU) - "...a collection of utilities and libraries intended for forensic or forensic-related investigative use...". Includes a dd utility for imaging systems. Combined with NetCat (also included) it can image systems over a network. FAU is the property of GMG Systems, Inc. and is being reproduced with the kind permission of the author. GMG Systems, Inc. Please refer to the FAU End User License Agreement - here. FAU website
+Included in download - YES
+Processor Architecture - x86 and x64
+FTK Imager Lite - Create a physical or logical image of any drive. This program can create an image using the raw, SMART or E01 formats. FTK Imager website
+Included in download - NO
+Processor Architecture - x86 and x64
+X-Ways Forensic - X-Ways Forensics is an advanced work environment for computer forensic examiners. X-Ways website
+Included in download - NO
+Processor Architecture - x86 and x64
+
+Shell.Then.End
+A Shell is another term for the operating systems user interface (or UI). The default WinPE shell is the Windows Command Shell - a command-line user interface. This project uses the BlackBox Lean (version 1.17.1) shell to provide a menu driven UI. This script also contains additional options for LaunchBar.
+
+Although the BBLean script is the only one visible to the user, another (hidden) script is executed to either repack boot.wim (if the EXTRACT method is selected) or add the amended files to an existing boot.wim (if the INJECT method is selected).
+
+
+Boot.Media
+The scripts in this section can either be selected during the build process, or can be executed independently afterwards - as long as the build completed successfully. Files in the %BaseDir%\MistyPE.Project.Output\ directory (where %BaseDir% refers to the directory from which WinBuilder.exe is running) are used.
+
+Please note that the Create USB and Create USB (GPT UEFI) scripts will not work if you are running the project on a Windows 2000/XP/2003 Operating System - if any of these operating systems are detected the script will abort..
+
+Create ISO - this script includes a number of options, the default settings will create a RAM bootable ISO file using MKISOFS - for use on BIOS and UEFI based systems. It's also possible to create a Flat Boot WinPE (WinPE 2.x/3.x only) or even a multiboot ISO file with options for RAM Boot and Flat Boot - bootable on UEFI and BIOS based systems.
+Create USB - create a WinPE/WinFE bootable USB drive. Use with caution as the target drive will be repartitioned and formatted and this could result in data loss. The USB drive will use the MBR partition type but should still boot on a UEFI system - refer to Installing to a USB Drive for more details.
+Create USB (GPT UEFI) - create a WinPE/WinFE bootable USB drive. Use with caution as the target drive will be repartitioned and formatted and this could result in data loss. The GPT partition type will be used - this will only boot on UEFI based systems. Removable type USB drives are not supported - Fixed type USB flash drives will work.
+To execute any of the Boot.Media scripts simply select the required script and click on the small green play button to the right of the scripts icon -
+
+If using the PEBakery builder, click on the Run Plugin button to the right of the title bar -
+
+
+Tools
+The majority of the scripts in this section cannot be executed during the build process and are designed for pre/post processing - the exception is the Test in QEMU script.
+
+Add Program - this script can be used to add additional programs/packages to the MistyPE project. At the time of writing this script is of limited use as no packages are currently available.
+Advanced Options - Can be used to mount/unmount the registry hives created when the MistyPE project has finished the build process. This script can also be used to inject (add) additional files to boot.wim and carry out some additional tasks.
+Cache Files - this script can be used to create a cache for use in the MistyPE project. Depending on the local setup and source files available, it may be possible to copy required file dependencies from the HOST Operating System. The Cache Files script is covered in more detail here. This script can also be used to copy WinRE from a local drive - Windows 7/8/8.1 supported. Prior to Windows 7, WinRE had to be launched from the installation media. Windows 7 (and more recent versions of Windows) built WinRE into the Operating System - it's copied to a local hard disk as part of the installation process. Unfortunately WinRE might have been installed to it's own hidden partition - in which case this element of the script will not work.
+Test in QEMU - test the ISO file created in the previous script in QEMU. Please note that this is a very old version of QEMU. UEFI boot is not supported and any builds using sources from Windows 8 or newer will not work.
+Update Project - this script can be used to check for and install any MistyPE updates. If only project scripts have been updated between releases, then using this script will avoid the need to download a full package - the programs included with the MistyPE download remain relatively static so this script will reduce bandwidth usage by avoiding the need for unnecessary downloads.
+To execute any of the Tools scripts simply select the required script and click on the small green play button to the right of the scripts icon -
+
+If using the PEBakery builder, click on the Run Plugin button to the right of the title bar -
+
+Document date - 20th January 2018
+
+
