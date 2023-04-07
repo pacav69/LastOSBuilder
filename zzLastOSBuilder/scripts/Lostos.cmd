@@ -2,7 +2,7 @@
 @echo off
 cls
 rem Win11 script
-set scriptver=0.0.25
+set scriptver=0.0.26
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on >0 / off =0
@@ -57,7 +57,7 @@ echo.
 
 
 @REM  ################# MediaCreationTool
-START /wait  "LostOSrepo" cmd /c %Bin%\LostOSrepo\LostOSrepo_v4.exe
+START /wait  "LostOSrepo" cmd /c %Bin%\LostOSrepo\LostOSrepo_v4.5.exe
 
 @REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\Bin\LostOSrepo
 @REM LostOSrepo_v4.exe

@@ -86,5 +86,7 @@ updated readme.md
 added winbuilder scripts
 0.0.25 ************************
 added lostos apz downloader
+0.0.26 ************************
+updated lostos apz downloaderto LostOSrepo_v4.5
 
 
