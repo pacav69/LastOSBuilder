@@ -1,6 +1,12 @@
 # How to create scripts
 
-## using XPE Packed Application Creator
+## Using XPE Packed Application Creator
+
+## Introduction
 
 Prepare Packed Application For Use With Win10XPE Project.
+
+## Download application
+
+download software
 

@@ -23,6 +23,8 @@ Contact=
 %Usb7iceExe%=%GTools%\Usb7ice.exe
 %RufusExe%=%GTools%\rufus-3.22p.exe
 %RufusIni%=%GTools%\rufus.ini
+%Ventoy2DiskExe%=%GTools%\ventoy\Ventoy2Disk.exe
+%Ventoy2DiskIni%=%GTools%\ventoy\Ventoy2Disk.ini
 //-
 %RegSoftware%=%GTarget_Sys%\config\SOFTWARE
 %RegSystem%=%GTarget_Sys%\config\SYSTEM
@@ -50,12 +52,12 @@ IsoRoot_CheckBox=" Include Files In ISO Root",1,3,16,132,176,16,False,"__include
 OpenRoot_Button="Open ISO Root Folders",1,8,16,150,228,32,IsoRootOpen,opendir.bmp,True,"__Open the IsoRoot folder and copy your files and folders inside"
 PressAnyKey_CheckBox="Add Press Any Key To Boot...",1,3,12,189,170,18,False,"__Add Press any key to boot from USB, CD/DVD"
 Bcdedit_CheckBox=bcd,1,3,213,189,40,18,True,"__Set boot configuration data localization + Menu legacy"
-//-
-USB_Bevel=USB_Bevel,1,12,6,221,248,99
+=//-
+USB_Bevel=USB_Bevel,1,12,6,222,248,137
 USB_TextLabel="Copy to USB",1,1,12,225,84,18,8,Bold
 Copy2USB_Button=" USB7ice - Copy ISO to USB",1,8,10,242,240,34,Copy2USB,USB7ice24.bmp,False,"__Copy the ISO previously created on your USB stick, disk, with USB7ice. Support Dual Boot BIOS+UEFI"
-Rufus_Button=" Rufus - Reliable USB Formatting Utility",1,8,10,280,240,34,LoadRufus,Rufus.bmp,False,"__Copy the ISO previously created on your USB stick, disk, with Rufus - The Reliable USB Formatting Utility"
-//-
+Rufus_Button=" Rufus - Reliable USB Formatting Utility",1,8,15,279,240,34,LoadRufus,Rufus.bmp,False,_LoadRufus_,False,"__Copy the ISO previously created on your USB stick, disk, with Rufus - The Reliable USB Formatting Utility"
+Ventoy_Button="Ventoy - A Multi ISO Boot Utility",1,8,11,315,240,34,LoadVentoy2DiskExe,ventoy.bmp,False,_LoadVentoy2DiskExe_,False,"__Copy the ISO previously created on your USB stick, disk, with Ventoy"
 Tools_Bevel=Tools_Bevel,1,12,292,6,248,202
 Tools_TextLabel=Tools,1,1,298,12,42,18,8,Bold
 Hive_Bevel=Hive_Bevel,1,12,298,30,236,79
@@ -68,12 +70,15 @@ CB_DriversHive=Drivers,1,3,460,89,70,18,False,"__Edit the Drivers registry hive 
 RegConvertPE_Button=" Reg Convert PE",1,8,298,116,236,40,RegConvertPE,Registry.bmp,False,"__Convert a Registry file to a script or a converted (Tmp_*) Reg file"
 TargetOpen_Button=" Open Target Folder",1,8,298,162,236,40,TargetOpen,opendir.bmp,False,"__Open Target Folder"
 Rufus_WebLabel="Rufus Downloads",1,10,292,221,83,18,https://rufus.akeo.ie/downloads/
-//-
+Ventoy_WebLabel="Ventoy Downloads",1,10,394,220,89,18,https://github.com/ventoy/Ventoy/releases
 HideAdvancedOptions_Button=,0,8,292,242,8,8,HideAdvancedOptions,0,False,"__Hide Advanced Options"
 ShowAdvancedOptions_Button=,1,8,292,242,8,8,ShowAdvancedOptions,0,False,"__Show Advanced Options"
 WimOnly_CheckBox="Create Boot.wim Only without ISO",0,3,292,256,212,16,False,"__Pack and Create Boot.wim Only without ISO Creation"
 NoCDUsbY_CheckBox="Do not Create CDUsb.y (All In Ram)",0,3,292,275,212,16,False,"__Do not Create CDUsb.y with Run ALL Programs From RAM selected for AIOBoot"
 RufusDualBoot_CheckBox="Enable Dual Boot BIOS+UEFI in Rufus",0,3,292,294,220,18,True,"__Enable Dual Boot Legacy BIOS + UEFI in Rufus"
+//-
+//-
+//-
 
 [ShowAdvancedOptions]
 System,CURSOR,Wait
@@ -143,11 +148,11 @@ ShellExecute,Hide,%GTemp%\DrvInstPatch\DrvInstPatch.exe,"P %GTarget_Sys%\drvinst
 // Patch Windows.UI.CredDialogController.dll to Get the Credentials Window other than Credentials Console
 Iniread,%ProjectDir%\Script.Project,Features,Admin,%Admin%
 If,%Admin%,Equal,True,Begin
-  //If,ExistFile,%GTarget_Sys%\mstsc.exe,Begin
-  Echo,"Patch Controller.dll to Get the Credentials Window..."
-  //If,ExistFile,%GTarget_Sys%\Windows.UI.CredDialogController.dll,ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\Windows.UI.CredDialogController.dll#$q -s 5C004D0069006E0069004E0054000000 -r 5C004D0069006E0069004E0058000000"
-  If,ExistFile,%GTarget_Sys%\Windows.UI.CredDialogController.dll,ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\Windows.UI.CredDialogController.dll#$q -s u:MiniNT -r u:NiniNT"
-  //End
+//If,ExistFile,%GTarget_Sys%\mstsc.exe,Begin
+Echo,"Patch Controller.dll to Get the Credentials Window..."
+//If,ExistFile,%GTarget_Sys%\Windows.UI.CredDialogController.dll,ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\Windows.UI.CredDialogController.dll#$q -s 5C004D0069006E0069004E0054000000 -r 5C004D0069006E0069004E0058000000"
+If,ExistFile,%GTarget_Sys%\Windows.UI.CredDialogController.dll,ShellExecute,Hide,%GTools%\binmay.exe,"-u #$q%GTarget_Sys%\Windows.UI.CredDialogController.dll#$q -s u:MiniNT -r u:NiniNT"
+//End
 End
 
 [EjectDevicePatch]
@@ -183,8 +188,8 @@ If,%CompressMax_CheckBox%,Equal,True,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /
 Else,ShellExecute,%OpenHideOutput%,cmd.exe,"/D /C Echo Packing boot.wim image file, Be patient...&Echo.&wimlib-imagex.exe capture #$q%GTarget%#$q #$q%GISO%\sources\boot.wim#$q #$q%ImageName%#$q #$q%ImageName%#$q --boot --flags=9 --compress=XPRESS --verbose",%GTools%
 If,%ExitCode%,Equal,0,Echo,"Wimlib Packing boot.wim image file return : %ExitCode%"
 Else,Begin
-  Echo,"Wimlib Packing boot.wim image file return : %ExitCode%",Warn
-  EchoExtended,"Error: boot.wim image file was not properly packaged.",Warn,,MessageError,,Halt
+Echo,"Wimlib Packing boot.wim image file return : %ExitCode%",Warn
+EchoExtended,"Error: boot.wim image file was not properly packaged.",Warn,,MessageError,,Halt
 End
 
 [CreateISO]
@@ -197,20 +202,20 @@ If,%IsoRoot_CheckBox%,Equal,True,Run,%ScriptFile%,IsoRootAdd
 // For AIOBoot do not create CDUsb.y if Run All programs from RAM selected
 IniRead,%ProjectDir%\script.project,Features,AllInRam,%AllInRam%
 If,%NoCDUsbY_CheckBox%-%AllInRam%,Equal,True-True,Begin
-  If,ExistFile,%GISO%\CDUsb.y,FileDelete,%GISO%\CDUsb.y
+If,ExistFile,%GISO%\CDUsb.y,FileDelete,%GISO%\CDUsb.y
 End
 Else,Begin
-  If,Not,ExistFile,%GISO%\CDUsb.y,Begin
-    FileCreateBlank,%GISO%\CDUsb.y
-    TXTAddLine,%GISO%\CDUsb.y,"Flag File to mount CD/USB on drive Y:",Append
-  End
+If,Not,ExistFile,%GISO%\CDUsb.y,Begin
+FileCreateBlank,%GISO%\CDUsb.y
+TXTAddLine,%GISO%\CDUsb.y,"Flag File to mount CD/USB on drive Y:",Append
+End
 End
 //-
 Run,%ScriptFile%,CheckISOBootFiles
 If,%ISOBootFilesOK%,Equal,No,Begin
-  Run,%ScriptFile%,CheckTargetBootFiles
-  If,%TargetBootFilesOK%,Equal,Yes,Run,%ScriptFile%,CopyBootFiles,%GTarget%
-  Else,Run,%ScriptFile%,ExtractBootFiles
+Run,%ScriptFile%,CheckTargetBootFiles
+If,%TargetBootFilesOK%,Equal,Yes,Run,%ScriptFile%,CopyBootFiles,%GTarget%
+Else,Run,%ScriptFile%,ExtractBootFiles
 End
 If,%Bcdedit_CheckBox%,Equal,True,Run,%ScriptFile%,SetBcd
 //-
@@ -220,8 +225,8 @@ If,Not,%WimOnly_CheckBox%,Equal,True,Run,%ScriptFile%,MakeISO
 [IsoRootAdd]
 Retrieve,FolderSize,%GCustom%\%Architecture%\IsoRoot,%IsoRootSize%
 If,Not,%IsoRootSize%,Equal,0,Begin
-  Echo,"Copy Iso Root Files..."
-  DirCopy,%GCustom%\%Architecture%\IsoRoot\*,%GISO%
+Echo,"Copy Iso Root Files..."
+DirCopy,%GCustom%\%Architecture%\IsoRoot\*,%GISO%
 End
 
 [IsoRootOpen]
@@ -232,41 +237,41 @@ Set,%ISOBootFilesOK%,Yes
 If,Not,ExistDir,%GISO%\boot,Set,%ISOBootFilesOK%,No
 If,Not,ExistDir,%GISO%\efi,Set,%ISOBootFilesOK%,No
 If,%ISOBootFilesOK%,Equal,Yes,Begin
-  // In case of change of PressAnyKey_CheckBox
-  If,%PressAnyKey_CheckBox%,Equal,True,Begin
-    If,Not,ExistFile,%GISO%\boot\bootfix.bin,Set,%ISOBootFilesOK%,No
-  End
-  Else,Begin
-    If,ExistFile,%GISO%\boot\bootfix.bin,FileDeleteQ,%GISO%\boot\bootfix.bin
-    If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDeleteQ,%GISO%\efi\microsoft\boot\efisys.bin
-  End
-  If,Not,ExistFile,%GISO%\bootmgr,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\bootmgr.efi,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\boot\BCD,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\boot\boot.sdi,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\boot\etfsboot.com,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\efi\microsoft\boot\BCD,Set,%ISOBootFilesOK%,No
-  If,Not,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,Set,%ISOBootFilesOK%,No
-  If,%Architecture%,Equal,x64,Begin
-    If,Not,ExistFile,%GISO%\efi\boot\bootx64.efi,Set,%ISOBootFilesOK%,No
-  End
-  Else,Begin
-    If,Not,ExistFile,%GISO%\efi\boot\bootia32.efi,Set,%ISOBootFilesOK%,No
-  End
+// In case of change of PressAnyKey_CheckBox
+If,%PressAnyKey_CheckBox%,Equal,True,Begin
+If,Not,ExistFile,%GISO%\boot\bootfix.bin,Set,%ISOBootFilesOK%,No
+End
+Else,Begin
+If,ExistFile,%GISO%\boot\bootfix.bin,FileDeleteQ,%GISO%\boot\bootfix.bin
+If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDeleteQ,%GISO%\efi\microsoft\boot\efisys.bin
+End
+If,Not,ExistFile,%GISO%\bootmgr,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\bootmgr.efi,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\boot\BCD,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\boot\boot.sdi,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\boot\etfsboot.com,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\efi\microsoft\boot\BCD,Set,%ISOBootFilesOK%,No
+If,Not,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,Set,%ISOBootFilesOK%,No
+If,%Architecture%,Equal,x64,Begin
+If,Not,ExistFile,%GISO%\efi\boot\bootx64.efi,Set,%ISOBootFilesOK%,No
+End
+Else,Begin
+If,Not,ExistFile,%GISO%\efi\boot\bootia32.efi,Set,%ISOBootFilesOK%,No
+End
 End
 
 [CheckTargetBootFiles]
 Set,%TargetBootFilesOK%,Yes
 If,Not,ExistDir,%GTarget_Win%\Boot,Set,%TargetBootFilesOK%,No
 If,%TargetBootFilesOK%,Equal,Yes,Begin
-  If,Not,ExistFile,%GTarget_Win%\Boot\PCAT\bootmgr,Set,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgr.efi,Set,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\bcd,Set,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\boot.sdi,Set,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\etfsboot.com,Set,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\bcd,Set,%TargetBootFilesOK%,No
-  //If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\en-US\efisys.bin,%TargetBootFilesOK%,No
-  If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgfw.efi,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\PCAT\bootmgr,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgr.efi,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\bcd,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\boot.sdi,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\DVD\PCAT\etfsboot.com,Set,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\bcd,Set,%TargetBootFilesOK%,No
+//If,Not,ExistFile,%GTarget_Win%\Boot\DVD\EFI\en-US\efisys.bin,%TargetBootFilesOK%,No
+If,Not,ExistFile,%GTarget_Win%\Boot\EFI\bootmgfw.efi,Set,%TargetBootFilesOK%,No
 End
 
 [ExtractBootFiles]
@@ -298,11 +303,11 @@ TxtAddline,%w%,\Windows\Boot\EFI\memtest.efi,Append
 TxtAddline,%w%,\Windows\Boot\EFI\??-??\memtest.efi.mui,Append
 //-
 If,%PressAnyKey_CheckBox%,Equal,True,Begin
-  TxtAddline,%w%,\Windows\Boot\DVD\PCAT\??-??\bootfix.bin,Append
-  TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys.bin,Append
+TxtAddline,%w%,\Windows\Boot\DVD\PCAT\??-??\bootfix.bin,Append
+TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys.bin,Append
 End
 Else,Begin
-  TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys_noprompt.bin,Append
+TxtAddline,%w%,\Windows\Boot\DVD\EFI\??-??\efisys_noprompt.bin,Append
 End
 ShellExecute,Hide,%GTools%\wimlib-imagex.exe,"extract #$q%GISO%\sources\boot.wim#$q 1 @#$q%w%#$q --dest-dir=#$q%Gtemp%\ISOBootFiles#$q --no-acls --nullglob"
 If,%ExitCode%,Equal,0,Echo,"Wimlib extract Bios and EFI boot Files return: %ExitCode%"
@@ -319,8 +324,8 @@ If,Not,ExistDir,%GISO%\boot\Fonts,DirMake,%GISO%\boot\Fonts
 Copy,#1\Windows\Boot\PCAT,bootmgr,%GISO%,BOOTMGR
 CopyMui,#1\Windows\Boot\PXE,bootmgr.exe,%GISO%\boot
 If,ExistFile,%GISO%\boot\bootmgr.exe,Begin
-  FileCopy,%GISO%\boot\bootmgr.exe,%GISO%\bootmgr.exe
-  FileDeleteQ,%GISO%\boot\bootmgr.exe
+FileCopy,%GISO%\boot\bootmgr.exe,%GISO%\bootmgr.exe
+FileDeleteQ,%GISO%\boot\bootmgr.exe
 End
 Copy,#1\Windows\Boot\DVD\PCAT,bcd,%GISO%\boot
 Copy,#1\Windows\Boot\DVD\PCAT,boot.sdi,%GISO%\boot
@@ -339,8 +344,8 @@ If,Not,ExistDir,%GISO%\efi\microsoft\boot\fonts,DirMake,%GISO%\efi\microsoft\boo
 //-
 CopyMui,#1\Windows\Boot\EFI,bootmgr.efi,%GISO%\efi\microsoft\boot
 If,ExistFile,%GISO%\efi\microsoft\boot\bootmgr.efi,Begin
-  FileCopy,%GISO%\efi\microsoft\boot\bootmgr.efi,%GISO%\bootmgr.efi
-  FileDeleteQ,%GISO%\efi\microsoft\boot\bootmgr.efi
+FileCopy,%GISO%\efi\microsoft\boot\bootmgr.efi,%GISO%\bootmgr.efi
+FileDeleteQ,%GISO%\efi\microsoft\boot\bootmgr.efi
 End
 If,%Architecture%,Equal,x64,CopyMui,#1\Windows\Boot\EFI,bootmgfw.efi,%GISO%\efi\boot,bootx64.efi
 Else,CopyMui,#1\Windows\Boot\EFI,bootmgfw.efi,%GISO%\efi\boot,bootia32.efi
@@ -354,14 +359,14 @@ Loop,%ScriptFile%,CleanupDirMui_Loop,1,%NbLang%,%GISO%\efi\microsoft\boot
 // Add Press any key to boot...
 //-----------------------------------------------
 If,%PressAnyKey_CheckBox%,Equal,True,Begin
-  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\PCAT,bootfix.bin,%GISO%\boot
-  If,ExistFile,%GISO%\efi\microsoft\boot\efisys_noprompt.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys_noprompt.bin
-  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys.bin,%GISO%\efi\microsoft\boot
+Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\PCAT,bootfix.bin,%GISO%\boot
+If,ExistFile,%GISO%\efi\microsoft\boot\efisys_noprompt.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys_noprompt.bin
+Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys.bin,%GISO%\efi\microsoft\boot
 End
 Else,Begin
-  If,ExistFile,%GISO%\boot\bootfix.bin,FileDelete,%GISO%\boot\bootfix.bin
-  If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys.bin
-  Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys_noprompt.bin,%GISO%\efi\microsoft\boot,efisys.bin
+If,ExistFile,%GISO%\boot\bootfix.bin,FileDelete,%GISO%\boot\bootfix.bin
+If,ExistFile,%GISO%\efi\microsoft\boot\efisys.bin,FileDelete,%GISO%\efi\microsoft\boot\efisys.bin
+Loop,%ScriptFile%,CopyFromMuiDir_Loop,1,%NbLang%,#1\Windows\Boot\DVD\EFI,efisys_noprompt.bin,%GISO%\efi\microsoft\boot,efisys.bin
 End
 
 [SetBcd]
@@ -369,8 +374,8 @@ Echo,"Set boot configuration data localization"
 If,Not,ExistDir,%XPECache%,DirMake,%XPECache%
 If,ExistFile,%XPECache%\HiveCache.ini,Run,%ScriptFile%,CheckBcdCacheINI
 Else,Begin
-  If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
-  If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
+If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
+If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
 End
 //-
 If,ExistFile,%XPECache%\bcdboot,FileCopy,%XPECache%\bcdboot,%GISO%\Boot\bcd,Nowarn
@@ -383,35 +388,35 @@ Else,Run,%ScriptFile%,SetBcdEfi
 If,Not,ExistFile,%XPECache%\bcdboot,IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdboot,False
 IniRead,%XPECache%\HiveCache.ini,BcdCache,bcdboot,%bcdbootValue%
 If,%bcdbootValue%,Equal,False,Begin
-  If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
+If,ExistFile,%XPECache%\bcdboot,FileDeleteQ,%XPECache%\bcdboot
 End
 //-
 If,Not,ExistFile,%XPECache%\bcdefi,IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdefi,False
 IniRead,%XPECache%\HiveCache.ini,BcdCache,bcdefi,%bcdefiValue%
 If,%bcdefiValue%,Equal,False,Begin
-  If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
+If,ExistFile,%XPECache%\bcdefi,FileDeleteQ,%XPECache%\bcdefi
 End
 
 [SetBcdBoot]
 Run,%ScriptFile%,SetBcdEditExe
 System,FileRedirect,OFF
 If,ExistFile,%BcdEditExe%,Begin
-  StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
-  If,ExistFile,%GISO%\Boot\bcd,Begin
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture%#$q",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
-    // Display Boot Menu to access Memory Test
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
-    // Show progress bars "windows is loading"
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
-    If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
-    //-
-    FileCopy,%GISO%\Boot\bcd,%XPECache%\bcdboot
-    IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdboot,True
-  End
+StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
+If,ExistFile,%GISO%\Boot\bcd,Begin
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture%#$q",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
+// Display Boot Menu to access Memory Test
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
+// Show progress bars "windows is loading"
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\Boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
+If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
+//-
+FileCopy,%GISO%\Boot\bcd,%XPECache%\bcdboot
+IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdboot,True
+End
 End
 System,FileRedirect,ON
 
@@ -419,22 +424,22 @@ System,FileRedirect,ON
 Run,%ScriptFile%,SetBcdEditExe
 System,FileRedirect,OFF
 If,ExistFile,%BcdEditExe%,Begin
-  StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
-  If,ExistFile,%GISO%\efi\microsoft\boot\bcd,Begin
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture% UEFI#$q",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
-    // Display Boot Menu to access Memory Test
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
-    // Show progress bars "windows is loading"
-    ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
-    If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
-    //-
-    FileCopy,%GISO%\efi\microsoft\boot\bcd,%XPECache%\bcdefi
-    IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdefi,True
-  End
+StrFormat,PATH,%BcdEditExe%,%BcdEditExePath%
+If,ExistFile,%GISO%\efi\microsoft\boot\bcd,Begin
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} description #$q%ProjectName% %Architecture% UEFI#$q",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {bootmgr} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {memdiag} locale %Language%",%BcdEditExePath%
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} timeout %tmout%",%BcdEditExePath%
+// Display Boot Menu to access Memory Test
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\Boot\bcd#$q /set {bootmgr} displaybootmenu %DisplayMenu%",%BcdEditExePath%
+// Show progress bars "windows is loading"
+ShellExecute,Hide,%BcdEditExe%,"/store #$q%GISO%\efi\microsoft\boot\bcd#$q /set {default} bootmenupolicy legacy",%BcdEditExePath%
+If,ExistFile,%GISO%\efi\microsoft\boot\bcd.LOG*,FileDelete,%GISO%\efi\microsoft\boot\bcd.LOG*
+//-
+FileCopy,%GISO%\efi\microsoft\boot\bcd,%XPECache%\bcdefi
+IniWrite,%XPECache%\HiveCache.ini,BcdCache,bcdefi,True
+End
 End
 System,FileRedirect,ON
 
@@ -443,7 +448,7 @@ System,FileRedirect,ON
 RegRead,HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion",CurrentVersion,%CurrentVersion%
 If,%CurrentVersion%,Equal,6.1,Set,%BcdEditExe%,%WindowsDir%\System32\bcdedit.exe
 Else,Begin
-  If,%HostOSArch%,Equal,x86,Set,%BcdEditExe%,%GTools%\x86\BCDBoot\bcdedit.exe
+If,%HostOSArch%,Equal,x86,Set,%BcdEditExe%,%GTools%\x86\BCDBoot\bcdedit.exe
 End
 
 [MakeISO]
@@ -456,33 +461,51 @@ If,%ExitCode%,Equal,0,Echo,"mkisofs make ISO return : %ExitCode%"
 Else,Echo,"mkisofs make ISO  return : %ExitCode%",Warn
 Wait,1
 If,ExistFile,%ISOFileName%,Begin
-  Retrieve,FileSize,%ISOFileName%,%SizeISO%
-  StrFormat,BYTES,%SizeISO%
-  Echo,"ISO build size: %SizeISO%"
+Retrieve,FileSize,%ISOFileName%,%SizeISO%
+StrFormat,BYTES,%SizeISO%
+Echo,"ISO build size: %SizeISO%"
 End
 
 [Copy2USB]
 If,ExistFile,%Usb7iceExe%,Begin
-  If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%Usb7iceExe%,#$q%ISOFileName%#$q,%GTools%
-  Else,ShellExecuteEx,Open,%Usb7iceExe%,,%GTools%
+If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%Usb7iceExe%,#$q%ISOFileName%#$q,%GTools%
+Else,ShellExecuteEx,Open,%Usb7iceExe%,,%GTools%
 End
 
 [LoadRufus]
 If,ExistFile,%RufusExe%,Begin
-  Message,"To Avoid Any Failure at Startup#$xor USB Key Not Mounted on Drive Y:#$x#$xBe Sure to Use These Recommended Settings :#$x  Partition Scheme : MBR#$x  Target System : BIOS or UEFI#$x  File System : FAT32",Information
-  If,ExistFile,%RufusIni%,Begin
-    TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1"
-    TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0"
-  End
-  Else,Begin
-    FileCreateBlank,%RufusIni%
-    TXTAddLine,%RufusIni%,"UpdateCheckInterval=-1",Append
-  End
-  If,%RufusDualBoot_CheckBox%,Equal,True,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1",Prepend
-  Else,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0",Prepend
-  //-
-  If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32 -i #$q%ISOFileName%#$q",%GTools%
-  Else,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32",%GTools%
+Message,"To Avoid Any Failure at Startup#$xor USB Key Not Mounted on Drive Y:#$x#$xBe Sure to Use These Recommended Settings :#$x  Partition Scheme : MBR#$x  Target System : BIOS or UEFI#$x  File System : FAT32",Information
+If,ExistFile,%RufusIni%,Begin
+TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1"
+TXTDelLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0"
+End
+Else,Begin
+FileCreateBlank,%RufusIni%
+TXTAddLine,%RufusIni%,"UpdateCheckInterval=-1",Append
+End
+If,%RufusDualBoot_CheckBox%,Equal,True,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=1",Prepend
+Else,TXTAddLine,%RufusIni%,"EnableWindowsDualUefiBiosMode=0",Prepend
+//-
+If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32 -i #$q%ISOFileName%#$q",%GTools%
+Else,ShellExecuteEx,Open,%RufusExe%,"-g -f FAT32",%GTools%
+End
+
+[LoadVentoy2DiskExe]
+If,ExistFile,%Ventoy2DiskExe%,Begin
+// Message,"To Avoid Any Failure at Startup#$xor USB Key Not Mounted on Drive Y:#$x#$xBe Sure to Use These Recommended Settings :#$x  Partition Scheme : MBR#$x  Target System : BIOS or UEFI#$x  File System : FAT32",Information
+// If,ExistFile,%Ventoy2DiskIni%,Begin
+//   TXTDelLine,%Ventoy2DiskIni%,"EnableWindowsDualUefiBiosMode=1"
+//   TXTDelLine,%Ventoy2DiskIni%,"EnableWindowsDualUefiBiosMode=0"
+// End
+// Else,Begin
+//   FileCreateBlank,%Ventoy2DiskIni%
+//   TXTAddLine,%Ventoy2DiskIni%,"UpdateCheckInterval=-1",Append
+// End
+// If,%RufusDualBoot_CheckBox%,Equal,True,TXTAddLine,%Ventoy2DiskIni%,"EnableWindowsDualUefiBiosMode=1",Prepend
+// Else,TXTAddLine,%Ventoy2DiskIni%,"EnableWindowsDualUefiBiosMode=0",Prepend
+//-
+If,ExistFile,%ISOFileName%,ShellExecuteEx,Open,%Ventoy2DiskExe%,"-g -f FAT32 -i #$q%ISOFileName%#$q",%GTools%
+Else,ShellExecuteEx,Open,%Ventoy2DiskExe%,"-g -f FAT32",%GTools%
 End
 
 [CleanupFiles]
@@ -521,7 +544,7 @@ If,%FolderSizeVar%,Equal,0,DirDelete,#1\#9
 // Copy,SourceFolder,File,TargetFolder,[TargetFile]
 If,#4-,Equal,-,Set,#4,#2
 If,ExistFile,#1\#2,Begin
-  If,Not,ExistFile,#3\#4,FileCopy,#1\#2,#3\#4
+If,Not,ExistFile,#3\#4,FileCopy,#1\#2,#3\#4
 End
 
 [PCopyMui]
@@ -533,8 +556,8 @@ If,ExistFile,#3\#4,Loop,%ScriptFile%,PCopyMui_Loop,1,%NbLang%,#1,#2,#3,#4
 [PCopyMui_Loop]
 StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
 If,ExistFile,#1\#9\#2.mui,Begin
-  If,Not,ExistFile,#3\#9\#4.mui,FileCopy,#1\#9\#2.mui,#3\#9\#4.mui
-  Loop,BREAK
+If,Not,ExistFile,#3\#9\#4.mui,FileCopy,#1\#9\#2.mui,#3\#9\#4.mui
+Loop,BREAK
 End
 
 [CopyFromMuiDir_Loop]
@@ -542,8 +565,8 @@ End
 If,#4-,Equal,-,Set,#4,#2
 StrFormat,SPLIT,%FallBackLanguage%,|,#c,#9
 If,ExistFile,#1\#9\#2,Begin
-  If,Not,ExistFile,#3\#4,FileCopy,#1\#9\#2,#3\#4
-  Loop,BREAK
+If,Not,ExistFile,#3\#4,FileCopy,#1\#9\#2,#3\#4
+Loop,BREAK
 End
 
 [Tools_Process_above]
@@ -577,15 +600,15 @@ If,ExistDir,%GTemp%,Run,%ScriptFile%,HiveUnload,%GTemp%
 
 [HiveUnload]
 If,Not,#1-,Equal,-,Begin
-  ShellExecute,Hide,%GTools%\HiveUnload.exe," /HKLM /Target:#$q#1#$q"
-  If,%ExitCode%,Equal,1,Begin
-    EchoExtended,"Error on Unloading hives from#$x#$x%1\Windows\System32\config#$x#$xCommon Reason: Loaded Hives is being used by ex: regedit.exe#$xClose the program which locks the hives.",Warn,,MessageError,10
-  End
+ShellExecute,Hide,%GTools%\HiveUnload.exe," /HKLM /Target:#$q#1#$q"
+If,%ExitCode%,Equal,1,Begin
+EchoExtended,"Error on Unloading hives from#$x#$x%1\Windows\System32\config#$x#$xCommon Reason: Loaded Hives is being used by ex: regedit.exe#$xClose the program which locks the hives.",Warn,,MessageError,10
+End
 End
 
 [RegConvertPE]
 If,ExistFile,%GTools%\RegCPE.exe,Begin
-  ShellExecuteEx,Open,%GTools%\RegCPE.exe,,%GTools%
+ShellExecuteEx,Open,%GTools%\RegCPE.exe,,%GTools%
 End
 
 [TargetOpen]
@@ -607,7 +630,13 @@ CreateISO.bmp=1403,1871
 RegEdit24.bmp=1610,2147
 Registry.bmp=2012,2683
 USB7ice24.bmp=1471,1962
-Rufus.bmp=1062,1416
+Rufus3232.bmp=1481,1975
+ventoy.bmp=692,923
+
+
+[EncodedFile-InterfaceEncoded-Rufus3232.bmp]
+lines=0
+0=eJzdlmtMU2cYx6d+WEi2bFmWfdiH3WIcyzYRpVx6p6e0p6WnpbTlUqClrRSorqIGHbfMosGYoGQmAxcx0wSJQZzEawwYLyCo845XknmbYUr8MLa5RbPx3/O+K8zs8mGtmmxv8jRtz4ff7zzve/7P0UmpLz/HVypVItVb0ZrGP2lFr/9XVnJy8hvPmmmxWKY7nU6b2+3uD4fDv3i93uJnwXU4HAmBQCBYV1d3ta2tDdXV1aiqqsK6dese+v1+8WmyiVOzfv36u93d3aivr4fH48HGjRtx+/ZtDA4Oorm5+QdykD0tfktLy0QkEgH1G9u3b8e1a9cwMjKCy5cvY3R0FMeOHcOaNWvGyOHdp8Gvra39sbOzE/39/Zw9NjaGe/fu4ejRo1i7di2uX7/OrzU1Nd20SpbZibPeWfx+4syDSR8kdshTk1+Kl09sYefOnQ8Y78aNG7h//z7Gx8fR2toKOovo6urCnTt3uM/SJYsnkj5MRLpsDtLmzYZGnjKg12QkxOvQ09Mj7Nu374HL5YIkSbhy5QouXbqEkydP4vjx4zh16hRu3bqFzze0wiCoYcs2QJGWTDUXgjr9S6NOMT1ehx07dgjt7e0P9uzZw7kDAwM4cuQIDh06BPJDZEUDgv4SVC0sQ6jMA0nMhDpjHlRUBp3is3j5bK1a2ejbtm0b9u7di127dmHLls34eNlSlAeIu2A+cb0oLc6H35OPoK8QkkkHtTwFGkUKjIKyJl6+WpHW7cy1YdXKCCqDAVQSj93v/NJC4uZxts9TQPwC/l+5zw2rWYBWKSMH2QTtgydWtitXSpDMWT87csycG64MwOt2oqTQAW+Ri/N9JezeCxHwFhLfjTJfESr85EB9YD0gj0fUB0MsfHe+/cXifPvXpcUu5NpMyMu1wJ2Xw/ke8mB8f/TeGX+ygn7mUDS1F5mqtO/JYW4sDnZJfD1b1A1LZj1yrSbkO6Qph8ke/JnPqtxfjIpAESx0JlkfdKq0b0VB+XYsDmaj7pVso26I9iLqYEVRvv1v9qGA939VpAENdcuJX8Idso1a7kDP5VVRUL0ai4NFFF6g6mUODpv5Lw6VZaX4tKUZBw/24cSJEzyjl1cvQcX8qIPhdwfKpkFRr4opnywm4XmLSd896VDgtCK8IIjNX2ziPJZJp0+fxvnz57nDgQMHsKKhhmcDO5Nmg4Y7ZGnlPSa9akYsDsSeQQ6brJR3Pm8J+vr6MDQ0hLNnz/JiHmw2sP9YXrHr9TXVCAW9/EyastTsuWT51BYLnzuY9NPoPDbrtEqsXt3EWYzDcpH14Ny5czhz5gzvweHDh7F7924sW7oIC8tL6Vy6ow4pzKE2Vge2qA+1WYJmgr0jsHtm7AsXLuDixYt8D1hmMyeW351bt2JxuHLKgc4Ac5ggh5J4HGg/QmKW7lf2vsDue3h4mBfbC9aX3t5e0CxFR0cHm9d0ZnPxUYXvMQfZQ3ouhHgcrGaDWzIbHkUiK3jf2Rmc7D2bG+zdKRQKQaGQI4+eG5aT4Uo/nxcGnRLK9Lnf0cyaFY+DzWK05EjiTw20F+y9YP/+/WhsbOSzO1UmQ7bZSM9p3lQ+Pe6g18qRIZvTFQ+frRyLUZNrM487nQ4kJSVBIU+H3WqOzqk/MurxWbEoFICP8l1BPYiXzx0kcR71Ysxpz0ahy/aPOeknB/Z98jdl280nwWeL+O/ZreI3LruFZ9SkA5tZk1Vc4EAB+dkpz8WszEfGLK3vSfHZor14k2bXiJNmt4t6wYr1hPFYdtFMgUGvGdVnqpoFrXLmk2RPOUjia9mi8JVRr4Fep4JOo4BWlXFXo0rfoFVn6Ol3TBn8b5ZBp05QyVNrFemyT5QZsgz6Hvd76f95/QZPJa2MeJzjDSpNKy02NjI20kvKLWAYBSMMmAlA6BpW7PJbVRUvMjABAF4HBu+VIEH7AQAAAAIAAAApAAAAfAUAAAAAAAABAAAAAAAAAAAAAAA
 
 [EncodedFile-InterfaceEncoded-opendir.bmp]
 lines=0
@@ -633,10 +662,6 @@ lines=0
 lines=0
 0=eJztlHtMU1ccxy8gVDARjCAyHb7wGYUFBmqm4mubIVMzGGY4JuyPAUZBVBBbkIs85Fna0hZaaGlBoECh5SEISnk/fQDTCESX4HyCZUZBRXzsuwOMzRiYOv/dN/eb+zg3n98553vO2bozzpAaUxxxCPHcv6xDLaT0RhtIe8PMcf8jTFxjL1u/dj7KqX+64tsKSzPLKK2OnZ3dbC8vr2XEBmKx2HCjUbfeCneO7ZuEadT/+lh5eHhMj/Pzsw7y9AxPYLFqxUFBlh/DI3nq0F5eRqcOHNi139U1y9HO7tZ8c/OXDAMDBB07hnQe76qMpk3+C/uIu7vn7s2bNZ8tX/7I1MQE4+XGbWpqCj6fj5LiYihEohYeTc/MiY39JDk42DUlKMjmffgOq1e3TfAMDQ2xcuVK+Pj4QCaToampCRqNBmVlZWhqbER+cvLjutJStDe34JxS+VweFbXnXfwdjo5XXFxcEB4eDqlUOubU1FTI5XIolUqUl5ejsrISHR0d6OnuRpVKhdaaWrRU16C6uGSYf/y4hxFFWVCjW2sSydlstlgo/CMlJQVvWiQSQSKRwNnZGdbW1mN1tFotbvf24kxWNlo01bjU0Ag5h/PiK2PjhmUUZU9wupOU0EkJDT2cJhCMMJlMODk5ISkp6e86AoEAycnJKCYZNJI5GujvR75IjAt19bhQ3wB+cDBCGQx46uuXz6eoeZONAYBOMk1vFyUkPDxx4sRYv0fnaKJGqliM0xkZyCWZKMn3TA4PlxubcJ7UDNuyBUm6uojQ13/lMGtWOMExpsoiMzY2Wk3mfTTLAoUCEi4XafHxSI9PgIxYGhcPGZsDhTgNiaGhiNi1CxzS9/ilSxFAxu1lbv5s55w57o5THEM5XC67QlmAbB4PCoEQeeJUFKbLca5QhQ6yZm7euIEbXd2I9vOD/4wZYE+bBraFBQqFQiT4+yNy9mwwTUwGHRmMHZPlreDzhWfzlGgla6O78xd0tXeMZdhA1k91STFqS1VoLMsBj3kQgRbm4JF5Ob5uHYS+vghZswbHNm1CmJUVAszMau0oSv9t/hm5fE9nc/NrFelzjjAFJZkSXGnOQt/1PAzdVuL5HQWGe+X4vZOPohh3sKzmwnv5MrDJvknX04OU7Pdk8hy9fv1L51Wr9ppT1Iy3a+QlJQVWqdWvVDIxRoZUePkoByN9aRi4FgNJrAu0rUcw2HwAA1WeaBM7QeBmg7jpDByytwdz8WKELFoEFjkHSN5PvqOoo2/zaZrWzUlM9NGoi15db8/CiwEZ6bcAQz3RUHBdkcTajl9L90FbsRcDJbtRF2WPk/ONEGE8EwGWlqDXrkUaOVfitm9/fUhH5/xUaymXy3WtVquGe9rkGL7JwbOeSDzpZOKuxhtOX1gi9+RGFIQ54M7pjahirUC8rTHCN6wDh7BzSf6p3t4IYjCKp+KPKiMmYoNGpervrMnA4NWTGLocgMdN+xHv5wAZcy2kR21Auy3AfYkNLoUvQJmvFTizjJHg5obEefNwxNZW9G/88Rq0ZalM1nSxSo07DTQe1f+M/rI94By0QcQ+K0gOWuE34Src4y9BO8sMkQsNEEkyTty2Deq0tKJ38ccyZx82VAqSWBpV4bOu6jQ8KP8R2sId6BQ44BrPGuyflkBb8D0GKpnoyAxEPusHtLe04FJNTdv78CeUHhH8aYFQqKjKz37aVRSC+9lfok9qhwe5O/HwrD8GL4hIVo14fKUQfXdvkb1SVvEh/FGNnlWZEcGLMmNOReVxY+/VycNfX1eH4HZJIO6Vk3tVInpb1bh28eKIgsv95kP5byqfpg1SWCwHSVioryIxUVooFpWpJKkleQIBWxJJfz76z588xk0OeJzjDQ12Ms9MTjUy0UvKLWAYBSMMdHFC6GJW7PJq6iyTGZgAD24GJD3YbQMBAAAAAgAAACgAAABzBQAAAAAAAAEAAAAAAAAAAAAAAA
 
-[EncodedFile-InterfaceEncoded-Rufus.bmp]
-lines=0
-0=eJzFll1IW2cYx5VusNXdDLYxGJRBx7rJkM0uJprvnJycmuTkJJ7EfJjEo4k1ae1gDrGmylxgNxOL+2rRzqHIBF292FDvtCp+JH7i58WEIcLa3nQwezPc9jx730OEDnaRUwd7yAMn58D/l//7vv/nxMKnni+QK0W6ifSruS4seL3gDH2Qe/7PwpOP/KXwiSf5XP8fZbVaizmO6xIE4eX/UjcQCBhaW1t/TKfTf7a0tEB7e3tGFMWi0+omEolz3d3dmb6+PiD62NPTg3t7e7CwsICpVGqS+Hj2NPptbW3G5uZm7O3thd3dXTw8PMT9/X3Y2trC+fl5JMwhxmI+8/aF86p3it9klOp3dXWdHRsbuzc9PQ0HBwdwdHQEo6OjEA6HKQ/m5uYg4Pf98l5JMZRdLAGjVnVDKWNkZKRofHz8ntfrxYGBAaS6mUwGae/s7EDqegv6PA4069Wo05QCa6qoV8oYHh4uunv3+xniA6empmBiYgI/77mJH15LQFOiDhPxCEYCHrQY1MTD+8cco7MrZbAWww/pTzqh48Z1+OBKHK5eliBWGwQp4of6aADiUhBqQ1XAGDVg1pc95iw6Vb7aLoetyOOqPCY6mIhFIBIUMRryohSuhrqIHwlH7sv1NSCFRGQMMuPhJav+jXz07RxT6Bf5W7zdCqJgh6BPwDBh1Nb4ZH3KzTGgMRZG6oOsFVr06p/srPGVfH04OMunvJ0Fr9uBoWo3Eh9APOAJozEWhc6ONkzGo3St5D0nXrLER95ZdFYyH7ns7F+EAYRB14rsRwPc6b0Ns7OzsLKyAl9/9QUkG6IQDVbRdSJ7Uj5us2ifyZ9hjbkc7B81AREGB77FpaUlXF9fx7W1NaDXlHP71pd4pSGK0aCHMpA1V9zJV58WX2kVyb78Pjg4CIuLizAzMwPLy8uwsbEB2WwWaCZvdn9GzlkthP1u2QdhfKyEQXywlZz1MZlPuLq6itvb2/LsoGtEcoIk+5ju7ICrjRISBuYYivJH9rucd3CPhoaGcHNzk/5+JPMPJicnkd5LJpPg9wrYlKAMAUw61bFJq+KUMAQnV+Jx2e/39/fLM4nOQ0mSwMpYoMrtlHMYl0JwLVEHIZ8LtOrSBxrVu88pYbid3HmP4PjZxrJoMujALwqYO7twko8cA91OG1aoS8uU6Ms+HLbXPPylneoqHnL5kDN4kpFoyAcBn5voc7+RefOiUn2Z4eReIowsmalAOdUiT/MI5D6Q80Z1v2FMugtPo/0E4wW7zTzBmLRoNpT/atKXf2fUaUTS//pP5GmqQn2xkPRbmrLSU71DT1N/A7o1I814nOMMKk0rLdZLyi1gGAUjEFRxQui7zNjl+Wbul2FgAgDB3wZzOWj3vQEAAAACAAAAJQAAAN0DAAAAAAAAAQAAAAAAAAAAAAAA
-
 [EncodedFolders]
 Folder
 
@@ -648,4 +673,8 @@ lines=2
 0=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
 1=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
 2=BjmE/5WnVWaHYWwfE4/0getCQm0wSZt8Xp8vFIp4wxGKpAqi6qh0MB08iEuvDAS2dnXtuOMj/f3Kx/vl/7/y/wH00xfdeJwTcCkq88wrLglILEnO0EutSGUYBSMKOEAoGwns0v+BgIEJAFP9Cs2qNs0OAQAAAAIAAAApAAAAPBgAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-ventoy.bmp]
+lines=0
+0=eJxdkn1IU1EYxm9Ef1USrWgEBRHEwIJaMsFAKgoL3aakEYlFKpViCWmSMMuPZMw5UJyN21rgNltrLJrWTDdmDsXZ1HJzc1ptDtwHFrqJCmKwnnXWAi/PObznfX7vc8+Fe57L2U79fThYLKw9ibWNYhID/sx+sv49jRd2bVH92R1JbbHKDm/lhdn7WvKPia4eh1DgSBKSLmrSJGRdDish/snGAo6oMENSyBZymUn+RgplpJuV1dkN/NSKdEY5e2d1xm7Bub0NWcxm3hFhfip46d2LispLeRSlbyqyv5PhK9AEDFf+pBRvIWmtvJSWHAaO7UWnXlbxh1Si/me1GFTW5CEN/a8jZv+816BqkxSfBtzGT0h6haEoYyP8+Z2M8qOUrCQdaeh43I7lSCQYDJoMKro2V3r9IH2NQYSR7geZTrN6c8UPEkf17UMf24v93jnweMvI4PvXHVWw0Ie6bh3QVrBG5OUuY6fmXhpqQ80JyKppmnG7bJ96HRNWXK9PJ9U9zSVWz6M08L5RrUnIG2g4A1klWTb5Tdew3uP6MmbRuZ0TuCEKk/gycZ36+ocUNf6idFzGnaRz3W/uf++pm/3QOD89BBJ3W1r6hWJUXQnXoSz5MUjP6avjjKYUCgyJQ8Od2INjiuXQ3Eo0QuS1a+HO9wmmCigA4c9dgYHHi6aan3Y64uwmWvcZV3390YXJaNgTsgrDFgHcRVvHgiWeGSft4rVpBbB1vyUuFKT2GdcmW2FhJBaLhabeIjlib0cmmhte/WZo+L/8vauzWvSDrzIxCxg/QzIB7sY3DfbfATMRxiFYqIEB/gMtdKyQeJzjKkvNK8mv1EvKLWAYBSMPmDFD6Cwm7PLMb3eHMzABAN6jBsaVgWZqAQAAAAIAAAAmAAAAagIAAAAAAAABAAAAAAAAAAAAAAA
 

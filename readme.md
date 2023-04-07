@@ -1,6 +1,8 @@
 # LastOS Builder
 
-![<Element: Lastos logo>](<<https://cldup.com/E21ACrr4ZJ.png?raw="true"> width="100px"  height="100px">)
+<img src="https://cldup.com/E21ACrr4ZJ.png" align="center" style="height: 150px" />
+
+---
 
 [Website](http://www.lastos.org)
 
