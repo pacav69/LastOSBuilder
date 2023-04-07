@@ -1,8 +1,8 @@
 
 
+Lines to change after using xpe Plugin creator app builder.
 
-
-
+example  BlankAndSecure app:
 
 Description=(v) The BlankAndSecure "Blank And Secure" is a portable tool to securely delete the data. Secure delete files are required to block the recovering of deleted data. Secure deletion is possible with this program, because "Blank And Secure" overwrites the data with zeros
 
@@ -15,18 +15,16 @@ HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.softwareok.com/?Downl
 %SetupURLx64%=https://www.softwareok.com/Download/BlankAndSecure_x64.zip
 
 
-
 [Update_Container]
 Exec,%FileContainer%,Process
 
 
-
-
-files
+* files
 
 %SetupURL%=https://www.softwareok.com/Download/BlankAndSecure.zip
 %SetupURLx64%=https://www.softwareok.com/Download/BlankAndSecure_x64.zip
 
+* updates Description
 IniWrite,%MainPlugin%,Main,Description," (v%ContainerVer%) The %ProgramTitle% "Blank And Secure" is a portable tool to securely delete the data. Secure delete files are required to block the recovering of deleted data. Secure deletion is possible with this program, because "Blank And Secure" overwrites the data with zeros"
 
 

@@ -220,4 +220,13 @@ The additions plugin is there to help add system files and registry entries with
 https://drive.google.com/drive/folders/13IMHgupLMPg-IxZn-nwyAB7vLN_qRnJf?form=MY01SV&OCID=MY01SV
 
 
+Cyber Protect Home Office
+Formerly Acronis True Image
+
+https://www.acronis.com/en-sg/homecomputing/thanks/home-office/
+
+download
+https://download.acronis.com/AcronisCyberProtectHomeOffice.exe
+
+
 n

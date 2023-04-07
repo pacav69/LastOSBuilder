@@ -82,3 +82,9 @@ added bin directory and tools
 updated 00.1_Extract_Source_ISO.cmd
 updated w11down.cmd
 0.0.24 ************************
+updated readme.md
+added winbuilder scripts
+0.0.25 ************************
+added lostos apz downloader
+
+

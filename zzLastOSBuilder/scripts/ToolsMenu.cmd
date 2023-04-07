@@ -29,11 +29,12 @@ pause
 
 @REM pause
 
-
+@REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\Bin\LostOSrepo
+@REM LostOSrepo_v4.exe
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - ToolsMenu
 ::-------------------------------------------------------------------------------------------
-:HelpMenu
+:ToolsMenu
 
 cls
 echo.===============================================================================
@@ -43,7 +44,7 @@ echo.===========================================================================
 echo.
 echo.                             [A]   About
 echo.
-echo.                             [1]   Source Cleanup
+echo.                             [1]   Download Apz from LastOS
 echo.
 echo.                             [2]   Integrate
 echo.
@@ -66,41 +67,41 @@ echo.===========================================================================
 echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :HelpMenuHelp
+if errorlevel 9 goto :ToolsMenuHelp
 if errorlevel 8 goto :ToolsMenuHelp
 if errorlevel 7 goto :TargetMenuHelp
 if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
 if errorlevel 4 goto :RemoveMenuHelp
 if errorlevel 3 goto :IntegrateMenuHelp
-if errorlevel 2 goto :SourceMenuCleanup
+if errorlevel 2 goto :Lostos
 if errorlevel 1 goto :aboutHelp
 ::-------------------------------------------------------------------------------------------
 
-:SourceMenuCleanup
+:Lostos
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Source Cleanup
+echo.                           LastOS ToolKit Builder - Download Apz from LastOS
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
  echo.
 echo.
 echo.-------------------------------------------------------------------------------
-echo.####about to cleanup Source sub-directories and DVD ###############
+echo.####about to Download Apz from LastOS ###############
 echo.-------------------------------------------------------------------------------
 
 echo.
-choice /C:YN /N /M "Are you sure you want to continue with cleanup of Source sub-directories ? ['Y'es/'N'o] : "
+choice /C:YN /N /M "Are you sure you want to continue with Download Apz from LastOS ? ['Y'es/'N'o] : "
 if errorlevel 2 goto :somewhere_else
 if errorlevel 1 goto :somewhere
 
 :somewhere
 rem echo "I am here because you typed Y"
-call  %CPS%\cleanoutsources.cmd
-call :RemoveFolder "%DVDDir%"
+call  %CPS%\Lostos.cmd
+@REM call :RemoveFolder "%DVDDir%"
 @REM echo create DVDdir
 @REM pause
-call :CreateFolder "%DVDDir%"
+@REM call :CreateFolder "%DVDDir%"
 pause
 goto :Quit
 
@@ -109,7 +110,7 @@ rem echo "I am here because you typed N"
 echo
   echo.===============================================================================
 echo.
-echo. aborting cleanup of Source sub-directories
+echo. aborting Download Apz from LastOS
 echo.
   echo.===============================================================================
 pause
