@@ -9,6 +9,7 @@ zzLastOSBuilder\00_Source\01Windows_Original\*.*
 zzLastOSBuilder\00_Source\02Windows_Sysprep\*.*
 zzLastOSBuilder\00_Source\03Windows_NTLite\*.*
 zzLastOSBuilder\03_WinBuilder\Temp\*.*
+zzLastOSBuilder\03_WinBuilder\ProgCache\*.*
 
 
 # C extensions
@@ -476,3 +477,55 @@ zzLastOSBuilder/03_WinBuilder/ProgCache/WinNTSetup4/unattend/Win7-10-Select.xml
 zzLastOSBuilder/03_WinBuilder/ProgCache/WinNTSetup4/WinNTSetup.ini.txt
 zzLastOSBuilder/03_WinBuilder/ProgCache/WinNTSetup4/WinNTSetup_x64.exe
 zzLastOSBuilder/03_WinBuilder/ProgCache/WinNTSetup4/WinNTSetup_x86.exe
+zzLastOSBuilder/03_WinBuilder/ProgCache/Core-Temp/Core-Temp-setup.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Changes.txt
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Core Temp,1.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Core Temp,2.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/CoreTemp.ini
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/goodgamestudios/1607_GGS_EM-icon_256x256.ico
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/bg-BG.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ca.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/cs.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/da-DK.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/de-DE.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/de-DE2.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/el-GR.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/es.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/fi-Fi.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/fr-FR.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/gal-GZ.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/he-IL.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/hu-HU.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/hy-AM.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/it-IT.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ja-JP.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ko-KR.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/nb-NO.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/nl-NL.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/pl-PL.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/pt-BR.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ro-RO.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ru-RU.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/sk.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/sv-SV.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/tr-TR.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/ua-UA.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/vi-VN.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/zh-CN.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Languages/zh-TW.lng
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/License.txt
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/CoreTempPluginProxy.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/CoreTempRemoteServer.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/Logger.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/Plugin.cfg
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/PluginNetInterface-x64.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/PluginNetInterface-x86.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/Readme.txt
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/SystemInfo.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Plugins/CoreTempRemoteServer/TcpServer.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/Core-Temp/Readme.txt
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/install_script.iss
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x64/Core Temp.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x64/CoreTemp.ini
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x86/Core Temp.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x86/CoreTemp.ini

@@ -1,7 +1,6 @@
-tips
+# tips
 
 ref https://theoven.org/viewtopic.php?f=14&t=7&start=80
-
 
 tip1
 Re: Win10XPE Project
@@ -17,11 +16,9 @@ After that edit plugin to extract the Program instead of the Setup file. And rem
 
 From:
 
-
 ExtractFile,%FileContainer%,Folder,%SetupFile%,%GTemp%\%ProgramFolder%
 ShellExecute,Hide,%GTools%\7z.exe,"x #$q%GTemp%\%ProgramFolder%\%SetupFile%#$q -y -o#$q%GTemp%\%ProgramFolder%\%ProgramFolder%#$q"
 to:
-
 
 ExtractFile,%FileContainer%,Folder,%ProgramExe,%GTemp%\%ProgramFolder%
 
@@ -197,7 +194,6 @@ CODE: SELECT ALL
 DirCopy,%GTemp%\%ProgramFolder%,%Target_Prog%
 The trick is to name your SFX the same name as the EXE in your program and shortcuts will work no problems.
 
-
 Hi lifeline
 Regkeys is stored in this file
 
@@ -219,7 +215,6 @@ The additions plugin is there to help add system files and registry entries with
 
 https://drive.google.com/drive/folders/13IMHgupLMPg-IxZn-nwyAB7vLN_qRnJf?form=MY01SV&OCID=MY01SV
 
-
 Cyber Protect Home Office
 Formerly Acronis True Image
 
@@ -227,6 +222,3 @@ https://www.acronis.com/en-sg/homecomputing/thanks/home-office/
 
 download
 https://download.acronis.com/AcronisCyberProtectHomeOffice.exe
-
-
-n
