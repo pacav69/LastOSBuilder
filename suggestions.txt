@@ -7,3 +7,6 @@ change screen resolution to 1024 x 768 or somthing similar
 
 have downloaded files on mega
 store scripts to download on github
+
+use lastos downloader to download added files
+then copy to the lastos build directory for adding to ISO

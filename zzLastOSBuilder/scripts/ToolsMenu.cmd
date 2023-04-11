@@ -102,6 +102,14 @@ call  %CPS%\Lostos.cmd
 @REM echo create DVDdir
 @REM pause
 @REM call :CreateFolder "%DVDDir%"
+@REM copy from zzLastOSBuilder\Bin\Lostosrepo\Downloads
+@REM copy files to \03_WinBuilder\Custom\x64\IsoRoot\ssAppsInstalls
+@REM \03_WinBuilder\Custom\x64\IsoRoot\ppAppsInstalls
+@REM \03_WinBuilder\Custom\x64\IsoRoot\ppGamesInstalls
+
+@REM xcopy *ssApp.apz .\ssapz
+@REM xcopy *ppApp.apz .\ppapz
+@REM xcopy *ppGame.pgz .\ppGame
 pause
 goto :Quit
 
