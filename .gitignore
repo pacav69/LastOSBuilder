@@ -10,6 +10,7 @@ zzLastOSBuilder\00_Source\02Windows_Sysprep\*.*
 zzLastOSBuilder\00_Source\03Windows_NTLite\*.*
 zzLastOSBuilder\03_WinBuilder\Temp\*.*
 zzLastOSBuilder\03_WinBuilder\ProgCache\*.*
+zzLastOSBuilder\03_WinBuilder\Custom\x64\IsoRoot\myapz\*.*
 
 
 # C extensions
@@ -529,3 +530,4 @@ zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x64/Core Temp.exe
 zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x64/CoreTemp.ini
 zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x86/Core Temp.exe
 zzLastOSBuilder/03_WinBuilder/Temp/Core-Temp/x86/CoreTemp.ini
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/myapz/\!Disable.Defender_v2017.07.13.R2_ssApp.apz

@@ -3,7 +3,7 @@
 @REM ToolsMenu.cmd
 @echo off
 rem Win11 script
-set scriptver=0.0.15
+set scriptver=0.0.26
 title %~nx0  v%scriptver%
 
 set debug=0
@@ -12,6 +12,10 @@ set debug=0
 @REM  call the "setvars.cmd" file in the Scripts directory
 call %CPS%\setvars.cmd
 echo.
+
+set "ISOROOT=%CP%\03_WinBuilder\Custom\x64\IsoRoot\"
+
+ set "RepoDl=%Bin%\Lostosrepo\Downloads\"
 
 set "DVDDir=%CP%\DVD"
 
@@ -23,6 +27,7 @@ echo MCTool = %MCTool%
 echo ISO = %ISO%
 echo DVDDir = %DVDDir%
 echo DVD = %DVD%
+echo CP = %CP%
 echo. ########################################
 pause
 )
@@ -97,20 +102,25 @@ if errorlevel 1 goto :somewhere
 
 :somewhere
 rem echo "I am here because you typed Y"
-call  %CPS%\Lostos.cmd
-@REM call :RemoveFolder "%DVDDir%"
-@REM echo create DVDdir
-@REM pause
-@REM call :CreateFolder "%DVDDir%"
-@REM copy from zzLastOSBuilder\Bin\Lostosrepo\Downloads
-@REM copy files to \03_WinBuilder\Custom\x64\IsoRoot\ssAppsInstalls
-@REM \03_WinBuilder\Custom\x64\IsoRoot\ppAppsInstalls
-@REM \03_WinBuilder\Custom\x64\IsoRoot\ppGamesInstalls
+@REM call  %CPS%\Lostos.cmd
 
-@REM xcopy *ssApp.apz .\ssapz
-@REM xcopy *ppApp.apz .\ppapz
-@REM xcopy *ppGame.pgz .\ppGame
+echo.Downloading Apz from LastOS
+echo.
+
+@REM  #################
+START /wait  "LostOSrepo" cmd /c %Bin%\LostOSrepo\LostOSrepo_v4.5.exe
+
+echo.
+echo.Finished Downloading
+echo.
 pause
+
+echo.
+echo.Copy apz
+echo.
+call :apzcopy
+pause
+
 goto :Quit
 
 :somewhere_else
@@ -131,6 +141,110 @@ pause
 
   pause
   goto :Quit
+::-------------------------------------------------------------------------------------------
+
+
+:apzcopy
+
+IF  %debug% NEQ 0 (
+@REM cls
+echo. ########################################
+echo my project name is %ProjectName%
+echo MCTool = %MCTool%
+echo ISO = %ISO%
+echo DVDDir = %DVDDir%
+echo DVD = %DVD%
+echo CP = %CP%
+echo CPS = %CPS%
+echo ISOROOT = %ISOROOT%
+echo RepoDl = %RepoDl%
+echo. ########################################
+pause
+)
+
+
+@REM   /E Copies directories and subdirectories, including empty ones.
+@REM   /I If destination does not exist and copying more than one file,
+@REM    assumes that destination must be a directory.
+@REM /H Copies hidden and system files also.
+@REM /R  Overwrites read-only files.
+@REM /Y Suppresses prompting to confirm you want to overwrite an
+ @REM    existing destination file.
+@REM  /J Copies using unbuffered I/O. Recommended for very large files.
+
+ set "XCopy=xcopy.exe /E /I /H /R /Y /J"
+
+@REM "\03_WinBuilder\Custom\x64\IsoRoot\"
+
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Copy Apz
+echo.                           v%BuilderVersion%                             .
+echo.===============================================================================
+ echo.
+echo.
+echo.-------------------------------------------------------------------------------
+echo.####about to Copy Apz ###############
+echo.-------------------------------------------------------------------------------
+
+echo.
+choice /C:YN /N /M "Are you sure you want to continue with copying Apz? ['Y'es/'N'o] : "
+if errorlevel 2 goto :somewhere_else
+if errorlevel 1 goto :somewhere
+
+@REM copy from zzLastOSBuilder\Bin\apzcopyrepo\Downloads
+@REM copy files to:
+@REM \03_WinBuilder\Custom\x64\IsoRoot\ssAppsInstalls
+@REM \03_WinBuilder\Custom\x64\IsoRoot\ppAppsInstalls
+@REM \03_WinBuilder\Custom\x64\IsoRoot\ppGamesInstalls
+
+@REM copy specific files to their respective directories
+@REM xcopy *ssApp.apz .\ssapz
+@REM xcopy *ppApp.apz .\ppapz
+@REM xcopy *ppGame.pgz .\ppGame
+
+:somewhere
+rem echo "I am here because you typed Y"
+
+@REM test of file copying
+call :CreateFolder "%ISOROOT%\myapz"
+xcopy %RepoDl%\*ssApp.apz %ISOROOT%\myapz
+@REM end test
+
+@REM @REM copy ssAppsInstalls
+@REM xcopy %RepoDl%\*ssApp.apz %ISOROOT%\ssAppsInstalls
+
+@REM @REM copy ppAppsInstalls
+@REM xcopy %RepoDl%\*ppApp.apz %ISOROOT%\ppAppsInstalls
+
+@REM @REM copy ppGamesInstalls
+@REM xcopy %RepoDl%\*ppGame.pgz %ISOROOT%\ppGamesInstalls
+
+
+@REM pause
+@REM goto :Quit
+goto :eof
+
+:somewhere_else
+rem echo "I am here because you typed N"
+echo
+  echo.===============================================================================
+echo.
+echo. aborting Copy Apz from Download
+echo.
+  echo.===============================================================================
+pause
+:run
+  echo.
+  echo.
+  echo.
+  echo.
+  echo.===============================================================================
+
+  pause
+  @REM goto :Quit
+  goto :eof
 ::-------------------------------------------------------------------------------------------
 
 

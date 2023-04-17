@@ -19,9 +19,10 @@ cd %~dps0
 for %%f in ("%CD%") do set CP=%%~sf
 rem CPS= CP Scripts
 set CPS=%CP%\scripts
-echo cp = %CP%
-
-@REM pause
+echo CP = %CP%
+echo.
+echo CPS = %CPS%
+pause
 
 
 @REM  setvars= Set variables for all scripts to run
@@ -56,14 +57,20 @@ echo.Downloading Apz from LastOS
 echo.
 
 
-@REM  ################# MediaCreationTool
+@REM  #################
 START /wait  "LostOSrepo" cmd /c %Bin%\LostOSrepo\LostOSrepo_v4.5.exe
 
-@REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\Bin\LostOSrepo
-@REM LostOSrepo_v4.exe
+
 echo.
 echo.Finished Downloading
 echo.
+pause
+
+@REM echo.
+@REM echo.Copy apz
+@REM echo.
+@REM call %CP%\copyapz.cmd
+@REM pause
 
 goto :eof
 
