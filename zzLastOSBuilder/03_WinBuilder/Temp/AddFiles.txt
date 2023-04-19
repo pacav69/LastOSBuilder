@@ -1,0 +1,4 @@
+\Windows\System32\wtsapi32.dll
+\Windows\System32\Ntsqlite.dll
+\Windows\System32\Sqlite3.dll
+

@@ -1,0 +1,16 @@
+errorx on zzoom
+Processing section: [Launch_Program] in file: [Zzoom]
+
+
+Unable to create directory:  [DirMake,%ProjectTemp%\TempExtractFolder\%ProgramFolder%]
+
+
+
+ProgCache
+
+syntax
+//Download,Path\FileName,URL,(NoExitOnError|Hide)
+
+Download,%ProgCache%\%ProgramFolder%\%SetupFile%,%SetupURL%
+
+Download,%Gtemp%\produkey-x64.zip,https://www.nirsoft.net/utils/produkey-x64.zip

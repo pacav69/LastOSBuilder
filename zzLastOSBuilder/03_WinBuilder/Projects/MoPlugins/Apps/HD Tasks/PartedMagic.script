@@ -1,0 +1,418 @@
+[Main]
+Title=Parted Magic Linux
+Type=Plugin
+Author=Markus Debus, Jon Fleming, ChrisR
+Description=The Parted Magic OS employs core programs of GParted and Parted to handle partitioning tasks with ease, while featuring other useful programs (e.g. Partition Image, TestDisk, fdisk, sfdisk, dd, and ddrescue) and an excellent set of info to benefit the user. An extensive collection of fileystem tools are also included. Requires the Grub4Dos or ISOLinux boot manager.
+Credits=http://partedmagic.com/. Nightman, JonF, al_jo, sbaeder
+Version=027
+Download_Level=2
+Level=7
+Selected=False
+Mandatory=False
+NoWarning=False
+Contact=http://TheOven.org/
+Date=2019.01.29
+Depend=
+Disable=
+Web1=http://w7pese.cwcodes.net/Projects/Win7PESE/OtherOS/PartedMagic.script
+Web2=http://yomi.cwcodes.net/Yomi/OtherOSY/PartedMagic.script
+Web3=http://w8pese.cwcodes.net/Projects/Win8PESE/OtherOS/PartedMagic.script
+Web4=http://win81se.cwcodes.net/Projects/Win8.1SE/OtherOS/PartedMagic.script
+CertifiedBy=
+Certification=
+HistoryNotes01=
+History009=dl order changed (known working one first)
+History010=Lancelot - manual option added and set default (hidden option on interface (and lines commented out) to ease future auto maintance) (reason: no need to refix version find routine during maintance again and again)// wget.exe used to download since wget.exe supports downloading redirected-link (thanks sbaeder for wget.exe info) // isolinux support added (thanks sbaeder for isolinux info)
+History011=Lancelot - Pe1 support
+History012=JonF - noticable Echo warning in warning swamp
+History014=Lancelot - SetOtherOS support added
+History015=ChrisR - Added support for PartedMagic bigger 6.1
+History016=sbaeder - Restructured code and updated for new file name format (as of pmagic_2011_11_24_i686.iso). Removed the exe (kept existing AU3) that tries to get version off web - still needs work.
+History017=ChrisR - Restructured code and updated for new file name format (as of pmagic_2012_2_27.iso). Change GetPartedMagicCurrentVersion pmagic_2012_2_27_x86_64.iso (amd64) => 2012_2_27 => download of pmagic_2012_2_27.iso
+History018=ChrisR - Rewriting. Use Local Iso or automatic download. Menu options language. Additional menu options with submenu ...
+History019=ChrisR - Check BootSector and minor things
+History020=ChrisR - Init variable CmdexeFolder
+History021=ChrisR - Plugin updated following latest version pmagic_2013_02_28.iso. GetPartedMagicCurrentVersion.au3 updated following latest DownloadPage.htm. fix typo lock",Append, thanks BobxT
+History022=ChrisR - The latest releases of Parted Magic are no longer available as free downloads. No more downloading it only uses "Use Local ISO file" - 2013.10.03
+History023=Lancelot - Added DU Buttons
+History024=Lancelot - syntax updated - Date:2016.02.06
+History025=Lancelot - Add Compare button - Date:2017.02.01
+History026=Lancelot - Fixed missing quote - Thanks to ied206 PEBakery Auto Syntax Checking Reply 3 http://TheOven.org/index.php?topic=2271.msg24582#msg24582 - Date:2017.11.11
+History027=Lancelot - update to TargetFinalDir - Date:2019.01.29
+
+[Interface]
+Note_TextLabel="This Plugin will add Parted Magic to the %Boot_Menu%",1,1,12,10,303,18,8,Normal
+Image_Software=pmagic.jpg,1,5,326,28,282,173,
+HomePage_WebLabel="Home Page",1,10,440,203,65,18,http://partedmagic.com/
+IsoImage_Bevel=IsoImage_Bevel,1,12,10,30,308,34
+IsoImage_FileBox=%GlobalTemplates%\PartedMagic\pmagic_2013-08-01.iso,1,13,17,37,268,20,file
+OpenFolder_Button=,1,8,288,35,24,24,OpenFolder,opendir.bmp,False,False,_OpenFolder_,False,"__Open Folder"
+Option_Bevel=Option_Bevel,1,12,10,72,308,169
+BMenuOption_TextLabel="BootMenu Options",1,1,17,81,108,18,8,Bold
+AddLanguage_TextLabel=Language:,1,1,127,81,60,18,8,Normal
+AddLanguage_ScrollBox="English (default)",1,4,190,79,122,21,"English (default)",Brazilian,Chinese,"Chinese (Taiwan)",French,German,Italian,Japanese,Polish,Norwegian,Russian,Spanish
+Grub4DosMenu_TextLabel="Menu config (Grub4Dos)",1,1,17,106,123,18,8,Normal
+Grub4DosMenu_ScrollBox="SubMenu of Main Menu                   0",1,4,142,104,170,21,"SubMenu of Main Menu                   0","Inside the main Menu                      1"
+IsolinuxMenu_TextLabel="Menu config (Isolinux)",1,1,17,131,123,18,8,Normal
+IsolinuxMenu_ScrollBox="SubMenu of Main Menu                   0",1,4,142,129,170,21,"SubMenu of Main Menu                   0","Reuse the Gparted config file         1"
+TitleIsoName_CheckBox="Display the ISO name without ext. in the menu title",1,3,17,157,292,18,True
+Normal_CheckBox="Default settings (Runs from RAM). 312MB+",1,3,17,181,292,18,True
+Live_CheckBox="Live with default settings. 175-312MB",1,3,17,200,292,18,True
+Graphical_CheckBox="Alternate graphical server. Xvesa instead of Xorg",1,3,17,219,292,18,True
+Support_TextLabel="Note: This Plugin only supports Grub4Dos and IsoLinux.",1,1,342,227,275,18,8,Normal
+pWebLabel2="Plugin Page",1,10,321,4,55,18,http://TheOven.org/index.php?board=9
+Button_Download=,1,8,382,-1,24,24,DownloadXXX,DoubleJDesignRavenna3dArrowDown0016016.bmp,False,False,_DownloadXXX_,False,"__DOWNLOAD Plugin"
+Button_Upload=,1,8,403,-1,24,24,UploadXXX,BokehliciaCaptivaSoftwareupload0016016.bmp,False,False,_UploadXXX_,False,"__UPLOAD Plugin (Admins Only)"
+Button_CompareEdit=,1,8,426,-1,24,24,CompareEditXXX,AmperossQetto2Move0016016.bmp,False,False,_CompareEditXXX_,False,"__DOWNLOAD and Compare with an Editor"
+
+[Variables]
+%ProgramExe%=
+%ProgramFolder%=pmagic
+%ProgramTitle%=Parted Magic Linux
+%CmdexeFolder%=
+// This is size of pmagic_2012_04_21.iso... (1 year). Not sure we should keep this check, but for now, leave it in...
+%Min_ISO_Size_Local%=193986560
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+If,Not,ExistVar,%BootSector%,Begin
+If,ExistSection,%ProjectDir%\script.project,SetOtherOS,Run,%ProjectDir%\script.project,SetOtherOS
+End
+If,Not,ExistSection,%ScriptFile%,Process_%BootSector%,Run,%ScriptFile%,Warn_Echo,"'%ScriptTitle%' not prepared for %BootSector%"
+If,Not,ExistSection,%ScriptFile%,Process_%BootSector%,Exit,"'%ScriptTitle%' not prepared for %BootSector%"
+//-
+IniRead,%ProjectDir%\script.project,IniVariables,TargetFinalDir,%TargetFinalDir%
+If,ExistFile,%ProjectTemp%\HostOSTools\cmd.exe,Set,%CmdexeFolder%,%ProjectTemp%\HostOSTools\
+If,Not,ExistDir,%ProjectTemp%\%ProgramFolder%,DirMake,%ProjectTemp%\%ProgramFolder%
+//--
+// Cleanup Work and Target Folder
+If,ExistDir,%ProjectTemp%\%ProgramFolder%,Shellexecute,Hide,%CmdexeFolder%cmd.exe,"/C rd /s /q #$q%ProjectTemp%\%ProgramFolder%#$q"
+If,ExistDir,%ProjectTemp%\%ProgramFolder%,Call,DirDelete,%ProjectTemp%\%ProgramFolder%
+If,ExistDir,%ProjectTemp%\%ProgramFolder%,Run,%ScriptFile%,ErrorMsg,"Directory %ProjectTemp%\%ProgramFolder% NOT DELETED !"
+//
+If,ExistDir,%TargetFinalDir%\%ProgramFolder%,Shellexecute,Hide,%CmdexeFolder%cmd.exe,"/C rd /s /q #$q%TargetFinalDir%\%ProgramFolder%#$q"
+If,ExistDir,%TargetFinalDir%\%ProgramFolder%,Call,DirDelete,%TargetFinalDir%\%ProgramFolder%
+If,ExistDir,%TargetFinalDir%\%ProgramFolder%,Run,%ScriptFile%,ErrorMsg,"Directory %TargetFinalDir%\%ProgramFolder% NOT DELETED !"
+//--
+Run,%ScriptFile%,CheckIsoImage
+// Extract the ISO file...
+ShellExecute,Hide,%Tools%\7z.exe,"x -y #$q%IsoImage_FileBox%#$q -o#$q%ProjectTemp%\%ProgramFolder%#$q"
+//--
+// Copie pmagic
+DirMake,%TargetFinalDir%\%ProgramFolder%
+FileCopy,%ProjectTemp%\%ProgramFolder%\pmagic\*,%TargetFinalDir%\%ProgramFolder%
+//--
+Run,%ScriptFile%,Process_%BootSector%
+//--
+Shellexecute,Hide,%CmdexeFolder%cmd.exe,"/C rd /s /q #$q%ProjectTemp%\%ProgramFolder%#$q"
+
+[CheckIsoImage]
+If,Not,ExistFile,%IsoImage_FileBox%,Run,%ScriptFile%,ErrorMsg,"Iso %IsoImage_FileBox% NOT FOUND !"
+StrFormat,FileName,%IsoImage_FileBox%,%IsoImageName%
+StrFormat,Right,%IsoImageName%,4,%IsoImageNameExt%
+If,Not,%IsoImageNameExt%,Equal,.iso,Run,%ScriptFile%,ErrorMsg,"You must provide an ISO file , with .iso entension ! Please check your ISO file: %IsoImageName%"
+StrFormat,RTrim,%IsoImageName%,4,%IsoImageNameNoExt%
+Retrieve,FileSize,%IsoImage_FileBox%,%PmagicFileSize%
+If,%PmagicFileSize%,Smaller,%Min_ISO_Size_Local%,Run,%ScriptFile%,ErrorMsg,"File size check of %IsoImage_FileBox% failed ! Please check your ISO file."
+Echo,"Processing %IsoImageName%"
+
+[Process_Grub4Dos]
+Run,%ScriptFile%,Language
+StrFormat,RIGHT,%Grub4DosMenu_ScrollBox%,1,%Grub4DosMenu%
+If,%Grub4DosMenu%,Equal,0,Run,%ScriptFile%,Process_Grub4DosSubMenu
+If,%Grub4DosMenu%,Equal,1,Run,%ScriptFile%,Process_Grub4DosInside
+
+[Process_Grub4DosSubMenu]
+// Title Parted Magic (2012-02-27) Language in a comment. To do as a submenu
+If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%BootMenu%,"title + %ProgramTitle% %Language_Selected%. %IsoImageNameNoExt% >",Append
+Else,TXTAddLine,%BootMenu%,"title + %ProgramTitle% %Language_Selected% >",Append
+TXTAddLine,%BootMenu%,"lock",Append
+TXTAddLine,%BootMenu%,"configfile /pmagic/pmagic.lst",Append
+TXTAddLine,%BootMenu%," ",Append
+// SubMenu pmagic.lst
+Set,%PmagicBootMenu%,%TargetFinalDir%\%ProgramFolder%\pmagic.lst
+If,ExistFile,%PmagicBootMenu%,Shellexecute,Hide,cmd.exe,"/C del /q /f #$q%PmagicBootMenu%t#$q"
+If,Not,ExistFile,%PmagicBootMenu%,FileCreateBlank,%PmagicBootMenu%
+//
+TXTAddLine,%PmagicBootMenu%,"default 2",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%PmagicBootMenu%,"title %ProgramTitle% %Language_Selected%. %IsoImageNameNoExt%",Append
+Else,TXTAddLine,%PmagicBootMenu%,"title %ProgramTitle% %Language_Selected%",Append
+TXTAddLine,%PmagicBootMenu%,"pause --wait=0",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+TXTAddLine,%PmagicBootMenu%,"title",Append
+TXTAddLine,%PmagicBootMenu%,"pause --wait=0",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+Run,%ScriptFile%,Process_Grub4DosPmagicOptions
+//
+TXTAddLine,%PmagicBootMenu%,"title",Append
+TXTAddLine,%PmagicBootMenu%,"pause --wait=0",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+TXTAddLine,%PmagicBootMenu%,"title .. Return to main Boot Options Menu",Append
+TXTAddLine,%PmagicBootMenu%,"configfile /menu.lst",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+
+[Process_Grub4DosInside]
+// Title Parted Magic (2012-02-27) Language in a comment. Title without any action
+If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%BootMenu%,"title %ProgramTitle% %Language_Selected%. %IsoImageNameNoExt% >",Append
+Else,TXTAddLine,%BootMenu%,"title %ProgramTitle% %Language_Selected% >",Append
+TXTAddLine,%BootMenu%,"pause --wait=0",Append
+TXTAddLine,%BootMenu%," ",Append
+//
+Set,%PmagicBootMenu%,%BootMenu%
+Run,%ScriptFile%,Process_Grub4DosPmagicOptions
+
+[Process_Grub4DosPmagicOptions]
+If,%Normal_CheckBox%,Equal,True,Begin
+TXTAddLine,%PmagicBootMenu%,"title   Default settings 32 (Runs from RAM). > 312MB",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+TXTAddLine,%PmagicBootMenu%,"title   Default settings 64. > 312MB",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage64 edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+End
+//
+If,%Live_CheckBox%,Equal,True,Begin
+TXTAddLine,%PmagicBootMenu%,"title   Live with default settings 32. 175-312MB",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal livemedia noeject loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+TXTAddLine,%PmagicBootMenu%,"title   Live with default settings 64. 175-312MB",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage64 edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal livemedia noeject loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+End
+//
+If,%Graphical_CheckBox%,Equal,True,Begin
+TXTAddLine,%PmagicBootMenu%,"title   Alternate graphical server 32. Xvesa instead of Xorg",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal xvesa loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+//
+TXTAddLine,%PmagicBootMenu%,"title   Alternate graphical server 64. Xvesa instead of Xorg",Append
+TXTAddLine,%PmagicBootMenu%,"kernel /pmagic/bzImage64 edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal xvesa loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%PmagicBootMenu%,"initrd /pmagic/initrd.img",Append
+TXTAddLine,%PmagicBootMenu%,"lock",Append
+TXTAddLine,%PmagicBootMenu%," ",Append
+End
+
+[Process_IsoLinux]
+Run,%ScriptFile%,Language
+StrFormat,RIGHT,%IsolinuxMenu_ScrollBox%,1,%IsolinuxMenu%
+If,%IsolinuxMenu%,Equal,0,Run,%ScriptFile%,Process_IsoLinuxSubMenu
+If,%IsolinuxMenu%,Equal,1,Run,%ScriptFile%,Process_IsoLinuxReuse
+
+[Process_IsoLinuxSubMenu]
+// SubMenu Parted Magic (2012-02-27) Language
+TXTAddLine,%BootMenu%,"MENU BEGIN",Append
+If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%BootMenu%,"MENU TITLE + %ProgramTitle% %Language_Selected%. %IsoImageNameNoExt%",Append
+Else,TXTAddLine,%BootMenu%,"MENU TITLE + %ProgramTitle% %Language_Selected%",Append
+TXTAddLine,%BootMenu%," ",Append
+//
+Set,%IsoLinuxBootMenu%,%BootMenu%
+Run,%ScriptFile%,Process_IsoLinuxPmagicOptions
+//
+TXTAddLine,%BootMenu%,"MENU SEPARATOR",Append
+TXTAddLine,%BootMenu%,"LABEL return_main",Append
+TXTAddLine,%BootMenu%,"MENU LABEL ^.. Return to main Boot Options Menu",Append
+TXTAddLine,%BootMenu%,"MENU EXIT",Append
+TXTAddLine,%BootMenu%," ",Append
+TXTAddLine,%BootMenu%,"MENU END",Append
+TXTAddLine,%BootMenu%," ",Append
+
+[Process_IsoLinuxReuse]
+//-- Reuse the Full PMagic menu (without extra tools)...
+////If,Not,ExistDir,%TargetFinalDir%\Boot\syslinux,DirMake,%TargetFinalDir%\Boot\syslinux
+////FileCopy,%ProjectTemp%\%ProgramFolder%\boot\syslinux\*,%TargetFinalDir%\Boot\syslinux
+////FileRename,%TargetFinalDir%\Boot\syslinux\syslinux.cfg,%TargetFinalDir%\Boot\syslinux\pmagic.cfg
+////TXTAddLine,%BootMenu%,"LABEL %ProgramTitle% cfg",Append
+////If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%BootMenu%,"MENU LABEL ^%ProgramTitle%. %IsoImageNameNoExt% cfg",Append
+////Else,TXTAddLine,%BootMenu%,"MENU LABEL ^%ProgramTitle% cfg",Append
+////TXTAddLine,%BootMenu%,"COM32 /isolinux/menu.c32",Append
+////TXTAddLine,%BootMenu%,"APPEND /Boot/syslinux/pmagic.cfg",Append
+////TXTAddLine,%BootMenu%," ",Append
+//
+//-- Reuse only PMagic cfg menu (without extra tools)...
+FileCopy,%ProjectTemp%\%ProgramFolder%\boot\syslinux\syslinux.cfg,%TargetFinalDir%\%ProgramFolder%\pmagic.cfg
+TXTAddLine,%BootMenu%,"LABEL %ProgramTitle% cfg",Append
+If,%TitleIsoName_CheckBox%,Equal,True,TXTAddLine,%BootMenu%,"MENU LABEL ^%ProgramTitle%. %IsoImageNameNoExt% cfg",Append
+Else,TXTAddLine,%BootMenu%,"MENU LABEL ^%ProgramTitle% cfg",Append
+TXTAddLine,%BootMenu%,"COM32 /isolinux/menu.c32",Append
+TXTAddLine,%BootMenu%,"APPEND /pmagic/pmagic.cfg",Append
+TXTAddLine,%BootMenu%," ",Append
+//
+TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"",Append
+TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"LABEL Main",Append
+TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"MENU LABEL ^.. Return to main Boot Options Menu",Append
+If,%BootSkin%,Equal,Text,TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"COM32 /isolinux/menu.c32",Append
+If,Not,%BootSkin%,Equal,Text,TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"COM32 /isolinux/vesamenu.c32",Append
+TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg,"APPEND /isolinux/isolinux.cfg",Append
+TXTAddLine,%TargetFinalDir%\pmagic\pmagic.cfg," ",Append
+
+[Process_IsoLinuxPmagicOptions]
+If,%Normal_CheckBox%,Equal,True,Begin
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% normal 32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Default settings 32 (Runs from RAM). > 312MB",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+//
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% normal 64",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Default settings 64. > 312MB",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage64 initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+End
+//
+If,%Live_CheckBox%,Equal,True,Begin
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% Live 32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Live with default settings 32. 175-312MB",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw loglevel=9 vga=normal livemedia noeject max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+//
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% Live 64",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Live with default settings 64. 175-312MB",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage64 initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw loglevel=9 vga=normal livemedia noeject max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+End
+//
+If,%Graphical_CheckBox%,Equal,True,Begin
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% xvesa 32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Alternate graphical server 32. Xvesa instead of Xorg",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal xvesa loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+//
+TXTAddLine,%IsoLinuxBootMenu%,"LABEL %ProgramTitle% xvesa 64",Append
+TXTAddLine,%IsoLinuxBootMenu%,"MENU LABEL Alternate graphical server 64. Xvesa instead of Xorg",Append
+TXTAddLine,%IsoLinuxBootMenu%,"COM32 /isolinux/linux.c32",Append
+TXTAddLine,%IsoLinuxBootMenu%,"APPEND /pmagic/bzImage64 initrd=/pmagic/initrd.img edd=off load_ramdisk=1 prompt_ramdisk=0 rw vga=normal xvesa loglevel=9 max_loop=256 vmalloc=384MiB %keymap%",Append
+TXTAddLine,%IsoLinuxBootMenu%," ",Append
+End
+
+[Language]
+If,%AddLanguage_ScrollBox%,Equal,"English (default)",Begin
+Set,%keymap%,""
+Set,%Language_Selected%,""
+End
+Set,%Language_Selected%,%AddLanguage_ScrollBox%
+If,%AddLanguage_ScrollBox%,Equal,Brazilian,Set,%keymap%,"keymap=br-abnt2 pt_BR"
+If,%AddLanguage_ScrollBox%,Equal,Chinese,Set,%keymap%,"keymap=us zh_CN"
+If,%AddLanguage_ScrollBox%,Equal,Chinese (Taiwan),Set,%keymap%,"keymap=us zh_TW"
+If,%AddLanguage_ScrollBox%,Equal,French,Set,%keymap%,"keymap=fr-latin1 fr_FR"
+If,%AddLanguage_ScrollBox%,Equal,German,Set,%keymap%,"keymap=de-latin1 de_DE"
+If,%AddLanguage_ScrollBox%,Equal,Italian,Set,%keymap%,"keymap=it it_IT"
+If,%AddLanguage_ScrollBox%,Equal,Japanese,Set,%keymap%,"keymap=us ja_JP"
+If,%AddLanguage_ScrollBox%,Equal,Polish,Set,%keymap%,"keymap=pl pl_PL"
+If,%AddLanguage_ScrollBox%,Equal,Norwegian,Set,%keymap%,"keymap=no-latin1 nb_NO"
+If,%AddLanguage_ScrollBox%,Equal,Russian,Set,%keymap%,"keymap=ru ru_RU"
+If,%AddLanguage_ScrollBox%,Equal,Spanish,Set,%keymap%,"keymap=es es_ES"
+
+[OpenFolder]
+StrFormat,PATH,%IsoImage_FileBox%,%OpenFolder%
+Call,OpenDir,%OpenFolder%
+If,Not,ExistDir,%OpenFolder%,Message,"No folder around!"
+
+[ErrorMsg]
+Echo,#1,Warn
+Message,#1,Error
+Exit,#1
+
+[Warn_Echo]
+Echo,#1,Warn
+Echo,#1,Warn
+Echo,#1,Warn
+Echo,#1,Warn
+
+[LocalVer]
+// NO LONGER USED
+// Find the "version" to display it in the menu title. Difficult to obtain the name now that the download is no longer automatic. It is better not to use
+StrFormat,Replace,%IsoImageName%,pmagic_,,%LocalVer%
+StrFormat,Replace,%LocalVer%,pxe_,,%LocalVer%
+StrFormat,Replace,%LocalVer%,.iso,,%LocalVer%
+StrFormat,Replace,%LocalVer%,_i686,,%LocalVer%
+StrFormat,Replace,%LocalVer%,_i586,,%LocalVer%
+// used in some Old ISO name
+StrFormat,Replace,%LocalVer%,_x86_64,,%LocalVer%
+StrFormat,Replace,%LocalVer%,_i486,,%LocalVer%
+//Echo,"** processing %IsoImageName% version %LocalVer% **"
+//TXTAddLine,%BootMenu%,"title + %ProgramTitle% %LocalVer% %Language_Selected% >",Append
+//TXTAddLine,%BootMenu%,"MENU TITLE + %ProgramTitle% %LocalVer% %Language_Selected%",Append
+
+[InterfaceEncoded]
+opendir.bmp=571,762
+pmagic.jpg=22036,29382
+DoubleJDesignRavenna3dArrowDown0016016.bmp=622,830
+BokehliciaCaptivaSoftwareupload0016016.bmp=676,902
+AmperossQetto2Move0016016.bmp=893,1191
+
+[AuthorEncoded]
+pmLogo.jpg=3328,4438
+Logo=pmLogo.jpg
+
+[EncodedFolders]
+GetVersion
+
+[GetVersion]
+GetPartedMagicCurrentVersion.au3=489,652
+
+[EncodedFile-AuthorEncoded-pmLogo.jpg]
+lines=1
+0=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
+1=1qQBMpHYTuk5tllgYNUIGA4qnp4n5fW7rtuynkrJ3SwnbF4nmnHZunZr4cfSPXChsAUeeYq6690uwkv+jujWa6TB/NYd+NesU1+v2CG6uEQn4n1rIqy5W+uhqchYSFeJm4u/SvaBDuyiykhX8yR2/sHXBZsQrLPpmwK58Qjpl3DGqzTrercdQbHye4ddR/zMnOfqFsoqBjywkX4lOSdyqusu3dqJiWtccLH+vJbtoNbf6NYU7+D1Mjdu14nOMqyPXJT8/XyypIZxgFIw+U8ULobTzY5ctLFsQyMAEAgpUHFwq2qK0BAAAAAgAAACYAAAC2DAAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-opendir.bmp]
+lines=0
+0=eJyVkt1LU3EYx382esMuBFEKE8GLLL0IbyYhpEUI4aKytilTFN1xOrvxohpI9/0FlYESXUR2EXmxi4S9hYF4IZhOSdZMzJdtx+HwvO1sh2/P8cyxYFh9+TzPxXm+v+9z+J1z847ZxA5lprpMVZarEnbeGNC8vNSoI+E/5Z6YZs++Mk+QPTnkaaiAo4ee0LVPEcN/4tViTRjuNB7Jeh/cAxfPcEnNtY8hAW4ZwwqGVbCxL3k/D5zxC71x9AjoTsGRgG0jbY2K1siBfV2ybyjd2xkHr7HHIcO/CZh8ApdEfwIDKXASnAr6BDh4dG5mbVHJui727ar0VuQ/924tCtyNoTwgGFQGdZyxrHMfLgUuFYMShg4wIOrhVTNb3zVYdtCbQD+vQ4sqQwKhH/cLFQGx1C+W+EQWlC/Nyw0LqRUVt7fQtZPDvgtrDB2JHD1JnJrl8/dpjqjLipb3P9zG/Ti+qQirWJY1Yi0L06pW6F+QtJZf+grCEkOYrus5q/iJ06tgiwoLZ+0v3vyRnwEdoailtG6ufllVN1FXO36x6Pcd8wYogXJOrqDsB66+rTdPtV7/aGmcar0weeX4f6N2srrpQ/ON6Xvt3i7q9e+bz74uvqVQt7wPOn0c9b86DbV9tjlnR6n/o39kzmNQdPoblHVTL3ic484vSM1LySzSS8otYBgFIw6YMUPoD4zY5WddWriPgQkAk7cIYWOapDwBAAAAAgAAACcAAADwAQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-pmagic.jpg]
+lines=7
+0=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
+1=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
+2=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
+3=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
+4=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
+5=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
+6=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
+7=NV8QBbGZ6vgQEPCg98FSPEB2XrnjzcCmmdYQ006OcIV0IBgEiRxj/4/XXmGiapijuN2gLfsfvftS3nRynrLg8QMWEuLYDjNJOZ+VhqBXfb6f8tW7n02mR1QU9WUONuGpDvsuQqfeMwgTEDXNTHBOF30/j/kheu0w3bw55pICDFYxmezVd1/fF9f5OlVInvs6EfLKLzCyE7KTt12FNt7tHPLY1kSxh16pMFp942F5S1+oYhoWVuZ+pfLvKfwV49tjaN1T/thK88VxkVXml9TldtlGrfuU0Gr5vq4t/Ru2Pv+5gUdLW1p3zM9E9BeaWGDYE3Vc+iw9lDZoilpqPQc/OueeCclo1P57+dvRTFUp9eEVuEHXKZCyxUbPzaJyoftX412fzzaIryplhhoswsM7mvd/kvuYjZg5IZJyBJDjRNPdL5sn0bIfN7JyX+8hMCX3z6xuTC+WL1lVhS9OzdomMNmofMQwY0Z9e9ox+YNpdTW1DVBs86xSuZpQuMotK1xj3GWl9I8dKK83cIfLufk8pVqk+LqWzNHnUNkDRu+nO0dSDcUBvrNvl2zYJzYJhDZK/lRGYjzzosXTdSu1VurU+pJvuUfGKfYQovwJ7g8WM/TwB9sm44WqFvh8iWy4zZwfOBvKn/AYNUlFh4nOMqyE1Mz0zWyypIZxgFIw/cDIPQp0Kxy0tmuWswMAEAqJkHLTcFgz0BAAAAAgAAACYAAADKVQAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-GetVersion-GetPartedMagicCurrentVersion.au3]
+lines=0
+0=eJydUk1Lw0AQPbfQ/zDEHhIMIY0XoVSUmmKgKNRqD62U2EySxWQ3bLda/72zaUKbVkWEfL6ZeW/m7Zzdi6kMP4OV4J12d4K5UPiMcs0EhwG4hN2FPMqQfkYsw4cCudkd5tGYcZz3XmzXohT9UyVMMCxjZlVH4T5oEFQqxSZJ6Y2AXDGJEFMBKEFvHpV4ypIU1wreqw7o0nARJthpz1Kdfo1SCjmgzgD6MBbiDWIhwSjyMGGrpef2Lpaut/QuHbYWBtQUq42UpApZ2ergCo5H3ReWzN2R2PDoUUnGE4ruPiaY+NvCLOe1K8XF7SI63z9KVbtnASlLzfRnoiVV13fNshsyiOGDzNI8wBQ4jqNxQs2nVw2ahxqWBdMU6TBbffC3SoYrVRpQWxpLkf/oljbm2IiGUTeSluVkjAP5uftiGw1Hdm5oM1r/5Kpd2TnSOtnSb2iplDL9LVO0IYUexOdREJcH8vu2ziix09bBYSbWh5GAs5lkCvf771F/laphG40uDLvZlfUFIHUTknicU3BPLQlILCpJTfFNTM9Mdi4tKkrNKwlLLSrOzM/TSyw1ZhgFwxlkMkPoLkbs8s6m8/0ZmAA7+g7h4otzfwEAAAACAAAAOwAAAIoBAAAAAAAAAQAAAAAAAAAAAAAA
+
+[DownloadXXX]
+Call,DownloadXQ
+
+[UploadXXX]
+Call,UploadXMultiQ
+
+[EncodedFile-InterfaceEncoded-DoubleJDesignRavenna3dArrowDown0016016.bmp]
+lines=0
+0=eJzNk09Ik2Ecxw06BF2KqG5ih1EgYZZu7+v7vnu3d++2MpelRFHgQZEaJLVIXSxrW4Wauf7Nwha2rQ7dOgT9IQT1EkQHi+hSHfRSUZrMcp389PjSoUib3vrB9/I8fD78fr+Hxwi0LS+yyi6ySWSVyGqRZUUl1rnr1/3vBfy3+TTxkabuAzx4dp+lsu/G31LRXIrjaCmeVjtfpj4v2jH+YQwpWIYc3orctgUptJkT/UcWxc/1rLXYqYpKqGcklEglcns5DuF48uLhPx2TUxOYIRWlU8PZraOdU1GjMsop4RO9+DucfM1NzuvIfctR3Wai9hq4rvrREybOCy608xpqrAqlQzhObiOSbv2Ln8nPsDvsZ33dSoob1mE7XIIsetAvCUePG63TiRpXUE47rJ0MvRz8wzH9fZqR0SHSj1LUhn2s8a6gMi7hTm7HddmLftHA2aVT2mJjY3Mx7naJ/I/8vHN0Zc5avKNLw+gP4O7bgeuKD73XQyDqI5QM8ur96IJ7jKUiFi8nDDwDezBuCsf1amsnA4Opgm8Y7jtu8UrSj3lnL+btOjypXRg3dpIdThfkjyWCFu9M1eC7tx/vXeFIC8etWjKL4IPdTRZfFqtAvua1PJ5sPWamnuxIpiD/9Plj4ukIh3oaqGk3KG+0sWHfWhp7DvJm7PWS/9FcZmdnF+R+AlbU23p4nNNyyS9Nykn1ckktzkzPC0osS83LSzROcSwqyi93yS/PMzAwNAMivaTcAoZRMPxAGQuEZmPCLu9y8YwcAxMAHjMRfb+2diEBAAAAAgAAAEQAAAAGAgAAAAAAAAEAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-BokehliciaCaptivaSoftwareupload0016016.bmp]
+lines=0
+0=eJytU21LWmEYbrAfsP0De4H2pRcqRq+0RllUZkav1O+YIH2JPvUhKKJfUE3aaCNQQR3pYWDTPCpBMKUxSczjZDB0Q8UPV/d9L0tdg33YAxfn5nq5n+c85z4vDa8e18l6TnhGeEJ4SnhUpxP+xa1euQD8V5RKJeTzeeRyOWSzWQHXzLH2t1yxWEQikYDb7cXu7iHW1/exuron4Jo51tjD3tqsw3GC+fn36O39hJ6eh8Eae9hb2SMYjGB42Iu+Pv8/gb2cKb+v2fwGAwOBGvhpTzfhg9S1utn8FuW7MplOMDQUwMhIgHrfY3Mzio2Nz1Uce9jLGc5mMhni/WhuPoROt4/6+td3ODpKwGqNV3HsYS9nOBuLfUFLyzG6ulzEnVXB4/kOpzPzB89eznD24iKKxkar9NPrg7fwYG7OBp/vGxRFw+ysDaOjnjudvZzhbDR6iY4OO/V0YHJSxdiYiq2trygUSri+zuLq6ofU29tx0djT2WmTDGdTqbRw3d1O+jYfMTGhYno6TL1zKC+uTaawaDrdHtrajiWjaWn5BgsLfhgMIZoPL6amQlKvrJzT/gUkkwUsL58Lx2hoOJAnZ8rzbLF4YTSG6d18dAY3nfMUg4MK7RmULGu/oUqea4tFqZi/JGZmwnJGgyEg8zU+fip3otcrdJcRusMQ2tt5vl3iVdVU1T9gt6exuMi+exiNZ2htfYempgNBf78LS0sRsPehf1DTfoq2sxPH2tolnTEm4Jo51tLpX1XZG70Y6I54nNNyys9OzcjJTM5MdE4sKMksSwzOTyspTyxKLS3IyU9MMTAwNAMivaTcAoZRMPxAGQuEtmHCLs9kcFmVgQkAJ9URXc7wHxQBAAAAAgAAAEQAAAA8AgAAAAAAAAEAAAAAAAAAAAAAAA
+
+[CompareEditXXX]
+Call,CompareEdit
+
+[EncodedFile-InterfaceEncoded-AmperossQetto2Move0016016.bmp]
+lines=0
+0=eJxtk1lIVFEYxw16agEVzTRncRtt0cx0NCu0QlsgyyCih7Cgh6KFNgQzSsqnFohUEm3FlqmsVGxxxoxSyYkpTcctsiKXtCZ1mPXee878++5o4YMf/DjfnXN+//sdmLt2s3amj7e0RAzhO8kMH7XPv/KfPcF0NXd7RXRg3ufCoDMD+nkFQ8Z5BYOTDBmDCgYNgXlfCudsq4yZzg3I7ToSfMHmVJQBilLi6pT1X097IZdsroBc87GpblB+zwHVNUBJ50JLBAQUSVhQIkJB/X+KBYQWCd4s1XUgKL/3kOz6HTYpQ4scbq9fLsL/ooAV50ahueKE8oYI1TWBoLVcgLKMKJWf6T1XHILv8WaVothyMlwHqG+KmHVJxKHbFnjs49j5zAnf2xyqexLC74hewm6JdE6AmjLDH1BGseVU2E17VeRjIIBmPFhhASQnnneK0Fy2IYaIKHEi9C6DXxmDWscQeY+yKkREPpLfaa+JuO/Wh5C/9bEd4C7INWyxw/bbCmnUiuZeK9bpHDhfY0FkuQvKSo6ohxKiqoCIu+76qEp3XUQtkFDL0DYm2x4863bjdAdwthfY0QKsMYjgYNDTAQVlqJ9yLHwBaB66DdFPhbol9TRLDUPsS4bWMQ+sYw6kVjuwhmbaXzuOvTVWVJtpPkqpbx/DYp0b0a+AmGrBsKhWMMS+AWL1dDcipZGhctiDHSYRbRY3OSIhYdwlYaI4cppdCGsAFr8Q6uNeiU/iacalrxkSyI1ropxGCXEtDGs/cmxq50hrlvCkx+G9W/F3DzQNDLITpxerEhrFE0ntwLK3DInvGLTvGZI/0BytHInka0wce9tpDo+E0gEPwuncUkJ2ljeJuUlGzNcamS3pA8iVkEJO6ieOVR2EmXpaN3Zz7PviQbyJPMrXfgSSjcy+2mQPlv+DaR3CrrSvQGon0caxmry0Lo508tJ7KIf6BLqHvLeyC0j/RpiFnKnfQEa3sDujj1syR4CMn0AmsZ76DSMTvfe3X8C6Pv4n0yzsme4bzO6yB2f1s6NZ/VyX9YPVZU+yhcjqlx5kD9FetyNkqvMXP3mcf3ick3XMLUgtyi8uDkwtKck38s0vSzUwMDQDIr2k3AKGUTDMgRkLhFZixi4vra37hIEJABkJC8Gkai7oAQAAAAIAAAA3AAAAIgMAAAAAAAABAAAAAAAAAAAAAAA
+

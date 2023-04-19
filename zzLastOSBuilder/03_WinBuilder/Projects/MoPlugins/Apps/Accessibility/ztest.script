@@ -5,6 +5,9 @@ Selected=True
 Level=5
 Version=1
 
+
+%ScriptDir%
+
 [variables]
 %ProgramTitle%=myProgram
 %ProgramEXE%=myProgram.exe
@@ -39,4 +42,46 @@ Echo,MessageText
 AddShortcut,StartMenu,,%PE_Programs%\%ProgramFolder%\%ProgramEXE%,%ProgramTitle%
 
 Download,%ProgCache%\%ProgramFolder%\%SetupFile%,%SetupURL%
+
+
+////////
+Download,%ProgCache%\%ProgramFolder%\%SetupFile%,%SetupURL%
+
+Download,%Gtemp%\produkey-x64.zip,https://www.nirsoft.net/utils/produkey-x64.zip
+
+//Download,Path\FileName,URL,(NoExitOnError|Hide)
+
+%ProjectTitle%
+%ScriptFile%
+%BaseDir%
+%Tools%
+
+%TempDir%
+
+%ScriptDir%
+
+//EchoExtended,<EchoMessage>,[Warn],[Repeat],[Message|MessageInformation|MessageError],[Seconds],[Halt|Exit]
+
+EchoExtended,"Base Folder can Not be a Root Drive (ex: D:).",Warn,,MessageError,,Halt
+
+
+[Process]
+Retrieve,MD5,QueryFile,%VarResult%
+If,EXISTDIR,Directory,Command
+%ScriptDir%
+
+If,EXISTDIR,Directory,Command
+
+Retrieve,FILEVERSION,QueryFile,%VarResult%
+Expand,CABfile,DirToDecompress[,SingleFile[,NOWARN][,PRESERVE]]
+#$q
+%FileVersion%
+
+DirDeleteQ,%BaseDir%\Logs
+
+
+//ExtractSectionFiles: Extract Files from a Section Name of a Script File, from Install.wim to the Target Directory
+
+%BaseDir%
+
 
