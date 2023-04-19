@@ -8,9 +8,11 @@ zzLastOSBuilder/MCT/11 22H2 Professional x64 en-US.isdo
 zzLastOSBuilder\00_Source\01Windows_Original\*.*
 zzLastOSBuilder\00_Source\02Windows_Sysprep\*.*
 zzLastOSBuilder\00_Source\03Windows_NTLite\*.*
-zzLastOSBuilder\03_WinBuilder\Temp\*.*
 zzLastOSBuilder\03_WinBuilder\ProgCache\*.*
-zzLastOSBuilder\03_WinBuilder\Custom\x64\IsoRoot\myapz\*.*
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/myapz/*.*
+zzLastOSBuilder\03_WinBuilder\Custom\/x64\IsoRoot\myapz/*.*
+zzLastOSBuilder\03_WinBuilder\Temp\*.*
+zLastOSBuilder/03_WinBuilder/Temp/*.*
 
 
 # C extensions
