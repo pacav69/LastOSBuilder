@@ -2,11 +2,25 @@
 
 Lines to change after using xpe Plugin creator app builder.
 
+// TODO: Replace 'myProgram' with the folder name you will use in PE.
+
 example  BlankAndSecure app:
+change the following:
+Description
+HomePage_WebLabel
+%ProgramExex64%
+%SetupURL%
+%SetupURLx64%
+
+add
+[Update_Container]
+// to go with Update_Container button
+IniWrite
+downloads setup file
+
+
 
 Description=(v) The BlankAndSecure "Blank And Secure" is a portable tool to securely delete the data. Secure delete files are required to block the recovering of deleted data. Secure deletion is possible with this program, because "Blank And Secure" overwrites the data with zeros
-
-
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.softwareok.com/?Download=BlankAndSecure
 
 %ProgramExex64%=BlankAndSecure_x64.exe
@@ -15,16 +29,29 @@ HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.softwareok.com/?Downl
 %SetupURLx64%=https://www.softwareok.com/Download/BlankAndSecure_x64.zip
 
 
+// [Update_Container]
+// Exec,%FileContainer%,Process
+
+// to go with Update_Container button
 [Update_Container]
-Exec,%FileContainer%,Process
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+Download,%GTemp%\%ProgramFolder%\%SetupFile%,%SetupURL%
+Encode,%FileContainer%,Folder,%GTemp%\%ProgramFolder%\%SetupFile%
 
 
-* files
+****** files
 
-%SetupURL%=https://www.softwareok.com/Download/BlankAndSecure.zip
-%SetupURLx64%=https://www.softwareok.com/Download/BlankAndSecure_x64.zip
-
-* updates Description
+// * updates Description including version number
+// Description=(v[ContainerVer]) The BlankAndSecure
 IniWrite,%MainPlugin%,Main,Description," (v%ContainerVer%) The %ProgramTitle% "Blank And Secure" is a portable tool to securely delete the data. Secure delete files are required to block the recovering of deleted data. Secure deletion is possible with this program, because "Blank And Secure" overwrites the data with zeros"
 
 
+// downloads setup file
+[Download]
+Echo,"%ProgramTitle% Setup File is Being Downloaded... Please Wait.."
+If,ExistFile,%ProvideFiles%\%SetupFile%,FileDelete,%ProvideFiles%\%SetupFile%
+If,Not,ExistDir,%ProvideFiles%,DirMake,%ProvideFiles%
+Download,%ProvideFiles%\%SetupFile%,%SetupURL%,NoExitOnError
+If,Not,ExistFile,%ProvideFiles%\%SetupFile%,EchoExtended,"Error: %SetupFile% has not been downloaded.",Warn,,Message,5,Exit
+//--

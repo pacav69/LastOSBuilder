@@ -17,6 +17,7 @@ History08=ChrisR Check winre.wim Version
 
 [Variables]
 %AdditionalFiles%=%BaseDir%\Projects\Include\%Architecture%\AdditionalFiles
+// Custom ,%GCustom%
 %DismExe%=%GTools%\%Architecture%\DISM\dism.exe
 %DismLog%=%GTarget_Win%\Logs\DISM\dism.log
 %sr-Latn%=No

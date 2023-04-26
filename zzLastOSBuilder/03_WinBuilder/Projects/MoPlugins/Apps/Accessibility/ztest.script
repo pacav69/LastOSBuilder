@@ -84,4 +84,6 @@ DirDeleteQ,%BaseDir%\Logs
 
 %BaseDir%
 
+Halt,ExitMessage
+
 

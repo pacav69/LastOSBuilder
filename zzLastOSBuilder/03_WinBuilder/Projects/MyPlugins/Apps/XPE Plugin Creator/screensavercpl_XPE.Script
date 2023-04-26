@@ -1,0 +1,145 @@
+[Main]
+Title=screensaver control panel
+Type=XPEPlugin
+Description=(v) screensaver control panel
+Author=pc
+Date=2023.04.25
+Credits=TheOven.org Forum
+Contact=
+Version=001
+Level=5
+Download_Level=2
+Selected=False
+Mandatory=False
+NoWarning=False
+History001=pc Initial XPE Packed Application Created 2023.04.25
+History002=
+
+[Interface]
+Shortcut_Bevel=Shortcut_Bevel,1,12,4,6,133,121
+Desktop_CheckBox="Desktop Shortcut",1,3,10,10,122,18,True,"__Add Desktop Shortcut"
+StartMenu_CheckBox="Start Menu Shortcut",1,3,10,28,122,18,True,"__Add Start Menu Shortcut"
+TaskBpin_CheckBox="Pin To TaskBar",1,3,10,46,122,18,True,"__Add Pin To Taskbar Shortcut"
+StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To StartMenu Shortcut"
+StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
+RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
+Image_Software=cmd4848.ico,1,5,145,35,48,48
+Edit_TextFile=screensavercpl.bat,1,6,145,35,320,240
+Button_Edit_Program=Edit,1,8,10,142,119,25,Launch_Program,0,False,"__Click Here To Edit Commands"
+HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://theoven.org/index.php?board=39.0
+Update_Container_Button=U,0,8,540,4,14,14,Update_Container,0,False,"__Update-Encode File Container"
+
+// todo: add folder selection for host computer scrreen saavers to be added
+// to file storage file. using *.scr
+
+
+[Variables]
+%ProgramTitle%=screensavercpl
+%ProgramExe%=screensavercpl.bat
+%ProgramExex64%=screensavercpl.bat
+%ProgramFolder%=screensavercpl
+%ProgramFolderx64%=screensavercpl_x64
+%SetupFile%=screensavercpl.bat
+%SetupFilex64%=screensavercpl.bat
+
+[Process]
+Echo,"Processing %ScriptTitle%..."
+//If,%Architecture%%WoW64Support%,Equal,x64False,EchoExtended,"You Need To Enable WoW64 Basic To Run %ProgramTitle% In A 64-Bit Build",,,Message,2,Exit
+If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+//--
+//--Used To Enable (TargetAppDataLocal-TargetAppDataRoaming-TargetProgramData) Variables
+//AddVariables,%ProjectDir%\script.project,TargetBasePath
+//--
+Run,%ScriptFile%,Extract
+//--
+If,ExistDir,%Target_Prog%\%ProgramFolder%,DirDeleteQ,%Target_Prog%\%ProgramFolder%
+If,Not,ExistDir,%Target_Prog%,DirMake,%Target_Prog%
+DirCopy,%GTemp%\%ProgramFolder%\%ProgramFolder%,%Target_Prog%
+//--
+Run,%ScriptFile%,Add_Shortcuts
+//--
+// Delete or Comment AddFiles And(Or) AddFiles6432 and Sections If no Dependencies Required
+ExtractSectionFiles,%ScriptFile%,AddFiles
+//If,%Architecture%,Equal,x64,ExtractSectionFiles,%ScriptFile%,AddFiles6432
+//--
+Run,%ScriptFile%,Add_Registry
+//--
+Run,%ScriptFile%,Add_Associations
+
+[AddFilesInfo]
+//- Extract files or folders from Install.wim image. Script Commands are not allowed
+//- Each path must be specified as an absolute path starting from the root.
+//- Wildcard char �?� and �*� are allowed. A comment begins with ;; (semicolon). ;;Example Comment
+//- Use AddFiles6432 for 32Bit Only Apps On x64 Build with WoW64 Basic Enabled in Build Core
+
+[AddFiles]
+\Windows\System32\xxx.dll
+\Windows\System32\??-??\xxx.dll.mui
+
+[AddFiles6432]
+\Windows\SysWOW64\xxx.dll
+\Windows\SysWOW64\??-??\xxx.dll.mui
+
+[Add_Registry]
+Echo,"Writing %ScriptTitle% Registry Settings..."
+//- Add Registry Values <-- Use RegCPE
+
+[Add_Associations]
+//- Associate,Ext <-- Three Letter File Extension
+
+[Add_Shortcuts]
+If,%Desktop_CheckBox%,Equal,True,AddShortcut,Desktop
+If,%StartMenu_CheckBox%,Equal,True,AddShortcut,StartMenu,%StartMenuFolder_TextBox%
+If,%StartMpin_CheckBox%,Equal,True,AddPin,StartMenu
+If,%TaskBpin_CheckBox%,Equal,True,AddPin,TaskBar
+
+[Extract]
+Echo,"Extracting %ScriptTitle% Setup File..."
+If,ExistDir,%GTemp%\%ProgramFolder%,DirDeleteQ,%GTemp%\%ProgramFolder%
+DirMake,%GTemp%\%ProgramFolder%
+ExtractFile,%ScriptFile%,InterfaceEncoded,%ProgramExe%,%GTemp%\%ProgramFolder%\%ProgramFolder%
+
+[PluginSetx64]
+Set,%ProgramExe%,%ProgramExex64%
+Set,%ProgramFolder%,%ProgramFolderx64%
+
+[Launch_Program]
+If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Run,%ScriptFile%,Extract
+Echo,"Close Editor. Waiting......."
+System,FILEREDIRECT,OFF
+ShellExecute,Open,notepad.exe,%GTemp%\%ProgramFolder%\%ProgramFolder%\%ProgramExe%,%GTemp%\%ProgramFolder%\%ProgramFolder%
+System,FILEREDIRECT,ON
+Encode,%ScriptFile%,InterfaceEncoded,%GTemp%\%ProgramFolder%\%ProgramFolder%\%ProgramExe%
+System,RefreshInterface
+
+[AuthorEncoded]
+cmd4848.ico=494,659
+Logo=cmd4848.ico
+
+[EncodedFile-AuthorEncoded-cmd4848.ico]
+lines=1
+0=eJztlr9OwzAQxq+kokggtQMCxEKFVIkFlIWZTH0ONtY+AhIDj5CZjXfIko3HCG8S4vxRr1bOOZPESar7qq+fFPvsX2wnLcAs+/g+ZN9r+N4AXAHAQ+bsErxCcV3pfQOicWvu0F4LLkpLhz634NdrKV079KWF9VpK9xMxpceJmNLzRHysSidi4Rf+xMJj5I8MHE1cwj+s/8uvzuIT6l93Nqt+1Jimtr74E0ONUmjBGJbXbx3x6+wR7N8LWAlRQ81N7V3X/FvUrq8zfga562maq2t+vI67hrG46+mSP0Rtbfabc6764N91NJ8+3nbk/NQ6V2q7l1x+/HzazNnE33YfufyYw/T8fgHv/anU5r1vy6/8htpNv1NNZ7rqGznmN/Xn1FbeMvv1wZ8YapT0fTHNOQQ/vg/O/zeq1qZ/H/xjsfALfx/8omE19LmYyvmvm5N7TfiFv8v7PyZ+kUgkcqY01z5/AWbp50ECLDrJ+vFOvZM87z7mefpxkUFQJhQZw0WZZ0V6hxmU463jVZ4vZS5hZcOJ1kFvX9z81GZtPTf/ANs6/Cp4nONOzk0xsTCx0MtMzmcYBSMO7FOF0IsZscsbODW2MjABAK19BoKMYALxAQAAAAIAAAAnAAAAowEAAAAAAAABAAAAAAAAAAAAAAA
+
+[InterfaceEncoded]
+cmd4848.ico=494,659
+Launch.bmp=913,1218
+screensavercpl.bat=122,163
+
+[EncodedFile-InterfaceEncoded-cmd4848.ico]
+lines=1
+0=eJztlr9OwzAQxq+kokggtQMCxEKFVIkFlIWZTH0ONtY+AhIDj5CZjXfIko3HCG8S4vxRr1bOOZPESar7qq+fFPvsX2wnLcAs+/g+ZN9r+N4AXAHAQ+bsErxCcV3pfQOicWvu0F4LLkpLhz634NdrKV079KWF9VpK9xMxpceJmNLzRHysSidi4Rf+xMJj5I8MHE1cwj+s/8uvzuIT6l93Nqt+1Jimtr74E0ONUmjBGJbXbx3x6+wR7N8LWAlRQ81N7V3X/FvUrq8zfga562maq2t+vI67hrG46+mSP0Rtbfabc6764N91NJ8+3nbk/NQ6V2q7l1x+/HzazNnE33YfufyYw/T8fgHv/anU5r1vy6/8htpNv1NNZ7rqGznmN/Xn1FbeMvv1wZ8YapT0fTHNOQQ/vg/O/zeq1qZ/H/xjsfALfx/8omE19LmYyvmvm5N7TfiFv8v7PyZ+kUgkcqY01z5/AWbp50ECLDrJ+vFOvZM87z7mefpxkUFQJhQZw0WZZ0V6hxmU463jVZ4vZS5hZcOJ1kFvX9z81GZtPTf/ANs6/Cp4nONOzk0xsTCx0MtMzmcYBSMO7FOF0IsZscsbODW2MjABAK19BoKMYALxAQAAAAIAAAAnAAAAowEAAAAAAAABAAAAAAAAAAAAAAA
+
+[EncodedFile-InterfaceEncoded-Launch.bmp]
+lines=0
+0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
+
+
+[EncodedFolders]
+InterfaceEncoded
+
+[EncodedFile-InterfaceEncoded-screensavercpl.bat]
+lines=0
+0=QGVjaG8gb2ZmDQpjb250cm9sIGRlc2suY3BsLCxAc2NyZWVuc2F2ZXINCg0KeJwTKk4uSk3NK04sSy1KLsjRS0osYRgFIwfoEpC3b+ljYWQAAJFxCNtTXrdBAQAAAAIAAAApAAAALQAAAAAAAAABAAAAAAAAAAAAAAA
+

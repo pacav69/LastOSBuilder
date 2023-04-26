@@ -27,7 +27,7 @@ RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From 
 Image_Software=Backupper.jpg,1,5,145,34,300,225
 Lang_TextLabel=Language,1,1,12,131,60,18,8,Normal
 Lang_ScrollBox="English                                    |en.txt|9",1,4,10,145,121,21,"English                                    |en.txt|9","German                                     |ge.txt|7","French                                     |fr.txt|12","Japanese                                   |ja.txt|17","Chinese (Simplified)                                  |cn.txt|14","Chinese                                     |ct.txt|21"
-Button_Launch_Program=Extract,1,8,10,190,121,25,Launch_Program,Launch.bmp,False,"__Click Here To Extract Program Files"
+Button_Launch_Program=Extract to,1,8,10,190,121,25,Launch_Program,Launch.bmp,False,"__Click Here To Extract Program Files"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,https://www.ubackup.com/free-backup-software.html
 Update_Container_Button=U,1,8,540,1,14,14,Update_Container,0,False,"__Update Container File"
 ChangeLog_WebLabel="Change Log",1,10,399,6,200,18,https://www.ubackup.com/changelog.html
@@ -40,6 +40,8 @@ Serial_TextBox=,1,0,10,331,429,21,
 Serial_TextLabel3=" Otherwise Leave Blank and The Standard Free Version Shall Apply To Build",1,1,14,353,414,18,8,Normal
 
 [Variables]
+// %HostOSArch%=x64
+%Architecture%=x64
 %CheckVersion%=7.2
 %ProgramTitle%=AOMEI Backupper
 %ProgramEXE%=Backupper.exe
@@ -159,12 +161,23 @@ RegWrite,HKLM,0x4,Tmp_System\ControlSet001\Services\amwrtdrv,Type,1
 RegHiveUnLoad,Tmp_System
 
 [PluginSetx64]
-Set,%ProgramFolder%,%ProgramFolder%_x64
+//=============  PackFile64 plugin ============
+Echo,"PackFile64 reached******  %ScriptTitle%..."
 Set,%PackFile%,%PackFile64%
 Set,%PackDrivers%,%PackDrivers64%
+Set,%ProgramFolder%,%ProgramTitle%
+// Set,%ProgramFolder%,AOMEI Backupper
+// [PluginSetx64]
+// Set,%SetupURL%,%SetupURLx64%
+// Set,%SetupFile%,%SetupFilex64%
+// Set,%ProgramFolder%,%ProgramFolderx64%
 
 [Launch_Program]
-If,%HostOSArch%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+Echo,"Launch_Program  %ScriptTitle%..."
+If,%Architecture%,Equal,x64,Run,%ScriptFile%,PluginSetx64
+// Halt,Launch_Program %Architecture%
+
+
 Set,%SetupContainerSize%,""
 IniRead,%FileContainer%,Folder,%PackFile%,%SetupContainerSize%
 If,%SetupContainerSize%-,Equal,-,EchoExtended,"Update %FileContainer% Container File Before",Warn,,MessageInformation,,Exit
@@ -452,7 +465,7 @@ Encode,%FileContainer%,Folder,%TempFolder%\%PackFile64%
 {app}\Winpe64\vcomp,1.dll
 
 [Import_Button]
-If,%HostOSArch%,Equal,x86,Set,%wow64Node%,""
+If,%Architecture%,Equal,x86,Set,%wow64Node%,""
 Else,Set,%wow64Node%,Wow6432Node\
 // Import Backupper serialnr
 If,ExistRegKey,HKLM,Software\%wow64Node%Microsoft\Windows\CurrentVersion,ProgramData,Begin

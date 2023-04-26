@@ -609,3 +609,89 @@ zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Drivers/ambakdrv.sys
 zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Drivers/ammntdrv.sys
 zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Drivers/amwrtdrv.sys
 zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Drivers_x86.7z
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/AOMEI Backupper/libcrypto-1_1-x64.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/AOMEI Backupper/libssl-1_1-x64.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/AOMEI Backupper/phonon4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Backupper_x64.7z
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupper/Drivers_x64.7z
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/2Gpt_BCD
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/2Mbr_BCD
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/ammcauth.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Amnet.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/awsSns.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Backup.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Backupper.exe
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/BrFat.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/BrLog.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/BrNtfs.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/BrVol.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Clone.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Comn.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Compress.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Device.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/DeviceMgr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/DiskMgr.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Encrypt.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/EnumFolder.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/EraseDisk.exe
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/ExFatStd.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/FileDialog.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/FlBackup.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/FuncLogic.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/FuncOutlook.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/GptBcd.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/ImgFile.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/de.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/en.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/es.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/fr.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/it.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/nl-be.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/nl.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/pt.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/tr.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/zh-CN.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/lang/zh-TW.txt
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Ldm.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libamcbconsole.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libamcbdb.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libamct.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libcrypto-1_1.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libcurl.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libeay32.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/libssl-1_1.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/log4cplusU.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/mfc80.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/mfc80u.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/mfcm80.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/mfcm80u.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcm80.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcm90.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcp80.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcp90.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcr80.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/msvcr90.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/NTHelp.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/NTLog.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/outlook.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/QtCore4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/QtGui4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/QtNetwork4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/QtWebKit4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/QtXml4.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/sqlite3.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/ssleay32.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/Sync.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/UiLogic.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/UsbDetect.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/AOMEI Backupper/vcomp.dll
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/Backupper_x86.7z
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/Drivers/ambakdrv.sys
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/Drivers/ammntdrv.sys
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/Drivers/amwrtdrv.sys
+zzLastOSBuilder/03_WinBuilder/Temp/AOMEI Backupperx86/Drivers_x86.7z
+zzLastOSBuilder/03_WinBuilder/Temp/screensavercpl/screensavercpl/screensavercpl.bat
+zzLastOSBuilder/03_WinBuilder/Temp/ZoomIt/ZoomIt.exe
+zzLastOSBuilder/03_WinBuilder/ProgCache/TempExtractFolder/Zzoom_omiod/Zzoom.zip
+zzLastOSBuilder/03_WinBuilder/ProgCache/TempExtractFolder/Zzoom_omiod/Zzoom_omiod/Zzoom.exe
+zzLastOSBuilder/03_WinBuilder/ProgCache/ZoomIt/ZoomIt.exe

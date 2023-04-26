@@ -10,3 +10,32 @@ store scripts to download on github
 
 use lastos downloader to download added files
 then copy to the lastos build directory for adding to ISO
+
+
+addin SSD specfic managers
+store SSD manager files on mega and download selected
+ref https://www.makeuseof.com/tag/securely-erase-ssd-without-destroying/
+
+eg kingston
+
+
+
+Intel Solid-State Drive Toolbox
+https://www.intel.com.au/content/www/au/en/support/articles/000057452/memory-and-storage.html
+https://www.intel.com/content/www/us/en/download/19543/intel-memory-and-storage-tool-gui.html
+
+
+Toshiba OCZ SSD Utility
+https://www.filehorse.com/download-toshiba-ocz-ssd-utility/download/?
+
+
+Corsair SSD Toolbox
+Corsair SSD Toolbox 1.2.6.9
+https://www.techspot.com/downloads/6075-corsair-ssd-toolbox.html
+
+Samsung Magician SSD Tool
+SanDisk SSD Dashboard
+Crucial SSD Storage Executive
+Western Digital SSD Dashboard
+Seagate SeaTools bootable SSD utility
+

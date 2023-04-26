@@ -90,4 +90,8 @@ added lostos apz downloader v4.0
 updated lostos apz downloaderto LostOSrepo_v4.5
 added \Utilities\LOS_MegaCmd_XPE.Script
 
+0.0.27 ************************
+added zzoom script
+
+
 
