@@ -94,17 +94,67 @@ goto :eof
 
 
 :IntegrateMenuHelp
+ echo.===============================================================================
+echo.          LastOS ToolKit -  IntegrateMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
 
+goto :eof
 
 :RemoveMenuHelp
+ echo.===============================================================================
+echo.          LastOS ToolKit -  RemoveMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
+
 :CustomizeMenuHelp
+echo.===============================================================================
+echo.          LastOS ToolKit -  CustomizeMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
+
  :ApplyMenuHelp
+ echo.===============================================================================
+echo.          LastOS ToolKit -  ApplyMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
 
  :TargetMenuHelp
+ echo.===============================================================================
+echo.          LastOS ToolKit -  TargetMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
 
 :ToolsMenuHelp
+echo.===============================================================================
+echo.          LastOS ToolKit -  ToolsMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
 
 :HelpMenuHelp
+echo.===============================================================================
+echo.          LastOS ToolKit -  HelpMenuHelp
+echo.===============================================================================
+echo.
+@REM enter code here
+
+goto :eof
 
 
 
