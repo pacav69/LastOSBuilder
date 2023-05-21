@@ -61,7 +61,7 @@ echo.                             [5]   Apply
 echo.
 echo.                             [6]   Target
 echo.
-echo.                             [7]   Tools
+echo.                             [7]   Cleanup Source
 echo.
 echo.                             [H]   Help
 echo.
@@ -73,7 +73,7 @@ echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :ToolsMenuHelp
-if errorlevel 8 goto :ToolsMenuHelp
+if errorlevel 8 goto :CleanupSource
 if errorlevel 7 goto :TargetMenuHelp
 if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
@@ -243,6 +243,128 @@ pause
   echo.===============================================================================
 
   pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+:IntegrateMenuHelp
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - IntegrateMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+
+:RemoveMenuHelp
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - RemoveMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:CustomizeMenuHelp
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - CustomizeMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:ApplyMenuHelp
+ cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - ApplyMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:TargetMenuHelp
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - TargetMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:CleanupSource
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Cleanup
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+@REM  call  %CPS%\Lostos.cmd
+call  %CPS%\cleanoutsources.cmd
+ call  %CPS%\CleanUp.cmd
+
+ echo
+  echo.===============================================================================
+echo.
+echo. Finished Cleanup
+echo.
+  echo.===============================================================================
+@REM pause
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:ToolsMenuHelp
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - ToolsMenuHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+
+
+ pause
   @REM goto :Quit
   goto :eof
 ::-------------------------------------------------------------------------------------------

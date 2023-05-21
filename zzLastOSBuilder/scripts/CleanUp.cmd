@@ -21,7 +21,7 @@ set debug=0
 
 @REM debug
 @REM If %debug% NEQ 0 (
-@REM pause 
+@REM pause
 @REM )
 
 rem This first for routine will give the current path without a trailing \
@@ -54,13 +54,13 @@ echo. HostArchitecture zzmenu    = %HostArchitecture%
 echo. HostBuild = %HostBuild%
 echo. Bin = %Bin%
 
-pause 
+pause
 )
 
 
 
 ::-------------------------------------------------------------------------------------------
-:: Cleanup MSMG Toolkit's temporary files and folders
+:: Cleanup LastOS Toolkit's temporary files and folders
 ::-------------------------------------------------------------------------------------------
 :CleanUp
 
