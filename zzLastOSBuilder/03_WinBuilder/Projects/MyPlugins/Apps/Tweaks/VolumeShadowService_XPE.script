@@ -55,7 +55,7 @@ TXTAddLine,%GTarget_Sys%\autorun.cmd,"Call #$pSystemRoot#$p\system32\start_vss.c
 TXTAddLine,%GTarget_Sys%\autorun.cmd,Exit,Append
 End
 
-[Vss_AddFiles]
+[Vss_]
 \Windows\Vss
 \Windows\System32\bcd.dll
 \Windows\System32\comres.dll

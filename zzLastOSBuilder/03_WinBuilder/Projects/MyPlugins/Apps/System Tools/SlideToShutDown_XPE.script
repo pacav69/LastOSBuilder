@@ -40,7 +40,7 @@ End
 //--
 Run,%ScriptFile%,Add_Shortcuts
 
-[AddFiles]
+[]
 \Windows\System32\SlideToShutDown.exe
 
 [Add_Shortcuts]

@@ -87,8 +87,8 @@ if "%IsImageRegistryLoaded%" equ "Yes" (
 )
 
 echo.  [1]   Select Source from ^<00_source^> Folder
-@REM echo.
-@REM echo.  [2]   Copy Source from DVD Drive
+echo.
+echo.  [2]   Copy Source from MCT to ISO and extract
 echo.
 echo.  [3]   Extract Source from DVD ISO Image
 echo.
@@ -117,7 +117,7 @@ if errorlevel 6 goto :ExtractSourceESD
 if errorlevel 5 goto :ExtractSourceStoreESD
 if errorlevel 4 goto :ExtractSourceIMG
 if errorlevel 3 goto :ExtractSourceISO
-if errorlevel 2 goto :CopySourceDVD
+if errorlevel 2 goto :CopySourceMCT
 if errorlevel 1 goto :SelectSourceDVD
 ::-------------------------------------------------------------------------------------------
 
@@ -370,9 +370,9 @@ goto :Quit
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - Copy Source from DVD Drive to ^<DVD^> folder
+:: LastOS Toolkit -  Copy Source from MCT to ISO and extract
 ::-------------------------------------------------------------------------------------------
-:CopySourceDVD
+:CopySourceMCT
 
 setlocal
 
@@ -380,74 +380,212 @@ set DriveLetter=
 
 cls
 echo.===============================================================================
-echo.          LastOS ToolKit - Copy Source from DVD Drive to ^<DVD^> folder
+echo.          LastOS ToolKit -  Copy Source from MCT to ISO and extract
 echo.===============================================================================
 echo.
 
-:: Checking whether Windows Source DVD folder is empty
-if exist "%DVD%\sources\*.wim" (
-	echo.Toolkit's Source ^<DVD^> folder is not empty...
+@REM debug
+@REM  check if iso exists
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
+echo MCTool = %MCTool%
+echo testfile = %testfile%
+@REM pause
+REM find file
+@REM If %debug% NEQ 0 (
+IF EXIST "%MCTool%\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist & goto :DONE
+)
+@REM echo nope
+@REM pause
+@REM )
+
+@REM pause
+:runcode
+echo.
+choice /C:YN /N /M "ISO file found in %MCTool% are you sure you want to continue? ['Y'es/'N'o] : "
+if errorlevel 2 goto :somewhere_else
+if errorlevel 1 goto :somewhere
+
+:somewhere
+IF /I %debug% == 1 (
+echo somewhere
+pause
+)
+goto :DONE
+
+@REM echo runcode
+@REM echo MCTool = %MCTool%
+@REM pause
+@REM @REM if exists %ISO%
+@REM rem Rename first found %ISO%\*.ISO to use as Windows Original source ISO
+@REM cd /D "%ISO%"
+@REM @REM pause
+@REM for /f "tokens=* delims=" %%x in ('dir "*.iso" /B /O:N') do ren "%ISO%\%%x" "%MountISO%" & goto END
+
+@REM cho end of the road
+@REM pause
+
+@REM file exists then exit
+:somewhere_else
+exit /B
+@REM goto :eof
+
+
+:DONE
+
+@REM  ref https://ss64.com/nt/start.html
+
+@REM  set "IsSourceSelected=No"
+
+@REM if "%IsSourceSelected%" equ "Yes" (
+@REM 	echo.Source OS has already been selected...
+@REM 	echo.
+@REM 	echo.===============================================================================
+@REM 	echo.
+@REM 	pause
+@REM 	goto :MainMenu
+@REM )
+@REM Echo Starting
+@REM  ref https://ss64.com/nt/start.html
+@REM START /wait "demo" CMD /c demoscript.cmd
+@REM Echo Done
+@REM start the MediaCreationToolwin11
+
+@REM cls
+@REM echo.-------------------------------------------------------------------------------
+@REM echo.####Now Downloading Windows 11 from Microsoft###############
+@REM echo.-------------------------------------------------------------------------------
+@REM set "downWin11=yes"
+@REM start /wait  "Win11 download"   cmd /d /x /c call %MCTool%\MediaCreationToolwin11.bat
+@REM call %MCTool%\MediaCreationToolwin11.bat
+
+@REM START /wait  "wd11" cmd /c %MCTool%\MediaCreationToolwin11.cmd
+
+@REM call %CPS%\win11down.cmd
+
+
+@REM check if iso exists
+call :checkiso
+
+@REM pause
+goto :quit
+
+:checkiso
+@REM debug
+@REM  check if iso exists
+@REM  check that ISO file exists before proceeding
+set "testfile=*.iso"
+@REM set "testfile=*.txt"
+echo MCTool = %MCTool%
+echo testfile = %testfile%
+@REM pause
+REM find file
+@REM If %debug% NEQ 0 (
+IF EXIST "%MCTool%\%testfile%" (
+  ECHO file %testfile% exists & goto runcode
+) ELSE (
+  ECHO file %testfile% does not exist &  TIMEOUT /T 5 & goto :DONE
+)
+@REM echo nope
+@REM pause
+@REM )
+
+@REM pause
+:DONE
+
+@REM create error level 1
+color 00
+echo ERRORLEVEL = %ERRORLEVEL%
+
+set "downWin11=No"
+echo no download
+
+
+ TIMEOUT /T 10
+goto :finished
+
+:runcode
+
+set "downWin11=Yes"
+
+goto :finished
+@REM :quit
+
+
+
+
+:finished
+echo Finished
+@REM pause
+
+@REM echo.-------------------------------------------------------------------------------
+@REM echo.####Finished Downloading Windows 11 from Microsoft###############
+@REM echo.-------------------------------------------------------------------------------
+
+
+@REM debug
+
+
+:: Checking whether Source ISO is found
+if "%downWin11%" equ "No" (
+	echo. Source ISO not found...
 	echo.
-	choice /C:YN /N /M "Do you want to remove it & continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :Stop
+	echo.===============================================================================
+	echo.
+	pause
+	goto :MainMenu
 )
 
 echo.-------------------------------------------------------------------------------
-echo.####Starting Copying Source from DVD Drive to ^<DVD^> folder#####################
+echo.####Copying Windows 11 to %ISO% ###############
 echo.-------------------------------------------------------------------------------
-echo.
+
+call %CPS%\win11copy.cmd
+
+@REM debug
+
+call %CPS%\00.0__Rename_First_ISO_To_Windows_Original_ISO.cmd
+
+@REM debug
+	echo.-------------------------------------------------------------------------------
+echo.####Extracting Windows 11 to %WindowsOriginalPath% ###############
+echo.----------------------------------------------------------------------------------
+
+call %CPS%\00.1_Extract_Source_ISO
+
 echo.-------------------------------------------------------------------------------
-echo.####Getting DVD Drive Options##################################################
+echo.####Finished #Extracting Windows 11 ###############
 echo.-------------------------------------------------------------------------------
-echo.
-:: Getting DVD Drive Letter
-set /p DriveLetter=Enter DVD Drive Letter :
 
-:: Setting DVD Drive Letter
-set "DriveLetter=%DriveLetter%:"
-echo.
-
-:: Checking whether the specified DVD Drive letter is empty
-if not exist "%DriveLetter%\sources\boot.wim" (
-	echo.Can't find Windows OS Installation files in the specified Drive Letter..
-	echo.
-	echo.Please enter the correct DVD Drive Letter..
-	goto :Stop
-)
-
-:: Checking whether the specified DVD Drive Letter is empty
-if not exist "%DriveLetter%\sources\install.wim" (
-	echo.Can't find Windows OS Installation files in the specified Drive Letter..
-	echo.
-	echo.Please enter the correct DVD Drive Letter..
-	goto :Stop
+If %debug% NEQ 0 (
+pause
 )
 
 echo.-------------------------------------------------------------------------------
-echo.####Copying Source from DVD Drive to ^<DVD^> folder##############################
-echo.-------------------------------------------------------------------------------
-echo.
-call :RemoveFolder "%DVD%"
-echo.Copying Source from DVD Drive ^<%DriveLetter%^> to Source ^<DVD^> folder...
-echo.
-echo.Copying from DVD Drive may take some time, so please wait...
-%XCopy% %DriveLetter% "%DVD%" >nul
-echo.
-echo.Copying Complete...
-echo.
-echo.-------------------------------------------------------------------------------
-echo.####Finished Copying Source from DVD Drive to ^<DVD^> folder#####################
+echo.####Finished Processing Windows ###############
 echo.-------------------------------------------------------------------------------
 
 :Stop
 echo.
 echo.===============================================================================
+If %debug% NEQ 0 (
 echo.
+echo.-------------------------------------------------------------------------------
+echo.####about to cleanup Source sub-directories ###############
+echo.-------------------------------------------------------------------------------
 pause
 
-set DriveLetter=
+call  %CPS%\00.01_Cleanout_LastOS_Builder.cmd
+)
 
-endlocal
+
+pause
+
+@REM endlocal
 
 :: Returning to Quit
 goto :Quit

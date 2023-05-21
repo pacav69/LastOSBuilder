@@ -13,7 +13,7 @@ Level=1
 Download_Level=0
 Credits=
 Contact=
-AttachDir=C:\Users\User\Downloads\wbfiles\screensaver\
+AttachDir=D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\03_WinBuilder\Temp\Google Chrome\Google Chrome\
 
 [Variables]
 %ProjectName%=Win10XPE

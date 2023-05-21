@@ -1,5 +1,5 @@
 [Main]
-Title=Google Chrome v112.0.5615.50
+Title=Google Chrome
 Type=XPE Application
 Description=(v112.0.5615.50) Fast Free Web Browser. One browser for your computer, phone and tablet.
 Author=KYHI
@@ -40,8 +40,8 @@ pCheckBox_ChangeHome="Change Homepage For Home Button",1,3,170,183,200,18,True
 pTextBox_HomePage=,1,0,170,203,225,21,https://www.Google.com/
 pTextLabel2="This XPEPlugin Will Download and Encode The Required Setup Files - Host Installation Files Not Required",1,1,10,290,500,18,8,Normal
 Import_Button=" Import Custom User Data Profile",1,8,170,246,225,25,UserData_Import,opendir.bmp,False,_UserData_Import_,False,"__Open Local USER DATA Folder-> Select & Compress All Files-> Place USER DATA.7z Here"
-
 // https://sourceforge.net/projects/portableapps/files/Google%20Chrome%20Portable/GoogleChromePortableDev_114.0.5720.4_online.paf.exe/download
+
 [Variables]
 %ProgramTitle%=Google Chrome
 %ProgramEXE%=Chrome.exe
@@ -53,6 +53,7 @@ Import_Button=" Import Custom User Data Profile",1,8,170,246,225,25,UserData_Imp
 %FileContainer%=%ScriptDir%\GoogleChrome_112_XPE_File.Script
 %SetupURL%=https://dl.google.com/release2/chrome/adzewuql6f5tv76cyhh65msm5z6q_112.0.5615.50/112.0.5615.50_chrome_installer.exe
 %SetupURLx64%=https://dl.google.com/release2/chrome/alqo5mt5gnkjmd5dl2b6ca74ve_112.0.5615.50/112.0.5615.50_chrome_installer.exe
+
 [Process]
 Echo,"Processing %ScriptTitle%..."
 If,%RunFromWhere_ScrollBox%,Equal,"Run From RAM",RunFromRAM
@@ -448,7 +449,7 @@ Folder
 Local State=34261,45682
 master_preferences=326,435
 GoogleChrome_XPE_File.Script=4451,5935
-chrome.VisualElementsManifest.xml=319,426
+chrome.VisualElementsManifest.xml=321,428
 
 [EncodedFile-Folder-Local State]
 lines=11
@@ -476,5 +477,5 @@ lines=1
 
 [EncodedFile-Folder-chrome.VisualElementsManifest.xml]
 lines=0
-0=eJydkU1LxDAQhu+C/6HgISeT1E33i1ZQcU+rHiriYS+hhjSYzNQkJfn5tgiLHwjiwBxm3vd9DjP11TBY08loEIrsLIRtDqYhfYzDlrGUEk0Lil6zC85L9ny3b7teOXluIEQJnSKXpydFUT+ZMEp7a5VTEMO8mqvtMd1Lpx6gfRulV2XF89R71NgQBHL0/VQ3G8qpWAtBq/LwlX6YHXQA/S2/4nn1h3TrpLW/IITIQvwXsUOvtMcRXh5Vjg2xRvfxqF7L7vVDvUGLviFn1W65WK4Jmy5Ys09/mOZ3WvZ843icU0zOKMrPTdULyywuTcxxzUnNTc0rKfZNzMtMSy0u0avIzWEYBcMYTGeE0PdxyDuxyXQzMAEAtmoPnds3jYUBAAAAAgAAADwAAADfAAAAAAAAAAEAAAAAAAAAAAAAAA
+0=eJydkU1LxDAQhu+C/6HgISfz0U3d7tIKKnpa9VARD3sJ3ZAGk0xNUpKfb4uw+IEgDsxh3ved5zDTXI2j0b2IGlyRrXFhm4Nu0RDjuCUkpYTTCoNXpKSUkZf7XdcP0opz7UIUrpfo8vSkKJpnHSZhbo200sWwSEt1A6QHYeWj694m4SWraJ57BwpaBA4dcz9dxkpMcXXBKsxW9f4rf79k8OjUN8Ka5vWf9jsrjPkFwnnm/P+QO/BSeZjc4Unm2CKj1RCP7rXoXz/cGzDgW3TGNryuS0TmOzbk0zfm+R2uXH3QeJxTTM4oys9N1QvLLC5NzHHNSc1NzSsp9k3My0xLLS7Rq8jNYRgFwxjMZYTQD3HIxwizb2dgAgC4lw/j/1yzSAEAAAACAAAAPAAAAOEAAAAAAAAAAQAAAAAAAAAAAAAA
 

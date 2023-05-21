@@ -28,6 +28,10 @@ set Debug=0
 call %CPS%\setvars.cmd
 echo.
 echo my project name is %ProjectName%
+set "builder=%CP%\03_WinBuilder\Win10XPE.exe""
+
+@REM start "" "%builderpath%\Win10XPE.exe"
+
 @REM pause
 
 
@@ -44,7 +48,7 @@ echo.===========================================================================
 echo.
 echo.                             [A]   About
 echo.
-echo.                             [1]   Source
+echo.                             [1]   Open Pre Installion builder
 echo.
 echo.                             [2]   Integrate
 echo.
@@ -74,9 +78,34 @@ if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
 if errorlevel 4 goto :RemoveMenuHelp
 if errorlevel 3 goto :IntegrateMenuHelp
-if errorlevel 2 goto :SourceMenuHelp
+if errorlevel 2 goto :peBuilder
 if errorlevel 1 goto :aboutHelp
 ::-------------------------------------------------------------------------------------------
+
+ :peBuilder
+ echo.===============================================================================
+echo.          LastOS ToolKit -  Open Pre Installion builder
+echo.===============================================================================
+echo.
+@REM call  %CPS%\pebuilder.cmd
+start /wait "" "%builder%
+
+goto :eof
+
+
+:IntegrateMenuHelp
+
+
+:RemoveMenuHelp
+:CustomizeMenuHelp
+ :ApplyMenuHelp
+
+ :TargetMenuHelp
+
+:ToolsMenuHelp
+
+:HelpMenuHelp
+
 
 
 

@@ -11,6 +11,7 @@ zzLastOSBuilder/00_Source/03Windows_NTLite/*.*
 zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/myapz/*.*
 zLastOSBuilder/03_WinBuilder/Temp/*.*
 zzLastOSBuilder/03_WinBuilder/ProgCache/*.*
+zzLastOSBuilder\00_Source\01Windows_Original*.*
 
 
 # C extensions
@@ -693,3 +694,103 @@ zzLastOSBuilder/03_WinBuilder/Temp/ZoomIt/ZoomIt.exe
 zzLastOSBuilder/03_WinBuilder/ProgCache/TempExtractFolder/Zzoom_omiod/Zzoom.zip
 zzLastOSBuilder/03_WinBuilder/ProgCache/TempExtractFolder/Zzoom_omiod/Zzoom_omiod/Zzoom.exe
 zzLastOSBuilder/03_WinBuilder/ProgCache/ZoomIt/ZoomIt.exe
+zzLastOSBuilder/00_Source/01Windows_Original/boot/bcd
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome.dll.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome.exe.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome_100_percent.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome_200_percent.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome_elf.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome_pwa_launcher.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/chrome_wer.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/d3dcompiler_47.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/default_apps/external_extensions.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/elevation_service.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/eventlog_provider.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Extensions/external_extensions.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/icudtl.dat
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/libEGL.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/libGLESv2.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/af.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/am.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ar.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/bg.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/bn.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ca.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/cs.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/da.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/de.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/el.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/en-GB.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/en-US.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/es-419.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/es.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/et.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/fa.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/fi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/fil.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/fr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/gu.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/he.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/hi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/hr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/hu.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/id.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/it.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ja.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/kn.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ko.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/lt.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/lv.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ml.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/mr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ms.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/nb.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/nl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/pl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/pt-BR.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/pt-PT.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ro.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ru.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/sk.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/sl.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/sr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/sv.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/sw.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ta.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/te.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/th.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/tr.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/uk.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/ur.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/vi.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/zh-CN.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/Locales/zh-TW.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/MEIPreload/manifest.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/MEIPreload/preloaded_data.pb
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/mojo_core.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/nacl64.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/nacl_irt_x86_32.nexe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/nacl_irt_x86_64.nexe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/notification_helper.exe
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/optimization_guide_internal.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/resources.pak
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/v8_context_snapshot.bin
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/Logo.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/LogoBeta.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/LogoCanary.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/LogoDev.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/SmallLogo.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/SmallLogoBeta.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/SmallLogoCanary.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/VisualElements/SmallLogoDev.png
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/vk_swiftshader.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/vk_swiftshader_icd.json
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/vulkan-1.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/WidevineCdm/_platform_specific/win_x86/widevinecdm.dll
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/WidevineCdm/_platform_specific/win_x86/widevinecdm.dll.sig
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/WidevineCdm/LICENSE
+zzLastOSBuilder/03_WinBuilder/Temp/Google Chrome/Google Chrome/112.0.5615.50/WidevineCdm/manifest.json
+zzLastOSBuilder/03_WinBuilder/Projects/MyPlugins/Apps/Network/GoogleChrome_112_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MyPlugins/Apps/Network/GoogleChrome_112_XPE_File.Script
+zzLastOSBuilder/03_WinBuilder/Projects/MyPlugins/Apps/Network/GoogleChrome_112_XPE_File.Script

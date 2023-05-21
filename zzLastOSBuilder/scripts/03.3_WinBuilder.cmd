@@ -3,20 +3,20 @@ rem Win11 script
 set "scriptver=1.0"
 title %~nx0  v%scriptver%
 
-call :isAdmin
+@REM call :isAdmin
 
-if %errorlevel% == 0 (
-goto :run
-) else (
-echo Requesting administrative privileges...
-goto :UACPrompt
-)
+@REM if %errorlevel% == 0 (
+@REM goto :run
+@REM ) else (
+@REM echo Requesting administrative privileges...
+@REM goto :UACPrompt
+@REM )
 
-exit /b
+@REM exit /b
 
-:isAdmin
-fsutil dirty query %systemdrive% >nul
-exit /b
+@REM :isAdmin
+@REM fsutil dirty query %systemdrive% >nul
+@REM exit /b
 
 :run
 rem This first for routine will give the current path without a trailing \

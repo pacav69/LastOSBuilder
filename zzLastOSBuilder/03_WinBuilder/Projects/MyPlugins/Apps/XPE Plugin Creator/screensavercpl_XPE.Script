@@ -24,14 +24,14 @@ StartMpin_CheckBox="Pin To StartMenu",1,3,10,64,122,18,False,"__Add Pin To Start
 StartMenuFolder_TextBox="Start Menu Folder:",1,0,10,100,121,18,,"__Start Menu Folder Name"
 RunFromWhere_ScrollBox="Run From USB",1,4,145,6,104,21,"Run From USB","Run From RAM"
 Image_Software=cmd4848.ico,1,5,145,35,48,48
-Edit_TextFile=screensavercpl.bat,1,6,145,35,320,240
+Edit_TextFile=screensavercpl.bat,1,6,145,35,309,120
 Button_Edit_Program=Edit,1,8,10,142,119,25,Launch_Program,0,False,"__Click Here To Edit Commands"
 HomePage_WebLabel="Home Page",1,10,338,6,55,18,http://theoven.org/index.php?board=39.0
 Update_Container_Button=U,0,8,540,4,14,14,Update_Container,0,False,"__Update-Encode File Container"
-
+//
+screensaver_Button="Copy screensaver (*.scr) Here",1,8,2,203,226,26,Windowsopen,screensaver.bmp,False,_Windowsopen_,False,"__Copy Your screensaver (*.scr) Here"
 // todo: add folder selection for host computer scrreen saavers to be added
 // to file storage file. using *.scr
-
 
 [Variables]
 %ProgramTitle%=screensavercpl
@@ -66,6 +66,11 @@ ExtractSectionFiles,%ScriptFile%,AddFiles
 Run,%ScriptFile%,Add_Registry
 //--
 Run,%ScriptFile%,Add_Associations
+// \zzLastOSBuilder\03_WinBuilder\Custom\x64\AdditionalFiles\Windows
+// \%Architecture%
+
+[Windowsopen]
+OpenDir,%GCustom%\x64\AdditionalFiles\Windows
 
 [AddFilesInfo]
 //- Extract files or folders from Install.wim image. Script Commands are not allowed
@@ -134,7 +139,6 @@ lines=1
 [EncodedFile-InterfaceEncoded-Launch.bmp]
 lines=0
 0=eJxN0WtMFFcUAGCM/W/SXzSxaZOmTX8YtdLSJk1jQsIPpUZNSGMTWk1tKvFVMDVGCaIWRKWGgrLaRbq4AruwT92XWoshUVAhKtFAYVmWZXdgdmdnZ+beedy587gdXJr05JyTm3O/5J7kVuywrS15E+VWfWzVOqvetmpNSemb+b7V+/8HI5vLgggx+K73x2/sP1Tb9+QBRXEwrxAG4qyk0lClgcxAhRBi+RN/L1T9efTM+OUQgZ38qyvceHW0YWNrVe2z7M/j7OGXuYNP0keD443PmcHnScvvdbbXPTz4gtBVd2sqQ19vi+yqffHb7uBPW7tPHM+QujjfEOdqwzORR8PR0IDlNzeXX50fmCTshp7yj65vXt/xbmVg//6RptIDa05myeEptmGG/d73OjI3N70wY/myXze1TfXO6sInPV+WXn7vw65Pz0LSkHy67tuSJo7Uz3Dn4uze4GSMQs8oYPmd16p33N3zWX/F5wNbKz3bym5u6dZIa+r+O4fWnufI8Vm+dY7bd2fyr2X5ZZqx/BGvw5/wD9H3jzz6pe5xfWcieo/I2/u/qLhxqjlLTs0LzQnu2IPpO6zqja/4jleZGm99cMo3QWanyNI0EWsCu8u6djUmwOkkbEyClhRoHk20zxUuTaQs75wHLlY8FLF91bLlgwNvbTr9flVf04UMOk+pZ5LCSqbAxTgT/mcJIGz53oVCRCFejUTISt4mpEckXTncRsELadCyCFsWhba0NEbxxf9yLhRCkuli8S3esBc0O610MehqDlm9dRFepJQ2ClxKwdF0oehdiyAsmR6o9YtGH685AHEUkJ3F13JKO610LMPfl8ROGo1luKJ3Z8CwSvyi7gG6W8C3CoqTQw5e6ykgW06x5dCVnGzLCKOZ1X2GKPAAkaho+CTNJ+o+qLtFw5lXbuZRd16+zqAbednBoKdLQtEPUmAYkduyFlRwUMbWYh5Bc0tmn/WWbHQzkp03/qClCRoWvUdQR1RzBJv3kBlTjZhihJDmFbWAZAwJ2MXjQQH7eXWCWfVuWgwDHBNxTDKioh6GWgjggIADvOrnsItTvSyyZ+Wx7KoHmlFM0TBF3YS6aZ3hf0Pe6lhnNUPWjKL/F4rXcD14nOPySSzNS87QS8otYBgFIw9MY4bQ7szY5SXNdJ4zMAEARyYGGuVhjnsBAAAAAgAAACYAAABHAwAAAAAAAAEAAAAAAAAAAAAAAA
-
 
 [EncodedFolders]
 InterfaceEncoded
