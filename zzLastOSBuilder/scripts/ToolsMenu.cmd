@@ -257,7 +257,7 @@ echo.===========================================================================
 echo.
 echo  CPS =  %CPS%
 echo The ISO = %ISO%
-pause
+@REM pause
 @REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
 @REM  return with variable tmp contained in powweshell script that
 @REM stores file selected pathname and filename.

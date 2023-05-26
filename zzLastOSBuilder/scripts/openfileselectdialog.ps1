@@ -25,10 +25,10 @@
 # Thomas Rayner is awesome. Everyone should be like Thomas. Mostly ganked from here: https://thomasrayner.ca/open-file-dialog-box-in-powershell/
 
 $param1=$args[0]
-$param2=$args[1]
+# $param2=$args[1]
 
-write-host param1value = $param1
-write-host param2value = $param2
+# write-host param1value = $param1
+# write-host param2value = $param2
 
 function Open-FileDialog{
         [cmdletBinding()]
@@ -60,10 +60,6 @@ function Open-FileDialog{
 $FileBrowser.FileName
 }
 
-# $file = Open-FileDialog $Environment
-# Write-Host "the param is" $NamedParam1
-# $InitialDirectory = "D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\"
-# D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\
 $file = Open-FileDialog $param1
-Write-Host "the ISO is " $file
+# Write-Host "the ISO is " $file
 $file | Out-File -Encoding "ASCII" tmp
