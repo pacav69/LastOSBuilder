@@ -263,14 +263,15 @@ pause
 @REM stores file selected pathname and filename.
 @REM openfileselectdialog.ps1 [InitialDirectory ]
 
-@REM turn on powershell restrictions for CurrentUser
+@REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
+@REM set powershell restrictions for CurrentUser so file is able to run
 START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-
+@REM start the powershell file with [InitialDirectory]
 START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 
+@REM  tmp is created in openfileselectdialog.ps1
  set /p myfile=<tmp
  echo *****************************
-@REM  tmp is created in openfileselectdialog.ps1
  set /p MyISOfile=<tmp
 echo  the ISO selected is %MyISOfile%
 

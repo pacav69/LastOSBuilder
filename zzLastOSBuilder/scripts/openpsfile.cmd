@@ -4,11 +4,11 @@
 @REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
 @REM turn off powershell restrictions
 @REM powershell Set-ExecutionPolicy -Scope CurrentUser Restricted
-@REM turn on powershell restrictions for CurrentUser
+@REM set powershell restrictions for CurrentUser so file is able to run
 @REM powershell Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 @REM set "ISO=D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\"
 @REM -NamedParam1 test
-@REM turn on powershell restrictions for CurrentUser
+@REM set powershell restrictions for CurrentUser so file is able to run
 powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 echo *****************************
 echo The ISO = %ISO%
