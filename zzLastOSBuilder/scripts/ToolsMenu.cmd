@@ -51,7 +51,7 @@ echo.                             [A]   About
 echo.
 echo.                             [1]   Download Apz from LastOS
 echo.
-echo.                             [2]   Integrate
+echo.                             [2]   Select ISO from ISO directory
 echo.
 echo.                             [3]   Remove
 echo.
@@ -78,7 +78,7 @@ if errorlevel 7 goto :TargetMenuHelp
 if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
 if errorlevel 4 goto :RemoveMenuHelp
-if errorlevel 3 goto :IntegrateMenuHelp
+if errorlevel 3 goto :SelectISO
 if errorlevel 2 goto :Lostos
 if errorlevel 1 goto :aboutHelp
 ::-------------------------------------------------------------------------------------------
@@ -247,15 +247,27 @@ pause
   goto :eof
 ::-------------------------------------------------------------------------------------------
 
-:IntegrateMenuHelp
+:SelectISO
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - IntegrateMenuHelp
+echo.                           LastOS ToolKit Builder - SelectISO
 echo.                           v%BuilderVersion%
 echo.===============================================================================
  echo.
 echo.
+echo  CPS =  %CPS%
+echo The ISO = %ISO%
+@REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
+@REM  return with variable tmp contained in powweshell script that
+@REM stores file selected pathname and filename.
+@REM openfileselectdialog.ps1 [InitialDirectory ]
 
+START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1  %ISO%
+
+ set /p myfile=<tmp
+ echo *****************************
+ set /p MyISOfile=<tmp
+echo  the ISO selected is %MyISOfile%
 
  pause
   @REM goto :Quit

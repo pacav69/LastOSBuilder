@@ -1,0 +1,20 @@
+
+
+Let's say you would like to pass the string Dev as a parameter, from your batch file:
+
+powershell -command "G:\Karan\PowerShell_Scripts\START_DEV.ps1 Dev"
+put inside your powershell script head:
+
+$w = $args[0]       # $w would be set to "Dev"
+This if you want to use the built-in variable $args. Otherwise:
+
+ powershell -command "G:\Karan\PowerShell_Scripts\START_DEV.ps1 -Environment \"Dev\""
+and inside your powershell script head:
+
+param([string]$Environment)
+This if you want a named parameter.
+
+You might also be interested in returning the error level:
+
+powershell -command "G:\Karan\PowerShell_Scripts\START_DEV.ps1 Dev; exit $LASTEXITCODE"
+The error level will be available inside the batch file as %errorlevel%.

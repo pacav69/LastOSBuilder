@@ -1,0 +1,9 @@
+# The answer from @Emiliano is excellent. You can also pass named parameters like so:
+
+# powershell.exe -Command 'G:\Karan\PowerShell_Scripts\START_DEV.ps1' -NamedParam1 "SomeDataA" -NamedParam2 "SomeData2"
+# Note the parameters are outside the command call, and you'll use:
+
+[parameter(Mandatory=$false)]
+  [string]$NamedParam1,
+[parameter(Mandatory=$false)]
+  [string]$NamedParam2

@@ -1,0 +1,46 @@
+Tested as working:
+
+#Must be the first statement in your script (not counting comments)
+param([Int32]$step=30)
+
+$iTunes = New-Object -ComObject iTunes.Application
+
+if ($iTunes.playerstate -eq 1)
+{
+  $iTunes.PlayerPosition = $iTunes.PlayerPosition + $step
+}
+Call it with
+
+powershell.exe -file itunesForward.ps1 -step 15
+Multiple parameters syntax (comments are optional, but allowed):
+
+<#
+    Script description.
+
+    Some notes.
+#>
+param (
+    # height of largest column without top bar
+    [int]$h = 4000,
+
+    # name of the output image
+    [string]$image = 'out.png'
+)
+And some example for advanced parameters, e.g. Mandatory:
+
+<#
+    Script description.
+
+    Some notes.
+#>
+param (
+    # height of largest column without top bar
+    [Parameter(Mandatory=$true)]
+    [int]$h,
+
+    # name of the output image
+    [string]$image = 'out.png'
+)
+
+Write-Host "$image $h"
+A default value will not work with a mandatory parameter. You can omit the =$true for advanced parameters of type boolean [Parameter(Mandatory)].
