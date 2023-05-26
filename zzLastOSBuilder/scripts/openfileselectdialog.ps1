@@ -13,9 +13,13 @@
 .EXAMPLE
     $file = Open-FileDialog c:\
 .INPUTS
+    called by "powershell.exe -file openfileselectdialog.ps1 [InitialDirectory] "
    $file = Open-FileDialog [InitialDirectory] eg c:\
 .OUTPUTS
     $file = filepath and filename from Open-FileDialog
+    The value of $file is stored into variable tmp
+    that can be read by the calling batch file
+    $file | Out-File -Encoding "ASCII" tmp
 #>
 
 # Thomas Rayner is awesome. Everyone should be like Thomas. Mostly ganked from here: https://thomasrayner.ca/open-file-dialog-box-in-powershell/
