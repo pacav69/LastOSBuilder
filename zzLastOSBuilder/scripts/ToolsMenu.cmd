@@ -257,15 +257,20 @@ echo.===========================================================================
 echo.
 echo  CPS =  %CPS%
 echo The ISO = %ISO%
+pause
 @REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
 @REM  return with variable tmp contained in powweshell script that
 @REM stores file selected pathname and filename.
 @REM openfileselectdialog.ps1 [InitialDirectory ]
 
-START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1  %ISO%
+@REM turn on powershell restrictions for CurrentUser
+START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 
  set /p myfile=<tmp
  echo *****************************
+@REM  tmp is created in openfileselectdialog.ps1
  set /p MyISOfile=<tmp
 echo  the ISO selected is %MyISOfile%
 

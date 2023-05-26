@@ -19,7 +19,7 @@
 #>
 
 # Thomas Rayner is awesome. Everyone should be like Thomas. Mostly ganked from here: https://thomasrayner.ca/open-file-dialog-box-in-powershell/
-# $w = $args[0]
+
 $param1=$args[0]
 $param2=$args[1]
 
@@ -42,25 +42,23 @@ function Open-FileDialog{
     Add-Type -AssemblyName System.Windows.Forms
     $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog
     if($InitialDirectory){
-        # $FileBrowser.InitialDirectory = $InitialDirectory
+        # $param1 is the first argument from the command line
         $FileBrowser.InitialDirectory = $param1
     }
     else{
-    $fileBrowser.InitialDirectory = [Environment]::GetFolderPath('Desktop')
+        $fileBrowser.InitialDirectory = [Environment]::GetFolderPath('Documents')
     }
-    $FileBrowser.Filter = 'ISO (*.iso)|*.iso|All Files (*.*)|*.*'
+    $FileBrowser.Filter = 'ISO Files (*.iso)|*.iso|All Files (*.*)|*.*'
     if ($Title) { $FileBrowser.Title = $Title }
 
 
 [void]$FileBrowser.ShowDialog()
 $FileBrowser.FileName
-
-
 }
 
 # $file = Open-FileDialog $Environment
-Write-Host "the param is" $NamedParam1
-$InitialDirectory = "D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\"
+# Write-Host "the param is" $NamedParam1
+# $InitialDirectory = "D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\"
 # D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\ISO\
 $file = Open-FileDialog $param1
 Write-Host "the ISO is " $file
