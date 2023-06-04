@@ -15,7 +15,7 @@ title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on >0 / off =0
 set debug=0
-
+mode con lines=32 cols=80
 
 @REM debug
 @REM If %debug% NEQ 0 (
