@@ -102,15 +102,16 @@ echo.  [7]   Download Windows 11 ISO from Microsoft
 echo.
 echo.  [8]   Download Windows ISO from Microsoft
 echo.
-echo.
+echo.  [9]   Download Windows ISO using FIDO
 echo.
 echo.
 echo.  [X]   Go Back
 echo.
 echo.===============================================================================
 echo.
-choice /C:12345678X /N /M "Enter Your Choice : "
-if errorlevel 9 goto :Quit
+choice /C:123456789X /N /M "Enter Your Choice : "
+if errorlevel 10 goto :Quit
+if errorlevel 9 goto :fido
 if errorlevel 8 goto :DownloadMS
 if errorlevel 7 goto :Downloadwin11
 if errorlevel 6 goto :ExtractSourceESD
@@ -1389,6 +1390,43 @@ TIMEOUT /T 5
 pause
 )
 goto :eof
+
+::-------------------------------------------------------------------------------------------
+
+
+:fido
+
+@REM setlocal
+
+cls
+echo.===============================================================================
+echo.   LastOS ToolKit - Download Windows using FIDO
+echo.===============================================================================
+echo.
+
+@REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
+@REM set powershell restrictions for CurrentUser so file is able to run
+START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+@REM start the powershell file with [InitialDirectory]
+START /wait powershell.exe -command %CPS%\fido.ps1
+
+
+echo.-------------------------------------------------------------------------------
+echo.####Finished Downloading Windows from Microsoft###############
+echo.-------------------------------------------------------------------------------
+
+:Stop
+echo.
+echo.===============================================================================
+echo.
+pause
+
+@REM endlocal
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
 
 :: ############################################################################################
 :: MSMG ToolKit DISM Functions
