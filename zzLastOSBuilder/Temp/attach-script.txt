@@ -1,0 +1,4 @@
+select vdisk file="D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\\"
+attach vdisk
+SELECT PART 1
+assign letter=

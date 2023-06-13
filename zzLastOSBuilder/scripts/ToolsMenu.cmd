@@ -51,7 +51,7 @@ echo.                             [A]   About
 echo.
 echo.                             [1]   Download Apz from LastOS
 echo.
-echo.                             [2]   Select ISO from ISO directory
+echo.                             [2]   
 echo.
 echo.                             [3]   Remove
 echo.

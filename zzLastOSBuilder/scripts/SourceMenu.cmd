@@ -94,7 +94,7 @@ echo.  [3]   Extract Source from DVD ISO Image
 echo.
 echo.  [4]   Extract Source from OEM IMG Image
 echo.
-echo.  [5]   Extract Source from Store ESD Image
+echo.  [5]   Extract Source from Stored ESD Image
 echo.
 echo.  [6]   Extract Source from MCT or Custom ESD Image
 echo.
@@ -102,16 +102,17 @@ echo.  [7]   Download Windows 11 ISO from Microsoft
 echo.
 echo.  [8]   Download Windows ISO from Microsoft
 echo.
-echo.  [9]   Download Windows ISO using FIDO
+echo.  [9]   Select ISO from ISO directory
+@REM echo.  [9]   Download Windows ISO using FIDO
 echo.
 echo.
 echo.  [X]   Go Back
 echo.
 echo.===============================================================================
 echo.
-choice /C:123456789X /N /M "Enter Your Choice : "
+choice /C:123456789X /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :fido
+if errorlevel 9 goto :SelectISO
 if errorlevel 8 goto :DownloadMS
 if errorlevel 7 goto :Downloadwin11
 if errorlevel 6 goto :ExtractSourceESD
@@ -787,7 +788,7 @@ set ImageBuild=
 
 cls
 echo.===============================================================================
-echo.            LastOS ToolKit - Extract Source from Store ESD Image
+echo.            LastOS ToolKit - Extract Source from Stored ESD Image
 echo.===============================================================================
 echo.
 
@@ -1391,6 +1392,39 @@ pause
 )
 goto :eof
 
+::-------------------------------------------------------------------------------------------
+
+:SelectISO
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - SelectISO
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+echo  CPS =  %CPS%
+echo The ISO = %ISO%
+@REM pause
+@REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
+@REM  return with variable tmp contained in powweshell script that
+@REM stores file selected pathname and filename.
+@REM openfileselectdialog.ps1 [InitialDirectory ]
+
+@REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
+@REM set powershell restrictions for CurrentUser so file is able to run
+START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+@REM start the powershell file with [InitialDirectory]
+START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
+
+@REM  tmp is created in openfileselectdialog.ps1
+ set /p myfile=<tmp
+ echo *****************************
+ set /p MyISOfile=<tmp
+echo  the ISO selected is %MyISOfile%
+
+ pause
+  @REM goto :Quit
+  goto :eof
 ::-------------------------------------------------------------------------------------------
 
 

@@ -69,7 +69,7 @@ echo.                             [X]   Quit
 echo.
 echo.===============================================================================
 echo.
-choice /C:A1234567HX /N /M "Enter Your Choice for help: "
+choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :HelpMenuHelp
 if errorlevel 8 goto :ToolsMenuHelp

@@ -1,0 +1,2 @@
+select vdisk file="D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\\"
+detach vdisk
