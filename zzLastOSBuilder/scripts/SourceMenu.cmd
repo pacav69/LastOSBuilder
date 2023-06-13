@@ -1417,9 +1417,11 @@ START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 
 @REM  tmp is created in openfileselectdialog.ps1
- set /p myfile=<tmp
+@REM  set /p myfile=</temo/tmp.txt
+ set /p myfile=<tmp.txt 
  echo *****************************
- set /p MyISOfile=<tmp
+@REM   set /p MyISOfile=</temo/tmp.txt
+ set /p MyISOfile=<tmp.txt
 echo  the ISO selected is %MyISOfile%
 
  pause

@@ -62,4 +62,4 @@ $FileBrowser.FileName
 
 $file = Open-FileDialog $param1
 # Write-Host "the ISO is " $file
-$file | Out-File -Encoding "ASCII" tmp
+$file | Out-File -Encoding "ASCII" tmp.txt

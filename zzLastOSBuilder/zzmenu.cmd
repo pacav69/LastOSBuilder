@@ -308,7 +308,8 @@ ENDLOCAL
 
 set "DVD=%CP%\%WindowsOriginalPath%"
 
-
+set "DVDFiles=%CP%\DVD
+set "Temp=%~dp0Temp"
 
 
 if exist "%WinDir%\SysWOW64" (set "HostArchitecture=x64") else (set "HostArchitecture=x86")

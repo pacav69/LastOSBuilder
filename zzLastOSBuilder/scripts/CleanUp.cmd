@@ -100,12 +100,39 @@ echo.Cleaning Up Temporary files...
 call :RemoveFolder "%Temp%"
 call :CreateFolder "%Temp%"
 
+@REM echo DVDFiles = %DVDFiles%
+
+:: Cleaning Up DVDFiles files Folders
+echo.Cleaning Up DVDFiles...
+call :RemoveFolder "%DVDFiles%"
+call :CreateFolder "%DVDFiles%"
+
+@REM set "tmp="
+@REM call :RemoveFile "%DVD%\MediaMeta.xml"
+:: Cleaning Up tmp files Folders
+echo.Cleaning Up tmp files...
+set "tmpFile=tmp.txt" 
+echo tmpFile = %tmpFil%
+@REM set "tmp=%~dp0tmp"
+call :RemoveFile "\tmp.txt"
+
 echo.
 echo.Finished Cleaning Up...
 echo.
 
 goto :eof
 
+
+::-------------------------------------------------------------------------------------------
+:: Function to delete a file(s)
+:: Input Parameters [ %~1 : Filename ]
+::-------------------------------------------------------------------------------------------
+:RemoveFile
+
+if exist "%~1" del /f /q "%~1" >nul
+
+goto :eof
+::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
 :: Function to delete a folder(s)
