@@ -22,7 +22,7 @@ mode con lines=32 cols=80
 @REM pause
 @REM )
 
-rem This first for routine will give the current path without a trailing \
+rem This first 'for' routine will give the current path without a trailing \
 %~d0
 cd "%~dp0"
 cd %~dps0
