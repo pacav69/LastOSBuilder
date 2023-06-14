@@ -915,3 +915,4 @@ zzLastOSBuilder/00_Source/02Windows_Sysprep/boot/bootfix.bin
 zzLastOSBuilder/00_Source/*.*
 zzLastOSBuilder/Temp/attach-script.txt
 zzLastOSBuilder/Temp/detach-script.txt
+zzLastOSBuilder/tmp.txt

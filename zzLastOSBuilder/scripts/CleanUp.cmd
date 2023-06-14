@@ -16,7 +16,7 @@ set scriptver=0.0.17
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
 @REM set debug on to check files on >0 / off =0
-set debug=0
+set debug=1
 
 
 @REM debug
@@ -53,6 +53,7 @@ If %debug% NEQ 0 (
 echo. HostArchitecture zzmenu    = %HostArchitecture%
 echo. HostBuild = %HostBuild%
 echo. Bin = %Bin%
+echo cp = %CP%
 
 pause
 )
