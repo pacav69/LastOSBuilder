@@ -45,6 +45,8 @@ Minimum
 
 Use the MediaCreationTool (MCT) inside the LastOS Builder.
 
+Use FIDO inside the LastOS Builder. [github here](https://github.com/pbatard/Fido/releases/tag/v1.50)
+
 ## Usage
 
 ## Clone

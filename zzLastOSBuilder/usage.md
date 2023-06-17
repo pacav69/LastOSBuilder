@@ -15,7 +15,7 @@ Customize
  change wallpaper etc
 
 Apply
- aply changes
+ apply changes
  combine winpe with changed win files
  create ISO
 
