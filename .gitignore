@@ -917,3 +917,13 @@ zzLastOSBuilder/Temp/attach-script.txt
 zzLastOSBuilder/Temp/detach-script.txt
 zzLastOSBuilder/tmp.txt
 zzLastOSBuilder/Temp/*.*
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$OEM$/$$/KMSpico/AutoPico.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$OEM$/$$/KMSpico/KMSELDI.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/KMSpico/KMSpico_setup.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/KMSpico/UnInstall_Service.cmd
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/Daz(Win7)/Windows Loader.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/KMSPico (Win 8+)/KMSpico_setup.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/KMSpico/KMSpico_setup.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/KMSpico/UnInstall_Service.cmd
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/Microsoft Toolkit (Office)/Microsoft Toolkit 2.6b5.exe
+zzLastOSBuilder/03_WinBuilder/Custom/x64/IsoRoot/sources/$Settings/LastOSTools/Loader/Microsoft Toolkit (Office)/Microsoft_Toolkit_v2.6.2.exe
