@@ -103,15 +103,17 @@ echo.
 echo.  [8]   Download Windows ISO from Microsoft
 echo.
 echo.  [9]   Select ISO from ISO directory
-@REM echo.  [9]   Download Windows ISO using FIDO
+echo.
+echo.  [A]   Download Windows ISO using FIDO
 echo.
 echo.
 echo.  [X]   Go Back
 echo.
 echo.===============================================================================
 echo.
-choice /C:123456789X /N /M "Enter Your Choice: "
-if errorlevel 10 goto :Quit
+choice /C:123456789AX /N /M "Enter Your Choice: "
+if errorlevel 11 goto :Quit
+if errorlevel 10 goto :fido
 if errorlevel 9 goto :SelectISO
 if errorlevel 8 goto :DownloadMS
 if errorlevel 7 goto :Downloadwin11
@@ -1418,7 +1420,7 @@ START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 
 @REM  tmp is created in openfileselectdialog.ps1
 @REM  set /p myfile=</temo/tmp.txt
- set /p myfile=<tmp.txt 
+ set /p myfile=<tmp.txt
  echo *****************************
 @REM   set /p MyISOfile=</temo/tmp.txt
  set /p MyISOfile=<tmp.txt

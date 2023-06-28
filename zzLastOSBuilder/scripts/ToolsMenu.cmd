@@ -51,15 +51,15 @@ echo.                             [A]   About
 echo.
 echo.                             [1]   Download Apz from LastOS
 echo.
-echo.                             [2]   
+echo.                             [2]
 echo.
 echo.                             [3]   Remove
 echo.
 echo.                             [4]   Customize
 echo.
-echo.                             [5]   Apply
+echo.                             [5]  Delete Source NTLite
 echo.
-echo.                             [6]   Target
+echo.                             [6]   Delete Extracted ISO's
 echo.
 echo.                             [7]   Cleanup Source
 echo.
@@ -74,8 +74,8 @@ choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :ToolsMenuHelp
 if errorlevel 8 goto :CleanupSource
-if errorlevel 7 goto :TargetMenuHelp
-if errorlevel 6 goto :ApplyMenuHelp
+if errorlevel 7 goto :DeleteISOs
+if errorlevel 6 goto :DeleteNTLite
 if errorlevel 5 goto :CustomizeMenuHelp
 if errorlevel 4 goto :RemoveMenuHelp
 if errorlevel 3 goto :SelectISO
@@ -314,14 +314,24 @@ echo.
 ::-------------------------------------------------------------------------------------------
 
 
-:ApplyMenuHelp
+:DeleteNTLite
  cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - ApplyMenuHelp
+echo.                           LastOS ToolKit Builder - DeleteNTLite
 echo.                           v%BuilderVersion%
 echo.===============================================================================
  echo.
 echo.
+
+@REM 00.01_Delete_Source_NTLite_Copy_Sysprep_ISO
+rem Delete Process NTLite ISO, will and any NTLite Processes you have done
+rem make sure NTLite is closed
+echo rd /s "%CP%\%NTLiteISOPath%"
+rd /s /q "%CP%\%NTLiteISOPath%"
+
+Rem Copy SysprepISO to NTLiteISO
+md "%CP%\%NTLiteISOPath%"
+xcopy /E /C /H /R /Y "%CP%\%SysPrepISOPath%\*" "%CP%\%NTLiteISOPath%\*"
 
 
  pause
@@ -330,14 +340,27 @@ echo.
 ::-------------------------------------------------------------------------------------------
 
 
-:TargetMenuHelp
+:DeleteISOs
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - TargetMenuHelp
+echo.                           LastOS ToolKit Builder - DeleteISOs
 echo.                           v%BuilderVersion%
 echo.===============================================================================
  echo.
 echo.
+
+@REM 00.01_Delete_Source_ISO_Clean_Up_Builder
+
+rem Delete Extracted ISO's and any Builder Processes you have done
+echo rd /s "%CP%\%WindowsOriginalPath%"
+rd /s /q "%CP%\%WindowsOriginalPath%"
+
+echo rd /s "%CP%\%SysPrepISOPath%"
+rd /s /q "%CP%\%SysPrepISOPath%"
+
+echo rd /s "%CP%\%NTLiteISOPath%"
+rd /s /q "%CP%\%NTLiteISOPath%"
+
 
 
  pause
@@ -425,7 +448,7 @@ call :CreateFolder "%DVDFiles%"
 @REM call :RemoveFile "%DVD%\MediaMeta.xml"
 :: Cleaning Up tmp files Folders
 echo.Cleaning Up tmp files...
-set "tmpFile=%CP%\tmp.txt" 
+set "tmpFile=%CP%\tmp.txt"
 @REM echo tmpFile = %tmpFile%
 @REM set "tmp=%~dp0tmp"
 call :RemoveFile "%tmpFile%"
