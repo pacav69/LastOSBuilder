@@ -71,7 +71,7 @@ echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :MenuHelpHelp
-if errorlevel 8 goto :ToolsMenuHelp
+if errorlevel 8 goto :MenuToolsHelp
 if errorlevel 7 goto :MenuTargetHelp
 if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
@@ -137,9 +137,9 @@ echo.
 
 goto :eof
 
-:ToolsMenuHelp
+:MenuToolsHelp
 echo.===============================================================================
-echo.          LastOS ToolKit -  ToolsMenuHelp
+echo.          LastOS ToolKit -  MenuToolsHelp
 echo.===============================================================================
 echo.
 @REM enter code here

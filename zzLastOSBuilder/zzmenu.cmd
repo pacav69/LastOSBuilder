@@ -192,7 +192,7 @@ echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
 if errorlevel 9 goto :MenuHelp
-if errorlevel 8 goto :ToolsMenu
+if errorlevel 8 goto :MenuTools
 if errorlevel 7 goto :MenuTarget
 if errorlevel 6 goto :ApplyMenu
 if errorlevel 5 goto :CustomizeMenu
@@ -273,11 +273,11 @@ GOTO MENU_START
 @REM =================================
 
 @REM =================================
-:ToolsMenu
+:MenuTools
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\ToolsMenu.cmd
+call %CPS%\MenuTools.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================

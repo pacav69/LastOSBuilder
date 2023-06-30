@@ -1,6 +1,5 @@
-@REM ToolsMenu.cmd
+@REM MenuTools.cmd
 
-@REM ToolsMenu.cmd
 @echo off
 rem Win11 script
 set scriptver=0.0.26
@@ -37,9 +36,9 @@ pause
 @REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\Bin\LostOSrepo
 @REM LostOSrepo_v4.exe
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - ToolsMenu
+:: LastOS Toolkit - MenuTools
 ::-------------------------------------------------------------------------------------------
-:ToolsMenu
+:MenuTools
 
 cls
 echo.===============================================================================
@@ -72,7 +71,7 @@ echo.===========================================================================
 echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :ToolsMenuHelp
+if errorlevel 9 goto :MenuToolsHelp
 if errorlevel 8 goto :CleanupSource
 if errorlevel 7 goto :DeleteISOs
 if errorlevel 6 goto :DeleteNTLite
@@ -473,10 +472,10 @@ pause
 ::-------------------------------------------------------------------------------------------
 
 
-:ToolsMenuHelp
+:MenuToolsHelp
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - ToolsMenuHelp
+echo.                           LastOS ToolKit Builder - MenuToolsHelp
 echo.                           v%BuilderVersion%
 echo.===============================================================================
  echo.

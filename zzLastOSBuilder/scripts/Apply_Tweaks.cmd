@@ -296,7 +296,7 @@ echo.===========================================================================
 echo.
 choice /C:1234567X /N /M "Enter Your Choice : "
 if errorlevel 8 goto :Quit
-if errorlevel 7 goto :ToolsMenu
+if errorlevel 7 goto :MenuTools
 if errorlevel 6 goto :MenuTarget
 if errorlevel 5 goto :ApplyMenu
 if errorlevel 4 goto :CustomizeMenu

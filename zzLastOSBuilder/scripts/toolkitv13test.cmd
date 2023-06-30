@@ -295,7 +295,7 @@ echo.===========================================================================
 echo.
 choice /C:1234567X /N /M "Enter Your Choice : "
 if errorlevel 8 goto :Quit
-if errorlevel 7 goto :ToolsMenu
+if errorlevel 7 goto :MenuTools
 if errorlevel 6 goto :MenuTarget
 if errorlevel 5 goto :ApplyMenu
 if errorlevel 4 goto :CustomizeMenu
@@ -2137,7 +2137,7 @@ if errorlevel 1 goto :MakeISO
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Tools Menu
 ::-------------------------------------------------------------------------------------------
-:ToolsMenu
+:MenuTools
 
 cls
 echo.===============================================================================
@@ -20875,7 +20875,7 @@ if "%IsSourceSelected%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	pause
-	goto :ToolsMenu
+	goto :MenuTools
 )
 
 echo.  [A]   Display
@@ -20898,7 +20898,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:ABCDEFGHIJKLX /N /M "Enter Your Choice : "
-if errorlevel 13 goto :ToolsMenu
+if errorlevel 13 goto :MenuTools
 if errorlevel 12 goto :WIMOptimize
 if errorlevel 11 goto :WIMCleanUp
 if errorlevel 10 goto :WIMApply
@@ -22712,7 +22712,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123X /N /M "Enter Your Choice : "
-if errorlevel 4 goto :ToolsMenu
+if errorlevel 4 goto :MenuTools
 if errorlevel 3 set "CleanupOption=ScanHealth"
 if errorlevel 2 set "CleanupOption=CheckHealth"
 if errorlevel 1 set "CleanupOption=CleanupImage"
@@ -22877,7 +22877,7 @@ echo.
 pause
 
 :: Returning to Tools Menu
-goto :ToolsMenu
+goto :MenuTools
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -22913,7 +22913,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:1234X /N /M "Enter Your Choice : "
-if errorlevel 5 goto :ToolsMenu
+if errorlevel 5 goto :MenuTools
 if errorlevel 4 (
 	if "%IsImageRegistryLoaded%" equ "No" (
 		cls
@@ -22976,17 +22976,17 @@ if errorlevel 4 (
 		echo.
 		pause
 	)
-	goto :Toolsmenu
+	goto :MenuTools
 )
 if errorlevel 3 (
 	if "%IsLogsEnabled%" equ "No" set "IsLogsEnabled=Yes"
 	if "%IsLogsEnabled%" equ "Yes" set "IsLogsEnabled=No"
-	goto :Toolsmenu
+	goto :MenuTools
 )
 if errorlevel 2 (
 	if "%IsDialogsEnabled%" equ "No" set "IsDialogsEnabled=Yes"
 	if "%IsDialogsEnabled%" equ "Yes" set "IsDialogsEnabled=No"
-	goto :Toolsmenu
+	goto :MenuTools
 )
 if errorlevel 1 goto :SetTkColor
 
@@ -23053,7 +23053,7 @@ if errorlevel 2  color 0A
 if errorlevel 1  color 07
 
 :: Returning to Tools Menu
-goto :ToolsMenu
+goto :MenuTools
 ::-------------------------------------------------------------------------------------------
 
 :: ############################################################################################
