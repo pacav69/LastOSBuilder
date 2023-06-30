@@ -1,4 +1,4 @@
-rem source.cmd
+@REM MenuSource.cmd
 @echo off
 rem Win11 script
 set scriptver=0.0.24
@@ -57,7 +57,7 @@ set "MCTool=%CP%\MCT"
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Select Source Menu
 ::-------------------------------------------------------------------------------------------
-:SourceMenu
+:MenuSource
 set "downWin11=No"
 cls
 echo.===============================================================================

@@ -296,18 +296,18 @@ echo.
 choice /C:1234567X /N /M "Enter Your Choice : "
 if errorlevel 8 goto :Quit
 if errorlevel 7 goto :ToolsMenu
-if errorlevel 6 goto :TargetMenu
+if errorlevel 6 goto :MenuTarget
 if errorlevel 5 goto :ApplyMenu
 if errorlevel 4 goto :CustomizeMenu
-if errorlevel 3 goto :RemoveMenu
-if errorlevel 2 goto :IntegrateMenu
-if errorlevel 1 goto :SourceMenu
+if errorlevel 3 goto :MenuRemove
+if errorlevel 2 goto :MenuIntegrate.cmd
+if errorlevel 1 goto :MenuSource
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Select Source Menu
 ::-------------------------------------------------------------------------------------------
-:SourceMenu
+:MenuSource
 
 cls
 echo.===============================================================================
@@ -367,7 +367,7 @@ if errorlevel 1 goto :SelectSourceDVD
 ::-------------------------------------------------------------------------------------------
 :: MSMG ToolKit - Integrate Menu
 ::-------------------------------------------------------------------------------------------
-:IntegrateMenu
+:MenuIntegrate.cmd
 
 cls
 echo.===============================================================================
@@ -455,7 +455,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType:~,6%" neq "Server" (
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 17 goto :IntGames
 	if errorlevel 16 goto :IntDirectX9c
@@ -499,7 +499,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" neq "Client" if "%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQX /N /M "Enter Your Choice : "
-	if errorlevel 18 goto :IntegrateMenu
+	if errorlevel 18 goto :MenuIntegrate.cmd
 	if errorlevel 17 goto :IntVCRuntime
 	if errorlevel 16 goto :IntSidebar
 	if errorlevel 15 goto :IntGames
@@ -542,7 +542,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageArchitecture%" equ "arm" (
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :IntegrateMenu
+	if errorlevel 3 goto :MenuIntegrate.cmd
 	if errorlevel 2 goto :IntInboxAppsMenu
 	if errorlevel 1 goto :IntNetFX48
 )
@@ -572,7 +572,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageArchitecture%" neq "arm" if "%ImageI
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -617,7 +617,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageInstallationType%" neq "Client" (
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPX /N /M "Enter Your Choice : "
-	if errorlevel 17 goto :IntegrateMenu
+	if errorlevel 17 goto :MenuIntegrate.cmd
 	if errorlevel 16 goto :IntVCRuntime
 	if errorlevel 15 goto :IntSidebar
 	if errorlevel 14 goto :IntGames
@@ -660,7 +660,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "10240" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -706,7 +706,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "10586" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 20 goto :IntegrateMenu
+	if errorlevel 20 goto :MenuIntegrate.cmd
 	if errorlevel 19 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -755,7 +755,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "14393" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -805,7 +805,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "15063" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -855,7 +855,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "16299" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUX /N /M "Enter Your Choice : "
-	if errorlevel 22 goto :IntegrateMenu
+	if errorlevel 22 goto :MenuIntegrate.cmd
 	if errorlevel 21 goto :IntVCRuntime
 	if errorlevel 20 goto :IntSidebar
 	if errorlevel 19 goto :IntGames
@@ -906,7 +906,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "17134" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -961,7 +961,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "17763" if "%ImageInstal
 	echo.  [1]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVWXY1 /N /M "Enter Your Choice : "
-	if errorlevel 26 goto :IntegrateMenu
+	if errorlevel 26 goto :MenuIntegrate.cmd
 	if errorlevel 25 goto :IntVCRuntime
 	if errorlevel 24 goto :IntSidebar
 	if errorlevel 23 goto :IntGames
@@ -1015,7 +1015,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "18362" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUX /N /M "Enter Your Choice : "
-	if errorlevel 22 goto :IntegrateMenu
+	if errorlevel 22 goto :MenuIntegrate.cmd
 	if errorlevel 21 goto :IntVCRuntime
 	if errorlevel 20 goto :IntSidebar
 	if errorlevel 19 goto :IntGames
@@ -1066,7 +1066,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "19041" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -1116,7 +1116,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" equ "22000" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 20 goto :IntegrateMenu
+	if errorlevel 20 goto :MenuIntegrate.cmd
 	if errorlevel 19 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -1162,7 +1162,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22621" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 17 goto :IntSidebar
 	if errorlevel 16 goto :IntGames
@@ -1205,7 +1205,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17134" if "%ImageArchit
 	echo.===============================================================================
 	echo.
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 goto :IntInboxAppsMenu
 	if errorlevel 2 goto :IntNetFX481
 	if errorlevel 1 goto :IntNetFX35
@@ -1234,7 +1234,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "14393" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntVCRuntime
 	if errorlevel 9  goto :IntDirectX9c
 	if errorlevel 8  goto :IntDaRT
@@ -1272,7 +1272,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "14393" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -1318,7 +1318,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "18362" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntVCRuntime
 	if errorlevel 9  goto :IntDirectX9c
 	if errorlevel 8  goto :IntDaRT
@@ -1354,7 +1354,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "20348" if "%ImageInstal
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIJKLMNX /N /M "Enter Your Choice : "
-	if errorlevel 15 goto :IntegrateMenu
+	if errorlevel 15 goto :MenuIntegrate.cmd
 	if errorlevel 14 goto :IntVCRuntime
 	if errorlevel 13 goto :IntSidebar
 	if errorlevel 12 goto :IntGames
@@ -1408,7 +1408,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do You Want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -1438,7 +1438,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" neq "Embedded" if 
 	echo.===============================================================================
 	echo.
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 goto :IntCustomFonts
 	if errorlevel 5 goto :IntCustomFiles
 	if errorlevel 4 goto :IntUAP
@@ -1470,7 +1470,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" equ "Embedded" (
 	echo.===============================================================================
 	echo.
 	choice /C:12345X /N /M "Enter Your Choice : "
-	if errorlevel 6 goto :IntegrateMenu
+	if errorlevel 6 goto :MenuIntegrate.cmd
 	if errorlevel 5 goto :IntCustomFonts
 	if errorlevel 4 goto :IntCustomFiles
 	if errorlevel 3 goto :IntUAP
@@ -1501,7 +1501,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" equ "Server Core" 
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1531,7 +1531,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageFlag%" neq "ProfessionalWMC" if "%Im
 	echo.===============================================================================
 	echo.
 	choice /C:1234567X /N /M "Enter Your Choice : "
-	if errorlevel 8 goto :IntegrateMenu
+	if errorlevel 8 goto :MenuIntegrate.cmd
 	if errorlevel 7 goto :IntCustomFonts
 	if errorlevel 6 goto :IntCustomFiles
 	if errorlevel 5 goto :IntUAP
@@ -1564,7 +1564,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageEdition%" equ "ProfessionalWMC" (
 	echo.
 	echo.===============================================================================
 	choice /C:12345678X /N /M "Enter Your Choice : "
-	if errorlevel 9 goto :IntegrateMenu
+	if errorlevel 9 goto :MenuIntegrate.cmd
 	if errorlevel 8 goto :IntCustomFonts
 	if errorlevel 7 goto :IntCustomFiles
 	if errorlevel 6 goto :IntUAP
@@ -1598,7 +1598,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageInstallationType%" equ "Server Core"
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1628,7 +1628,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageIns
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1658,7 +1658,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageInstallationType%" neq "Server Core"
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntWMPMetroSkin
 	if errorlevel 9  goto :IntWPVMetroSkin
 	if errorlevel 8  goto :IntWIconsSkin
@@ -1694,7 +1694,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000"  (
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIX /N /M "Enter Your Choice : "
-	if errorlevel 10 goto :IntegrateMenu
+	if errorlevel 10 goto :MenuIntegrate.cmd
 	if errorlevel 9  goto :IntWMPMetroSkin
 	if errorlevel 8  goto :IntWPVMetroSkin
 	if errorlevel 7  goto :IntWin32CalcMetroSkin
@@ -1710,7 +1710,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000"  (
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Remove Menu
 ::-------------------------------------------------------------------------------------------
-:RemoveMenu
+:MenuRemove
 
 cls
 echo.===============================================================================
@@ -2088,7 +2088,7 @@ if "%IsSourceselected%" equ "Yes" if "%SelectedSourceOS%" neq "w7" (
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Select Target Menu
 ::-------------------------------------------------------------------------------------------
-:TargetMenu
+:MenuTarget
 
 cls
 echo.===============================================================================
@@ -2989,7 +2989,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 setlocal
@@ -3022,7 +3022,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123X /N /M "Enter Your Choice : "
-if errorlevel 4 goto :IntegrateMenu
+if errorlevel 4 goto :MenuIntegrate.cmd
 if errorlevel 3 set "LanguagePackType=Recovery"
 if errorlevel 2 set "LanguagePackType=Install"
 if errorlevel 1 set "LanguagePackType=Boot"
@@ -3148,7 +3148,7 @@ if "%SelectedSourceOS%" equ "w11" (
 echo.===============================================================================
 set /p LanguagePackCode=Enter Language Code without '[' ']' :
 
-if /i "%LanguagePackCode%" equ "X" goto :IntegrateMenu
+if /i "%LanguagePackCode%" equ "X" goto :MenuIntegrate.cmd
 
 cls
 echo.===============================================================================
@@ -4724,7 +4724,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123X /N /M "Enter Your Choice : "
-if errorlevel 4 goto :IntegrateMenu
+if errorlevel 4 goto :MenuIntegrate.cmd
 if errorlevel 3 set DriverType=Recovery
 if errorlevel 2 set DriverType=Install
 if errorlevel 1 set DriverType=Boot
@@ -8344,7 +8344,7 @@ if "%SelectedSourceOS%" equ "w10" (
 	echo.===============================================================================
 	echo.
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 set RSATType=v1803
 	if errorlevel 2 set RSATType=v1709
 	if errorlevel 1 set RSATType=v1609
@@ -9949,7 +9949,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 setlocal
@@ -9998,7 +9998,7 @@ echo.
 echo.  [X]  Go Back
 echo.===============================================================================
 choice /C:ABCDEFGHIJKLMNO1X /N /M "Enter your choice : "
-if errorlevel 17 goto :IntegrateMenu
+if errorlevel 17 goto :MenuIntegrate.cmd
 if errorlevel 16 set "Feature=All"
 if errorlevel 15 set "Feature=TabletPC"
 if errorlevel 14 set "Feature=SpeechText"
@@ -10415,7 +10415,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -10452,7 +10452,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:12X /N /M "Enter Your Choice : "
-if errorlevel 3 goto :IntegrateMenu
+if errorlevel 3 goto :MenuIntegrate.cmd
 if errorlevel 2 set "DartType=Recovery"
 if errorlevel 1 set "DartType=Boot"
 
@@ -11901,7 +11901,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -11930,7 +11930,7 @@ echo.===========================================================================
 echo.
 
 choice /C:12X /N /M "Enter Your Choice : "
-if errorlevel 3 goto :IntegrateMenu
+if errorlevel 3 goto :MenuIntegrate.cmd
 if errorlevel 2 goto :IntWHDUpdatesMenu
 if errorlevel 1 call :IntUpdates WUpdates
 
@@ -12008,7 +12008,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 
 if "%SelectedSourceOS%" equ "w7" (
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 2 (
 		set "IsW7SP1CRUSelected=No"
@@ -12022,7 +12022,7 @@ if "%SelectedSourceOS%" equ "w7" (
 
 if "%SelectedSourceOS%" equ "w81" (
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 5 goto :IntWHDAdditionalMenu
 	if errorlevel 4 call :IntUpdates Security
@@ -12033,7 +12033,7 @@ if "%SelectedSourceOS%" equ "w81" (
 
 if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :IntegrateMenu
+	if errorlevel 3 goto :MenuIntegrate.cmd
 	if errorlevel 2 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 1 goto :IntWHDBaselineMenu
 )
@@ -12096,7 +12096,7 @@ if "%SelectedSourceOS%" equ "w7" (
 
 if "%SelectedSourceOS%" equ "w7" (
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 call :IntUpdates "ESU"
 	if errorlevel 5 call :IntUpdates "Security"
 	if errorlevel 4 call :IntUpdates "Hotfix"
@@ -13839,7 +13839,7 @@ endlocal
 call :GetUpdatedImageInformation >nul
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -14811,7 +14811,7 @@ endlocal
 call :GetUpdatedImageInformation >nul
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -15163,7 +15163,7 @@ pause
 endlocal
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -16533,7 +16533,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :RemoveMenu
+	if errorlevel 3 goto :MenuRemove
 	if errorlevel 2 goto :RemoveWindowsComponents
 	if errorlevel 1 goto :SelectWindowsComponentsMenu
 )
@@ -18215,7 +18215,7 @@ set RemoveAppsList=
 endlocal
 
 :: Returning to Remove Menu.
-goto :RemoveMenu
+goto :MenuRemove
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -18253,7 +18253,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :RemoveMenu
+	if errorlevel 2 goto :MenuRemove
 )
 
 setlocal
@@ -18290,7 +18290,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :RemoveMenu
+	if errorlevel 3 goto :MenuRemove
 	if errorlevel 2 set "RemovalMethod=ToolKitHelper"
 	if errorlevel 1 set "RemovalMethod=DISM"
 )
@@ -18353,7 +18353,7 @@ set RemovalMethod=
 endlocal
 
 :: Returning to Remove Menu.
-goto :RemoveMenu
+goto :MenuRemove
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------

@@ -297,18 +297,18 @@ echo.
 choice /C:1234567X /N /M "Enter Your Choice : "
 if errorlevel 8 goto :Quit
 if errorlevel 7 goto :ToolsMenu
-if errorlevel 6 goto :TargetMenu
+if errorlevel 6 goto :MenuTarget
 if errorlevel 5 goto :ApplyMenu
 if errorlevel 4 goto :CustomizeMenu
-if errorlevel 3 goto :RemoveMenu
-if errorlevel 2 goto :IntegrateMenu
-if errorlevel 1 goto :SourceMenu
+if errorlevel 3 goto :MenuRemove
+if errorlevel 2 goto :MenuIntegrate.cmd
+if errorlevel 1 goto :MenuSource
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Select Source Menu
 ::-------------------------------------------------------------------------------------------
-:SourceMenu
+:MenuSource
 
 cls
 echo.===============================================================================
@@ -370,7 +370,7 @@ if errorlevel 1 goto :SelectSourceDVD
 rem*****************************************************************************
 
 rem set variables
-set "SelectedSourceOS=w11" 
+set "SelectedSourceOS=w11"
 
 
 

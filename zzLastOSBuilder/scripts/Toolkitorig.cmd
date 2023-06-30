@@ -296,18 +296,18 @@ echo.
 choice /C:1234567X /N /M "Enter Your Choice : "
 if errorlevel 8 goto :Quit
 if errorlevel 7 goto :ToolsMenu
-if errorlevel 6 goto :TargetMenu
+if errorlevel 6 goto :MenuTarget
 if errorlevel 5 goto :ApplyMenu
 if errorlevel 4 goto :CustomizeMenu
-if errorlevel 3 goto :RemoveMenu
-if errorlevel 2 goto :IntegrateMenu
-if errorlevel 1 goto :SourceMenu
+if errorlevel 3 goto :MenuRemove
+if errorlevel 2 goto :MenuIntegrate.cmd
+if errorlevel 1 goto :MenuSource
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Select Source Menu
 ::-------------------------------------------------------------------------------------------
-:SourceMenu
+:MenuSource
 
 cls
 echo.===============================================================================
@@ -367,7 +367,7 @@ if errorlevel 1 goto :SelectSourceDVD
 ::-------------------------------------------------------------------------------------------
 :: MSMG ToolKit - Integrate Menu
 ::-------------------------------------------------------------------------------------------
-:IntegrateMenu
+:MenuIntegrate.cmd
 
 cls
 echo.===============================================================================
@@ -455,7 +455,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType:~,6%" neq "Server" (
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 17 goto :IntGames
 	if errorlevel 16 goto :IntDirectX9c
@@ -499,7 +499,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" neq "Client" if "%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQX /N /M "Enter Your Choice : "
-	if errorlevel 18 goto :IntegrateMenu
+	if errorlevel 18 goto :MenuIntegrate.cmd
 	if errorlevel 17 goto :IntVCRuntime
 	if errorlevel 16 goto :IntSidebar
 	if errorlevel 15 goto :IntGames
@@ -542,7 +542,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageArchitecture%" equ "arm" (
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :IntegrateMenu
+	if errorlevel 3 goto :MenuIntegrate.cmd
 	if errorlevel 2 goto :IntInboxAppsMenu
 	if errorlevel 1 goto :IntNetFX48
 )
@@ -572,7 +572,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageArchitecture%" neq "arm" if "%ImageI
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -617,7 +617,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageInstallationType%" neq "Client" (
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPX /N /M "Enter Your Choice : "
-	if errorlevel 17 goto :IntegrateMenu
+	if errorlevel 17 goto :MenuIntegrate.cmd
 	if errorlevel 16 goto :IntVCRuntime
 	if errorlevel 15 goto :IntSidebar
 	if errorlevel 14 goto :IntGames
@@ -660,7 +660,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "10240" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -706,7 +706,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "10586" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 20 goto :IntegrateMenu
+	if errorlevel 20 goto :MenuIntegrate.cmd
 	if errorlevel 19 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -755,7 +755,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "14393" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -805,7 +805,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "15063" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -855,7 +855,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "16299" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUX /N /M "Enter Your Choice : "
-	if errorlevel 22 goto :IntegrateMenu
+	if errorlevel 22 goto :MenuIntegrate.cmd
 	if errorlevel 21 goto :IntVCRuntime
 	if errorlevel 20 goto :IntSidebar
 	if errorlevel 19 goto :IntGames
@@ -906,7 +906,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "17134" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -961,7 +961,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "17763" if "%ImageInstal
 	echo.  [1]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVWXY1 /N /M "Enter Your Choice : "
-	if errorlevel 26 goto :IntegrateMenu
+	if errorlevel 26 goto :MenuIntegrate.cmd
 	if errorlevel 25 goto :IntVCRuntime
 	if errorlevel 24 goto :IntSidebar
 	if errorlevel 23 goto :IntGames
@@ -1015,7 +1015,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "18362" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUX /N /M "Enter Your Choice : "
-	if errorlevel 22 goto :IntegrateMenu
+	if errorlevel 22 goto :MenuIntegrate.cmd
 	if errorlevel 21 goto :IntVCRuntime
 	if errorlevel 20 goto :IntSidebar
 	if errorlevel 19 goto :IntGames
@@ -1066,7 +1066,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "19041" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTUVX /N /M "Enter Your Choice : "
-	if errorlevel 23 goto :IntegrateMenu
+	if errorlevel 23 goto :MenuIntegrate.cmd
 	if errorlevel 22 goto :IntVCRuntime
 	if errorlevel 21 goto :IntSidebar
 	if errorlevel 20 goto :IntGames
@@ -1116,7 +1116,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" equ "22000" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSX /N /M "Enter Your Choice : "
-	if errorlevel 20 goto :IntegrateMenu
+	if errorlevel 20 goto :MenuIntegrate.cmd
 	if errorlevel 19 goto :IntVCRuntime
 	if errorlevel 18 goto :IntSidebar
 	if errorlevel 17 goto :IntGames
@@ -1162,7 +1162,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22621" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRX /N /M "Enter Your Choice : "
-	if errorlevel 19 goto :IntegrateMenu
+	if errorlevel 19 goto :MenuIntegrate.cmd
 	if errorlevel 18 goto :IntVCRuntime
 	if errorlevel 17 goto :IntSidebar
 	if errorlevel 16 goto :IntGames
@@ -1205,7 +1205,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17134" if "%ImageArchit
 	echo.===============================================================================
 	echo.
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 goto :IntInboxAppsMenu
 	if errorlevel 2 goto :IntNetFX481
 	if errorlevel 1 goto :IntNetFX35
@@ -1234,7 +1234,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "14393" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntVCRuntime
 	if errorlevel 9  goto :IntDirectX9c
 	if errorlevel 8  goto :IntDaRT
@@ -1272,7 +1272,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "14393" if "%ImageBuild%
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJKLMNOPQRSTX /N /M "Enter Your Choice : "
-	if errorlevel 21 goto :IntegrateMenu
+	if errorlevel 21 goto :MenuIntegrate.cmd
 	if errorlevel 20 goto :IntVCRuntime
 	if errorlevel 19 goto :IntSidebar
 	if errorlevel 18 goto :IntGames
@@ -1318,7 +1318,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "18362" if "%ImageInstal
 	echo.  [X]   Go Back
 	echo.===============================================================================
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntVCRuntime
 	if errorlevel 9  goto :IntDirectX9c
 	if errorlevel 8  goto :IntDaRT
@@ -1354,7 +1354,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" equ "20348" if "%ImageInstal
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIJKLMNX /N /M "Enter Your Choice : "
-	if errorlevel 15 goto :IntegrateMenu
+	if errorlevel 15 goto :MenuIntegrate.cmd
 	if errorlevel 14 goto :IntVCRuntime
 	if errorlevel 13 goto :IntSidebar
 	if errorlevel 12 goto :IntGames
@@ -1408,7 +1408,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do You Want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -1438,7 +1438,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" neq "Embedded" if 
 	echo.===============================================================================
 	echo.
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 goto :IntCustomFonts
 	if errorlevel 5 goto :IntCustomFiles
 	if errorlevel 4 goto :IntUAP
@@ -1470,7 +1470,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" equ "Embedded" (
 	echo.===============================================================================
 	echo.
 	choice /C:12345X /N /M "Enter Your Choice : "
-	if errorlevel 6 goto :IntegrateMenu
+	if errorlevel 6 goto :MenuIntegrate.cmd
 	if errorlevel 5 goto :IntCustomFonts
 	if errorlevel 4 goto :IntCustomFiles
 	if errorlevel 3 goto :IntUAP
@@ -1501,7 +1501,7 @@ if "%SelectedSourceOS%" equ "w7" if "%ImageInstallationType%" equ "Server Core" 
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1531,7 +1531,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageFlag%" neq "ProfessionalWMC" if "%Im
 	echo.===============================================================================
 	echo.
 	choice /C:1234567X /N /M "Enter Your Choice : "
-	if errorlevel 8 goto :IntegrateMenu
+	if errorlevel 8 goto :MenuIntegrate.cmd
 	if errorlevel 7 goto :IntCustomFonts
 	if errorlevel 6 goto :IntCustomFiles
 	if errorlevel 5 goto :IntUAP
@@ -1564,7 +1564,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageEdition%" equ "ProfessionalWMC" (
 	echo.
 	echo.===============================================================================
 	choice /C:12345678X /N /M "Enter Your Choice : "
-	if errorlevel 9 goto :IntegrateMenu
+	if errorlevel 9 goto :MenuIntegrate.cmd
 	if errorlevel 8 goto :IntCustomFonts
 	if errorlevel 7 goto :IntCustomFiles
 	if errorlevel 6 goto :IntUAP
@@ -1598,7 +1598,7 @@ if "%SelectedSourceOS%" equ "w81" if "%ImageInstallationType%" equ "Server Core"
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1628,7 +1628,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageIns
 	echo.===============================================================================
 	echo.
 	choice /C:1234X /N /M "Enter Your Choice : "
-	if errorlevel 5 goto :IntegrateMenu
+	if errorlevel 5 goto :MenuIntegrate.cmd
 	if errorlevel 4 goto :IntCustomFonts
 	if errorlevel 3 goto :IntCustomFiles
 	if errorlevel 2 goto :IntCustomRecoveryImage
@@ -1658,7 +1658,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageInstallationType%" neq "Server Core"
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIJX /N /M "Enter Your Choice : "
-	if errorlevel 11 goto :IntegrateMenu
+	if errorlevel 11 goto :MenuIntegrate.cmd
 	if errorlevel 10 goto :IntWMPMetroSkin
 	if errorlevel 9  goto :IntWPVMetroSkin
 	if errorlevel 8  goto :IntWIconsSkin
@@ -1694,7 +1694,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000"  (
 	echo.===============================================================================
 	echo.
 	choice /C:ABCDEFGHIX /N /M "Enter Your Choice : "
-	if errorlevel 10 goto :IntegrateMenu
+	if errorlevel 10 goto :MenuIntegrate.cmd
 	if errorlevel 9  goto :IntWMPMetroSkin
 	if errorlevel 8  goto :IntWPVMetroSkin
 	if errorlevel 7  goto :IntWin32CalcMetroSkin
@@ -1710,7 +1710,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000"  (
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Remove Menu
 ::-------------------------------------------------------------------------------------------
-:RemoveMenu
+:MenuRemove
 
 cls
 echo.===============================================================================
@@ -2088,7 +2088,7 @@ if "%IsSourceselected%" equ "Yes" if "%SelectedSourceOS%" neq "w7" (
 ::-------------------------------------------------------------------------------------------
 :: MSMG Toolkit - Select Target Menu
 ::-------------------------------------------------------------------------------------------
-:TargetMenu
+:MenuTarget
 
 cls
 echo.===============================================================================
@@ -2264,7 +2264,7 @@ if "%ImageVersion:~0,-6%" equ "11.0" (
    set "OSID=11"
 )
 
-:: Setting Package Service Pack Build, Version and Service Pack Build 
+:: Setting Package Service Pack Build, Version and Service Pack Build
 if "%SelectedSourceOS%" equ "w7" set "PackageServicePackBuild=17514"
 if "%SelectedSourceOS%" equ "w81" set "PackageServicePackBuild=16384"
 
@@ -2443,7 +2443,7 @@ echo.####Getting DVD Drive Options##############################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting DVD Drive Letter
-set /p DriveLetter=Enter DVD Drive Letter : 
+set /p DriveLetter=Enter DVD Drive Letter :
 
 :: Setting DVD Drive Letter
 set "DriveLetter=%DriveLetter%:"
@@ -2536,7 +2536,7 @@ echo.####Getting DVD ISO Image Options##########################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting DVD ISO Image file Name
-set /p ISOFileName=Enter the ISO Image filename without .iso : 
+set /p ISOFileName=Enter the ISO Image filename without .iso :
 
 :: Setting DVD ISO Image file Name
 set "ISOFileName=%ISOFileName%.iso"
@@ -2624,7 +2624,7 @@ echo.####Getting OEM IMG Image Options##########################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting OEM IMG file Name
-set /p IMGFileName=Enter the OEM IMG filename without .img : 
+set /p IMGFileName=Enter the OEM IMG filename without .img :
 
 :: Setting OEM IMG file Name
 set "IMGFileName=%IMGFileName%.img"
@@ -2721,7 +2721,7 @@ if %ImageCount% equ 4 set ImageIndexNo=4
 
 if %ImageCount% gtr 4 (
 	:: Getting Image Index Number to Service
-	set /p ImageIndexNo=Enter the Image Index # [Range : 4,...%ImageCount%, 'A'll, 'Q'uit] : 
+	set /p ImageIndexNo=Enter the Image Index # [Range : 4,...%ImageCount%, 'A'll, 'Q'uit] :
 
 	:: Checking for Image Index Validation
 	if not defined ImageIndexNo (
@@ -2899,8 +2899,8 @@ echo.
 call :GetImageCount "%InstallEsd%"
 
 if %ImageCount% equ 1 (
-	set /p ImageIndexNo=Enter the ESD Image Index # ['Q'uit] : 
-) else set /p ImageIndexNo=Enter the ESD Image Index # [Range : 1,2,...%ImageCount%, 'A'll, 'Q'uit] : 
+	set /p ImageIndexNo=Enter the ESD Image Index # ['Q'uit] :
+) else set /p ImageIndexNo=Enter the ESD Image Index # [Range : 1,2,...%ImageCount%, 'A'll, 'Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -2986,7 +2986,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 setlocal
@@ -3019,7 +3019,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123X /N /M "Enter Your Choice : "
-if errorlevel 4 goto :IntegrateMenu
+if errorlevel 4 goto :MenuIntegrate.cmd
 if errorlevel 3 set "LanguagePackType=Recovery"
 if errorlevel 2 set "LanguagePackType=Install"
 if errorlevel 1 set "LanguagePackType=Boot"
@@ -3143,9 +3143,9 @@ if "%SelectedSourceOS%" equ "w11" (
 	echo. Indonesian - Indonesia   [id-ID]    [X] Go-Back
 )
 echo.===============================================================================
-set /p LanguagePackCode=Enter Language Code without '[' ']' : 
+set /p LanguagePackCode=Enter Language Code without '[' ']' :
 
-if /i "%LanguagePackCode%" equ "X" goto :IntegrateMenu
+if /i "%LanguagePackCode%" equ "X" goto :MenuIntegrate.cmd
 
 cls
 echo.===============================================================================
@@ -3925,7 +3925,7 @@ if "%LanguagePackType%" equ "Boot" (
 		echo.-------------------------------------------------------------------------------
 		if "%SelectedSourceOS%" equ "w7" call :AddPackage "%BootMount%\%%i", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.1.7601.%PackageServicePackBuild%.cab"
 		if "%SelectedSourceOS%" equ "w81" call :AddPackage "%BootMount%\%%i", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
-		
+
 		if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 			call :AddPackage "%BootMount%\%%i", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 
@@ -3952,7 +3952,7 @@ if "%LanguagePackType%" equ "Boot" (
 			if "%SelectedSourceOS%" equ "w81" call :AddPackage "%BootMount%\%%i", "%LanguagePacks%\WinPE-EnhancedStorage-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
 			if "%SelectedSourceOS%" neq "w81" call :AddPackage "%BootMount%\%%i", "%LanguagePacks%\WinPE-EnhancedStorage-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 		)
-		
+
 		if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBuild%" geq "15063" (
 			echo.-------------------------------------------------------------------------------
 			echo.Integrating WinPE - Narrator [%LanguagePackCode%] to Windows Boot Image...
@@ -4454,10 +4454,10 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 	echo.-------------------------------------------------------------------------------
 	if "%SelectedSourceOS%" equ "w7" call :AddPackage "%WinReMount%", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.1.7601.%PackageServicePackBuild%.cab"
 	if "%SelectedSourceOS%" equ "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
-	
+
 	if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
     	call :AddPackage "%WinReMount%", "%LanguagePacks%\Microsoft-Windows-WinPE-LanguagePack-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
-		
+
     	if "%ImageBuild%" geq "17134" (
 			if exist "%LanguagePacks%\Microsoft-Windows-WinPE-AppxPackaging-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab" (
     			echo.-------------------------------------------------------------------------------
@@ -4465,14 +4465,14 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 				echo.-------------------------------------------------------------------------------
 				call :AddPackage "%WinReMount%", "%LanguagePacks%\Microsoft-Windows-WinPE-AppxPackaging-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
             )
-		
+
 			if exist "%LanguagePacks%\Microsoft-Windows-WinPE-OpcServices-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab" (
 				echo.-------------------------------------------------------------------------------
 				echo.Integrating WinPE - Opc Services [%LanguagePackCode%] to Windows Recovery Image...
 				echo.-------------------------------------------------------------------------------
 				call :AddPackage "%WinReMount%", "%LanguagePacks%\Microsoft-Windows-WinPE-OpcServices-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 			)
-		
+
 			if "%ImageBuild%" geq "22621" if exist "%LanguagePacks%\WinPE-AppxDeployment-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab" (
 				echo.-------------------------------------------------------------------------------
 				echo.Integrating WinPE - Appx Deployment [%LanguagePackCode%] to Windows Recovery Image...
@@ -4501,7 +4501,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 			call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-AudioDrivers-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 		)
 	)
-	
+
 	if "%SelectedSourceOS%" neq "w7" (
 		echo.-------------------------------------------------------------------------------
 		echo.Integrating WinPE - Enhanced Storage Pack [%LanguagePackCode%] to Windows Recovery Image...
@@ -4527,20 +4527,20 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 		echo.-------------------------------------------------------------------------------
 		call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-IbsProvider-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
 	)
-	
+
 	if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 		echo.-------------------------------------------------------------------------------
 		echo.Integrating WinPE - HTA Pack [%LanguagePackCode%] to Windows Recovery Image...
 		echo.-------------------------------------------------------------------------------
 		call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-HTA-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
-		
+
 		if "%ImageBuild%" geq "15063" (
 			echo.-------------------------------------------------------------------------------
 			echo.Integrating WinPE - Narrator [%LanguagePackCode%] to Windows Recovery Image...
 			echo.-------------------------------------------------------------------------------
 			call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-Narrator-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 		)
-	
+
 		if "%ImageBuild%" geq "17134" (
 			echo.-------------------------------------------------------------------------------
 			echo.Integrating WinPE - Opc Services [%LanguagePackCode%] to Windows Recovery Image...
@@ -4548,7 +4548,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 			call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-OpcServices-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 		)
 	)
-	
+
 	if "%SelectedSourceOS%" neq "w7" (
 		echo.-------------------------------------------------------------------------------
 		echo.Integrating WinPE - Rejuv Pack [%LanguagePackCode%] to Windows Recovery Image...
@@ -4556,7 +4556,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 		if "%SelectedSourceOS%" equ "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-Rejuv-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
 		if "%SelectedSourceOS%" neq "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-Rejuv-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 	)
-	
+
 	echo.-------------------------------------------------------------------------------
 	echo.Integrating WinPE - Scripting Pack [%LanguagePackCode%] to Windows Recovery Image...
 	echo.-------------------------------------------------------------------------------
@@ -4583,7 +4583,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 		if "%SelectedSourceOS%" neq "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-SecureStartup-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 	)
 
-	
+
 	if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBuild%" geq "15063" if "%ImageBuild%" leq "22000" (
 		for /d %%z in (de-DE, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pl-PL, pt-BR, pt-PT, ru-RU, zh-CN, zh-HK, zh-TW) do (
 			if "%LanguagePackCode%" equ "%%z" (
@@ -4594,7 +4594,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 			)
 		)
 	)
-	
+
 	if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBuild%" geq "15063" (
 		echo.-------------------------------------------------------------------------------
 		echo.Integrating WinPE - Speech TextToSpeech [%LanguagePackCode%] to Windows Recovery Image...
@@ -4605,14 +4605,14 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 		echo.-------------------------------------------------------------------------------
 		call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-SRH-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 	)
-	
+
 	echo.-------------------------------------------------------------------------------
 	echo.Integrating WinPE - SRT Pack [%LanguagePackCode%] to Windows Recovery Image...
 	echo.-------------------------------------------------------------------------------
 	if "%SelectedSourceOS%" equ "w7" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-SRT-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.1.7601.%PackageServicePackBuild%.cab"
 	if "%SelectedSourceOS%" equ "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-SRT-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
 	if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-SRT-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
-	
+
 	if "%SelectedSourceOS%" neq "w7" (
 		echo.-------------------------------------------------------------------------------
 		echo.Integrating WinPE - Storage WMI Pack [%LanguagePackCode%] to Windows Recovery Image...
@@ -4620,7 +4620,7 @@ if "%LanguagePackType%" equ "Recovery" if "%IsRecoveryImageSelected%" equ "Yes" 
 		if "%SelectedSourceOS%" equ "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-StorageWMI-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~6.3.9600.%PackageServicePackBuild%.cab"
 		if "%SelectedSourceOS%" neq "w81" call :AddPackage "%WinReMount%", "%LanguagePacks%\WinPE-StorageWMI-Package~31bf3856ad364e35~%PackageArchitecture%~%LanguagePackCode%~%PackageVersion%.%PackageServicePackBuild%.cab"
 	)
-	
+
 	echo.-------------------------------------------------------------------------------
 	echo.Integrating WinPE - WDS Pack [%LanguagePackCode%] to Windows Recovery Image...
 	echo.-------------------------------------------------------------------------------
@@ -4721,7 +4721,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123X /N /M "Enter Your Choice : "
-if errorlevel 4 goto :IntegrateMenu
+if errorlevel 4 goto :MenuIntegrate.cmd
 if errorlevel 3 set DriverType=Recovery
 if errorlevel 2 set DriverType=Install
 if errorlevel 1 set DriverType=Boot
@@ -8341,7 +8341,7 @@ if "%SelectedSourceOS%" equ "w10" (
 	echo.===============================================================================
 	echo.
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 set RSATType=v1803
 	if errorlevel 2 set RSATType=v1709
 	if errorlevel 1 set RSATType=v1609
@@ -8440,7 +8440,7 @@ for /l %%i in (1, 1, %ImageCount%) do (
 
 		:: Getting Image Index Information
 		call :GetImageIndexInfo "%InstallWim%", %%i >nul
-		
+
 		:: Checking whether the selected Source OS is a valid editions
 		if "%SelectedSourceOS%" equ "w7" (
 			for /d %%j in (Professional,Ultimate) do (
@@ -8558,7 +8558,7 @@ if "%SelectedSourceOS%" equ "w81" (
 	echo.  [A]    All Windows Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" ( if "%I_Alarms%" equ "+" ( set "I_Alarms=-" ) else ( set "I_Alarms=+" ) )
 	if "!MenuChoice!" equ "02" ( if "%I_Calculator%" equ "+" ( set "I_Calculator=-" ) else ( set "I_Calculator=+" ) )
@@ -8680,7 +8680,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	echo.  [A]    All Inbox Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" ( if "%I_3DViewer%" equ "+" ( set "I_3DViewer=-" ) else ( set "I_3DViewer=+" ) )
 	if "!MenuChoice!" equ "02" ( if "%I_Alarms%" equ "+" ( set "I_Alarms=-" ) else ( set "I_Alarms=+" ) )
@@ -8831,7 +8831,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" (
 	echo.  [08] %I_DesktopAppInstaller% Desktop App Installer
 	echo.  [09] %I_DirectXRuntime% DirectX Runtime
 	echo.  [10] %I_FeedbackHub% Feedback Hub
-	echo.  [11] %I_ZuneVideo% Films ^& TV	
+	echo.  [11] %I_ZuneVideo% Films ^& TV
 	echo.  [12] %I_GamingApp% Gaming App ^(Xbox App^) ^| Depends on  DirectX Runtime, Gaming Services
 	echo.  [13] %I_GamingServices% Gaming Services
 	echo.  [14] %I_GetHelp% Get Help
@@ -8893,7 +8893,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" (
 	echo.  [A]    All Inbox Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" ( if "%I_Alarms%" equ "+" ( set "I_Alarms=-" ) else ( set "I_Alarms=+" ) )
 	if "!MenuChoice!" equ "02" ( if "%I_AV1VideoExtension%" equ "+" ( set "I_AV1VideoExtension=-" ) else ( set "I_AV1VideoExtension=+" ) )
@@ -9946,7 +9946,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 setlocal
@@ -9995,7 +9995,7 @@ echo.
 echo.  [X]  Go Back
 echo.===============================================================================
 choice /C:ABCDEFGHIJKLMNO1X /N /M "Enter your choice : "
-if errorlevel 17 goto :IntegrateMenu
+if errorlevel 17 goto :MenuIntegrate.cmd
 if errorlevel 16 set "Feature=All"
 if errorlevel 15 set "Feature=TabletPC"
 if errorlevel 14 set "Feature=SpeechText"
@@ -10186,7 +10186,7 @@ for /l %%i in (1, 1, %ImageCount%) do (
 				echo.-------------------------------------------------------------------------------
 				call :AddPackage "%InstallMount%\%%i", "%ThinPC%\WinEmb-Search~31bf3856ad364e35~x86~~6.1.7601.17514.cab"
 			)
-			
+
 			if "%Feature%" equ "SpeechText" (
 				echo.-------------------------------------------------------------------------------
 				echo.Integrating Windows Speech ^& Text US English Language Pack Package...
@@ -10412,7 +10412,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -10449,7 +10449,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:12X /N /M "Enter Your Choice : "
-if errorlevel 3 goto :IntegrateMenu
+if errorlevel 3 goto :MenuIntegrate.cmd
 if errorlevel 2 set "DartType=Recovery"
 if errorlevel 1 set "DartType=Boot"
 
@@ -11898,7 +11898,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :IntegrateMenu
+	if errorlevel 2 goto :MenuIntegrate.cmd
 )
 
 cls
@@ -11927,7 +11927,7 @@ echo.===========================================================================
 echo.
 
 choice /C:12X /N /M "Enter Your Choice : "
-if errorlevel 3 goto :IntegrateMenu
+if errorlevel 3 goto :MenuIntegrate.cmd
 if errorlevel 2 goto :IntWHDUpdatesMenu
 if errorlevel 1 call :IntUpdates WUpdates
 
@@ -12005,7 +12005,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 
 if "%SelectedSourceOS%" equ "w7" (
 	choice /C:123X /N /M "Enter Your Choice : "
-	if errorlevel 4 goto :IntegrateMenu
+	if errorlevel 4 goto :MenuIntegrate.cmd
 	if errorlevel 3 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 2 (
 		set "IsW7SP1CRUSelected=No"
@@ -12019,7 +12019,7 @@ if "%SelectedSourceOS%" equ "w7" (
 
 if "%SelectedSourceOS%" equ "w81" (
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 5 goto :IntWHDAdditionalMenu
 	if errorlevel 4 call :IntUpdates Security
@@ -12030,7 +12030,7 @@ if "%SelectedSourceOS%" equ "w81" (
 
 if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" (
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :IntegrateMenu
+	if errorlevel 3 goto :MenuIntegrate.cmd
 	if errorlevel 2 goto :IntWindowsSetupMediaUpdates
 	if errorlevel 1 goto :IntWHDBaselineMenu
 )
@@ -12093,7 +12093,7 @@ if "%SelectedSourceOS%" equ "w7" (
 
 if "%SelectedSourceOS%" equ "w7" (
 	choice /C:123456X /N /M "Enter Your Choice : "
-	if errorlevel 7 goto :IntegrateMenu
+	if errorlevel 7 goto :MenuIntegrate.cmd
 	if errorlevel 6 call :IntUpdates "ESU"
 	if errorlevel 5 call :IntUpdates "Security"
 	if errorlevel 4 call :IntUpdates "Hotfix"
@@ -12373,7 +12373,7 @@ if "%UpdateType%" equ "Boot" (
 )
 
 if "%UpdateType%" equ "Install" (
-	echo.    Image                    : Install.wim	
+	echo.    Image                    : Install.wim
 	echo.    Image Index              : %ImageIndexNo%
 )
 
@@ -12631,7 +12631,7 @@ if "%SelectedSourceOS%" equ "w11" (
 					ren "%Temp%\Updates\Cumulative\%%#" "%Temp%\Updates\Cumulative\express.psf.cix.xml"
 				)
 			)
-			
+
 			PSFExtractor.exe Cumulative.cab >nul
 			call :RemoveFile "%Temp%\Updates\Cumulative\*.psf.cix.xml"
 			call :RemoveFile "%Temp%\Updates\Cumulative.*"
@@ -12955,7 +12955,7 @@ if "%UpdateType%" neq "Install" if "%UpdateType%" neq "InstallRecovery" (
 			echo.Copying Windows %OSID% Dynamic Update for Sources to ^<DVD^> folder.
 			%XCopy% "%Temp%\Updates\DVDMedia\*.*" "%DVD%\sources" >nul
 			cd /d "%DVD%\sources\" >nul
-			
+
 			for /d %%i in (ar-SA,bg-BG,cs-CZ,da-DK,de-DE,el-GR,en-GB,en-US,es-ES,es-MX,et-EE,fi-FI,fr-CA,fr-FR,he-IL,hr-HR,hu-HU,it-IT,ja-JP,ko-KR,lt-LT,lv-LV,nb-NO,nl-NL,pl-PL,pt-BR,pt-PT,ro-RO,ru-RU,sk-SK,sl-SI,sr-Latn-RS,sv-SE,th-TH,tr-TR,uk-UA,zh-CN,zh-HK,zh-TW) do (
 				if "%ImageDefaultLanguage%" neq "%%i" call :RemoveFolder "%DVD%\sources\%%i"
 			)
@@ -13836,7 +13836,7 @@ endlocal
 call :GetUpdatedImageInformation >nul
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -13945,7 +13945,7 @@ if "%UpdateType%" equ "Security" (
 		echo.Please copy WHD Security Updates files to respective folder...
 		goto :Stop
 	)
-	
+
 	if "%SelectedSourceOS%" equ "w81" if not exist "%Updates%\Security\*.msu" if not exist "%Updates%\Security\*.cab" (
 		echo.WHD Security Updates Folder ^<WHD\%SelectedSourceOS%\%ImageArchitecture%\Security^> is empty...
 		echo.
@@ -14808,7 +14808,7 @@ endlocal
 call :GetUpdatedImageInformation >nul
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -15160,7 +15160,7 @@ pause
 endlocal
 
 :: Returning to Integrate Menu
-goto :IntegrateMenu
+goto :MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -15330,7 +15330,7 @@ echo.---------------------------------------------------------------------------
 echo.####Getting Windows 8.1 Activation Product Key Details#########################
 echo.-------------------------------------------------------------------------------
 echo.
-set /p ProductKey=Enter the Product Key with the '-'s : 
+set /p ProductKey=Enter the Product Key with the '-'s :
 echo.
 echo.-------------------------------------------------------------------------------
 echo.####Integrating Windows 8.1 Pre-Activation Data################################
@@ -16029,7 +16029,7 @@ if "%ImageBuild%" leq "17763" (
 	rem copy /y "%InstallMount%\%DefaultIndexNo%\Windows\System32\shell32.dll" "%Temp%\shell32.bak" >nul
 	rem copy /y "%InstallMount%\%DefaultIndexNo%\Windows\System32\taskmgr.exe" "%Temp%\taskmgr.bak" >nul
 	copy /y "%InstallMount%\%DefaultIndexNo%\Windows\System32\zipfldr.dll" "%Temp%\zipfldr.bak" >nul
-	
+
 	if "%ImageArchitecture%" equ "x64" (
 		copy /y "%InstallMount%\%DefaultIndexNo%\Windows\SysWOW64\imageres.dll" "%Temp%\imageres_wow64.bak" >nul
 		copy /y "%InstallMount%\%DefaultIndexNo%\Windows\SysWOW64\imagesp1.dll" "%Temp%\imagesp1_wow64.bak" >nul
@@ -16530,7 +16530,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :RemoveMenu
+	if errorlevel 3 goto :MenuRemove
 	if errorlevel 2 goto :RemoveWindowsComponents
 	if errorlevel 1 goto :SelectWindowsComponentsMenu
 )
@@ -16634,7 +16634,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 			set "C_ClientWebExperience=-"
 			set "C_EdgeChromium=-"
 			set "C_EdgeWebView=-"
-		) else ( 
+		) else (
 			set "C_EdgeWebView=+"
 		)
 	)
@@ -16642,7 +16642,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 1 if "%SelectedSourceOS%" equ "w11" (
 		if "%C_EdgeChromium%" equ "+" (
 			set "C_EdgeChromium=-"
-		) else ( 
+		) else (
 			set "C_EdgeChromium=+"
 			set "C_EdgeWebView=+"
 		)
@@ -16707,10 +16707,10 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 9  ( if "%C_WindowsMediaPlayer%" equ "+" ( set "C_WindowsMediaPlayer=-" ) else ( set "C_WindowsMediaPlayer=+" ) )
 	if errorlevel 8  ( if "%C_Wallpapers%" equ "+" ( set "C_Wallpapers=-" ) else ( set "C_Wallpapers=+" ) )
 	if errorlevel 7  (
-		if "%C_SpeechRecognition%" equ "+" ( 
+		if "%C_SpeechRecognition%" equ "+" (
 			set "C_Cortana=-"
 			set "C_SpeechRecognition=-"
-		) else ( 
+		) else (
 			set "C_SpeechRecognition=+"
 		)
 	)
@@ -16840,20 +16840,20 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 		set "C_WindowsInsiderHub=-"
 	)
 	if errorlevel 11 ( if "%C_WindowsInsiderHub%" equ "+" ( set "C_WindowsInsiderHub=-" ) else ( set "C_WindowsInsiderHub=+" ) )
-	if errorlevel 10 ( 
-		if "%C_WindowsErrorReporting%" equ "+" ( 
+	if errorlevel 10 (
+		if "%C_WindowsErrorReporting%" equ "+" (
 			set "C_KernelDebugging=-"
 			set "C_UnifiedTelemetryClient=-"
 			set "C_WindowsErrorReporting=-"
-		) else ( 
+		) else (
 			set "C_WindowsErrorReporting=+"
 		)
 	)
 	if errorlevel 9  ( if "%C_WiFiNetworkManager%" equ "+" ( set "C_WiFiNetworkManager=-" ) else ( set "C_WiFiNetworkManager=+" ) )
-	if errorlevel 8 ( 
-		if "%C_UnifiedTelemetryClient%" equ "+" ( 
+	if errorlevel 8 (
+		if "%C_UnifiedTelemetryClient%" equ "+" (
 			set "C_UnifiedTelemetryClient=-"
-		) else ( 
+		) else (
 			set "C_UnifiedTelemetryClient=+"
 			set "C_WindowsErrorReporting=+"
 		)
@@ -16861,21 +16861,21 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 7  ( if "%C_PinEnrollment%" equ "+" ( set "C_PinEnrollment=-" ) else ( set "C_PinEnrollment=+" ) )
 	if errorlevel 6  ( if "%C_PicturePassword%" equ "+" ( set "C_PicturePassword=-" ) else ( set "C_PicturePassword=+" ) )
 	if errorlevel 5  ( if "%C_LocationService%" equ "+" ( set "C_LocationService=-" ) else ( set "C_LocationService=+" ) )
-	if errorlevel 4 ( 
-		if "%C_KernelDebugging%" equ "+" ( 
+	if errorlevel 4 (
+		if "%C_KernelDebugging%" equ "+" (
 			set "C_KernelDebugging=-"
-		) else ( 
+		) else (
 			set "C_KernelDebugging=+"
 			set "C_WindowsErrorReporting=+"
 		)
 	)
 	if errorlevel 3  ( if "%C_FaceRecognition%" equ "+" ( set "C_FaceRecognition=-" ) else ( set "C_FaceRecognition=+" ) )
 	if errorlevel 2  ( if "%C_CEIP%" equ "+" ( set "C_CEIP=-" ) else ( set "C_CEIP=+" ) )
-	if errorlevel 1 ( 
-		if "%C_AssignedAccess%" equ "+" ( 
+	if errorlevel 1 (
+		if "%C_AssignedAccess%" equ "+" (
 			set "C_AssignedAccess=-"
 			if "%ImageFlag%" neq "Core" if "%ImageFlag%" neq "CoreN" if "%ImageFlag%" neq "CoreSingleLanguage" set "C_AssignedAccessLockApp=-"
-		) else ( 
+		) else (
 			set "C_AssignedAccess=+"
 		)
 	)
@@ -17002,18 +17002,18 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 22 ( if "%C_WindowsToGo%" equ "+" ( set "C_WindowsToGo=-" ) else ( set "C_WindowsToGo=+" ) )
 	if errorlevel 21 ( if "%C_WindowsSubsystemForLinux%" equ "+" ( set "C_WindowsSubsystemForLinux=-" ) else ( set "C_WindowsSubsystemForLinux=+" ) )
 	if errorlevel 20 ( if "%C_WindowsFirewall%" equ "+" ( set "C_WindowsFirewall=-" ) else ( set "C_WindowsFirewall=+" ) )
-	if errorlevel 19 ( 
-		if "%C_WindowsBackup%" equ "+" ( 
+	if errorlevel 19 (
+		if "%C_WindowsBackup%" equ "+" (
 			set "C_SystemRestore=-"
 			set "C_WindowsBackup=-"
-		) else ( 
+		) else (
 			set "C_WindowsBackup=+"
 		)
 	)
-	if errorlevel 18 ( 
-		if "%C_SystemRestore%" equ "+" ( 
+	if errorlevel 18 (
+		if "%C_SystemRestore%" equ "+" (
 			set "C_SystemRestore=-"
-		) else ( 
+		) else (
 			set "C_SystemRestore=+"
 			set "C_WindowsBackup=+"
 		)
@@ -17021,9 +17021,9 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 17 ( if "%C_StorageSpaces%" equ "+" ( set "C_StorageSpaces=-" ) else ( set "C_StorageSpaces=+" ) )
 	if errorlevel 16 ( if "%C_StepsRecorder%" equ "+" ( set "C_StepsRecorder=-" ) else ( set "C_StepsRecorder=+" ) )
 	if errorlevel 15 (
-		if "%C_SecurityCenter%" equ "+" ( 
+		if "%C_SecurityCenter%" equ "+" (
 			set "C_SecurityCenter=-"
-		) else ( 
+		) else (
 			set "C_SecurityCenter=+"
 			set "C_WindowsDefender=+"
 		)
@@ -17077,7 +17077,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if errorlevel 3 ( if "%C_DeviceLockdown%" equ "+" ( set "C_DeviceLockdown=-" ) else ( set "C_DeviceLockdown=+" ) )
 	if "%ImageFlag%" equ "EnterpriseSN" if errorlevel 2 ( if "%C_Calculator%" equ "+" ( set "C_Calculator=-" ) else ( set "C_Calculator=+" ) )
 	if "%ImageFlag%" equ "EnterpriseS" if errorlevel 2 ( if "%C_Calculator%" equ "+" ( set "C_Calculator=-" ) else ( set "C_Calculator=+" ) )
-	if errorlevel 1 ( 
+	if errorlevel 1 (
 		if "%C_AccessibilityTools%" equ "+" (
 			set "C_AccessibilityTools=-"
 			set "C_EaseOfAccessCursors=-"
@@ -17151,16 +17151,16 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	echo.  [A]    All System Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" ( if "%C_AADBrokerPlugin%" equ "+" ( set "C_AADBrokerPlugin=-" ) else ( set "C_AADBrokerPlugin=+" ) )
 	if "!MenuChoice!" equ "02" ( if "%C_AccountsControl%" equ "+" ( set "C_AccountsControl=-" ) else ( set "C_AccountsControl=+" ) )
 	if "!MenuChoice!" equ "03" ( if "%C_AddSuggestedFoldersToLibraryDialog%" equ "+" ( set "C_AddSuggestedFoldersToLibraryDialog=-" ) else ( set "C_AddSuggestedFoldersToLibraryDialog=+" ) )
 	if "!MenuChoice!" equ "04" ( if "%C_AppResolverUX%" equ "+" ( set "C_AppResolverUX=-" ) else ( set "C_AppResolverUX=+" ) )
 	if "!MenuChoice!" equ "05" if "%ImageFlag%" neq "Core" if "%ImageFlag%" neq "CoreN" if "%ImageFlag%" neq "CoreSingleLanguage" (
-		if "%C_AssignedAccessLockApp%" equ "+" ( 
+		if "%C_AssignedAccessLockApp%" equ "+" (
 			set "C_AssignedAccessLockApp=-"
-		) else ( 
+		) else (
 			set "C_AssignedAccess=+"
 			set "C_AssignedAccessLockApp=+"
 		)
@@ -17172,24 +17172,24 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if "!MenuChoice!" equ "10" ( if "%C_CBSPreview%" equ "+" ( set "C_CBSPreview=-" ) else ( set "C_CBSPreview=+" ) )
 	if "!MenuChoice!" equ "11" ( if "%C_ContentDeliveryManager%" equ "+" ( set "C_ContentDeliveryManager=-" ) else ( set "C_ContentDeliveryManager=+" ) )
 	if "!MenuChoice!" equ "12" if "%ImageBuild%" geq "17763" if "%ImageBuild%" leq "18363" (
-		if "%C_Cortana%" equ "+" ( 
+		if "%C_Cortana%" equ "+" (
 			set "C_Cortana=-"
-		) else ( 
+		) else (
 			set "C_Cortana=+"
 			set "C_SpeechRecognition=+"
 		)
 	)
 	if "!MenuChoice!" equ "13" ( if "%C_CredDialogHost%" equ "+" ( set "C_CredDialogHost=-" ) else ( set "C_CredDialogHost=+" ) )
-	if "!MenuChoice!" equ "14" ( 
-		if "%C_ECApp%" equ "+" ( 
-			set "C_ECApp=-" 
-		) else ( 
-			set "C_ECApp=+" 
+	if "!MenuChoice!" equ "14" (
+		if "%C_ECApp%" equ "+" (
+			set "C_ECApp=-"
+		) else (
+			set "C_ECApp=+"
 			set "C_WindowsMixedReality=+"
-		) 
+		)
 	)
 	if "!MenuChoice!" equ "15" (
-		if "%C_Edge%" equ "+" ( 
+		if "%C_Edge%" equ "+" (
 			set "C_Edge=-"
 			set "C_EdgeDevToolsClient=-"
 			set "C_WindowsReaderPDF=-"
@@ -17198,7 +17198,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 		)
 	)
 	if "!MenuChoice!" equ "16" (
-		if "%C_EdgeDevToolsClient%" equ "+" ( 
+		if "%C_EdgeDevToolsClient%" equ "+" (
 			set "C_EdgeDevToolsClient=-"
 		) else (
 			set "C_Edge=+"
@@ -17209,7 +17209,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if "!MenuChoice!" equ "18" ( if "%C_FilePicker%" equ "+" ( set "C_FilePicker=-" ) else ( set "C_FilePicker=+" ) )
 	if "!MenuChoice!" equ "19" ( if "%C_LockApp%" equ "+" ( set "C_LockApp=-" ) else ( set "C_LockApp=+" ) )
 	if "!MenuChoice!" equ "20" (
-		if "%C_MapControl%" equ "+" ( 
+		if "%C_MapControl%" equ "+" (
 			set "C_MapControl=-"
 			set "C_Maps=-"
 		) else (
@@ -17222,7 +17222,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if "!MenuChoice!" equ "24" ( if "%C_OOBENetworkConnectionFlow%" equ "+" ( set "C_OOBENetworkConnectionFlow=-" ) else ( set "C_OOBENetworkConnectionFlow=+" ) )
 	if "!MenuChoice!" equ "25" ( if "%C_ParentalControls%" equ "+" ( set "C_ParentalControls=-" ) else ( set "C_ParentalControls=+" ) )
 	if "!MenuChoice!" equ "26" (
-		if "%C_PeopleExperienceHost%" equ "+" ( 
+		if "%C_PeopleExperienceHost%" equ "+" (
 			set "C_People=-"
 			set "C_PeopleExperienceHost=-"
 		) else (
@@ -17235,18 +17235,18 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if "!MenuChoice!" equ "30" ( if "%ImageBuild%" geq "17763" if "%ImageBuild%" leq "22000" if "%C_QuickAssist%" equ "+" ( set "C_QuickAssist=-" ) else ( set "C_QuickAssist=+" ) )
 	if "!MenuChoice!" equ "31" ( if "%C_RetailDemoContent%" equ "+" ( set "C_RetailDemoContent=-" ) else ( set "C_RetailDemoContent=+" ) )
 	if "!MenuChoice!" equ "32" if "%ImageBuild%" geq "19041" if "%ImageBuild%" leq "22000" (
-		if "%C_SearchApp%" equ "+" ( 
-			set "C_SearchApp=-" 
-		) else ( 
-			set "C_SearchApp=+" 
+		if "%C_SearchApp%" equ "+" (
+			set "C_SearchApp=-"
+		) else (
+			set "C_SearchApp=+"
 			set "C_WebView2SDK=+"
 		)
 	)
-	if "!MenuChoice!" equ "33" if "%ImageFlag%" neq "EnterpriseS" if "%ImageFlag%" neq "EnterpriseSN" ( 
-		if "%C_SecureAssessmentBrowser%" equ "+" ( 
-			set "C_SecureAssessmentBrowser=-" 
-		) else ( 
-			set "C_SecureAssessmentBrowser=+" 
+	if "!MenuChoice!" equ "33" if "%ImageFlag%" neq "EnterpriseS" if "%ImageFlag%" neq "EnterpriseSN" (
+		if "%C_SecureAssessmentBrowser%" equ "+" (
+			set "C_SecureAssessmentBrowser=-"
+		) else (
+			set "C_SecureAssessmentBrowser=+"
 			if "%ImageBuild%" geq "19041" set "C_WebView2SDK=+"
 		)
 	)
@@ -17255,35 +17255,35 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	if "!MenuChoice!" equ "36" ( if "%C_SmartScreen%" equ "+" ( set "C_SmartScreen=-" ) else ( set "C_SmartScreen=+" ) )
 	if "!MenuChoice!" equ "37" ( if "%C_WebcamExperience%" equ "+" ( set "C_WebcamExperience=-" ) else ( set "C_WebcamExperience=+" ) )
 	if "!MenuChoice!" equ "38" (
-		if "%C_WebView2SDK%" equ "+" ( 
+		if "%C_WebView2SDK%" equ "+" (
 			set "C_SearchApp=-"
 			set "C_SecureAssessmentBrowser=-"
 			set "C_WebView2SDK=-"
-		) else ( 
+		) else (
 			set "C_WebView2SDK=+"
 		)
 	)
 	if "!MenuChoice!" equ "39" ( if "%C_Win32WebViewHost%" equ "+" ( set "C_Win32WebViewHost=-" ) else ( set "C_Win32WebViewHost=+" ) )
 	if "!MenuChoice!" equ "40" (
-		if "%C_WindowsDefender%" equ "+" ( 
+		if "%C_WindowsDefender%" equ "+" (
 			set "C_SecurityCenter=-"
 			set "C_WindowsDefender=-"
-		) else ( 
+		) else (
 			set "C_WindowsDefender=+"
 		)
 	)
 	if "!MenuChoice!" equ "41" (
-		if "%C_WindowsMixedReality%" equ "+" ( 
+		if "%C_WindowsMixedReality%" equ "+" (
 			if "%SelectedSourceOS%" equ "w10" set "C_3DViewer=-"
 			set "C_ECApp=-"
 			if "%SelectedSourceOS%" equ "w10" if "%ImageArchitecture%" equ "x64" set "C_MixedRealityPortal=-"
 			set "C_WindowsMixedReality=-"
-		) else ( 
+		) else (
 			set "C_WindowsMixedReality=+"
 		)
 	)
 	if "!MenuChoice!" equ "42" (
-		if "%C_WindowsReaderPDF%" equ "+" ( 
+		if "%C_WindowsReaderPDF%" equ "+" (
 			set "C_WindowsReaderPDF=-"
 		) else (
 			set "C_Edge=+"
@@ -17317,7 +17317,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 		)
 	)
 	if "!MenuChoice!" equ "45" (
-		if "%C_XboxGameCallableUI%" equ "+" ( 
+		if "%C_XboxGameCallableUI%" equ "+" (
 			set "C_SolitaireCollection=-"
 			set "C_XboxGameCallableUI=-"
 		) else (
@@ -17454,18 +17454,18 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	echo.  [A]    All Windows Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" (
-		if "%C_3DViewer%" equ "+" ( 
+		if "%C_3DViewer%" equ "+" (
 			set "C_3DViewer=-"
-		) else ( 
+		) else (
 			set "C_3DViewer=+"
 			set "C_WindowsMixedReality=+"
 		)
 	)
 	if "!MenuChoice!" equ "02" (
-		if "%C_AdvertisingXaml%" equ "+" ( 
+		if "%C_AdvertisingXaml%" equ "+" (
 			set "C_AdvertisingXaml=-"
 			set "C_BingWeather=-"
 			set "C_CommunicationsApps=-"
@@ -17478,7 +17478,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "04" ( if "%C_CalculatorApp%" equ "+" ( set "C_CalculatorApp=-" ) else ( set "C_CalculatorApp=+" ) )
 	if "!MenuChoice!" equ "05" ( if "%C_Camera%" equ "+" ( set "C_Camera=-" ) else ( set "C_Camera=+" ) )
 	if "!MenuChoice!" equ "06" if "%ImageBuild%" geq "19041" if "%ImageBuild%" leq "19045" (
-		if "%C_Cortana%" equ "+" ( 
+		if "%C_Cortana%" equ "+" (
 			set "C_Cortana=-"
 		) else (
 			set "C_Cortana=+"
@@ -17493,7 +17493,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "12" ( if "%C_ZuneMusic%" equ "+" ( set "C_ZuneMusic=-" ) else ( set "C_ZuneMusic=+" ) )
 	if "!MenuChoice!" equ "13" ( if "%C_HEIFImageExtension%" equ "+" ( set "C_HEIFImageExtension=-" ) else ( set "C_HEIFImageExtension=+" ) )
 	if "!MenuChoice!" equ "14" (
-		if "%C_Maps%" equ "+" ( 
+		if "%C_Maps%" equ "+" (
 			set "C_Maps=-"
 		) else (
 			set "C_MapControl=+"
@@ -17501,8 +17501,8 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "15" if "%ImageBuild%" geq "17763" if "%ImageBuild%" leq "18363" ( if "%C_Messaging%" equ "+" ( set "C_Messaging=-" ) else ( set "C_Messaging=+" ) )
-	if "!MenuChoice!" equ "16" ( 
-		if "%C_Wallet%" equ "+" ( 
+	if "!MenuChoice!" equ "16" (
+		if "%C_Wallet%" equ "+" (
 			set "C_Wallet=-"
 		) else (
 			set "C_Wallet=+"
@@ -17523,9 +17523,9 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "21" ( if "%C_OfficeOneNote%" equ "+" ( set "C_OfficeOneNote=-" ) else ( set "C_OfficeOneNote=+" ) )
 	if "!MenuChoice!" equ "22" ( if "%C_Paint3D%" equ "+" ( set "C_Paint3D=-" ) else ( set "C_Paint3D=+" ) )
 	if "!MenuChoice!" equ "23" (
-		if "%C_People%" equ "+" ( 
+		if "%C_People%" equ "+" (
 			set "C_People=-"
-		) else ( 
+		) else (
 			set "C_People=+"
 			set "C_PeopleExperienceHost=+"
 		)
@@ -17535,11 +17535,11 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "26" if "%ImageBuild%" geq "17763" if "%ImageBuild%" leq "18363" ( if "%C_Print3D%" equ "+" ( set "C_Print3D=-" ) else ( set "C_Print3D=+" ) )
 	if "!MenuChoice!" equ "27" ( if "%C_ScreenSketch%" equ "+" ( set "C_ScreenSketch=-" ) else ( set "C_ScreenSketch=+" ) )
 	if "!MenuChoice!" equ "28" (
-		if "%C_ServicesStoreEngagement%" equ "+" ( 
+		if "%C_ServicesStoreEngagement%" equ "+" (
 			set "C_ServicesStoreEngagement=-"
 			if "%ImageBuild%" equ "17763" set "C_SolitaireCollection=-"
 			if "%ImageBuild%" geq "18362" if "%ImageBuild%" leq "19045" set "C_StickyNotes=-"
-		) else ( 
+		) else (
 			set "C_ServicesStoreEngagement=+"
 			set "C_WindowsStoreApp=+"
 			set "C_WindowsStoreClient=+"
@@ -17547,7 +17547,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	)
 	if "!MenuChoice!" equ "29" ( if "%C_SkypeApp%" equ "+" ( set "C_SkypeApp=-" ) else ( set "C_SkypeApp=+" ) )
 	if "!MenuChoice!" equ "30" (
-		if "%C_SolitaireCollection%" equ "+" ( 
+		if "%C_SolitaireCollection%" equ "+" (
 			set "C_SolitaireCollection=-"
 		) else (
 			if "%ImageBuild%" equ "17763" (
@@ -17561,7 +17561,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "31" (
-		if "%C_StickyNotes%" equ "+" ( 
+		if "%C_StickyNotes%" equ "+" (
 			set "C_StickyNotes=-"
 		) else (
 			set "C_StickyNotes=+"
@@ -17584,7 +17584,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "33" ( if "%C_Getstarted%" equ "+" ( set "C_Getstarted=-" ) else ( set "C_Getstarted=+" ) )
 	if "!MenuChoice!" equ "34" ( if "%C_SoundRecorder%" equ "+" ( set "C_SoundRecorder=-" ) else ( set "C_SoundRecorder=+" ) )
 	if "!MenuChoice!" equ "35" (
-		if "%C_BingWeather%" equ "+" ( 
+		if "%C_BingWeather%" equ "+" (
 			set "C_BingWeather=-"
 		) else (
 			set "C_AdvertisingXaml=+"
@@ -17594,7 +17594,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 	if "!MenuChoice!" equ "36" ( if "%C_WebMediaExtensions%" equ "+" ( set "C_WebMediaExtensions=-" ) else ( set "C_WebMediaExtensions=+" ) )
 	if "!MenuChoice!" equ "37" ( if "%C_WebpImageExtension%" equ "+" ( set "C_WebpImageExtension=-" ) else ( set "C_WebpImageExtension=+" ) )
 	if "!MenuChoice!" equ "38" (
-		if "%C_CommunicationsApps%" equ "+" ( 
+		if "%C_CommunicationsApps%" equ "+" (
 			set "C_CommunicationsApps=-"
 		) else (
 			set "C_AdvertisingXaml=+"
@@ -17603,13 +17603,13 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "39" (
-		if "%C_WindowsStoreApp%" equ "+" ( 
+		if "%C_WindowsStoreApp%" equ "+" (
 			set "C_ServicesStoreEngagement=-"
 			if "%ImageBuild%" equ "17763" set "C_SolitaireCollection=-"
 			if "%ImageBuild%" geq "18362" if "%ImageBuild%" leq "19045" set "C_StickyNotes=-"
 			set "C_StorePurchaseApp=-"
 			set "C_WindowsStoreApp=-"
-		) else ( 
+		) else (
 			set "C_WindowsStoreApp=+"
 			set "C_WindowsStoreClient=+"
 			set "C_XboxIdentityProvider=+"
@@ -17629,7 +17629,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "41" (
-		if "%C_XboxGameOverlay%" equ "+" ( 
+		if "%C_XboxGameOverlay%" equ "+" (
 			set "C_XboxGameOverlay=-"
 		) else (
 			set "C_XboxApp=+"
@@ -17638,7 +17638,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "42" (
-		if "%C_XboxGamingOverlay%" equ "+" ( 
+		if "%C_XboxGamingOverlay%" equ "+" (
 			set "C_XboxGamingOverlay=-"
 		) else (
 			set "C_XboxApp=+"
@@ -17647,7 +17647,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "43" (
-		if "%C_XboxIdentityProvider%" equ "+" ( 
+		if "%C_XboxIdentityProvider%" equ "+" (
 			set "C_XboxIdentityProvider=-"
 		) else (
 			set "C_XboxApp=+"
@@ -17656,7 +17656,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "44" (
-		if "%C_XboxSpeechToTextOverlay%" equ "+" ( 
+		if "%C_XboxSpeechToTextOverlay%" equ "+" (
 			set "C_XboxSpeechToTextOverlay=-"
 		) else (
 			set "C_XboxApp=+"
@@ -17665,7 +17665,7 @@ if "%SelectedSourceOS%" equ "w10" if "%ImageBuild%" geq "17763" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "45" (
-		if "%C_XboxTCUI%" equ "+" ( 
+		if "%C_XboxTCUI%" equ "+" (
 			set "C_XboxTCUI=-"
 		) else (
 			set "C_XboxApp=+"
@@ -17778,7 +17778,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	echo.  [A]    All Windows Apps
 	echo.  [X]    Go Back
 	echo.===============================================================================
-	set /p MenuChoice=Enter Your Choice : 
+	set /p MenuChoice=Enter Your Choice :
 
 	if "!MenuChoice!" equ "01" ( if "%C_Alarms%" equ "+" ( set "C_Alarms=-" ) else ( set "C_Alarms=+" ) )
 	if "!MenuChoice!" equ "02" ( if "%C_DesktopAppInstaller%" equ "+" ( set "C_DesktopAppInstaller=-" ) else ( set "C_DesktopAppInstaller=+" ) )
@@ -17786,7 +17786,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	if "!MenuChoice!" equ "04" ( if "%C_Camera%" equ "+" ( set "C_Camera=-" ) else ( set "C_Camera=+" ) )
 	if "!MenuChoice!" equ "05" if "%ImageBuild%" geq "22621" ( if "%C_Clipchamp%" equ "+" ( set "C_Clipchamp=-" ) else ( set "C_Clipchamp=+" ) )
 	if "!MenuChoice!" equ "06" (
-		if "%C_Cortana%" equ "+" ( 
+		if "%C_Cortana%" equ "+" (
 			set "C_Cortana=-"
 		) else (
 			set "C_Cortana=+"
@@ -17797,7 +17797,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	if "!MenuChoice!" equ "08" ( if "%C_FeedbackHub%" equ "+" ( set "C_FeedbackHub=-" ) else ( set "C_FeedbackHub=+" ) )
 	if "!MenuChoice!" equ "09" ( if "%C_ZuneVideo%" equ "+" ( set "C_ZuneVideo=-" ) else ( set "C_ZuneVideo=+" ) )
 	if "!MenuChoice!" equ "10" (
-		if "%C_GamingApp%" equ "+" ( 
+		if "%C_GamingApp%" equ "+" (
 			set "C_GamingApp=-"
 		) else (
 			set "C_GamingApp=+"
@@ -17808,14 +17808,14 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	if "!MenuChoice!" equ "12" ( if "%C_VP9VideoExtensions%" equ "+" ( set "C_VP9VideoExtensions=-" ) else ( set "C_VP9VideoExtensions=+" ) )
 	if "!MenuChoice!" equ "13" ( if "%C_HEIFImageExtension%" equ "+" ( set "C_HEIFImageExtension=-" ) else ( set "C_HEIFImageExtension=+" ) )
 	if "!MenuChoice!" equ "14" if "%ImageBuild%" geq "22621" (
-		if "%C_HEVCVideoExtension%" equ "+" ( 
+		if "%C_HEVCVideoExtension%" equ "+" (
 			set "C_HEVCVideoExtension=-"
 		) else (
 			set "C_HEVCVideoExtension=+"
 		)
 	)
 	if "!MenuChoice!" equ "15" (
-		if "%C_Maps%" equ "+" ( 
+		if "%C_Maps%" equ "+" (
 			set "C_Maps=-"
 		) else (
 			set "C_MapControl=+"
@@ -17828,9 +17828,9 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	if "!MenuChoice!" equ "19" ( if "%C_NotepadApp%" equ "+" ( set "C_NotepadApp=-" ) else ( set "C_NotepadApp=+" ) )
 	if "!MenuChoice!" equ "20" ( if "%C_Paint%" equ "+" ( set "C_Paint=-" ) else ( set "C_Paint=+" ) )
 	if "!MenuChoice!" equ "21" (
-		if "%C_People%" equ "+" ( 
+		if "%C_People%" equ "+" (
 			set "C_People=-"
-		) else ( 
+		) else (
 			set "C_People=+"
 			set "C_PeopleExperienceHost=+"
 		)
@@ -17839,14 +17839,14 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	if "!MenuChoice!" equ "23" ( if "%C_Photos%" equ "+" ( set "C_Photos=-" ) else ( set "C_Photos=+" ) )
 	if "!MenuChoice!" equ "24" ( if "%C_PowerAutomateDesktop%" equ "+" ( set "C_PowerAutomateDesktop=-" ) else ( set "C_PowerAutomateDesktop=+" ) )
 	if "!MenuChoice!" equ "25" if "%ImageBuild%" geq "22621" (
-		if "%C_QuickAssist%" equ "+" ( 
+		if "%C_QuickAssist%" equ "+" (
 			set "C_QuickAssist=-"
 		) else (
 			set "C_QuickAssist=+"
 		)
 	)
 	if "!MenuChoice!" equ "26" if "%ImageBuild%" geq "22621" (
-		if "%C_RawImageExtension%" equ "+" ( 
+		if "%C_RawImageExtension%" equ "+" (
 			set "C_RawImageExtension=-"
 		) else (
 			set "C_RawImageExtension=+"
@@ -17854,7 +17854,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 	)
 	if "!MenuChoice!" equ "27" ( if "%C_ScreenSketch%" equ "+" ( set "C_ScreenSketch=-" ) else ( set "C_ScreenSketch=+" ) )
 	if "!MenuChoice!" equ "28" (
-		if "%C_SolitaireCollection%" equ "+" ( 
+		if "%C_SolitaireCollection%" equ "+" (
 			set "C_SolitaireCollection=-"
 		) else (
 			set "C_SolitaireCollection=+"
@@ -17862,7 +17862,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "29" (
-		if "%C_StickyNotes%" equ "+" ( 
+		if "%C_StickyNotes%" equ "+" (
 			set "C_StickyNotes=-"
 		) else (
 			set "C_StickyNotes=+"
@@ -17903,18 +17903,18 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "40" (
-		if "%C_WindowsStoreApp%" equ "+" ( 
+		if "%C_WindowsStoreApp%" equ "+" (
 			if "%ImageBuild%" neq "17763" set "C_StickyNotes=-"
 			set "C_StorePurchaseApp=-"
 			set "C_WindowsStoreApp=-"
-		) else ( 
+		) else (
 			set "C_WindowsStoreApp=+"
 			set "C_WindowsStoreClient=+"
 			set "C_XboxIdentityProvider=+"
 		)
 	)
 	if "!MenuChoice!" equ "41" (
-		if "%C_XboxGameOverlay%" equ "+" ( 
+		if "%C_XboxGameOverlay%" equ "+" (
 			set "C_XboxGameOverlay=-"
 		) else (
 			set "C_XboxClient=+"
@@ -17922,7 +17922,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "42" (
-		if "%C_XboxGamingOverlay%" equ "+" ( 
+		if "%C_XboxGamingOverlay%" equ "+" (
 			set "C_XboxGamingOverlay=-"
 		) else (
 			set "C_XboxClient=+"
@@ -17930,7 +17930,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "43" (
-		if "%C_XboxIdentityProvider%" equ "+" ( 
+		if "%C_XboxIdentityProvider%" equ "+" (
 			set "C_XboxIdentityProvider=-"
 		) else (
 			set "C_XboxClient=+"
@@ -17938,7 +17938,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "44" (
-		if "%C_XboxSpeechToTextOverlay%" equ "+" ( 
+		if "%C_XboxSpeechToTextOverlay%" equ "+" (
 			set "C_XboxSpeechToTextOverlay=-"
 		) else (
 			set "C_XboxClient=+"
@@ -17946,7 +17946,7 @@ if "%SelectedSourceOS%" equ "w11" if "%ImageBuild%" geq "22000" if "%ImageBuild%
 		)
 	)
 	if "!MenuChoice!" equ "45" (
-		if "%C_XboxTCUI%" equ "+" ( 
+		if "%C_XboxTCUI%" equ "+" (
 			set "C_XboxTCUI=-"
 		) else (
 			set "C_XboxClient=+"
@@ -18212,7 +18212,7 @@ set RemoveAppsList=
 endlocal
 
 :: Returning to Remove Menu.
-goto :RemoveMenu
+goto :MenuRemove
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -18250,7 +18250,7 @@ if "%IsDialogsEnabled%" equ "Yes" (
 	echo.===============================================================================
 	echo.
 	choice /C:YN /N /M "Do you want to Continue ? ['Y'es/'N'o] : "
-	if errorlevel 2 goto :RemoveMenu
+	if errorlevel 2 goto :MenuRemove
 )
 
 setlocal
@@ -18287,7 +18287,7 @@ if "%SelectedSourceOS%" neq "w7" if "%SelectedSourceOS%" neq "w81" if "%ImageBui
 	echo.===============================================================================
 	echo.
 	choice /C:12X /N /M "Enter Your Choice : "
-	if errorlevel 3 goto :RemoveMenu
+	if errorlevel 3 goto :MenuRemove
 	if errorlevel 2 set "RemovalMethod=ToolKitHelper"
 	if errorlevel 1 set "RemovalMethod=DISM"
 )
@@ -18350,7 +18350,7 @@ set RemovalMethod=
 endlocal
 
 :: Returning to Remove Menu.
-goto :RemoveMenu
+goto :MenuRemove
 ::-------------------------------------------------------------------------------------------
 
 ::-------------------------------------------------------------------------------------------
@@ -20304,11 +20304,11 @@ echo.####Getting DVD ISO Image Details##########################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting ISO Label Name
-set /p ISOLabel=Enter the ISO Volume Label : 
+set /p ISOLabel=Enter the ISO Volume Label :
 echo.
 
 :: Getting ISO File Name
-set /p ISOFileName=Enter the ISO File Name : 
+set /p ISOFileName=Enter the ISO File Name :
 echo.
 
 :: Building a DVD ISO Image for Booting with BIOS/UEFI Systems.
@@ -20379,10 +20379,10 @@ echo.####Getting DVD Drive ^& DVD ISO Image Details#############################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting ISO File Name
-set /p ISOFileName=Enter the ISO File Name : 
+set /p ISOFileName=Enter the ISO File Name :
 echo.
 :: Getting DVD Drive Letter
-set /p DvdDrive=Enter the DVD Drive Letter : 
+set /p DvdDrive=Enter the DVD Drive Letter :
 echo.
 echo.-------------------------------------------------------------------------------
 echo.####Burning a DVD ISO Image to DVD Disc########################################
@@ -20462,7 +20462,7 @@ echo.Listing Available USB Flash Drives...
 call :ListDisks
 
 :: Getting USB Flash Drive Letter
-set /p USBDriveLetter=Enter USB Flash Drive Letter : 
+set /p USBDriveLetter=Enter USB Flash Drive Letter :
 
 :: Setting USB Flash Drive Letter
 set "USBDriveLetter=%USBDriveLetter%:"
@@ -20549,7 +20549,7 @@ echo.Listing Available USB Flash Drives...
 call :ListDisks
 
 :: Getting USB Flash Drive Letter
-set /p USBDriveLetter=Enter USB Flash Drive Letter : 
+set /p USBDriveLetter=Enter USB Flash Drive Letter :
 
 :: Setting USB Flash Drive Letter
 set "USBDriveLetter=%USBDriveLetter%:"
@@ -20627,7 +20627,7 @@ echo.####Getting ISO Image Options##############################################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Getting ISO File Name
-set /p ISOFileName=Enter the ISO File Name : 
+set /p ISOFileName=Enter the ISO File Name :
 
 :: Setting ISO File Name
 set "ISOFileName=%ISOFileName%.iso"
@@ -20641,7 +20641,7 @@ echo.Listing Available USB Flash Drives...
 call :ListDisks
 
 :: Getting USB Flash Drive Letter
-set /p USBDriveLetter=Enter USB Flash Drive Letter : 
+set /p USBDriveLetter=Enter USB Flash Drive Letter :
 
 :: Setting USB Flash Drive Letter
 set "USBDriveLetter=%USBDriveLetter%:"
@@ -20707,7 +20707,7 @@ echo.Listing Available USB Flash Drives...
 call :ListDisks
 
 :: Getting USB Flash Drive Letter
-set /p USBDriveLetter=Enter USB Flash Drive Letter : 
+set /p USBDriveLetter=Enter USB Flash Drive Letter :
 echo.
 
 :: Setting USB Flash Drive Letter
@@ -20721,7 +20721,7 @@ if errorlevel 1 (
 )
 
 :: Getting USB Flash Drive Volume Label.
-set /p USBDriveLabel=Enter USB Flash Drive Volume Label : 
+set /p USBDriveLabel=Enter USB Flash Drive Volume Label :
 echo.
 
 :: Getting USB Boot Type (UEFI/BIOS/ALL).
@@ -20975,7 +20975,7 @@ echo.---------------------------------------------------------------------------
 call :ShowImageInfo
 
 :: Getting Image Index No to Rename
-set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] : 
+set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -20989,9 +20989,9 @@ if not defined ImageIndexNo (
 if /i "%ImageIndexNo%" equ "Q" goto :WIMManager
 
 echo.
-set /p NewImageName=Enter WIM Index Name : 
+set /p NewImageName=Enter WIM Index Name :
 echo.
-set /p NewImageDescription=Enter WIM Index Description : 
+set /p NewImageDescription=Enter WIM Index Description :
 
 echo.
 echo.-------------------------------------------------------------------------------
@@ -21054,7 +21054,7 @@ echo.---------------------------------------------------------------------------
 call :ShowImageInfo
 
 :: Get Image Index No to Export
-set /p ImageIndexNo=Enter the WIM Image Index's # ['Q'uit] : 
+set /p ImageIndexNo=Enter the WIM Image Index's # ['Q'uit] :
 echo.
 
 :: Checking for Image Index Validation
@@ -21117,8 +21117,8 @@ call :ShowImageInfo
 
 :: Get Image Index No to Export
 if "%ImageCount%" equ "1" (
-	set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] : 
-) else set /p ImageIndexNo=Enter the WIM Image Index's # [Range : 1,...%ImageCount%, 'A'll, 'Q'uit] : 
+	set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] :
+) else set /p ImageIndexNo=Enter the WIM Image Index's # [Range : 1,...%ImageCount%, 'A'll, 'Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -21148,7 +21148,7 @@ if errorlevel 1 set "Export2NewImage=Yes"
 
 if "%Export2NewImage%" equ "Yes" (
 	echo.
-	set /p WimImageFileName=Enter WIM Image Filename without [.wim] : 
+	set /p WimImageFileName=Enter WIM Image Filename without [.wim] :
 	set "WimImageFileName=!WimImageFileName!.wim"
 )
 
@@ -21159,7 +21159,7 @@ echo.---------------------------------------------------------------------------
 echo.
 for %%i in (%ImageIndexNo%) do (
 	echo.-------------------------------------------------------------------------------
-	if "!Export2NewImage!" equ "Yes" echo.Exporting Source WIM Image [Install.wim, Index : %%i] to [%WimImageFileName%]... 
+	if "!Export2NewImage!" equ "Yes" echo.Exporting Source WIM Image [Install.wim, Index : %%i] to [%WimImageFileName%]...
 	if "!Export2NewImage!" equ "No" echo.Exporting Source WIM Image [Install.wim, Index : %%i] to [Install.wim]...
 	echo.-------------------------------------------------------------------------------
 	if "!Export2NewImage!" equ "Yes" (
@@ -21297,7 +21297,7 @@ echo.---------------------------------------------------------------------------
 echo.####Starting Spliting Source WIM Image#########################################
 echo.-------------------------------------------------------------------------------
 echo.
-set /p WimImageSplitFileSize=Enter WIM Image Split File Size in MB : 
+set /p WimImageSplitFileSize=Enter WIM Image Split File Size in MB :
 echo.
 echo.-------------------------------------------------------------------------------
 echo.Spliting Source WIM Image [Install.wim]...
@@ -21400,7 +21400,7 @@ if not exist "%InstallWim%" (
 call :ShowImageInfo
 
 :: Get Image Index No to Upgrade
-set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] : 
+set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -21854,7 +21854,7 @@ echo.
 for /f "tokens=2 delims=:" %%a in ('%DISM% /Image:"%InstallMount%" /Get-TargetEditions ^| find "Target Edition"') do (echo. %%a)
 echo.
 :: Get Target Edition
-set /p TargetEdition=Enter Target Edition : 
+set /p TargetEdition=Enter Target Edition :
 echo.
 
 :: Checking whether the Selected Source OS is a Windows 8.1 Pro Retail Edition
@@ -22538,19 +22538,19 @@ echo.####Starting Capturing Drive or Folder to WIM Image########################
 echo.-------------------------------------------------------------------------------
 echo.
 :: Get Source Drive or folder path to be Captuerd to WIM Image
-set /p SourceDriveFolder=Enter a Valid Source Drive or folder path : 
+set /p SourceDriveFolder=Enter a Valid Source Drive or folder path :
 echo.
 :: Get Target WIM Image File Name
-set /p TargetWimImageFileName=Enter Target WIM Image Filename : 
+set /p TargetWimImageFileName=Enter Target WIM Image Filename :
 echo.
 :: Get Target WIM Image Name
-set /p TargetWimImageName=Enter Target WIM Image Name : 
+set /p TargetWimImageName=Enter Target WIM Image Name :
 echo.
 :: Get Target WIM Image Description
-set /p TargetWimImageDescription=Enter Target WIM Image Description : 
+set /p TargetWimImageDescription=Enter Target WIM Image Description :
 echo.
 :: Get Target WIM Image Editon Flag
-set /p TargetWimImageEditionFlag=Enter Target WIM Image Edition : 
+set /p TargetWimImageEditionFlag=Enter Target WIM Image Edition :
 echo.
 :: Get Bootable Flag Status
 choice /C:YN /N /M "Make Target WIM Image Bootable ? ['Y'es/'N'o] : "
@@ -22626,7 +22626,7 @@ echo.---------------------------------------------------------------------------
 call :ShowImageInfo
 
 :: Get Image Index No to Export
-set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] : 
+set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -22641,7 +22641,7 @@ if /i "%ImageIndexNo%" equ "Q" goto :WIMManager
 
 :: Get Target Drive or folder path to Apply the WIM Image Index
 echo.
-set /p TargetDriveFolder=Enter Target Drive or folder path : 
+set /p TargetDriveFolder=Enter Target Drive or folder path :
 echo.
 echo.-------------------------------------------------------------------------------
 echo.####Applying a WIM Image Index to a Drive or Folder############################
@@ -22728,7 +22728,7 @@ echo.---------------------------------------------------------------------------
 call :ShowImageInfo
 
 :: Get Image Index No to Clean
-set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] : 
+set /p ImageIndexNo=Enter the WIM Image Index # ['Q'uit] :
 
 :: Checking for Image Index Validation
 if not defined ImageIndexNo (
@@ -22926,7 +22926,7 @@ if errorlevel 4 (
 			pause
 			goto :MainMenu
 		)
-		
+
 		:: Checking whether Multi-Index servicing mode is selected
 		if "%ImageIndexNo:~0,1%" equ "," (
 			echo.This feature is not available when Multi-Index servicing mode is enabled...
@@ -23123,8 +23123,8 @@ goto :eof
 call :ShowImageInfo
 
 if "%ImageCount%" equ "1" (
-	set /p ImageIndexNo=Enter the Image Index # ['Q'uit] : 
-) else set /p ImageIndexNo=Enter the Image Index # [Range : 1,...%ImageCount% or 'A'll 'Q'uit] : 
+	set /p ImageIndexNo=Enter the Image Index # ['Q'uit] :
+) else set /p ImageIndexNo=Enter the Image Index # [Range : 1,...%ImageCount% or 'A'll 'Q'uit] :
 
 goto :eof
 ::-------------------------------------------------------------------------------------------

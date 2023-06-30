@@ -77,7 +77,7 @@ if errorlevel 8 goto :CleanupSource
 if errorlevel 7 goto :DeleteISOs
 if errorlevel 6 goto :DeleteNTLite
 if errorlevel 5 goto :CustomizeMenuHelp
-if errorlevel 4 goto :RemoveMenuHelp
+if errorlevel 4 goto :MenuRemoveHelp
 if errorlevel 3 goto :SelectISO
 if errorlevel 2 goto :Lostos
 if errorlevel 1 goto :aboutHelp
@@ -282,10 +282,10 @@ echo  the ISO selected is %MyISOfile%
 
 
 
-:RemoveMenuHelp
+:MenuRemoveHelp
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder - RemoveMenuHelp
+echo.                           LastOS ToolKit Builder - MenuRemoveHelp
 echo.                           v%BuilderVersion%
 echo.===============================================================================
  echo.

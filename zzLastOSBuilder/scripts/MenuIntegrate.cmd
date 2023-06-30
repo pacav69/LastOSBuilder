@@ -1,6 +1,5 @@
-@REM IntegrateMenu.cmd
+@REM MenuIntegrate.cmd
 
-@REM ToolsMenu.cmd
 @echo off
 rem Win11 script
 set scriptver=0.0.15
@@ -36,9 +35,9 @@ set "builder=%CP%\03_WinBuilder\Win10XPE.exe""
 
 
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - IntegrateMenu
+:: LastOS Toolkit - MenuIntegrate.cmd
 ::-------------------------------------------------------------------------------------------
-:HelpMenu
+:MenuHelp
 
 cls
 echo.===============================================================================
@@ -71,13 +70,13 @@ echo.===========================================================================
 echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :HelpMenuHelp
+if errorlevel 9 goto :MenuHelpHelp
 if errorlevel 8 goto :ToolsMenuHelp
-if errorlevel 7 goto :TargetMenuHelp
+if errorlevel 7 goto :MenuTargetHelp
 if errorlevel 6 goto :ApplyMenuHelp
 if errorlevel 5 goto :CustomizeMenuHelp
-if errorlevel 4 goto :RemoveMenuHelp
-if errorlevel 3 goto :IntegrateMenuHelp
+if errorlevel 4 goto :MenuRemoveHelp
+if errorlevel 3 goto :MenuIntegrate.cmdHelp
 if errorlevel 2 goto :peBuilder
 if errorlevel 1 goto :aboutHelp
 ::-------------------------------------------------------------------------------------------
@@ -93,18 +92,18 @@ start /wait "" "%builder%
 goto :eof
 
 
-:IntegrateMenuHelp
+:MenuIntegrate.cmdHelp
  echo.===============================================================================
-echo.          LastOS ToolKit -  IntegrateMenuHelp
+echo.          LastOS ToolKit -  MenuIntegrate.cmdHelp
 echo.===============================================================================
 echo.
 @REM enter code here
 
 goto :eof
 
-:RemoveMenuHelp
+:MenuRemoveHelp
  echo.===============================================================================
-echo.          LastOS ToolKit -  RemoveMenuHelp
+echo.          LastOS ToolKit -  MenuRemoveHelp
 echo.===============================================================================
 echo.
 @REM enter code here
@@ -129,9 +128,9 @@ echo.
 
 goto :eof
 
- :TargetMenuHelp
+ :MenuTargetHelp
  echo.===============================================================================
-echo.          LastOS ToolKit -  TargetMenuHelp
+echo.          LastOS ToolKit -  MenuTargetHelp
 echo.===============================================================================
 echo.
 @REM enter code here
@@ -147,9 +146,9 @@ echo.
 
 goto :eof
 
-:HelpMenuHelp
+:MenuHelpHelp
 echo.===============================================================================
-echo.          LastOS ToolKit -  HelpMenuHelp
+echo.          LastOS ToolKit -  MenuHelpHelp
 echo.===============================================================================
 echo.
 @REM enter code here

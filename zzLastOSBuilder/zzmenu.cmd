@@ -191,14 +191,14 @@ echo.===========================================================================
 echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :HelpMenu
+if errorlevel 9 goto :MenuHelp
 if errorlevel 8 goto :ToolsMenu
-if errorlevel 7 goto :TargetMenu
+if errorlevel 7 goto :MenuTarget
 if errorlevel 6 goto :ApplyMenu
 if errorlevel 5 goto :CustomizeMenu
-if errorlevel 4 goto :RemoveMenu
-if errorlevel 3 goto :IntegrateMenu
-if errorlevel 2 goto :SourceMenu
+if errorlevel 4 goto :MenuRemove
+if errorlevel 3 goto :MenuIntegrate.cmd
+if errorlevel 2 goto :MenuSource
 if errorlevel 1 goto :about
 ::-------------------------------------------------------------------------------------------
 
@@ -212,29 +212,29 @@ call %CPS%\00.0___About_.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
-:SourceMenu
+:MenuSource
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\SourceMenu.cmd
+call %CPS%\MenuSource.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
-:IntegrateMenu
+:MenuIntegrate.cmd
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\IntegrateMenu.cmd
+call %CPS%\MenuIntegrate.cmd.cmd
 rem timeout 2 > NUL
 
 GOTO MENU_START
 @REM =================================
 REM =================================
-:RemoveMenu
+:MenuRemove
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\RemoveMenu.cmd
+call %CPS%\MenuRemove.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
@@ -245,7 +245,7 @@ GOTO MENU_START
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\CustomizeMenu.cmd
+call %CPS%\MenuCustomize.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
@@ -256,19 +256,18 @@ GOTO MENU_START
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\ApplyMenu.cmd
-rem timeout 2 > NUL
+call %CPS%\MenuApply.cmdrem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
 
 
 
 @REM =================================
-:TargetMenu
+:MenuTarget
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\TargetMenu.cmd
+call %CPS%\MenuTarget.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
@@ -284,11 +283,11 @@ GOTO MENU_START
 @REM =================================
 
 @REM =================================
-:HelpMenu
+:MenuHelp
 cls
 @REM echo errorlevel = %errorlevel%
 @REM pause
-call %CPS%\HelpMenu.cmd
+call %CPS%\MenuHelp.cmd
 rem timeout 2 > NUL
 GOTO MENU_START
 @REM =================================
