@@ -39,3 +39,6 @@ Crucial SSD Storage Executive
 Western Digital SSD Dashboard
 Seagate SeaTools bootable SSD utility
 
+Wizard to download and configure a standard ISO
+
+
