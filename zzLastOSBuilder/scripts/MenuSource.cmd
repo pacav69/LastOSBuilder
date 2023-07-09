@@ -104,16 +104,19 @@ echo.  [8]   Download Windows ISO from Microsoft
 echo.
 echo.  [9]   Select ISO from ISO directory
 echo.
-echo.  [A]   Download Windows ISO using FIDO
+echo.  [A]   Select ISO from MCT directory and copy to ISO
+echo.
+echo.  [B]   Download Windows ISO using FIDO
 echo.
 echo.
 echo.  [X]   Go Back
 echo.
 echo.===============================================================================
 echo.
-choice /C:123456789AX /N /M "Enter Your Choice: "
+choice /C:123456789ABX /N /M "Enter Your Choice: "
 if errorlevel 11 goto :Quit
-if errorlevel 10 goto :fido
+if errorlevel 11 goto :fido
+if errorlevel 10 goto :selectiso10
 if errorlevel 9 goto :SelectISO
 if errorlevel 8 goto :DownloadMS
 if errorlevel 7 goto :Downloadwin11
@@ -1412,12 +1415,19 @@ echo The ISO = %ISO%
 @REM stores file selected pathname and filename.
 @REM openfileselectdialog.ps1 [InitialDirectory ]
 
+@REM  if this folder 'Desktop' is missing powershell script will
+@REM display error so create before running script
+@REM C:\Windows\System32\config\systemprofile\Desktop
+
+call :CreateFolder "C:\Windows\System32\config\systemprofile\Desktop"
+
 @REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
 @REM set powershell restrictions for CurrentUser so file is able to run
 START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 @REM start the powershell file with [InitialDirectory]
 START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 
+@REM #############################
 @REM  tmp is created in openfileselectdialog.ps1
 @REM  set /p myfile=</temo/tmp.txt
  set /p myfile=<tmp.txt
@@ -1425,6 +1435,55 @@ START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
 @REM   set /p MyISOfile=</temo/tmp.txt
  set /p MyISOfile=<tmp.txt
 echo  the ISO selected is %MyISOfile%
+
+ pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+:selectiso10
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - selectiso10
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+echo.
+echo  CPS =  %CPS%
+echo The ISO = %ISO%
+@REM pause
+@REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
+@REM  return with variable tmp contained in powweshell script that
+@REM stores file selected pathname and filename.
+@REM openfileselectdialog.ps1 [InitialDirectory ]
+
+@REM  if this folder 'Desktop' is missing powershell script will
+@REM display error so create before running script
+@REM C:\Windows\System32\config\systemprofile\Desktop
+
+call :CreateFolder "C:\Windows\System32\config\systemprofile\Desktop"
+
+@REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
+@REM set powershell restrictions for CurrentUser so file is able to run
+START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+@REM start the powershell file with [InitialDirectory]
+START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %MCTool%
+
+@REM #############################
+@REM  tmp is created in openfileselectdialog.ps1
+@REM  set /p myfile=</temo/tmp.txt
+ set /p myfile=<tmp.txt
+ echo *****************************
+@REM   set /p MyISOfile=</temo/tmp.txt
+ set /p MyISOfile=<tmp.txt
+echo  the ISO selected is %MyISOfile%
+
+
+echo.-------------------------------------------------------------------------------
+echo.####Copying Windows %MyISOfile% to ISO ###############
+echo.-------------------------------------------------------------------------------
+xcopy /E /C /H /R /Y "%MyISOfile%" "%ISO%"
+@REM echo copying %MyISOfile% to ISO
 
  pause
   @REM goto :Quit
