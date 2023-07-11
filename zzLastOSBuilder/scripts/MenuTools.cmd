@@ -50,7 +50,7 @@ echo.                             [A]   About
 echo.
 echo.                             [1]   Download Apz from LastOS
 echo.
-echo.                             [2] Wizard
+echo.                             [2] Use Wizards
 echo.
 echo.                             [3]   Remove
 echo.
@@ -247,44 +247,9 @@ pause
 ::-------------------------------------------------------------------------------------------
 
 :Wizard1
-cls
-echo.===============================================================================
-echo.                           LastOS ToolKit Builder - Wizard1
-echo.                           v%BuilderVersion%
-echo.===============================================================================
- echo.
- echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
-@REM  download win10 for use in winpe
-@REM extract win10 iso
-@REM open winbuilder
-@REM create bootable ISO called win10pe
-@REM  download win11 for use in combining with win10 winpe
-@REM extract win11 iso
-@REM integrate  win10pe with extracted win11
-@REM apply integration
-@REM create win11iso
-@REM test win11iso
-echo.
 
-@REM echo  CPS =  %CPS%
-@REM echo The ISO = %ISO%
-@REM @REM pause
-@REM @REM open the powershellscript 'openfileselectdialog.ps1' with Initial Directory
-@REM @REM  return with variable tmp contained in powweshell script that
-@REM @REM stores file selected pathname and filename.
-@REM @REM openfileselectdialog.ps1 [InitialDirectory ]
+call %CPS%\menuWizard1.cmd
 
-@REM @REM  ref: https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
-@REM @REM set powershell restrictions for CurrentUser so file is able to run
-@REM START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-@REM @REM start the powershell file with [InitialDirectory]
-@REM START /wait powershell.exe -file %CPS%\openfileselectdialog.ps1 %ISO%
-
-@REM @REM  tmp is created in openfileselectdialog.ps1
-@REM  set /p myfile=<tmp
-@REM  echo *****************************
-@REM  set /p MyISOfile=<tmp
-@REM echo  the ISO selected is %MyISOfile%
 
  pause
   @REM goto :Quit
