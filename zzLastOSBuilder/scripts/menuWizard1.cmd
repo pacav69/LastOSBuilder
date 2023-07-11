@@ -36,13 +36,13 @@ pause
 @REM D:\gitrepoprojects\LastOSBuilder\zzLastOSBuilder\Bin\LostOSrepo
 @REM LostOSrepo_v4.exe
 ::-------------------------------------------------------------------------------------------
-:: LastOS Toolkit - MenuTools
+:: LastOS Toolkit - menuWizard
 ::-------------------------------------------------------------------------------------------
-:MenuTools
+:MenuWizard
 
 cls
 echo.===============================================================================
-echo.                           LastOS ToolKit Builder -Wizard1 Menu
+echo.                           LastOS ToolKit Builder -Wizard Menu
 echo.                           v%BuilderVersion%                             .
 echo.===============================================================================
 echo.
@@ -52,15 +52,15 @@ echo.                             [1]   Wizard1
 echo.
 echo.                             [2]   Wizard2
 echo.
-echo.                             [3]   Wizard1
+echo.                             [3]   Wizard3
 echo.
-echo.                             [4]   Wizard1
+echo.                             [4]   Wizard4
 echo.
-echo.                             [5]  Wizard1
+echo.                             [5]  Wizard5
 echo.
-echo.                             [6]   Wizard1
+echo.                             [6]   Wizard6
 echo.
-echo.                             [7]   Wizard1
+echo.                             [7]   Wizard7
 echo.
 echo.                             [H]   Help
 echo.
@@ -71,16 +71,17 @@ echo.===========================================================================
 echo.
 choice /C:A1234567HX /N /M "Enter Your Choice: "
 if errorlevel 10 goto :Quit
-if errorlevel 9 goto :MenuToolsHelp
-if errorlevel 8 goto :CleanupSource
-if errorlevel 7 goto :DeleteISOs
-if errorlevel 6 goto :DeleteNTLite
-if errorlevel 5 goto :CustomizeMenuHelp
-if errorlevel 4 goto :MenuRemoveHelp
+if errorlevel 9 goto :MenuWizardHelp
+if errorlevel 8 goto :Wizard7
+if errorlevel 7 goto :Wizard6
+if errorlevel 6 goto ::Wizard5
+if errorlevel 5 goto ::Wizard4
+if errorlevel 4 goto ::Wizard3
 if errorlevel 3 goto :Wizard2
 if errorlevel 2 goto :Wizard1
-if errorlevel 1 goto :aboutHelp
+if errorlevel 1 goto :about
 ::-------------------------------------------------------------------------------------------
+:about
 
 
 :Wizard1
@@ -102,5 +103,154 @@ echo.===========================================================================
 @REM create win11iso
 @REM test win11iso
 echo.
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
 
 :Wizard2
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard2
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+:Wizard3
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard3
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+
+:Wizard4
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard4
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:Wizard5
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard5
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:Wizard6
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard6
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:Wizard7
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - Wizard7
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+:MenuWizardHelp
+
+cls
+echo.===============================================================================
+echo.                           LastOS ToolKit Builder - MenuWizardHelp
+echo.                           v%BuilderVersion%
+echo.===============================================================================
+ echo.
+ echo After selecting ISO, wizard will guide you through creating an ISO ready for deployment.
+
+:: Returning to Quit
+goto :Quit
+::-------------------------------------------------------------------------------------------
+
+pause
+  @REM goto :Quit
+  goto :eof
+::-------------------------------------------------------------------------------------------
+
+
+
+
+@REM =================================
+:Quit
+echo Bye
+timeout 2 > NUL
+@REM exit /b
+@REM =================================
