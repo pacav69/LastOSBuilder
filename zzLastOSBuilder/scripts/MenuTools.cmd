@@ -1,5 +1,7 @@
 @REM MenuTools.cmd
-
+@REM ###############################################################################
+@REM ### MenuTools
+@REM ###############################################################################
 @echo off
 rem Win11 script
 set scriptver=0.0.26
@@ -52,9 +54,9 @@ echo.                             [1]   Download Apz from LastOS
 echo.
 echo.                             [2] Use Wizards
 echo.
-echo.                             [3]   Remove
+echo.                             [3]
 echo.
-echo.                             [4]   Customize
+echo.                             [4]
 echo.
 echo.                             [5]  Delete Source NTLite
 echo.
