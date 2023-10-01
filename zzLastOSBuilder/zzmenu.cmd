@@ -9,7 +9,28 @@
 :MENU_START
 @echo off
 cls
-rem Win11 script
+set ANSI colors
+@REM ref: https://ss64.com/nt/syntax-ansi.html
+Set _bBlack=[40m
+Set _fGreen=[32m
+Set _fBGreen=[92m
+Set _fRed=[31m
+Set _fYellow=[33m
+Set _bBlue=[44m
+Set _RESET=[0m
+Set _fBWhite=[97m
+Set _bBWhite=[107m
+
+@REM Echo %_fRed%%_bBlack% error
+@REM Echo %_RESET%
+@REM Echo %_fBGreen%%_bBlack%
+@REM echo working
+@REM Echo %_fYellow%%_bBlue%
+@REM echo finished
+@REM @REM Echo %_RESET%
+Echo %_fBGreen%%_bBlack%
+
+@REM Win11 script
 set scriptver=0.0.21
 title %~nx0  v%scriptver%
 @REM ######### DEBUG ###################
@@ -108,7 +129,7 @@ rem User Set Variables:
 rem color 02 green char on black background
 @REM color 02
 rem color 1F white char on light blue background
-color 1F
+@REM color 1F
 
 ::-------------------------------------------------------------------------------------------
 :: LastOS Toolkit - Startup function

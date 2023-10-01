@@ -114,7 +114,7 @@ echo.
 echo.===============================================================================
 echo.
 choice /C:123456789ABX /N /M "Enter Your Choice: "
-if errorlevel 11 goto :Quit
+if errorlevel 12 goto :Quit
 if errorlevel 11 goto :fido
 if errorlevel 10 goto :selectiso10
 if errorlevel 9 goto :SelectISO
@@ -1505,9 +1505,12 @@ echo.
 @REM set powershell restrictions for CurrentUser so file is able to run
 START /wait powershell.exe Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 @REM start the powershell file with [InitialDirectory]
-START /wait powershell.exe -command %CPS%\fido.ps1
+@REM run the fido latest command
+call %CPS%\Run_FIDO.cmd >nul
+@REM run the fido command
+@REM START /wait powershell.exe -command %CPS%\fido.ps1
 
-
+pause
 echo.-------------------------------------------------------------------------------
 echo.####Finished Downloading Windows from Microsoft###############
 echo.-------------------------------------------------------------------------------
